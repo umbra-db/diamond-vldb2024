@@ -1,0 +1,766 @@
+\set queryname dblp_acyclic_209_00
+-- Result size: 20922460
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp1:s -> dblp23:s;dblp23:s -> dblp24:s;dblp24:s -> dblp5:s;dblp5:d -> dblp9:s;dblp9:d -> dblp18:s;dblp18:d -> dblp21:s;}
+--                     +--------+-------+----+
+--                     | dblp1  |   s   |  d |
+--                     +--------+-------+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+-------+----+
+--                     | dblp23 |   s   |  d |
+--                     +--------+-------+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+-------+----+
+--                     | dblp24 |   s   |  d |
+--                     +--------+-------+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+-------+----+
+--                     | dblp5  |   s   |  d |
+--                     +--------+-------+----+
+--                                         |
+--                                         |
+--                                         |
+-- +--------+---------+---------+-------+----+----+
+-- | dblp18 |    s    |    d    | dblp9 |  s |  d |
+-- +--------+---------+---------+-------+----+----+
+--             |         |                      |
+--   +---------+         |                      |
+--   |                   |                      |
+--   |       +--------+---------+-------+       |
+--   |       | dblp21 |    s    |   d   |       |
+--   |       +--------+---------+-------+       |
+--   |                                          |
+--   +------------------------------------------+
+select count(*) from dblp1, dblp23, dblp24, dblp5, dblp9, dblp18, dblp21 where dblp1.s = dblp23.s and dblp23.s = dblp24.s and dblp24.s = dblp5.s and dblp5.d = dblp9.s and dblp9.d = dblp18.s and dblp18.d = dblp21.s;
+\set queryname dblp_acyclic_209_01
+-- Result size: 3097266
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp14 [label="dblp14|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp23:s -> dblp8:s;dblp8:s -> dblp24:s;dblp24:s -> dblp9:s;dblp9:d -> dblp2:s;dblp2:d -> dblp14:s;dblp14:d -> dblp22:s;}
+--      +--------+---------+----+
+--      | dblp2  |    s    |  d |
+--      +--------+---------+----+
+--                  |         |
+--   +--------------+         |
+--   |                        |
+--   |            +--------+----+----+--------+----+---+
+--   |            | dblp14 |  s |  d | dblp22 |  s | d |
+--   |            +--------+----+----+--------+----+---+
+--   |                             |             |
+--   |                             +-------------+
+--   |
+--   |  +--------+---------+----+
+--   |  | dblp23 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp8  |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp24 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp9  |    s    |  d |
+--   |  +--------+---------+----+
+--   |                        |
+--   +------------------------+
+select count(*) from dblp23, dblp8, dblp24, dblp9, dblp2, dblp14, dblp22 where dblp23.s = dblp8.s and dblp8.s = dblp24.s and dblp24.s = dblp9.s and dblp9.d = dblp2.s and dblp2.d = dblp14.s and dblp14.d = dblp22.s;
+\set queryname dblp_acyclic_209_02
+-- Result size: 8603490
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp6:s -> dblp2:s;dblp2:s -> dblp20:s;dblp20:s -> dblp25:s;dblp25:d -> dblp26:s;dblp26:d -> dblp18:s;dblp18:d -> dblp5:s;}
+--                       +--------------------------+
+--                       |                          |
+--           +--------+----+----+-------+----+---+  |
+--           | dblp18 |  s |  d | dblp5 |  s | d |  |
+--           +--------+----+----+-------+----+---+  |
+--                            |            |        |
+--                            +------------+        |
+--                                                  |
+-- +--------+---------+----+                        |
+-- | dblp6  |    s    |  d |  +---------------------+
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp2  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp20 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp25 |    s    |  d |  |
+-- +--------+---------+----+  |
+--                       |    |
+--                       |    |
+--                       |    |
+--           +--------+----+----+
+--           | dblp26 |  s |  d |
+--           +--------+----+----+
+select count(*) from dblp6, dblp2, dblp20, dblp25, dblp26, dblp18, dblp5 where dblp6.s = dblp2.s and dblp2.s = dblp20.s and dblp20.s = dblp25.s and dblp25.d = dblp26.s and dblp26.d = dblp18.s and dblp18.d = dblp5.s;
+\set queryname dblp_acyclic_209_03
+-- Result size: 1046554
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp22:s -> dblp18:s;dblp18:s -> dblp6:s;dblp6:s -> dblp1:s;dblp1:d -> dblp26:s;dblp26:d -> dblp8:s;dblp8:d -> dblp21:s;}
+--                           +-------------+
+--                           |             |
+--           +-------+----+----+--------+--------+---------+
+--           | dblp1 |  s |  d | dblp26 |    s   |    d    |
+--           +-------+----+----+--------+--------+---------+
+--                      |                           |
+--                      +----+                      |
+--                           |                      |
+-- +--------+--------+----+  |           +-------+---------+----+
+-- | dblp22 |    s   |  d |  |           | dblp8 |    s    |  d |
+-- +--------+--------+----+  |           +-------+---------+----+
+--             |             |                                |
+--             |             |                                |
+--             |             |                                |
+-- +--------+--------+----+  |                    +--------+----+---+
+-- | dblp18 |    s   |  d |  |                    | dblp21 |  s | d |
+-- +--------+--------+----+  |                    +--------+----+---+
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp6  |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             +-------------+
+select count(*) from dblp22, dblp18, dblp6, dblp1, dblp26, dblp8, dblp21 where dblp22.s = dblp18.s and dblp18.s = dblp6.s and dblp6.s = dblp1.s and dblp1.d = dblp26.s and dblp26.d = dblp8.s and dblp8.d = dblp21.s;
+\set queryname dblp_acyclic_209_04
+-- Result size: 11667686
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp2:s -> dblp1:s;dblp1:s -> dblp24:s;dblp24:s -> dblp25:s;dblp25:d -> dblp26:s;dblp26:d -> dblp8:s;dblp8:d -> dblp17:s;}
+-- +--------+----+----+--------+----+----+-------+----+----+--------+----+---+
+-- | dblp25 |  s |  d | dblp26 |  s |  d | dblp8 |  s |  d | dblp17 |  s | d |
+-- +--------+----+----+--------+----+----+-------+----+----+--------+----+---+
+--             |    |             |    |            |    |             |
+--             |    +-------------+    +------------+    +-------------+
+--             |
+-- +--------+----+----+
+-- | dblp24 |  s |  d |
+-- +--------+----+----+
+--             |
+--             |
+--             |
+-- +--------+----+----+
+-- | dblp1  |  s |  d |
+-- +--------+----+----+
+--             |
+--             |
+--             |
+-- +--------+----+----+
+-- | dblp2  |  s |  d |
+-- +--------+----+----+
+select count(*) from dblp2, dblp1, dblp24, dblp25, dblp26, dblp8, dblp17 where dblp2.s = dblp1.s and dblp1.s = dblp24.s and dblp24.s = dblp25.s and dblp25.d = dblp26.s and dblp26.d = dblp8.s and dblp8.d = dblp17.s;
+\set queryname dblp_acyclic_209_05
+-- Result size: 2123998
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp23:s -> dblp20:s;dblp20:s -> dblp8:s;dblp8:s -> dblp5:s;dblp5:d -> dblp25:s;dblp25:d -> dblp21:s;dblp21:d -> dblp2:s;}
+-- +--------+---------+--------+
+-- | dblp25 |    s    |    d   |
+-- +--------+---------+--------+
+--             |         |
+--   +---------+         |
+--   |                   |
+--   |       +--------+--------+----+
+--   |       | dblp21 |    s   |  d |
+--   |       +--------+--------+----+
+--   |                            |
+--   |                            |
+--   |                            |
+--   |                 +-------+----+---+
+--   |                 | dblp2 |  s | d |
+--   |                 +-------+----+---+
+--   |       +--------+--------+----+
+--   |       | dblp23 |    s   |  d |
+--   |       +--------+--------+----+
+--   |                   |
+--   |                   |
+--   |                   |
+--   |       +--------+--------+----+
+--   |       | dblp20 |    s   |  d |
+--   |       +--------+--------+----+
+--   |                   |
+--   |                   |
+--   |                   |
+--   |       +--------+--------+----+
+--   |       | dblp8  |    s   |  d |
+--   |       +--------+--------+----+
+--   |                   |
+--   |                   |
+--   |                   |
+--   |       +--------+--------+----+
+--   |       | dblp5  |    s   |  d |
+--   |       +--------+--------+----+
+--   |                            |
+--   +----------------------------+
+select count(*) from dblp23, dblp20, dblp8, dblp5, dblp25, dblp21, dblp2 where dblp23.s = dblp20.s and dblp20.s = dblp8.s and dblp8.s = dblp5.s and dblp5.d = dblp25.s and dblp25.d = dblp21.s and dblp21.d = dblp2.s;
+\set queryname dblp_acyclic_209_06
+-- Result size: 2923642
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp23:s -> dblp24:s;dblp24:s -> dblp21:s;dblp21:s -> dblp18:s;dblp18:d -> dblp5:s;dblp5:d -> dblp9:s;dblp9:d -> dblp7:s;}
+--                            +------------+
+--                            |            |
+--           +--------+----+----+-------+--------+--------+
+--           | dblp18 |  s |  d | dblp5 |    s   |    d   |
+--           +--------+----+----+-------+--------+--------+
+--                       |                          |
+--                       +----+                     |
+--                            |                     |
+-- +--------+---------+----+  |          +-------+--------+----+
+-- | dblp23 |    s    |  d |  |          | dblp9 |    s   |  d |
+-- +--------+---------+----+  |          +-------+--------+----+
+--             |              |                              |
+--             |              |                              |
+--             |              |                              |
+-- +--------+---------+----+  |                   +-------+----+---+
+-- | dblp24 |    s    |  d |  |                   | dblp7 |  s | d |
+-- +--------+---------+----+  |                   +-------+----+---+
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp21 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             +--------------+
+select count(*) from dblp23, dblp24, dblp21, dblp18, dblp5, dblp9, dblp7 where dblp23.s = dblp24.s and dblp24.s = dblp21.s and dblp21.s = dblp18.s and dblp18.d = dblp5.s and dblp5.d = dblp9.s and dblp9.d = dblp7.s;
+\set queryname dblp_acyclic_209_07
+-- Result size: 2618684
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp14 [label="dblp14|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp23:s -> dblp14:s;dblp14:s -> dblp5:s;dblp5:s -> dblp19:s;dblp19:d -> dblp17:s;dblp17:d -> dblp9:s;dblp9:d -> dblp20:s;}
+--             +-----------------------+
+--             |                       |
+--             |      +--------+----+----+
+--             |      | dblp19 |  s |  d |
+--             |      +--------+----+----+
+--             |                  |
+--             |                  |
+--             |                  |
+--             |      +--------+----+----+
+--             |      | dblp5  |  s |  d |
+--             |      +--------+----+----+
+--             |                  |
+--             |                  |
+--             |                  |
+--             |      +--------+----+----+
+--             |      | dblp14 |  s |  d |
+--             |      +--------+----+----+
+--             |                  |
+--             |                  |
+--             |                  |
+--             |      +--------+----+----+
+--             |      | dblp23 |  s |  d |
+--             |      +--------+----+----+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp17 |    s   |    d    |
+-- +--------+--------+---------+
+--                      |
+--                      |
+--                      |
+--           +-------+---------+----+
+--           | dblp9 |    s    |  d |
+--           +-------+---------+----+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+----+
+--                    | dblp20 |  s |  d |
+--                    +--------+----+----+
+select count(*) from dblp23, dblp14, dblp5, dblp19, dblp17, dblp9, dblp20 where dblp23.s = dblp14.s and dblp14.s = dblp5.s and dblp5.s = dblp19.s and dblp19.d = dblp17.s and dblp17.d = dblp9.s and dblp9.d = dblp20.s;
+\set queryname dblp_acyclic_209_08
+-- Result size: 88808
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp12 [label="dblp12|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp20:s -> dblp21:s;dblp21:s -> dblp5:s;dblp5:s -> dblp12:s;dblp12:d -> dblp26:s;dblp26:d -> dblp1:s;dblp1:d -> dblp22:s;}
+--                       +---------------------------+
+--                       |                           |
+--           +--------+----+----+--------+----+---+  |
+--           | dblp1  |  s |  d | dblp22 |  s | d |  |
+--           +--------+----+----+--------+----+---+  |
+--                            |             |        |
+--                            +-------------+        |
+--                                                   |
+-- +--------+---------+----+                         |
+-- | dblp20 |    s    |  d |  +----------------------+
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp21 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp5  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp12 |    s    |  d |  |
+-- +--------+---------+----+  |
+--                       |    |
+--                       |    |
+--                       |    |
+--           +--------+----+----+
+--           | dblp26 |  s |  d |
+--           +--------+----+----+
+select count(*) from dblp20, dblp21, dblp5, dblp12, dblp26, dblp1, dblp22 where dblp20.s = dblp21.s and dblp21.s = dblp5.s and dblp5.s = dblp12.s and dblp12.d = dblp26.s and dblp26.d = dblp1.s and dblp1.d = dblp22.s;
+\set queryname dblp_acyclic_209_09
+-- Result size: 654726
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp4 [label="dblp4|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp24:s -> dblp7:s;dblp7:s -> dblp4:s;dblp4:s -> dblp19:s;dblp19:d -> dblp8:s;dblp8:d -> dblp25:s;dblp25:d -> dblp22:s;}
+--                                      +------------+
+--                                      |            |
+--                     +--------+----+----+-------+----+----+
+--                     | dblp19 |  s |  d | dblp8 |  s |  d |
+--                     +--------+----+----+-------+----+----+
+--                                 |                      |
+--                                 +----+                 |
+--                                      |                 |
+--           +--------+---------+----+  |                 |
+--           | dblp24 |    s    |  d |  |                 |
+--           +--------+---------+----+  |                 |
+--                       |              |                 |
+--                       |              |                 |
+--                       |              |                 |
+--           +--------+---------+----+  |                 |
+--           | dblp7  |    s    |  d |  |                 |
+--           +--------+---------+----+  |                 |
+--                       |              |                 |
+--                       |              |                 |
+--                       |              |                 |
+--           +--------+---------+----+  |                 |
+--           | dblp4  |    s    |  d |  |                 |
+--           +--------+---------+----+  |                 |
+--                       |              |                 |
+--                       +--------------+                 |
+--                                                        |
+--                                                        |
+--             +------------------------------------------+
+--             |
+-- +--------+---------+---------+
+-- | dblp25 |    s    |    d    |
+-- +--------+---------+---------+
+--                       |
+--                       |
+--                       |
+--           +--------+---------+----+
+--           | dblp22 |    s    |  d |
+--           +--------+---------+----+
+select count(*) from dblp24, dblp7, dblp4, dblp19, dblp8, dblp25, dblp22 where dblp24.s = dblp7.s and dblp7.s = dblp4.s and dblp4.s = dblp19.s and dblp19.d = dblp8.s and dblp8.d = dblp25.s and dblp25.d = dblp22.s;
+\set queryname dblp_acyclic_209_10
+-- Result size: 13071028
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp20:s -> dblp23:s;dblp23:s -> dblp8:s;dblp8:s -> dblp18:s;dblp18:d -> dblp21:s;dblp21:d -> dblp25:s;dblp25:d -> dblp26:s;}
+--                            +-------------+
+--                            |             |
+--           +--------+----+----+--------+---------+---------+
+--           | dblp18 |  s |  d | dblp21 |    s    |    d    |
+--           +--------+----+----+--------+---------+---------+
+--                       |                            |
+--                       +----+                       |
+--                            |                       |
+-- +--------+---------+----+  |           +--------+---------+----+
+-- | dblp20 |    s    |  d |  |           | dblp25 |    s    |  d |
+-- +--------+---------+----+  |           +--------+---------+----+
+--             |              |                                 |
+--             |              |                                 |
+--             |              |                                 |
+-- +--------+---------+----+  |                     +--------+----+---+
+-- | dblp23 |    s    |  d |  |                     | dblp26 |  s | d |
+-- +--------+---------+----+  |                     +--------+----+---+
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp8  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             +--------------+
+select count(*) from dblp20, dblp23, dblp8, dblp18, dblp21, dblp25, dblp26 where dblp20.s = dblp23.s and dblp23.s = dblp8.s and dblp8.s = dblp18.s and dblp18.d = dblp21.s and dblp21.d = dblp25.s and dblp25.d = dblp26.s;
+\set queryname dblp_acyclic_209_11
+-- Result size: 47774933
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp1:s -> dblp25:s;dblp25:s -> dblp5:s;dblp5:s -> dblp19:s;dblp19:d -> dblp18:s;dblp18:d -> dblp21:s;dblp21:d -> dblp22:s;}
+--                     +--------+----+----+
+--                     | dblp1  |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp25 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp5  |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp19 |  s |  d |
+--                     +--------+----+----+
+--                                      |
+--             +------------------------+
+--             |
+-- +--------+---------+---------+
+-- | dblp18 |    s    |    d    |
+-- +--------+---------+---------+
+--                       |
+--                       |
+--                       |
+--           +--------+---------+----+
+--           | dblp21 |    s    |  d |
+--           +--------+---------+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp22 |  s |  d |
+--                     +--------+----+----+
+select count(*) from dblp1, dblp25, dblp5, dblp19, dblp18, dblp21, dblp22 where dblp1.s = dblp25.s and dblp25.s = dblp5.s and dblp5.s = dblp19.s and dblp19.d = dblp18.s and dblp18.d = dblp21.s and dblp21.d = dblp22.s;
+\set queryname dblp_acyclic_209_12
+-- Result size: 4636214
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp6:s -> dblp25:s;dblp25:s -> dblp7:s;dblp7:s -> dblp21:s;dblp21:d -> dblp17:s;dblp17:d -> dblp2:s;dblp2:d -> dblp1:s;}
+--   +-------------------------------------------+
+--   |                                           |
+--   |                      +-------+----+----+  |
+--   |                      | dblp1 |  s |  d |  |
+--   |                      +-------+----+----+  |
+--   |                                 |         |
+--   |                                 +----+    |
+--   |                                      |    |
+--   |            +--------+--------+----+  |    |
+--   |            | dblp6  |    s   |  d |  |    |
+--   |            +--------+--------+----+  |    |
+--   |                        |             |    |
+--   |                        |             |    |
+--   |                        |             |    |
+--   |            +--------+--------+----+  |    |
+--   |            | dblp25 |    s   |  d |  |    |
+--   |            +--------+--------+----+  |    |
+--   |                        |             |    |
+--   |                        |             |    |
+--   |                        |             |    |
+--   |            +--------+--------+----+  |    |
+--   |            | dblp7  |    s   |  d |  |    |
+--   |            +--------+--------+----+  |    |
+--   |                        |             |    |
+--   |                        |        +----+----+
+--   |                        |        |    |
+--   |            +--------+--------+----+  |
+--   |            | dblp21 |    s   |  d |  |
+--   |            +--------+--------+----+  |
+--   |                                      |
+--   +--------------+                  +----+
+--                  |                  |
+--      +--------+---------+--------+  |
+--      | dblp17 |    s    |    d   |  |
+--      +--------+---------+--------+  |
+--                            |        |
+--                            |        |
+--                            |        |
+--                +--------+--------+----+
+--                | dblp2  |    s   |  d |
+--                +--------+--------+----+
+select count(*) from dblp6, dblp25, dblp7, dblp21, dblp17, dblp2, dblp1 where dblp6.s = dblp25.s and dblp25.s = dblp7.s and dblp7.s = dblp21.s and dblp21.d = dblp17.s and dblp17.d = dblp2.s and dblp2.d = dblp1.s;
+\set queryname dblp_acyclic_209_13
+-- Result size: 1104218
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp23:s -> dblp8:s;dblp8:s -> dblp21:s;dblp21:s -> dblp5:s;dblp5:d -> dblp17:s;dblp17:d -> dblp18:s;dblp18:d -> dblp20:s;}
+--                +--------+----+----+--------+----+----+--------+----+---+
+--                | dblp17 |  s |  d | dblp18 |  s |  d | dblp20 |  s | d |
+--                +--------+----+----+--------+----+----+--------+----+---+
+--                            |    |             |    |             |
+--   +------------------------+    +-------------+    +-------------+
+--   |
+--   |  +--------+---------+----+
+--   |  | dblp23 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp8  |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp21 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp5  |    s    |  d |
+--   |  +--------+---------+----+
+--   |                        |
+--   +------------------------+
+select count(*) from dblp23, dblp8, dblp21, dblp5, dblp17, dblp18, dblp20 where dblp23.s = dblp8.s and dblp8.s = dblp21.s and dblp21.s = dblp5.s and dblp5.d = dblp17.s and dblp17.d = dblp18.s and dblp18.d = dblp20.s;
+\set queryname dblp_acyclic_209_14
+-- Result size: 11978722
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp9:s -> dblp24:s;dblp24:s -> dblp20:s;dblp20:s -> dblp2:s;dblp2:d -> dblp19:s;dblp19:d -> dblp18:s;dblp18:d -> dblp21:s;}
+--      +--------+---------+----+
+--      | dblp19 |    s    |  d |
+--      +--------+---------+----+
+--                  |         |
+--   +--------------+         |
+--   |                        |
+--   |            +--------+----+----+--------+----+---+
+--   |            | dblp18 |  s |  d | dblp21 |  s | d |
+--   |            +--------+----+----+--------+----+---+
+--   |                             |             |
+--   |                             +-------------+
+--   |
+--   |  +--------+---------+----+
+--   |  | dblp9  |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp24 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp20 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp2  |    s    |  d |
+--   |  +--------+---------+----+
+--   |                        |
+--   +------------------------+
+select count(*) from dblp9, dblp24, dblp20, dblp2, dblp19, dblp18, dblp21 where dblp9.s = dblp24.s and dblp24.s = dblp20.s and dblp20.s = dblp2.s and dblp2.d = dblp19.s and dblp19.d = dblp18.s and dblp18.d = dblp21.s;
+\set queryname dblp_acyclic_209_15
+-- Result size: 90284
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp4 [label="dblp4|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp7:s -> dblp23:s;dblp23:s -> dblp21:s;dblp21:s -> dblp4:s;dblp4:d -> dblp17:s;dblp17:d -> dblp9:s;dblp9:d -> dblp1:s;}
+--                     +-------+----+----+
+--                     | dblp1 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                +----+
+--                                     |
+--           +--------+--------+----+  |
+--           | dblp7  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp23 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp21 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp4  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                                |    |
+--             +------------------+    |
+--             |                       |
+-- +--------+---------+--------+       |
+-- | dblp17 |    s    |    d   |  +----+
+-- +--------+---------+--------+  |
+--                       |        |
+--                       |        |
+--                       |        |
+--           +--------+--------+----+
+--           | dblp9  |    s   |  d |
+--           +--------+--------+----+
+select count(*) from dblp7, dblp23, dblp21, dblp4, dblp17, dblp9, dblp1 where dblp7.s = dblp23.s and dblp23.s = dblp21.s and dblp21.s = dblp4.s and dblp4.d = dblp17.s and dblp17.d = dblp9.s and dblp9.d = dblp1.s;
+\set queryname dblp_acyclic_209_16
+-- Result size: 10018582
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp5:s -> dblp23:s;dblp23:s -> dblp24:s;dblp24:s -> dblp9:s;dblp9:d -> dblp8:s;dblp8:d -> dblp25:s;dblp25:d -> dblp21:s;}
+-- +-------+---------+---------+
+-- | dblp8 |    s    |    d    |
+-- +-------+---------+---------+
+--            |         |
+--   +--------+         |
+--   |                  |
+--   |      +--------+---------+----+
+--   |      | dblp25 |    s    |  d |
+--   |      +--------+---------+----+
+--   |                            |
+--   |                            |
+--   |                            |
+--   |                +--------+----+---+
+--   |                | dblp21 |  s | d |
+--   |                +--------+----+---+
+--   |      +--------+---------+----+
+--   |      | dblp5  |    s    |  d |
+--   |      +--------+---------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |      +--------+---------+----+
+--   |      | dblp23 |    s    |  d |
+--   |      +--------+---------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |      +--------+---------+----+
+--   |      | dblp24 |    s    |  d |
+--   |      +--------+---------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |      +--------+---------+----+
+--   |      | dblp9  |    s    |  d |
+--   |      +--------+---------+----+
+--   |                            |
+--   +----------------------------+
+select count(*) from dblp5, dblp23, dblp24, dblp9, dblp8, dblp25, dblp21 where dblp5.s = dblp23.s and dblp23.s = dblp24.s and dblp24.s = dblp9.s and dblp9.d = dblp8.s and dblp8.d = dblp25.s and dblp25.d = dblp21.s;
+\set queryname dblp_acyclic_209_17
+-- Result size: 1285666
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp19:s -> dblp2:s;dblp2:s -> dblp25:s;dblp25:s -> dblp21:s;dblp21:d -> dblp8:s;dblp8:d -> dblp9:s;dblp9:d -> dblp5:s;}
+-- +--------+--------+--------+
+-- | dblp19 |    s   |    d   |
+-- +--------+--------+--------+
+--             |
+--             |
+--             |
+-- +--------+--------+--------+
+-- | dblp2  |    s   |    d   |
+-- +--------+--------+--------+
+--             |
+--             |
+--             |
+-- +--------+--------+--------+
+-- | dblp25 |    s   |    d   |
+-- +--------+--------+--------+
+--             |
+--             |
+--             |
+-- +--------+--------+--------+
+-- | dblp21 |    s   |    d   |
+-- +--------+--------+--------+
+--                      |
+--                      |
+--                      |
+--           +-------+--------+--------+
+--           | dblp8 |    s   |    d   |
+--           +-------+--------+--------+
+--                               |
+--                               |
+--                               |
+--                    +-------+--------+----+
+--                    | dblp9 |    s   |  d |
+--                    +-------+--------+----+
+--                                        |
+--                                        |
+--                                        |
+--                             +-------+----+---+
+--                             | dblp5 |  s | d |
+--                             +-------+----+---+
+select count(*) from dblp19, dblp2, dblp25, dblp21, dblp8, dblp9, dblp5 where dblp19.s = dblp2.s and dblp2.s = dblp25.s and dblp25.s = dblp21.s and dblp21.d = dblp8.s and dblp8.d = dblp9.s and dblp9.d = dblp5.s;
+\set queryname dblp_acyclic_209_18
+-- Result size: 667912
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp6:s -> dblp24:s;dblp24:s -> dblp22:s;dblp22:s -> dblp5:s;dblp5:d -> dblp8:s;dblp8:d -> dblp21:s;dblp21:d -> dblp9:s;}
+--                       +--------------------------+
+--                       |                          |
+--           +--------+----+----+-------+----+---+  |
+--           | dblp21 |  s |  d | dblp9 |  s | d |  |
+--           +--------+----+----+-------+----+---+  |
+--                            |            |        |
+--                            +------------+        |
+--                                                  |
+-- +--------+---------+----+                        |
+-- | dblp6  |    s    |  d |  +---------------------+
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp24 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp22 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp5  |    s    |  d |  |
+-- +--------+---------+----+  |
+--                       |    |
+--                       |    |
+--                       |    |
+--           +--------+----+----+
+--           | dblp8  |  s |  d |
+--           +--------+----+----+
+select count(*) from dblp6, dblp24, dblp22, dblp5, dblp8, dblp21, dblp9 where dblp6.s = dblp24.s and dblp24.s = dblp22.s and dblp22.s = dblp5.s and dblp5.d = dblp8.s and dblp8.d = dblp21.s and dblp21.d = dblp9.s;
+\set queryname dblp_acyclic_209_19
+-- Result size: 5744726
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp25:s -> dblp2:s;dblp2:s -> dblp20:s;dblp20:s -> dblp16:s;dblp16:d -> dblp9:s;dblp9:d -> dblp8:s;dblp8:d -> dblp18:s;}
+--                                     +------------+
+--                                     |            |
+--                    +--------+----+----+-------+----+----+
+--                    | dblp16 |  s |  d | dblp9 |  s |  d |
+--                    +--------+----+----+-------+----+----+
+--                                |                      |
+--                                +----+                 |
+--                                     |                 |
+--          +--------+---------+----+  |                 |
+--          | dblp25 |    s    |  d |  |                 |
+--          +--------+---------+----+  |                 |
+--                      |              |                 |
+--                      |              |                 |
+--                      |              |                 |
+--          +--------+---------+----+  |                 |
+--          | dblp2  |    s    |  d |  |                 |
+--          +--------+---------+----+  |                 |
+--                      |              |                 |
+--                      |              |                 |
+--                      |              |                 |
+--          +--------+---------+----+  |                 |
+--          | dblp20 |    s    |  d |  |                 |
+--          +--------+---------+----+  |                 |
+--                      |              |                 |
+--                      +--------------+                 |
+--                                                       |
+--                                                       |
+--            +------------------------------------------+
+--            |
+-- +-------+---------+---------+
+-- | dblp8 |    s    |    d    |
+-- +-------+---------+---------+
+--                      |
+--                      |
+--                      |
+--          +--------+---------+----+
+--          | dblp18 |    s    |  d |
+--          +--------+---------+----+
+select count(*) from dblp25, dblp2, dblp20, dblp16, dblp9, dblp8, dblp18 where dblp25.s = dblp2.s and dblp2.s = dblp20.s and dblp20.s = dblp16.s and dblp16.d = dblp9.s and dblp9.d = dblp8.s and dblp8.d = dblp18.s;

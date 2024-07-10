@@ -1,0 +1,6 @@
+/build
+/cmake-build-*
+/*.txt
+!/CMakeLists.txt
+/*.csv
+/db

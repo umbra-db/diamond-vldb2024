@@ -1,0 +1,2522 @@
+\set queryname yago_acyclic_Chain_6_00
+-- Result size: 48126
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago1 [label="yago1|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago1:d -> yago0:d;yago0:s -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago5:s;yago5:d -> yago17:s;}
+--            +-------+---------+----+
+--            | yago1 |    s    |  d |
+--            +-------+---------+----+
+--                                 |
+--                                 |
+--                                 |
+--            +-------+---------+----+
+--            | yago0 |    s    |  d |
+--            +-------+---------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+---------+
+-- | yago2_2 |    s   |    d    |
+-- +---------+--------+---------+
+--              |
+--              |
+--              |
+-- +---------+--------+---------+
+-- | yago2_3 |    s   |    d    |
+-- +---------+--------+---------+
+--                       |
+--                       |
+--                       |
+--            +-------+---------+----+
+--            | yago5 |    s    |  d |
+--            +-------+---------+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+---+
+--                     | yago17 |  s | d |
+--                     +--------+----+---+
+with dummy as (select) /* stage1 */, yago2_3_s1_16c9dd80661fe751 as (select yago2_3.d as v6,yago2_3.s as v4 from yago2 yago2_3), yago2_2_s1_16c9dd80661fe751 as (select yago2_2.d as v2,yago2_2.s as v4 from yago2 yago2_2), yago0_s1_16c9dd80661fe751 as (select yago0.d as v0,yago0.s as v2 from yago0), yago1_s2_16c9dd80661fe751 as (select yago1.d as v0 from yago1), yago5_s1_16c9dd80661fe751 as (select yago5.d as v8,yago5.s as v6 from yago5), yago17_s2_16c9dd80661fe751 as (select yago17.s as v8 from yago17) /* stage2 */, yago5_s2_16c9dd80661fe751 as (select * from umbra.identity(table(yago5_s1_16c9dd80661fe751)) where exists (select from umbra.identity(table(yago17_s2_16c9dd80661fe751)) where yago5_s1_16c9dd80661fe751.v8 = yago17_s2_16c9dd80661fe751.v8)), yago0_s2_16c9dd80661fe751 as (select * from umbra.identity(table(yago0_s1_16c9dd80661fe751)) where exists (select from umbra.identity(table(yago1_s2_16c9dd80661fe751)) where yago0_s1_16c9dd80661fe751.v0 = yago1_s2_16c9dd80661fe751.v0)), yago2_2_s2_16c9dd80661fe751 as (select * from umbra.identity(table(yago2_2_s1_16c9dd80661fe751)) where exists (select from umbra.identity(table(yago0_s2_16c9dd80661fe751)) where yago2_2_s1_16c9dd80661fe751.v2 = yago0_s2_16c9dd80661fe751.v2)), yago2_3_s2_16c9dd80661fe751 as (select * from umbra.identity(table(yago2_3_s1_16c9dd80661fe751)) where exists (select from umbra.identity(table(yago5_s2_16c9dd80661fe751)) where yago2_3_s1_16c9dd80661fe751.v6 = yago5_s2_16c9dd80661fe751.v6) AND exists (select from umbra.identity(table(yago2_2_s2_16c9dd80661fe751)) where yago2_3_s1_16c9dd80661fe751.v4 = yago2_2_s2_16c9dd80661fe751.v4)) /* stage3 */, yago2_2_s3_16c9dd80661fe751 as (select * from umbra.identity(table(yago2_2_s2_16c9dd80661fe751)) where exists (select from umbra.identity(table(yago2_3_s2_16c9dd80661fe751)) where yago2_2_s2_16c9dd80661fe751.v4 = yago2_3_s2_16c9dd80661fe751.v4)), yago0_s3_16c9dd80661fe751 as (select * from umbra.identity(table(yago0_s2_16c9dd80661fe751)) where exists (select from umbra.identity(table(yago2_2_s2_16c9dd80661fe751)) where yago0_s2_16c9dd80661fe751.v2 = yago2_2_s2_16c9dd80661fe751.v2)), yago1_s3_16c9dd80661fe751 as (select * from umbra.identity(table(yago1_s2_16c9dd80661fe751)) where exists (select from umbra.identity(table(yago0_s2_16c9dd80661fe751)) where yago1_s2_16c9dd80661fe751.v0 = yago0_s2_16c9dd80661fe751.v0)), yago5_s3_16c9dd80661fe751 as (select * from umbra.identity(table(yago5_s2_16c9dd80661fe751)) where exists (select from umbra.identity(table(yago2_3_s2_16c9dd80661fe751)) where yago5_s2_16c9dd80661fe751.v6 = yago2_3_s2_16c9dd80661fe751.v6)), yago17_s3_16c9dd80661fe751 as (select * from umbra.identity(table(yago17_s2_16c9dd80661fe751)) where exists (select from umbra.identity(table(yago5_s2_16c9dd80661fe751)) where yago17_s2_16c9dd80661fe751.v8 = yago5_s2_16c9dd80661fe751.v8)) /* stage4 */, s4_group_5A83F4D81A2EEF37 as  (select * from umbra.identity(table(yago2_3_s2_16c9dd80661fe751)) NATURAL JOIN umbra.identity(table(yago5_s3_16c9dd80661fe751)) NATURAL JOIN umbra.identity(table(yago17_s3_16c9dd80661fe751)) NATURAL JOIN umbra.identity(table(yago2_2_s3_16c9dd80661fe751)) NATURAL JOIN umbra.identity(table(yago0_s3_16c9dd80661fe751)) NATURAL JOIN umbra.identity(table(yago1_s3_16c9dd80661fe751)))select count(*) from umbra.identity(table(s4_group_5A83F4D81A2EEF37));
+\set queryname yago_acyclic_Chain_6_01
+-- Result size: 98
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_0:s -> yago5_1:s;yago5_1:d -> yago5_2:d;yago5_2:s -> yago17_3:s;yago17_3:d -> yago17_4:d;yago17_4:s -> yago17_5:d;}
+--                                         +----------+----+----+
+--                                         | yago17_0 |  s |  d |
+--                                         +----------+----+----+
+--                                                       |
+--                                                       |
+--                                                       |
+-- +---------+-----------+-----------+     +----------+----+----+
+-- | yago5_2 |     s     |     d     |     | yago5_1  |  s |  d |
+-- +---------+-----------+-----------+     +----------+----+----+
+--              |           |                                 |
+--              |           +---------------------------------+
+--              |
+--              |         +----------+----+-----------+
+--              |         | yago17_3 |  s |     d     |
+--              |         +----------+----+-----------+
+--              |                       |    |
+--              +-----------------------+    |
+--                                           |
+--                        +----------+----+-----------+
+--                        | yago17_4 |  s |     d     |
+--                        +----------+----+-----------+
+--                                      |
+--                                      |
+--                                      |
+--            +----------+-----------+----+
+--            | yago17_5 |     s     |  d |
+--            +----------+-----------+----+
+with dummy as (select) /* stage1 */, yago5_2_s1_1f212000661fe751 as (select yago5_2.d as v2,yago5_2.s as v4 from yago5 yago5_2), yago17_3_s1_1f212000661fe751 as (select yago17_3.s as v4,yago17_3.d as v6 from yago17 yago17_3), yago17_4_s1_1f212000661fe751 as (select yago17_4.d as v6,yago17_4.s as v8 from yago17 yago17_4), yago17_5_s2_1f212000661fe751 as (select yago17_5.d as v8 from yago17 yago17_5), yago5_1_s1_1f212000661fe751 as (select yago5_1.d as v2,yago5_1.s as v0 from yago5 yago5_1), yago17_0_s2_1f212000661fe751 as (select yago17_0.s as v0 from yago17 yago17_0) /* stage2 */, yago5_1_s2_1f212000661fe751 as (select * from umbra.identity(table(yago5_1_s1_1f212000661fe751)) where exists (select from umbra.identity(table(yago17_0_s2_1f212000661fe751)) where yago5_1_s1_1f212000661fe751.v0 = yago17_0_s2_1f212000661fe751.v0)), yago17_4_s2_1f212000661fe751 as (select * from umbra.identity(table(yago17_4_s1_1f212000661fe751)) where exists (select from umbra.identity(table(yago17_5_s2_1f212000661fe751)) where yago17_4_s1_1f212000661fe751.v8 = yago17_5_s2_1f212000661fe751.v8)), yago17_3_s2_1f212000661fe751 as (select * from umbra.identity(table(yago17_3_s1_1f212000661fe751)) where exists (select from umbra.identity(table(yago17_4_s2_1f212000661fe751)) where yago17_3_s1_1f212000661fe751.v6 = yago17_4_s2_1f212000661fe751.v6)), yago5_2_s2_1f212000661fe751 as (select * from umbra.identity(table(yago5_2_s1_1f212000661fe751)) where exists (select from umbra.identity(table(yago5_1_s2_1f212000661fe751)) where yago5_2_s1_1f212000661fe751.v2 = yago5_1_s2_1f212000661fe751.v2) AND exists (select from umbra.identity(table(yago17_3_s2_1f212000661fe751)) where yago5_2_s1_1f212000661fe751.v4 = yago17_3_s2_1f212000661fe751.v4)) /* stage3 */, yago17_3_s3_1f212000661fe751 as (select * from umbra.identity(table(yago17_3_s2_1f212000661fe751)) where exists (select from umbra.identity(table(yago5_2_s2_1f212000661fe751)) where yago17_3_s2_1f212000661fe751.v4 = yago5_2_s2_1f212000661fe751.v4)), yago17_4_s3_1f212000661fe751 as (select * from umbra.identity(table(yago17_4_s2_1f212000661fe751)) where exists (select from umbra.identity(table(yago17_3_s2_1f212000661fe751)) where yago17_4_s2_1f212000661fe751.v6 = yago17_3_s2_1f212000661fe751.v6)), yago17_5_s3_1f212000661fe751 as (select * from umbra.identity(table(yago17_5_s2_1f212000661fe751)) where exists (select from umbra.identity(table(yago17_4_s2_1f212000661fe751)) where yago17_5_s2_1f212000661fe751.v8 = yago17_4_s2_1f212000661fe751.v8)), yago5_1_s3_1f212000661fe751 as (select * from umbra.identity(table(yago5_1_s2_1f212000661fe751)) where exists (select from umbra.identity(table(yago5_2_s2_1f212000661fe751)) where yago5_1_s2_1f212000661fe751.v2 = yago5_2_s2_1f212000661fe751.v2)), yago17_0_s3_1f212000661fe751 as (select * from umbra.identity(table(yago17_0_s2_1f212000661fe751)) where exists (select from umbra.identity(table(yago5_1_s2_1f212000661fe751)) where yago17_0_s2_1f212000661fe751.v0 = yago5_1_s2_1f212000661fe751.v0)) /* stage4 */, s4_group_7E3E768D792CB72B as  (select * from umbra.identity(table(yago5_2_s2_1f212000661fe751)) NATURAL JOIN umbra.identity(table(yago5_1_s3_1f212000661fe751)) NATURAL JOIN umbra.identity(table(yago17_0_s3_1f212000661fe751)) NATURAL JOIN umbra.identity(table(yago17_3_s3_1f212000661fe751)) NATURAL JOIN umbra.identity(table(yago17_4_s3_1f212000661fe751)) NATURAL JOIN umbra.identity(table(yago17_5_s3_1f212000661fe751)))select count(*) from umbra.identity(table(s4_group_7E3E768D792CB72B));
+\set queryname yago_acyclic_Chain_6_02
+-- Result size: 2124368
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago2_4:d;}
+-- +---------+----+----+
+-- | yago2_0 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_1 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_2 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_3 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_4 |  s |  d |
+-- +---------+----+----+
+with dummy as (select) /* stage1 */, yago2_2_s1_7941600661fe752 as (select yago2_2.s as v4,yago2_2.d as v2 from yago2 yago2_2), yago2_3_s1_7941600661fe752 as (select yago2_3.d as v6,yago2_3.s as v4 from yago2 yago2_3), yago2_4_s2_7941600661fe752 as (select yago2_4.d as v6 from yago2 yago2_4), yago2_1_s1_7941600661fe752 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_7941600661fe752 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_7941600661fe752 as (select * from umbra.identity(table(yago2_1_s1_7941600661fe752)) where exists (select from umbra.identity(table(yago2_0_s2_7941600661fe752)) where yago2_1_s1_7941600661fe752.v0 = yago2_0_s2_7941600661fe752.v0)), yago2_3_s2_7941600661fe752 as (select * from umbra.identity(table(yago2_3_s1_7941600661fe752)) where exists (select from umbra.identity(table(yago2_4_s2_7941600661fe752)) where yago2_3_s1_7941600661fe752.v6 = yago2_4_s2_7941600661fe752.v6)), yago2_2_s2_7941600661fe752 as (select * from umbra.identity(table(yago2_2_s1_7941600661fe752)) where exists (select from umbra.identity(table(yago2_1_s2_7941600661fe752)) where yago2_2_s1_7941600661fe752.v2 = yago2_1_s2_7941600661fe752.v2) AND exists (select from umbra.identity(table(yago2_3_s2_7941600661fe752)) where yago2_2_s1_7941600661fe752.v4 = yago2_3_s2_7941600661fe752.v4)) /* stage3 */, yago2_3_s3_7941600661fe752 as (select * from umbra.identity(table(yago2_3_s2_7941600661fe752)) where exists (select from umbra.identity(table(yago2_2_s2_7941600661fe752)) where yago2_3_s2_7941600661fe752.v4 = yago2_2_s2_7941600661fe752.v4)), yago2_4_s3_7941600661fe752 as (select * from umbra.identity(table(yago2_4_s2_7941600661fe752)) where exists (select from umbra.identity(table(yago2_3_s2_7941600661fe752)) where yago2_4_s2_7941600661fe752.v6 = yago2_3_s2_7941600661fe752.v6)), yago2_1_s3_7941600661fe752 as (select * from umbra.identity(table(yago2_1_s2_7941600661fe752)) where exists (select from umbra.identity(table(yago2_2_s2_7941600661fe752)) where yago2_1_s2_7941600661fe752.v2 = yago2_2_s2_7941600661fe752.v2)), yago2_0_s3_7941600661fe752 as (select * from umbra.identity(table(yago2_0_s2_7941600661fe752)) where exists (select from umbra.identity(table(yago2_1_s2_7941600661fe752)) where yago2_0_s2_7941600661fe752.v0 = yago2_1_s2_7941600661fe752.v0)) /* stage4 */, s4_group_2139EEB6F4C9258E as  (select * from umbra.identity(table(yago2_2_s2_7941600661fe752)) NATURAL JOIN umbra.identity(table(yago2_1_s3_7941600661fe752)) NATURAL JOIN umbra.identity(table(yago2_0_s3_7941600661fe752)) NATURAL JOIN umbra.identity(table(yago2_3_s3_7941600661fe752)) NATURAL JOIN umbra.identity(table(yago2_4_s3_7941600661fe752)))select count(*) from umbra.identity(table(s4_group_2139EEB6F4C9258E));
+\set queryname yago_acyclic_Chain_6_03
+-- Result size: 12
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago29 [label="yago29|<s> s|<d> d"]; yago31_1 [label="yago31_1|<s> s|<d> d"]; yago36_2 [label="yago36_2|<s> s|<d> d"]; yago36_3 [label="yago36_3|<s> s|<d> d"]; yago31_4 [label="yago31_4|<s> s|<d> d"]; yago36_5 [label="yago36_5|<s> s|<d> d"]; yago29:s -> yago31_1:s;yago31_1:d -> yago36_2:d;yago36_2:s -> yago36_3:s;yago36_3:d -> yago31_4:s;yago31_4:d -> yago36_5:d;}
+--                                   +----------+----+----+
+--                                   |  yago29  |  s |  d |
+--                                   +----------+----+----+
+--                                                 |
+--                                                 |
+--                                                 |
+--                                   +----------+----+----+
+--                                   | yago31_1 |  s |  d |
+--                                   +----------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+-- +----------+----+-----------+     +----------+----+----+
+-- | yago36_3 |  s |     d     | -+  | yago36_2 |  s |  d |
+-- +----------+----+-----------+  |  +----------+----+----+
+--               |                |                |
+--               +----------------+----------------+
+--                                |
+--                  +----------+----+-----------+
+--                  | yago31_4 |  s |     d     |
+--                  +----------+----+-----------+
+--                                     |
+--                                     |
+--                                     |
+--                  +----------+----+-----------+
+--                  | yago36_5 |  s |     d     |
+--                  +----------+----+-----------+
+with dummy as (select) /* stage1 */, yago36_3_s1_fece780661fe752 as (select yago36_3.s as v4,yago36_3.d as v6 from yago36 yago36_3), yago36_2_s1_fece780661fe752 as (select yago36_2.d as v2,yago36_2.s as v4 from yago36 yago36_2), yago31_1_s1_fece780661fe752 as (select yago31_1.d as v2,yago31_1.s as v0 from yago31 yago31_1), yago29_s2_fece780661fe752 as (select yago29.s as v0 from yago29), yago31_4_s1_fece780661fe752 as (select yago31_4.d as v8,yago31_4.s as v6 from yago31 yago31_4), yago36_5_s2_fece780661fe752 as (select yago36_5.d as v8 from yago36 yago36_5) /* stage2 */, yago31_4_s2_fece780661fe752 as (select * from umbra.identity(table(yago31_4_s1_fece780661fe752)) where exists (select from umbra.identity(table(yago36_5_s2_fece780661fe752)) where yago31_4_s1_fece780661fe752.v8 = yago36_5_s2_fece780661fe752.v8)), yago31_1_s2_fece780661fe752 as (select * from umbra.identity(table(yago31_1_s1_fece780661fe752)) where exists (select from umbra.identity(table(yago29_s2_fece780661fe752)) where yago31_1_s1_fece780661fe752.v0 = yago29_s2_fece780661fe752.v0)), yago36_2_s2_fece780661fe752 as (select * from umbra.identity(table(yago36_2_s1_fece780661fe752)) where exists (select from umbra.identity(table(yago31_1_s2_fece780661fe752)) where yago36_2_s1_fece780661fe752.v2 = yago31_1_s2_fece780661fe752.v2)), yago36_3_s2_fece780661fe752 as (select * from umbra.identity(table(yago36_3_s1_fece780661fe752)) where exists (select from umbra.identity(table(yago31_4_s2_fece780661fe752)) where yago36_3_s1_fece780661fe752.v6 = yago31_4_s2_fece780661fe752.v6) AND exists (select from umbra.identity(table(yago36_2_s2_fece780661fe752)) where yago36_3_s1_fece780661fe752.v4 = yago36_2_s2_fece780661fe752.v4)) /* stage3 */, yago36_2_s3_fece780661fe752 as (select * from umbra.identity(table(yago36_2_s2_fece780661fe752)) where exists (select from umbra.identity(table(yago36_3_s2_fece780661fe752)) where yago36_2_s2_fece780661fe752.v4 = yago36_3_s2_fece780661fe752.v4)), yago31_1_s3_fece780661fe752 as (select * from umbra.identity(table(yago31_1_s2_fece780661fe752)) where exists (select from umbra.identity(table(yago36_2_s2_fece780661fe752)) where yago31_1_s2_fece780661fe752.v2 = yago36_2_s2_fece780661fe752.v2)), yago29_s3_fece780661fe752 as (select * from umbra.identity(table(yago29_s2_fece780661fe752)) where exists (select from umbra.identity(table(yago31_1_s2_fece780661fe752)) where yago29_s2_fece780661fe752.v0 = yago31_1_s2_fece780661fe752.v0)), yago31_4_s3_fece780661fe752 as (select * from umbra.identity(table(yago31_4_s2_fece780661fe752)) where exists (select from umbra.identity(table(yago36_3_s2_fece780661fe752)) where yago31_4_s2_fece780661fe752.v6 = yago36_3_s2_fece780661fe752.v6)), yago36_5_s3_fece780661fe752 as (select * from umbra.identity(table(yago36_5_s2_fece780661fe752)) where exists (select from umbra.identity(table(yago31_4_s2_fece780661fe752)) where yago36_5_s2_fece780661fe752.v8 = yago31_4_s2_fece780661fe752.v8)) /* stage4 */, s4_group_5E02017B47936D4E as  (select * from umbra.identity(table(yago36_3_s2_fece780661fe752)) NATURAL JOIN umbra.identity(table(yago31_4_s3_fece780661fe752)) NATURAL JOIN umbra.identity(table(yago36_5_s3_fece780661fe752)) NATURAL JOIN umbra.identity(table(yago36_2_s3_fece780661fe752)) NATURAL JOIN umbra.identity(table(yago31_1_s3_fece780661fe752)) NATURAL JOIN umbra.identity(table(yago29_s3_fece780661fe752)))select count(*) from umbra.identity(table(s4_group_5E02017B47936D4E));
+\set queryname yago_acyclic_Chain_6_04
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago1 [label="yago1|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago1:d -> yago0:d;yago0:s -> yago2_2:d;yago2_2:s -> yago6:d;yago6:s -> yago2_4:d;yago2_4:s -> yago2_5:s;}
+--                     +-------+----+----+
+--                     | yago1 |  s |  d |
+--                     +-------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                     +-------+----+----+
+--                     | yago0 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                |
+--                                |
+--          +---------+--------+----+
+--          | yago2_2 |    s   |  d |
+--          +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +-------+----------+--------+
+-- | yago6 |     s    |    d   |
+-- +-------+----------+--------+
+--            |
+--            +-------------------+
+--                                |
+--          +---------+--------+----+
+--          | yago2_4 |    s   |  d |
+--          +---------+--------+----+
+--                       |
+--                       |
+--                       |
+--          +---------+--------+----+
+--          | yago2_5 |    s   |  d |
+--          +---------+--------+----+
+with dummy as (select) /* stage1 */, yago6_s1_184d2e80661fe752 as (select yago6.d as v4,yago6.s as v6 from yago6), yago2_2_s1_184d2e80661fe752 as (select yago2_2.s as v4,yago2_2.d as v2 from yago2 yago2_2), yago0_s1_184d2e80661fe752 as (select yago0.s as v2,yago0.d as v0 from yago0), yago1_s2_184d2e80661fe752 as (select yago1.d as v0 from yago1), yago2_4_s1_184d2e80661fe752 as (select yago2_4.s as v8,yago2_4.d as v6 from yago2 yago2_4), yago2_5_s2_184d2e80661fe752 as (select yago2_5.s as v8 from yago2 yago2_5) /* stage2 */, yago2_4_s2_184d2e80661fe752 as (select * from umbra.identity(table(yago2_4_s1_184d2e80661fe752)) where exists (select from umbra.identity(table(yago2_5_s2_184d2e80661fe752)) where yago2_4_s1_184d2e80661fe752.v8 = yago2_5_s2_184d2e80661fe752.v8)), yago0_s2_184d2e80661fe752 as (select * from umbra.identity(table(yago0_s1_184d2e80661fe752)) where exists (select from umbra.identity(table(yago1_s2_184d2e80661fe752)) where yago0_s1_184d2e80661fe752.v0 = yago1_s2_184d2e80661fe752.v0)), yago2_2_s2_184d2e80661fe752 as (select * from umbra.identity(table(yago2_2_s1_184d2e80661fe752)) where exists (select from umbra.identity(table(yago0_s2_184d2e80661fe752)) where yago2_2_s1_184d2e80661fe752.v2 = yago0_s2_184d2e80661fe752.v2)), yago6_s2_184d2e80661fe752 as (select * from umbra.identity(table(yago6_s1_184d2e80661fe752)) where exists (select from umbra.identity(table(yago2_4_s2_184d2e80661fe752)) where yago6_s1_184d2e80661fe752.v6 = yago2_4_s2_184d2e80661fe752.v6) AND exists (select from umbra.identity(table(yago2_2_s2_184d2e80661fe752)) where yago6_s1_184d2e80661fe752.v4 = yago2_2_s2_184d2e80661fe752.v4)) /* stage3 */, yago2_2_s3_184d2e80661fe752 as (select * from umbra.identity(table(yago2_2_s2_184d2e80661fe752)) where exists (select from umbra.identity(table(yago6_s2_184d2e80661fe752)) where yago2_2_s2_184d2e80661fe752.v4 = yago6_s2_184d2e80661fe752.v4)), yago0_s3_184d2e80661fe752 as (select * from umbra.identity(table(yago0_s2_184d2e80661fe752)) where exists (select from umbra.identity(table(yago2_2_s2_184d2e80661fe752)) where yago0_s2_184d2e80661fe752.v2 = yago2_2_s2_184d2e80661fe752.v2)), yago1_s3_184d2e80661fe752 as (select * from umbra.identity(table(yago1_s2_184d2e80661fe752)) where exists (select from umbra.identity(table(yago0_s2_184d2e80661fe752)) where yago1_s2_184d2e80661fe752.v0 = yago0_s2_184d2e80661fe752.v0)), yago2_4_s3_184d2e80661fe752 as (select * from umbra.identity(table(yago2_4_s2_184d2e80661fe752)) where exists (select from umbra.identity(table(yago6_s2_184d2e80661fe752)) where yago2_4_s2_184d2e80661fe752.v6 = yago6_s2_184d2e80661fe752.v6)), yago2_5_s3_184d2e80661fe752 as (select * from umbra.identity(table(yago2_5_s2_184d2e80661fe752)) where exists (select from umbra.identity(table(yago2_4_s2_184d2e80661fe752)) where yago2_5_s2_184d2e80661fe752.v8 = yago2_4_s2_184d2e80661fe752.v8)) /* stage4 */, s4_group_34B9C61C23247829 as  (select * from umbra.identity(table(yago6_s2_184d2e80661fe752)) NATURAL JOIN umbra.identity(table(yago2_4_s3_184d2e80661fe752)) NATURAL JOIN umbra.identity(table(yago2_5_s3_184d2e80661fe752)) NATURAL JOIN umbra.identity(table(yago2_2_s3_184d2e80661fe752)) NATURAL JOIN umbra.identity(table(yago0_s3_184d2e80661fe752)) NATURAL JOIN umbra.identity(table(yago1_s3_184d2e80661fe752)))select count(*) from umbra.identity(table(s4_group_34B9C61C23247829));
+\set queryname yago_acyclic_Chain_6_05
+-- Result size: 156
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago4 [label="yago4|<s> s|<d> d"]; yago21_1 [label="yago21_1|<s> s|<d> d"]; yago21_2 [label="yago21_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago4:s -> yago21_1:s;yago21_1:d -> yago21_2:d;yago21_2:s -> yago5:s;yago5:d -> yago17_4:s;yago17_4:d -> yago17_5:d;}
+--                                                  +---------+
+--                                                  |         |
+--                                    +----------+----+----+  |
+--                                    | yago17_4 |  s |  d |  |
+--                                    +----------+----+----+  |
+--                                                       |    |
+--                                                       |    |
+--                                                       |    |
+--                                    +----------+----+----+  |
+--                                    | yago17_5 |  s |  d |  |
+--                                    +----------+----+----+  |
+-- +-------+----+---++----------+----+-----------+            |
+-- | yago4 |  s | d || yago21_1 |  s |     d     |            |
+-- +-------+----+---++----------+----+-----------+            |
+--            |                    |    |                     |
+--            +--------------------+    |                     |
+--                                      |                     |
+--                   +----------+----+-----------+            |
+--                   | yago21_2 |  s |     d     |            |
+--                   +----------+----+-----------+            |
+--                                 |                          |
+--                                 |                          |
+--                                 |                          |
+--                   +----------+----+-----------+            |
+--                   |  yago5   |  s |     d     | -----------+
+--                   +----------+----+-----------+
+with dummy as (select) /* stage1 */, yago5_s1_be0580661fe753 as (select yago5.d as v6,yago5.s as v4 from yago5), yago21_2_s1_be0580661fe753 as (select yago21_2.s as v4,yago21_2.d as v2 from yago21 yago21_2), yago21_1_s1_be0580661fe753 as (select yago21_1.s as v0,yago21_1.d as v2 from yago21 yago21_1), yago4_s2_be0580661fe753 as (select yago4.s as v0 from yago4), yago17_4_s1_be0580661fe753 as (select yago17_4.s as v6,yago17_4.d as v8 from yago17 yago17_4), yago17_5_s2_be0580661fe753 as (select yago17_5.d as v8 from yago17 yago17_5) /* stage2 */, yago17_4_s2_be0580661fe753 as (select * from umbra.identity(table(yago17_4_s1_be0580661fe753)) where exists (select from umbra.identity(table(yago17_5_s2_be0580661fe753)) where yago17_4_s1_be0580661fe753.v8 = yago17_5_s2_be0580661fe753.v8)), yago21_1_s2_be0580661fe753 as (select * from umbra.identity(table(yago21_1_s1_be0580661fe753)) where exists (select from umbra.identity(table(yago4_s2_be0580661fe753)) where yago21_1_s1_be0580661fe753.v0 = yago4_s2_be0580661fe753.v0)), yago21_2_s2_be0580661fe753 as (select * from umbra.identity(table(yago21_2_s1_be0580661fe753)) where exists (select from umbra.identity(table(yago21_1_s2_be0580661fe753)) where yago21_2_s1_be0580661fe753.v2 = yago21_1_s2_be0580661fe753.v2)), yago5_s2_be0580661fe753 as (select * from umbra.identity(table(yago5_s1_be0580661fe753)) where exists (select from umbra.identity(table(yago17_4_s2_be0580661fe753)) where yago5_s1_be0580661fe753.v6 = yago17_4_s2_be0580661fe753.v6) AND exists (select from umbra.identity(table(yago21_2_s2_be0580661fe753)) where yago5_s1_be0580661fe753.v4 = yago21_2_s2_be0580661fe753.v4)) /* stage3 */, yago21_2_s3_be0580661fe753 as (select * from umbra.identity(table(yago21_2_s2_be0580661fe753)) where exists (select from umbra.identity(table(yago5_s2_be0580661fe753)) where yago21_2_s2_be0580661fe753.v4 = yago5_s2_be0580661fe753.v4)), yago21_1_s3_be0580661fe753 as (select * from umbra.identity(table(yago21_1_s2_be0580661fe753)) where exists (select from umbra.identity(table(yago21_2_s2_be0580661fe753)) where yago21_1_s2_be0580661fe753.v2 = yago21_2_s2_be0580661fe753.v2)), yago4_s3_be0580661fe753 as (select * from umbra.identity(table(yago4_s2_be0580661fe753)) where exists (select from umbra.identity(table(yago21_1_s2_be0580661fe753)) where yago4_s2_be0580661fe753.v0 = yago21_1_s2_be0580661fe753.v0)), yago17_4_s3_be0580661fe753 as (select * from umbra.identity(table(yago17_4_s2_be0580661fe753)) where exists (select from umbra.identity(table(yago5_s2_be0580661fe753)) where yago17_4_s2_be0580661fe753.v6 = yago5_s2_be0580661fe753.v6)), yago17_5_s3_be0580661fe753 as (select * from umbra.identity(table(yago17_5_s2_be0580661fe753)) where exists (select from umbra.identity(table(yago17_4_s2_be0580661fe753)) where yago17_5_s2_be0580661fe753.v8 = yago17_4_s2_be0580661fe753.v8)) /* stage4 */, s4_group_6B86B173B427774B as  (select * from umbra.identity(table(yago5_s2_be0580661fe753)) NATURAL JOIN umbra.identity(table(yago17_4_s3_be0580661fe753)) NATURAL JOIN umbra.identity(table(yago17_5_s3_be0580661fe753)) NATURAL JOIN umbra.identity(table(yago21_2_s3_be0580661fe753)) NATURAL JOIN umbra.identity(table(yago21_1_s3_be0580661fe753)) NATURAL JOIN umbra.identity(table(yago4_s3_be0580661fe753)))select count(*) from umbra.identity(table(s4_group_6B86B173B427774B));
+\set queryname yago_acyclic_Chain_6_06
+-- Result size: 13544
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5 [label="yago5|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago55 [label="yago55|<s> s|<d> d"]; yago31_3 [label="yago31_3|<s> s|<d> d"]; yago31_4 [label="yago31_4|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago5:s -> yago23:d;yago23:s -> yago55:s;yago55:d -> yago31_3:d;yago31_3:s -> yago31_4:s;yago31_4:d -> yago50:d;}
+--             +--------+----+----+-------+----+---+
+--             | yago23 |  s |  d | yago5 |  s | d |
+--             +--------+----+----+-------+----+---+
+--                         |    |            |
+--                         |    +------------+
+--                         |
+--             +--------+----+----+
+--             | yago55 |  s |  d |
+--             +--------+----+----+
+--                              |
+--                              |
+--                              |
+-- +----------+---------+----+  |
+-- | yago31_3 |    s    |  d | -+
+-- +----------+---------+----+
+--               |
+--               |
+--               |
+-- +----------+---------+----+
+-- | yago31_4 |    s    |  d |
+-- +----------+---------+----+
+--                         |
+--                         |
+--                         |
+-- +----------+---------+----+
+-- |  yago50  |    s    |  d |
+-- +----------+---------+----+
+with dummy as (select) /* stage1 */, yago55_s1_9202f00661fe753 as (select yago55.s as v2,yago55.d as v4 from yago55), yago31_3_s1_9202f00661fe753 as (select yago31_3.d as v4,yago31_3.s as v6 from yago31 yago31_3), yago31_4_s1_9202f00661fe753 as (select yago31_4.d as v8,yago31_4.s as v6 from yago31 yago31_4), yago50_s2_9202f00661fe753 as (select yago50.d as v8 from yago50), yago23_s1_9202f00661fe753 as (select yago23.d as v0,yago23.s as v2 from yago23), yago5_s2_9202f00661fe753 as (select yago5.s as v0 from yago5) /* stage2 */, yago23_s2_9202f00661fe753 as (select * from umbra.identity(table(yago23_s1_9202f00661fe753)) where exists (select from umbra.identity(table(yago5_s2_9202f00661fe753)) where yago23_s1_9202f00661fe753.v0 = yago5_s2_9202f00661fe753.v0)), yago31_4_s2_9202f00661fe753 as (select * from umbra.identity(table(yago31_4_s1_9202f00661fe753)) where exists (select from umbra.identity(table(yago50_s2_9202f00661fe753)) where yago31_4_s1_9202f00661fe753.v8 = yago50_s2_9202f00661fe753.v8)), yago31_3_s2_9202f00661fe753 as (select * from umbra.identity(table(yago31_3_s1_9202f00661fe753)) where exists (select from umbra.identity(table(yago31_4_s2_9202f00661fe753)) where yago31_3_s1_9202f00661fe753.v6 = yago31_4_s2_9202f00661fe753.v6)), yago55_s2_9202f00661fe753 as (select * from umbra.identity(table(yago55_s1_9202f00661fe753)) where exists (select from umbra.identity(table(yago23_s2_9202f00661fe753)) where yago55_s1_9202f00661fe753.v2 = yago23_s2_9202f00661fe753.v2) AND exists (select from umbra.identity(table(yago31_3_s2_9202f00661fe753)) where yago55_s1_9202f00661fe753.v4 = yago31_3_s2_9202f00661fe753.v4)) /* stage3 */, yago31_3_s3_9202f00661fe753 as (select * from umbra.identity(table(yago31_3_s2_9202f00661fe753)) where exists (select from umbra.identity(table(yago55_s2_9202f00661fe753)) where yago31_3_s2_9202f00661fe753.v4 = yago55_s2_9202f00661fe753.v4)), yago31_4_s3_9202f00661fe753 as (select * from umbra.identity(table(yago31_4_s2_9202f00661fe753)) where exists (select from umbra.identity(table(yago31_3_s2_9202f00661fe753)) where yago31_4_s2_9202f00661fe753.v6 = yago31_3_s2_9202f00661fe753.v6)), yago50_s3_9202f00661fe753 as (select * from umbra.identity(table(yago50_s2_9202f00661fe753)) where exists (select from umbra.identity(table(yago31_4_s2_9202f00661fe753)) where yago50_s2_9202f00661fe753.v8 = yago31_4_s2_9202f00661fe753.v8)), yago23_s3_9202f00661fe753 as (select * from umbra.identity(table(yago23_s2_9202f00661fe753)) where exists (select from umbra.identity(table(yago55_s2_9202f00661fe753)) where yago23_s2_9202f00661fe753.v2 = yago55_s2_9202f00661fe753.v2)), yago5_s3_9202f00661fe753 as (select * from umbra.identity(table(yago5_s2_9202f00661fe753)) where exists (select from umbra.identity(table(yago23_s2_9202f00661fe753)) where yago5_s2_9202f00661fe753.v0 = yago23_s2_9202f00661fe753.v0)) /* stage4 */, s4_group_654ACCBFC7B19318 as  (select * from umbra.identity(table(yago55_s2_9202f00661fe753)) NATURAL JOIN umbra.identity(table(yago23_s3_9202f00661fe753)) NATURAL JOIN umbra.identity(table(yago5_s3_9202f00661fe753)) NATURAL JOIN umbra.identity(table(yago31_3_s3_9202f00661fe753)) NATURAL JOIN umbra.identity(table(yago31_4_s3_9202f00661fe753)) NATURAL JOIN umbra.identity(table(yago50_s3_9202f00661fe753)))select count(*) from umbra.identity(table(s4_group_654ACCBFC7B19318));
+\set queryname yago_acyclic_Chain_6_07
+-- Result size: 19239
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago5_2:d;yago5_2:s -> yago54:d;yago54:s -> yago21:s;yago21:d -> yago5_5:d;}
+--   +-------------------------------+
+--   |                               |
+--   |             +---------+----+----+
+--   |             | yago54  |  s |  d |
+--   |             +---------+----+----+
+--   |                          |
+--   |                          |
+--   |                          |
+--   |             +---------+----+----+
+--   |             | yago21  |  s |  d |
+--   |             +---------+----+----+
+--   |                               |
+--   |                               |
+--   |                               |
+--   |             +---------+----+----+
+--   |             | yago5_5 |  s |  d |
+--   |             +---------+----+----+
+--   |  +---------+----------+----+
+--   |  | yago2_0 |     s    |  d |
+--   |  +---------+----------+----+
+--   |               |
+--   |               |
+--   |               |
+--   |  +---------+----------+----+
+--   |  | yago2_1 |     s    |  d |
+--   |  +---------+----------+----+
+--   |                          |
+--   +---------------+          |
+--                   |          |
+--      +---------+----------+----+
+--      | yago5_2 |     s    |  d |
+--      +---------+----------+----+
+with dummy as (select) /* stage1 */, yago5_2_s1_118b7480661fe753 as (select yago5_2.d as v2,yago5_2.s as v4 from yago5 yago5_2), yago54_s1_118b7480661fe753 as (select yago54.s as v6,yago54.d as v4 from yago54), yago21_s1_118b7480661fe753 as (select yago21.s as v6,yago21.d as v8 from yago21), yago5_5_s2_118b7480661fe753 as (select yago5_5.d as v8 from yago5 yago5_5), yago2_1_s1_118b7480661fe753 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_118b7480661fe753 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_118b7480661fe753 as (select * from umbra.identity(table(yago2_1_s1_118b7480661fe753)) where exists (select from umbra.identity(table(yago2_0_s2_118b7480661fe753)) where yago2_1_s1_118b7480661fe753.v0 = yago2_0_s2_118b7480661fe753.v0)), yago21_s2_118b7480661fe753 as (select * from umbra.identity(table(yago21_s1_118b7480661fe753)) where exists (select from umbra.identity(table(yago5_5_s2_118b7480661fe753)) where yago21_s1_118b7480661fe753.v8 = yago5_5_s2_118b7480661fe753.v8)), yago54_s2_118b7480661fe753 as (select * from umbra.identity(table(yago54_s1_118b7480661fe753)) where exists (select from umbra.identity(table(yago21_s2_118b7480661fe753)) where yago54_s1_118b7480661fe753.v6 = yago21_s2_118b7480661fe753.v6)), yago5_2_s2_118b7480661fe753 as (select * from umbra.identity(table(yago5_2_s1_118b7480661fe753)) where exists (select from umbra.identity(table(yago2_1_s2_118b7480661fe753)) where yago5_2_s1_118b7480661fe753.v2 = yago2_1_s2_118b7480661fe753.v2) AND exists (select from umbra.identity(table(yago54_s2_118b7480661fe753)) where yago5_2_s1_118b7480661fe753.v4 = yago54_s2_118b7480661fe753.v4)) /* stage3 */, yago54_s3_118b7480661fe753 as (select * from umbra.identity(table(yago54_s2_118b7480661fe753)) where exists (select from umbra.identity(table(yago5_2_s2_118b7480661fe753)) where yago54_s2_118b7480661fe753.v4 = yago5_2_s2_118b7480661fe753.v4)), yago21_s3_118b7480661fe753 as (select * from umbra.identity(table(yago21_s2_118b7480661fe753)) where exists (select from umbra.identity(table(yago54_s2_118b7480661fe753)) where yago21_s2_118b7480661fe753.v6 = yago54_s2_118b7480661fe753.v6)), yago5_5_s3_118b7480661fe753 as (select * from umbra.identity(table(yago5_5_s2_118b7480661fe753)) where exists (select from umbra.identity(table(yago21_s2_118b7480661fe753)) where yago5_5_s2_118b7480661fe753.v8 = yago21_s2_118b7480661fe753.v8)), yago2_1_s3_118b7480661fe753 as (select * from umbra.identity(table(yago2_1_s2_118b7480661fe753)) where exists (select from umbra.identity(table(yago5_2_s2_118b7480661fe753)) where yago2_1_s2_118b7480661fe753.v2 = yago5_2_s2_118b7480661fe753.v2)), yago2_0_s3_118b7480661fe753 as (select * from umbra.identity(table(yago2_0_s2_118b7480661fe753)) where exists (select from umbra.identity(table(yago2_1_s2_118b7480661fe753)) where yago2_0_s2_118b7480661fe753.v0 = yago2_1_s2_118b7480661fe753.v0)) /* stage4 */, s4_group_1D42EF2DEEAFFC1 as  (select * from umbra.identity(table(yago5_2_s2_118b7480661fe753)) NATURAL JOIN umbra.identity(table(yago2_1_s3_118b7480661fe753)) NATURAL JOIN umbra.identity(table(yago2_0_s3_118b7480661fe753)) NATURAL JOIN umbra.identity(table(yago54_s3_118b7480661fe753)) NATURAL JOIN umbra.identity(table(yago21_s3_118b7480661fe753)) NATURAL JOIN umbra.identity(table(yago5_5_s3_118b7480661fe753)))select count(*) from umbra.identity(table(s4_group_1D42EF2DEEAFFC1));
+\set queryname yago_acyclic_Chain_6_08
+-- Result size: 146
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago50_2 [label="yago50_2|<s> s|<d> d"]; yago50_3 [label="yago50_3|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago55 [label="yago55|<s> s|<d> d"]; yago0:d -> yago3:d;yago3:s -> yago50_2:s;yago50_2:d -> yago50_3:d;yago50_3:s -> yago17:d;yago17:s -> yago55:s;}
+--               +--------------------------------------+
+--               |                                      |
+-- +----------+----+----+          +-------+----+----+  |
+-- | yago50_3 |  s |  d |          | yago0 |  s |  d |  |
+-- +----------+----+----+          +-------+----+----+  |
+--                    |                            |    |
+--                    |                            |    |
+--                    |                            |    |
+-- +----------+----+----+          +-------+----+----+  |
+-- | yago50_2 |  s |  d |          | yago3 |  s |  d |  |
+-- +----------+----+----+          +-------+----+----+  |
+--               |                            |         |
+--               +----------------------------+         |
+--                                                      |
+--                       +--------+--------+----+       |
+--                       | yago17 |    s   |  d | ------+
+--                       +--------+--------+----+
+--                                   |
+--                                   |
+--                                   |
+--                       +--------+--------+----+
+--                       | yago55 |    s   |  d |
+--                       +--------+--------+----+
+with dummy as (select) /* stage1 */, yago50_3_s1_1a538a00661fe753 as (select yago50_3.d as v4,yago50_3.s as v6 from yago50 yago50_3), yago50_2_s1_1a538a00661fe753 as (select yago50_2.d as v4,yago50_2.s as v2 from yago50 yago50_2), yago3_s1_1a538a00661fe753 as (select yago3.d as v0,yago3.s as v2 from yago3), yago0_s2_1a538a00661fe753 as (select yago0.d as v0 from yago0), yago17_s1_1a538a00661fe753 as (select yago17.s as v8,yago17.d as v6 from yago17), yago55_s2_1a538a00661fe753 as (select yago55.s as v8 from yago55) /* stage2 */, yago17_s2_1a538a00661fe753 as (select * from umbra.identity(table(yago17_s1_1a538a00661fe753)) where exists (select from umbra.identity(table(yago55_s2_1a538a00661fe753)) where yago17_s1_1a538a00661fe753.v8 = yago55_s2_1a538a00661fe753.v8)), yago3_s2_1a538a00661fe753 as (select * from umbra.identity(table(yago3_s1_1a538a00661fe753)) where exists (select from umbra.identity(table(yago0_s2_1a538a00661fe753)) where yago3_s1_1a538a00661fe753.v0 = yago0_s2_1a538a00661fe753.v0)), yago50_2_s2_1a538a00661fe753 as (select * from umbra.identity(table(yago50_2_s1_1a538a00661fe753)) where exists (select from umbra.identity(table(yago3_s2_1a538a00661fe753)) where yago50_2_s1_1a538a00661fe753.v2 = yago3_s2_1a538a00661fe753.v2)), yago50_3_s2_1a538a00661fe753 as (select * from umbra.identity(table(yago50_3_s1_1a538a00661fe753)) where exists (select from umbra.identity(table(yago17_s2_1a538a00661fe753)) where yago50_3_s1_1a538a00661fe753.v6 = yago17_s2_1a538a00661fe753.v6) AND exists (select from umbra.identity(table(yago50_2_s2_1a538a00661fe753)) where yago50_3_s1_1a538a00661fe753.v4 = yago50_2_s2_1a538a00661fe753.v4)) /* stage3 */, yago50_2_s3_1a538a00661fe753 as (select * from umbra.identity(table(yago50_2_s2_1a538a00661fe753)) where exists (select from umbra.identity(table(yago50_3_s2_1a538a00661fe753)) where yago50_2_s2_1a538a00661fe753.v4 = yago50_3_s2_1a538a00661fe753.v4)), yago3_s3_1a538a00661fe753 as (select * from umbra.identity(table(yago3_s2_1a538a00661fe753)) where exists (select from umbra.identity(table(yago50_2_s2_1a538a00661fe753)) where yago3_s2_1a538a00661fe753.v2 = yago50_2_s2_1a538a00661fe753.v2)), yago0_s3_1a538a00661fe753 as (select * from umbra.identity(table(yago0_s2_1a538a00661fe753)) where exists (select from umbra.identity(table(yago3_s2_1a538a00661fe753)) where yago0_s2_1a538a00661fe753.v0 = yago3_s2_1a538a00661fe753.v0)), yago17_s3_1a538a00661fe753 as (select * from umbra.identity(table(yago17_s2_1a538a00661fe753)) where exists (select from umbra.identity(table(yago50_3_s2_1a538a00661fe753)) where yago17_s2_1a538a00661fe753.v6 = yago50_3_s2_1a538a00661fe753.v6)), yago55_s3_1a538a00661fe753 as (select * from umbra.identity(table(yago55_s2_1a538a00661fe753)) where exists (select from umbra.identity(table(yago17_s2_1a538a00661fe753)) where yago55_s2_1a538a00661fe753.v8 = yago17_s2_1a538a00661fe753.v8)) /* stage4 */, s4_group_33CC84B6503BDA3F as  (select * from umbra.identity(table(yago50_3_s2_1a538a00661fe753)) NATURAL JOIN umbra.identity(table(yago17_s3_1a538a00661fe753)) NATURAL JOIN umbra.identity(table(yago55_s3_1a538a00661fe753)) NATURAL JOIN umbra.identity(table(yago50_2_s3_1a538a00661fe753)) NATURAL JOIN umbra.identity(table(yago3_s3_1a538a00661fe753)) NATURAL JOIN umbra.identity(table(yago0_s3_1a538a00661fe753)))select count(*) from umbra.identity(table(s4_group_33CC84B6503BDA3F));
+\set queryname yago_acyclic_Chain_6_09
+-- Result size: 4129
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago4:s;}
+-- +---------+--------+----+
+-- | yago2_0 |    s   |  d |
+-- +---------+--------+----+
+--              |
+--              |
+--              |
+-- +---------+--------+----+
+-- | yago2_1 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | yago2_2 |    s   |  d |
+-- +---------+--------+----+
+--              |
+--              |
+--              |
+-- +---------+--------+----+
+-- | yago2_3 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+--            +-------+----+---+
+--            | yago4 |  s | d |
+--            +-------+----+---+
+with dummy as (select) /* stage1 */, yago2_2_s1_2b70b00661fe754 as (select yago2_2.s as v4,yago2_2.d as v2 from yago2 yago2_2), yago2_3_s1_2b70b00661fe754 as (select yago2_3.s as v4,yago2_3.d as v6 from yago2 yago2_3), yago4_s2_2b70b00661fe754 as (select yago4.s as v6 from yago4), yago2_1_s1_2b70b00661fe754 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_2b70b00661fe754 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_2b70b00661fe754 as (select * from umbra.identity(table(yago2_1_s1_2b70b00661fe754)) where exists (select from umbra.identity(table(yago2_0_s2_2b70b00661fe754)) where yago2_1_s1_2b70b00661fe754.v0 = yago2_0_s2_2b70b00661fe754.v0)), yago2_3_s2_2b70b00661fe754 as (select * from umbra.identity(table(yago2_3_s1_2b70b00661fe754)) where exists (select from umbra.identity(table(yago4_s2_2b70b00661fe754)) where yago2_3_s1_2b70b00661fe754.v6 = yago4_s2_2b70b00661fe754.v6)), yago2_2_s2_2b70b00661fe754 as (select * from umbra.identity(table(yago2_2_s1_2b70b00661fe754)) where exists (select from umbra.identity(table(yago2_1_s2_2b70b00661fe754)) where yago2_2_s1_2b70b00661fe754.v2 = yago2_1_s2_2b70b00661fe754.v2) AND exists (select from umbra.identity(table(yago2_3_s2_2b70b00661fe754)) where yago2_2_s1_2b70b00661fe754.v4 = yago2_3_s2_2b70b00661fe754.v4)) /* stage3 */, yago2_3_s3_2b70b00661fe754 as (select * from umbra.identity(table(yago2_3_s2_2b70b00661fe754)) where exists (select from umbra.identity(table(yago2_2_s2_2b70b00661fe754)) where yago2_3_s2_2b70b00661fe754.v4 = yago2_2_s2_2b70b00661fe754.v4)), yago4_s3_2b70b00661fe754 as (select * from umbra.identity(table(yago4_s2_2b70b00661fe754)) where exists (select from umbra.identity(table(yago2_3_s2_2b70b00661fe754)) where yago4_s2_2b70b00661fe754.v6 = yago2_3_s2_2b70b00661fe754.v6)), yago2_1_s3_2b70b00661fe754 as (select * from umbra.identity(table(yago2_1_s2_2b70b00661fe754)) where exists (select from umbra.identity(table(yago2_2_s2_2b70b00661fe754)) where yago2_1_s2_2b70b00661fe754.v2 = yago2_2_s2_2b70b00661fe754.v2)), yago2_0_s3_2b70b00661fe754 as (select * from umbra.identity(table(yago2_0_s2_2b70b00661fe754)) where exists (select from umbra.identity(table(yago2_1_s2_2b70b00661fe754)) where yago2_0_s2_2b70b00661fe754.v0 = yago2_1_s2_2b70b00661fe754.v0)) /* stage4 */, s4_group_3C2C2E831FE8A9A2 as  (select * from umbra.identity(table(yago2_2_s2_2b70b00661fe754)) NATURAL JOIN umbra.identity(table(yago2_1_s3_2b70b00661fe754)) NATURAL JOIN umbra.identity(table(yago2_0_s3_2b70b00661fe754)) NATURAL JOIN umbra.identity(table(yago2_3_s3_2b70b00661fe754)) NATURAL JOIN umbra.identity(table(yago4_s3_2b70b00661fe754)))select count(*) from umbra.identity(table(s4_group_3C2C2E831FE8A9A2));
+\set queryname yago_acyclic_Chain_6_10
+-- Result size: 331
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2 [label="yago2|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago11 [label="yago11|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago2:s -> yago6:d;yago6:s -> yago11:s;yago11:d -> yago25:d;yago25:s -> yago35:s;yago35:d -> yago36:d;}
+--                                              +---------+
+--                                              |         |
+-- +--------+----+--------+         +--------+----+----+  |
+-- | yago36 |  s |    d   |         | yago11 |  s |  d |  |
+-- +--------+----+--------+         +--------+----+----+  |
+--                  |                                |    |
+--                  |                                |    |
+--                  |                                |    |
+-- +--------+----+--------+         +--------+----+----+  |
+-- | yago35 |  s |    d   |         | yago25 |  s |  d |  |
+-- +--------+----+--------+         +--------+----+----+  |
+--             |                                |         |
+--             +--------------------------------+         |
+--                                                        |
+--                         +-------+---------+----+       |
+--                         | yago2 |    s    |  d |       |
+--                         +-------+---------+----+       |
+--                                    |                   |
+--                                    |                   |
+--                                    |                   |
+--                +-------+--------+---------+            |
+--                | yago6 |    s   |    d    |            |
+--                +-------+--------+---------+            |
+--                           |                            |
+--                           +----------------------------+
+with dummy as (select) /* stage1 */, yago25_s1_b2d0680661fe754 as (select yago25.d as v4,yago25.s as v6 from yago25), yago11_s1_b2d0680661fe754 as (select yago11.d as v4,yago11.s as v2 from yago11), yago6_s1_b2d0680661fe754 as (select yago6.s as v2,yago6.d as v0 from yago6), yago2_s2_b2d0680661fe754 as (select yago2.s as v0 from yago2), yago35_s1_b2d0680661fe754 as (select yago35.d as v8,yago35.s as v6 from yago35), yago36_s2_b2d0680661fe754 as (select yago36.d as v8 from yago36) /* stage2 */, yago35_s2_b2d0680661fe754 as (select * from umbra.identity(table(yago35_s1_b2d0680661fe754)) where exists (select from umbra.identity(table(yago36_s2_b2d0680661fe754)) where yago35_s1_b2d0680661fe754.v8 = yago36_s2_b2d0680661fe754.v8)), yago6_s2_b2d0680661fe754 as (select * from umbra.identity(table(yago6_s1_b2d0680661fe754)) where exists (select from umbra.identity(table(yago2_s2_b2d0680661fe754)) where yago6_s1_b2d0680661fe754.v0 = yago2_s2_b2d0680661fe754.v0)), yago11_s2_b2d0680661fe754 as (select * from umbra.identity(table(yago11_s1_b2d0680661fe754)) where exists (select from umbra.identity(table(yago6_s2_b2d0680661fe754)) where yago11_s1_b2d0680661fe754.v2 = yago6_s2_b2d0680661fe754.v2)), yago25_s2_b2d0680661fe754 as (select * from umbra.identity(table(yago25_s1_b2d0680661fe754)) where exists (select from umbra.identity(table(yago35_s2_b2d0680661fe754)) where yago25_s1_b2d0680661fe754.v6 = yago35_s2_b2d0680661fe754.v6) AND exists (select from umbra.identity(table(yago11_s2_b2d0680661fe754)) where yago25_s1_b2d0680661fe754.v4 = yago11_s2_b2d0680661fe754.v4)) /* stage3 */, yago11_s3_b2d0680661fe754 as (select * from umbra.identity(table(yago11_s2_b2d0680661fe754)) where exists (select from umbra.identity(table(yago25_s2_b2d0680661fe754)) where yago11_s2_b2d0680661fe754.v4 = yago25_s2_b2d0680661fe754.v4)), yago6_s3_b2d0680661fe754 as (select * from umbra.identity(table(yago6_s2_b2d0680661fe754)) where exists (select from umbra.identity(table(yago11_s2_b2d0680661fe754)) where yago6_s2_b2d0680661fe754.v2 = yago11_s2_b2d0680661fe754.v2)), yago2_s3_b2d0680661fe754 as (select * from umbra.identity(table(yago2_s2_b2d0680661fe754)) where exists (select from umbra.identity(table(yago6_s2_b2d0680661fe754)) where yago2_s2_b2d0680661fe754.v0 = yago6_s2_b2d0680661fe754.v0)), yago35_s3_b2d0680661fe754 as (select * from umbra.identity(table(yago35_s2_b2d0680661fe754)) where exists (select from umbra.identity(table(yago25_s2_b2d0680661fe754)) where yago35_s2_b2d0680661fe754.v6 = yago25_s2_b2d0680661fe754.v6)), yago36_s3_b2d0680661fe754 as (select * from umbra.identity(table(yago36_s2_b2d0680661fe754)) where exists (select from umbra.identity(table(yago35_s2_b2d0680661fe754)) where yago36_s2_b2d0680661fe754.v8 = yago35_s2_b2d0680661fe754.v8)) /* stage4 */, s4_group_652668B3365447E9 as  (select * from umbra.identity(table(yago25_s2_b2d0680661fe754)) NATURAL JOIN umbra.identity(table(yago35_s3_b2d0680661fe754)) NATURAL JOIN umbra.identity(table(yago36_s3_b2d0680661fe754)) NATURAL JOIN umbra.identity(table(yago11_s3_b2d0680661fe754)) NATURAL JOIN umbra.identity(table(yago6_s3_b2d0680661fe754)) NATURAL JOIN umbra.identity(table(yago2_s3_b2d0680661fe754)))select count(*) from umbra.identity(table(s4_group_652668B3365447E9));
+\set queryname yago_acyclic_Chain_6_11
+-- Result size: 13223
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago5:s;yago5:d -> yago17_3:s;yago17_3:d -> yago17_4:s;yago17_4:d -> yago17_5:s;}
+--                          +-------------------------------+
+--                          |                               |
+--            +----------+-----------+----------+           |
+--            | yago17_3 |     s     |     d    |           |
+--            +----------+-----------+----------+           |
+--                                      |                   |
+--                                      |                   |
+--                                      |                   |
+--                        +----------+----------+----+      |
+--                        | yago17_4 |     s    |  d |      |
+--                        +----------+----------+----+      |
+--                                                 |        |
+--                                                 |        |
+--                                                 |        |
+-- +---------+-----------+-----------+----------+----+---+  |
+-- | yago2_0 |     s     |     d     | yago17_5 |  s | d |  |
+-- +---------+-----------+-----------+----------+----+---+  |
+--              |                                           |
+--              |                       +-------------------+
+--              |                       |
+-- +---------+-----------+-----------+  |
+-- | yago2_1 |     s     |     d     |  |
+-- +---------+-----------+-----------+  |
+--                          |           |
+--                          |           |
+--                          |           |
+--            +----------+-----------+----------+
+--            |  yago5   |     s     |     d    |
+--            +----------+-----------+----------+
+with dummy as (select) /* stage1 */, yago5_s1_13a5c500661fe754 as (select yago5.d as v4,yago5.s as v2 from yago5), yago17_3_s1_13a5c500661fe754 as (select yago17_3.d as v6,yago17_3.s as v4 from yago17 yago17_3), yago17_4_s1_13a5c500661fe754 as (select yago17_4.d as v8,yago17_4.s as v6 from yago17 yago17_4), yago17_5_s2_13a5c500661fe754 as (select yago17_5.s as v8 from yago17 yago17_5), yago2_1_s1_13a5c500661fe754 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_13a5c500661fe754 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_13a5c500661fe754 as (select * from umbra.identity(table(yago2_1_s1_13a5c500661fe754)) where exists (select from umbra.identity(table(yago2_0_s2_13a5c500661fe754)) where yago2_1_s1_13a5c500661fe754.v0 = yago2_0_s2_13a5c500661fe754.v0)), yago17_4_s2_13a5c500661fe754 as (select * from umbra.identity(table(yago17_4_s1_13a5c500661fe754)) where exists (select from umbra.identity(table(yago17_5_s2_13a5c500661fe754)) where yago17_4_s1_13a5c500661fe754.v8 = yago17_5_s2_13a5c500661fe754.v8)), yago17_3_s2_13a5c500661fe754 as (select * from umbra.identity(table(yago17_3_s1_13a5c500661fe754)) where exists (select from umbra.identity(table(yago17_4_s2_13a5c500661fe754)) where yago17_3_s1_13a5c500661fe754.v6 = yago17_4_s2_13a5c500661fe754.v6)), yago5_s2_13a5c500661fe754 as (select * from umbra.identity(table(yago5_s1_13a5c500661fe754)) where exists (select from umbra.identity(table(yago2_1_s2_13a5c500661fe754)) where yago5_s1_13a5c500661fe754.v2 = yago2_1_s2_13a5c500661fe754.v2) AND exists (select from umbra.identity(table(yago17_3_s2_13a5c500661fe754)) where yago5_s1_13a5c500661fe754.v4 = yago17_3_s2_13a5c500661fe754.v4)) /* stage3 */, yago17_3_s3_13a5c500661fe754 as (select * from umbra.identity(table(yago17_3_s2_13a5c500661fe754)) where exists (select from umbra.identity(table(yago5_s2_13a5c500661fe754)) where yago17_3_s2_13a5c500661fe754.v4 = yago5_s2_13a5c500661fe754.v4)), yago17_4_s3_13a5c500661fe754 as (select * from umbra.identity(table(yago17_4_s2_13a5c500661fe754)) where exists (select from umbra.identity(table(yago17_3_s2_13a5c500661fe754)) where yago17_4_s2_13a5c500661fe754.v6 = yago17_3_s2_13a5c500661fe754.v6)), yago17_5_s3_13a5c500661fe754 as (select * from umbra.identity(table(yago17_5_s2_13a5c500661fe754)) where exists (select from umbra.identity(table(yago17_4_s2_13a5c500661fe754)) where yago17_5_s2_13a5c500661fe754.v8 = yago17_4_s2_13a5c500661fe754.v8)), yago2_1_s3_13a5c500661fe754 as (select * from umbra.identity(table(yago2_1_s2_13a5c500661fe754)) where exists (select from umbra.identity(table(yago5_s2_13a5c500661fe754)) where yago2_1_s2_13a5c500661fe754.v2 = yago5_s2_13a5c500661fe754.v2)), yago2_0_s3_13a5c500661fe754 as (select * from umbra.identity(table(yago2_0_s2_13a5c500661fe754)) where exists (select from umbra.identity(table(yago2_1_s2_13a5c500661fe754)) where yago2_0_s2_13a5c500661fe754.v0 = yago2_1_s2_13a5c500661fe754.v0)) /* stage4 */, s4_group_2E8352C5AA6D38E3 as  (select * from umbra.identity(table(yago5_s2_13a5c500661fe754)) NATURAL JOIN umbra.identity(table(yago2_1_s3_13a5c500661fe754)) NATURAL JOIN umbra.identity(table(yago2_0_s3_13a5c500661fe754)) NATURAL JOIN umbra.identity(table(yago17_3_s3_13a5c500661fe754)) NATURAL JOIN umbra.identity(table(yago17_4_s3_13a5c500661fe754)) NATURAL JOIN umbra.identity(table(yago17_5_s3_13a5c500661fe754)))select count(*) from umbra.identity(table(s4_group_2E8352C5AA6D38E3));
+\set queryname yago_acyclic_Chain_6_12
+-- Result size: 7258
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago21_0 [label="yago21_0|<s> s|<d> d"]; yago21_1 [label="yago21_1|<s> s|<d> d"]; yago21_2 [label="yago21_2|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago21_4 [label="yago21_4|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago21_0:s -> yago21_1:s;yago21_1:d -> yago21_2:d;yago21_2:s -> yago58:s;yago58:d -> yago21_4:s;yago21_4:d -> yago5:d;}
+--                  +----------+----+----+
+--                  | yago21_0 |  s |  d |
+--                  +----------+----+----+
+--                                |
+--                                |
+--                                |
+--                  +----------+----+----+
+--                  | yago21_1 |  s |  d |
+--                  +----------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +----------+----+----+
+--                  | yago21_2 |  s |  d |
+--                  +----------+----+----+
+--                                |
+--                                |
+--                                |
+--                  +----------+----+----+
+--                  |  yago58  |  s |  d |
+--                  +----------+----+----+
+--                                     |
+--               +---------------------+
+--               |
+-- +----------+----+-----------+
+-- | yago21_4 |  s |     d     |
+-- +----------+----+-----------+
+--                    |
+--                    |
+--                    |
+-- +----------+----+-----------+
+-- |  yago5   |  s |     d     |
+-- +----------+----+-----------+
+with dummy as (select) /* stage1 */, yago58_s1_1c03ca80661fe754 as (select yago58.s as v4,yago58.d as v6 from yago58), yago21_2_s1_1c03ca80661fe754 as (select yago21_2.s as v4,yago21_2.d as v2 from yago21 yago21_2), yago21_1_s1_1c03ca80661fe754 as (select yago21_1.s as v0,yago21_1.d as v2 from yago21 yago21_1), yago21_0_s2_1c03ca80661fe754 as (select yago21_0.s as v0 from yago21 yago21_0), yago21_4_s1_1c03ca80661fe754 as (select yago21_4.d as v8,yago21_4.s as v6 from yago21 yago21_4), yago5_s2_1c03ca80661fe754 as (select yago5.d as v8 from yago5) /* stage2 */, yago21_4_s2_1c03ca80661fe754 as (select * from umbra.identity(table(yago21_4_s1_1c03ca80661fe754)) where exists (select from umbra.identity(table(yago5_s2_1c03ca80661fe754)) where yago21_4_s1_1c03ca80661fe754.v8 = yago5_s2_1c03ca80661fe754.v8)), yago21_1_s2_1c03ca80661fe754 as (select * from umbra.identity(table(yago21_1_s1_1c03ca80661fe754)) where exists (select from umbra.identity(table(yago21_0_s2_1c03ca80661fe754)) where yago21_1_s1_1c03ca80661fe754.v0 = yago21_0_s2_1c03ca80661fe754.v0)), yago21_2_s2_1c03ca80661fe754 as (select * from umbra.identity(table(yago21_2_s1_1c03ca80661fe754)) where exists (select from umbra.identity(table(yago21_1_s2_1c03ca80661fe754)) where yago21_2_s1_1c03ca80661fe754.v2 = yago21_1_s2_1c03ca80661fe754.v2)), yago58_s2_1c03ca80661fe754 as (select * from umbra.identity(table(yago58_s1_1c03ca80661fe754)) where exists (select from umbra.identity(table(yago21_4_s2_1c03ca80661fe754)) where yago58_s1_1c03ca80661fe754.v6 = yago21_4_s2_1c03ca80661fe754.v6) AND exists (select from umbra.identity(table(yago21_2_s2_1c03ca80661fe754)) where yago58_s1_1c03ca80661fe754.v4 = yago21_2_s2_1c03ca80661fe754.v4)) /* stage3 */, yago21_2_s3_1c03ca80661fe754 as (select * from umbra.identity(table(yago21_2_s2_1c03ca80661fe754)) where exists (select from umbra.identity(table(yago58_s2_1c03ca80661fe754)) where yago21_2_s2_1c03ca80661fe754.v4 = yago58_s2_1c03ca80661fe754.v4)), yago21_1_s3_1c03ca80661fe754 as (select * from umbra.identity(table(yago21_1_s2_1c03ca80661fe754)) where exists (select from umbra.identity(table(yago21_2_s2_1c03ca80661fe754)) where yago21_1_s2_1c03ca80661fe754.v2 = yago21_2_s2_1c03ca80661fe754.v2)), yago21_0_s3_1c03ca80661fe754 as (select * from umbra.identity(table(yago21_0_s2_1c03ca80661fe754)) where exists (select from umbra.identity(table(yago21_1_s2_1c03ca80661fe754)) where yago21_0_s2_1c03ca80661fe754.v0 = yago21_1_s2_1c03ca80661fe754.v0)), yago21_4_s3_1c03ca80661fe754 as (select * from umbra.identity(table(yago21_4_s2_1c03ca80661fe754)) where exists (select from umbra.identity(table(yago58_s2_1c03ca80661fe754)) where yago21_4_s2_1c03ca80661fe754.v6 = yago58_s2_1c03ca80661fe754.v6)), yago5_s3_1c03ca80661fe754 as (select * from umbra.identity(table(yago5_s2_1c03ca80661fe754)) where exists (select from umbra.identity(table(yago21_4_s2_1c03ca80661fe754)) where yago5_s2_1c03ca80661fe754.v8 = yago21_4_s2_1c03ca80661fe754.v8)) /* stage4 */, s4_group_7DDEAB29C3D2658 as  (select * from umbra.identity(table(yago58_s2_1c03ca80661fe754)) NATURAL JOIN umbra.identity(table(yago21_4_s3_1c03ca80661fe754)) NATURAL JOIN umbra.identity(table(yago5_s3_1c03ca80661fe754)) NATURAL JOIN umbra.identity(table(yago21_2_s3_1c03ca80661fe754)) NATURAL JOIN umbra.identity(table(yago21_1_s3_1c03ca80661fe754)) NATURAL JOIN umbra.identity(table(yago21_0_s3_1c03ca80661fe754)))select count(*) from umbra.identity(table(s4_group_7DDEAB29C3D2658));
+\set queryname yago_acyclic_Chain_6_13
+-- Result size: 171
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago21_4 [label="yago21_4|<s> s|<d> d"]; yago21_5 [label="yago21_5|<s> s|<d> d"]; yago5_0:s -> yago5_1:s;yago5_1:d -> yago17:d;yago17:s -> yago5_3:s;yago5_3:d -> yago21_4:d;yago21_4:s -> yago21_5:s;}
+--             +---------+----+----+
+--             | yago17  |  s |  d | -+
+--             +---------+----+----+  |
+--                          |         |
+--                          |         |
+--                          |         |
+--             +---------+----+----+  |
+--             | yago5_3 |  s |  d | -+----+
+--             +---------+----+----+  |    |
+--                                    |    |
+--                               +----+    |
+--                               |         |
+-- +----------+----------+----+  |         |
+-- | yago21_4 |     s    |  d | -+---------+
+-- +----------+----------+----+  |
+--               |               |
+--               |               |
+--               |               |
+-- +----------+----------+----+  |
+-- | yago21_5 |     s    |  d |  |
+-- +----------+----------+----+  |
+-- +----------+----------+----+  |
+-- | yago5_0  |     s    |  d |  |
+-- +----------+----------+----+  |
+--               |               |
+--               |               |
+--               |               |
+-- +----------+----------+----+  |
+-- | yago5_1  |     s    |  d | -+
+-- +----------+----------+----+
+with dummy as (select) /* stage1 */, yago5_3_s1_4886200661fe755 as (select yago5_3.d as v6,yago5_3.s as v4 from yago5 yago5_3), yago17_s1_4886200661fe755 as (select yago17.d as v2,yago17.s as v4 from yago17), yago5_1_s1_4886200661fe755 as (select yago5_1.d as v2,yago5_1.s as v0 from yago5 yago5_1), yago5_0_s2_4886200661fe755 as (select yago5_0.s as v0 from yago5 yago5_0), yago21_4_s1_4886200661fe755 as (select yago21_4.s as v8,yago21_4.d as v6 from yago21 yago21_4), yago21_5_s2_4886200661fe755 as (select yago21_5.s as v8 from yago21 yago21_5) /* stage2 */, yago21_4_s2_4886200661fe755 as (select * from umbra.identity(table(yago21_4_s1_4886200661fe755)) where exists (select from umbra.identity(table(yago21_5_s2_4886200661fe755)) where yago21_4_s1_4886200661fe755.v8 = yago21_5_s2_4886200661fe755.v8)), yago5_1_s2_4886200661fe755 as (select * from umbra.identity(table(yago5_1_s1_4886200661fe755)) where exists (select from umbra.identity(table(yago5_0_s2_4886200661fe755)) where yago5_1_s1_4886200661fe755.v0 = yago5_0_s2_4886200661fe755.v0)), yago17_s2_4886200661fe755 as (select * from umbra.identity(table(yago17_s1_4886200661fe755)) where exists (select from umbra.identity(table(yago5_1_s2_4886200661fe755)) where yago17_s1_4886200661fe755.v2 = yago5_1_s2_4886200661fe755.v2)), yago5_3_s2_4886200661fe755 as (select * from umbra.identity(table(yago5_3_s1_4886200661fe755)) where exists (select from umbra.identity(table(yago21_4_s2_4886200661fe755)) where yago5_3_s1_4886200661fe755.v6 = yago21_4_s2_4886200661fe755.v6) AND exists (select from umbra.identity(table(yago17_s2_4886200661fe755)) where yago5_3_s1_4886200661fe755.v4 = yago17_s2_4886200661fe755.v4)) /* stage3 */, yago17_s3_4886200661fe755 as (select * from umbra.identity(table(yago17_s2_4886200661fe755)) where exists (select from umbra.identity(table(yago5_3_s2_4886200661fe755)) where yago17_s2_4886200661fe755.v4 = yago5_3_s2_4886200661fe755.v4)), yago5_1_s3_4886200661fe755 as (select * from umbra.identity(table(yago5_1_s2_4886200661fe755)) where exists (select from umbra.identity(table(yago17_s2_4886200661fe755)) where yago5_1_s2_4886200661fe755.v2 = yago17_s2_4886200661fe755.v2)), yago5_0_s3_4886200661fe755 as (select * from umbra.identity(table(yago5_0_s2_4886200661fe755)) where exists (select from umbra.identity(table(yago5_1_s2_4886200661fe755)) where yago5_0_s2_4886200661fe755.v0 = yago5_1_s2_4886200661fe755.v0)), yago21_4_s3_4886200661fe755 as (select * from umbra.identity(table(yago21_4_s2_4886200661fe755)) where exists (select from umbra.identity(table(yago5_3_s2_4886200661fe755)) where yago21_4_s2_4886200661fe755.v6 = yago5_3_s2_4886200661fe755.v6)), yago21_5_s3_4886200661fe755 as (select * from umbra.identity(table(yago21_5_s2_4886200661fe755)) where exists (select from umbra.identity(table(yago21_4_s2_4886200661fe755)) where yago21_5_s2_4886200661fe755.v8 = yago21_4_s2_4886200661fe755.v8)) /* stage4 */, s4_group_6DDCED03279AC2F2 as  (select * from umbra.identity(table(yago5_3_s2_4886200661fe755)) NATURAL JOIN umbra.identity(table(yago21_4_s3_4886200661fe755)) NATURAL JOIN umbra.identity(table(yago21_5_s3_4886200661fe755)) NATURAL JOIN umbra.identity(table(yago17_s3_4886200661fe755)) NATURAL JOIN umbra.identity(table(yago5_1_s3_4886200661fe755)) NATURAL JOIN umbra.identity(table(yago5_0_s3_4886200661fe755)))select count(*) from umbra.identity(table(s4_group_6DDCED03279AC2F2));
+\set queryname yago_acyclic_Chain_6_14
+-- Result size: 3
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago46:d;yago46:s -> yago22:s;yago22:d -> yago23:d;yago23:s -> yago5:s;}
+--                 +--------+----+----+
+--                 | yago22 |  s |  d |
+--                 +--------+----+----+
+--                             |    |
+--   +-------------------------+    |
+--   |                              |
+--   |             +--------+----+----+
+--   |             | yago23 |  s |  d |
+--   |             +--------+----+----+
+--   |                         |
+--   |                         |
+--   |                         |
+--   |             +--------+----+----+
+--   |             | yago5  |  s |  d |
+--   |             +--------+----+----+
+--   |  +---------+---------+----+
+--   |  | yago2_0 |    s    |  d |
+--   |  +---------+---------+----+
+--   |               |
+--   |               |
+--   |               |
+--   |  +---------+---------+----+
+--   |  | yago2_1 |    s    |  d |
+--   |  +---------+---------+----+
+--   |                         |
+--   +---------------+         |
+--                   |         |
+--      +---------+---------+----+
+--      | yago46  |    s    |  d |
+--      +---------+---------+----+
+with dummy as (select) /* stage1 */, yago46_s1_cf9f400661fe755 as (select yago46.s as v4,yago46.d as v2 from yago46), yago22_s1_cf9f400661fe755 as (select yago22.s as v4,yago22.d as v6 from yago22), yago23_s1_cf9f400661fe755 as (select yago23.d as v6,yago23.s as v8 from yago23), yago5_s2_cf9f400661fe755 as (select yago5.s as v8 from yago5), yago2_1_s1_cf9f400661fe755 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_cf9f400661fe755 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_cf9f400661fe755 as (select * from umbra.identity(table(yago2_1_s1_cf9f400661fe755)) where exists (select from umbra.identity(table(yago2_0_s2_cf9f400661fe755)) where yago2_1_s1_cf9f400661fe755.v0 = yago2_0_s2_cf9f400661fe755.v0)), yago23_s2_cf9f400661fe755 as (select * from umbra.identity(table(yago23_s1_cf9f400661fe755)) where exists (select from umbra.identity(table(yago5_s2_cf9f400661fe755)) where yago23_s1_cf9f400661fe755.v8 = yago5_s2_cf9f400661fe755.v8)), yago22_s2_cf9f400661fe755 as (select * from umbra.identity(table(yago22_s1_cf9f400661fe755)) where exists (select from umbra.identity(table(yago23_s2_cf9f400661fe755)) where yago22_s1_cf9f400661fe755.v6 = yago23_s2_cf9f400661fe755.v6)), yago46_s2_cf9f400661fe755 as (select * from umbra.identity(table(yago46_s1_cf9f400661fe755)) where exists (select from umbra.identity(table(yago2_1_s2_cf9f400661fe755)) where yago46_s1_cf9f400661fe755.v2 = yago2_1_s2_cf9f400661fe755.v2) AND exists (select from umbra.identity(table(yago22_s2_cf9f400661fe755)) where yago46_s1_cf9f400661fe755.v4 = yago22_s2_cf9f400661fe755.v4)) /* stage3 */, yago22_s3_cf9f400661fe755 as (select * from umbra.identity(table(yago22_s2_cf9f400661fe755)) where exists (select from umbra.identity(table(yago46_s2_cf9f400661fe755)) where yago22_s2_cf9f400661fe755.v4 = yago46_s2_cf9f400661fe755.v4)), yago23_s3_cf9f400661fe755 as (select * from umbra.identity(table(yago23_s2_cf9f400661fe755)) where exists (select from umbra.identity(table(yago22_s2_cf9f400661fe755)) where yago23_s2_cf9f400661fe755.v6 = yago22_s2_cf9f400661fe755.v6)), yago5_s3_cf9f400661fe755 as (select * from umbra.identity(table(yago5_s2_cf9f400661fe755)) where exists (select from umbra.identity(table(yago23_s2_cf9f400661fe755)) where yago5_s2_cf9f400661fe755.v8 = yago23_s2_cf9f400661fe755.v8)), yago2_1_s3_cf9f400661fe755 as (select * from umbra.identity(table(yago2_1_s2_cf9f400661fe755)) where exists (select from umbra.identity(table(yago46_s2_cf9f400661fe755)) where yago2_1_s2_cf9f400661fe755.v2 = yago46_s2_cf9f400661fe755.v2)), yago2_0_s3_cf9f400661fe755 as (select * from umbra.identity(table(yago2_0_s2_cf9f400661fe755)) where exists (select from umbra.identity(table(yago2_1_s2_cf9f400661fe755)) where yago2_0_s2_cf9f400661fe755.v0 = yago2_1_s2_cf9f400661fe755.v0)) /* stage4 */, s4_group_5D00720F1C0A6054 as  (select * from umbra.identity(table(yago46_s2_cf9f400661fe755)) NATURAL JOIN umbra.identity(table(yago2_1_s3_cf9f400661fe755)) NATURAL JOIN umbra.identity(table(yago2_0_s3_cf9f400661fe755)) NATURAL JOIN umbra.identity(table(yago22_s3_cf9f400661fe755)) NATURAL JOIN umbra.identity(table(yago23_s3_cf9f400661fe755)) NATURAL JOIN umbra.identity(table(yago5_s3_cf9f400661fe755)))select count(*) from umbra.identity(table(s4_group_5D00720F1C0A6054));
+\set queryname yago_acyclic_Chain_6_15
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5 [label="yago5|<s> s|<d> d"]; yago13_1 [label="yago13_1|<s> s|<d> d"]; yago13_2 [label="yago13_2|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago35_4 [label="yago35_4|<s> s|<d> d"]; yago35_5 [label="yago35_5|<s> s|<d> d"]; yago5:s -> yago13_1:s;yago13_1:d -> yago13_2:d;yago13_2:s -> yago17:d;yago17:s -> yago35_4:s;yago35_4:d -> yago35_5:d;}
+--             +----------+----+----+
+--             |  yago5   |  s |  d |
+--             +----------+----+----+
+--                           |
+--                           |
+--                           |
+--             +----------+----+----+
+--             | yago13_1 |  s |  d |
+--             +----------+----+----+
+--                                |
+--                                |
+--                                |
+--             +----------+----+----+
+--             | yago13_2 |  s |  d |
+--             +----------+----+----+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+----+
+-- |  yago17  |     s     |  d |
+-- +----------+-----------+----+
+--               |
+--               |
+--               |
+-- +----------+-----------+----+
+-- | yago35_4 |     s     |  d |
+-- +----------+-----------+----+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+----+
+-- | yago35_5 |     s     |  d |
+-- +----------+-----------+----+
+with dummy as (select) /* stage1 */, yago17_s1_155d3600661fe755 as (select yago17.s as v6,yago17.d as v4 from yago17), yago13_2_s1_155d3600661fe755 as (select yago13_2.d as v2,yago13_2.s as v4 from yago13 yago13_2), yago13_1_s1_155d3600661fe755 as (select yago13_1.s as v0,yago13_1.d as v2 from yago13 yago13_1), yago5_s2_155d3600661fe755 as (select yago5.s as v0 from yago5), yago35_4_s1_155d3600661fe755 as (select yago35_4.d as v8,yago35_4.s as v6 from yago35 yago35_4), yago35_5_s2_155d3600661fe755 as (select yago35_5.d as v8 from yago35 yago35_5) /* stage2 */, yago35_4_s2_155d3600661fe755 as (select * from umbra.identity(table(yago35_4_s1_155d3600661fe755)) where exists (select from umbra.identity(table(yago35_5_s2_155d3600661fe755)) where yago35_4_s1_155d3600661fe755.v8 = yago35_5_s2_155d3600661fe755.v8)), yago13_1_s2_155d3600661fe755 as (select * from umbra.identity(table(yago13_1_s1_155d3600661fe755)) where exists (select from umbra.identity(table(yago5_s2_155d3600661fe755)) where yago13_1_s1_155d3600661fe755.v0 = yago5_s2_155d3600661fe755.v0)), yago13_2_s2_155d3600661fe755 as (select * from umbra.identity(table(yago13_2_s1_155d3600661fe755)) where exists (select from umbra.identity(table(yago13_1_s2_155d3600661fe755)) where yago13_2_s1_155d3600661fe755.v2 = yago13_1_s2_155d3600661fe755.v2)), yago17_s2_155d3600661fe755 as (select * from umbra.identity(table(yago17_s1_155d3600661fe755)) where exists (select from umbra.identity(table(yago35_4_s2_155d3600661fe755)) where yago17_s1_155d3600661fe755.v6 = yago35_4_s2_155d3600661fe755.v6) AND exists (select from umbra.identity(table(yago13_2_s2_155d3600661fe755)) where yago17_s1_155d3600661fe755.v4 = yago13_2_s2_155d3600661fe755.v4)) /* stage3 */, yago13_2_s3_155d3600661fe755 as (select * from umbra.identity(table(yago13_2_s2_155d3600661fe755)) where exists (select from umbra.identity(table(yago17_s2_155d3600661fe755)) where yago13_2_s2_155d3600661fe755.v4 = yago17_s2_155d3600661fe755.v4)), yago13_1_s3_155d3600661fe755 as (select * from umbra.identity(table(yago13_1_s2_155d3600661fe755)) where exists (select from umbra.identity(table(yago13_2_s2_155d3600661fe755)) where yago13_1_s2_155d3600661fe755.v2 = yago13_2_s2_155d3600661fe755.v2)), yago5_s3_155d3600661fe755 as (select * from umbra.identity(table(yago5_s2_155d3600661fe755)) where exists (select from umbra.identity(table(yago13_1_s2_155d3600661fe755)) where yago5_s2_155d3600661fe755.v0 = yago13_1_s2_155d3600661fe755.v0)), yago35_4_s3_155d3600661fe755 as (select * from umbra.identity(table(yago35_4_s2_155d3600661fe755)) where exists (select from umbra.identity(table(yago17_s2_155d3600661fe755)) where yago35_4_s2_155d3600661fe755.v6 = yago17_s2_155d3600661fe755.v6)), yago35_5_s3_155d3600661fe755 as (select * from umbra.identity(table(yago35_5_s2_155d3600661fe755)) where exists (select from umbra.identity(table(yago35_4_s2_155d3600661fe755)) where yago35_5_s2_155d3600661fe755.v8 = yago35_4_s2_155d3600661fe755.v8)) /* stage4 */, s4_group_5C4E7477A3B30395 as  (select * from umbra.identity(table(yago17_s2_155d3600661fe755)) NATURAL JOIN umbra.identity(table(yago35_4_s3_155d3600661fe755)) NATURAL JOIN umbra.identity(table(yago35_5_s3_155d3600661fe755)) NATURAL JOIN umbra.identity(table(yago13_2_s3_155d3600661fe755)) NATURAL JOIN umbra.identity(table(yago13_1_s3_155d3600661fe755)) NATURAL JOIN umbra.identity(table(yago5_s3_155d3600661fe755)))select count(*) from umbra.identity(table(s4_group_5C4E7477A3B30395));
+\set queryname yago_acyclic_Chain_6_16
+-- Result size: 795
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago36_1 [label="yago36_1|<s> s|<d> d"]; yago36_2 [label="yago36_2|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago17_0:s -> yago36_1:s;yago36_1:d -> yago36_2:d;yago36_2:s -> yago58:s;yago58:d -> yago17_4:s;yago17_4:d -> yago46:d;}
+--   +---------------------+
+--   |                     |
+--   |  +----------+----+-----------+     +----------+----+----+
+--   |  |  yago58  |  s |     d     |     | yago17_0 |  s |  d |
+--   |  +----------+----+-----------+     +----------+----+----+
+--   |                |                                 |
+--   |                |                                 |
+--   |                |                                 |
+--   |  +----------+----+-----------+     +----------+----+----+
+--   |  | yago36_2 |  s |     d     |     | yago36_1 |  s |  d |
+--   |  +----------+----+-----------+     +----------+----+----+
+--   |                     |                                 |
+--   |                     +---------------------------------+
+--   |
+--   |                   +----------+----+-----------+
+--   |                   | yago17_4 |  s |     d     |
+--   |                   +----------+----+-----------+
+--   |                                 |    |
+--   +---------------------------------+    |
+--                                          |
+--                       +----------+----+-----------+
+--                       |  yago46  |  s |     d     |
+--                       +----------+----+-----------+
+with dummy as (select) /* stage1 */, yago58_s1_1db89300661fe755 as (select yago58.d as v6,yago58.s as v4 from yago58), yago36_2_s1_1db89300661fe755 as (select yago36_2.d as v2,yago36_2.s as v4 from yago36 yago36_2), yago36_1_s1_1db89300661fe755 as (select yago36_1.s as v0,yago36_1.d as v2 from yago36 yago36_1), yago17_0_s2_1db89300661fe755 as (select yago17_0.s as v0 from yago17 yago17_0), yago17_4_s1_1db89300661fe755 as (select yago17_4.s as v6,yago17_4.d as v8 from yago17 yago17_4), yago46_s2_1db89300661fe755 as (select yago46.d as v8 from yago46) /* stage2 */, yago17_4_s2_1db89300661fe755 as (select * from umbra.identity(table(yago17_4_s1_1db89300661fe755)) where exists (select from umbra.identity(table(yago46_s2_1db89300661fe755)) where yago17_4_s1_1db89300661fe755.v8 = yago46_s2_1db89300661fe755.v8)), yago36_1_s2_1db89300661fe755 as (select * from umbra.identity(table(yago36_1_s1_1db89300661fe755)) where exists (select from umbra.identity(table(yago17_0_s2_1db89300661fe755)) where yago36_1_s1_1db89300661fe755.v0 = yago17_0_s2_1db89300661fe755.v0)), yago36_2_s2_1db89300661fe755 as (select * from umbra.identity(table(yago36_2_s1_1db89300661fe755)) where exists (select from umbra.identity(table(yago36_1_s2_1db89300661fe755)) where yago36_2_s1_1db89300661fe755.v2 = yago36_1_s2_1db89300661fe755.v2)), yago58_s2_1db89300661fe755 as (select * from umbra.identity(table(yago58_s1_1db89300661fe755)) where exists (select from umbra.identity(table(yago17_4_s2_1db89300661fe755)) where yago58_s1_1db89300661fe755.v6 = yago17_4_s2_1db89300661fe755.v6) AND exists (select from umbra.identity(table(yago36_2_s2_1db89300661fe755)) where yago58_s1_1db89300661fe755.v4 = yago36_2_s2_1db89300661fe755.v4)) /* stage3 */, yago36_2_s3_1db89300661fe755 as (select * from umbra.identity(table(yago36_2_s2_1db89300661fe755)) where exists (select from umbra.identity(table(yago58_s2_1db89300661fe755)) where yago36_2_s2_1db89300661fe755.v4 = yago58_s2_1db89300661fe755.v4)), yago36_1_s3_1db89300661fe755 as (select * from umbra.identity(table(yago36_1_s2_1db89300661fe755)) where exists (select from umbra.identity(table(yago36_2_s2_1db89300661fe755)) where yago36_1_s2_1db89300661fe755.v2 = yago36_2_s2_1db89300661fe755.v2)), yago17_0_s3_1db89300661fe755 as (select * from umbra.identity(table(yago17_0_s2_1db89300661fe755)) where exists (select from umbra.identity(table(yago36_1_s2_1db89300661fe755)) where yago17_0_s2_1db89300661fe755.v0 = yago36_1_s2_1db89300661fe755.v0)), yago17_4_s3_1db89300661fe755 as (select * from umbra.identity(table(yago17_4_s2_1db89300661fe755)) where exists (select from umbra.identity(table(yago58_s2_1db89300661fe755)) where yago17_4_s2_1db89300661fe755.v6 = yago58_s2_1db89300661fe755.v6)), yago46_s3_1db89300661fe755 as (select * from umbra.identity(table(yago46_s2_1db89300661fe755)) where exists (select from umbra.identity(table(yago17_4_s2_1db89300661fe755)) where yago46_s2_1db89300661fe755.v8 = yago17_4_s2_1db89300661fe755.v8)) /* stage4 */, s4_group_157F87600AAD0BF2 as  (select * from umbra.identity(table(yago58_s2_1db89300661fe755)) NATURAL JOIN umbra.identity(table(yago17_4_s3_1db89300661fe755)) NATURAL JOIN umbra.identity(table(yago46_s3_1db89300661fe755)) NATURAL JOIN umbra.identity(table(yago36_2_s3_1db89300661fe755)) NATURAL JOIN umbra.identity(table(yago36_1_s3_1db89300661fe755)) NATURAL JOIN umbra.identity(table(yago17_0_s3_1db89300661fe755)))select count(*) from umbra.identity(table(s4_group_157F87600AAD0BF2));
+\set queryname yago_acyclic_Chain_6_17
+-- Result size: 41936
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago46_0 [label="yago46_0|<s> s|<d> d"]; yago46_1 [label="yago46_1|<s> s|<d> d"]; yago35_2 [label="yago35_2|<s> s|<d> d"]; yago35_3 [label="yago35_3|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago48 [label="yago48|<s> s|<d> d"]; yago46_0:d -> yago46_1:d;yago46_1:s -> yago35_2:s;yago35_2:d -> yago35_3:d;yago35_3:s -> yago17:s;yago17:d -> yago48:s;}
+--                       +--------+---------+----+
+--                       | yago17 |    s    |  d |
+--                       +--------+---------+----+
+--                                   |         |
+--   +-------------------------------+         |
+--   |                                         |
+--   |                             +--------+----+---+
+--   |                             | yago48 |  s | d |
+--   |                             +--------+----+---+
+--   |
+--   |                +--------------+
+--   |                |              |
+--   |  +----------+----+---------+  |
+--   |  | yago35_2 |  s |    d    |  |
+--   |  +----------+----+---------+  |
+--   |                     |         |
+--   +----------------+    |         |
+--                    |    |         |
+--      +----------+----+---------+  |
+--      | yago35_3 |  s |    d    |  |
+--      +----------+----+---------+  |
+--      +----------+----+---------+  |
+--      | yago46_0 |  s |    d    |  |
+--      +----------+----+---------+  |
+--                         |         |
+--                         |         |
+--                         |         |
+--      +----------+----+---------+  |
+--      | yago46_1 |  s |    d    |  |
+--      +----------+----+---------+  |
+--                    |              |
+--                    +--------------+
+with dummy as (select) /* stage1 */, yago35_3_s1_6281400661fe756 as (select yago35_3.d as v4,yago35_3.s as v6 from yago35 yago35_3), yago35_2_s1_6281400661fe756 as (select yago35_2.s as v2,yago35_2.d as v4 from yago35 yago35_2), yago46_1_s1_6281400661fe756 as (select yago46_1.s as v2,yago46_1.d as v0 from yago46 yago46_1), yago46_0_s2_6281400661fe756 as (select yago46_0.d as v0 from yago46 yago46_0), yago17_s1_6281400661fe756 as (select yago17.d as v8,yago17.s as v6 from yago17), yago48_s2_6281400661fe756 as (select yago48.s as v8 from yago48) /* stage2 */, yago17_s2_6281400661fe756 as (select * from umbra.identity(table(yago17_s1_6281400661fe756)) where exists (select from umbra.identity(table(yago48_s2_6281400661fe756)) where yago17_s1_6281400661fe756.v8 = yago48_s2_6281400661fe756.v8)), yago46_1_s2_6281400661fe756 as (select * from umbra.identity(table(yago46_1_s1_6281400661fe756)) where exists (select from umbra.identity(table(yago46_0_s2_6281400661fe756)) where yago46_1_s1_6281400661fe756.v0 = yago46_0_s2_6281400661fe756.v0)), yago35_2_s2_6281400661fe756 as (select * from umbra.identity(table(yago35_2_s1_6281400661fe756)) where exists (select from umbra.identity(table(yago46_1_s2_6281400661fe756)) where yago35_2_s1_6281400661fe756.v2 = yago46_1_s2_6281400661fe756.v2)), yago35_3_s2_6281400661fe756 as (select * from umbra.identity(table(yago35_3_s1_6281400661fe756)) where exists (select from umbra.identity(table(yago17_s2_6281400661fe756)) where yago35_3_s1_6281400661fe756.v6 = yago17_s2_6281400661fe756.v6) AND exists (select from umbra.identity(table(yago35_2_s2_6281400661fe756)) where yago35_3_s1_6281400661fe756.v4 = yago35_2_s2_6281400661fe756.v4)) /* stage3 */, yago35_2_s3_6281400661fe756 as (select * from umbra.identity(table(yago35_2_s2_6281400661fe756)) where exists (select from umbra.identity(table(yago35_3_s2_6281400661fe756)) where yago35_2_s2_6281400661fe756.v4 = yago35_3_s2_6281400661fe756.v4)), yago46_1_s3_6281400661fe756 as (select * from umbra.identity(table(yago46_1_s2_6281400661fe756)) where exists (select from umbra.identity(table(yago35_2_s2_6281400661fe756)) where yago46_1_s2_6281400661fe756.v2 = yago35_2_s2_6281400661fe756.v2)), yago46_0_s3_6281400661fe756 as (select * from umbra.identity(table(yago46_0_s2_6281400661fe756)) where exists (select from umbra.identity(table(yago46_1_s2_6281400661fe756)) where yago46_0_s2_6281400661fe756.v0 = yago46_1_s2_6281400661fe756.v0)), yago17_s3_6281400661fe756 as (select * from umbra.identity(table(yago17_s2_6281400661fe756)) where exists (select from umbra.identity(table(yago35_3_s2_6281400661fe756)) where yago17_s2_6281400661fe756.v6 = yago35_3_s2_6281400661fe756.v6)), yago48_s3_6281400661fe756 as (select * from umbra.identity(table(yago48_s2_6281400661fe756)) where exists (select from umbra.identity(table(yago17_s2_6281400661fe756)) where yago48_s2_6281400661fe756.v8 = yago17_s2_6281400661fe756.v8)) /* stage4 */, s4_group_430DEDF784C32440 as  (select * from umbra.identity(table(yago35_3_s2_6281400661fe756)) NATURAL JOIN umbra.identity(table(yago17_s3_6281400661fe756)) NATURAL JOIN umbra.identity(table(yago48_s3_6281400661fe756)) NATURAL JOIN umbra.identity(table(yago35_2_s3_6281400661fe756)) NATURAL JOIN umbra.identity(table(yago46_1_s3_6281400661fe756)) NATURAL JOIN umbra.identity(table(yago46_0_s3_6281400661fe756)))select count(*) from umbra.identity(table(s4_group_430DEDF784C32440));
+\set queryname yago_acyclic_Chain_6_18
+-- Result size: 2124
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago5:d;yago5:s -> yago58:s;}
+-- +---------+----+----+
+-- | yago2_0 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_1 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_2 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_3 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- |  yago5  |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago58  |  s |  d |
+-- +---------+----+----+
+with dummy as (select) /* stage1 */, yago2_3_s1_f202100661fe756 as (select yago2_3.s as v4,yago2_3.d as v6 from yago2 yago2_3), yago2_2_s1_f202100661fe756 as (select yago2_2.s as v4,yago2_2.d as v2 from yago2 yago2_2), yago2_1_s1_f202100661fe756 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_f202100661fe756 as (select yago2_0.s as v0 from yago2 yago2_0), yago5_s1_f202100661fe756 as (select yago5.s as v8,yago5.d as v6 from yago5), yago58_s2_f202100661fe756 as (select yago58.s as v8 from yago58) /* stage2 */, yago5_s2_f202100661fe756 as (select * from umbra.identity(table(yago5_s1_f202100661fe756)) where exists (select from umbra.identity(table(yago58_s2_f202100661fe756)) where yago5_s1_f202100661fe756.v8 = yago58_s2_f202100661fe756.v8)), yago2_1_s2_f202100661fe756 as (select * from umbra.identity(table(yago2_1_s1_f202100661fe756)) where exists (select from umbra.identity(table(yago2_0_s2_f202100661fe756)) where yago2_1_s1_f202100661fe756.v0 = yago2_0_s2_f202100661fe756.v0)), yago2_2_s2_f202100661fe756 as (select * from umbra.identity(table(yago2_2_s1_f202100661fe756)) where exists (select from umbra.identity(table(yago2_1_s2_f202100661fe756)) where yago2_2_s1_f202100661fe756.v2 = yago2_1_s2_f202100661fe756.v2)), yago2_3_s2_f202100661fe756 as (select * from umbra.identity(table(yago2_3_s1_f202100661fe756)) where exists (select from umbra.identity(table(yago5_s2_f202100661fe756)) where yago2_3_s1_f202100661fe756.v6 = yago5_s2_f202100661fe756.v6) AND exists (select from umbra.identity(table(yago2_2_s2_f202100661fe756)) where yago2_3_s1_f202100661fe756.v4 = yago2_2_s2_f202100661fe756.v4)) /* stage3 */, yago2_2_s3_f202100661fe756 as (select * from umbra.identity(table(yago2_2_s2_f202100661fe756)) where exists (select from umbra.identity(table(yago2_3_s2_f202100661fe756)) where yago2_2_s2_f202100661fe756.v4 = yago2_3_s2_f202100661fe756.v4)), yago2_1_s3_f202100661fe756 as (select * from umbra.identity(table(yago2_1_s2_f202100661fe756)) where exists (select from umbra.identity(table(yago2_2_s2_f202100661fe756)) where yago2_1_s2_f202100661fe756.v2 = yago2_2_s2_f202100661fe756.v2)), yago2_0_s3_f202100661fe756 as (select * from umbra.identity(table(yago2_0_s2_f202100661fe756)) where exists (select from umbra.identity(table(yago2_1_s2_f202100661fe756)) where yago2_0_s2_f202100661fe756.v0 = yago2_1_s2_f202100661fe756.v0)), yago5_s3_f202100661fe756 as (select * from umbra.identity(table(yago5_s2_f202100661fe756)) where exists (select from umbra.identity(table(yago2_3_s2_f202100661fe756)) where yago5_s2_f202100661fe756.v6 = yago2_3_s2_f202100661fe756.v6)), yago58_s3_f202100661fe756 as (select * from umbra.identity(table(yago58_s2_f202100661fe756)) where exists (select from umbra.identity(table(yago5_s2_f202100661fe756)) where yago58_s2_f202100661fe756.v8 = yago5_s2_f202100661fe756.v8)) /* stage4 */, s4_group_CBEDE221E2ACCDE as  (select * from umbra.identity(table(yago2_3_s2_f202100661fe756)) NATURAL JOIN umbra.identity(table(yago5_s3_f202100661fe756)) NATURAL JOIN umbra.identity(table(yago58_s3_f202100661fe756)) NATURAL JOIN umbra.identity(table(yago2_2_s3_f202100661fe756)) NATURAL JOIN umbra.identity(table(yago2_1_s3_f202100661fe756)) NATURAL JOIN umbra.identity(table(yago2_0_s3_f202100661fe756)))select count(*) from umbra.identity(table(s4_group_CBEDE221E2ACCDE));
+\set queryname yago_acyclic_Chain_6_19
+-- Result size: 5098
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago26 [label="yago26|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago35_3 [label="yago35_3|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago35_5 [label="yago35_5|<s> s|<d> d"]; yago26:d -> yago25:d;yago25:s -> yago50:s;yago50:d -> yago35_3:d;yago35_3:s -> yago54:s;yago54:d -> yago35_5:s;}
+--             +----------+----+----+
+--             |  yago26  |  s |  d |
+--             +----------+----+----+
+--                                |
+--                                |
+--                                |
+--             +----------+----+----+
+--             |  yago25  |  s |  d |
+--             +----------+----+----+
+--                           |
+--                           |
+--                           |
+--             +----------+----+----+
+--             |  yago50  |  s |  d |
+--             +----------+----+----+
+--                                |
+--                                |
+--                                |
+-- +----------+-----------+----+  |
+-- | yago35_3 |     s     |  d | -+
+-- +----------+-----------+----+
+--               |
+--               |
+--               |
+-- +----------+-----------+----+
+-- |  yago54  |     s     |  d |
+-- +----------+-----------+----+
+--                           |
+--                           |
+--                           |
+--             +----------+----+----+
+--             | yago35_5 |  s |  d |
+--             +----------+----+----+
+with dummy as (select) /* stage1 */, yago50_s1_17860280661fe756 as (select yago50.s as v2,yago50.d as v4 from yago50), yago35_3_s1_17860280661fe756 as (select yago35_3.s as v6,yago35_3.d as v4 from yago35 yago35_3), yago54_s1_17860280661fe756 as (select yago54.d as v8,yago54.s as v6 from yago54), yago35_5_s2_17860280661fe756 as (select yago35_5.s as v8 from yago35 yago35_5), yago25_s1_17860280661fe756 as (select yago25.s as v2,yago25.d as v0 from yago25), yago26_s2_17860280661fe756 as (select yago26.d as v0 from yago26) /* stage2 */, yago25_s2_17860280661fe756 as (select * from umbra.identity(table(yago25_s1_17860280661fe756)) where exists (select from umbra.identity(table(yago26_s2_17860280661fe756)) where yago25_s1_17860280661fe756.v0 = yago26_s2_17860280661fe756.v0)), yago54_s2_17860280661fe756 as (select * from umbra.identity(table(yago54_s1_17860280661fe756)) where exists (select from umbra.identity(table(yago35_5_s2_17860280661fe756)) where yago54_s1_17860280661fe756.v8 = yago35_5_s2_17860280661fe756.v8)), yago35_3_s2_17860280661fe756 as (select * from umbra.identity(table(yago35_3_s1_17860280661fe756)) where exists (select from umbra.identity(table(yago54_s2_17860280661fe756)) where yago35_3_s1_17860280661fe756.v6 = yago54_s2_17860280661fe756.v6)), yago50_s2_17860280661fe756 as (select * from umbra.identity(table(yago50_s1_17860280661fe756)) where exists (select from umbra.identity(table(yago25_s2_17860280661fe756)) where yago50_s1_17860280661fe756.v2 = yago25_s2_17860280661fe756.v2) AND exists (select from umbra.identity(table(yago35_3_s2_17860280661fe756)) where yago50_s1_17860280661fe756.v4 = yago35_3_s2_17860280661fe756.v4)) /* stage3 */, yago35_3_s3_17860280661fe756 as (select * from umbra.identity(table(yago35_3_s2_17860280661fe756)) where exists (select from umbra.identity(table(yago50_s2_17860280661fe756)) where yago35_3_s2_17860280661fe756.v4 = yago50_s2_17860280661fe756.v4)), yago54_s3_17860280661fe756 as (select * from umbra.identity(table(yago54_s2_17860280661fe756)) where exists (select from umbra.identity(table(yago35_3_s2_17860280661fe756)) where yago54_s2_17860280661fe756.v6 = yago35_3_s2_17860280661fe756.v6)), yago35_5_s3_17860280661fe756 as (select * from umbra.identity(table(yago35_5_s2_17860280661fe756)) where exists (select from umbra.identity(table(yago54_s2_17860280661fe756)) where yago35_5_s2_17860280661fe756.v8 = yago54_s2_17860280661fe756.v8)), yago25_s3_17860280661fe756 as (select * from umbra.identity(table(yago25_s2_17860280661fe756)) where exists (select from umbra.identity(table(yago50_s2_17860280661fe756)) where yago25_s2_17860280661fe756.v2 = yago50_s2_17860280661fe756.v2)), yago26_s3_17860280661fe756 as (select * from umbra.identity(table(yago26_s2_17860280661fe756)) where exists (select from umbra.identity(table(yago25_s2_17860280661fe756)) where yago26_s2_17860280661fe756.v0 = yago25_s2_17860280661fe756.v0)) /* stage4 */, s4_group_3BF140DFCD3A3DF2 as  (select * from umbra.identity(table(yago50_s2_17860280661fe756)) NATURAL JOIN umbra.identity(table(yago25_s3_17860280661fe756)) NATURAL JOIN umbra.identity(table(yago26_s3_17860280661fe756)) NATURAL JOIN umbra.identity(table(yago35_3_s3_17860280661fe756)) NATURAL JOIN umbra.identity(table(yago54_s3_17860280661fe756)) NATURAL JOIN umbra.identity(table(yago35_5_s3_17860280661fe756)))select count(*) from umbra.identity(table(s4_group_3BF140DFCD3A3DF2));
+\set queryname yago_acyclic_Chain_6_20
+-- Result size: 36673
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago17_4:s;yago17_4:d -> yago17_5:s;}
+--            +----------+-----------+----+
+--            | yago17_4 |     s     |  d |
+--            +----------+-----------+----+
+--                          |           |
+--              +-----------+           |
+--              |                       |
+--              |         +----------+----+----+
+--              |         | yago17_5 |  s |  d |
+--              |         +----------+----+----+
+--              |
+--              +----------------------------+
+--                                           |
+-- +---------+-----------+-----------+       |
+-- | yago2_0 |     s     |     d     |       |
+-- +---------+-----------+-----------+       |
+--              |                            |
+--              |                            |
+--              |                            |
+-- +---------+-----------+-----------+       |
+-- | yago2_1 |     s     |     d     |       |
+-- +---------+-----------+-----------+       |
+--                          |                |
+--                          |                |
+--                          |                |
+-- +---------+-----------+-----------+       |
+-- | yago2_2 |     s     |     d     |       |
+-- +---------+-----------+-----------+       |
+--              |                            |
+--              |                            |
+--              |                            |
+-- +---------+-----------+-----------+       |
+-- | yago2_3 |     s     |     d     | ------+
+-- +---------+-----------+-----------+
+with dummy as (select) /* stage1 */, yago2_3_s1_1ff07a00661fe756 as (select yago2_3.s as v4,yago2_3.d as v6 from yago2 yago2_3), yago2_2_s1_1ff07a00661fe756 as (select yago2_2.d as v2,yago2_2.s as v4 from yago2 yago2_2), yago2_1_s1_1ff07a00661fe756 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_1ff07a00661fe756 as (select yago2_0.s as v0 from yago2 yago2_0), yago17_4_s1_1ff07a00661fe756 as (select yago17_4.d as v8,yago17_4.s as v6 from yago17 yago17_4), yago17_5_s2_1ff07a00661fe756 as (select yago17_5.s as v8 from yago17 yago17_5) /* stage2 */, yago17_4_s2_1ff07a00661fe756 as (select * from umbra.identity(table(yago17_4_s1_1ff07a00661fe756)) where exists (select from umbra.identity(table(yago17_5_s2_1ff07a00661fe756)) where yago17_4_s1_1ff07a00661fe756.v8 = yago17_5_s2_1ff07a00661fe756.v8)), yago2_1_s2_1ff07a00661fe756 as (select * from umbra.identity(table(yago2_1_s1_1ff07a00661fe756)) where exists (select from umbra.identity(table(yago2_0_s2_1ff07a00661fe756)) where yago2_1_s1_1ff07a00661fe756.v0 = yago2_0_s2_1ff07a00661fe756.v0)), yago2_2_s2_1ff07a00661fe756 as (select * from umbra.identity(table(yago2_2_s1_1ff07a00661fe756)) where exists (select from umbra.identity(table(yago2_1_s2_1ff07a00661fe756)) where yago2_2_s1_1ff07a00661fe756.v2 = yago2_1_s2_1ff07a00661fe756.v2)), yago2_3_s2_1ff07a00661fe756 as (select * from umbra.identity(table(yago2_3_s1_1ff07a00661fe756)) where exists (select from umbra.identity(table(yago17_4_s2_1ff07a00661fe756)) where yago2_3_s1_1ff07a00661fe756.v6 = yago17_4_s2_1ff07a00661fe756.v6) AND exists (select from umbra.identity(table(yago2_2_s2_1ff07a00661fe756)) where yago2_3_s1_1ff07a00661fe756.v4 = yago2_2_s2_1ff07a00661fe756.v4)) /* stage3 */, yago2_2_s3_1ff07a00661fe756 as (select * from umbra.identity(table(yago2_2_s2_1ff07a00661fe756)) where exists (select from umbra.identity(table(yago2_3_s2_1ff07a00661fe756)) where yago2_2_s2_1ff07a00661fe756.v4 = yago2_3_s2_1ff07a00661fe756.v4)), yago2_1_s3_1ff07a00661fe756 as (select * from umbra.identity(table(yago2_1_s2_1ff07a00661fe756)) where exists (select from umbra.identity(table(yago2_2_s2_1ff07a00661fe756)) where yago2_1_s2_1ff07a00661fe756.v2 = yago2_2_s2_1ff07a00661fe756.v2)), yago2_0_s3_1ff07a00661fe756 as (select * from umbra.identity(table(yago2_0_s2_1ff07a00661fe756)) where exists (select from umbra.identity(table(yago2_1_s2_1ff07a00661fe756)) where yago2_0_s2_1ff07a00661fe756.v0 = yago2_1_s2_1ff07a00661fe756.v0)), yago17_4_s3_1ff07a00661fe756 as (select * from umbra.identity(table(yago17_4_s2_1ff07a00661fe756)) where exists (select from umbra.identity(table(yago2_3_s2_1ff07a00661fe756)) where yago17_4_s2_1ff07a00661fe756.v6 = yago2_3_s2_1ff07a00661fe756.v6)), yago17_5_s3_1ff07a00661fe756 as (select * from umbra.identity(table(yago17_5_s2_1ff07a00661fe756)) where exists (select from umbra.identity(table(yago17_4_s2_1ff07a00661fe756)) where yago17_5_s2_1ff07a00661fe756.v8 = yago17_4_s2_1ff07a00661fe756.v8)) /* stage4 */, s4_group_1F4E7182A3359CFC as  (select * from umbra.identity(table(yago2_3_s2_1ff07a00661fe756)) NATURAL JOIN umbra.identity(table(yago17_4_s3_1ff07a00661fe756)) NATURAL JOIN umbra.identity(table(yago17_5_s3_1ff07a00661fe756)) NATURAL JOIN umbra.identity(table(yago2_2_s3_1ff07a00661fe756)) NATURAL JOIN umbra.identity(table(yago2_1_s3_1ff07a00661fe756)) NATURAL JOIN umbra.identity(table(yago2_0_s3_1ff07a00661fe756)))select count(*) from umbra.identity(table(s4_group_1F4E7182A3359CFC));
+\set queryname yago_acyclic_Chain_6_21
+-- Result size: 178
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago0_1 [label="yago0_1|<s> s|<d> d"]; yago31 [label="yago31|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago0_0:d -> yago0_1:d;yago0_1:s -> yago31:s;yago31:d -> yago39:d;yago39:s -> yago12:s;yago12:d -> yago46:s;}
+--                                    +---------+----+----+
+--                                    | yago0_0 |  s |  d |
+--                                    +---------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                    +---------+----+----+
+--                                    | yago0_1 |  s |  d |
+--                                    +---------+----+----+
+--                                                 |
+--                                                 |
+--                                                 |
+-- +--------+----+---------+          +---------+----+----+
+-- | yago39 |  s |    d    |          | yago31  |  s |  d |
+-- +--------+----+---------+          +---------+----+----+
+--             |    |                                   |
+--             |    +-----------------------------------+
+--             |
+--             |  +--------+---------+----------+
+--             |  | yago12 |    s    |     d    |
+--             |  +--------+---------+----------+
+--             |              |         |
+--             +--------------+         |
+--                                      |
+--                          +--------+----------+----+
+--                          | yago46 |     s    |  d |
+--                          +--------+----------+----+
+with dummy as (select) /* stage1 */, yago39_s1_867b600661fe757 as (select yago39.s as v6,yago39.d as v4 from yago39), yago31_s1_867b600661fe757 as (select yago31.s as v2,yago31.d as v4 from yago31), yago0_1_s1_867b600661fe757 as (select yago0_1.d as v0,yago0_1.s as v2 from yago0 yago0_1), yago0_0_s2_867b600661fe757 as (select yago0_0.d as v0 from yago0 yago0_0), yago12_s1_867b600661fe757 as (select yago12.d as v8,yago12.s as v6 from yago12), yago46_s2_867b600661fe757 as (select yago46.s as v8 from yago46) /* stage2 */, yago12_s2_867b600661fe757 as (select * from umbra.identity(table(yago12_s1_867b600661fe757)) where exists (select from umbra.identity(table(yago46_s2_867b600661fe757)) where yago12_s1_867b600661fe757.v8 = yago46_s2_867b600661fe757.v8)), yago0_1_s2_867b600661fe757 as (select * from umbra.identity(table(yago0_1_s1_867b600661fe757)) where exists (select from umbra.identity(table(yago0_0_s2_867b600661fe757)) where yago0_1_s1_867b600661fe757.v0 = yago0_0_s2_867b600661fe757.v0)), yago31_s2_867b600661fe757 as (select * from umbra.identity(table(yago31_s1_867b600661fe757)) where exists (select from umbra.identity(table(yago0_1_s2_867b600661fe757)) where yago31_s1_867b600661fe757.v2 = yago0_1_s2_867b600661fe757.v2)), yago39_s2_867b600661fe757 as (select * from umbra.identity(table(yago39_s1_867b600661fe757)) where exists (select from umbra.identity(table(yago12_s2_867b600661fe757)) where yago39_s1_867b600661fe757.v6 = yago12_s2_867b600661fe757.v6) AND exists (select from umbra.identity(table(yago31_s2_867b600661fe757)) where yago39_s1_867b600661fe757.v4 = yago31_s2_867b600661fe757.v4)) /* stage3 */, yago31_s3_867b600661fe757 as (select * from umbra.identity(table(yago31_s2_867b600661fe757)) where exists (select from umbra.identity(table(yago39_s2_867b600661fe757)) where yago31_s2_867b600661fe757.v4 = yago39_s2_867b600661fe757.v4)), yago0_1_s3_867b600661fe757 as (select * from umbra.identity(table(yago0_1_s2_867b600661fe757)) where exists (select from umbra.identity(table(yago31_s2_867b600661fe757)) where yago0_1_s2_867b600661fe757.v2 = yago31_s2_867b600661fe757.v2)), yago0_0_s3_867b600661fe757 as (select * from umbra.identity(table(yago0_0_s2_867b600661fe757)) where exists (select from umbra.identity(table(yago0_1_s2_867b600661fe757)) where yago0_0_s2_867b600661fe757.v0 = yago0_1_s2_867b600661fe757.v0)), yago12_s3_867b600661fe757 as (select * from umbra.identity(table(yago12_s2_867b600661fe757)) where exists (select from umbra.identity(table(yago39_s2_867b600661fe757)) where yago12_s2_867b600661fe757.v6 = yago39_s2_867b600661fe757.v6)), yago46_s3_867b600661fe757 as (select * from umbra.identity(table(yago46_s2_867b600661fe757)) where exists (select from umbra.identity(table(yago12_s2_867b600661fe757)) where yago46_s2_867b600661fe757.v8 = yago12_s2_867b600661fe757.v8)) /* stage4 */, s4_group_220EE54862BF85F0 as  (select * from umbra.identity(table(yago39_s2_867b600661fe757)) NATURAL JOIN umbra.identity(table(yago12_s3_867b600661fe757)) NATURAL JOIN umbra.identity(table(yago46_s3_867b600661fe757)) NATURAL JOIN umbra.identity(table(yago31_s3_867b600661fe757)) NATURAL JOIN umbra.identity(table(yago0_1_s3_867b600661fe757)) NATURAL JOIN umbra.identity(table(yago0_0_s3_867b600661fe757)))select count(*) from umbra.identity(table(s4_group_220EE54862BF85F0));
+\set queryname yago_acyclic_Chain_6_22
+-- Result size: 85400
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago8 [label="yago8|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago8:d -> yago25:d;yago25:s -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago6:s;}
+--            +--------+----+----+
+--            | yago8  |  s |  d |
+--            +--------+----+----+
+--                             |
+--                             |
+--                             |
+--            +--------+----+----+
+--            | yago25 |  s |  d |
+--            +--------+----+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | yago2_2 |    s    |  d |
+-- +---------+---------+----+
+--              |
+--              |
+--              |
+-- +---------+---------+----+
+-- | yago2_3 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+----+
+--            | yago6  |  s |  d |
+--            +--------+----+----+
+with dummy as (select) /* stage1 */, yago2_2_s1_10bebe80661fe757 as (select yago2_2.d as v2,yago2_2.s as v4 from yago2 yago2_2), yago2_3_s1_10bebe80661fe757 as (select yago2_3.d as v6,yago2_3.s as v4 from yago2 yago2_3), yago6_s2_10bebe80661fe757 as (select yago6.s as v6 from yago6), yago25_s1_10bebe80661fe757 as (select yago25.s as v2,yago25.d as v0 from yago25), yago8_s2_10bebe80661fe757 as (select yago8.d as v0 from yago8) /* stage2 */, yago25_s2_10bebe80661fe757 as (select * from umbra.identity(table(yago25_s1_10bebe80661fe757)) where exists (select from umbra.identity(table(yago8_s2_10bebe80661fe757)) where yago25_s1_10bebe80661fe757.v0 = yago8_s2_10bebe80661fe757.v0)), yago2_3_s2_10bebe80661fe757 as (select * from umbra.identity(table(yago2_3_s1_10bebe80661fe757)) where exists (select from umbra.identity(table(yago6_s2_10bebe80661fe757)) where yago2_3_s1_10bebe80661fe757.v6 = yago6_s2_10bebe80661fe757.v6)), yago2_2_s2_10bebe80661fe757 as (select * from umbra.identity(table(yago2_2_s1_10bebe80661fe757)) where exists (select from umbra.identity(table(yago25_s2_10bebe80661fe757)) where yago2_2_s1_10bebe80661fe757.v2 = yago25_s2_10bebe80661fe757.v2) AND exists (select from umbra.identity(table(yago2_3_s2_10bebe80661fe757)) where yago2_2_s1_10bebe80661fe757.v4 = yago2_3_s2_10bebe80661fe757.v4)) /* stage3 */, yago2_3_s3_10bebe80661fe757 as (select * from umbra.identity(table(yago2_3_s2_10bebe80661fe757)) where exists (select from umbra.identity(table(yago2_2_s2_10bebe80661fe757)) where yago2_3_s2_10bebe80661fe757.v4 = yago2_2_s2_10bebe80661fe757.v4)), yago6_s3_10bebe80661fe757 as (select * from umbra.identity(table(yago6_s2_10bebe80661fe757)) where exists (select from umbra.identity(table(yago2_3_s2_10bebe80661fe757)) where yago6_s2_10bebe80661fe757.v6 = yago2_3_s2_10bebe80661fe757.v6)), yago25_s3_10bebe80661fe757 as (select * from umbra.identity(table(yago25_s2_10bebe80661fe757)) where exists (select from umbra.identity(table(yago2_2_s2_10bebe80661fe757)) where yago25_s2_10bebe80661fe757.v2 = yago2_2_s2_10bebe80661fe757.v2)), yago8_s3_10bebe80661fe757 as (select * from umbra.identity(table(yago8_s2_10bebe80661fe757)) where exists (select from umbra.identity(table(yago25_s2_10bebe80661fe757)) where yago8_s2_10bebe80661fe757.v0 = yago25_s2_10bebe80661fe757.v0)) /* stage4 */, s4_group_1750D166A575FA35 as  (select * from umbra.identity(table(yago2_2_s2_10bebe80661fe757)) NATURAL JOIN umbra.identity(table(yago25_s3_10bebe80661fe757)) NATURAL JOIN umbra.identity(table(yago8_s3_10bebe80661fe757)) NATURAL JOIN umbra.identity(table(yago2_3_s3_10bebe80661fe757)) NATURAL JOIN umbra.identity(table(yago6_s3_10bebe80661fe757)))select count(*) from umbra.identity(table(s4_group_1750D166A575FA35));
+\set queryname yago_acyclic_Chain_6_23
+-- Result size: 103
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago58:d;yago58:s -> yago22:s;yago22:d -> yago13:d;yago13:s -> yago36:s;}
+--                 +--------+----+----+
+--                 | yago22 |  s |  d |
+--                 +--------+----+----+
+--                             |    |
+--   +-------------------------+    |
+--   |                              |
+--   |             +--------+----+----+
+--   |             | yago13 |  s |  d |
+--   |             +--------+----+----+
+--   |                         |
+--   |                         |
+--   |                         |
+--   |             +--------+----+----+
+--   |             | yago36 |  s |  d |
+--   |             +--------+----+----+
+--   |  +---------+---------+----+
+--   |  | yago2_0 |    s    |  d |
+--   |  +---------+---------+----+
+--   |               |
+--   |               |
+--   |               |
+--   |  +---------+---------+----+
+--   |  | yago2_1 |    s    |  d |
+--   |  +---------+---------+----+
+--   |                         |
+--   +---------------+         |
+--                   |         |
+--      +---------+---------+----+
+--      | yago58  |    s    |  d |
+--      +---------+---------+----+
+with dummy as (select) /* stage1 */, yago58_s1_1913da80661fe757 as (select yago58.d as v2,yago58.s as v4 from yago58), yago22_s1_1913da80661fe757 as (select yago22.s as v4,yago22.d as v6 from yago22), yago13_s1_1913da80661fe757 as (select yago13.s as v8,yago13.d as v6 from yago13), yago36_s2_1913da80661fe757 as (select yago36.s as v8 from yago36), yago2_1_s1_1913da80661fe757 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_1913da80661fe757 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_1913da80661fe757 as (select * from umbra.identity(table(yago2_1_s1_1913da80661fe757)) where exists (select from umbra.identity(table(yago2_0_s2_1913da80661fe757)) where yago2_1_s1_1913da80661fe757.v0 = yago2_0_s2_1913da80661fe757.v0)), yago13_s2_1913da80661fe757 as (select * from umbra.identity(table(yago13_s1_1913da80661fe757)) where exists (select from umbra.identity(table(yago36_s2_1913da80661fe757)) where yago13_s1_1913da80661fe757.v8 = yago36_s2_1913da80661fe757.v8)), yago22_s2_1913da80661fe757 as (select * from umbra.identity(table(yago22_s1_1913da80661fe757)) where exists (select from umbra.identity(table(yago13_s2_1913da80661fe757)) where yago22_s1_1913da80661fe757.v6 = yago13_s2_1913da80661fe757.v6)), yago58_s2_1913da80661fe757 as (select * from umbra.identity(table(yago58_s1_1913da80661fe757)) where exists (select from umbra.identity(table(yago2_1_s2_1913da80661fe757)) where yago58_s1_1913da80661fe757.v2 = yago2_1_s2_1913da80661fe757.v2) AND exists (select from umbra.identity(table(yago22_s2_1913da80661fe757)) where yago58_s1_1913da80661fe757.v4 = yago22_s2_1913da80661fe757.v4)) /* stage3 */, yago22_s3_1913da80661fe757 as (select * from umbra.identity(table(yago22_s2_1913da80661fe757)) where exists (select from umbra.identity(table(yago58_s2_1913da80661fe757)) where yago22_s2_1913da80661fe757.v4 = yago58_s2_1913da80661fe757.v4)), yago13_s3_1913da80661fe757 as (select * from umbra.identity(table(yago13_s2_1913da80661fe757)) where exists (select from umbra.identity(table(yago22_s2_1913da80661fe757)) where yago13_s2_1913da80661fe757.v6 = yago22_s2_1913da80661fe757.v6)), yago36_s3_1913da80661fe757 as (select * from umbra.identity(table(yago36_s2_1913da80661fe757)) where exists (select from umbra.identity(table(yago13_s2_1913da80661fe757)) where yago36_s2_1913da80661fe757.v8 = yago13_s2_1913da80661fe757.v8)), yago2_1_s3_1913da80661fe757 as (select * from umbra.identity(table(yago2_1_s2_1913da80661fe757)) where exists (select from umbra.identity(table(yago58_s2_1913da80661fe757)) where yago2_1_s2_1913da80661fe757.v2 = yago58_s2_1913da80661fe757.v2)), yago2_0_s3_1913da80661fe757 as (select * from umbra.identity(table(yago2_0_s2_1913da80661fe757)) where exists (select from umbra.identity(table(yago2_1_s2_1913da80661fe757)) where yago2_0_s2_1913da80661fe757.v0 = yago2_1_s2_1913da80661fe757.v0)) /* stage4 */, s4_group_3F7C61CEA17F1A89 as  (select * from umbra.identity(table(yago58_s2_1913da80661fe757)) NATURAL JOIN umbra.identity(table(yago2_1_s3_1913da80661fe757)) NATURAL JOIN umbra.identity(table(yago2_0_s3_1913da80661fe757)) NATURAL JOIN umbra.identity(table(yago22_s3_1913da80661fe757)) NATURAL JOIN umbra.identity(table(yago13_s3_1913da80661fe757)) NATURAL JOIN umbra.identity(table(yago36_s3_1913da80661fe757)))select count(*) from umbra.identity(table(s4_group_3F7C61CEA17F1A89));
+\set queryname yago_acyclic_Chain_6_24
+-- Result size: 55534
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago17_4:d;yago17_4:s -> yago17_5:s;}
+--            +----------+----+----+
+--            | yago17_4 |  s |  d | -+
+--            +----------+----+----+  |
+--                          |         |
+--                          |         |
+--                          |         |
+--            +----------+----+----+  |
+--            | yago17_5 |  s |  d |  |
+--            +----------+----+----+  |
+--                                    |
+--                               +----+
+--                               |
+-- +---------+-----------+----+  |
+-- | yago2_0 |     s     |  d |  |
+-- +---------+-----------+----+  |
+--              |                |
+--              |                |
+--              |                |
+-- +---------+-----------+----+  |
+-- | yago2_1 |     s     |  d |  |
+-- +---------+-----------+----+  |
+--                          |    |
+--                          |    |
+--                          |    |
+-- +---------+-----------+----+  |
+-- | yago2_2 |     s     |  d |  |
+-- +---------+-----------+----+  |
+--              |                |
+--              |                |
+--              |                |
+-- +---------+-----------+----+  |
+-- | yago2_3 |     s     |  d | -+
+-- +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago2_3_s1_186e580661fe758 as (select yago2_3.d as v6,yago2_3.s as v4 from yago2 yago2_3), yago2_2_s1_186e580661fe758 as (select yago2_2.d as v2,yago2_2.s as v4 from yago2 yago2_2), yago2_1_s1_186e580661fe758 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_186e580661fe758 as (select yago2_0.s as v0 from yago2 yago2_0), yago17_4_s1_186e580661fe758 as (select yago17_4.s as v8,yago17_4.d as v6 from yago17 yago17_4), yago17_5_s2_186e580661fe758 as (select yago17_5.s as v8 from yago17 yago17_5) /* stage2 */, yago17_4_s2_186e580661fe758 as (select * from umbra.identity(table(yago17_4_s1_186e580661fe758)) where exists (select from umbra.identity(table(yago17_5_s2_186e580661fe758)) where yago17_4_s1_186e580661fe758.v8 = yago17_5_s2_186e580661fe758.v8)), yago2_1_s2_186e580661fe758 as (select * from umbra.identity(table(yago2_1_s1_186e580661fe758)) where exists (select from umbra.identity(table(yago2_0_s2_186e580661fe758)) where yago2_1_s1_186e580661fe758.v0 = yago2_0_s2_186e580661fe758.v0)), yago2_2_s2_186e580661fe758 as (select * from umbra.identity(table(yago2_2_s1_186e580661fe758)) where exists (select from umbra.identity(table(yago2_1_s2_186e580661fe758)) where yago2_2_s1_186e580661fe758.v2 = yago2_1_s2_186e580661fe758.v2)), yago2_3_s2_186e580661fe758 as (select * from umbra.identity(table(yago2_3_s1_186e580661fe758)) where exists (select from umbra.identity(table(yago17_4_s2_186e580661fe758)) where yago2_3_s1_186e580661fe758.v6 = yago17_4_s2_186e580661fe758.v6) AND exists (select from umbra.identity(table(yago2_2_s2_186e580661fe758)) where yago2_3_s1_186e580661fe758.v4 = yago2_2_s2_186e580661fe758.v4)) /* stage3 */, yago2_2_s3_186e580661fe758 as (select * from umbra.identity(table(yago2_2_s2_186e580661fe758)) where exists (select from umbra.identity(table(yago2_3_s2_186e580661fe758)) where yago2_2_s2_186e580661fe758.v4 = yago2_3_s2_186e580661fe758.v4)), yago2_1_s3_186e580661fe758 as (select * from umbra.identity(table(yago2_1_s2_186e580661fe758)) where exists (select from umbra.identity(table(yago2_2_s2_186e580661fe758)) where yago2_1_s2_186e580661fe758.v2 = yago2_2_s2_186e580661fe758.v2)), yago2_0_s3_186e580661fe758 as (select * from umbra.identity(table(yago2_0_s2_186e580661fe758)) where exists (select from umbra.identity(table(yago2_1_s2_186e580661fe758)) where yago2_0_s2_186e580661fe758.v0 = yago2_1_s2_186e580661fe758.v0)), yago17_4_s3_186e580661fe758 as (select * from umbra.identity(table(yago17_4_s2_186e580661fe758)) where exists (select from umbra.identity(table(yago2_3_s2_186e580661fe758)) where yago17_4_s2_186e580661fe758.v6 = yago2_3_s2_186e580661fe758.v6)), yago17_5_s3_186e580661fe758 as (select * from umbra.identity(table(yago17_5_s2_186e580661fe758)) where exists (select from umbra.identity(table(yago17_4_s2_186e580661fe758)) where yago17_5_s2_186e580661fe758.v8 = yago17_4_s2_186e580661fe758.v8)) /* stage4 */, s4_group_5E2E68698DDA3D29 as  (select * from umbra.identity(table(yago2_3_s2_186e580661fe758)) NATURAL JOIN umbra.identity(table(yago17_4_s3_186e580661fe758)) NATURAL JOIN umbra.identity(table(yago17_5_s3_186e580661fe758)) NATURAL JOIN umbra.identity(table(yago2_2_s3_186e580661fe758)) NATURAL JOIN umbra.identity(table(yago2_1_s3_186e580661fe758)) NATURAL JOIN umbra.identity(table(yago2_0_s3_186e580661fe758)))select count(*) from umbra.identity(table(s4_group_5E2E68698DDA3D29));
+\set queryname yago_acyclic_Chain_6_25
+-- Result size: 2006
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago5_0:s -> yago58:s;yago58:d -> yago54:s;yago54:d -> yago5_3:s;yago5_3:d -> yago5_4:d;yago5_4:s -> yago22:s;}
+--                                 +--------+----+---+
+--                                 | yago22 |  s | d |
+--                                 +--------+----+---+
+--                                             |
+--                                             +-------------------+
+--                                                                 |
+--            +--------+----------+---------+                      |
+--            | yago54 |     s    |    d    |                      |
+--            +--------+----------+---------+                      |
+--                        |          |                             |
+--              +---------+          |                             |
+--              |                    |                             |
+--              |       +---------+---------+----+    +---------+----+----+
+--              |       | yago5_3 |    s    |  d |    | yago5_4 |  s |  d |
+--              |       +---------+---------+----+    +---------+----+----+
+--              |                              |                        |
+--              +---------+                    |                        |
+--                        |                    |                        |
+-- +---------+---------+----------+            |                        |
+-- | yago58  |    s    |     d    |            +------------------------+
+-- +---------+---------+----------+
+--              |
+--              |
+--              |
+-- +---------+---------+----------+
+-- | yago5_0 |    s    |     d    |
+-- +---------+---------+----------+
+with dummy as (select) /* stage1 */, yago5_3_s1_a05b100661fe758 as (select yago5_3.s as v4,yago5_3.d as v6 from yago5 yago5_3), yago54_s1_a05b100661fe758 as (select yago54.d as v4,yago54.s as v2 from yago54), yago58_s1_a05b100661fe758 as (select yago58.s as v0,yago58.d as v2 from yago58), yago5_0_s2_a05b100661fe758 as (select yago5_0.s as v0 from yago5 yago5_0), yago5_4_s1_a05b100661fe758 as (select yago5_4.d as v6,yago5_4.s as v8 from yago5 yago5_4), yago22_s2_a05b100661fe758 as (select yago22.s as v8 from yago22) /* stage2 */, yago5_4_s2_a05b100661fe758 as (select * from umbra.identity(table(yago5_4_s1_a05b100661fe758)) where exists (select from umbra.identity(table(yago22_s2_a05b100661fe758)) where yago5_4_s1_a05b100661fe758.v8 = yago22_s2_a05b100661fe758.v8)), yago58_s2_a05b100661fe758 as (select * from umbra.identity(table(yago58_s1_a05b100661fe758)) where exists (select from umbra.identity(table(yago5_0_s2_a05b100661fe758)) where yago58_s1_a05b100661fe758.v0 = yago5_0_s2_a05b100661fe758.v0)), yago54_s2_a05b100661fe758 as (select * from umbra.identity(table(yago54_s1_a05b100661fe758)) where exists (select from umbra.identity(table(yago58_s2_a05b100661fe758)) where yago54_s1_a05b100661fe758.v2 = yago58_s2_a05b100661fe758.v2)), yago5_3_s2_a05b100661fe758 as (select * from umbra.identity(table(yago5_3_s1_a05b100661fe758)) where exists (select from umbra.identity(table(yago5_4_s2_a05b100661fe758)) where yago5_3_s1_a05b100661fe758.v6 = yago5_4_s2_a05b100661fe758.v6) AND exists (select from umbra.identity(table(yago54_s2_a05b100661fe758)) where yago5_3_s1_a05b100661fe758.v4 = yago54_s2_a05b100661fe758.v4)) /* stage3 */, yago54_s3_a05b100661fe758 as (select * from umbra.identity(table(yago54_s2_a05b100661fe758)) where exists (select from umbra.identity(table(yago5_3_s2_a05b100661fe758)) where yago54_s2_a05b100661fe758.v4 = yago5_3_s2_a05b100661fe758.v4)), yago58_s3_a05b100661fe758 as (select * from umbra.identity(table(yago58_s2_a05b100661fe758)) where exists (select from umbra.identity(table(yago54_s2_a05b100661fe758)) where yago58_s2_a05b100661fe758.v2 = yago54_s2_a05b100661fe758.v2)), yago5_0_s3_a05b100661fe758 as (select * from umbra.identity(table(yago5_0_s2_a05b100661fe758)) where exists (select from umbra.identity(table(yago58_s2_a05b100661fe758)) where yago5_0_s2_a05b100661fe758.v0 = yago58_s2_a05b100661fe758.v0)), yago5_4_s3_a05b100661fe758 as (select * from umbra.identity(table(yago5_4_s2_a05b100661fe758)) where exists (select from umbra.identity(table(yago5_3_s2_a05b100661fe758)) where yago5_4_s2_a05b100661fe758.v6 = yago5_3_s2_a05b100661fe758.v6)), yago22_s3_a05b100661fe758 as (select * from umbra.identity(table(yago22_s2_a05b100661fe758)) where exists (select from umbra.identity(table(yago5_4_s2_a05b100661fe758)) where yago22_s2_a05b100661fe758.v8 = yago5_4_s2_a05b100661fe758.v8)) /* stage4 */, s4_group_639015BBC15862E2 as  (select * from umbra.identity(table(yago5_3_s2_a05b100661fe758)) NATURAL JOIN umbra.identity(table(yago5_4_s3_a05b100661fe758)) NATURAL JOIN umbra.identity(table(yago22_s3_a05b100661fe758)) NATURAL JOIN umbra.identity(table(yago54_s3_a05b100661fe758)) NATURAL JOIN umbra.identity(table(yago58_s3_a05b100661fe758)) NATURAL JOIN umbra.identity(table(yago5_0_s3_a05b100661fe758)))select count(*) from umbra.identity(table(s4_group_639015BBC15862E2));
+\set queryname yago_acyclic_Chain_6_26
+-- Result size: 56
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago0_2 [label="yago0_2|<s> s|<d> d"]; yago28 [label="yago28|<s> s|<d> d"]; yago22_4 [label="yago22_4|<s> s|<d> d"]; yago22_5 [label="yago22_5|<s> s|<d> d"]; yago0_0:d -> yago3:d;yago3:s -> yago0_2:s;yago0_2:d -> yago28:d;yago28:s -> yago22_4:d;yago22_4:s -> yago22_5:s;}
+--                        +---------+----+----+
+--                        | yago0_0 |  s |  d |
+--                        +---------+----+----+
+--                                          |
+--                                          |
+--                                          |
+--                        +---------+----+----+
+--                        |  yago3  |  s |  d |
+--                        +---------+----+----+
+--                                     |
+--              +----------------------+
+--              |
+-- +---------+-----------+----------+
+-- | yago0_2 |     s     |     d    |
+-- +---------+-----------+----------+
+--                          |
+--                          |
+--                          |
+-- +---------+-----------+----------+
+-- | yago28  |     s     |     d    |
+-- +---------+-----------+----------+
+--              |
+--              +----------------------+
+--                                     |
+--            +----------+----------+----+
+--            | yago22_4 |     s    |  d |
+--            +----------+----------+----+
+--                          |
+--                          |
+--                          |
+--            +----------+----------+----+
+--            | yago22_5 |     s    |  d |
+--            +----------+----------+----+
+with dummy as (select) /* stage1 */, yago28_s1_12527680661fe758 as (select yago28.d as v4,yago28.s as v6 from yago28), yago0_2_s1_12527680661fe758 as (select yago0_2.s as v2,yago0_2.d as v4 from yago0 yago0_2), yago3_s1_12527680661fe758 as (select yago3.d as v0,yago3.s as v2 from yago3), yago0_0_s2_12527680661fe758 as (select yago0_0.d as v0 from yago0 yago0_0), yago22_4_s1_12527680661fe758 as (select yago22_4.s as v8,yago22_4.d as v6 from yago22 yago22_4), yago22_5_s2_12527680661fe758 as (select yago22_5.s as v8 from yago22 yago22_5) /* stage2 */, yago22_4_s2_12527680661fe758 as (select * from umbra.identity(table(yago22_4_s1_12527680661fe758)) where exists (select from umbra.identity(table(yago22_5_s2_12527680661fe758)) where yago22_4_s1_12527680661fe758.v8 = yago22_5_s2_12527680661fe758.v8)), yago3_s2_12527680661fe758 as (select * from umbra.identity(table(yago3_s1_12527680661fe758)) where exists (select from umbra.identity(table(yago0_0_s2_12527680661fe758)) where yago3_s1_12527680661fe758.v0 = yago0_0_s2_12527680661fe758.v0)), yago0_2_s2_12527680661fe758 as (select * from umbra.identity(table(yago0_2_s1_12527680661fe758)) where exists (select from umbra.identity(table(yago3_s2_12527680661fe758)) where yago0_2_s1_12527680661fe758.v2 = yago3_s2_12527680661fe758.v2)), yago28_s2_12527680661fe758 as (select * from umbra.identity(table(yago28_s1_12527680661fe758)) where exists (select from umbra.identity(table(yago22_4_s2_12527680661fe758)) where yago28_s1_12527680661fe758.v6 = yago22_4_s2_12527680661fe758.v6) AND exists (select from umbra.identity(table(yago0_2_s2_12527680661fe758)) where yago28_s1_12527680661fe758.v4 = yago0_2_s2_12527680661fe758.v4)) /* stage3 */, yago0_2_s3_12527680661fe758 as (select * from umbra.identity(table(yago0_2_s2_12527680661fe758)) where exists (select from umbra.identity(table(yago28_s2_12527680661fe758)) where yago0_2_s2_12527680661fe758.v4 = yago28_s2_12527680661fe758.v4)), yago3_s3_12527680661fe758 as (select * from umbra.identity(table(yago3_s2_12527680661fe758)) where exists (select from umbra.identity(table(yago0_2_s2_12527680661fe758)) where yago3_s2_12527680661fe758.v2 = yago0_2_s2_12527680661fe758.v2)), yago0_0_s3_12527680661fe758 as (select * from umbra.identity(table(yago0_0_s2_12527680661fe758)) where exists (select from umbra.identity(table(yago3_s2_12527680661fe758)) where yago0_0_s2_12527680661fe758.v0 = yago3_s2_12527680661fe758.v0)), yago22_4_s3_12527680661fe758 as (select * from umbra.identity(table(yago22_4_s2_12527680661fe758)) where exists (select from umbra.identity(table(yago28_s2_12527680661fe758)) where yago22_4_s2_12527680661fe758.v6 = yago28_s2_12527680661fe758.v6)), yago22_5_s3_12527680661fe758 as (select * from umbra.identity(table(yago22_5_s2_12527680661fe758)) where exists (select from umbra.identity(table(yago22_4_s2_12527680661fe758)) where yago22_5_s2_12527680661fe758.v8 = yago22_4_s2_12527680661fe758.v8)) /* stage4 */, s4_group_33615BCD55E82896 as  (select * from umbra.identity(table(yago28_s2_12527680661fe758)) NATURAL JOIN umbra.identity(table(yago22_4_s3_12527680661fe758)) NATURAL JOIN umbra.identity(table(yago22_5_s3_12527680661fe758)) NATURAL JOIN umbra.identity(table(yago0_2_s3_12527680661fe758)) NATURAL JOIN umbra.identity(table(yago3_s3_12527680661fe758)) NATURAL JOIN umbra.identity(table(yago0_0_s3_12527680661fe758)))select count(*) from umbra.identity(table(s4_group_33615BCD55E82896));
+\set queryname yago_acyclic_Chain_6_27
+-- Result size: 3960
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5 [label="yago5|<s> s|<d> d"]; yago37 [label="yago37|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago2 [label="yago2|<s> s|<d> d"]; yago5:s -> yago37:d;yago37:s -> yago54:s;yago54:d -> yago25:s;yago25:d -> yago8:d;yago8:s -> yago2:d;}
+--                     +-------+----+-------+
+--                     | yago2 |  s |   d   |
+--                     +-------+----+-------+
+--                                     |
+--             +-----------------------+----------------+
+--             |                       |                |
+-- +--------+---------+--------+       |                |
+-- | yago25 |    s    |    d   |       |                |
+-- +--------+---------+--------+       |                |
+--                       |             |                |
+--                       |             |                |
+--                       |             |                |
+-- +--------+---------+--------+       |                |
+-- | yago8  |    s    |    d   |       |                |
+-- +--------+---------+--------+       |                |
+--             |                       |                |
+--             +-----------------------+                |
+--                                                      |
+--           +--------+--------+----+-------+----+---+  |
+--           | yago37 |    s   |  d | yago5 |  s | d |  |
+--           +--------+--------+----+-------+----+---+  |
+--                       |        |            |        |
+--                       |        +------------+        |
+--                       |                              |
+--           +--------+--------+----+                   |
+--           | yago54 |    s   |  d | ------------------+
+--           +--------+--------+----+
+with dummy as (select) /* stage1 */, yago54_s1_1ab59600661fe758 as (select yago54.s as v2,yago54.d as v4 from yago54), yago25_s1_1ab59600661fe758 as (select yago25.d as v6,yago25.s as v4 from yago25), yago8_s1_1ab59600661fe758 as (select yago8.d as v6,yago8.s as v8 from yago8), yago2_s2_1ab59600661fe758 as (select yago2.d as v8 from yago2), yago37_s1_1ab59600661fe758 as (select yago37.s as v2,yago37.d as v0 from yago37), yago5_s2_1ab59600661fe758 as (select yago5.s as v0 from yago5) /* stage2 */, yago37_s2_1ab59600661fe758 as (select * from umbra.identity(table(yago37_s1_1ab59600661fe758)) where exists (select from umbra.identity(table(yago5_s2_1ab59600661fe758)) where yago37_s1_1ab59600661fe758.v0 = yago5_s2_1ab59600661fe758.v0)), yago8_s2_1ab59600661fe758 as (select * from umbra.identity(table(yago8_s1_1ab59600661fe758)) where exists (select from umbra.identity(table(yago2_s2_1ab59600661fe758)) where yago8_s1_1ab59600661fe758.v8 = yago2_s2_1ab59600661fe758.v8)), yago25_s2_1ab59600661fe758 as (select * from umbra.identity(table(yago25_s1_1ab59600661fe758)) where exists (select from umbra.identity(table(yago8_s2_1ab59600661fe758)) where yago25_s1_1ab59600661fe758.v6 = yago8_s2_1ab59600661fe758.v6)), yago54_s2_1ab59600661fe758 as (select * from umbra.identity(table(yago54_s1_1ab59600661fe758)) where exists (select from umbra.identity(table(yago37_s2_1ab59600661fe758)) where yago54_s1_1ab59600661fe758.v2 = yago37_s2_1ab59600661fe758.v2) AND exists (select from umbra.identity(table(yago25_s2_1ab59600661fe758)) where yago54_s1_1ab59600661fe758.v4 = yago25_s2_1ab59600661fe758.v4)) /* stage3 */, yago25_s3_1ab59600661fe758 as (select * from umbra.identity(table(yago25_s2_1ab59600661fe758)) where exists (select from umbra.identity(table(yago54_s2_1ab59600661fe758)) where yago25_s2_1ab59600661fe758.v4 = yago54_s2_1ab59600661fe758.v4)), yago8_s3_1ab59600661fe758 as (select * from umbra.identity(table(yago8_s2_1ab59600661fe758)) where exists (select from umbra.identity(table(yago25_s2_1ab59600661fe758)) where yago8_s2_1ab59600661fe758.v6 = yago25_s2_1ab59600661fe758.v6)), yago2_s3_1ab59600661fe758 as (select * from umbra.identity(table(yago2_s2_1ab59600661fe758)) where exists (select from umbra.identity(table(yago8_s2_1ab59600661fe758)) where yago2_s2_1ab59600661fe758.v8 = yago8_s2_1ab59600661fe758.v8)), yago37_s3_1ab59600661fe758 as (select * from umbra.identity(table(yago37_s2_1ab59600661fe758)) where exists (select from umbra.identity(table(yago54_s2_1ab59600661fe758)) where yago37_s2_1ab59600661fe758.v2 = yago54_s2_1ab59600661fe758.v2)), yago5_s3_1ab59600661fe758 as (select * from umbra.identity(table(yago5_s2_1ab59600661fe758)) where exists (select from umbra.identity(table(yago37_s2_1ab59600661fe758)) where yago5_s2_1ab59600661fe758.v0 = yago37_s2_1ab59600661fe758.v0)) /* stage4 */, s4_group_78A03ECD4FA268C1 as  (select * from umbra.identity(table(yago54_s2_1ab59600661fe758)) NATURAL JOIN umbra.identity(table(yago37_s3_1ab59600661fe758)) NATURAL JOIN umbra.identity(table(yago5_s3_1ab59600661fe758)) NATURAL JOIN umbra.identity(table(yago25_s3_1ab59600661fe758)) NATURAL JOIN umbra.identity(table(yago8_s3_1ab59600661fe758)) NATURAL JOIN umbra.identity(table(yago2_s3_1ab59600661fe758)))select count(*) from umbra.identity(table(s4_group_78A03ECD4FA268C1));
+\set queryname yago_acyclic_Chain_6_28
+-- Result size: 305508
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago5:d;yago5:s -> yago21:s;}
+--            +--------+----+----+
+--            | yago21 |  s |  d |
+--            +--------+----+----+
+--                        |
+--                        +----+
+--                             |
+-- +---------+---------+----+  |
+-- | yago2_0 |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              |              |
+--              |              |
+-- +---------+---------+----+  |
+-- | yago2_1 |    s    |  d |  |
+-- +---------+---------+----+  |
+--                        |    |
+--                        |    |
+--                        |    |
+-- +---------+---------+----+  |
+-- | yago2_2 |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              |              |
+--              |              |
+-- +---------+---------+----+  |
+-- | yago2_3 |    s    |  d |  |
+-- +---------+---------+----+  |
+--                        |    |
+--                        |    |
+--                        |    |
+-- +---------+---------+----+  |
+-- |  yago5  |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              +--------------+
+with dummy as (select) /* stage1 */, yago2_3_s1_3253a80661fe759 as (select yago2_3.d as v6,yago2_3.s as v4 from yago2 yago2_3), yago2_2_s1_3253a80661fe759 as (select yago2_2.d as v2,yago2_2.s as v4 from yago2 yago2_2), yago2_1_s1_3253a80661fe759 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_3253a80661fe759 as (select yago2_0.s as v0 from yago2 yago2_0), yago5_s1_3253a80661fe759 as (select yago5.d as v6,yago5.s as v8 from yago5), yago21_s2_3253a80661fe759 as (select yago21.s as v8 from yago21) /* stage2 */, yago5_s2_3253a80661fe759 as (select * from umbra.identity(table(yago5_s1_3253a80661fe759)) where exists (select from umbra.identity(table(yago21_s2_3253a80661fe759)) where yago5_s1_3253a80661fe759.v8 = yago21_s2_3253a80661fe759.v8)), yago2_1_s2_3253a80661fe759 as (select * from umbra.identity(table(yago2_1_s1_3253a80661fe759)) where exists (select from umbra.identity(table(yago2_0_s2_3253a80661fe759)) where yago2_1_s1_3253a80661fe759.v0 = yago2_0_s2_3253a80661fe759.v0)), yago2_2_s2_3253a80661fe759 as (select * from umbra.identity(table(yago2_2_s1_3253a80661fe759)) where exists (select from umbra.identity(table(yago2_1_s2_3253a80661fe759)) where yago2_2_s1_3253a80661fe759.v2 = yago2_1_s2_3253a80661fe759.v2)), yago2_3_s2_3253a80661fe759 as (select * from umbra.identity(table(yago2_3_s1_3253a80661fe759)) where exists (select from umbra.identity(table(yago5_s2_3253a80661fe759)) where yago2_3_s1_3253a80661fe759.v6 = yago5_s2_3253a80661fe759.v6) AND exists (select from umbra.identity(table(yago2_2_s2_3253a80661fe759)) where yago2_3_s1_3253a80661fe759.v4 = yago2_2_s2_3253a80661fe759.v4)) /* stage3 */, yago2_2_s3_3253a80661fe759 as (select * from umbra.identity(table(yago2_2_s2_3253a80661fe759)) where exists (select from umbra.identity(table(yago2_3_s2_3253a80661fe759)) where yago2_2_s2_3253a80661fe759.v4 = yago2_3_s2_3253a80661fe759.v4)), yago2_1_s3_3253a80661fe759 as (select * from umbra.identity(table(yago2_1_s2_3253a80661fe759)) where exists (select from umbra.identity(table(yago2_2_s2_3253a80661fe759)) where yago2_1_s2_3253a80661fe759.v2 = yago2_2_s2_3253a80661fe759.v2)), yago2_0_s3_3253a80661fe759 as (select * from umbra.identity(table(yago2_0_s2_3253a80661fe759)) where exists (select from umbra.identity(table(yago2_1_s2_3253a80661fe759)) where yago2_0_s2_3253a80661fe759.v0 = yago2_1_s2_3253a80661fe759.v0)), yago5_s3_3253a80661fe759 as (select * from umbra.identity(table(yago5_s2_3253a80661fe759)) where exists (select from umbra.identity(table(yago2_3_s2_3253a80661fe759)) where yago5_s2_3253a80661fe759.v6 = yago2_3_s2_3253a80661fe759.v6)), yago21_s3_3253a80661fe759 as (select * from umbra.identity(table(yago21_s2_3253a80661fe759)) where exists (select from umbra.identity(table(yago5_s2_3253a80661fe759)) where yago21_s2_3253a80661fe759.v8 = yago5_s2_3253a80661fe759.v8)) /* stage4 */, s4_group_5C40BD4461D96C13 as  (select * from umbra.identity(table(yago2_3_s2_3253a80661fe759)) NATURAL JOIN umbra.identity(table(yago5_s3_3253a80661fe759)) NATURAL JOIN umbra.identity(table(yago21_s3_3253a80661fe759)) NATURAL JOIN umbra.identity(table(yago2_2_s3_3253a80661fe759)) NATURAL JOIN umbra.identity(table(yago2_1_s3_3253a80661fe759)) NATURAL JOIN umbra.identity(table(yago2_0_s3_3253a80661fe759)))select count(*) from umbra.identity(table(s4_group_5C40BD4461D96C13));
+\set queryname yago_acyclic_Chain_6_29
+-- Result size: 232611
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago0_2 [label="yago0_2|<s> s|<d> d"]; yago0_3 [label="yago0_3|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago0_2:s;yago0_2:d -> yago0_3:d;yago0_3:s -> yago5:d;yago5:s -> yago12:s;}
+--                                            +---------+
+--                                            |         |
+--                               +---------+----+----+  |
+--                               | yago0_2 |  s |  d |  |
+--                               +---------+----+----+  |
+--                                                 |    |
+--                                                 |    |
+--                                                 |    |
+--                               +---------+----+----+  |
+--                               | yago0_3 |  s |  d |  |
+--                               +---------+----+----+  |
+--                                            |         |
+--                                            |         |
+--                                            |         |
+-- +--------+----+---++---------+----------+----+       |
+-- | yago12 |  s | d ||  yago5  |     s    |  d |       |
+-- +--------+----+---++---------+----------+----+       |
+--             |                   |                    |
+--             +-------------------+                    |
+--                                                      |
+--                    +---------+----------+----+       |
+--                    | yago2_0 |     s    |  d |       |
+--                    +---------+----------+----+       |
+--                                 |                    |
+--                                 |                    |
+--                                 |                    |
+--                    +---------+----------+----+       |
+--                    | yago2_1 |     s    |  d | ------+
+--                    +---------+----------+----+
+with dummy as (select) /* stage1 */, yago0_3_s1_ba9d780661fe759 as (select yago0_3.d as v4,yago0_3.s as v6 from yago0 yago0_3), yago0_2_s1_ba9d780661fe759 as (select yago0_2.d as v4,yago0_2.s as v2 from yago0 yago0_2), yago2_1_s1_ba9d780661fe759 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_ba9d780661fe759 as (select yago2_0.s as v0 from yago2 yago2_0), yago5_s1_ba9d780661fe759 as (select yago5.s as v8,yago5.d as v6 from yago5), yago12_s2_ba9d780661fe759 as (select yago12.s as v8 from yago12) /* stage2 */, yago5_s2_ba9d780661fe759 as (select * from umbra.identity(table(yago5_s1_ba9d780661fe759)) where exists (select from umbra.identity(table(yago12_s2_ba9d780661fe759)) where yago5_s1_ba9d780661fe759.v8 = yago12_s2_ba9d780661fe759.v8)), yago2_1_s2_ba9d780661fe759 as (select * from umbra.identity(table(yago2_1_s1_ba9d780661fe759)) where exists (select from umbra.identity(table(yago2_0_s2_ba9d780661fe759)) where yago2_1_s1_ba9d780661fe759.v0 = yago2_0_s2_ba9d780661fe759.v0)), yago0_2_s2_ba9d780661fe759 as (select * from umbra.identity(table(yago0_2_s1_ba9d780661fe759)) where exists (select from umbra.identity(table(yago2_1_s2_ba9d780661fe759)) where yago0_2_s1_ba9d780661fe759.v2 = yago2_1_s2_ba9d780661fe759.v2)), yago0_3_s2_ba9d780661fe759 as (select * from umbra.identity(table(yago0_3_s1_ba9d780661fe759)) where exists (select from umbra.identity(table(yago5_s2_ba9d780661fe759)) where yago0_3_s1_ba9d780661fe759.v6 = yago5_s2_ba9d780661fe759.v6) AND exists (select from umbra.identity(table(yago0_2_s2_ba9d780661fe759)) where yago0_3_s1_ba9d780661fe759.v4 = yago0_2_s2_ba9d780661fe759.v4)) /* stage3 */, yago0_2_s3_ba9d780661fe759 as (select * from umbra.identity(table(yago0_2_s2_ba9d780661fe759)) where exists (select from umbra.identity(table(yago0_3_s2_ba9d780661fe759)) where yago0_2_s2_ba9d780661fe759.v4 = yago0_3_s2_ba9d780661fe759.v4)), yago2_1_s3_ba9d780661fe759 as (select * from umbra.identity(table(yago2_1_s2_ba9d780661fe759)) where exists (select from umbra.identity(table(yago0_2_s2_ba9d780661fe759)) where yago2_1_s2_ba9d780661fe759.v2 = yago0_2_s2_ba9d780661fe759.v2)), yago2_0_s3_ba9d780661fe759 as (select * from umbra.identity(table(yago2_0_s2_ba9d780661fe759)) where exists (select from umbra.identity(table(yago2_1_s2_ba9d780661fe759)) where yago2_0_s2_ba9d780661fe759.v0 = yago2_1_s2_ba9d780661fe759.v0)), yago5_s3_ba9d780661fe759 as (select * from umbra.identity(table(yago5_s2_ba9d780661fe759)) where exists (select from umbra.identity(table(yago0_3_s2_ba9d780661fe759)) where yago5_s2_ba9d780661fe759.v6 = yago0_3_s2_ba9d780661fe759.v6)), yago12_s3_ba9d780661fe759 as (select * from umbra.identity(table(yago12_s2_ba9d780661fe759)) where exists (select from umbra.identity(table(yago5_s2_ba9d780661fe759)) where yago12_s2_ba9d780661fe759.v8 = yago5_s2_ba9d780661fe759.v8)) /* stage4 */, s4_group_34B500922C2248F4 as  (select * from umbra.identity(table(yago0_3_s2_ba9d780661fe759)) NATURAL JOIN umbra.identity(table(yago5_s3_ba9d780661fe759)) NATURAL JOIN umbra.identity(table(yago12_s3_ba9d780661fe759)) NATURAL JOIN umbra.identity(table(yago0_2_s3_ba9d780661fe759)) NATURAL JOIN umbra.identity(table(yago2_1_s3_ba9d780661fe759)) NATURAL JOIN umbra.identity(table(yago2_0_s3_ba9d780661fe759)))select count(*) from umbra.identity(table(s4_group_34B500922C2248F4));
+\set queryname yago_acyclic_Chain_6_30
+-- Result size: 3423
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago23:s;yago23:d -> yago5_3:d;yago5_3:s -> yago5_4:s;yago5_4:d -> yago13:d;}
+--                   +----------------------------------------+
+--                   |                                        |
+--                   |                                        |
+--                   |               +------------------------+----+
+--                   |               |                        |    |
+--                   |               |        +--------+---+----+  |
+--                   |               |        | yago13 | s |  d |  |
+--                   |               |        +--------+---+----+  |
+--                   |               |                             |
+--                   |               |                             |
+--                   |               |                             |
+--                   |  +---------+----------+---------+           |
+--                   |  | yago23  |     s    |    d    |           |
+--                   |  +---------+----------+---------+           |
+--                   |                          |                  |
+--                   |                          |                  |
+--                   |                          |                  |
+-- +---------+----+----++---------+----------+---------+           |
+-- | yago5_4 |  s |  d || yago5_3 |     s    |    d    |           |
+-- +---------+----+----++---------+----------+---------+           |
+--              |                    |                             |
+--              +--------------------+                             |
+--                                                                 |
+--                                 +---------+---------+---+       |
+--                                 | yago2_0 |    s    | d |       |
+--                                 +---------+---------+---+       |
+--                                              |                  |
+--                                              |                  |
+--                                              |                  |
+--                                 +---------+---------+---+       |
+--                                 | yago2_1 |    s    | d | ------+
+--                                 +---------+---------+---+
+with dummy as (select) /* stage1 */, yago5_3_s1_141b0580661fe759 as (select yago5_3.d as v4,yago5_3.s as v6 from yago5 yago5_3), yago23_s1_141b0580661fe759 as (select yago23.d as v4,yago23.s as v2 from yago23), yago2_1_s1_141b0580661fe759 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_141b0580661fe759 as (select yago2_0.s as v0 from yago2 yago2_0), yago5_4_s1_141b0580661fe759 as (select yago5_4.s as v6,yago5_4.d as v8 from yago5 yago5_4), yago13_s2_141b0580661fe759 as (select yago13.d as v8 from yago13) /* stage2 */, yago5_4_s2_141b0580661fe759 as (select * from umbra.identity(table(yago5_4_s1_141b0580661fe759)) where exists (select from umbra.identity(table(yago13_s2_141b0580661fe759)) where yago5_4_s1_141b0580661fe759.v8 = yago13_s2_141b0580661fe759.v8)), yago2_1_s2_141b0580661fe759 as (select * from umbra.identity(table(yago2_1_s1_141b0580661fe759)) where exists (select from umbra.identity(table(yago2_0_s2_141b0580661fe759)) where yago2_1_s1_141b0580661fe759.v0 = yago2_0_s2_141b0580661fe759.v0)), yago23_s2_141b0580661fe759 as (select * from umbra.identity(table(yago23_s1_141b0580661fe759)) where exists (select from umbra.identity(table(yago2_1_s2_141b0580661fe759)) where yago23_s1_141b0580661fe759.v2 = yago2_1_s2_141b0580661fe759.v2)), yago5_3_s2_141b0580661fe759 as (select * from umbra.identity(table(yago5_3_s1_141b0580661fe759)) where exists (select from umbra.identity(table(yago5_4_s2_141b0580661fe759)) where yago5_3_s1_141b0580661fe759.v6 = yago5_4_s2_141b0580661fe759.v6) AND exists (select from umbra.identity(table(yago23_s2_141b0580661fe759)) where yago5_3_s1_141b0580661fe759.v4 = yago23_s2_141b0580661fe759.v4)) /* stage3 */, yago23_s3_141b0580661fe759 as (select * from umbra.identity(table(yago23_s2_141b0580661fe759)) where exists (select from umbra.identity(table(yago5_3_s2_141b0580661fe759)) where yago23_s2_141b0580661fe759.v4 = yago5_3_s2_141b0580661fe759.v4)), yago2_1_s3_141b0580661fe759 as (select * from umbra.identity(table(yago2_1_s2_141b0580661fe759)) where exists (select from umbra.identity(table(yago23_s2_141b0580661fe759)) where yago2_1_s2_141b0580661fe759.v2 = yago23_s2_141b0580661fe759.v2)), yago2_0_s3_141b0580661fe759 as (select * from umbra.identity(table(yago2_0_s2_141b0580661fe759)) where exists (select from umbra.identity(table(yago2_1_s2_141b0580661fe759)) where yago2_0_s2_141b0580661fe759.v0 = yago2_1_s2_141b0580661fe759.v0)), yago5_4_s3_141b0580661fe759 as (select * from umbra.identity(table(yago5_4_s2_141b0580661fe759)) where exists (select from umbra.identity(table(yago5_3_s2_141b0580661fe759)) where yago5_4_s2_141b0580661fe759.v6 = yago5_3_s2_141b0580661fe759.v6)), yago13_s3_141b0580661fe759 as (select * from umbra.identity(table(yago13_s2_141b0580661fe759)) where exists (select from umbra.identity(table(yago5_4_s2_141b0580661fe759)) where yago13_s2_141b0580661fe759.v8 = yago5_4_s2_141b0580661fe759.v8)) /* stage4 */, s4_group_4176DB8CE293BFD6 as  (select * from umbra.identity(table(yago5_3_s2_141b0580661fe759)) NATURAL JOIN umbra.identity(table(yago5_4_s3_141b0580661fe759)) NATURAL JOIN umbra.identity(table(yago13_s3_141b0580661fe759)) NATURAL JOIN umbra.identity(table(yago23_s3_141b0580661fe759)) NATURAL JOIN umbra.identity(table(yago2_1_s3_141b0580661fe759)) NATURAL JOIN umbra.identity(table(yago2_0_s3_141b0580661fe759)))select count(*) from umbra.identity(table(s4_group_4176DB8CE293BFD6));
+\set queryname yago_acyclic_Chain_6_31
+-- Result size: 46
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago65 [label="yago65|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago65:d;yago65:s -> yago17_3:d;yago17_3:s -> yago17_4:s;yago17_4:d -> yago17_5:d;}
+--   +--------------------------------+
+--   |                                |
+--   |             +----------+----+----+
+--   |             | yago17_3 |  s |  d |
+--   |             +----------+----+----+
+--   |                           |
+--   |                           |
+--   |                           |
+--   |             +----------+----+----+
+--   |             | yago17_4 |  s |  d |
+--   |             +----------+----+----+
+--   |                                |
+--   |                                |
+--   |                                |
+--   |             +----------+----+----+
+--   |             | yago17_5 |  s |  d |
+--   |             +----------+----+----+
+--   |  +---------+-----------+----+
+--   |  | yago2_0 |     s     |  d |
+--   |  +---------+-----------+----+
+--   |               |
+--   |               |
+--   |               |
+--   |  +---------+-----------+----+
+--   |  | yago2_1 |     s     |  d |
+--   |  +---------+-----------+----+
+--   |                           |
+--   +---------------+           |
+--                   |           |
+--      +---------+-----------+----+
+--      | yago65  |     s     |  d |
+--      +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago65_s1_1c97c700661fe759 as (select yago65.s as v4,yago65.d as v2 from yago65), yago17_3_s1_1c97c700661fe759 as (select yago17_3.s as v6,yago17_3.d as v4 from yago17 yago17_3), yago17_4_s1_1c97c700661fe759 as (select yago17_4.d as v8,yago17_4.s as v6 from yago17 yago17_4), yago17_5_s2_1c97c700661fe759 as (select yago17_5.d as v8 from yago17 yago17_5), yago2_1_s1_1c97c700661fe759 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_1c97c700661fe759 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_1c97c700661fe759 as (select * from umbra.identity(table(yago2_1_s1_1c97c700661fe759)) where exists (select from umbra.identity(table(yago2_0_s2_1c97c700661fe759)) where yago2_1_s1_1c97c700661fe759.v0 = yago2_0_s2_1c97c700661fe759.v0)), yago17_4_s2_1c97c700661fe759 as (select * from umbra.identity(table(yago17_4_s1_1c97c700661fe759)) where exists (select from umbra.identity(table(yago17_5_s2_1c97c700661fe759)) where yago17_4_s1_1c97c700661fe759.v8 = yago17_5_s2_1c97c700661fe759.v8)), yago17_3_s2_1c97c700661fe759 as (select * from umbra.identity(table(yago17_3_s1_1c97c700661fe759)) where exists (select from umbra.identity(table(yago17_4_s2_1c97c700661fe759)) where yago17_3_s1_1c97c700661fe759.v6 = yago17_4_s2_1c97c700661fe759.v6)), yago65_s2_1c97c700661fe759 as (select * from umbra.identity(table(yago65_s1_1c97c700661fe759)) where exists (select from umbra.identity(table(yago2_1_s2_1c97c700661fe759)) where yago65_s1_1c97c700661fe759.v2 = yago2_1_s2_1c97c700661fe759.v2) AND exists (select from umbra.identity(table(yago17_3_s2_1c97c700661fe759)) where yago65_s1_1c97c700661fe759.v4 = yago17_3_s2_1c97c700661fe759.v4)) /* stage3 */, yago17_3_s3_1c97c700661fe759 as (select * from umbra.identity(table(yago17_3_s2_1c97c700661fe759)) where exists (select from umbra.identity(table(yago65_s2_1c97c700661fe759)) where yago17_3_s2_1c97c700661fe759.v4 = yago65_s2_1c97c700661fe759.v4)), yago17_4_s3_1c97c700661fe759 as (select * from umbra.identity(table(yago17_4_s2_1c97c700661fe759)) where exists (select from umbra.identity(table(yago17_3_s2_1c97c700661fe759)) where yago17_4_s2_1c97c700661fe759.v6 = yago17_3_s2_1c97c700661fe759.v6)), yago17_5_s3_1c97c700661fe759 as (select * from umbra.identity(table(yago17_5_s2_1c97c700661fe759)) where exists (select from umbra.identity(table(yago17_4_s2_1c97c700661fe759)) where yago17_5_s2_1c97c700661fe759.v8 = yago17_4_s2_1c97c700661fe759.v8)), yago2_1_s3_1c97c700661fe759 as (select * from umbra.identity(table(yago2_1_s2_1c97c700661fe759)) where exists (select from umbra.identity(table(yago65_s2_1c97c700661fe759)) where yago2_1_s2_1c97c700661fe759.v2 = yago65_s2_1c97c700661fe759.v2)), yago2_0_s3_1c97c700661fe759 as (select * from umbra.identity(table(yago2_0_s2_1c97c700661fe759)) where exists (select from umbra.identity(table(yago2_1_s2_1c97c700661fe759)) where yago2_0_s2_1c97c700661fe759.v0 = yago2_1_s2_1c97c700661fe759.v0)) /* stage4 */, s4_group_166782CD57925016 as  (select * from umbra.identity(table(yago65_s2_1c97c700661fe759)) NATURAL JOIN umbra.identity(table(yago2_1_s3_1c97c700661fe759)) NATURAL JOIN umbra.identity(table(yago2_0_s3_1c97c700661fe759)) NATURAL JOIN umbra.identity(table(yago17_3_s3_1c97c700661fe759)) NATURAL JOIN umbra.identity(table(yago17_4_s3_1c97c700661fe759)) NATURAL JOIN umbra.identity(table(yago17_5_s3_1c97c700661fe759)))select count(*) from umbra.identity(table(s4_group_166782CD57925016));
+\set queryname yago_acyclic_Chain_6_32
+-- Result size: 860304
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago0_2 [label="yago0_2|<s> s|<d> d"]; yago0_3 [label="yago0_3|<s> s|<d> d"]; yago31 [label="yago31|<s> s|<d> d"]; yago29 [label="yago29|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago0_2:s;yago0_2:d -> yago0_3:d;yago0_3:s -> yago31:s;yago31:d -> yago29:s;}
+--                                        +---------+
+--                                        |         |
+--                           +---------+----+----+  |
+--                           | yago0_2 |  s |  d |  |
+--                           +---------+----+----+  |
+--                                             |    |
+--                                             |    |
+--                                             |    |
+--                           +---------+----+----+  |
+--                           | yago0_3 |  s |  d |  |
+--                           +---------+----+----+  |
+--                                        |         |
+--                                        |         |
+--                                        |         |
+-- +--------+----+----------+----------+----+----+  |
+-- | yago29 |  s |     d    |  yago31  |  s |  d |  |
+-- +--------+----+----------+----------+----+----+  |
+--             |                               |    |
+--             +-------------------------------+    |
+--                                                  |
+--                +---------+----------+----+       |
+--                | yago2_0 |     s    |  d |       |
+--                +---------+----------+----+       |
+--                             |                    |
+--                             |                    |
+--                             |                    |
+--                +---------+----------+----+       |
+--                | yago2_1 |     s    |  d | ------+
+--                +---------+----------+----+
+with dummy as (select) /* stage1 */, yago0_3_s1_4fbd600661fe75a as (select yago0_3.s as v6,yago0_3.d as v4 from yago0 yago0_3), yago0_2_s1_4fbd600661fe75a as (select yago0_2.s as v2,yago0_2.d as v4 from yago0 yago0_2), yago2_1_s1_4fbd600661fe75a as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_4fbd600661fe75a as (select yago2_0.s as v0 from yago2 yago2_0), yago31_s1_4fbd600661fe75a as (select yago31.s as v6,yago31.d as v8 from yago31), yago29_s2_4fbd600661fe75a as (select yago29.s as v8 from yago29) /* stage2 */, yago31_s2_4fbd600661fe75a as (select * from umbra.identity(table(yago31_s1_4fbd600661fe75a)) where exists (select from umbra.identity(table(yago29_s2_4fbd600661fe75a)) where yago31_s1_4fbd600661fe75a.v8 = yago29_s2_4fbd600661fe75a.v8)), yago2_1_s2_4fbd600661fe75a as (select * from umbra.identity(table(yago2_1_s1_4fbd600661fe75a)) where exists (select from umbra.identity(table(yago2_0_s2_4fbd600661fe75a)) where yago2_1_s1_4fbd600661fe75a.v0 = yago2_0_s2_4fbd600661fe75a.v0)), yago0_2_s2_4fbd600661fe75a as (select * from umbra.identity(table(yago0_2_s1_4fbd600661fe75a)) where exists (select from umbra.identity(table(yago2_1_s2_4fbd600661fe75a)) where yago0_2_s1_4fbd600661fe75a.v2 = yago2_1_s2_4fbd600661fe75a.v2)), yago0_3_s2_4fbd600661fe75a as (select * from umbra.identity(table(yago0_3_s1_4fbd600661fe75a)) where exists (select from umbra.identity(table(yago31_s2_4fbd600661fe75a)) where yago0_3_s1_4fbd600661fe75a.v6 = yago31_s2_4fbd600661fe75a.v6) AND exists (select from umbra.identity(table(yago0_2_s2_4fbd600661fe75a)) where yago0_3_s1_4fbd600661fe75a.v4 = yago0_2_s2_4fbd600661fe75a.v4)) /* stage3 */, yago0_2_s3_4fbd600661fe75a as (select * from umbra.identity(table(yago0_2_s2_4fbd600661fe75a)) where exists (select from umbra.identity(table(yago0_3_s2_4fbd600661fe75a)) where yago0_2_s2_4fbd600661fe75a.v4 = yago0_3_s2_4fbd600661fe75a.v4)), yago2_1_s3_4fbd600661fe75a as (select * from umbra.identity(table(yago2_1_s2_4fbd600661fe75a)) where exists (select from umbra.identity(table(yago0_2_s2_4fbd600661fe75a)) where yago2_1_s2_4fbd600661fe75a.v2 = yago0_2_s2_4fbd600661fe75a.v2)), yago2_0_s3_4fbd600661fe75a as (select * from umbra.identity(table(yago2_0_s2_4fbd600661fe75a)) where exists (select from umbra.identity(table(yago2_1_s2_4fbd600661fe75a)) where yago2_0_s2_4fbd600661fe75a.v0 = yago2_1_s2_4fbd600661fe75a.v0)), yago31_s3_4fbd600661fe75a as (select * from umbra.identity(table(yago31_s2_4fbd600661fe75a)) where exists (select from umbra.identity(table(yago0_3_s2_4fbd600661fe75a)) where yago31_s2_4fbd600661fe75a.v6 = yago0_3_s2_4fbd600661fe75a.v6)), yago29_s3_4fbd600661fe75a as (select * from umbra.identity(table(yago29_s2_4fbd600661fe75a)) where exists (select from umbra.identity(table(yago31_s2_4fbd600661fe75a)) where yago29_s2_4fbd600661fe75a.v8 = yago31_s2_4fbd600661fe75a.v8)) /* stage4 */, s4_group_27C49DEB62317F44 as  (select * from umbra.identity(table(yago0_3_s2_4fbd600661fe75a)) NATURAL JOIN umbra.identity(table(yago31_s3_4fbd600661fe75a)) NATURAL JOIN umbra.identity(table(yago29_s3_4fbd600661fe75a)) NATURAL JOIN umbra.identity(table(yago0_2_s3_4fbd600661fe75a)) NATURAL JOIN umbra.identity(table(yago2_1_s3_4fbd600661fe75a)) NATURAL JOIN umbra.identity(table(yago2_0_s3_4fbd600661fe75a)))select count(*) from umbra.identity(table(s4_group_27C49DEB62317F44));
+\set queryname yago_acyclic_Chain_6_33
+-- Result size: 235081
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago23_4 [label="yago23_4|<s> s|<d> d"]; yago23_5 [label="yago23_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago5:d;yago5:s -> yago58:s;yago58:d -> yago23_4:s;yago23_4:d -> yago23_5:d;}
+--                          +---------+
+--                          |         |
+--            +----------+----+----+  |
+--            | yago23_4 |  s |  d |  |
+--            +----------+----+----+  |
+--                               |    |
+--                               |    |
+--                               |    |
+--            +----------+----+----+  |
+--            | yago23_5 |  s |  d |  |
+--            +----------+----+----+  |
+-- +---------+-----------+----+       |
+-- | yago2_0 |     s     |  d |       |
+-- +---------+-----------+----+       |
+--              |                     |
+--              |                     |
+--              |                     |
+-- +---------+-----------+----+       |
+-- | yago2_1 |     s     |  d |       |
+-- +---------+-----------+----+       |
+--                          |         |
+--                          |         |
+--                          |         |
+-- +---------+-----------+----+       |
+-- |  yago5  |     s     |  d |       |
+-- +---------+-----------+----+       |
+--              |                     |
+--              |                     |
+--              |                     |
+-- +---------+-----------+----+       |
+-- | yago58  |     s     |  d | ------+
+-- +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago58_s1_d94b100661fe75a as (select yago58.d as v6,yago58.s as v4 from yago58), yago5_s1_d94b100661fe75a as (select yago5.s as v4,yago5.d as v2 from yago5), yago2_1_s1_d94b100661fe75a as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_d94b100661fe75a as (select yago2_0.s as v0 from yago2 yago2_0), yago23_4_s1_d94b100661fe75a as (select yago23_4.d as v8,yago23_4.s as v6 from yago23 yago23_4), yago23_5_s2_d94b100661fe75a as (select yago23_5.d as v8 from yago23 yago23_5) /* stage2 */, yago23_4_s2_d94b100661fe75a as (select * from umbra.identity(table(yago23_4_s1_d94b100661fe75a)) where exists (select from umbra.identity(table(yago23_5_s2_d94b100661fe75a)) where yago23_4_s1_d94b100661fe75a.v8 = yago23_5_s2_d94b100661fe75a.v8)), yago2_1_s2_d94b100661fe75a as (select * from umbra.identity(table(yago2_1_s1_d94b100661fe75a)) where exists (select from umbra.identity(table(yago2_0_s2_d94b100661fe75a)) where yago2_1_s1_d94b100661fe75a.v0 = yago2_0_s2_d94b100661fe75a.v0)), yago5_s2_d94b100661fe75a as (select * from umbra.identity(table(yago5_s1_d94b100661fe75a)) where exists (select from umbra.identity(table(yago2_1_s2_d94b100661fe75a)) where yago5_s1_d94b100661fe75a.v2 = yago2_1_s2_d94b100661fe75a.v2)), yago58_s2_d94b100661fe75a as (select * from umbra.identity(table(yago58_s1_d94b100661fe75a)) where exists (select from umbra.identity(table(yago23_4_s2_d94b100661fe75a)) where yago58_s1_d94b100661fe75a.v6 = yago23_4_s2_d94b100661fe75a.v6) AND exists (select from umbra.identity(table(yago5_s2_d94b100661fe75a)) where yago58_s1_d94b100661fe75a.v4 = yago5_s2_d94b100661fe75a.v4)) /* stage3 */, yago5_s3_d94b100661fe75a as (select * from umbra.identity(table(yago5_s2_d94b100661fe75a)) where exists (select from umbra.identity(table(yago58_s2_d94b100661fe75a)) where yago5_s2_d94b100661fe75a.v4 = yago58_s2_d94b100661fe75a.v4)), yago2_1_s3_d94b100661fe75a as (select * from umbra.identity(table(yago2_1_s2_d94b100661fe75a)) where exists (select from umbra.identity(table(yago5_s2_d94b100661fe75a)) where yago2_1_s2_d94b100661fe75a.v2 = yago5_s2_d94b100661fe75a.v2)), yago2_0_s3_d94b100661fe75a as (select * from umbra.identity(table(yago2_0_s2_d94b100661fe75a)) where exists (select from umbra.identity(table(yago2_1_s2_d94b100661fe75a)) where yago2_0_s2_d94b100661fe75a.v0 = yago2_1_s2_d94b100661fe75a.v0)), yago23_4_s3_d94b100661fe75a as (select * from umbra.identity(table(yago23_4_s2_d94b100661fe75a)) where exists (select from umbra.identity(table(yago58_s2_d94b100661fe75a)) where yago23_4_s2_d94b100661fe75a.v6 = yago58_s2_d94b100661fe75a.v6)), yago23_5_s3_d94b100661fe75a as (select * from umbra.identity(table(yago23_5_s2_d94b100661fe75a)) where exists (select from umbra.identity(table(yago23_4_s2_d94b100661fe75a)) where yago23_5_s2_d94b100661fe75a.v8 = yago23_4_s2_d94b100661fe75a.v8)) /* stage4 */, s4_group_21D5ADF051C22F14 as  (select * from umbra.identity(table(yago58_s2_d94b100661fe75a)) NATURAL JOIN umbra.identity(table(yago23_4_s3_d94b100661fe75a)) NATURAL JOIN umbra.identity(table(yago23_5_s3_d94b100661fe75a)) NATURAL JOIN umbra.identity(table(yago5_s3_d94b100661fe75a)) NATURAL JOIN umbra.identity(table(yago2_1_s3_d94b100661fe75a)) NATURAL JOIN umbra.identity(table(yago2_0_s3_d94b100661fe75a)))select count(*) from umbra.identity(table(s4_group_21D5ADF051C22F14));
+\set queryname yago_acyclic_Chain_6_34
+-- Result size: 6187
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago25 [label="yago25|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago4_2 [label="yago4_2|<s> s|<d> d"]; yago4_3 [label="yago4_3|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago25:d -> yago8:d;yago8:s -> yago4_2:s;yago4_2:d -> yago4_3:s;yago4_3:d -> yago46:d;yago46:s -> yago36:s;}
+--                       +--------+----+----+
+--                       | yago25 |  s |  d |
+--                       +--------+----+----+
+--                                        |
+--                                        |
+--                                        |
+--                       +--------+----+----+
+--                       | yago8  |  s |  d |
+--                       +--------+----+----+
+--                                   |
+--   +-------------------------------+
+--   |
+--   |        +---------+---------+----+
+--   |        | yago46  |    s    |  d | -+
+--   |        +---------+---------+----+  |
+--   |                     |              |
+--   |                     |              |
+--   |                     |              |
+--   |        +---------+---------+----+  |
+--   |        | yago36  |    s    |  d |  |
+--   |        +---------+---------+----+  |
+--   |                                    |
+--   +----------+                    +----+
+--              |                    |
+-- +---------+----------+---------+  |
+-- | yago4_2 |     s    |    d    |  |
+-- +---------+----------+---------+  |
+--                         |         |
+--                         |         |
+--                         |         |
+--            +---------+---------+----+
+--            | yago4_3 |    s    |  d |
+--            +---------+---------+----+
+with dummy as (select) /* stage1 */, yago4_3_s1_1660ef80661fe75a as (select yago4_3.d as v6,yago4_3.s as v4 from yago4 yago4_3), yago4_2_s1_1660ef80661fe75a as (select yago4_2.d as v4,yago4_2.s as v2 from yago4 yago4_2), yago8_s1_1660ef80661fe75a as (select yago8.d as v0,yago8.s as v2 from yago8), yago25_s2_1660ef80661fe75a as (select yago25.d as v0 from yago25), yago46_s1_1660ef80661fe75a as (select yago46.d as v6,yago46.s as v8 from yago46), yago36_s2_1660ef80661fe75a as (select yago36.s as v8 from yago36) /* stage2 */, yago46_s2_1660ef80661fe75a as (select * from umbra.identity(table(yago46_s1_1660ef80661fe75a)) where exists (select from umbra.identity(table(yago36_s2_1660ef80661fe75a)) where yago46_s1_1660ef80661fe75a.v8 = yago36_s2_1660ef80661fe75a.v8)), yago8_s2_1660ef80661fe75a as (select * from umbra.identity(table(yago8_s1_1660ef80661fe75a)) where exists (select from umbra.identity(table(yago25_s2_1660ef80661fe75a)) where yago8_s1_1660ef80661fe75a.v0 = yago25_s2_1660ef80661fe75a.v0)), yago4_2_s2_1660ef80661fe75a as (select * from umbra.identity(table(yago4_2_s1_1660ef80661fe75a)) where exists (select from umbra.identity(table(yago8_s2_1660ef80661fe75a)) where yago4_2_s1_1660ef80661fe75a.v2 = yago8_s2_1660ef80661fe75a.v2)), yago4_3_s2_1660ef80661fe75a as (select * from umbra.identity(table(yago4_3_s1_1660ef80661fe75a)) where exists (select from umbra.identity(table(yago46_s2_1660ef80661fe75a)) where yago4_3_s1_1660ef80661fe75a.v6 = yago46_s2_1660ef80661fe75a.v6) AND exists (select from umbra.identity(table(yago4_2_s2_1660ef80661fe75a)) where yago4_3_s1_1660ef80661fe75a.v4 = yago4_2_s2_1660ef80661fe75a.v4)) /* stage3 */, yago4_2_s3_1660ef80661fe75a as (select * from umbra.identity(table(yago4_2_s2_1660ef80661fe75a)) where exists (select from umbra.identity(table(yago4_3_s2_1660ef80661fe75a)) where yago4_2_s2_1660ef80661fe75a.v4 = yago4_3_s2_1660ef80661fe75a.v4)), yago8_s3_1660ef80661fe75a as (select * from umbra.identity(table(yago8_s2_1660ef80661fe75a)) where exists (select from umbra.identity(table(yago4_2_s2_1660ef80661fe75a)) where yago8_s2_1660ef80661fe75a.v2 = yago4_2_s2_1660ef80661fe75a.v2)), yago25_s3_1660ef80661fe75a as (select * from umbra.identity(table(yago25_s2_1660ef80661fe75a)) where exists (select from umbra.identity(table(yago8_s2_1660ef80661fe75a)) where yago25_s2_1660ef80661fe75a.v0 = yago8_s2_1660ef80661fe75a.v0)), yago46_s3_1660ef80661fe75a as (select * from umbra.identity(table(yago46_s2_1660ef80661fe75a)) where exists (select from umbra.identity(table(yago4_3_s2_1660ef80661fe75a)) where yago46_s2_1660ef80661fe75a.v6 = yago4_3_s2_1660ef80661fe75a.v6)), yago36_s3_1660ef80661fe75a as (select * from umbra.identity(table(yago36_s2_1660ef80661fe75a)) where exists (select from umbra.identity(table(yago46_s2_1660ef80661fe75a)) where yago36_s2_1660ef80661fe75a.v8 = yago46_s2_1660ef80661fe75a.v8)) /* stage4 */, s4_group_77D7762AD0854F5 as  (select * from umbra.identity(table(yago4_3_s2_1660ef80661fe75a)) NATURAL JOIN umbra.identity(table(yago46_s3_1660ef80661fe75a)) NATURAL JOIN umbra.identity(table(yago36_s3_1660ef80661fe75a)) NATURAL JOIN umbra.identity(table(yago4_2_s3_1660ef80661fe75a)) NATURAL JOIN umbra.identity(table(yago8_s3_1660ef80661fe75a)) NATURAL JOIN umbra.identity(table(yago25_s3_1660ef80661fe75a)))select count(*) from umbra.identity(table(s4_group_77D7762AD0854F5));
+\set queryname yago_acyclic_Chain_6_35
+-- Result size: 9036386
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago0:d -> yago3:d;yago3:s -> yago25:s;yago25:d -> yago8:d;yago8:s -> yago39:s;}
+--                +-------+----+----+
+--                | yago0 |  s |  d |
+--                +-------+----+----+
+--                                |
+--                                |
+--                                |
+--                +-------+----+----+
+--                | yago3 |  s |  d |
+--                +-------+----+----+
+--                           |
+--             +-------------+
+--             |
+-- +--------+----+--------+
+-- | yago25 |  s |    d   |
+-- +--------+----+--------+
+--                  |
+--                  |
+--                  |
+-- +--------+----+--------+
+-- | yago8  |  s |    d   |
+-- +--------+----+--------+
+--             |
+--             |
+--             |
+-- +--------+----+--------+
+-- | yago39 |  s |    d   |
+-- +--------+----+--------+
+with dummy as (select) /* stage1 */, yago25_s1_1ec74800661fe75a as (select yago25.d as v4,yago25.s as v2 from yago25), yago8_s1_1ec74800661fe75a as (select yago8.s as v6,yago8.d as v4 from yago8), yago39_s2_1ec74800661fe75a as (select yago39.s as v6 from yago39), yago3_s1_1ec74800661fe75a as (select yago3.d as v0,yago3.s as v2 from yago3), yago0_s2_1ec74800661fe75a as (select yago0.d as v0 from yago0) /* stage2 */, yago3_s2_1ec74800661fe75a as (select * from umbra.identity(table(yago3_s1_1ec74800661fe75a)) where exists (select from umbra.identity(table(yago0_s2_1ec74800661fe75a)) where yago3_s1_1ec74800661fe75a.v0 = yago0_s2_1ec74800661fe75a.v0)), yago8_s2_1ec74800661fe75a as (select * from umbra.identity(table(yago8_s1_1ec74800661fe75a)) where exists (select from umbra.identity(table(yago39_s2_1ec74800661fe75a)) where yago8_s1_1ec74800661fe75a.v6 = yago39_s2_1ec74800661fe75a.v6)), yago25_s2_1ec74800661fe75a as (select * from umbra.identity(table(yago25_s1_1ec74800661fe75a)) where exists (select from umbra.identity(table(yago3_s2_1ec74800661fe75a)) where yago25_s1_1ec74800661fe75a.v2 = yago3_s2_1ec74800661fe75a.v2) AND exists (select from umbra.identity(table(yago8_s2_1ec74800661fe75a)) where yago25_s1_1ec74800661fe75a.v4 = yago8_s2_1ec74800661fe75a.v4)) /* stage3 */, yago8_s3_1ec74800661fe75a as (select * from umbra.identity(table(yago8_s2_1ec74800661fe75a)) where exists (select from umbra.identity(table(yago25_s2_1ec74800661fe75a)) where yago8_s2_1ec74800661fe75a.v4 = yago25_s2_1ec74800661fe75a.v4)), yago39_s3_1ec74800661fe75a as (select * from umbra.identity(table(yago39_s2_1ec74800661fe75a)) where exists (select from umbra.identity(table(yago8_s2_1ec74800661fe75a)) where yago39_s2_1ec74800661fe75a.v6 = yago8_s2_1ec74800661fe75a.v6)), yago3_s3_1ec74800661fe75a as (select * from umbra.identity(table(yago3_s2_1ec74800661fe75a)) where exists (select from umbra.identity(table(yago25_s2_1ec74800661fe75a)) where yago3_s2_1ec74800661fe75a.v2 = yago25_s2_1ec74800661fe75a.v2)), yago0_s3_1ec74800661fe75a as (select * from umbra.identity(table(yago0_s2_1ec74800661fe75a)) where exists (select from umbra.identity(table(yago3_s2_1ec74800661fe75a)) where yago0_s2_1ec74800661fe75a.v0 = yago3_s2_1ec74800661fe75a.v0)) /* stage4 */, s4_group_258AC77F0CEAAD3D as  (select * from umbra.identity(table(yago25_s2_1ec74800661fe75a)) NATURAL JOIN umbra.identity(table(yago3_s3_1ec74800661fe75a)) NATURAL JOIN umbra.identity(table(yago0_s3_1ec74800661fe75a)) NATURAL JOIN umbra.identity(table(yago8_s3_1ec74800661fe75a)) NATURAL JOIN umbra.identity(table(yago39_s3_1ec74800661fe75a)))select count(*) from umbra.identity(table(s4_group_258AC77F0CEAAD3D));
+\set queryname yago_acyclic_Chain_6_36
+-- Result size: 7029704
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago11 [label="yago11|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago22_3 [label="yago22_3|<s> s|<d> d"]; yago22_4 [label="yago22_4|<s> s|<d> d"]; yago11:d -> yago25:d;yago25:s -> yago21:s;yago21:d -> yago22_3:d;yago22_3:s -> yago22_4:s;}
+--                  +--------+----+----+
+--                  | yago11 |  s |  d |
+--                  +--------+----+----+
+--                                   |
+--                                   |
+--                                   |
+--                  +--------+----+----+
+--                  | yago25 |  s |  d |
+--                  +--------+----+----+
+--                              |
+--               +--------------+
+--               |
+-- +----------+----+---------+
+-- |  yago21  |  s |    d    |
+-- +----------+----+---------+
+--                    |
+--                    |
+--                    |
+-- +----------+----+---------+
+-- | yago22_3 |  s |    d    |
+-- +----------+----+---------+
+--               |
+--               |
+--               |
+-- +----------+----+---------+
+-- | yago22_4 |  s |    d    |
+-- +----------+----+---------+
+with dummy as (select) /* stage1 */, yago21_s1_72b3600661fe75b as (select yago21.s as v2,yago21.d as v4 from yago21), yago25_s1_72b3600661fe75b as (select yago25.s as v2,yago25.d as v0 from yago25), yago11_s2_72b3600661fe75b as (select yago11.d as v0 from yago11), yago22_3_s1_72b3600661fe75b as (select yago22_3.d as v4,yago22_3.s as v6 from yago22 yago22_3), yago22_4_s2_72b3600661fe75b as (select yago22_4.s as v6 from yago22 yago22_4) /* stage2 */, yago22_3_s2_72b3600661fe75b as (select * from umbra.identity(table(yago22_3_s1_72b3600661fe75b)) where exists (select from umbra.identity(table(yago22_4_s2_72b3600661fe75b)) where yago22_3_s1_72b3600661fe75b.v6 = yago22_4_s2_72b3600661fe75b.v6)), yago25_s2_72b3600661fe75b as (select * from umbra.identity(table(yago25_s1_72b3600661fe75b)) where exists (select from umbra.identity(table(yago11_s2_72b3600661fe75b)) where yago25_s1_72b3600661fe75b.v0 = yago11_s2_72b3600661fe75b.v0)), yago21_s2_72b3600661fe75b as (select * from umbra.identity(table(yago21_s1_72b3600661fe75b)) where exists (select from umbra.identity(table(yago22_3_s2_72b3600661fe75b)) where yago21_s1_72b3600661fe75b.v4 = yago22_3_s2_72b3600661fe75b.v4) AND exists (select from umbra.identity(table(yago25_s2_72b3600661fe75b)) where yago21_s1_72b3600661fe75b.v2 = yago25_s2_72b3600661fe75b.v2)) /* stage3 */, yago25_s3_72b3600661fe75b as (select * from umbra.identity(table(yago25_s2_72b3600661fe75b)) where exists (select from umbra.identity(table(yago21_s2_72b3600661fe75b)) where yago25_s2_72b3600661fe75b.v2 = yago21_s2_72b3600661fe75b.v2)), yago11_s3_72b3600661fe75b as (select * from umbra.identity(table(yago11_s2_72b3600661fe75b)) where exists (select from umbra.identity(table(yago25_s2_72b3600661fe75b)) where yago11_s2_72b3600661fe75b.v0 = yago25_s2_72b3600661fe75b.v0)), yago22_3_s3_72b3600661fe75b as (select * from umbra.identity(table(yago22_3_s2_72b3600661fe75b)) where exists (select from umbra.identity(table(yago21_s2_72b3600661fe75b)) where yago22_3_s2_72b3600661fe75b.v4 = yago21_s2_72b3600661fe75b.v4)), yago22_4_s3_72b3600661fe75b as (select * from umbra.identity(table(yago22_4_s2_72b3600661fe75b)) where exists (select from umbra.identity(table(yago22_3_s2_72b3600661fe75b)) where yago22_4_s2_72b3600661fe75b.v6 = yago22_3_s2_72b3600661fe75b.v6)) /* stage4 */, s4_group_5C00F8287D9291A6 as  (select * from umbra.identity(table(yago21_s2_72b3600661fe75b)) NATURAL JOIN umbra.identity(table(yago22_3_s3_72b3600661fe75b)) NATURAL JOIN umbra.identity(table(yago22_4_s3_72b3600661fe75b)) NATURAL JOIN umbra.identity(table(yago25_s3_72b3600661fe75b)) NATURAL JOIN umbra.identity(table(yago11_s3_72b3600661fe75b)))select count(*) from umbra.identity(table(s4_group_5C00F8287D9291A6));
+\set queryname yago_acyclic_Chain_6_37
+-- Result size: 3624
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago57 [label="yago57|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago57:d;yago57:s -> yago5:d;yago5:s -> yago12:s;yago12:d -> yago17:d;}
+--   +------------------------------+
+--   |                              |
+--   |             +--------+----+----+
+--   |             | yago5  |  s |  d |
+--   |             +--------+----+----+
+--   |                         |
+--   |                         |
+--   |                         |
+--   |             +--------+----+----+
+--   |             | yago12 |  s |  d |
+--   |             +--------+----+----+
+--   |                              |
+--   |                              |
+--   |                              |
+--   |             +--------+----+----+
+--   |             | yago17 |  s |  d |
+--   |             +--------+----+----+
+--   |  +---------+---------+----+
+--   |  | yago2_0 |    s    |  d |
+--   |  +---------+---------+----+
+--   |               |
+--   |               |
+--   |               |
+--   |  +---------+---------+----+
+--   |  | yago2_1 |    s    |  d |
+--   |  +---------+---------+----+
+--   |                         |
+--   +---------------+         |
+--                   |         |
+--      +---------+---------+----+
+--      | yago57  |    s    |  d |
+--      +---------+---------+----+
+with dummy as (select) /* stage1 */, yago57_s1_faac500661fe75b as (select yago57.s as v4,yago57.d as v2 from yago57), yago5_s1_faac500661fe75b as (select yago5.d as v4,yago5.s as v6 from yago5), yago12_s1_faac500661fe75b as (select yago12.d as v8,yago12.s as v6 from yago12), yago17_s2_faac500661fe75b as (select yago17.d as v8 from yago17), yago2_1_s1_faac500661fe75b as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_faac500661fe75b as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_faac500661fe75b as (select * from umbra.identity(table(yago2_1_s1_faac500661fe75b)) where exists (select from umbra.identity(table(yago2_0_s2_faac500661fe75b)) where yago2_1_s1_faac500661fe75b.v0 = yago2_0_s2_faac500661fe75b.v0)), yago12_s2_faac500661fe75b as (select * from umbra.identity(table(yago12_s1_faac500661fe75b)) where exists (select from umbra.identity(table(yago17_s2_faac500661fe75b)) where yago12_s1_faac500661fe75b.v8 = yago17_s2_faac500661fe75b.v8)), yago5_s2_faac500661fe75b as (select * from umbra.identity(table(yago5_s1_faac500661fe75b)) where exists (select from umbra.identity(table(yago12_s2_faac500661fe75b)) where yago5_s1_faac500661fe75b.v6 = yago12_s2_faac500661fe75b.v6)), yago57_s2_faac500661fe75b as (select * from umbra.identity(table(yago57_s1_faac500661fe75b)) where exists (select from umbra.identity(table(yago2_1_s2_faac500661fe75b)) where yago57_s1_faac500661fe75b.v2 = yago2_1_s2_faac500661fe75b.v2) AND exists (select from umbra.identity(table(yago5_s2_faac500661fe75b)) where yago57_s1_faac500661fe75b.v4 = yago5_s2_faac500661fe75b.v4)) /* stage3 */, yago5_s3_faac500661fe75b as (select * from umbra.identity(table(yago5_s2_faac500661fe75b)) where exists (select from umbra.identity(table(yago57_s2_faac500661fe75b)) where yago5_s2_faac500661fe75b.v4 = yago57_s2_faac500661fe75b.v4)), yago12_s3_faac500661fe75b as (select * from umbra.identity(table(yago12_s2_faac500661fe75b)) where exists (select from umbra.identity(table(yago5_s2_faac500661fe75b)) where yago12_s2_faac500661fe75b.v6 = yago5_s2_faac500661fe75b.v6)), yago17_s3_faac500661fe75b as (select * from umbra.identity(table(yago17_s2_faac500661fe75b)) where exists (select from umbra.identity(table(yago12_s2_faac500661fe75b)) where yago17_s2_faac500661fe75b.v8 = yago12_s2_faac500661fe75b.v8)), yago2_1_s3_faac500661fe75b as (select * from umbra.identity(table(yago2_1_s2_faac500661fe75b)) where exists (select from umbra.identity(table(yago57_s2_faac500661fe75b)) where yago2_1_s2_faac500661fe75b.v2 = yago57_s2_faac500661fe75b.v2)), yago2_0_s3_faac500661fe75b as (select * from umbra.identity(table(yago2_0_s2_faac500661fe75b)) where exists (select from umbra.identity(table(yago2_1_s2_faac500661fe75b)) where yago2_0_s2_faac500661fe75b.v0 = yago2_1_s2_faac500661fe75b.v0)) /* stage4 */, s4_group_3184B27FE432AD4F as  (select * from umbra.identity(table(yago57_s2_faac500661fe75b)) NATURAL JOIN umbra.identity(table(yago2_1_s3_faac500661fe75b)) NATURAL JOIN umbra.identity(table(yago2_0_s3_faac500661fe75b)) NATURAL JOIN umbra.identity(table(yago5_s3_faac500661fe75b)) NATURAL JOIN umbra.identity(table(yago12_s3_faac500661fe75b)) NATURAL JOIN umbra.identity(table(yago17_s3_faac500661fe75b)))select count(*) from umbra.identity(table(s4_group_3184B27FE432AD4F));
+\set queryname yago_acyclic_Chain_6_38
+-- Result size: 122668
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago46_0 [label="yago46_0|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago46_2 [label="yago46_2|<s> s|<d> d"]; yago36_3 [label="yago36_3|<s> s|<d> d"]; yago36_4 [label="yago36_4|<s> s|<d> d"]; yago36_5 [label="yago36_5|<s> s|<d> d"]; yago46_0:s -> yago17:s;yago17:d -> yago46_2:d;yago46_2:s -> yago36_3:s;yago36_3:d -> yago36_4:d;yago36_4:s -> yago36_5:s;}
+--                  +----------+----+----+
+--                  | yago46_0 |  s |  d |
+--                  +----------+----+----+
+--                                |
+--                                |
+--                                |
+--                  +----------+----+----+
+--                  |  yago17  |  s |  d |
+--                  +----------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +----------+----+----+
+--                  | yago46_2 |  s |  d |
+--                  +----------+----+----+
+--                                |
+--               +----------------+
+--               |
+-- +----------+----+-----------+
+-- | yago36_3 |  s |     d     |
+-- +----------+----+-----------+
+--                    |
+--                    |
+--                    |
+-- +----------+----+-----------+
+-- | yago36_4 |  s |     d     |
+-- +----------+----+-----------+
+--               |
+--               |
+--               |
+-- +----------+----+-----------+
+-- | yago36_5 |  s |     d     |
+-- +----------+----+-----------+
+with dummy as (select) /* stage1 */, yago46_2_s1_1811d600661fe75b as (select yago46_2.s as v4,yago46_2.d as v2 from yago46 yago46_2), yago36_3_s1_1811d600661fe75b as (select yago36_3.s as v4,yago36_3.d as v6 from yago36 yago36_3), yago36_4_s1_1811d600661fe75b as (select yago36_4.s as v8,yago36_4.d as v6 from yago36 yago36_4), yago36_5_s2_1811d600661fe75b as (select yago36_5.s as v8 from yago36 yago36_5), yago17_s1_1811d600661fe75b as (select yago17.d as v2,yago17.s as v0 from yago17), yago46_0_s2_1811d600661fe75b as (select yago46_0.s as v0 from yago46 yago46_0) /* stage2 */, yago17_s2_1811d600661fe75b as (select * from umbra.identity(table(yago17_s1_1811d600661fe75b)) where exists (select from umbra.identity(table(yago46_0_s2_1811d600661fe75b)) where yago17_s1_1811d600661fe75b.v0 = yago46_0_s2_1811d600661fe75b.v0)), yago36_4_s2_1811d600661fe75b as (select * from umbra.identity(table(yago36_4_s1_1811d600661fe75b)) where exists (select from umbra.identity(table(yago36_5_s2_1811d600661fe75b)) where yago36_4_s1_1811d600661fe75b.v8 = yago36_5_s2_1811d600661fe75b.v8)), yago36_3_s2_1811d600661fe75b as (select * from umbra.identity(table(yago36_3_s1_1811d600661fe75b)) where exists (select from umbra.identity(table(yago36_4_s2_1811d600661fe75b)) where yago36_3_s1_1811d600661fe75b.v6 = yago36_4_s2_1811d600661fe75b.v6)), yago46_2_s2_1811d600661fe75b as (select * from umbra.identity(table(yago46_2_s1_1811d600661fe75b)) where exists (select from umbra.identity(table(yago17_s2_1811d600661fe75b)) where yago46_2_s1_1811d600661fe75b.v2 = yago17_s2_1811d600661fe75b.v2) AND exists (select from umbra.identity(table(yago36_3_s2_1811d600661fe75b)) where yago46_2_s1_1811d600661fe75b.v4 = yago36_3_s2_1811d600661fe75b.v4)) /* stage3 */, yago36_3_s3_1811d600661fe75b as (select * from umbra.identity(table(yago36_3_s2_1811d600661fe75b)) where exists (select from umbra.identity(table(yago46_2_s2_1811d600661fe75b)) where yago36_3_s2_1811d600661fe75b.v4 = yago46_2_s2_1811d600661fe75b.v4)), yago36_4_s3_1811d600661fe75b as (select * from umbra.identity(table(yago36_4_s2_1811d600661fe75b)) where exists (select from umbra.identity(table(yago36_3_s2_1811d600661fe75b)) where yago36_4_s2_1811d600661fe75b.v6 = yago36_3_s2_1811d600661fe75b.v6)), yago36_5_s3_1811d600661fe75b as (select * from umbra.identity(table(yago36_5_s2_1811d600661fe75b)) where exists (select from umbra.identity(table(yago36_4_s2_1811d600661fe75b)) where yago36_5_s2_1811d600661fe75b.v8 = yago36_4_s2_1811d600661fe75b.v8)), yago17_s3_1811d600661fe75b as (select * from umbra.identity(table(yago17_s2_1811d600661fe75b)) where exists (select from umbra.identity(table(yago46_2_s2_1811d600661fe75b)) where yago17_s2_1811d600661fe75b.v2 = yago46_2_s2_1811d600661fe75b.v2)), yago46_0_s3_1811d600661fe75b as (select * from umbra.identity(table(yago46_0_s2_1811d600661fe75b)) where exists (select from umbra.identity(table(yago17_s2_1811d600661fe75b)) where yago46_0_s2_1811d600661fe75b.v0 = yago17_s2_1811d600661fe75b.v0)) /* stage4 */, s4_group_2A63FA717AFDAA04 as  (select * from umbra.identity(table(yago46_2_s2_1811d600661fe75b)) NATURAL JOIN umbra.identity(table(yago17_s3_1811d600661fe75b)) NATURAL JOIN umbra.identity(table(yago46_0_s3_1811d600661fe75b)) NATURAL JOIN umbra.identity(table(yago36_3_s3_1811d600661fe75b)) NATURAL JOIN umbra.identity(table(yago36_4_s3_1811d600661fe75b)) NATURAL JOIN umbra.identity(table(yago36_5_s3_1811d600661fe75b)))select count(*) from umbra.identity(table(s4_group_2A63FA717AFDAA04));
+\set queryname yago_acyclic_Chain_6_39
+-- Result size: 315173
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago54 [label="yago54|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago22_2 [label="yago22_2|<s> s|<d> d"]; yago22_3 [label="yago22_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago54:s -> yago5_1:s;yago5_1:d -> yago22_2:d;yago22_2:s -> yago22_3:s;yago22_3:d -> yago5_4:d;yago5_4:s -> yago5_5:s;}
+--                                +----------+----+----+
+--                                | yago22_2 |  s |  d | -+
+--                                +----------+----+----+  |
+--                                              |         |
+--                                              |         |
+--                                              |         |
+--                                +----------+----+----+  |
+--                                | yago22_3 |  s |  d |  |
+--                                +----------+----+----+  |
+--                                                   |    |
+--                                                   |    |
+--                                                   |    |
+-- +---------+----+---+           +----------+----+----+  |
+-- | yago5_5 |  s | d |           | yago5_4  |  s |  d |  |
+-- +---------+----+---+           +----------+----+----+  |
+--              |                               |         |
+--              +-------------------------------+    +----+
+--                                                   |
+--                     +---------+-----------+----+  |
+--                     | yago54  |     s     |  d |  |
+--                     +---------+-----------+----+  |
+--                                  |                |
+--                                  |                |
+--                                  |                |
+--                     +---------+-----------+----+  |
+--                     | yago5_1 |     s     |  d | -+
+--                     +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago22_3_s1_bce380661fe75c as (select yago22_3.s as v4,yago22_3.d as v6 from yago22 yago22_3), yago22_2_s1_bce380661fe75c as (select yago22_2.s as v4,yago22_2.d as v2 from yago22 yago22_2), yago5_1_s1_bce380661fe75c as (select yago5_1.d as v2,yago5_1.s as v0 from yago5 yago5_1), yago54_s2_bce380661fe75c as (select yago54.s as v0 from yago54), yago5_4_s1_bce380661fe75c as (select yago5_4.s as v8,yago5_4.d as v6 from yago5 yago5_4), yago5_5_s2_bce380661fe75c as (select yago5_5.s as v8 from yago5 yago5_5) /* stage2 */, yago5_4_s2_bce380661fe75c as (select * from umbra.identity(table(yago5_4_s1_bce380661fe75c)) where exists (select from umbra.identity(table(yago5_5_s2_bce380661fe75c)) where yago5_4_s1_bce380661fe75c.v8 = yago5_5_s2_bce380661fe75c.v8)), yago5_1_s2_bce380661fe75c as (select * from umbra.identity(table(yago5_1_s1_bce380661fe75c)) where exists (select from umbra.identity(table(yago54_s2_bce380661fe75c)) where yago5_1_s1_bce380661fe75c.v0 = yago54_s2_bce380661fe75c.v0)), yago22_2_s2_bce380661fe75c as (select * from umbra.identity(table(yago22_2_s1_bce380661fe75c)) where exists (select from umbra.identity(table(yago5_1_s2_bce380661fe75c)) where yago22_2_s1_bce380661fe75c.v2 = yago5_1_s2_bce380661fe75c.v2)), yago22_3_s2_bce380661fe75c as (select * from umbra.identity(table(yago22_3_s1_bce380661fe75c)) where exists (select from umbra.identity(table(yago5_4_s2_bce380661fe75c)) where yago22_3_s1_bce380661fe75c.v6 = yago5_4_s2_bce380661fe75c.v6) AND exists (select from umbra.identity(table(yago22_2_s2_bce380661fe75c)) where yago22_3_s1_bce380661fe75c.v4 = yago22_2_s2_bce380661fe75c.v4)) /* stage3 */, yago22_2_s3_bce380661fe75c as (select * from umbra.identity(table(yago22_2_s2_bce380661fe75c)) where exists (select from umbra.identity(table(yago22_3_s2_bce380661fe75c)) where yago22_2_s2_bce380661fe75c.v4 = yago22_3_s2_bce380661fe75c.v4)), yago5_1_s3_bce380661fe75c as (select * from umbra.identity(table(yago5_1_s2_bce380661fe75c)) where exists (select from umbra.identity(table(yago22_2_s2_bce380661fe75c)) where yago5_1_s2_bce380661fe75c.v2 = yago22_2_s2_bce380661fe75c.v2)), yago54_s3_bce380661fe75c as (select * from umbra.identity(table(yago54_s2_bce380661fe75c)) where exists (select from umbra.identity(table(yago5_1_s2_bce380661fe75c)) where yago54_s2_bce380661fe75c.v0 = yago5_1_s2_bce380661fe75c.v0)), yago5_4_s3_bce380661fe75c as (select * from umbra.identity(table(yago5_4_s2_bce380661fe75c)) where exists (select from umbra.identity(table(yago22_3_s2_bce380661fe75c)) where yago5_4_s2_bce380661fe75c.v6 = yago22_3_s2_bce380661fe75c.v6)), yago5_5_s3_bce380661fe75c as (select * from umbra.identity(table(yago5_5_s2_bce380661fe75c)) where exists (select from umbra.identity(table(yago5_4_s2_bce380661fe75c)) where yago5_5_s2_bce380661fe75c.v8 = yago5_4_s2_bce380661fe75c.v8)) /* stage4 */, s4_group_6B20A1DCF3925D7C as  (select * from umbra.identity(table(yago22_3_s2_bce380661fe75c)) NATURAL JOIN umbra.identity(table(yago5_4_s3_bce380661fe75c)) NATURAL JOIN umbra.identity(table(yago5_5_s3_bce380661fe75c)) NATURAL JOIN umbra.identity(table(yago22_2_s3_bce380661fe75c)) NATURAL JOIN umbra.identity(table(yago5_1_s3_bce380661fe75c)) NATURAL JOIN umbra.identity(table(yago54_s3_bce380661fe75c)))select count(*) from umbra.identity(table(s4_group_6B20A1DCF3925D7C));
+\set queryname yago_acyclic_Chain_6_40
+-- Result size: 520732
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago36_0 [label="yago36_0|<s> s|<d> d"]; yago36_1 [label="yago36_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago54_4 [label="yago54_4|<s> s|<d> d"]; yago54_5 [label="yago54_5|<s> s|<d> d"]; yago36_0:d -> yago36_1:d;yago36_1:s -> yago5_2:s;yago5_2:d -> yago5_3:d;yago5_3:s -> yago54_4:d;yago54_4:s -> yago54_5:d;}
+--                                         +----------+----+----+
+--                                         | yago36_0 |  s |  d |
+--                                         +----------+----+----+
+--                                                            |
+--                                                            |
+--                                                            |
+--                                         +----------+----+----+
+--                                         | yago36_1 |  s |  d |
+--                                         +----------+----+----+
+--                                                       |
+--                                                       |
+--                                                       |
+-- +---------+----+-----------+            +----------+----+----+
+-- | yago5_3 |  s |     d     |            | yago5_2  |  s |  d |
+-- +---------+----+-----------+            +----------+----+----+
+--              |    |                                        |
+--              |    +----------------------------------------+
+--              |
+--              |              +----------+-----------+----+
+--              |              | yago54_4 |     s     |  d |
+--              |              +----------+-----------+----+
+--              |                            |           |
+--              |                            |           |
+--              |                            |           |
+--              |  +----------+-----------+-----------+  |
+--              |  | yago54_5 |     s     |     d     |  |
+--              |  +----------+-----------+-----------+  |
+--              |                                        |
+--              +----------------------------------------+
+with dummy as (select) /* stage1 */, yago5_3_s1_93b1780661fe75c as (select yago5_3.d as v4,yago5_3.s as v6 from yago5 yago5_3), yago5_2_s1_93b1780661fe75c as (select yago5_2.d as v4,yago5_2.s as v2 from yago5 yago5_2), yago36_1_s1_93b1780661fe75c as (select yago36_1.d as v0,yago36_1.s as v2 from yago36 yago36_1), yago36_0_s2_93b1780661fe75c as (select yago36_0.d as v0 from yago36 yago36_0), yago54_4_s1_93b1780661fe75c as (select yago54_4.s as v8,yago54_4.d as v6 from yago54 yago54_4), yago54_5_s2_93b1780661fe75c as (select yago54_5.d as v8 from yago54 yago54_5) /* stage2 */, yago54_4_s2_93b1780661fe75c as (select * from umbra.identity(table(yago54_4_s1_93b1780661fe75c)) where exists (select from umbra.identity(table(yago54_5_s2_93b1780661fe75c)) where yago54_4_s1_93b1780661fe75c.v8 = yago54_5_s2_93b1780661fe75c.v8)), yago36_1_s2_93b1780661fe75c as (select * from umbra.identity(table(yago36_1_s1_93b1780661fe75c)) where exists (select from umbra.identity(table(yago36_0_s2_93b1780661fe75c)) where yago36_1_s1_93b1780661fe75c.v0 = yago36_0_s2_93b1780661fe75c.v0)), yago5_2_s2_93b1780661fe75c as (select * from umbra.identity(table(yago5_2_s1_93b1780661fe75c)) where exists (select from umbra.identity(table(yago36_1_s2_93b1780661fe75c)) where yago5_2_s1_93b1780661fe75c.v2 = yago36_1_s2_93b1780661fe75c.v2)), yago5_3_s2_93b1780661fe75c as (select * from umbra.identity(table(yago5_3_s1_93b1780661fe75c)) where exists (select from umbra.identity(table(yago54_4_s2_93b1780661fe75c)) where yago5_3_s1_93b1780661fe75c.v6 = yago54_4_s2_93b1780661fe75c.v6) AND exists (select from umbra.identity(table(yago5_2_s2_93b1780661fe75c)) where yago5_3_s1_93b1780661fe75c.v4 = yago5_2_s2_93b1780661fe75c.v4)) /* stage3 */, yago5_2_s3_93b1780661fe75c as (select * from umbra.identity(table(yago5_2_s2_93b1780661fe75c)) where exists (select from umbra.identity(table(yago5_3_s2_93b1780661fe75c)) where yago5_2_s2_93b1780661fe75c.v4 = yago5_3_s2_93b1780661fe75c.v4)), yago36_1_s3_93b1780661fe75c as (select * from umbra.identity(table(yago36_1_s2_93b1780661fe75c)) where exists (select from umbra.identity(table(yago5_2_s2_93b1780661fe75c)) where yago36_1_s2_93b1780661fe75c.v2 = yago5_2_s2_93b1780661fe75c.v2)), yago36_0_s3_93b1780661fe75c as (select * from umbra.identity(table(yago36_0_s2_93b1780661fe75c)) where exists (select from umbra.identity(table(yago36_1_s2_93b1780661fe75c)) where yago36_0_s2_93b1780661fe75c.v0 = yago36_1_s2_93b1780661fe75c.v0)), yago54_4_s3_93b1780661fe75c as (select * from umbra.identity(table(yago54_4_s2_93b1780661fe75c)) where exists (select from umbra.identity(table(yago5_3_s2_93b1780661fe75c)) where yago54_4_s2_93b1780661fe75c.v6 = yago5_3_s2_93b1780661fe75c.v6)), yago54_5_s3_93b1780661fe75c as (select * from umbra.identity(table(yago54_5_s2_93b1780661fe75c)) where exists (select from umbra.identity(table(yago54_4_s2_93b1780661fe75c)) where yago54_5_s2_93b1780661fe75c.v8 = yago54_4_s2_93b1780661fe75c.v8)) /* stage4 */, s4_group_6825BD06EB49CFB5 as  (select * from umbra.identity(table(yago5_3_s2_93b1780661fe75c)) NATURAL JOIN umbra.identity(table(yago54_4_s3_93b1780661fe75c)) NATURAL JOIN umbra.identity(table(yago54_5_s3_93b1780661fe75c)) NATURAL JOIN umbra.identity(table(yago5_2_s3_93b1780661fe75c)) NATURAL JOIN umbra.identity(table(yago36_1_s3_93b1780661fe75c)) NATURAL JOIN umbra.identity(table(yago36_0_s3_93b1780661fe75c)))select count(*) from umbra.identity(table(s4_group_6825BD06EB49CFB5));
+\set queryname yago_acyclic_Chain_6_41
+-- Result size: 195032
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago0:d -> yago3:d;yago3:s -> yago35:s;yago35:d -> yago36:d;yago36:s -> yago12:s;yago12:d -> yago46:s;}
+--             +--------------+
+--             |              |
+-- +--------+----+---------+  |       +-------+----+----+
+-- | yago36 |  s |    d    |  |       | yago0 |  s |  d |
+-- +--------+----+---------+  |       +-------+----+----+
+--                  |         |                       |
+--                  |         |                       |
+--                  |         |                       |
+-- +--------+----+---------+  |       +-------+----+----+
+-- | yago35 |  s |    d    |  |       | yago3 |  s |  d |
+-- +--------+----+---------+  |       +-------+----+----+
+--             |              |                  |
+--             +--------------+------------------+
+--                            |
+--                +--------+---------+--------+
+--                | yago12 |    s    |    d   |
+--                +--------+---------+--------+
+--                                      |
+--                                      |
+--                                      |
+--                          +--------+--------+----+
+--                          | yago46 |    s   |  d |
+--                          +--------+--------+----+
+with dummy as (select) /* stage1 */, yago36_s1_11a0ab80661fe75c as (select yago36.s as v6,yago36.d as v4 from yago36), yago35_s1_11a0ab80661fe75c as (select yago35.s as v2,yago35.d as v4 from yago35), yago3_s1_11a0ab80661fe75c as (select yago3.s as v2,yago3.d as v0 from yago3), yago0_s2_11a0ab80661fe75c as (select yago0.d as v0 from yago0), yago12_s1_11a0ab80661fe75c as (select yago12.s as v6,yago12.d as v8 from yago12), yago46_s2_11a0ab80661fe75c as (select yago46.s as v8 from yago46) /* stage2 */, yago12_s2_11a0ab80661fe75c as (select * from umbra.identity(table(yago12_s1_11a0ab80661fe75c)) where exists (select from umbra.identity(table(yago46_s2_11a0ab80661fe75c)) where yago12_s1_11a0ab80661fe75c.v8 = yago46_s2_11a0ab80661fe75c.v8)), yago3_s2_11a0ab80661fe75c as (select * from umbra.identity(table(yago3_s1_11a0ab80661fe75c)) where exists (select from umbra.identity(table(yago0_s2_11a0ab80661fe75c)) where yago3_s1_11a0ab80661fe75c.v0 = yago0_s2_11a0ab80661fe75c.v0)), yago35_s2_11a0ab80661fe75c as (select * from umbra.identity(table(yago35_s1_11a0ab80661fe75c)) where exists (select from umbra.identity(table(yago3_s2_11a0ab80661fe75c)) where yago35_s1_11a0ab80661fe75c.v2 = yago3_s2_11a0ab80661fe75c.v2)), yago36_s2_11a0ab80661fe75c as (select * from umbra.identity(table(yago36_s1_11a0ab80661fe75c)) where exists (select from umbra.identity(table(yago12_s2_11a0ab80661fe75c)) where yago36_s1_11a0ab80661fe75c.v6 = yago12_s2_11a0ab80661fe75c.v6) AND exists (select from umbra.identity(table(yago35_s2_11a0ab80661fe75c)) where yago36_s1_11a0ab80661fe75c.v4 = yago35_s2_11a0ab80661fe75c.v4)) /* stage3 */, yago35_s3_11a0ab80661fe75c as (select * from umbra.identity(table(yago35_s2_11a0ab80661fe75c)) where exists (select from umbra.identity(table(yago36_s2_11a0ab80661fe75c)) where yago35_s2_11a0ab80661fe75c.v4 = yago36_s2_11a0ab80661fe75c.v4)), yago3_s3_11a0ab80661fe75c as (select * from umbra.identity(table(yago3_s2_11a0ab80661fe75c)) where exists (select from umbra.identity(table(yago35_s2_11a0ab80661fe75c)) where yago3_s2_11a0ab80661fe75c.v2 = yago35_s2_11a0ab80661fe75c.v2)), yago0_s3_11a0ab80661fe75c as (select * from umbra.identity(table(yago0_s2_11a0ab80661fe75c)) where exists (select from umbra.identity(table(yago3_s2_11a0ab80661fe75c)) where yago0_s2_11a0ab80661fe75c.v0 = yago3_s2_11a0ab80661fe75c.v0)), yago12_s3_11a0ab80661fe75c as (select * from umbra.identity(table(yago12_s2_11a0ab80661fe75c)) where exists (select from umbra.identity(table(yago36_s2_11a0ab80661fe75c)) where yago12_s2_11a0ab80661fe75c.v6 = yago36_s2_11a0ab80661fe75c.v6)), yago46_s3_11a0ab80661fe75c as (select * from umbra.identity(table(yago46_s2_11a0ab80661fe75c)) where exists (select from umbra.identity(table(yago12_s2_11a0ab80661fe75c)) where yago46_s2_11a0ab80661fe75c.v8 = yago12_s2_11a0ab80661fe75c.v8)) /* stage4 */, s4_group_25FEE766E963B2C5 as  (select * from umbra.identity(table(yago36_s2_11a0ab80661fe75c)) NATURAL JOIN umbra.identity(table(yago12_s3_11a0ab80661fe75c)) NATURAL JOIN umbra.identity(table(yago46_s3_11a0ab80661fe75c)) NATURAL JOIN umbra.identity(table(yago35_s3_11a0ab80661fe75c)) NATURAL JOIN umbra.identity(table(yago3_s3_11a0ab80661fe75c)) NATURAL JOIN umbra.identity(table(yago0_s3_11a0ab80661fe75c)))select count(*) from umbra.identity(table(s4_group_25FEE766E963B2C5));
+\set queryname yago_acyclic_Chain_6_42
+-- Result size: 5505
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago50_2 [label="yago50_2|<s> s|<d> d"]; yago50_3 [label="yago50_3|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago50_5 [label="yago50_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago50_2:s;yago50_2:d -> yago50_3:d;yago50_3:s -> yago54:d;yago54:s -> yago50_5:s;}
+-- +----------+-----------+----+
+-- | yago2_0  |     s     |  d |
+-- +----------+-----------+----+
+--               |
+--               |
+--               |
+-- +----------+-----------+----+
+-- | yago2_1  |     s     |  d |
+-- +----------+-----------+----+
+--                           |
+--                           |
+--                           |
+--             +----------+----+----+
+--             | yago50_2 |  s |  d |
+--             +----------+----+----+
+--                                |
+--                                |
+--                                |
+--             +----------+----+----+
+--             | yago50_3 |  s |  d |
+--             +----------+----+----+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+----+
+-- |  yago54  |     s     |  d |
+-- +----------+-----------+----+
+--               |
+--               |
+--               |
+-- +----------+-----------+----+
+-- | yago50_5 |     s     |  d |
+-- +----------+-----------+----+
+with dummy as (select) /* stage1 */, yago50_3_s1_19f7f400661fe75c as (select yago50_3.s as v6,yago50_3.d as v4 from yago50 yago50_3), yago50_2_s1_19f7f400661fe75c as (select yago50_2.s as v2,yago50_2.d as v4 from yago50 yago50_2), yago2_1_s1_19f7f400661fe75c as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_19f7f400661fe75c as (select yago2_0.s as v0 from yago2 yago2_0), yago54_s1_19f7f400661fe75c as (select yago54.d as v6,yago54.s as v8 from yago54), yago50_5_s2_19f7f400661fe75c as (select yago50_5.s as v8 from yago50 yago50_5) /* stage2 */, yago54_s2_19f7f400661fe75c as (select * from umbra.identity(table(yago54_s1_19f7f400661fe75c)) where exists (select from umbra.identity(table(yago50_5_s2_19f7f400661fe75c)) where yago54_s1_19f7f400661fe75c.v8 = yago50_5_s2_19f7f400661fe75c.v8)), yago2_1_s2_19f7f400661fe75c as (select * from umbra.identity(table(yago2_1_s1_19f7f400661fe75c)) where exists (select from umbra.identity(table(yago2_0_s2_19f7f400661fe75c)) where yago2_1_s1_19f7f400661fe75c.v0 = yago2_0_s2_19f7f400661fe75c.v0)), yago50_2_s2_19f7f400661fe75c as (select * from umbra.identity(table(yago50_2_s1_19f7f400661fe75c)) where exists (select from umbra.identity(table(yago2_1_s2_19f7f400661fe75c)) where yago50_2_s1_19f7f400661fe75c.v2 = yago2_1_s2_19f7f400661fe75c.v2)), yago50_3_s2_19f7f400661fe75c as (select * from umbra.identity(table(yago50_3_s1_19f7f400661fe75c)) where exists (select from umbra.identity(table(yago54_s2_19f7f400661fe75c)) where yago50_3_s1_19f7f400661fe75c.v6 = yago54_s2_19f7f400661fe75c.v6) AND exists (select from umbra.identity(table(yago50_2_s2_19f7f400661fe75c)) where yago50_3_s1_19f7f400661fe75c.v4 = yago50_2_s2_19f7f400661fe75c.v4)) /* stage3 */, yago50_2_s3_19f7f400661fe75c as (select * from umbra.identity(table(yago50_2_s2_19f7f400661fe75c)) where exists (select from umbra.identity(table(yago50_3_s2_19f7f400661fe75c)) where yago50_2_s2_19f7f400661fe75c.v4 = yago50_3_s2_19f7f400661fe75c.v4)), yago2_1_s3_19f7f400661fe75c as (select * from umbra.identity(table(yago2_1_s2_19f7f400661fe75c)) where exists (select from umbra.identity(table(yago50_2_s2_19f7f400661fe75c)) where yago2_1_s2_19f7f400661fe75c.v2 = yago50_2_s2_19f7f400661fe75c.v2)), yago2_0_s3_19f7f400661fe75c as (select * from umbra.identity(table(yago2_0_s2_19f7f400661fe75c)) where exists (select from umbra.identity(table(yago2_1_s2_19f7f400661fe75c)) where yago2_0_s2_19f7f400661fe75c.v0 = yago2_1_s2_19f7f400661fe75c.v0)), yago54_s3_19f7f400661fe75c as (select * from umbra.identity(table(yago54_s2_19f7f400661fe75c)) where exists (select from umbra.identity(table(yago50_3_s2_19f7f400661fe75c)) where yago54_s2_19f7f400661fe75c.v6 = yago50_3_s2_19f7f400661fe75c.v6)), yago50_5_s3_19f7f400661fe75c as (select * from umbra.identity(table(yago50_5_s2_19f7f400661fe75c)) where exists (select from umbra.identity(table(yago54_s2_19f7f400661fe75c)) where yago50_5_s2_19f7f400661fe75c.v8 = yago54_s2_19f7f400661fe75c.v8)) /* stage4 */, s4_group_4D647A1C04A0F732 as  (select * from umbra.identity(table(yago50_3_s2_19f7f400661fe75c)) NATURAL JOIN umbra.identity(table(yago54_s3_19f7f400661fe75c)) NATURAL JOIN umbra.identity(table(yago50_5_s3_19f7f400661fe75c)) NATURAL JOIN umbra.identity(table(yago50_2_s3_19f7f400661fe75c)) NATURAL JOIN umbra.identity(table(yago2_1_s3_19f7f400661fe75c)) NATURAL JOIN umbra.identity(table(yago2_0_s3_19f7f400661fe75c)))select count(*) from umbra.identity(table(s4_group_4D647A1C04A0F732));
+\set queryname yago_acyclic_Chain_6_43
+-- Result size: 11
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago55 [label="yago55|<s> s|<d> d"]; yago81 [label="yago81|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago5:d;yago5:s -> yago46:d;yago46:s -> yago55:s;yago55:d -> yago81:s;}
+--           +---------+----+----+
+--           | yago2_0 |  s |  d |
+--           +---------+----+----+
+--                        |
+--                        |
+--                        |
+--           +---------+----+----+
+--           | yago2_1 |  s |  d |
+--           +---------+----+----+
+--                             |
+--                             |
+--                             |
+--           +---------+----+----+
+--           |  yago5  |  s |  d |
+--           +---------+----+----+
+--                        |
+--                        |
+--                        |
+-- +--------+----------+----+
+-- | yago46 |     s    |  d |
+-- +--------+----------+----+
+--             |
+--             |
+--             |
+-- +--------+----------+----+
+-- | yago55 |     s    |  d |
+-- +--------+----------+----+
+--                        |
+--                        |
+--                        |
+--           +---------+----+----+
+--           | yago81  |  s |  d |
+--           +---------+----+----+
+with dummy as (select) /* stage1 */, yago5_s1_293af80661fe75d as (select yago5.d as v2,yago5.s as v4 from yago5), yago46_s1_293af80661fe75d as (select yago46.s as v6,yago46.d as v4 from yago46), yago55_s1_293af80661fe75d as (select yago55.d as v8,yago55.s as v6 from yago55), yago81_s2_293af80661fe75d as (select yago81.s as v8 from yago81), yago2_1_s1_293af80661fe75d as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_293af80661fe75d as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_293af80661fe75d as (select * from umbra.identity(table(yago2_1_s1_293af80661fe75d)) where exists (select from umbra.identity(table(yago2_0_s2_293af80661fe75d)) where yago2_1_s1_293af80661fe75d.v0 = yago2_0_s2_293af80661fe75d.v0)), yago55_s2_293af80661fe75d as (select * from umbra.identity(table(yago55_s1_293af80661fe75d)) where exists (select from umbra.identity(table(yago81_s2_293af80661fe75d)) where yago55_s1_293af80661fe75d.v8 = yago81_s2_293af80661fe75d.v8)), yago46_s2_293af80661fe75d as (select * from umbra.identity(table(yago46_s1_293af80661fe75d)) where exists (select from umbra.identity(table(yago55_s2_293af80661fe75d)) where yago46_s1_293af80661fe75d.v6 = yago55_s2_293af80661fe75d.v6)), yago5_s2_293af80661fe75d as (select * from umbra.identity(table(yago5_s1_293af80661fe75d)) where exists (select from umbra.identity(table(yago2_1_s2_293af80661fe75d)) where yago5_s1_293af80661fe75d.v2 = yago2_1_s2_293af80661fe75d.v2) AND exists (select from umbra.identity(table(yago46_s2_293af80661fe75d)) where yago5_s1_293af80661fe75d.v4 = yago46_s2_293af80661fe75d.v4)) /* stage3 */, yago46_s3_293af80661fe75d as (select * from umbra.identity(table(yago46_s2_293af80661fe75d)) where exists (select from umbra.identity(table(yago5_s2_293af80661fe75d)) where yago46_s2_293af80661fe75d.v4 = yago5_s2_293af80661fe75d.v4)), yago55_s3_293af80661fe75d as (select * from umbra.identity(table(yago55_s2_293af80661fe75d)) where exists (select from umbra.identity(table(yago46_s2_293af80661fe75d)) where yago55_s2_293af80661fe75d.v6 = yago46_s2_293af80661fe75d.v6)), yago81_s3_293af80661fe75d as (select * from umbra.identity(table(yago81_s2_293af80661fe75d)) where exists (select from umbra.identity(table(yago55_s2_293af80661fe75d)) where yago81_s2_293af80661fe75d.v8 = yago55_s2_293af80661fe75d.v8)), yago2_1_s3_293af80661fe75d as (select * from umbra.identity(table(yago2_1_s2_293af80661fe75d)) where exists (select from umbra.identity(table(yago5_s2_293af80661fe75d)) where yago2_1_s2_293af80661fe75d.v2 = yago5_s2_293af80661fe75d.v2)), yago2_0_s3_293af80661fe75d as (select * from umbra.identity(table(yago2_0_s2_293af80661fe75d)) where exists (select from umbra.identity(table(yago2_1_s2_293af80661fe75d)) where yago2_0_s2_293af80661fe75d.v0 = yago2_1_s2_293af80661fe75d.v0)) /* stage4 */, s4_group_404206F473D530D2 as  (select * from umbra.identity(table(yago5_s2_293af80661fe75d)) NATURAL JOIN umbra.identity(table(yago2_1_s3_293af80661fe75d)) NATURAL JOIN umbra.identity(table(yago2_0_s3_293af80661fe75d)) NATURAL JOIN umbra.identity(table(yago46_s3_293af80661fe75d)) NATURAL JOIN umbra.identity(table(yago55_s3_293af80661fe75d)) NATURAL JOIN umbra.identity(table(yago81_s3_293af80661fe75d)))select count(*) from umbra.identity(table(s4_group_404206F473D530D2));
+\set queryname yago_acyclic_Chain_6_44
+-- Result size: 1840
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago6_0 [label="yago6_0|<s> s|<d> d"]; yago6_1 [label="yago6_1|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago6_0:d -> yago6_1:d;yago6_1:s -> yago13:d;yago13:s -> yago54:d;yago54:s -> yago36:s;yago36:d -> yago50:d;}
+--                      +--------+----+----+
+--                      | yago13 |  s |  d |
+--                      +--------+----+----+
+--                                  |    |
+--                                  |    |
+--                                  |    |
+--            +--------+---------+----+  |
+--            | yago54 |    s    |  d |  |
+--            +--------+---------+----+  |
+--                        |              |
+--              +---------+              |
+--              |                        |
+-- +---------+---------+---------+       |
+-- | yago36  |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | yago50  |    s    |    d    |       |
+-- +---------+---------+---------+       |
+-- +---------+---------+---------+       |
+-- | yago6_0 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | yago6_1 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--              |                        |
+--              +------------------------+
+with dummy as (select) /* stage1 */, yago54_s1_b16a400661fe75d as (select yago54.s as v6,yago54.d as v4 from yago54), yago13_s1_b16a400661fe75d as (select yago13.d as v2,yago13.s as v4 from yago13), yago6_1_s1_b16a400661fe75d as (select yago6_1.s as v2,yago6_1.d as v0 from yago6 yago6_1), yago6_0_s2_b16a400661fe75d as (select yago6_0.d as v0 from yago6 yago6_0), yago36_s1_b16a400661fe75d as (select yago36.s as v6,yago36.d as v8 from yago36), yago50_s2_b16a400661fe75d as (select yago50.d as v8 from yago50) /* stage2 */, yago36_s2_b16a400661fe75d as (select * from umbra.identity(table(yago36_s1_b16a400661fe75d)) where exists (select from umbra.identity(table(yago50_s2_b16a400661fe75d)) where yago36_s1_b16a400661fe75d.v8 = yago50_s2_b16a400661fe75d.v8)), yago6_1_s2_b16a400661fe75d as (select * from umbra.identity(table(yago6_1_s1_b16a400661fe75d)) where exists (select from umbra.identity(table(yago6_0_s2_b16a400661fe75d)) where yago6_1_s1_b16a400661fe75d.v0 = yago6_0_s2_b16a400661fe75d.v0)), yago13_s2_b16a400661fe75d as (select * from umbra.identity(table(yago13_s1_b16a400661fe75d)) where exists (select from umbra.identity(table(yago6_1_s2_b16a400661fe75d)) where yago13_s1_b16a400661fe75d.v2 = yago6_1_s2_b16a400661fe75d.v2)), yago54_s2_b16a400661fe75d as (select * from umbra.identity(table(yago54_s1_b16a400661fe75d)) where exists (select from umbra.identity(table(yago36_s2_b16a400661fe75d)) where yago54_s1_b16a400661fe75d.v6 = yago36_s2_b16a400661fe75d.v6) AND exists (select from umbra.identity(table(yago13_s2_b16a400661fe75d)) where yago54_s1_b16a400661fe75d.v4 = yago13_s2_b16a400661fe75d.v4)) /* stage3 */, yago13_s3_b16a400661fe75d as (select * from umbra.identity(table(yago13_s2_b16a400661fe75d)) where exists (select from umbra.identity(table(yago54_s2_b16a400661fe75d)) where yago13_s2_b16a400661fe75d.v4 = yago54_s2_b16a400661fe75d.v4)), yago6_1_s3_b16a400661fe75d as (select * from umbra.identity(table(yago6_1_s2_b16a400661fe75d)) where exists (select from umbra.identity(table(yago13_s2_b16a400661fe75d)) where yago6_1_s2_b16a400661fe75d.v2 = yago13_s2_b16a400661fe75d.v2)), yago6_0_s3_b16a400661fe75d as (select * from umbra.identity(table(yago6_0_s2_b16a400661fe75d)) where exists (select from umbra.identity(table(yago6_1_s2_b16a400661fe75d)) where yago6_0_s2_b16a400661fe75d.v0 = yago6_1_s2_b16a400661fe75d.v0)), yago36_s3_b16a400661fe75d as (select * from umbra.identity(table(yago36_s2_b16a400661fe75d)) where exists (select from umbra.identity(table(yago54_s2_b16a400661fe75d)) where yago36_s2_b16a400661fe75d.v6 = yago54_s2_b16a400661fe75d.v6)), yago50_s3_b16a400661fe75d as (select * from umbra.identity(table(yago50_s2_b16a400661fe75d)) where exists (select from umbra.identity(table(yago36_s2_b16a400661fe75d)) where yago50_s2_b16a400661fe75d.v8 = yago36_s2_b16a400661fe75d.v8)) /* stage4 */, s4_group_C584E64D02C8AC6 as  (select * from umbra.identity(table(yago54_s2_b16a400661fe75d)) NATURAL JOIN umbra.identity(table(yago36_s3_b16a400661fe75d)) NATURAL JOIN umbra.identity(table(yago50_s3_b16a400661fe75d)) NATURAL JOIN umbra.identity(table(yago13_s3_b16a400661fe75d)) NATURAL JOIN umbra.identity(table(yago6_1_s3_b16a400661fe75d)) NATURAL JOIN umbra.identity(table(yago6_0_s3_b16a400661fe75d)))select count(*) from umbra.identity(table(s4_group_C584E64D02C8AC6));
+\set queryname yago_acyclic_Chain_6_45
+-- Result size: 292684
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago17_2 [label="yago17_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago17_0:s -> yago17_1:s;yago17_1:d -> yago17_2:d;yago17_2:s -> yago5:d;yago5:s -> yago39:s;yago39:d -> yago35:d;}
+--                    +----------+----+----+
+--                    | yago17_0 |  s |  d |
+--                    +----------+----+----+
+--                                  |
+--                                  |
+--                                  |
+--                    +----------+----+----+
+--                    | yago17_1 |  s |  d |
+--                    +----------+----+----+
+--                                       |
+--                                       |
+--                                       |
+--                    +----------+----+----+
+--                    | yago17_2 |  s |  d |
+--                    +----------+----+----+
+--                                  |
+--                                  |
+--                                  |
+--           +-------+-----------+----+
+--           | yago5 |     s     |  d |
+--           +-------+-----------+----+
+--                      |
+--             +--------+
+--             |
+-- +--------+--------+-----------+
+-- | yago39 |    s   |     d     |
+-- +--------+--------+-----------+
+--                      |
+--                      |
+--                      |
+-- +--------+--------+-----------+
+-- | yago35 |    s   |     d     |
+-- +--------+--------+-----------+
+with dummy as (select) /* stage1 */, yago5_s1_13876f80661fe75d as (select yago5.d as v4,yago5.s as v6 from yago5), yago17_2_s1_13876f80661fe75d as (select yago17_2.s as v4,yago17_2.d as v2 from yago17 yago17_2), yago17_1_s1_13876f80661fe75d as (select yago17_1.s as v0,yago17_1.d as v2 from yago17 yago17_1), yago17_0_s2_13876f80661fe75d as (select yago17_0.s as v0 from yago17 yago17_0), yago39_s1_13876f80661fe75d as (select yago39.s as v6,yago39.d as v8 from yago39), yago35_s2_13876f80661fe75d as (select yago35.d as v8 from yago35) /* stage2 */, yago39_s2_13876f80661fe75d as (select * from umbra.identity(table(yago39_s1_13876f80661fe75d)) where exists (select from umbra.identity(table(yago35_s2_13876f80661fe75d)) where yago39_s1_13876f80661fe75d.v8 = yago35_s2_13876f80661fe75d.v8)), yago17_1_s2_13876f80661fe75d as (select * from umbra.identity(table(yago17_1_s1_13876f80661fe75d)) where exists (select from umbra.identity(table(yago17_0_s2_13876f80661fe75d)) where yago17_1_s1_13876f80661fe75d.v0 = yago17_0_s2_13876f80661fe75d.v0)), yago17_2_s2_13876f80661fe75d as (select * from umbra.identity(table(yago17_2_s1_13876f80661fe75d)) where exists (select from umbra.identity(table(yago17_1_s2_13876f80661fe75d)) where yago17_2_s1_13876f80661fe75d.v2 = yago17_1_s2_13876f80661fe75d.v2)), yago5_s2_13876f80661fe75d as (select * from umbra.identity(table(yago5_s1_13876f80661fe75d)) where exists (select from umbra.identity(table(yago39_s2_13876f80661fe75d)) where yago5_s1_13876f80661fe75d.v6 = yago39_s2_13876f80661fe75d.v6) AND exists (select from umbra.identity(table(yago17_2_s2_13876f80661fe75d)) where yago5_s1_13876f80661fe75d.v4 = yago17_2_s2_13876f80661fe75d.v4)) /* stage3 */, yago17_2_s3_13876f80661fe75d as (select * from umbra.identity(table(yago17_2_s2_13876f80661fe75d)) where exists (select from umbra.identity(table(yago5_s2_13876f80661fe75d)) where yago17_2_s2_13876f80661fe75d.v4 = yago5_s2_13876f80661fe75d.v4)), yago17_1_s3_13876f80661fe75d as (select * from umbra.identity(table(yago17_1_s2_13876f80661fe75d)) where exists (select from umbra.identity(table(yago17_2_s2_13876f80661fe75d)) where yago17_1_s2_13876f80661fe75d.v2 = yago17_2_s2_13876f80661fe75d.v2)), yago17_0_s3_13876f80661fe75d as (select * from umbra.identity(table(yago17_0_s2_13876f80661fe75d)) where exists (select from umbra.identity(table(yago17_1_s2_13876f80661fe75d)) where yago17_0_s2_13876f80661fe75d.v0 = yago17_1_s2_13876f80661fe75d.v0)), yago39_s3_13876f80661fe75d as (select * from umbra.identity(table(yago39_s2_13876f80661fe75d)) where exists (select from umbra.identity(table(yago5_s2_13876f80661fe75d)) where yago39_s2_13876f80661fe75d.v6 = yago5_s2_13876f80661fe75d.v6)), yago35_s3_13876f80661fe75d as (select * from umbra.identity(table(yago35_s2_13876f80661fe75d)) where exists (select from umbra.identity(table(yago39_s2_13876f80661fe75d)) where yago35_s2_13876f80661fe75d.v8 = yago39_s2_13876f80661fe75d.v8)) /* stage4 */, s4_group_6EE929F967A23CCC as  (select * from umbra.identity(table(yago5_s2_13876f80661fe75d)) NATURAL JOIN umbra.identity(table(yago39_s3_13876f80661fe75d)) NATURAL JOIN umbra.identity(table(yago35_s3_13876f80661fe75d)) NATURAL JOIN umbra.identity(table(yago17_2_s3_13876f80661fe75d)) NATURAL JOIN umbra.identity(table(yago17_1_s3_13876f80661fe75d)) NATURAL JOIN umbra.identity(table(yago17_0_s3_13876f80661fe75d)))select count(*) from umbra.identity(table(s4_group_6EE929F967A23CCC));
+\set queryname yago_acyclic_Chain_6_46
+-- Result size: 145214
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago13_0 [label="yago13_0|<s> s|<d> d"]; yago13_1 [label="yago13_1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago13_0:s -> yago13_1:s;yago13_1:d -> yago5:d;yago5:s -> yago36:s;yago36:d -> yago35:d;yago35:s -> yago17:d;}
+--                     +----------+----+----+
+--                     | yago13_0 |  s |  d |
+--                     +----------+----+----+
+--                                   |
+--                                   |
+--                                   |
+--                     +----------+----+----+
+--                     | yago13_1 |  s |  d |
+--                     +----------+----+----+
+--                                        |
+--                                        |
+--                                        |
+--                     +----------+----+----+
+--                     |  yago5   |  s |  d |
+--                     +----------+----+----+
+--                                   |
+--                                   +----+
+--                                        |
+--           +--------+-----------+----+  |
+--           | yago35 |     s     |  d |  |
+--           +--------+-----------+----+  |
+--                       |           |    |
+--                       |           |    |
+--                       |           |    |
+-- +--------+---------+-----------+  |    |
+-- | yago17 |    s    |     d     |  |    |
+-- +--------+---------+-----------+  |    |
+--                                   |    |
+--                                   |    |
+--                                   |    |
+--           +--------+-----------+----+  |
+--           | yago36 |     s     |  d |  |
+--           +--------+-----------+----+  |
+--                       |                |
+--                       +----------------+
+with dummy as (select) /* stage1 */, yago5_s1_1bf69e00661fe75d as (select yago5.d as v2,yago5.s as v4 from yago5), yago36_s1_1bf69e00661fe75d as (select yago36.d as v6,yago36.s as v4 from yago36), yago35_s1_1bf69e00661fe75d as (select yago35.d as v6,yago35.s as v8 from yago35), yago17_s2_1bf69e00661fe75d as (select yago17.d as v8 from yago17), yago13_1_s1_1bf69e00661fe75d as (select yago13_1.s as v0,yago13_1.d as v2 from yago13 yago13_1), yago13_0_s2_1bf69e00661fe75d as (select yago13_0.s as v0 from yago13 yago13_0) /* stage2 */, yago13_1_s2_1bf69e00661fe75d as (select * from umbra.identity(table(yago13_1_s1_1bf69e00661fe75d)) where exists (select from umbra.identity(table(yago13_0_s2_1bf69e00661fe75d)) where yago13_1_s1_1bf69e00661fe75d.v0 = yago13_0_s2_1bf69e00661fe75d.v0)), yago35_s2_1bf69e00661fe75d as (select * from umbra.identity(table(yago35_s1_1bf69e00661fe75d)) where exists (select from umbra.identity(table(yago17_s2_1bf69e00661fe75d)) where yago35_s1_1bf69e00661fe75d.v8 = yago17_s2_1bf69e00661fe75d.v8)), yago36_s2_1bf69e00661fe75d as (select * from umbra.identity(table(yago36_s1_1bf69e00661fe75d)) where exists (select from umbra.identity(table(yago35_s2_1bf69e00661fe75d)) where yago36_s1_1bf69e00661fe75d.v6 = yago35_s2_1bf69e00661fe75d.v6)), yago5_s2_1bf69e00661fe75d as (select * from umbra.identity(table(yago5_s1_1bf69e00661fe75d)) where exists (select from umbra.identity(table(yago13_1_s2_1bf69e00661fe75d)) where yago5_s1_1bf69e00661fe75d.v2 = yago13_1_s2_1bf69e00661fe75d.v2) AND exists (select from umbra.identity(table(yago36_s2_1bf69e00661fe75d)) where yago5_s1_1bf69e00661fe75d.v4 = yago36_s2_1bf69e00661fe75d.v4)) /* stage3 */, yago36_s3_1bf69e00661fe75d as (select * from umbra.identity(table(yago36_s2_1bf69e00661fe75d)) where exists (select from umbra.identity(table(yago5_s2_1bf69e00661fe75d)) where yago36_s2_1bf69e00661fe75d.v4 = yago5_s2_1bf69e00661fe75d.v4)), yago35_s3_1bf69e00661fe75d as (select * from umbra.identity(table(yago35_s2_1bf69e00661fe75d)) where exists (select from umbra.identity(table(yago36_s2_1bf69e00661fe75d)) where yago35_s2_1bf69e00661fe75d.v6 = yago36_s2_1bf69e00661fe75d.v6)), yago17_s3_1bf69e00661fe75d as (select * from umbra.identity(table(yago17_s2_1bf69e00661fe75d)) where exists (select from umbra.identity(table(yago35_s2_1bf69e00661fe75d)) where yago17_s2_1bf69e00661fe75d.v8 = yago35_s2_1bf69e00661fe75d.v8)), yago13_1_s3_1bf69e00661fe75d as (select * from umbra.identity(table(yago13_1_s2_1bf69e00661fe75d)) where exists (select from umbra.identity(table(yago5_s2_1bf69e00661fe75d)) where yago13_1_s2_1bf69e00661fe75d.v2 = yago5_s2_1bf69e00661fe75d.v2)), yago13_0_s3_1bf69e00661fe75d as (select * from umbra.identity(table(yago13_0_s2_1bf69e00661fe75d)) where exists (select from umbra.identity(table(yago13_1_s2_1bf69e00661fe75d)) where yago13_0_s2_1bf69e00661fe75d.v0 = yago13_1_s2_1bf69e00661fe75d.v0)) /* stage4 */, s4_group_69147EE1C511C614 as  (select * from umbra.identity(table(yago5_s2_1bf69e00661fe75d)) NATURAL JOIN umbra.identity(table(yago13_1_s3_1bf69e00661fe75d)) NATURAL JOIN umbra.identity(table(yago13_0_s3_1bf69e00661fe75d)) NATURAL JOIN umbra.identity(table(yago36_s3_1bf69e00661fe75d)) NATURAL JOIN umbra.identity(table(yago35_s3_1bf69e00661fe75d)) NATURAL JOIN umbra.identity(table(yago17_s3_1bf69e00661fe75d)))select count(*) from umbra.identity(table(s4_group_69147EE1C511C614));
+\set queryname yago_acyclic_Chain_6_47
+-- Result size: 122766
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago13_3 [label="yago13_3|<s> s|<d> d"]; yago13_4 [label="yago13_4|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago22:s;yago22:d -> yago13_3:d;yago13_3:s -> yago13_4:s;yago13_4:d -> yago5:d;}
+--                          +---------+
+--                          |         |
+--            +----------+----+----+  |
+--            |  yago22  |  s |  d |  |
+--            +----------+----+----+  |
+--                               |    |
+--                               |    |
+--                               |    |
+--            +----------+----+----+  |
+--            | yago13_3 |  s |  d |  |
+--            +----------+----+----+  |
+--                          |         |
+--                          |         |
+--                          |         |
+--            +----------+----+----+  |
+--            | yago13_4 |  s |  d |  |
+--            +----------+----+----+  |
+--                               |    |
+--                               |    |
+--                               |    |
+--            +----------+----+----+  |
+--            |  yago5   |  s |  d |  |
+--            +----------+----+----+  |
+-- +---------+-----------+----+       |
+-- | yago2_0 |     s     |  d |       |
+-- +---------+-----------+----+       |
+--              |                     |
+--              |                     |
+--              |                     |
+-- +---------+-----------+----+       |
+-- | yago2_1 |     s     |  d | ------+
+-- +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago22_s1_47d3c80661fe75e as (select yago22.d as v4,yago22.s as v2 from yago22), yago13_3_s1_47d3c80661fe75e as (select yago13_3.d as v4,yago13_3.s as v6 from yago13 yago13_3), yago13_4_s1_47d3c80661fe75e as (select yago13_4.d as v8,yago13_4.s as v6 from yago13 yago13_4), yago5_s2_47d3c80661fe75e as (select yago5.d as v8 from yago5), yago2_1_s1_47d3c80661fe75e as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_47d3c80661fe75e as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_47d3c80661fe75e as (select * from umbra.identity(table(yago2_1_s1_47d3c80661fe75e)) where exists (select from umbra.identity(table(yago2_0_s2_47d3c80661fe75e)) where yago2_1_s1_47d3c80661fe75e.v0 = yago2_0_s2_47d3c80661fe75e.v0)), yago13_4_s2_47d3c80661fe75e as (select * from umbra.identity(table(yago13_4_s1_47d3c80661fe75e)) where exists (select from umbra.identity(table(yago5_s2_47d3c80661fe75e)) where yago13_4_s1_47d3c80661fe75e.v8 = yago5_s2_47d3c80661fe75e.v8)), yago13_3_s2_47d3c80661fe75e as (select * from umbra.identity(table(yago13_3_s1_47d3c80661fe75e)) where exists (select from umbra.identity(table(yago13_4_s2_47d3c80661fe75e)) where yago13_3_s1_47d3c80661fe75e.v6 = yago13_4_s2_47d3c80661fe75e.v6)), yago22_s2_47d3c80661fe75e as (select * from umbra.identity(table(yago22_s1_47d3c80661fe75e)) where exists (select from umbra.identity(table(yago2_1_s2_47d3c80661fe75e)) where yago22_s1_47d3c80661fe75e.v2 = yago2_1_s2_47d3c80661fe75e.v2) AND exists (select from umbra.identity(table(yago13_3_s2_47d3c80661fe75e)) where yago22_s1_47d3c80661fe75e.v4 = yago13_3_s2_47d3c80661fe75e.v4)) /* stage3 */, yago13_3_s3_47d3c80661fe75e as (select * from umbra.identity(table(yago13_3_s2_47d3c80661fe75e)) where exists (select from umbra.identity(table(yago22_s2_47d3c80661fe75e)) where yago13_3_s2_47d3c80661fe75e.v4 = yago22_s2_47d3c80661fe75e.v4)), yago13_4_s3_47d3c80661fe75e as (select * from umbra.identity(table(yago13_4_s2_47d3c80661fe75e)) where exists (select from umbra.identity(table(yago13_3_s2_47d3c80661fe75e)) where yago13_4_s2_47d3c80661fe75e.v6 = yago13_3_s2_47d3c80661fe75e.v6)), yago5_s3_47d3c80661fe75e as (select * from umbra.identity(table(yago5_s2_47d3c80661fe75e)) where exists (select from umbra.identity(table(yago13_4_s2_47d3c80661fe75e)) where yago5_s2_47d3c80661fe75e.v8 = yago13_4_s2_47d3c80661fe75e.v8)), yago2_1_s3_47d3c80661fe75e as (select * from umbra.identity(table(yago2_1_s2_47d3c80661fe75e)) where exists (select from umbra.identity(table(yago22_s2_47d3c80661fe75e)) where yago2_1_s2_47d3c80661fe75e.v2 = yago22_s2_47d3c80661fe75e.v2)), yago2_0_s3_47d3c80661fe75e as (select * from umbra.identity(table(yago2_0_s2_47d3c80661fe75e)) where exists (select from umbra.identity(table(yago2_1_s2_47d3c80661fe75e)) where yago2_0_s2_47d3c80661fe75e.v0 = yago2_1_s2_47d3c80661fe75e.v0)) /* stage4 */, s4_group_112782183EAC8448 as  (select * from umbra.identity(table(yago22_s2_47d3c80661fe75e)) NATURAL JOIN umbra.identity(table(yago2_1_s3_47d3c80661fe75e)) NATURAL JOIN umbra.identity(table(yago2_0_s3_47d3c80661fe75e)) NATURAL JOIN umbra.identity(table(yago13_3_s3_47d3c80661fe75e)) NATURAL JOIN umbra.identity(table(yago13_4_s3_47d3c80661fe75e)) NATURAL JOIN umbra.identity(table(yago5_s3_47d3c80661fe75e)))select count(*) from umbra.identity(table(s4_group_112782183EAC8448));
+\set queryname yago_acyclic_Chain_6_48
+-- Result size: 4229
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago36:d;yago36:s -> yago17:d;}
+--            +--------+----+----+
+--            | yago17 |  s |  d |
+--            +--------+----+----+
+--                             |
+--                             |
+--                             |
+-- +---------+---------+----+  |
+-- | yago2_0 |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              |              |
+--              |              |
+-- +---------+---------+----+  |
+-- | yago2_1 |    s    |  d |  |
+-- +---------+---------+----+  |
+--                        |    |
+--                        |    |
+--                        |    |
+-- +---------+---------+----+  |
+-- | yago2_2 |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              |              |
+--              |              |
+-- +---------+---------+----+  |
+-- | yago2_3 |    s    |  d |  |
+-- +---------+---------+----+  |
+--                        |    |
+--                        |    |
+--                        |    |
+-- +---------+---------+----+  |
+-- | yago36  |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              +--------------+
+with dummy as (select) /* stage1 */, yago2_3_s1_ce95000661fe75e as (select yago2_3.d as v6,yago2_3.s as v4 from yago2 yago2_3), yago2_2_s1_ce95000661fe75e as (select yago2_2.s as v4,yago2_2.d as v2 from yago2 yago2_2), yago2_1_s1_ce95000661fe75e as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_ce95000661fe75e as (select yago2_0.s as v0 from yago2 yago2_0), yago36_s1_ce95000661fe75e as (select yago36.s as v8,yago36.d as v6 from yago36), yago17_s2_ce95000661fe75e as (select yago17.d as v8 from yago17) /* stage2 */, yago36_s2_ce95000661fe75e as (select * from umbra.identity(table(yago36_s1_ce95000661fe75e)) where exists (select from umbra.identity(table(yago17_s2_ce95000661fe75e)) where yago36_s1_ce95000661fe75e.v8 = yago17_s2_ce95000661fe75e.v8)), yago2_1_s2_ce95000661fe75e as (select * from umbra.identity(table(yago2_1_s1_ce95000661fe75e)) where exists (select from umbra.identity(table(yago2_0_s2_ce95000661fe75e)) where yago2_1_s1_ce95000661fe75e.v0 = yago2_0_s2_ce95000661fe75e.v0)), yago2_2_s2_ce95000661fe75e as (select * from umbra.identity(table(yago2_2_s1_ce95000661fe75e)) where exists (select from umbra.identity(table(yago2_1_s2_ce95000661fe75e)) where yago2_2_s1_ce95000661fe75e.v2 = yago2_1_s2_ce95000661fe75e.v2)), yago2_3_s2_ce95000661fe75e as (select * from umbra.identity(table(yago2_3_s1_ce95000661fe75e)) where exists (select from umbra.identity(table(yago36_s2_ce95000661fe75e)) where yago2_3_s1_ce95000661fe75e.v6 = yago36_s2_ce95000661fe75e.v6) AND exists (select from umbra.identity(table(yago2_2_s2_ce95000661fe75e)) where yago2_3_s1_ce95000661fe75e.v4 = yago2_2_s2_ce95000661fe75e.v4)) /* stage3 */, yago2_2_s3_ce95000661fe75e as (select * from umbra.identity(table(yago2_2_s2_ce95000661fe75e)) where exists (select from umbra.identity(table(yago2_3_s2_ce95000661fe75e)) where yago2_2_s2_ce95000661fe75e.v4 = yago2_3_s2_ce95000661fe75e.v4)), yago2_1_s3_ce95000661fe75e as (select * from umbra.identity(table(yago2_1_s2_ce95000661fe75e)) where exists (select from umbra.identity(table(yago2_2_s2_ce95000661fe75e)) where yago2_1_s2_ce95000661fe75e.v2 = yago2_2_s2_ce95000661fe75e.v2)), yago2_0_s3_ce95000661fe75e as (select * from umbra.identity(table(yago2_0_s2_ce95000661fe75e)) where exists (select from umbra.identity(table(yago2_1_s2_ce95000661fe75e)) where yago2_0_s2_ce95000661fe75e.v0 = yago2_1_s2_ce95000661fe75e.v0)), yago36_s3_ce95000661fe75e as (select * from umbra.identity(table(yago36_s2_ce95000661fe75e)) where exists (select from umbra.identity(table(yago2_3_s2_ce95000661fe75e)) where yago36_s2_ce95000661fe75e.v6 = yago2_3_s2_ce95000661fe75e.v6)), yago17_s3_ce95000661fe75e as (select * from umbra.identity(table(yago17_s2_ce95000661fe75e)) where exists (select from umbra.identity(table(yago36_s2_ce95000661fe75e)) where yago17_s2_ce95000661fe75e.v8 = yago36_s2_ce95000661fe75e.v8)) /* stage4 */, s4_group_4B0A2A88CC76097D as  (select * from umbra.identity(table(yago2_3_s2_ce95000661fe75e)) NATURAL JOIN umbra.identity(table(yago36_s3_ce95000661fe75e)) NATURAL JOIN umbra.identity(table(yago17_s3_ce95000661fe75e)) NATURAL JOIN umbra.identity(table(yago2_2_s3_ce95000661fe75e)) NATURAL JOIN umbra.identity(table(yago2_1_s3_ce95000661fe75e)) NATURAL JOIN umbra.identity(table(yago2_0_s3_ce95000661fe75e)))select count(*) from umbra.identity(table(s4_group_4B0A2A88CC76097D));
+\set queryname yago_acyclic_Chain_6_49
+-- Result size: 25
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago21:d;yago21:s -> yago54:d;yago54:s -> yago58:s;yago58:d -> yago4:s;}
+--           +-------+----+---+           +--------+----+----+
+--           | yago4 |  s | d |           | yago21 |  s |  d |
+--           +-------+----+---+           +--------+----+----+
+--                      |                             |    |
+--                      |                             |    |
+--                      |                             |    |
+-- +--------+--------+----+    +---------+---------+----+  |
+-- | yago58 |    s   |  d |    | yago54  |    s    |  d |  |
+-- +--------+--------+----+    +---------+---------+----+  |
+--             |                            |              |
+--             +----------------------------+              |
+--                                                         |
+--                             +---------+---------+----+  |
+--                             | yago2_0 |    s    |  d |  |
+--                             +---------+---------+----+  |
+--                                          |              |
+--                                          |              |
+--                                          |              |
+--                             +---------+---------+----+  |
+--                             | yago2_1 |    s    |  d | -+
+--                             +---------+---------+----+
+with dummy as (select) /* stage1 */, yago54_s1_154ff380661fe75e as (select yago54.d as v4,yago54.s as v6 from yago54), yago21_s1_154ff380661fe75e as (select yago21.s as v4,yago21.d as v2 from yago21), yago2_1_s1_154ff380661fe75e as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_154ff380661fe75e as (select yago2_0.s as v0 from yago2 yago2_0), yago58_s1_154ff380661fe75e as (select yago58.s as v6,yago58.d as v8 from yago58), yago4_s2_154ff380661fe75e as (select yago4.s as v8 from yago4) /* stage2 */, yago58_s2_154ff380661fe75e as (select * from umbra.identity(table(yago58_s1_154ff380661fe75e)) where exists (select from umbra.identity(table(yago4_s2_154ff380661fe75e)) where yago58_s1_154ff380661fe75e.v8 = yago4_s2_154ff380661fe75e.v8)), yago2_1_s2_154ff380661fe75e as (select * from umbra.identity(table(yago2_1_s1_154ff380661fe75e)) where exists (select from umbra.identity(table(yago2_0_s2_154ff380661fe75e)) where yago2_1_s1_154ff380661fe75e.v0 = yago2_0_s2_154ff380661fe75e.v0)), yago21_s2_154ff380661fe75e as (select * from umbra.identity(table(yago21_s1_154ff380661fe75e)) where exists (select from umbra.identity(table(yago2_1_s2_154ff380661fe75e)) where yago21_s1_154ff380661fe75e.v2 = yago2_1_s2_154ff380661fe75e.v2)), yago54_s2_154ff380661fe75e as (select * from umbra.identity(table(yago54_s1_154ff380661fe75e)) where exists (select from umbra.identity(table(yago58_s2_154ff380661fe75e)) where yago54_s1_154ff380661fe75e.v6 = yago58_s2_154ff380661fe75e.v6) AND exists (select from umbra.identity(table(yago21_s2_154ff380661fe75e)) where yago54_s1_154ff380661fe75e.v4 = yago21_s2_154ff380661fe75e.v4)) /* stage3 */, yago21_s3_154ff380661fe75e as (select * from umbra.identity(table(yago21_s2_154ff380661fe75e)) where exists (select from umbra.identity(table(yago54_s2_154ff380661fe75e)) where yago21_s2_154ff380661fe75e.v4 = yago54_s2_154ff380661fe75e.v4)), yago2_1_s3_154ff380661fe75e as (select * from umbra.identity(table(yago2_1_s2_154ff380661fe75e)) where exists (select from umbra.identity(table(yago21_s2_154ff380661fe75e)) where yago2_1_s2_154ff380661fe75e.v2 = yago21_s2_154ff380661fe75e.v2)), yago2_0_s3_154ff380661fe75e as (select * from umbra.identity(table(yago2_0_s2_154ff380661fe75e)) where exists (select from umbra.identity(table(yago2_1_s2_154ff380661fe75e)) where yago2_0_s2_154ff380661fe75e.v0 = yago2_1_s2_154ff380661fe75e.v0)), yago58_s3_154ff380661fe75e as (select * from umbra.identity(table(yago58_s2_154ff380661fe75e)) where exists (select from umbra.identity(table(yago54_s2_154ff380661fe75e)) where yago58_s2_154ff380661fe75e.v6 = yago54_s2_154ff380661fe75e.v6)), yago4_s3_154ff380661fe75e as (select * from umbra.identity(table(yago4_s2_154ff380661fe75e)) where exists (select from umbra.identity(table(yago58_s2_154ff380661fe75e)) where yago4_s2_154ff380661fe75e.v8 = yago58_s2_154ff380661fe75e.v8)) /* stage4 */, s4_group_235844FF7C45EB92 as  (select * from umbra.identity(table(yago54_s2_154ff380661fe75e)) NATURAL JOIN umbra.identity(table(yago58_s3_154ff380661fe75e)) NATURAL JOIN umbra.identity(table(yago4_s3_154ff380661fe75e)) NATURAL JOIN umbra.identity(table(yago21_s3_154ff380661fe75e)) NATURAL JOIN umbra.identity(table(yago2_1_s3_154ff380661fe75e)) NATURAL JOIN umbra.identity(table(yago2_0_s3_154ff380661fe75e)))select count(*) from umbra.identity(table(s4_group_235844FF7C45EB92));
+\set queryname yago_acyclic_Chain_6_50
+-- Result size: 33
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5 [label="yago5|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago22_2 [label="yago22_2|<s> s|<d> d"]; yago22_3 [label="yago22_3|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago11 [label="yago11|<s> s|<d> d"]; yago5:s -> yago4:s;yago4:d -> yago22_2:s;yago22_2:d -> yago22_3:d;yago22_3:s -> yago23:s;yago23:d -> yago11:s;}
+--                                              +--------+----+---+
+--                                              | yago11 |  s | d |
+--                                              +--------+----+---+
+--                                                          |
+--                                                          |
+--                                                          |
+-- +-------+----+---+          +----------+----+---------+  |
+-- | yago4 |  s | d | ------+  | yago22_2 |  s |    d    |  |
+-- +-------+----+---+       |  +----------+----+---------+  |
+--            |             |                |    |         |
+--            |             +----------------+    |         |
+--            |                                   |         |
+-- +-------+----+---+          +----------+----+---------+  |
+-- | yago5 |  s | d |          | yago22_3 |  s |    d    |  |
+-- +-------+----+---+          +----------+----+---------+  |
+--                                           |              |
+--                                           |              |
+--                                           |              |
+--                             +----------+----+---------+  |
+--                             |  yago23  |  s |    d    | -+
+--                             +----------+----+---------+
+with dummy as (select) /* stage1 */, yago22_3_s1_1dd32900661fe75e as (select yago22_3.d as v4,yago22_3.s as v6 from yago22 yago22_3), yago22_2_s1_1dd32900661fe75e as (select yago22_2.d as v4,yago22_2.s as v2 from yago22 yago22_2), yago4_s1_1dd32900661fe75e as (select yago4.d as v2,yago4.s as v0 from yago4), yago5_s2_1dd32900661fe75e as (select yago5.s as v0 from yago5), yago23_s1_1dd32900661fe75e as (select yago23.s as v6,yago23.d as v8 from yago23), yago11_s2_1dd32900661fe75e as (select yago11.s as v8 from yago11) /* stage2 */, yago23_s2_1dd32900661fe75e as (select * from umbra.identity(table(yago23_s1_1dd32900661fe75e)) where exists (select from umbra.identity(table(yago11_s2_1dd32900661fe75e)) where yago23_s1_1dd32900661fe75e.v8 = yago11_s2_1dd32900661fe75e.v8)), yago4_s2_1dd32900661fe75e as (select * from umbra.identity(table(yago4_s1_1dd32900661fe75e)) where exists (select from umbra.identity(table(yago5_s2_1dd32900661fe75e)) where yago4_s1_1dd32900661fe75e.v0 = yago5_s2_1dd32900661fe75e.v0)), yago22_2_s2_1dd32900661fe75e as (select * from umbra.identity(table(yago22_2_s1_1dd32900661fe75e)) where exists (select from umbra.identity(table(yago4_s2_1dd32900661fe75e)) where yago22_2_s1_1dd32900661fe75e.v2 = yago4_s2_1dd32900661fe75e.v2)), yago22_3_s2_1dd32900661fe75e as (select * from umbra.identity(table(yago22_3_s1_1dd32900661fe75e)) where exists (select from umbra.identity(table(yago23_s2_1dd32900661fe75e)) where yago22_3_s1_1dd32900661fe75e.v6 = yago23_s2_1dd32900661fe75e.v6) AND exists (select from umbra.identity(table(yago22_2_s2_1dd32900661fe75e)) where yago22_3_s1_1dd32900661fe75e.v4 = yago22_2_s2_1dd32900661fe75e.v4)) /* stage3 */, yago22_2_s3_1dd32900661fe75e as (select * from umbra.identity(table(yago22_2_s2_1dd32900661fe75e)) where exists (select from umbra.identity(table(yago22_3_s2_1dd32900661fe75e)) where yago22_2_s2_1dd32900661fe75e.v4 = yago22_3_s2_1dd32900661fe75e.v4)), yago4_s3_1dd32900661fe75e as (select * from umbra.identity(table(yago4_s2_1dd32900661fe75e)) where exists (select from umbra.identity(table(yago22_2_s2_1dd32900661fe75e)) where yago4_s2_1dd32900661fe75e.v2 = yago22_2_s2_1dd32900661fe75e.v2)), yago5_s3_1dd32900661fe75e as (select * from umbra.identity(table(yago5_s2_1dd32900661fe75e)) where exists (select from umbra.identity(table(yago4_s2_1dd32900661fe75e)) where yago5_s2_1dd32900661fe75e.v0 = yago4_s2_1dd32900661fe75e.v0)), yago23_s3_1dd32900661fe75e as (select * from umbra.identity(table(yago23_s2_1dd32900661fe75e)) where exists (select from umbra.identity(table(yago22_3_s2_1dd32900661fe75e)) where yago23_s2_1dd32900661fe75e.v6 = yago22_3_s2_1dd32900661fe75e.v6)), yago11_s3_1dd32900661fe75e as (select * from umbra.identity(table(yago11_s2_1dd32900661fe75e)) where exists (select from umbra.identity(table(yago23_s2_1dd32900661fe75e)) where yago11_s2_1dd32900661fe75e.v8 = yago23_s2_1dd32900661fe75e.v8)) /* stage4 */, s4_group_294C2AF0EC4D923E as  (select * from umbra.identity(table(yago22_3_s2_1dd32900661fe75e)) NATURAL JOIN umbra.identity(table(yago23_s3_1dd32900661fe75e)) NATURAL JOIN umbra.identity(table(yago11_s3_1dd32900661fe75e)) NATURAL JOIN umbra.identity(table(yago22_2_s3_1dd32900661fe75e)) NATURAL JOIN umbra.identity(table(yago4_s3_1dd32900661fe75e)) NATURAL JOIN umbra.identity(table(yago5_s3_1dd32900661fe75e)))select count(*) from umbra.identity(table(s4_group_294C2AF0EC4D923E));
+\set queryname yago_acyclic_Chain_6_51
+-- Result size: 4
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago29 [label="yago29|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago29:s;yago29:d -> yago12:d;}
+--            +--------+----+----+
+--            | yago12 |  s |  d |
+--            +--------+----+----+
+--                             |
+--                             |
+--                             |
+--            +--------+----+----+
+--            | yago29 |  s |  d |
+--            +--------+----+----+
+--                        |
+--                        +---------+
+--                                  |
+-- +---------+---------+----+       |
+-- | yago2_0 |    s    |  d |       |
+-- +---------+---------+----+       |
+--              |                   |
+--              |                   |
+--              |                   |
+-- +---------+---------+----+       |
+-- | yago2_1 |    s    |  d |       |
+-- +---------+---------+----+       |
+--                        |         |
+--                        |         |
+--                        |         |
+-- +---------+---------+----+       |
+-- | yago2_2 |    s    |  d |       |
+-- +---------+---------+----+       |
+--              |                   |
+--              |                   |
+--              |                   |
+-- +---------+---------+----+       |
+-- | yago2_3 |    s    |  d | ------+
+-- +---------+---------+----+
+with dummy as (select) /* stage1 */, yago2_3_s1_6526300661fe75f as (select yago2_3.s as v4,yago2_3.d as v6 from yago2 yago2_3), yago2_2_s1_6526300661fe75f as (select yago2_2.s as v4,yago2_2.d as v2 from yago2 yago2_2), yago2_1_s1_6526300661fe75f as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_6526300661fe75f as (select yago2_0.s as v0 from yago2 yago2_0), yago29_s1_6526300661fe75f as (select yago29.d as v8,yago29.s as v6 from yago29), yago12_s2_6526300661fe75f as (select yago12.d as v8 from yago12) /* stage2 */, yago29_s2_6526300661fe75f as (select * from umbra.identity(table(yago29_s1_6526300661fe75f)) where exists (select from umbra.identity(table(yago12_s2_6526300661fe75f)) where yago29_s1_6526300661fe75f.v8 = yago12_s2_6526300661fe75f.v8)), yago2_1_s2_6526300661fe75f as (select * from umbra.identity(table(yago2_1_s1_6526300661fe75f)) where exists (select from umbra.identity(table(yago2_0_s2_6526300661fe75f)) where yago2_1_s1_6526300661fe75f.v0 = yago2_0_s2_6526300661fe75f.v0)), yago2_2_s2_6526300661fe75f as (select * from umbra.identity(table(yago2_2_s1_6526300661fe75f)) where exists (select from umbra.identity(table(yago2_1_s2_6526300661fe75f)) where yago2_2_s1_6526300661fe75f.v2 = yago2_1_s2_6526300661fe75f.v2)), yago2_3_s2_6526300661fe75f as (select * from umbra.identity(table(yago2_3_s1_6526300661fe75f)) where exists (select from umbra.identity(table(yago29_s2_6526300661fe75f)) where yago2_3_s1_6526300661fe75f.v6 = yago29_s2_6526300661fe75f.v6) AND exists (select from umbra.identity(table(yago2_2_s2_6526300661fe75f)) where yago2_3_s1_6526300661fe75f.v4 = yago2_2_s2_6526300661fe75f.v4)) /* stage3 */, yago2_2_s3_6526300661fe75f as (select * from umbra.identity(table(yago2_2_s2_6526300661fe75f)) where exists (select from umbra.identity(table(yago2_3_s2_6526300661fe75f)) where yago2_2_s2_6526300661fe75f.v4 = yago2_3_s2_6526300661fe75f.v4)), yago2_1_s3_6526300661fe75f as (select * from umbra.identity(table(yago2_1_s2_6526300661fe75f)) where exists (select from umbra.identity(table(yago2_2_s2_6526300661fe75f)) where yago2_1_s2_6526300661fe75f.v2 = yago2_2_s2_6526300661fe75f.v2)), yago2_0_s3_6526300661fe75f as (select * from umbra.identity(table(yago2_0_s2_6526300661fe75f)) where exists (select from umbra.identity(table(yago2_1_s2_6526300661fe75f)) where yago2_0_s2_6526300661fe75f.v0 = yago2_1_s2_6526300661fe75f.v0)), yago29_s3_6526300661fe75f as (select * from umbra.identity(table(yago29_s2_6526300661fe75f)) where exists (select from umbra.identity(table(yago2_3_s2_6526300661fe75f)) where yago29_s2_6526300661fe75f.v6 = yago2_3_s2_6526300661fe75f.v6)), yago12_s3_6526300661fe75f as (select * from umbra.identity(table(yago12_s2_6526300661fe75f)) where exists (select from umbra.identity(table(yago29_s2_6526300661fe75f)) where yago12_s2_6526300661fe75f.v8 = yago29_s2_6526300661fe75f.v8)) /* stage4 */, s4_group_5C577424B425D6BB as  (select * from umbra.identity(table(yago2_3_s2_6526300661fe75f)) NATURAL JOIN umbra.identity(table(yago29_s3_6526300661fe75f)) NATURAL JOIN umbra.identity(table(yago12_s3_6526300661fe75f)) NATURAL JOIN umbra.identity(table(yago2_2_s3_6526300661fe75f)) NATURAL JOIN umbra.identity(table(yago2_1_s3_6526300661fe75f)) NATURAL JOIN umbra.identity(table(yago2_0_s3_6526300661fe75f)))select count(*) from umbra.identity(table(s4_group_5C577424B425D6BB));
+\set queryname yago_acyclic_Chain_6_52
+-- Result size: 3
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago21 [label="yago21|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago50_3 [label="yago50_3|<s> s|<d> d"]; yago50_4 [label="yago50_4|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago21:d -> yago5:d;yago5:s -> yago58:d;yago58:s -> yago50_3:s;yago50_3:d -> yago50_4:d;yago50_4:s -> yago39:s;}
+--                       +--------+----+----+
+--                       | yago21 |  s |  d |
+--                       +--------+----+----+
+--                                        |
+--                                        |
+--                                        |
+--                       +--------+----+----+
+--                       | yago5  |  s |  d |
+--                       +--------+----+----+
+--                                   |
+--                                   |
+--                                   |
+--             +--------+---------+----+
+--             | yago58 |    s    |  d |
+--             +--------+---------+----+
+--                         |
+--               +---------+
+--               |
+-- +----------+---------+---------+
+-- | yago50_3 |    s    |    d    |
+-- +----------+---------+---------+
+--                         |
+--                         |
+--                         |
+-- +----------+---------+---------+
+-- | yago50_4 |    s    |    d    |
+-- +----------+---------+---------+
+--               |
+--               |
+--               |
+-- +----------+---------+---------+
+-- |  yago39  |    s    |    d    |
+-- +----------+---------+---------+
+with dummy as (select) /* stage1 */, yago58_s1_ea38900661fe75f as (select yago58.d as v2,yago58.s as v4 from yago58), yago50_3_s1_ea38900661fe75f as (select yago50_3.d as v6,yago50_3.s as v4 from yago50 yago50_3), yago50_4_s1_ea38900661fe75f as (select yago50_4.d as v6,yago50_4.s as v8 from yago50 yago50_4), yago39_s2_ea38900661fe75f as (select yago39.s as v8 from yago39), yago5_s1_ea38900661fe75f as (select yago5.d as v0,yago5.s as v2 from yago5), yago21_s2_ea38900661fe75f as (select yago21.d as v0 from yago21) /* stage2 */, yago5_s2_ea38900661fe75f as (select * from umbra.identity(table(yago5_s1_ea38900661fe75f)) where exists (select from umbra.identity(table(yago21_s2_ea38900661fe75f)) where yago5_s1_ea38900661fe75f.v0 = yago21_s2_ea38900661fe75f.v0)), yago50_4_s2_ea38900661fe75f as (select * from umbra.identity(table(yago50_4_s1_ea38900661fe75f)) where exists (select from umbra.identity(table(yago39_s2_ea38900661fe75f)) where yago50_4_s1_ea38900661fe75f.v8 = yago39_s2_ea38900661fe75f.v8)), yago50_3_s2_ea38900661fe75f as (select * from umbra.identity(table(yago50_3_s1_ea38900661fe75f)) where exists (select from umbra.identity(table(yago50_4_s2_ea38900661fe75f)) where yago50_3_s1_ea38900661fe75f.v6 = yago50_4_s2_ea38900661fe75f.v6)), yago58_s2_ea38900661fe75f as (select * from umbra.identity(table(yago58_s1_ea38900661fe75f)) where exists (select from umbra.identity(table(yago5_s2_ea38900661fe75f)) where yago58_s1_ea38900661fe75f.v2 = yago5_s2_ea38900661fe75f.v2) AND exists (select from umbra.identity(table(yago50_3_s2_ea38900661fe75f)) where yago58_s1_ea38900661fe75f.v4 = yago50_3_s2_ea38900661fe75f.v4)) /* stage3 */, yago50_3_s3_ea38900661fe75f as (select * from umbra.identity(table(yago50_3_s2_ea38900661fe75f)) where exists (select from umbra.identity(table(yago58_s2_ea38900661fe75f)) where yago50_3_s2_ea38900661fe75f.v4 = yago58_s2_ea38900661fe75f.v4)), yago50_4_s3_ea38900661fe75f as (select * from umbra.identity(table(yago50_4_s2_ea38900661fe75f)) where exists (select from umbra.identity(table(yago50_3_s2_ea38900661fe75f)) where yago50_4_s2_ea38900661fe75f.v6 = yago50_3_s2_ea38900661fe75f.v6)), yago39_s3_ea38900661fe75f as (select * from umbra.identity(table(yago39_s2_ea38900661fe75f)) where exists (select from umbra.identity(table(yago50_4_s2_ea38900661fe75f)) where yago39_s2_ea38900661fe75f.v8 = yago50_4_s2_ea38900661fe75f.v8)), yago5_s3_ea38900661fe75f as (select * from umbra.identity(table(yago5_s2_ea38900661fe75f)) where exists (select from umbra.identity(table(yago58_s2_ea38900661fe75f)) where yago5_s2_ea38900661fe75f.v2 = yago58_s2_ea38900661fe75f.v2)), yago21_s3_ea38900661fe75f as (select * from umbra.identity(table(yago21_s2_ea38900661fe75f)) where exists (select from umbra.identity(table(yago5_s2_ea38900661fe75f)) where yago21_s2_ea38900661fe75f.v0 = yago5_s2_ea38900661fe75f.v0)) /* stage4 */, s4_group_3E25C519472D6C13 as  (select * from umbra.identity(table(yago58_s2_ea38900661fe75f)) NATURAL JOIN umbra.identity(table(yago5_s3_ea38900661fe75f)) NATURAL JOIN umbra.identity(table(yago21_s3_ea38900661fe75f)) NATURAL JOIN umbra.identity(table(yago50_3_s3_ea38900661fe75f)) NATURAL JOIN umbra.identity(table(yago50_4_s3_ea38900661fe75f)) NATURAL JOIN umbra.identity(table(yago39_s3_ea38900661fe75f)))select count(*) from umbra.identity(table(s4_group_3E25C519472D6C13));
+\set queryname yago_acyclic_Chain_6_53
+-- Result size: 17
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago0_1 [label="yago0_1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago22_3 [label="yago22_3|<s> s|<d> d"]; yago22_4 [label="yago22_4|<s> s|<d> d"]; yago66 [label="yago66|<s> s|<d> d"]; yago0_0:d -> yago0_1:d;yago0_1:s -> yago5:s;yago5:d -> yago22_3:d;yago22_3:s -> yago22_4:s;yago22_4:d -> yago66:d;}
+--             +---------+----+----+
+--             | yago0_0 |  s |  d |
+--             +---------+----+----+
+--                               |
+--                               |
+--                               |
+--             +---------+----+----+
+--             | yago0_1 |  s |  d |
+--             +---------+----+----+
+--                          |
+--                          |
+--                          |
+--             +---------+----+----+
+--             |  yago5  |  s |  d |
+--             +---------+----+----+
+--                               |
+--                               |
+--                               |
+-- +----------+----------+----+  |
+-- | yago22_3 |     s    |  d | -+
+-- +----------+----------+----+
+--               |
+--               |
+--               |
+-- +----------+----------+----+
+-- | yago22_4 |     s    |  d |
+-- +----------+----------+----+
+--                          |
+--                          |
+--                          |
+-- +----------+----------+----+
+-- |  yago66  |     s    |  d |
+-- +----------+----------+----+
+with dummy as (select) /* stage1 */, yago5_s1_170a0a00661fe75f as (select yago5.s as v2,yago5.d as v4 from yago5), yago22_3_s1_170a0a00661fe75f as (select yago22_3.s as v6,yago22_3.d as v4 from yago22 yago22_3), yago22_4_s1_170a0a00661fe75f as (select yago22_4.s as v6,yago22_4.d as v8 from yago22 yago22_4), yago66_s2_170a0a00661fe75f as (select yago66.d as v8 from yago66), yago0_1_s1_170a0a00661fe75f as (select yago0_1.s as v2,yago0_1.d as v0 from yago0 yago0_1), yago0_0_s2_170a0a00661fe75f as (select yago0_0.d as v0 from yago0 yago0_0) /* stage2 */, yago0_1_s2_170a0a00661fe75f as (select * from umbra.identity(table(yago0_1_s1_170a0a00661fe75f)) where exists (select from umbra.identity(table(yago0_0_s2_170a0a00661fe75f)) where yago0_1_s1_170a0a00661fe75f.v0 = yago0_0_s2_170a0a00661fe75f.v0)), yago22_4_s2_170a0a00661fe75f as (select * from umbra.identity(table(yago22_4_s1_170a0a00661fe75f)) where exists (select from umbra.identity(table(yago66_s2_170a0a00661fe75f)) where yago22_4_s1_170a0a00661fe75f.v8 = yago66_s2_170a0a00661fe75f.v8)), yago22_3_s2_170a0a00661fe75f as (select * from umbra.identity(table(yago22_3_s1_170a0a00661fe75f)) where exists (select from umbra.identity(table(yago22_4_s2_170a0a00661fe75f)) where yago22_3_s1_170a0a00661fe75f.v6 = yago22_4_s2_170a0a00661fe75f.v6)), yago5_s2_170a0a00661fe75f as (select * from umbra.identity(table(yago5_s1_170a0a00661fe75f)) where exists (select from umbra.identity(table(yago0_1_s2_170a0a00661fe75f)) where yago5_s1_170a0a00661fe75f.v2 = yago0_1_s2_170a0a00661fe75f.v2) AND exists (select from umbra.identity(table(yago22_3_s2_170a0a00661fe75f)) where yago5_s1_170a0a00661fe75f.v4 = yago22_3_s2_170a0a00661fe75f.v4)) /* stage3 */, yago22_3_s3_170a0a00661fe75f as (select * from umbra.identity(table(yago22_3_s2_170a0a00661fe75f)) where exists (select from umbra.identity(table(yago5_s2_170a0a00661fe75f)) where yago22_3_s2_170a0a00661fe75f.v4 = yago5_s2_170a0a00661fe75f.v4)), yago22_4_s3_170a0a00661fe75f as (select * from umbra.identity(table(yago22_4_s2_170a0a00661fe75f)) where exists (select from umbra.identity(table(yago22_3_s2_170a0a00661fe75f)) where yago22_4_s2_170a0a00661fe75f.v6 = yago22_3_s2_170a0a00661fe75f.v6)), yago66_s3_170a0a00661fe75f as (select * from umbra.identity(table(yago66_s2_170a0a00661fe75f)) where exists (select from umbra.identity(table(yago22_4_s2_170a0a00661fe75f)) where yago66_s2_170a0a00661fe75f.v8 = yago22_4_s2_170a0a00661fe75f.v8)), yago0_1_s3_170a0a00661fe75f as (select * from umbra.identity(table(yago0_1_s2_170a0a00661fe75f)) where exists (select from umbra.identity(table(yago5_s2_170a0a00661fe75f)) where yago0_1_s2_170a0a00661fe75f.v2 = yago5_s2_170a0a00661fe75f.v2)), yago0_0_s3_170a0a00661fe75f as (select * from umbra.identity(table(yago0_0_s2_170a0a00661fe75f)) where exists (select from umbra.identity(table(yago0_1_s2_170a0a00661fe75f)) where yago0_0_s2_170a0a00661fe75f.v0 = yago0_1_s2_170a0a00661fe75f.v0)) /* stage4 */, s4_group_313AE0FC38AE17FC as  (select * from umbra.identity(table(yago5_s2_170a0a00661fe75f)) NATURAL JOIN umbra.identity(table(yago0_1_s3_170a0a00661fe75f)) NATURAL JOIN umbra.identity(table(yago0_0_s3_170a0a00661fe75f)) NATURAL JOIN umbra.identity(table(yago22_3_s3_170a0a00661fe75f)) NATURAL JOIN umbra.identity(table(yago22_4_s3_170a0a00661fe75f)) NATURAL JOIN umbra.identity(table(yago66_s3_170a0a00661fe75f)))select count(*) from umbra.identity(table(s4_group_313AE0FC38AE17FC));
+\set queryname yago_acyclic_Chain_6_54
+-- Result size: 1877
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago17_0:d -> yago17_1:d;yago17_1:s -> yago5_2:d;yago5_2:s -> yago54:s;yago54:d -> yago5_4:s;yago5_4:d -> yago13:d;}
+--                                   +--------+---+----+
+--                                   | yago13 | s |  d |
+--                                   +--------+---+----+
+--                                                   |
+--                                                   |
+--                                                   |
+--            +----------+----------+---------+      |
+--            | yago17_0 |     s    |    d    |      |
+--            +----------+----------+---------+      |
+--                                     |             |
+--                                     |             |
+--                                     |             |
+--            +----------+----------+---------+      |
+--            | yago17_1 |     s    |    d    |      |
+--            +----------+----------+---------+      |
+--                          |                        |
+--                          |                        |
+--                          |                        |
+-- +---------+-----------+----------+                |
+-- | yago5_2 |     s     |     d    |                |
+-- +---------+-----------+----------+                |
+--              |                                    |
+--              +-----------+                        |
+--                          |                        |
+--            +----------+----------+---------+      |
+--            |  yago54  |     s    |    d    |      |
+--            +----------+----------+---------+      |
+--                                     |             |
+--                                     |             |
+--                                     |             |
+--                        +---------+---------+---+  |
+--                        | yago5_4 |    s    | d | -+
+--                        +---------+---------+---+
+with dummy as (select) /* stage1 */, yago5_2_s1_1f844f00661fe75f as (select yago5_2.s as v4,yago5_2.d as v2 from yago5 yago5_2), yago54_s1_1f844f00661fe75f as (select yago54.s as v4,yago54.d as v6 from yago54), yago5_4_s1_1f844f00661fe75f as (select yago5_4.s as v6,yago5_4.d as v8 from yago5 yago5_4), yago13_s2_1f844f00661fe75f as (select yago13.d as v8 from yago13), yago17_1_s1_1f844f00661fe75f as (select yago17_1.s as v2,yago17_1.d as v0 from yago17 yago17_1), yago17_0_s2_1f844f00661fe75f as (select yago17_0.d as v0 from yago17 yago17_0) /* stage2 */, yago17_1_s2_1f844f00661fe75f as (select * from umbra.identity(table(yago17_1_s1_1f844f00661fe75f)) where exists (select from umbra.identity(table(yago17_0_s2_1f844f00661fe75f)) where yago17_1_s1_1f844f00661fe75f.v0 = yago17_0_s2_1f844f00661fe75f.v0)), yago5_4_s2_1f844f00661fe75f as (select * from umbra.identity(table(yago5_4_s1_1f844f00661fe75f)) where exists (select from umbra.identity(table(yago13_s2_1f844f00661fe75f)) where yago5_4_s1_1f844f00661fe75f.v8 = yago13_s2_1f844f00661fe75f.v8)), yago54_s2_1f844f00661fe75f as (select * from umbra.identity(table(yago54_s1_1f844f00661fe75f)) where exists (select from umbra.identity(table(yago5_4_s2_1f844f00661fe75f)) where yago54_s1_1f844f00661fe75f.v6 = yago5_4_s2_1f844f00661fe75f.v6)), yago5_2_s2_1f844f00661fe75f as (select * from umbra.identity(table(yago5_2_s1_1f844f00661fe75f)) where exists (select from umbra.identity(table(yago17_1_s2_1f844f00661fe75f)) where yago5_2_s1_1f844f00661fe75f.v2 = yago17_1_s2_1f844f00661fe75f.v2) AND exists (select from umbra.identity(table(yago54_s2_1f844f00661fe75f)) where yago5_2_s1_1f844f00661fe75f.v4 = yago54_s2_1f844f00661fe75f.v4)) /* stage3 */, yago54_s3_1f844f00661fe75f as (select * from umbra.identity(table(yago54_s2_1f844f00661fe75f)) where exists (select from umbra.identity(table(yago5_2_s2_1f844f00661fe75f)) where yago54_s2_1f844f00661fe75f.v4 = yago5_2_s2_1f844f00661fe75f.v4)), yago5_4_s3_1f844f00661fe75f as (select * from umbra.identity(table(yago5_4_s2_1f844f00661fe75f)) where exists (select from umbra.identity(table(yago54_s2_1f844f00661fe75f)) where yago5_4_s2_1f844f00661fe75f.v6 = yago54_s2_1f844f00661fe75f.v6)), yago13_s3_1f844f00661fe75f as (select * from umbra.identity(table(yago13_s2_1f844f00661fe75f)) where exists (select from umbra.identity(table(yago5_4_s2_1f844f00661fe75f)) where yago13_s2_1f844f00661fe75f.v8 = yago5_4_s2_1f844f00661fe75f.v8)), yago17_1_s3_1f844f00661fe75f as (select * from umbra.identity(table(yago17_1_s2_1f844f00661fe75f)) where exists (select from umbra.identity(table(yago5_2_s2_1f844f00661fe75f)) where yago17_1_s2_1f844f00661fe75f.v2 = yago5_2_s2_1f844f00661fe75f.v2)), yago17_0_s3_1f844f00661fe75f as (select * from umbra.identity(table(yago17_0_s2_1f844f00661fe75f)) where exists (select from umbra.identity(table(yago17_1_s2_1f844f00661fe75f)) where yago17_0_s2_1f844f00661fe75f.v0 = yago17_1_s2_1f844f00661fe75f.v0)) /* stage4 */, s4_group_3C8D6778AD7C670E as  (select * from umbra.identity(table(yago5_2_s2_1f844f00661fe75f)) NATURAL JOIN umbra.identity(table(yago17_1_s3_1f844f00661fe75f)) NATURAL JOIN umbra.identity(table(yago17_0_s3_1f844f00661fe75f)) NATURAL JOIN umbra.identity(table(yago54_s3_1f844f00661fe75f)) NATURAL JOIN umbra.identity(table(yago5_4_s3_1f844f00661fe75f)) NATURAL JOIN umbra.identity(table(yago13_s3_1f844f00661fe75f)))select count(*) from umbra.identity(table(s4_group_3C8D6778AD7C670E));
+\set queryname yago_acyclic_Chain_6_55
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago6_1 [label="yago6_1|<s> s|<d> d"]; yago6_2 [label="yago6_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_0:s -> yago6_1:d;yago6_1:s -> yago6_2:s;yago6_2:d -> yago2_3:s;yago2_3:d -> yago2_4:d;yago2_4:s -> yago2_5:s;}
+--                                            +---------+----+---+
+--                                            | yago2_0 |  s | d |
+--                                            +---------+----+---+
+--                                                         |
+--                                                         |
+--                                                         |
+-- +---------+----+----+           +---------+----------+----+
+-- | yago6_2 |  s |  d |           | yago6_1 |     s    |  d |
+-- +---------+----+----+           +---------+----------+----+
+--              |    |                          |
+--              +----+--------------------------+
+--                   |
+--                   |  +---------+----------+----------+
+--                   |  | yago2_3 |     s    |     d    |
+--                   |  +---------+----------+----------+
+--                   |               |          |
+--                   +---------------+          |
+--                                              |
+--                      +---------+----------+----------+
+--                      | yago2_4 |     s    |     d    |
+--                      +---------+----------+----------+
+--                                   |
+--                                   |
+--                                   |
+--                      +---------+----------+----------+
+--                      | yago2_5 |     s    |     d    |
+--                      +---------+----------+----------+
+with dummy as (select) /* stage1 */, yago6_2_s1_7cbc280661fe760 as (select yago6_2.d as v4,yago6_2.s as v2 from yago6 yago6_2), yago2_3_s1_7cbc280661fe760 as (select yago2_3.d as v6,yago2_3.s as v4 from yago2 yago2_3), yago2_4_s1_7cbc280661fe760 as (select yago2_4.d as v6,yago2_4.s as v8 from yago2 yago2_4), yago2_5_s2_7cbc280661fe760 as (select yago2_5.s as v8 from yago2 yago2_5), yago6_1_s1_7cbc280661fe760 as (select yago6_1.d as v0,yago6_1.s as v2 from yago6 yago6_1), yago2_0_s2_7cbc280661fe760 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago6_1_s2_7cbc280661fe760 as (select * from umbra.identity(table(yago6_1_s1_7cbc280661fe760)) where exists (select from umbra.identity(table(yago2_0_s2_7cbc280661fe760)) where yago6_1_s1_7cbc280661fe760.v0 = yago2_0_s2_7cbc280661fe760.v0)), yago2_4_s2_7cbc280661fe760 as (select * from umbra.identity(table(yago2_4_s1_7cbc280661fe760)) where exists (select from umbra.identity(table(yago2_5_s2_7cbc280661fe760)) where yago2_4_s1_7cbc280661fe760.v8 = yago2_5_s2_7cbc280661fe760.v8)), yago2_3_s2_7cbc280661fe760 as (select * from umbra.identity(table(yago2_3_s1_7cbc280661fe760)) where exists (select from umbra.identity(table(yago2_4_s2_7cbc280661fe760)) where yago2_3_s1_7cbc280661fe760.v6 = yago2_4_s2_7cbc280661fe760.v6)), yago6_2_s2_7cbc280661fe760 as (select * from umbra.identity(table(yago6_2_s1_7cbc280661fe760)) where exists (select from umbra.identity(table(yago6_1_s2_7cbc280661fe760)) where yago6_2_s1_7cbc280661fe760.v2 = yago6_1_s2_7cbc280661fe760.v2) AND exists (select from umbra.identity(table(yago2_3_s2_7cbc280661fe760)) where yago6_2_s1_7cbc280661fe760.v4 = yago2_3_s2_7cbc280661fe760.v4)) /* stage3 */, yago2_3_s3_7cbc280661fe760 as (select * from umbra.identity(table(yago2_3_s2_7cbc280661fe760)) where exists (select from umbra.identity(table(yago6_2_s2_7cbc280661fe760)) where yago2_3_s2_7cbc280661fe760.v4 = yago6_2_s2_7cbc280661fe760.v4)), yago2_4_s3_7cbc280661fe760 as (select * from umbra.identity(table(yago2_4_s2_7cbc280661fe760)) where exists (select from umbra.identity(table(yago2_3_s2_7cbc280661fe760)) where yago2_4_s2_7cbc280661fe760.v6 = yago2_3_s2_7cbc280661fe760.v6)), yago2_5_s3_7cbc280661fe760 as (select * from umbra.identity(table(yago2_5_s2_7cbc280661fe760)) where exists (select from umbra.identity(table(yago2_4_s2_7cbc280661fe760)) where yago2_5_s2_7cbc280661fe760.v8 = yago2_4_s2_7cbc280661fe760.v8)), yago6_1_s3_7cbc280661fe760 as (select * from umbra.identity(table(yago6_1_s2_7cbc280661fe760)) where exists (select from umbra.identity(table(yago6_2_s2_7cbc280661fe760)) where yago6_1_s2_7cbc280661fe760.v2 = yago6_2_s2_7cbc280661fe760.v2)), yago2_0_s3_7cbc280661fe760 as (select * from umbra.identity(table(yago2_0_s2_7cbc280661fe760)) where exists (select from umbra.identity(table(yago6_1_s2_7cbc280661fe760)) where yago2_0_s2_7cbc280661fe760.v0 = yago6_1_s2_7cbc280661fe760.v0)) /* stage4 */, s4_group_CC1426701B63864 as  (select * from umbra.identity(table(yago6_2_s2_7cbc280661fe760)) NATURAL JOIN umbra.identity(table(yago6_1_s3_7cbc280661fe760)) NATURAL JOIN umbra.identity(table(yago2_0_s3_7cbc280661fe760)) NATURAL JOIN umbra.identity(table(yago2_3_s3_7cbc280661fe760)) NATURAL JOIN umbra.identity(table(yago2_4_s3_7cbc280661fe760)) NATURAL JOIN umbra.identity(table(yago2_5_s3_7cbc280661fe760)))select count(*) from umbra.identity(table(s4_group_CC1426701B63864));
+\set queryname yago_acyclic_Chain_6_56
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17 [label="yago17|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago17:d -> yago5_1:s;yago5_1:d -> yago5_2:d;yago5_2:s -> yago21:s;yago21:d -> yago22:d;yago22:s -> yago58:d;}
+--                          +--------+----------+----+
+--                          | yago17 |     s    |  d |
+--                          +--------+----------+----+
+--                                                 |
+--                                                 |
+--                                                 |
+--                                    +---------+----+----+
+--                                    | yago5_1 |  s |  d |
+--                                    +---------+----+----+
+--                                                      |
+--                       +-------------------------+    |
+--                       |                         |    |
+--           +--------+----+---------+----------+----+----+
+--           | yago21 |  s |    d    |  yago5_2 |  s |  d |
+--           +--------+----+---------+----------+----+----+
+--                            |
+--                            |
+--                            |
+--           +--------+----+---------+
+--           | yago22 |  s |    d    |
+--           +--------+----+---------+
+--                       |
+--                       |
+--                       |
+-- +--------+---------+----+
+-- | yago58 |    s    |  d |
+-- +--------+---------+----+
+with dummy as (select) /* stage1 */, yago5_2_s1_1022af80661fe760 as (select yago5_2.s as v4,yago5_2.d as v2 from yago5 yago5_2), yago21_s1_1022af80661fe760 as (select yago21.s as v4,yago21.d as v6 from yago21), yago22_s1_1022af80661fe760 as (select yago22.d as v6,yago22.s as v8 from yago22), yago58_s2_1022af80661fe760 as (select yago58.d as v8 from yago58), yago5_1_s1_1022af80661fe760 as (select yago5_1.s as v0,yago5_1.d as v2 from yago5 yago5_1), yago17_s2_1022af80661fe760 as (select yago17.d as v0 from yago17) /* stage2 */, yago5_1_s2_1022af80661fe760 as (select * from umbra.identity(table(yago5_1_s1_1022af80661fe760)) where exists (select from umbra.identity(table(yago17_s2_1022af80661fe760)) where yago5_1_s1_1022af80661fe760.v0 = yago17_s2_1022af80661fe760.v0)), yago22_s2_1022af80661fe760 as (select * from umbra.identity(table(yago22_s1_1022af80661fe760)) where exists (select from umbra.identity(table(yago58_s2_1022af80661fe760)) where yago22_s1_1022af80661fe760.v8 = yago58_s2_1022af80661fe760.v8)), yago21_s2_1022af80661fe760 as (select * from umbra.identity(table(yago21_s1_1022af80661fe760)) where exists (select from umbra.identity(table(yago22_s2_1022af80661fe760)) where yago21_s1_1022af80661fe760.v6 = yago22_s2_1022af80661fe760.v6)), yago5_2_s2_1022af80661fe760 as (select * from umbra.identity(table(yago5_2_s1_1022af80661fe760)) where exists (select from umbra.identity(table(yago5_1_s2_1022af80661fe760)) where yago5_2_s1_1022af80661fe760.v2 = yago5_1_s2_1022af80661fe760.v2) AND exists (select from umbra.identity(table(yago21_s2_1022af80661fe760)) where yago5_2_s1_1022af80661fe760.v4 = yago21_s2_1022af80661fe760.v4)) /* stage3 */, yago21_s3_1022af80661fe760 as (select * from umbra.identity(table(yago21_s2_1022af80661fe760)) where exists (select from umbra.identity(table(yago5_2_s2_1022af80661fe760)) where yago21_s2_1022af80661fe760.v4 = yago5_2_s2_1022af80661fe760.v4)), yago22_s3_1022af80661fe760 as (select * from umbra.identity(table(yago22_s2_1022af80661fe760)) where exists (select from umbra.identity(table(yago21_s2_1022af80661fe760)) where yago22_s2_1022af80661fe760.v6 = yago21_s2_1022af80661fe760.v6)), yago58_s3_1022af80661fe760 as (select * from umbra.identity(table(yago58_s2_1022af80661fe760)) where exists (select from umbra.identity(table(yago22_s2_1022af80661fe760)) where yago58_s2_1022af80661fe760.v8 = yago22_s2_1022af80661fe760.v8)), yago5_1_s3_1022af80661fe760 as (select * from umbra.identity(table(yago5_1_s2_1022af80661fe760)) where exists (select from umbra.identity(table(yago5_2_s2_1022af80661fe760)) where yago5_1_s2_1022af80661fe760.v2 = yago5_2_s2_1022af80661fe760.v2)), yago17_s3_1022af80661fe760 as (select * from umbra.identity(table(yago17_s2_1022af80661fe760)) where exists (select from umbra.identity(table(yago5_1_s2_1022af80661fe760)) where yago17_s2_1022af80661fe760.v0 = yago5_1_s2_1022af80661fe760.v0)) /* stage4 */, s4_group_7024C702CCA86E48 as  (select * from umbra.identity(table(yago5_2_s2_1022af80661fe760)) NATURAL JOIN umbra.identity(table(yago5_1_s3_1022af80661fe760)) NATURAL JOIN umbra.identity(table(yago17_s3_1022af80661fe760)) NATURAL JOIN umbra.identity(table(yago21_s3_1022af80661fe760)) NATURAL JOIN umbra.identity(table(yago22_s3_1022af80661fe760)) NATURAL JOIN umbra.identity(table(yago58_s3_1022af80661fe760)))select count(*) from umbra.identity(table(s4_group_7024C702CCA86E48));
+\set queryname yago_acyclic_Chain_6_57
+-- Result size: 8488
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago29 [label="yago29|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago54_2 [label="yago54_2|<s> s|<d> d"]; yago54_3 [label="yago54_3|<s> s|<d> d"]; yago54_4 [label="yago54_4|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago29:s -> yago35:d;yago35:s -> yago54_2:d;yago54_2:s -> yago54_3:s;yago54_3:d -> yago54_4:s;yago54_4:d -> yago5:s;}
+--                         +--------+----+---+
+--                         | yago29 |  s | d |
+--                         +--------+----+---+
+--                                     |
+--                                     |
+--                                     |
+--             +----------+---------+----+
+--             |  yago35  |    s    |  d |
+--             +----------+---------+----+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+---------+
+-- | yago54_2 |     s     |    d    |
+-- +----------+-----------+---------+
+--               |
+--               |
+--               |
+-- +----------+-----------+---------+
+-- | yago54_3 |     s     |    d    |
+-- +----------+-----------+---------+
+--                           |
+--                           |
+--                           |
+--             +----------+---------+----+
+--             | yago54_4 |    s    |  d |
+--             +----------+---------+----+
+--                                     |
+--                                     |
+--                                     |
+--                         +--------+----+---+
+--                         | yago5  |  s | d |
+--                         +--------+----+---+
+with dummy as (select) /* stage1 */, yago54_3_s1_18787680661fe760 as (select yago54_3.s as v4,yago54_3.d as v6 from yago54 yago54_3), yago54_2_s1_18787680661fe760 as (select yago54_2.d as v2,yago54_2.s as v4 from yago54 yago54_2), yago35_s1_18787680661fe760 as (select yago35.s as v2,yago35.d as v0 from yago35), yago29_s2_18787680661fe760 as (select yago29.s as v0 from yago29), yago54_4_s1_18787680661fe760 as (select yago54_4.d as v8,yago54_4.s as v6 from yago54 yago54_4), yago5_s2_18787680661fe760 as (select yago5.s as v8 from yago5) /* stage2 */, yago54_4_s2_18787680661fe760 as (select * from umbra.identity(table(yago54_4_s1_18787680661fe760)) where exists (select from umbra.identity(table(yago5_s2_18787680661fe760)) where yago54_4_s1_18787680661fe760.v8 = yago5_s2_18787680661fe760.v8)), yago35_s2_18787680661fe760 as (select * from umbra.identity(table(yago35_s1_18787680661fe760)) where exists (select from umbra.identity(table(yago29_s2_18787680661fe760)) where yago35_s1_18787680661fe760.v0 = yago29_s2_18787680661fe760.v0)), yago54_2_s2_18787680661fe760 as (select * from umbra.identity(table(yago54_2_s1_18787680661fe760)) where exists (select from umbra.identity(table(yago35_s2_18787680661fe760)) where yago54_2_s1_18787680661fe760.v2 = yago35_s2_18787680661fe760.v2)), yago54_3_s2_18787680661fe760 as (select * from umbra.identity(table(yago54_3_s1_18787680661fe760)) where exists (select from umbra.identity(table(yago54_4_s2_18787680661fe760)) where yago54_3_s1_18787680661fe760.v6 = yago54_4_s2_18787680661fe760.v6) AND exists (select from umbra.identity(table(yago54_2_s2_18787680661fe760)) where yago54_3_s1_18787680661fe760.v4 = yago54_2_s2_18787680661fe760.v4)) /* stage3 */, yago54_2_s3_18787680661fe760 as (select * from umbra.identity(table(yago54_2_s2_18787680661fe760)) where exists (select from umbra.identity(table(yago54_3_s2_18787680661fe760)) where yago54_2_s2_18787680661fe760.v4 = yago54_3_s2_18787680661fe760.v4)), yago35_s3_18787680661fe760 as (select * from umbra.identity(table(yago35_s2_18787680661fe760)) where exists (select from umbra.identity(table(yago54_2_s2_18787680661fe760)) where yago35_s2_18787680661fe760.v2 = yago54_2_s2_18787680661fe760.v2)), yago29_s3_18787680661fe760 as (select * from umbra.identity(table(yago29_s2_18787680661fe760)) where exists (select from umbra.identity(table(yago35_s2_18787680661fe760)) where yago29_s2_18787680661fe760.v0 = yago35_s2_18787680661fe760.v0)), yago54_4_s3_18787680661fe760 as (select * from umbra.identity(table(yago54_4_s2_18787680661fe760)) where exists (select from umbra.identity(table(yago54_3_s2_18787680661fe760)) where yago54_4_s2_18787680661fe760.v6 = yago54_3_s2_18787680661fe760.v6)), yago5_s3_18787680661fe760 as (select * from umbra.identity(table(yago5_s2_18787680661fe760)) where exists (select from umbra.identity(table(yago54_4_s2_18787680661fe760)) where yago5_s2_18787680661fe760.v8 = yago54_4_s2_18787680661fe760.v8)) /* stage4 */, s4_group_48B4092E7FAC780E as  (select * from umbra.identity(table(yago54_3_s2_18787680661fe760)) NATURAL JOIN umbra.identity(table(yago54_4_s3_18787680661fe760)) NATURAL JOIN umbra.identity(table(yago5_s3_18787680661fe760)) NATURAL JOIN umbra.identity(table(yago54_2_s3_18787680661fe760)) NATURAL JOIN umbra.identity(table(yago35_s3_18787680661fe760)) NATURAL JOIN umbra.identity(table(yago29_s3_18787680661fe760)))select count(*) from umbra.identity(table(s4_group_48B4092E7FAC780E));
+\set queryname yago_acyclic_Chain_6_58
+-- Result size: 4
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago46 [label="yago46|<s> s|<d> d"]; yago54_1 [label="yago54_1|<s> s|<d> d"]; yago54_2 [label="yago54_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago46:d -> yago54_1:s;yago54_1:d -> yago54_2:s;yago54_2:d -> yago5:s;yago5:d -> yago13:d;yago13:s -> yago12:s;}
+--                                     +----------+----+----+
+--                                     |  yago12  |  s |  d |
+--                                     +----------+----+----+
+--                                                   |
+--                                                   |
+--                                                   |
+-- +-------+----+---------+            +----------+----+----+
+-- | yago5 |  s |    d    | -+         |  yago13  |  s |  d |
+-- +-------+----+---------+  |         +----------+----+----+
+--            |              |                            |
+--            |              +----------------------------+
+--            |
+--            |  +--------+-----------+-----------+
+--            |  | yago46 |     s     |     d     |
+--            |  +--------+-----------+-----------+
+--            |                          |
+--            |                          |
+--            |                          |
+--            |            +----------+-----------+----+
+--            |            | yago54_1 |     s     |  d |
+--            |            +----------+-----------+----+
+--            |                                      |
+--            |                                      |
+--            |                                      |
+--            |                        +----------+----+----+
+--            |                        | yago54_2 |  s |  d |
+--            |                        +----------+----+----+
+--            |                                           |
+--            +-------------------------------------------+
+with dummy as (select) /* stage1 */, yago54_2_s1_125e900661fe761 as (select yago54_2.d as v4,yago54_2.s as v2 from yago54 yago54_2), yago5_s1_125e900661fe761 as (select yago5.d as v6,yago5.s as v4 from yago5), yago13_s1_125e900661fe761 as (select yago13.d as v6,yago13.s as v8 from yago13), yago12_s2_125e900661fe761 as (select yago12.s as v8 from yago12), yago54_1_s1_125e900661fe761 as (select yago54_1.d as v2,yago54_1.s as v0 from yago54 yago54_1), yago46_s2_125e900661fe761 as (select yago46.d as v0 from yago46) /* stage2 */, yago54_1_s2_125e900661fe761 as (select * from umbra.identity(table(yago54_1_s1_125e900661fe761)) where exists (select from umbra.identity(table(yago46_s2_125e900661fe761)) where yago54_1_s1_125e900661fe761.v0 = yago46_s2_125e900661fe761.v0)), yago13_s2_125e900661fe761 as (select * from umbra.identity(table(yago13_s1_125e900661fe761)) where exists (select from umbra.identity(table(yago12_s2_125e900661fe761)) where yago13_s1_125e900661fe761.v8 = yago12_s2_125e900661fe761.v8)), yago5_s2_125e900661fe761 as (select * from umbra.identity(table(yago5_s1_125e900661fe761)) where exists (select from umbra.identity(table(yago13_s2_125e900661fe761)) where yago5_s1_125e900661fe761.v6 = yago13_s2_125e900661fe761.v6)), yago54_2_s2_125e900661fe761 as (select * from umbra.identity(table(yago54_2_s1_125e900661fe761)) where exists (select from umbra.identity(table(yago54_1_s2_125e900661fe761)) where yago54_2_s1_125e900661fe761.v2 = yago54_1_s2_125e900661fe761.v2) AND exists (select from umbra.identity(table(yago5_s2_125e900661fe761)) where yago54_2_s1_125e900661fe761.v4 = yago5_s2_125e900661fe761.v4)) /* stage3 */, yago5_s3_125e900661fe761 as (select * from umbra.identity(table(yago5_s2_125e900661fe761)) where exists (select from umbra.identity(table(yago54_2_s2_125e900661fe761)) where yago5_s2_125e900661fe761.v4 = yago54_2_s2_125e900661fe761.v4)), yago13_s3_125e900661fe761 as (select * from umbra.identity(table(yago13_s2_125e900661fe761)) where exists (select from umbra.identity(table(yago5_s2_125e900661fe761)) where yago13_s2_125e900661fe761.v6 = yago5_s2_125e900661fe761.v6)), yago12_s3_125e900661fe761 as (select * from umbra.identity(table(yago12_s2_125e900661fe761)) where exists (select from umbra.identity(table(yago13_s2_125e900661fe761)) where yago12_s2_125e900661fe761.v8 = yago13_s2_125e900661fe761.v8)), yago54_1_s3_125e900661fe761 as (select * from umbra.identity(table(yago54_1_s2_125e900661fe761)) where exists (select from umbra.identity(table(yago54_2_s2_125e900661fe761)) where yago54_1_s2_125e900661fe761.v2 = yago54_2_s2_125e900661fe761.v2)), yago46_s3_125e900661fe761 as (select * from umbra.identity(table(yago46_s2_125e900661fe761)) where exists (select from umbra.identity(table(yago54_1_s2_125e900661fe761)) where yago46_s2_125e900661fe761.v0 = yago54_1_s2_125e900661fe761.v0)) /* stage4 */, s4_group_7040737ADD5D5300 as  (select * from umbra.identity(table(yago54_2_s2_125e900661fe761)) NATURAL JOIN umbra.identity(table(yago54_1_s3_125e900661fe761)) NATURAL JOIN umbra.identity(table(yago46_s3_125e900661fe761)) NATURAL JOIN umbra.identity(table(yago5_s3_125e900661fe761)) NATURAL JOIN umbra.identity(table(yago13_s3_125e900661fe761)) NATURAL JOIN umbra.identity(table(yago12_s3_125e900661fe761)))select count(*) from umbra.identity(table(s4_group_7040737ADD5D5300));
+\set queryname yago_acyclic_Chain_6_59
+-- Result size: 161
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago23_0 [label="yago23_0|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago23_4 [label="yago23_4|<s> s|<d> d"]; yago23_5 [label="yago23_5|<s> s|<d> d"]; yago23_0:d -> yago22:d;yago22:s -> yago4:d;yago4:s -> yago58:d;yago58:s -> yago23_4:s;yago23_4:d -> yago23_5:d;}
+--                                          +----------+----+----+
+--                                          | yago23_0 |  s |  d |
+--                                          +----------+----+----+
+--                                                             |
+--                                                             |
+--                                                             |
+--                                          +----------+----+----+
+--                                          |  yago22  |  s |  d |
+--                                          +----------+----+----+
+--                                                        |
+--                                                        |
+--                                                        |
+-- +--------+----+----+            +-------+-----------+----+
+-- | yago58 |  s |  d |            | yago4 |     s     |  d |
+-- +--------+----+----+            +-------+-----------+----+
+--             |    |                         |
+--             |    +-------------------------+
+--             |
+--             |       +----------+--------+-----------+
+--             |       | yago23_4 |    s   |     d     |
+--             |       +----------+--------+-----------+
+--             |                     |        |
+--             +---------------------+        |
+--                                            |
+--                     +----------+--------+-----------+
+--                     | yago23_5 |    s   |     d     |
+--                     +----------+--------+-----------+
+with dummy as (select) /* stage1 */, yago58_s1_9803200661fe761 as (select yago58.d as v4,yago58.s as v6 from yago58), yago4_s1_9803200661fe761 as (select yago4.d as v2,yago4.s as v4 from yago4), yago22_s1_9803200661fe761 as (select yago22.s as v2,yago22.d as v0 from yago22), yago23_0_s2_9803200661fe761 as (select yago23_0.d as v0 from yago23 yago23_0), yago23_4_s1_9803200661fe761 as (select yago23_4.d as v8,yago23_4.s as v6 from yago23 yago23_4), yago23_5_s2_9803200661fe761 as (select yago23_5.d as v8 from yago23 yago23_5) /* stage2 */, yago23_4_s2_9803200661fe761 as (select * from umbra.identity(table(yago23_4_s1_9803200661fe761)) where exists (select from umbra.identity(table(yago23_5_s2_9803200661fe761)) where yago23_4_s1_9803200661fe761.v8 = yago23_5_s2_9803200661fe761.v8)), yago22_s2_9803200661fe761 as (select * from umbra.identity(table(yago22_s1_9803200661fe761)) where exists (select from umbra.identity(table(yago23_0_s2_9803200661fe761)) where yago22_s1_9803200661fe761.v0 = yago23_0_s2_9803200661fe761.v0)), yago4_s2_9803200661fe761 as (select * from umbra.identity(table(yago4_s1_9803200661fe761)) where exists (select from umbra.identity(table(yago22_s2_9803200661fe761)) where yago4_s1_9803200661fe761.v2 = yago22_s2_9803200661fe761.v2)), yago58_s2_9803200661fe761 as (select * from umbra.identity(table(yago58_s1_9803200661fe761)) where exists (select from umbra.identity(table(yago23_4_s2_9803200661fe761)) where yago58_s1_9803200661fe761.v6 = yago23_4_s2_9803200661fe761.v6) AND exists (select from umbra.identity(table(yago4_s2_9803200661fe761)) where yago58_s1_9803200661fe761.v4 = yago4_s2_9803200661fe761.v4)) /* stage3 */, yago4_s3_9803200661fe761 as (select * from umbra.identity(table(yago4_s2_9803200661fe761)) where exists (select from umbra.identity(table(yago58_s2_9803200661fe761)) where yago4_s2_9803200661fe761.v4 = yago58_s2_9803200661fe761.v4)), yago22_s3_9803200661fe761 as (select * from umbra.identity(table(yago22_s2_9803200661fe761)) where exists (select from umbra.identity(table(yago4_s2_9803200661fe761)) where yago22_s2_9803200661fe761.v2 = yago4_s2_9803200661fe761.v2)), yago23_0_s3_9803200661fe761 as (select * from umbra.identity(table(yago23_0_s2_9803200661fe761)) where exists (select from umbra.identity(table(yago22_s2_9803200661fe761)) where yago23_0_s2_9803200661fe761.v0 = yago22_s2_9803200661fe761.v0)), yago23_4_s3_9803200661fe761 as (select * from umbra.identity(table(yago23_4_s2_9803200661fe761)) where exists (select from umbra.identity(table(yago58_s2_9803200661fe761)) where yago23_4_s2_9803200661fe761.v6 = yago58_s2_9803200661fe761.v6)), yago23_5_s3_9803200661fe761 as (select * from umbra.identity(table(yago23_5_s2_9803200661fe761)) where exists (select from umbra.identity(table(yago23_4_s2_9803200661fe761)) where yago23_5_s2_9803200661fe761.v8 = yago23_4_s2_9803200661fe761.v8)) /* stage4 */, s4_group_100385E036A880F7 as  (select * from umbra.identity(table(yago58_s2_9803200661fe761)) NATURAL JOIN umbra.identity(table(yago23_4_s3_9803200661fe761)) NATURAL JOIN umbra.identity(table(yago23_5_s3_9803200661fe761)) NATURAL JOIN umbra.identity(table(yago4_s3_9803200661fe761)) NATURAL JOIN umbra.identity(table(yago22_s3_9803200661fe761)) NATURAL JOIN umbra.identity(table(yago23_0_s3_9803200661fe761)))select count(*) from umbra.identity(table(s4_group_100385E036A880F7));
+\set queryname yago_acyclic_Chain_6_60
+-- Result size: 291
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago46_0 [label="yago46_0|<s> s|<d> d"]; yago46_1 [label="yago46_1|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago4_3 [label="yago4_3|<s> s|<d> d"]; yago4_4 [label="yago4_4|<s> s|<d> d"]; yago4_5 [label="yago4_5|<s> s|<d> d"]; yago46_0:d -> yago46_1:d;yago46_1:s -> yago58:s;yago58:d -> yago4_3:s;yago4_3:d -> yago4_4:s;yago4_4:d -> yago4_5:d;}
+--                       +----------+----+----+
+--                       | yago46_0 |  s |  d |
+--                       +----------+----+----+
+--                                          |
+--                                          |
+--                                          |
+--                       +----------+----+----+
+--                       | yago46_1 |  s |  d |
+--                       +----------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                       +----------+----+----+
+--                       |  yago58  |  s |  d |
+--                       +----------+----+----+
+--                                          |
+--              +---------------------------+
+--              |
+-- +---------+----------+-----------+
+-- | yago4_3 |     s    |     d     |
+-- +---------+----------+-----------+
+--                         |
+--                         |
+--                         |
+--            +---------+-----------+----+
+--            | yago4_4 |     s     |  d |
+--            +---------+-----------+----+
+--                                     |
+--                                     |
+--                                     |
+--            +---------+-----------+----+
+--            | yago4_5 |     s     |  d |
+--            +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago58_s1_11e25b00661fe761 as (select yago58.d as v4,yago58.s as v2 from yago58), yago4_3_s1_11e25b00661fe761 as (select yago4_3.d as v6,yago4_3.s as v4 from yago4 yago4_3), yago4_4_s1_11e25b00661fe761 as (select yago4_4.d as v8,yago4_4.s as v6 from yago4 yago4_4), yago4_5_s2_11e25b00661fe761 as (select yago4_5.d as v8 from yago4 yago4_5), yago46_1_s1_11e25b00661fe761 as (select yago46_1.d as v0,yago46_1.s as v2 from yago46 yago46_1), yago46_0_s2_11e25b00661fe761 as (select yago46_0.d as v0 from yago46 yago46_0) /* stage2 */, yago46_1_s2_11e25b00661fe761 as (select * from umbra.identity(table(yago46_1_s1_11e25b00661fe761)) where exists (select from umbra.identity(table(yago46_0_s2_11e25b00661fe761)) where yago46_1_s1_11e25b00661fe761.v0 = yago46_0_s2_11e25b00661fe761.v0)), yago4_4_s2_11e25b00661fe761 as (select * from umbra.identity(table(yago4_4_s1_11e25b00661fe761)) where exists (select from umbra.identity(table(yago4_5_s2_11e25b00661fe761)) where yago4_4_s1_11e25b00661fe761.v8 = yago4_5_s2_11e25b00661fe761.v8)), yago4_3_s2_11e25b00661fe761 as (select * from umbra.identity(table(yago4_3_s1_11e25b00661fe761)) where exists (select from umbra.identity(table(yago4_4_s2_11e25b00661fe761)) where yago4_3_s1_11e25b00661fe761.v6 = yago4_4_s2_11e25b00661fe761.v6)), yago58_s2_11e25b00661fe761 as (select * from umbra.identity(table(yago58_s1_11e25b00661fe761)) where exists (select from umbra.identity(table(yago46_1_s2_11e25b00661fe761)) where yago58_s1_11e25b00661fe761.v2 = yago46_1_s2_11e25b00661fe761.v2) AND exists (select from umbra.identity(table(yago4_3_s2_11e25b00661fe761)) where yago58_s1_11e25b00661fe761.v4 = yago4_3_s2_11e25b00661fe761.v4)) /* stage3 */, yago4_3_s3_11e25b00661fe761 as (select * from umbra.identity(table(yago4_3_s2_11e25b00661fe761)) where exists (select from umbra.identity(table(yago58_s2_11e25b00661fe761)) where yago4_3_s2_11e25b00661fe761.v4 = yago58_s2_11e25b00661fe761.v4)), yago4_4_s3_11e25b00661fe761 as (select * from umbra.identity(table(yago4_4_s2_11e25b00661fe761)) where exists (select from umbra.identity(table(yago4_3_s2_11e25b00661fe761)) where yago4_4_s2_11e25b00661fe761.v6 = yago4_3_s2_11e25b00661fe761.v6)), yago4_5_s3_11e25b00661fe761 as (select * from umbra.identity(table(yago4_5_s2_11e25b00661fe761)) where exists (select from umbra.identity(table(yago4_4_s2_11e25b00661fe761)) where yago4_5_s2_11e25b00661fe761.v8 = yago4_4_s2_11e25b00661fe761.v8)), yago46_1_s3_11e25b00661fe761 as (select * from umbra.identity(table(yago46_1_s2_11e25b00661fe761)) where exists (select from umbra.identity(table(yago58_s2_11e25b00661fe761)) where yago46_1_s2_11e25b00661fe761.v2 = yago58_s2_11e25b00661fe761.v2)), yago46_0_s3_11e25b00661fe761 as (select * from umbra.identity(table(yago46_0_s2_11e25b00661fe761)) where exists (select from umbra.identity(table(yago46_1_s2_11e25b00661fe761)) where yago46_0_s2_11e25b00661fe761.v0 = yago46_1_s2_11e25b00661fe761.v0)) /* stage4 */, s4_group_70A8197903B66887 as  (select * from umbra.identity(table(yago58_s2_11e25b00661fe761)) NATURAL JOIN umbra.identity(table(yago46_1_s3_11e25b00661fe761)) NATURAL JOIN umbra.identity(table(yago46_0_s3_11e25b00661fe761)) NATURAL JOIN umbra.identity(table(yago4_3_s3_11e25b00661fe761)) NATURAL JOIN umbra.identity(table(yago4_4_s3_11e25b00661fe761)) NATURAL JOIN umbra.identity(table(yago4_5_s3_11e25b00661fe761)))select count(*) from umbra.identity(table(s4_group_70A8197903B66887));
+\set queryname yago_acyclic_Chain_6_61
+-- Result size: 371847
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago36_2 [label="yago36_2|<s> s|<d> d"]; yago36_3 [label="yago36_3|<s> s|<d> d"]; yago43_4 [label="yago43_4|<s> s|<d> d"]; yago43_5 [label="yago43_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago36_2:s;yago36_2:d -> yago36_3:d;yago36_3:s -> yago43_4:s;yago43_4:d -> yago43_5:d;}
+-- +---------+-----------+----+
+-- | yago2_0 |     s     |  d |
+-- +---------+-----------+----+
+--              |
+--              |
+--              |
+-- +---------+-----------+----+
+-- | yago2_1 |     s     |  d |
+-- +---------+-----------+----+
+--                          |
+--                          |
+--                          |
+--            +----------+----+----+
+--            | yago36_2 |  s |  d |
+--            +----------+----+----+
+--                               |
+--                               |
+--                               |
+--            +----------+----+----+
+--            | yago36_3 |  s |  d |
+--            +----------+----+----+
+--                          |
+--                          |
+--                          |
+--            +----------+----+----+
+--            | yago43_4 |  s |  d |
+--            +----------+----+----+
+--                               |
+--                               |
+--                               |
+--            +----------+----+----+
+--            | yago43_5 |  s |  d |
+--            +----------+----+----+
+with dummy as (select) /* stage1 */, yago36_3_s1_1a599980661fe761 as (select yago36_3.d as v4,yago36_3.s as v6 from yago36 yago36_3), yago36_2_s1_1a599980661fe761 as (select yago36_2.d as v4,yago36_2.s as v2 from yago36 yago36_2), yago2_1_s1_1a599980661fe761 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_1a599980661fe761 as (select yago2_0.s as v0 from yago2 yago2_0), yago43_4_s1_1a599980661fe761 as (select yago43_4.d as v8,yago43_4.s as v6 from yago43 yago43_4), yago43_5_s2_1a599980661fe761 as (select yago43_5.d as v8 from yago43 yago43_5) /* stage2 */, yago43_4_s2_1a599980661fe761 as (select * from umbra.identity(table(yago43_4_s1_1a599980661fe761)) where exists (select from umbra.identity(table(yago43_5_s2_1a599980661fe761)) where yago43_4_s1_1a599980661fe761.v8 = yago43_5_s2_1a599980661fe761.v8)), yago2_1_s2_1a599980661fe761 as (select * from umbra.identity(table(yago2_1_s1_1a599980661fe761)) where exists (select from umbra.identity(table(yago2_0_s2_1a599980661fe761)) where yago2_1_s1_1a599980661fe761.v0 = yago2_0_s2_1a599980661fe761.v0)), yago36_2_s2_1a599980661fe761 as (select * from umbra.identity(table(yago36_2_s1_1a599980661fe761)) where exists (select from umbra.identity(table(yago2_1_s2_1a599980661fe761)) where yago36_2_s1_1a599980661fe761.v2 = yago2_1_s2_1a599980661fe761.v2)), yago36_3_s2_1a599980661fe761 as (select * from umbra.identity(table(yago36_3_s1_1a599980661fe761)) where exists (select from umbra.identity(table(yago43_4_s2_1a599980661fe761)) where yago36_3_s1_1a599980661fe761.v6 = yago43_4_s2_1a599980661fe761.v6) AND exists (select from umbra.identity(table(yago36_2_s2_1a599980661fe761)) where yago36_3_s1_1a599980661fe761.v4 = yago36_2_s2_1a599980661fe761.v4)) /* stage3 */, yago36_2_s3_1a599980661fe761 as (select * from umbra.identity(table(yago36_2_s2_1a599980661fe761)) where exists (select from umbra.identity(table(yago36_3_s2_1a599980661fe761)) where yago36_2_s2_1a599980661fe761.v4 = yago36_3_s2_1a599980661fe761.v4)), yago2_1_s3_1a599980661fe761 as (select * from umbra.identity(table(yago2_1_s2_1a599980661fe761)) where exists (select from umbra.identity(table(yago36_2_s2_1a599980661fe761)) where yago2_1_s2_1a599980661fe761.v2 = yago36_2_s2_1a599980661fe761.v2)), yago2_0_s3_1a599980661fe761 as (select * from umbra.identity(table(yago2_0_s2_1a599980661fe761)) where exists (select from umbra.identity(table(yago2_1_s2_1a599980661fe761)) where yago2_0_s2_1a599980661fe761.v0 = yago2_1_s2_1a599980661fe761.v0)), yago43_4_s3_1a599980661fe761 as (select * from umbra.identity(table(yago43_4_s2_1a599980661fe761)) where exists (select from umbra.identity(table(yago36_3_s2_1a599980661fe761)) where yago43_4_s2_1a599980661fe761.v6 = yago36_3_s2_1a599980661fe761.v6)), yago43_5_s3_1a599980661fe761 as (select * from umbra.identity(table(yago43_5_s2_1a599980661fe761)) where exists (select from umbra.identity(table(yago43_4_s2_1a599980661fe761)) where yago43_5_s2_1a599980661fe761.v8 = yago43_4_s2_1a599980661fe761.v8)) /* stage4 */, s4_group_24A75096E19B80FA as  (select * from umbra.identity(table(yago36_3_s2_1a599980661fe761)) NATURAL JOIN umbra.identity(table(yago43_4_s3_1a599980661fe761)) NATURAL JOIN umbra.identity(table(yago43_5_s3_1a599980661fe761)) NATURAL JOIN umbra.identity(table(yago36_2_s3_1a599980661fe761)) NATURAL JOIN umbra.identity(table(yago2_1_s3_1a599980661fe761)) NATURAL JOIN umbra.identity(table(yago2_0_s3_1a599980661fe761)))select count(*) from umbra.identity(table(s4_group_24A75096E19B80FA));
+\set queryname yago_acyclic_Chain_6_62
+-- Result size: 613
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago21_2 [label="yago21_2|<s> s|<d> d"]; yago54_3 [label="yago54_3|<s> s|<d> d"]; yago54_4 [label="yago54_4|<s> s|<d> d"]; yago21_5 [label="yago21_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago21_2:d;yago21_2:s -> yago54_3:d;yago54_3:s -> yago54_4:d;yago54_4:s -> yago21_5:s;}
+-- +----------+----+----+            +----------+----+----+
+-- | yago21_5 |  s |  d |            | yago21_2 |  s |  d |
+-- +----------+----+----+            +----------+----+----+
+--               |                                 |    |
+--               |                                 |    |
+--               |                                 |    |
+-- +----------+----+----++----------+-----------+----+  |
+-- | yago54_4 |  s |  d || yago54_3 |     s     |  d |  |
+-- +----------+----+----++----------+-----------+----+  |
+--                    |                |                |
+--                    +----------------+                |
+--                                                      |
+--                       +----------+-----------+----+  |
+--                       | yago2_0  |     s     |  d |  |
+--                       +----------+-----------+----+  |
+--                                     |                |
+--                                     |                |
+--                                     |                |
+--                       +----------+-----------+----+  |
+--                       | yago2_1  |     s     |  d | -+
+--                       +----------+-----------+----+
+with dummy as (select) /* stage1 */, yago54_3_s1_2b0a700661fe762 as (select yago54_3.d as v4,yago54_3.s as v6 from yago54 yago54_3), yago21_2_s1_2b0a700661fe762 as (select yago21_2.s as v4,yago21_2.d as v2 from yago21 yago21_2), yago2_1_s1_2b0a700661fe762 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_2b0a700661fe762 as (select yago2_0.s as v0 from yago2 yago2_0), yago54_4_s1_2b0a700661fe762 as (select yago54_4.d as v6,yago54_4.s as v8 from yago54 yago54_4), yago21_5_s2_2b0a700661fe762 as (select yago21_5.s as v8 from yago21 yago21_5) /* stage2 */, yago54_4_s2_2b0a700661fe762 as (select * from umbra.identity(table(yago54_4_s1_2b0a700661fe762)) where exists (select from umbra.identity(table(yago21_5_s2_2b0a700661fe762)) where yago54_4_s1_2b0a700661fe762.v8 = yago21_5_s2_2b0a700661fe762.v8)), yago2_1_s2_2b0a700661fe762 as (select * from umbra.identity(table(yago2_1_s1_2b0a700661fe762)) where exists (select from umbra.identity(table(yago2_0_s2_2b0a700661fe762)) where yago2_1_s1_2b0a700661fe762.v0 = yago2_0_s2_2b0a700661fe762.v0)), yago21_2_s2_2b0a700661fe762 as (select * from umbra.identity(table(yago21_2_s1_2b0a700661fe762)) where exists (select from umbra.identity(table(yago2_1_s2_2b0a700661fe762)) where yago21_2_s1_2b0a700661fe762.v2 = yago2_1_s2_2b0a700661fe762.v2)), yago54_3_s2_2b0a700661fe762 as (select * from umbra.identity(table(yago54_3_s1_2b0a700661fe762)) where exists (select from umbra.identity(table(yago54_4_s2_2b0a700661fe762)) where yago54_3_s1_2b0a700661fe762.v6 = yago54_4_s2_2b0a700661fe762.v6) AND exists (select from umbra.identity(table(yago21_2_s2_2b0a700661fe762)) where yago54_3_s1_2b0a700661fe762.v4 = yago21_2_s2_2b0a700661fe762.v4)) /* stage3 */, yago21_2_s3_2b0a700661fe762 as (select * from umbra.identity(table(yago21_2_s2_2b0a700661fe762)) where exists (select from umbra.identity(table(yago54_3_s2_2b0a700661fe762)) where yago21_2_s2_2b0a700661fe762.v4 = yago54_3_s2_2b0a700661fe762.v4)), yago2_1_s3_2b0a700661fe762 as (select * from umbra.identity(table(yago2_1_s2_2b0a700661fe762)) where exists (select from umbra.identity(table(yago21_2_s2_2b0a700661fe762)) where yago2_1_s2_2b0a700661fe762.v2 = yago21_2_s2_2b0a700661fe762.v2)), yago2_0_s3_2b0a700661fe762 as (select * from umbra.identity(table(yago2_0_s2_2b0a700661fe762)) where exists (select from umbra.identity(table(yago2_1_s2_2b0a700661fe762)) where yago2_0_s2_2b0a700661fe762.v0 = yago2_1_s2_2b0a700661fe762.v0)), yago54_4_s3_2b0a700661fe762 as (select * from umbra.identity(table(yago54_4_s2_2b0a700661fe762)) where exists (select from umbra.identity(table(yago54_3_s2_2b0a700661fe762)) where yago54_4_s2_2b0a700661fe762.v6 = yago54_3_s2_2b0a700661fe762.v6)), yago21_5_s3_2b0a700661fe762 as (select * from umbra.identity(table(yago21_5_s2_2b0a700661fe762)) where exists (select from umbra.identity(table(yago54_4_s2_2b0a700661fe762)) where yago21_5_s2_2b0a700661fe762.v8 = yago54_4_s2_2b0a700661fe762.v8)) /* stage4 */, s4_group_5D85ABF5695CBB70 as  (select * from umbra.identity(table(yago54_3_s2_2b0a700661fe762)) NATURAL JOIN umbra.identity(table(yago54_4_s3_2b0a700661fe762)) NATURAL JOIN umbra.identity(table(yago21_5_s3_2b0a700661fe762)) NATURAL JOIN umbra.identity(table(yago21_2_s3_2b0a700661fe762)) NATURAL JOIN umbra.identity(table(yago2_1_s3_2b0a700661fe762)) NATURAL JOIN umbra.identity(table(yago2_0_s3_2b0a700661fe762)))select count(*) from umbra.identity(table(s4_group_5D85ABF5695CBB70));
+\set queryname yago_acyclic_Chain_6_63
+-- Result size: 940166
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago21_4 [label="yago21_4|<s> s|<d> d"]; yago21_5 [label="yago21_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago21_4:d;yago21_4:s -> yago21_5:s;}
+--            +----------+----+----+
+--            | yago21_4 |  s |  d | -+
+--            +----------+----+----+  |
+--                          |         |
+--                          |         |
+--                          |         |
+--            +----------+----+----+  |
+--            | yago21_5 |  s |  d |  |
+--            +----------+----+----+  |
+--                                    |
+--                               +----+
+--                               |
+-- +---------+-----------+----+  |
+-- | yago2_0 |     s     |  d |  |
+-- +---------+-----------+----+  |
+--              |                |
+--              |                |
+--              |                |
+-- +---------+-----------+----+  |
+-- | yago2_1 |     s     |  d |  |
+-- +---------+-----------+----+  |
+--                          |    |
+--                          |    |
+--                          |    |
+-- +---------+-----------+----+  |
+-- | yago2_2 |     s     |  d |  |
+-- +---------+-----------+----+  |
+--              |                |
+--              |                |
+--              |                |
+-- +---------+-----------+----+  |
+-- | yago2_3 |     s     |  d | -+
+-- +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago2_3_s1_b05f680661fe762 as (select yago2_3.s as v4,yago2_3.d as v6 from yago2 yago2_3), yago2_2_s1_b05f680661fe762 as (select yago2_2.s as v4,yago2_2.d as v2 from yago2 yago2_2), yago2_1_s1_b05f680661fe762 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_b05f680661fe762 as (select yago2_0.s as v0 from yago2 yago2_0), yago21_4_s1_b05f680661fe762 as (select yago21_4.d as v6,yago21_4.s as v8 from yago21 yago21_4), yago21_5_s2_b05f680661fe762 as (select yago21_5.s as v8 from yago21 yago21_5) /* stage2 */, yago21_4_s2_b05f680661fe762 as (select * from umbra.identity(table(yago21_4_s1_b05f680661fe762)) where exists (select from umbra.identity(table(yago21_5_s2_b05f680661fe762)) where yago21_4_s1_b05f680661fe762.v8 = yago21_5_s2_b05f680661fe762.v8)), yago2_1_s2_b05f680661fe762 as (select * from umbra.identity(table(yago2_1_s1_b05f680661fe762)) where exists (select from umbra.identity(table(yago2_0_s2_b05f680661fe762)) where yago2_1_s1_b05f680661fe762.v0 = yago2_0_s2_b05f680661fe762.v0)), yago2_2_s2_b05f680661fe762 as (select * from umbra.identity(table(yago2_2_s1_b05f680661fe762)) where exists (select from umbra.identity(table(yago2_1_s2_b05f680661fe762)) where yago2_2_s1_b05f680661fe762.v2 = yago2_1_s2_b05f680661fe762.v2)), yago2_3_s2_b05f680661fe762 as (select * from umbra.identity(table(yago2_3_s1_b05f680661fe762)) where exists (select from umbra.identity(table(yago21_4_s2_b05f680661fe762)) where yago2_3_s1_b05f680661fe762.v6 = yago21_4_s2_b05f680661fe762.v6) AND exists (select from umbra.identity(table(yago2_2_s2_b05f680661fe762)) where yago2_3_s1_b05f680661fe762.v4 = yago2_2_s2_b05f680661fe762.v4)) /* stage3 */, yago2_2_s3_b05f680661fe762 as (select * from umbra.identity(table(yago2_2_s2_b05f680661fe762)) where exists (select from umbra.identity(table(yago2_3_s2_b05f680661fe762)) where yago2_2_s2_b05f680661fe762.v4 = yago2_3_s2_b05f680661fe762.v4)), yago2_1_s3_b05f680661fe762 as (select * from umbra.identity(table(yago2_1_s2_b05f680661fe762)) where exists (select from umbra.identity(table(yago2_2_s2_b05f680661fe762)) where yago2_1_s2_b05f680661fe762.v2 = yago2_2_s2_b05f680661fe762.v2)), yago2_0_s3_b05f680661fe762 as (select * from umbra.identity(table(yago2_0_s2_b05f680661fe762)) where exists (select from umbra.identity(table(yago2_1_s2_b05f680661fe762)) where yago2_0_s2_b05f680661fe762.v0 = yago2_1_s2_b05f680661fe762.v0)), yago21_4_s3_b05f680661fe762 as (select * from umbra.identity(table(yago21_4_s2_b05f680661fe762)) where exists (select from umbra.identity(table(yago2_3_s2_b05f680661fe762)) where yago21_4_s2_b05f680661fe762.v6 = yago2_3_s2_b05f680661fe762.v6)), yago21_5_s3_b05f680661fe762 as (select * from umbra.identity(table(yago21_5_s2_b05f680661fe762)) where exists (select from umbra.identity(table(yago21_4_s2_b05f680661fe762)) where yago21_5_s2_b05f680661fe762.v8 = yago21_4_s2_b05f680661fe762.v8)) /* stage4 */, s4_group_1A3E68E6CA54F07E as  (select * from umbra.identity(table(yago2_3_s2_b05f680661fe762)) NATURAL JOIN umbra.identity(table(yago21_4_s3_b05f680661fe762)) NATURAL JOIN umbra.identity(table(yago21_5_s3_b05f680661fe762)) NATURAL JOIN umbra.identity(table(yago2_2_s3_b05f680661fe762)) NATURAL JOIN umbra.identity(table(yago2_1_s3_b05f680661fe762)) NATURAL JOIN umbra.identity(table(yago2_0_s3_b05f680661fe762)))select count(*) from umbra.identity(table(s4_group_1A3E68E6CA54F07E));
+\set queryname yago_acyclic_Chain_6_64
+-- Result size: 170
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago17_2 [label="yago17_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago13_4 [label="yago13_4|<s> s|<d> d"]; yago13_5 [label="yago13_5|<s> s|<d> d"]; yago17_0:d -> yago17_1:s;yago17_1:d -> yago17_2:d;yago17_2:s -> yago5:s;yago5:d -> yago13_4:d;yago13_4:s -> yago13_5:s;}
+--                         +----------+----+----+
+--                         | yago13_4 |  s |  d | -+
+--                         +----------+----+----+  |
+--                                       |         |
+--                                       |         |
+--                                       |         |
+--                         +----------+----+----+  |
+--                         | yago13_5 |  s |  d |  |
+--                         +----------+----+----+  |
+--                                                 |
+--                                            +----+
+--                                            |
+-- +----------+-----------+-----------+       |
+-- | yago17_0 |     s     |     d     |       |
+-- +----------+-----------+-----------+       |
+--                           |                |
+--                           |                |
+--                           |                |
+--             +----------+-----------+----+  |
+--             | yago17_1 |     s     |  d |  |
+--             +----------+-----------+----+  |
+--                                       |    |
+--                                       |    |
+--                                       |    |
+--             +----------+-----------+----+  |
+--             | yago17_2 |     s     |  d |  |
+--             +----------+-----------+----+  |
+--                           |                |
+--                           |                |
+--                           |                |
+--             +----------+-----------+----+  |
+--             |  yago5   |     s     |  d | -+
+--             +----------+-----------+----+
+with dummy as (select) /* stage1 */, yago5_s1_135e5000661fe762 as (select yago5.d as v6,yago5.s as v4 from yago5), yago17_2_s1_135e5000661fe762 as (select yago17_2.s as v4,yago17_2.d as v2 from yago17 yago17_2), yago17_1_s1_135e5000661fe762 as (select yago17_1.s as v0,yago17_1.d as v2 from yago17 yago17_1), yago17_0_s2_135e5000661fe762 as (select yago17_0.d as v0 from yago17 yago17_0), yago13_4_s1_135e5000661fe762 as (select yago13_4.d as v6,yago13_4.s as v8 from yago13 yago13_4), yago13_5_s2_135e5000661fe762 as (select yago13_5.s as v8 from yago13 yago13_5) /* stage2 */, yago13_4_s2_135e5000661fe762 as (select * from umbra.identity(table(yago13_4_s1_135e5000661fe762)) where exists (select from umbra.identity(table(yago13_5_s2_135e5000661fe762)) where yago13_4_s1_135e5000661fe762.v8 = yago13_5_s2_135e5000661fe762.v8)), yago17_1_s2_135e5000661fe762 as (select * from umbra.identity(table(yago17_1_s1_135e5000661fe762)) where exists (select from umbra.identity(table(yago17_0_s2_135e5000661fe762)) where yago17_1_s1_135e5000661fe762.v0 = yago17_0_s2_135e5000661fe762.v0)), yago17_2_s2_135e5000661fe762 as (select * from umbra.identity(table(yago17_2_s1_135e5000661fe762)) where exists (select from umbra.identity(table(yago17_1_s2_135e5000661fe762)) where yago17_2_s1_135e5000661fe762.v2 = yago17_1_s2_135e5000661fe762.v2)), yago5_s2_135e5000661fe762 as (select * from umbra.identity(table(yago5_s1_135e5000661fe762)) where exists (select from umbra.identity(table(yago13_4_s2_135e5000661fe762)) where yago5_s1_135e5000661fe762.v6 = yago13_4_s2_135e5000661fe762.v6) AND exists (select from umbra.identity(table(yago17_2_s2_135e5000661fe762)) where yago5_s1_135e5000661fe762.v4 = yago17_2_s2_135e5000661fe762.v4)) /* stage3 */, yago17_2_s3_135e5000661fe762 as (select * from umbra.identity(table(yago17_2_s2_135e5000661fe762)) where exists (select from umbra.identity(table(yago5_s2_135e5000661fe762)) where yago17_2_s2_135e5000661fe762.v4 = yago5_s2_135e5000661fe762.v4)), yago17_1_s3_135e5000661fe762 as (select * from umbra.identity(table(yago17_1_s2_135e5000661fe762)) where exists (select from umbra.identity(table(yago17_2_s2_135e5000661fe762)) where yago17_1_s2_135e5000661fe762.v2 = yago17_2_s2_135e5000661fe762.v2)), yago17_0_s3_135e5000661fe762 as (select * from umbra.identity(table(yago17_0_s2_135e5000661fe762)) where exists (select from umbra.identity(table(yago17_1_s2_135e5000661fe762)) where yago17_0_s2_135e5000661fe762.v0 = yago17_1_s2_135e5000661fe762.v0)), yago13_4_s3_135e5000661fe762 as (select * from umbra.identity(table(yago13_4_s2_135e5000661fe762)) where exists (select from umbra.identity(table(yago5_s2_135e5000661fe762)) where yago13_4_s2_135e5000661fe762.v6 = yago5_s2_135e5000661fe762.v6)), yago13_5_s3_135e5000661fe762 as (select * from umbra.identity(table(yago13_5_s2_135e5000661fe762)) where exists (select from umbra.identity(table(yago13_4_s2_135e5000661fe762)) where yago13_5_s2_135e5000661fe762.v8 = yago13_4_s2_135e5000661fe762.v8)) /* stage4 */, s4_group_7F4FD743248C5E8F as  (select * from umbra.identity(table(yago5_s2_135e5000661fe762)) NATURAL JOIN umbra.identity(table(yago13_4_s3_135e5000661fe762)) NATURAL JOIN umbra.identity(table(yago13_5_s3_135e5000661fe762)) NATURAL JOIN umbra.identity(table(yago17_2_s3_135e5000661fe762)) NATURAL JOIN umbra.identity(table(yago17_1_s3_135e5000661fe762)) NATURAL JOIN umbra.identity(table(yago17_0_s3_135e5000661fe762)))select count(*) from umbra.identity(table(s4_group_7F4FD743248C5E8F));
+\set queryname yago_acyclic_Chain_6_65
+-- Result size: 115
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago13:d;yago13:s -> yago39:s;}
+--            +--------+----+----+
+--            | yago13 |  s |  d | -+
+--            +--------+----+----+  |
+--                        |         |
+--                        |         |
+--                        |         |
+--            +--------+----+----+  |
+--            | yago39 |  s |  d |  |
+--            +--------+----+----+  |
+--                                  |
+--                             +----+
+--                             |
+-- +---------+---------+----+  |
+-- | yago2_0 |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              |              |
+--              |              |
+-- +---------+---------+----+  |
+-- | yago2_1 |    s    |  d |  |
+-- +---------+---------+----+  |
+--                        |    |
+--                        |    |
+--                        |    |
+-- +---------+---------+----+  |
+-- | yago2_2 |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              |              |
+--              |              |
+-- +---------+---------+----+  |
+-- | yago2_3 |    s    |  d | -+
+-- +---------+---------+----+
+with dummy as (select) /* stage1 */, yago2_3_s1_1bc05700661fe762 as (select yago2_3.s as v4,yago2_3.d as v6 from yago2 yago2_3), yago2_2_s1_1bc05700661fe762 as (select yago2_2.s as v4,yago2_2.d as v2 from yago2 yago2_2), yago2_1_s1_1bc05700661fe762 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_1bc05700661fe762 as (select yago2_0.s as v0 from yago2 yago2_0), yago13_s1_1bc05700661fe762 as (select yago13.d as v6,yago13.s as v8 from yago13), yago39_s2_1bc05700661fe762 as (select yago39.s as v8 from yago39) /* stage2 */, yago13_s2_1bc05700661fe762 as (select * from umbra.identity(table(yago13_s1_1bc05700661fe762)) where exists (select from umbra.identity(table(yago39_s2_1bc05700661fe762)) where yago13_s1_1bc05700661fe762.v8 = yago39_s2_1bc05700661fe762.v8)), yago2_1_s2_1bc05700661fe762 as (select * from umbra.identity(table(yago2_1_s1_1bc05700661fe762)) where exists (select from umbra.identity(table(yago2_0_s2_1bc05700661fe762)) where yago2_1_s1_1bc05700661fe762.v0 = yago2_0_s2_1bc05700661fe762.v0)), yago2_2_s2_1bc05700661fe762 as (select * from umbra.identity(table(yago2_2_s1_1bc05700661fe762)) where exists (select from umbra.identity(table(yago2_1_s2_1bc05700661fe762)) where yago2_2_s1_1bc05700661fe762.v2 = yago2_1_s2_1bc05700661fe762.v2)), yago2_3_s2_1bc05700661fe762 as (select * from umbra.identity(table(yago2_3_s1_1bc05700661fe762)) where exists (select from umbra.identity(table(yago13_s2_1bc05700661fe762)) where yago2_3_s1_1bc05700661fe762.v6 = yago13_s2_1bc05700661fe762.v6) AND exists (select from umbra.identity(table(yago2_2_s2_1bc05700661fe762)) where yago2_3_s1_1bc05700661fe762.v4 = yago2_2_s2_1bc05700661fe762.v4)) /* stage3 */, yago2_2_s3_1bc05700661fe762 as (select * from umbra.identity(table(yago2_2_s2_1bc05700661fe762)) where exists (select from umbra.identity(table(yago2_3_s2_1bc05700661fe762)) where yago2_2_s2_1bc05700661fe762.v4 = yago2_3_s2_1bc05700661fe762.v4)), yago2_1_s3_1bc05700661fe762 as (select * from umbra.identity(table(yago2_1_s2_1bc05700661fe762)) where exists (select from umbra.identity(table(yago2_2_s2_1bc05700661fe762)) where yago2_1_s2_1bc05700661fe762.v2 = yago2_2_s2_1bc05700661fe762.v2)), yago2_0_s3_1bc05700661fe762 as (select * from umbra.identity(table(yago2_0_s2_1bc05700661fe762)) where exists (select from umbra.identity(table(yago2_1_s2_1bc05700661fe762)) where yago2_0_s2_1bc05700661fe762.v0 = yago2_1_s2_1bc05700661fe762.v0)), yago13_s3_1bc05700661fe762 as (select * from umbra.identity(table(yago13_s2_1bc05700661fe762)) where exists (select from umbra.identity(table(yago2_3_s2_1bc05700661fe762)) where yago13_s2_1bc05700661fe762.v6 = yago2_3_s2_1bc05700661fe762.v6)), yago39_s3_1bc05700661fe762 as (select * from umbra.identity(table(yago39_s2_1bc05700661fe762)) where exists (select from umbra.identity(table(yago13_s2_1bc05700661fe762)) where yago39_s2_1bc05700661fe762.v8 = yago13_s2_1bc05700661fe762.v8)) /* stage4 */, s4_group_55FC14BC168159FA as  (select * from umbra.identity(table(yago2_3_s2_1bc05700661fe762)) NATURAL JOIN umbra.identity(table(yago13_s3_1bc05700661fe762)) NATURAL JOIN umbra.identity(table(yago39_s3_1bc05700661fe762)) NATURAL JOIN umbra.identity(table(yago2_2_s3_1bc05700661fe762)) NATURAL JOIN umbra.identity(table(yago2_1_s3_1bc05700661fe762)) NATURAL JOIN umbra.identity(table(yago2_0_s3_1bc05700661fe762)))select count(*) from umbra.identity(table(s4_group_55FC14BC168159FA));
+\set queryname yago_acyclic_Chain_6_66
+-- Result size: 190
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5 [label="yago5|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago31 [label="yago31|<s> s|<d> d"]; yago5:d -> yago12:d;yago12:s -> yago17:s;yago17:d -> yago46:s;yago46:d -> yago36:s;yago36:d -> yago31:d;}
+--                +--------+---------+----+
+--                | yago5  |    s    |  d |
+--                +--------+---------+----+
+--                                      |
+--                                      |
+--                                      |
+--                +--------+---------+----+
+--                | yago12 |    s    |  d |
+--                +--------+---------+----+
+--                            |
+--                            |
+--                            |
+--                +--------+---------+----+
+--                | yago17 |    s    |  d |
+--                +--------+---------+----+
+--                                      |
+--                                      |
+--                                      |
+--                          +--------+----+----+
+--                          | yago46 |  s |  d |
+--                          +--------+----+----+
+--                                           |
+--             +-----------------------------+
+--             |
+-- +--------+----+---------+
+-- | yago36 |  s |    d    |
+-- +--------+----+---------+
+--                  |
+--                  |
+--                  |
+-- +--------+----+---------+
+-- | yago31 |  s |    d    |
+-- +--------+----+---------+
+with dummy as (select) /* stage1 */, yago46_s1_4380080661fe763 as (select yago46.d as v6,yago46.s as v4 from yago46), yago17_s1_4380080661fe763 as (select yago17.s as v2,yago17.d as v4 from yago17), yago12_s1_4380080661fe763 as (select yago12.d as v0,yago12.s as v2 from yago12), yago5_s2_4380080661fe763 as (select yago5.d as v0 from yago5), yago36_s1_4380080661fe763 as (select yago36.s as v6,yago36.d as v8 from yago36), yago31_s2_4380080661fe763 as (select yago31.d as v8 from yago31) /* stage2 */, yago36_s2_4380080661fe763 as (select * from umbra.identity(table(yago36_s1_4380080661fe763)) where exists (select from umbra.identity(table(yago31_s2_4380080661fe763)) where yago36_s1_4380080661fe763.v8 = yago31_s2_4380080661fe763.v8)), yago12_s2_4380080661fe763 as (select * from umbra.identity(table(yago12_s1_4380080661fe763)) where exists (select from umbra.identity(table(yago5_s2_4380080661fe763)) where yago12_s1_4380080661fe763.v0 = yago5_s2_4380080661fe763.v0)), yago17_s2_4380080661fe763 as (select * from umbra.identity(table(yago17_s1_4380080661fe763)) where exists (select from umbra.identity(table(yago12_s2_4380080661fe763)) where yago17_s1_4380080661fe763.v2 = yago12_s2_4380080661fe763.v2)), yago46_s2_4380080661fe763 as (select * from umbra.identity(table(yago46_s1_4380080661fe763)) where exists (select from umbra.identity(table(yago36_s2_4380080661fe763)) where yago46_s1_4380080661fe763.v6 = yago36_s2_4380080661fe763.v6) AND exists (select from umbra.identity(table(yago17_s2_4380080661fe763)) where yago46_s1_4380080661fe763.v4 = yago17_s2_4380080661fe763.v4)) /* stage3 */, yago17_s3_4380080661fe763 as (select * from umbra.identity(table(yago17_s2_4380080661fe763)) where exists (select from umbra.identity(table(yago46_s2_4380080661fe763)) where yago17_s2_4380080661fe763.v4 = yago46_s2_4380080661fe763.v4)), yago12_s3_4380080661fe763 as (select * from umbra.identity(table(yago12_s2_4380080661fe763)) where exists (select from umbra.identity(table(yago17_s2_4380080661fe763)) where yago12_s2_4380080661fe763.v2 = yago17_s2_4380080661fe763.v2)), yago5_s3_4380080661fe763 as (select * from umbra.identity(table(yago5_s2_4380080661fe763)) where exists (select from umbra.identity(table(yago12_s2_4380080661fe763)) where yago5_s2_4380080661fe763.v0 = yago12_s2_4380080661fe763.v0)), yago36_s3_4380080661fe763 as (select * from umbra.identity(table(yago36_s2_4380080661fe763)) where exists (select from umbra.identity(table(yago46_s2_4380080661fe763)) where yago36_s2_4380080661fe763.v6 = yago46_s2_4380080661fe763.v6)), yago31_s3_4380080661fe763 as (select * from umbra.identity(table(yago31_s2_4380080661fe763)) where exists (select from umbra.identity(table(yago36_s2_4380080661fe763)) where yago31_s2_4380080661fe763.v8 = yago36_s2_4380080661fe763.v8)) /* stage4 */, s4_group_6C2C91957D09BC6D as  (select * from umbra.identity(table(yago46_s2_4380080661fe763)) NATURAL JOIN umbra.identity(table(yago36_s3_4380080661fe763)) NATURAL JOIN umbra.identity(table(yago31_s3_4380080661fe763)) NATURAL JOIN umbra.identity(table(yago17_s3_4380080661fe763)) NATURAL JOIN umbra.identity(table(yago12_s3_4380080661fe763)) NATURAL JOIN umbra.identity(table(yago5_s3_4380080661fe763)))select count(*) from umbra.identity(table(s4_group_6C2C91957D09BC6D));
+\set queryname yago_acyclic_Chain_6_67
+-- Result size: 4
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago53 [label="yago53|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago22:s;yago22:d -> yago13:d;yago13:s -> yago46:d;yago46:s -> yago53:s;}
+--                                           +---------+
+--                                           |         |
+--                               +--------+----+----+  |
+--                               | yago22 |  s |  d |  |
+--                               +--------+----+----+  |
+--                                                |    |
+--                                                |    |
+--                                                |    |
+--                               +--------+----+----+  |
+--                               | yago13 |  s |  d |  |
+--                               +--------+----+----+  |
+--                                           |         |
+--                                           |         |
+--                                           |         |
+-- +--------+----+---++---------+---------+----+       |
+-- | yago53 |  s | d || yago46  |    s    |  d |       |
+-- +--------+----+---++---------+---------+----+       |
+--             |                   |                   |
+--             +-------------------+                   |
+--                                                     |
+--                    +---------+---------+----+       |
+--                    | yago2_0 |    s    |  d |       |
+--                    +---------+---------+----+       |
+--                                 |                   |
+--                                 |                   |
+--                                 |                   |
+--                    +---------+---------+----+       |
+--                    | yago2_1 |    s    |  d | ------+
+--                    +---------+---------+----+
+with dummy as (select) /* stage1 */, yago22_s1_cb2a500661fe763 as (select yago22.d as v4,yago22.s as v2 from yago22), yago13_s1_cb2a500661fe763 as (select yago13.d as v4,yago13.s as v6 from yago13), yago46_s1_cb2a500661fe763 as (select yago46.d as v6,yago46.s as v8 from yago46), yago53_s2_cb2a500661fe763 as (select yago53.s as v8 from yago53), yago2_1_s1_cb2a500661fe763 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_cb2a500661fe763 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_cb2a500661fe763 as (select * from umbra.identity(table(yago2_1_s1_cb2a500661fe763)) where exists (select from umbra.identity(table(yago2_0_s2_cb2a500661fe763)) where yago2_1_s1_cb2a500661fe763.v0 = yago2_0_s2_cb2a500661fe763.v0)), yago46_s2_cb2a500661fe763 as (select * from umbra.identity(table(yago46_s1_cb2a500661fe763)) where exists (select from umbra.identity(table(yago53_s2_cb2a500661fe763)) where yago46_s1_cb2a500661fe763.v8 = yago53_s2_cb2a500661fe763.v8)), yago13_s2_cb2a500661fe763 as (select * from umbra.identity(table(yago13_s1_cb2a500661fe763)) where exists (select from umbra.identity(table(yago46_s2_cb2a500661fe763)) where yago13_s1_cb2a500661fe763.v6 = yago46_s2_cb2a500661fe763.v6)), yago22_s2_cb2a500661fe763 as (select * from umbra.identity(table(yago22_s1_cb2a500661fe763)) where exists (select from umbra.identity(table(yago2_1_s2_cb2a500661fe763)) where yago22_s1_cb2a500661fe763.v2 = yago2_1_s2_cb2a500661fe763.v2) AND exists (select from umbra.identity(table(yago13_s2_cb2a500661fe763)) where yago22_s1_cb2a500661fe763.v4 = yago13_s2_cb2a500661fe763.v4)) /* stage3 */, yago13_s3_cb2a500661fe763 as (select * from umbra.identity(table(yago13_s2_cb2a500661fe763)) where exists (select from umbra.identity(table(yago22_s2_cb2a500661fe763)) where yago13_s2_cb2a500661fe763.v4 = yago22_s2_cb2a500661fe763.v4)), yago46_s3_cb2a500661fe763 as (select * from umbra.identity(table(yago46_s2_cb2a500661fe763)) where exists (select from umbra.identity(table(yago13_s2_cb2a500661fe763)) where yago46_s2_cb2a500661fe763.v6 = yago13_s2_cb2a500661fe763.v6)), yago53_s3_cb2a500661fe763 as (select * from umbra.identity(table(yago53_s2_cb2a500661fe763)) where exists (select from umbra.identity(table(yago46_s2_cb2a500661fe763)) where yago53_s2_cb2a500661fe763.v8 = yago46_s2_cb2a500661fe763.v8)), yago2_1_s3_cb2a500661fe763 as (select * from umbra.identity(table(yago2_1_s2_cb2a500661fe763)) where exists (select from umbra.identity(table(yago22_s2_cb2a500661fe763)) where yago2_1_s2_cb2a500661fe763.v2 = yago22_s2_cb2a500661fe763.v2)), yago2_0_s3_cb2a500661fe763 as (select * from umbra.identity(table(yago2_0_s2_cb2a500661fe763)) where exists (select from umbra.identity(table(yago2_1_s2_cb2a500661fe763)) where yago2_0_s2_cb2a500661fe763.v0 = yago2_1_s2_cb2a500661fe763.v0)) /* stage4 */, s4_group_6EFECCF504EAE1E1 as  (select * from umbra.identity(table(yago22_s2_cb2a500661fe763)) NATURAL JOIN umbra.identity(table(yago2_1_s3_cb2a500661fe763)) NATURAL JOIN umbra.identity(table(yago2_0_s3_cb2a500661fe763)) NATURAL JOIN umbra.identity(table(yago13_s3_cb2a500661fe763)) NATURAL JOIN umbra.identity(table(yago46_s3_cb2a500661fe763)) NATURAL JOIN umbra.identity(table(yago53_s3_cb2a500661fe763)))select count(*) from umbra.identity(table(s4_group_6EFECCF504EAE1E1));
+\set queryname yago_acyclic_Chain_6_68
+-- Result size: 84765
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago46_4 [label="yago46_4|<s> s|<d> d"]; yago46_5 [label="yago46_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago0:s;yago0:d -> yago3:d;yago3:s -> yago46_4:d;yago46_4:s -> yago46_5:s;}
+--                                             +---------+
+--                                             |         |
+-- +----------+----+----+           +-------+----+----+  |
+-- | yago46_5 |  s |  d |           | yago0 |  s |  d |  |
+-- +----------+----+----+           +-------+----+----+  |
+--               |                                  |    |
+--               |                                  |    |
+--               |                                  |    |
+-- +----------+----+----+           +-------+----+----+  |
+-- | yago46_4 |  s |  d |           | yago3 |  s |  d |  |
+-- +----------+----+----+           +-------+----+----+  |
+--                    |                        |         |
+--                    +------------------------+         |
+--                                                       |
+--                       +---------+--------+----+       |
+--                       | yago2_0 |    s   |  d |       |
+--                       +---------+--------+----+       |
+--                                    |                  |
+--                                    |                  |
+--                                    |                  |
+--                       +---------+--------+----+       |
+--                       | yago2_1 |    s   |  d | ------+
+--                       +---------+--------+----+
+with dummy as (select) /* stage1 */, yago3_s1_15188980661fe763 as (select yago3.s as v6,yago3.d as v4 from yago3), yago0_s1_15188980661fe763 as (select yago0.s as v2,yago0.d as v4 from yago0), yago2_1_s1_15188980661fe763 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_15188980661fe763 as (select yago2_0.s as v0 from yago2 yago2_0), yago46_4_s1_15188980661fe763 as (select yago46_4.d as v6,yago46_4.s as v8 from yago46 yago46_4), yago46_5_s2_15188980661fe763 as (select yago46_5.s as v8 from yago46 yago46_5) /* stage2 */, yago46_4_s2_15188980661fe763 as (select * from umbra.identity(table(yago46_4_s1_15188980661fe763)) where exists (select from umbra.identity(table(yago46_5_s2_15188980661fe763)) where yago46_4_s1_15188980661fe763.v8 = yago46_5_s2_15188980661fe763.v8)), yago2_1_s2_15188980661fe763 as (select * from umbra.identity(table(yago2_1_s1_15188980661fe763)) where exists (select from umbra.identity(table(yago2_0_s2_15188980661fe763)) where yago2_1_s1_15188980661fe763.v0 = yago2_0_s2_15188980661fe763.v0)), yago0_s2_15188980661fe763 as (select * from umbra.identity(table(yago0_s1_15188980661fe763)) where exists (select from umbra.identity(table(yago2_1_s2_15188980661fe763)) where yago0_s1_15188980661fe763.v2 = yago2_1_s2_15188980661fe763.v2)), yago3_s2_15188980661fe763 as (select * from umbra.identity(table(yago3_s1_15188980661fe763)) where exists (select from umbra.identity(table(yago46_4_s2_15188980661fe763)) where yago3_s1_15188980661fe763.v6 = yago46_4_s2_15188980661fe763.v6) AND exists (select from umbra.identity(table(yago0_s2_15188980661fe763)) where yago3_s1_15188980661fe763.v4 = yago0_s2_15188980661fe763.v4)) /* stage3 */, yago0_s3_15188980661fe763 as (select * from umbra.identity(table(yago0_s2_15188980661fe763)) where exists (select from umbra.identity(table(yago3_s2_15188980661fe763)) where yago0_s2_15188980661fe763.v4 = yago3_s2_15188980661fe763.v4)), yago2_1_s3_15188980661fe763 as (select * from umbra.identity(table(yago2_1_s2_15188980661fe763)) where exists (select from umbra.identity(table(yago0_s2_15188980661fe763)) where yago2_1_s2_15188980661fe763.v2 = yago0_s2_15188980661fe763.v2)), yago2_0_s3_15188980661fe763 as (select * from umbra.identity(table(yago2_0_s2_15188980661fe763)) where exists (select from umbra.identity(table(yago2_1_s2_15188980661fe763)) where yago2_0_s2_15188980661fe763.v0 = yago2_1_s2_15188980661fe763.v0)), yago46_4_s3_15188980661fe763 as (select * from umbra.identity(table(yago46_4_s2_15188980661fe763)) where exists (select from umbra.identity(table(yago3_s2_15188980661fe763)) where yago46_4_s2_15188980661fe763.v6 = yago3_s2_15188980661fe763.v6)), yago46_5_s3_15188980661fe763 as (select * from umbra.identity(table(yago46_5_s2_15188980661fe763)) where exists (select from umbra.identity(table(yago46_4_s2_15188980661fe763)) where yago46_5_s2_15188980661fe763.v8 = yago46_4_s2_15188980661fe763.v8)) /* stage4 */, s4_group_2893DD679296C5EF as  (select * from umbra.identity(table(yago3_s2_15188980661fe763)) NATURAL JOIN umbra.identity(table(yago46_4_s3_15188980661fe763)) NATURAL JOIN umbra.identity(table(yago46_5_s3_15188980661fe763)) NATURAL JOIN umbra.identity(table(yago0_s3_15188980661fe763)) NATURAL JOIN umbra.identity(table(yago2_1_s3_15188980661fe763)) NATURAL JOIN umbra.identity(table(yago2_0_s3_15188980661fe763)))select count(*) from umbra.identity(table(s4_group_2893DD679296C5EF));
+\set queryname yago_acyclic_Chain_6_69
+-- Result size: 18624
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago46:d;yago46:s -> yago17_3:d;yago17_3:s -> yago17_4:s;yago17_4:d -> yago17_5:d;}
+--   +--------------------------------+
+--   |                                |
+--   |             +----------+----+----+
+--   |             | yago17_3 |  s |  d |
+--   |             +----------+----+----+
+--   |                           |
+--   |                           |
+--   |                           |
+--   |             +----------+----+----+
+--   |             | yago17_4 |  s |  d |
+--   |             +----------+----+----+
+--   |                                |
+--   |                                |
+--   |                                |
+--   |             +----------+----+----+
+--   |             | yago17_5 |  s |  d |
+--   |             +----------+----+----+
+--   |  +---------+-----------+----+
+--   |  | yago2_0 |     s     |  d |
+--   |  +---------+-----------+----+
+--   |               |
+--   |               |
+--   |               |
+--   |  +---------+-----------+----+
+--   |  | yago2_1 |     s     |  d |
+--   |  +---------+-----------+----+
+--   |                           |
+--   +---------------+           |
+--                   |           |
+--      +---------+-----------+----+
+--      | yago46  |     s     |  d |
+--      +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago46_s1_1d890400661fe763 as (select yago46.s as v4,yago46.d as v2 from yago46), yago17_3_s1_1d890400661fe763 as (select yago17_3.s as v6,yago17_3.d as v4 from yago17 yago17_3), yago17_4_s1_1d890400661fe763 as (select yago17_4.s as v6,yago17_4.d as v8 from yago17 yago17_4), yago17_5_s2_1d890400661fe763 as (select yago17_5.d as v8 from yago17 yago17_5), yago2_1_s1_1d890400661fe763 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_1d890400661fe763 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */, yago2_1_s2_1d890400661fe763 as (select * from umbra.identity(table(yago2_1_s1_1d890400661fe763)) where exists (select from umbra.identity(table(yago2_0_s2_1d890400661fe763)) where yago2_1_s1_1d890400661fe763.v0 = yago2_0_s2_1d890400661fe763.v0)), yago17_4_s2_1d890400661fe763 as (select * from umbra.identity(table(yago17_4_s1_1d890400661fe763)) where exists (select from umbra.identity(table(yago17_5_s2_1d890400661fe763)) where yago17_4_s1_1d890400661fe763.v8 = yago17_5_s2_1d890400661fe763.v8)), yago17_3_s2_1d890400661fe763 as (select * from umbra.identity(table(yago17_3_s1_1d890400661fe763)) where exists (select from umbra.identity(table(yago17_4_s2_1d890400661fe763)) where yago17_3_s1_1d890400661fe763.v6 = yago17_4_s2_1d890400661fe763.v6)), yago46_s2_1d890400661fe763 as (select * from umbra.identity(table(yago46_s1_1d890400661fe763)) where exists (select from umbra.identity(table(yago2_1_s2_1d890400661fe763)) where yago46_s1_1d890400661fe763.v2 = yago2_1_s2_1d890400661fe763.v2) AND exists (select from umbra.identity(table(yago17_3_s2_1d890400661fe763)) where yago46_s1_1d890400661fe763.v4 = yago17_3_s2_1d890400661fe763.v4)) /* stage3 */, yago17_3_s3_1d890400661fe763 as (select * from umbra.identity(table(yago17_3_s2_1d890400661fe763)) where exists (select from umbra.identity(table(yago46_s2_1d890400661fe763)) where yago17_3_s2_1d890400661fe763.v4 = yago46_s2_1d890400661fe763.v4)), yago17_4_s3_1d890400661fe763 as (select * from umbra.identity(table(yago17_4_s2_1d890400661fe763)) where exists (select from umbra.identity(table(yago17_3_s2_1d890400661fe763)) where yago17_4_s2_1d890400661fe763.v6 = yago17_3_s2_1d890400661fe763.v6)), yago17_5_s3_1d890400661fe763 as (select * from umbra.identity(table(yago17_5_s2_1d890400661fe763)) where exists (select from umbra.identity(table(yago17_4_s2_1d890400661fe763)) where yago17_5_s2_1d890400661fe763.v8 = yago17_4_s2_1d890400661fe763.v8)), yago2_1_s3_1d890400661fe763 as (select * from umbra.identity(table(yago2_1_s2_1d890400661fe763)) where exists (select from umbra.identity(table(yago46_s2_1d890400661fe763)) where yago2_1_s2_1d890400661fe763.v2 = yago46_s2_1d890400661fe763.v2)), yago2_0_s3_1d890400661fe763 as (select * from umbra.identity(table(yago2_0_s2_1d890400661fe763)) where exists (select from umbra.identity(table(yago2_1_s2_1d890400661fe763)) where yago2_0_s2_1d890400661fe763.v0 = yago2_1_s2_1d890400661fe763.v0)) /* stage4 */, s4_group_EE9B667AF9F459C as  (select * from umbra.identity(table(yago46_s2_1d890400661fe763)) NATURAL JOIN umbra.identity(table(yago2_1_s3_1d890400661fe763)) NATURAL JOIN umbra.identity(table(yago2_0_s3_1d890400661fe763)) NATURAL JOIN umbra.identity(table(yago17_3_s3_1d890400661fe763)) NATURAL JOIN umbra.identity(table(yago17_4_s3_1d890400661fe763)) NATURAL JOIN umbra.identity(table(yago17_5_s3_1d890400661fe763)))select count(*) from umbra.identity(table(s4_group_EE9B667AF9F459C));
+\set queryname yago_acyclic_Chain_6_70
+-- Result size: 90910
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago0_1 [label="yago0_1|<s> s|<d> d"]; yago54_2 [label="yago54_2|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago54_5 [label="yago54_5|<s> s|<d> d"]; yago0_0:d -> yago0_1:d;yago0_1:s -> yago54_2:d;yago54_2:s -> yago13:s;yago13:d -> yago5:d;yago5:s -> yago54_5:s;}
+--                         +---------+----+----+
+--                         | yago0_0 |  s |  d |
+--                         +---------+----+----+
+--                                           |
+--                                           |
+--                                           |
+--                         +---------+----+----+
+--                         | yago0_1 |  s |  d |
+--                         +---------+----+----+
+--                                      |
+--                                      |
+--                                      |
+--             +----------+----------+----+
+--             | yago54_2 |     s    |  d |
+--             +----------+----------+----+
+--                           |
+--               +-----------+
+--               |
+-- +----------+-----------+----------+
+-- |  yago13  |     s     |     d    |
+-- +----------+-----------+----------+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+----------+
+-- |  yago5   |     s     |     d    |
+-- +----------+-----------+----------+
+--               |
+--               |
+--               |
+-- +----------+-----------+----------+
+-- | yago54_5 |     s     |     d    |
+-- +----------+-----------+----------+
+with dummy as (select) /* stage1 */, yago54_2_s1_60a9480661fe764 as (select yago54_2.d as v2,yago54_2.s as v4 from yago54 yago54_2), yago13_s1_60a9480661fe764 as (select yago13.d as v6,yago13.s as v4 from yago13), yago5_s1_60a9480661fe764 as (select yago5.d as v6,yago5.s as v8 from yago5), yago54_5_s2_60a9480661fe764 as (select yago54_5.s as v8 from yago54 yago54_5), yago0_1_s1_60a9480661fe764 as (select yago0_1.s as v2,yago0_1.d as v0 from yago0 yago0_1), yago0_0_s2_60a9480661fe764 as (select yago0_0.d as v0 from yago0 yago0_0) /* stage2 */, yago0_1_s2_60a9480661fe764 as (select * from umbra.identity(table(yago0_1_s1_60a9480661fe764)) where exists (select from umbra.identity(table(yago0_0_s2_60a9480661fe764)) where yago0_1_s1_60a9480661fe764.v0 = yago0_0_s2_60a9480661fe764.v0)), yago5_s2_60a9480661fe764 as (select * from umbra.identity(table(yago5_s1_60a9480661fe764)) where exists (select from umbra.identity(table(yago54_5_s2_60a9480661fe764)) where yago5_s1_60a9480661fe764.v8 = yago54_5_s2_60a9480661fe764.v8)), yago13_s2_60a9480661fe764 as (select * from umbra.identity(table(yago13_s1_60a9480661fe764)) where exists (select from umbra.identity(table(yago5_s2_60a9480661fe764)) where yago13_s1_60a9480661fe764.v6 = yago5_s2_60a9480661fe764.v6)), yago54_2_s2_60a9480661fe764 as (select * from umbra.identity(table(yago54_2_s1_60a9480661fe764)) where exists (select from umbra.identity(table(yago0_1_s2_60a9480661fe764)) where yago54_2_s1_60a9480661fe764.v2 = yago0_1_s2_60a9480661fe764.v2) AND exists (select from umbra.identity(table(yago13_s2_60a9480661fe764)) where yago54_2_s1_60a9480661fe764.v4 = yago13_s2_60a9480661fe764.v4)) /* stage3 */, yago13_s3_60a9480661fe764 as (select * from umbra.identity(table(yago13_s2_60a9480661fe764)) where exists (select from umbra.identity(table(yago54_2_s2_60a9480661fe764)) where yago13_s2_60a9480661fe764.v4 = yago54_2_s2_60a9480661fe764.v4)), yago5_s3_60a9480661fe764 as (select * from umbra.identity(table(yago5_s2_60a9480661fe764)) where exists (select from umbra.identity(table(yago13_s2_60a9480661fe764)) where yago5_s2_60a9480661fe764.v6 = yago13_s2_60a9480661fe764.v6)), yago54_5_s3_60a9480661fe764 as (select * from umbra.identity(table(yago54_5_s2_60a9480661fe764)) where exists (select from umbra.identity(table(yago5_s2_60a9480661fe764)) where yago54_5_s2_60a9480661fe764.v8 = yago5_s2_60a9480661fe764.v8)), yago0_1_s3_60a9480661fe764 as (select * from umbra.identity(table(yago0_1_s2_60a9480661fe764)) where exists (select from umbra.identity(table(yago54_2_s2_60a9480661fe764)) where yago0_1_s2_60a9480661fe764.v2 = yago54_2_s2_60a9480661fe764.v2)), yago0_0_s3_60a9480661fe764 as (select * from umbra.identity(table(yago0_0_s2_60a9480661fe764)) where exists (select from umbra.identity(table(yago0_1_s2_60a9480661fe764)) where yago0_0_s2_60a9480661fe764.v0 = yago0_1_s2_60a9480661fe764.v0)) /* stage4 */, s4_group_4FD104F51C43BAA1 as  (select * from umbra.identity(table(yago54_2_s2_60a9480661fe764)) NATURAL JOIN umbra.identity(table(yago0_1_s3_60a9480661fe764)) NATURAL JOIN umbra.identity(table(yago0_0_s3_60a9480661fe764)) NATURAL JOIN umbra.identity(table(yago13_s3_60a9480661fe764)) NATURAL JOIN umbra.identity(table(yago5_s3_60a9480661fe764)) NATURAL JOIN umbra.identity(table(yago54_5_s3_60a9480661fe764)))select count(*) from umbra.identity(table(s4_group_4FD104F51C43BAA1));
+\set queryname yago_acyclic_Chain_6_71
+-- Result size: 29337
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago57_2 [label="yago57_2|<s> s|<d> d"]; yago57_3 [label="yago57_3|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago44 [label="yago44|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago57_2:s;yago57_2:d -> yago57_3:d;yago57_3:s -> yago21:d;yago21:s -> yago44:s;}
+--            +----------+----+----+
+--            |  yago21  |  s |  d | -+
+--            +----------+----+----+  |
+--                          |         |
+--                          |         |
+--                          |         |
+--            +----------+----+----+  |
+--            |  yago44  |  s |  d |  |
+--            +----------+----+----+  |
+-- +---------+-----------+----+       |
+-- | yago2_0 |     s     |  d |       |
+-- +---------+-----------+----+       |
+--              |                     |
+--              |                     |
+--              |                     |
+-- +---------+-----------+----+       |
+-- | yago2_1 |     s     |  d |       |
+-- +---------+-----------+----+       |
+--                          |         |
+--                          |         |
+--                          |         |
+--            +----------+----+----+  |
+--            | yago57_2 |  s |  d |  |
+--            +----------+----+----+  |
+--                               |    |
+--                               |    |
+--                               |    |
+--            +----------+----+----+  |
+--            | yago57_3 |  s |  d |  |
+--            +----------+----+----+  |
+--                          |         |
+--                          +---------+
+with dummy as (select) /* stage1 */, yago57_3_s1_e848b80661fe764 as (select yago57_3.d as v4,yago57_3.s as v6 from yago57 yago57_3), yago57_2_s1_e848b80661fe764 as (select yago57_2.s as v2,yago57_2.d as v4 from yago57 yago57_2), yago2_1_s1_e848b80661fe764 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s2_e848b80661fe764 as (select yago2_0.s as v0 from yago2 yago2_0), yago21_s1_e848b80661fe764 as (select yago21.s as v8,yago21.d as v6 from yago21), yago44_s2_e848b80661fe764 as (select yago44.s as v8 from yago44) /* stage2 */, yago21_s2_e848b80661fe764 as (select * from umbra.identity(table(yago21_s1_e848b80661fe764)) where exists (select from umbra.identity(table(yago44_s2_e848b80661fe764)) where yago21_s1_e848b80661fe764.v8 = yago44_s2_e848b80661fe764.v8)), yago2_1_s2_e848b80661fe764 as (select * from umbra.identity(table(yago2_1_s1_e848b80661fe764)) where exists (select from umbra.identity(table(yago2_0_s2_e848b80661fe764)) where yago2_1_s1_e848b80661fe764.v0 = yago2_0_s2_e848b80661fe764.v0)), yago57_2_s2_e848b80661fe764 as (select * from umbra.identity(table(yago57_2_s1_e848b80661fe764)) where exists (select from umbra.identity(table(yago2_1_s2_e848b80661fe764)) where yago57_2_s1_e848b80661fe764.v2 = yago2_1_s2_e848b80661fe764.v2)), yago57_3_s2_e848b80661fe764 as (select * from umbra.identity(table(yago57_3_s1_e848b80661fe764)) where exists (select from umbra.identity(table(yago21_s2_e848b80661fe764)) where yago57_3_s1_e848b80661fe764.v6 = yago21_s2_e848b80661fe764.v6) AND exists (select from umbra.identity(table(yago57_2_s2_e848b80661fe764)) where yago57_3_s1_e848b80661fe764.v4 = yago57_2_s2_e848b80661fe764.v4)) /* stage3 */, yago57_2_s3_e848b80661fe764 as (select * from umbra.identity(table(yago57_2_s2_e848b80661fe764)) where exists (select from umbra.identity(table(yago57_3_s2_e848b80661fe764)) where yago57_2_s2_e848b80661fe764.v4 = yago57_3_s2_e848b80661fe764.v4)), yago2_1_s3_e848b80661fe764 as (select * from umbra.identity(table(yago2_1_s2_e848b80661fe764)) where exists (select from umbra.identity(table(yago57_2_s2_e848b80661fe764)) where yago2_1_s2_e848b80661fe764.v2 = yago57_2_s2_e848b80661fe764.v2)), yago2_0_s3_e848b80661fe764 as (select * from umbra.identity(table(yago2_0_s2_e848b80661fe764)) where exists (select from umbra.identity(table(yago2_1_s2_e848b80661fe764)) where yago2_0_s2_e848b80661fe764.v0 = yago2_1_s2_e848b80661fe764.v0)), yago21_s3_e848b80661fe764 as (select * from umbra.identity(table(yago21_s2_e848b80661fe764)) where exists (select from umbra.identity(table(yago57_3_s2_e848b80661fe764)) where yago21_s2_e848b80661fe764.v6 = yago57_3_s2_e848b80661fe764.v6)), yago44_s3_e848b80661fe764 as (select * from umbra.identity(table(yago44_s2_e848b80661fe764)) where exists (select from umbra.identity(table(yago21_s2_e848b80661fe764)) where yago44_s2_e848b80661fe764.v8 = yago21_s2_e848b80661fe764.v8)) /* stage4 */, s4_group_6E92D43AFF86E576 as  (select * from umbra.identity(table(yago57_3_s2_e848b80661fe764)) NATURAL JOIN umbra.identity(table(yago21_s3_e848b80661fe764)) NATURAL JOIN umbra.identity(table(yago44_s3_e848b80661fe764)) NATURAL JOIN umbra.identity(table(yago57_2_s3_e848b80661fe764)) NATURAL JOIN umbra.identity(table(yago2_1_s3_e848b80661fe764)) NATURAL JOIN umbra.identity(table(yago2_0_s3_e848b80661fe764)))select count(*) from umbra.identity(table(s4_group_6E92D43AFF86E576));
+\set queryname yago_acyclic_Chain_6_72
+-- Result size: 85781
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago31 [label="yago31|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago0:d -> yago3:d;yago3:s -> yago36:s;yago36:d -> yago31:d;yago31:s -> yago50:d;yago50:s -> yago46:s;}
+--                     +--------+----+----+
+--                     | yago0  |  s |  d |
+--                     +--------+----+----+
+--                                      |
+--                                      |
+--                                      |
+--                     +--------+----+----+
+--                     | yago3  |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | yago36 |  s |  d |
+--                     +--------+----+----+
+--                                      |
+--                                      |
+--                                      |
+--           +--------+---------+----+  |
+--           | yago31 |    s    |  d | -+
+--           +--------+---------+----+
+--                       |
+--                       |
+--                       |
+-- +--------+---------+---------+
+-- | yago50 |    s    |    d    |
+-- +--------+---------+---------+
+--             |
+--             |
+--             |
+-- +--------+---------+---------+
+-- | yago46 |    s    |    d    |
+-- +--------+---------+---------+
+with dummy as (select) /* stage1 */, yago36_s1_1730cb80661fe764 as (select yago36.d as v4,yago36.s as v2 from yago36), yago31_s1_1730cb80661fe764 as (select yago31.s as v6,yago31.d as v4 from yago31), yago50_s1_1730cb80661fe764 as (select yago50.s as v8,yago50.d as v6 from yago50), yago46_s2_1730cb80661fe764 as (select yago46.s as v8 from yago46), yago3_s1_1730cb80661fe764 as (select yago3.d as v0,yago3.s as v2 from yago3), yago0_s2_1730cb80661fe764 as (select yago0.d as v0 from yago0) /* stage2 */, yago3_s2_1730cb80661fe764 as (select * from umbra.identity(table(yago3_s1_1730cb80661fe764)) where exists (select from umbra.identity(table(yago0_s2_1730cb80661fe764)) where yago3_s1_1730cb80661fe764.v0 = yago0_s2_1730cb80661fe764.v0)), yago50_s2_1730cb80661fe764 as (select * from umbra.identity(table(yago50_s1_1730cb80661fe764)) where exists (select from umbra.identity(table(yago46_s2_1730cb80661fe764)) where yago50_s1_1730cb80661fe764.v8 = yago46_s2_1730cb80661fe764.v8)), yago31_s2_1730cb80661fe764 as (select * from umbra.identity(table(yago31_s1_1730cb80661fe764)) where exists (select from umbra.identity(table(yago50_s2_1730cb80661fe764)) where yago31_s1_1730cb80661fe764.v6 = yago50_s2_1730cb80661fe764.v6)), yago36_s2_1730cb80661fe764 as (select * from umbra.identity(table(yago36_s1_1730cb80661fe764)) where exists (select from umbra.identity(table(yago3_s2_1730cb80661fe764)) where yago36_s1_1730cb80661fe764.v2 = yago3_s2_1730cb80661fe764.v2) AND exists (select from umbra.identity(table(yago31_s2_1730cb80661fe764)) where yago36_s1_1730cb80661fe764.v4 = yago31_s2_1730cb80661fe764.v4)) /* stage3 */, yago31_s3_1730cb80661fe764 as (select * from umbra.identity(table(yago31_s2_1730cb80661fe764)) where exists (select from umbra.identity(table(yago36_s2_1730cb80661fe764)) where yago31_s2_1730cb80661fe764.v4 = yago36_s2_1730cb80661fe764.v4)), yago50_s3_1730cb80661fe764 as (select * from umbra.identity(table(yago50_s2_1730cb80661fe764)) where exists (select from umbra.identity(table(yago31_s2_1730cb80661fe764)) where yago50_s2_1730cb80661fe764.v6 = yago31_s2_1730cb80661fe764.v6)), yago46_s3_1730cb80661fe764 as (select * from umbra.identity(table(yago46_s2_1730cb80661fe764)) where exists (select from umbra.identity(table(yago50_s2_1730cb80661fe764)) where yago46_s2_1730cb80661fe764.v8 = yago50_s2_1730cb80661fe764.v8)), yago3_s3_1730cb80661fe764 as (select * from umbra.identity(table(yago3_s2_1730cb80661fe764)) where exists (select from umbra.identity(table(yago36_s2_1730cb80661fe764)) where yago3_s2_1730cb80661fe764.v2 = yago36_s2_1730cb80661fe764.v2)), yago0_s3_1730cb80661fe764 as (select * from umbra.identity(table(yago0_s2_1730cb80661fe764)) where exists (select from umbra.identity(table(yago3_s2_1730cb80661fe764)) where yago0_s2_1730cb80661fe764.v0 = yago3_s2_1730cb80661fe764.v0)) /* stage4 */, s4_group_3C35CDB0A7E6D25C as  (select * from umbra.identity(table(yago36_s2_1730cb80661fe764)) NATURAL JOIN umbra.identity(table(yago3_s3_1730cb80661fe764)) NATURAL JOIN umbra.identity(table(yago0_s3_1730cb80661fe764)) NATURAL JOIN umbra.identity(table(yago31_s3_1730cb80661fe764)) NATURAL JOIN umbra.identity(table(yago50_s3_1730cb80661fe764)) NATURAL JOIN umbra.identity(table(yago46_s3_1730cb80661fe764)))select count(*) from umbra.identity(table(s4_group_3C35CDB0A7E6D25C));
+\set queryname yago_acyclic_Chain_6_73
+-- Result size: 34421
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:d -> yago5:d;yago5:s -> yago23:s;}
+--            +--------+----+----+
+--            | yago23 |  s |  d |
+--            +--------+----+----+
+--                        |
+--                        +----+
+--                             |
+-- +---------+---------+----+  |
+-- | yago2_0 |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              |              |
+--              |              |
+-- +---------+---------+----+  |
+-- | yago2_1 |    s    |  d |  |
+-- +---------+---------+----+  |
+--                        |    |
+--                        |    |
+--                        |    |
+-- +---------+---------+----+  |
+-- | yago2_2 |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              |              |
+--              |              |
+-- +---------+---------+----+  |
+-- | yago2_3 |    s    |  d |  |
+-- +---------+---------+----+  |
+--                        |    |
+--                        |    |
+--                        |    |
+-- +---------+---------+----+  |
+-- |  yago5  |    s    |  d |  |
+-- +---------+---------+----+  |
+--              |              |
+--              +--------------+
+with dummy as (select) /* stage1 */, yago2_3_s1_1fba7280661fe764 as (select yago2_3.s as v4,yago2_3.d as v6 from yago2 yago2_3), yago2_2_s1_1fba7280661fe764 as (select yago2_2.s as v4,yago2_2.d as v2 from yago2 yago2_2), yago2_1_s1_1fba7280661fe764 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s2_1fba7280661fe764 as (select yago2_0.s as v0 from yago2 yago2_0), yago5_s1_1fba7280661fe764 as (select yago5.s as v8,yago5.d as v6 from yago5), yago23_s2_1fba7280661fe764 as (select yago23.s as v8 from yago23) /* stage2 */, yago5_s2_1fba7280661fe764 as (select * from umbra.identity(table(yago5_s1_1fba7280661fe764)) where exists (select from umbra.identity(table(yago23_s2_1fba7280661fe764)) where yago5_s1_1fba7280661fe764.v8 = yago23_s2_1fba7280661fe764.v8)), yago2_1_s2_1fba7280661fe764 as (select * from umbra.identity(table(yago2_1_s1_1fba7280661fe764)) where exists (select from umbra.identity(table(yago2_0_s2_1fba7280661fe764)) where yago2_1_s1_1fba7280661fe764.v0 = yago2_0_s2_1fba7280661fe764.v0)), yago2_2_s2_1fba7280661fe764 as (select * from umbra.identity(table(yago2_2_s1_1fba7280661fe764)) where exists (select from umbra.identity(table(yago2_1_s2_1fba7280661fe764)) where yago2_2_s1_1fba7280661fe764.v2 = yago2_1_s2_1fba7280661fe764.v2)), yago2_3_s2_1fba7280661fe764 as (select * from umbra.identity(table(yago2_3_s1_1fba7280661fe764)) where exists (select from umbra.identity(table(yago5_s2_1fba7280661fe764)) where yago2_3_s1_1fba7280661fe764.v6 = yago5_s2_1fba7280661fe764.v6) AND exists (select from umbra.identity(table(yago2_2_s2_1fba7280661fe764)) where yago2_3_s1_1fba7280661fe764.v4 = yago2_2_s2_1fba7280661fe764.v4)) /* stage3 */, yago2_2_s3_1fba7280661fe764 as (select * from umbra.identity(table(yago2_2_s2_1fba7280661fe764)) where exists (select from umbra.identity(table(yago2_3_s2_1fba7280661fe764)) where yago2_2_s2_1fba7280661fe764.v4 = yago2_3_s2_1fba7280661fe764.v4)), yago2_1_s3_1fba7280661fe764 as (select * from umbra.identity(table(yago2_1_s2_1fba7280661fe764)) where exists (select from umbra.identity(table(yago2_2_s2_1fba7280661fe764)) where yago2_1_s2_1fba7280661fe764.v2 = yago2_2_s2_1fba7280661fe764.v2)), yago2_0_s3_1fba7280661fe764 as (select * from umbra.identity(table(yago2_0_s2_1fba7280661fe764)) where exists (select from umbra.identity(table(yago2_1_s2_1fba7280661fe764)) where yago2_0_s2_1fba7280661fe764.v0 = yago2_1_s2_1fba7280661fe764.v0)), yago5_s3_1fba7280661fe764 as (select * from umbra.identity(table(yago5_s2_1fba7280661fe764)) where exists (select from umbra.identity(table(yago2_3_s2_1fba7280661fe764)) where yago5_s2_1fba7280661fe764.v6 = yago2_3_s2_1fba7280661fe764.v6)), yago23_s3_1fba7280661fe764 as (select * from umbra.identity(table(yago23_s2_1fba7280661fe764)) where exists (select from umbra.identity(table(yago5_s2_1fba7280661fe764)) where yago23_s2_1fba7280661fe764.v8 = yago5_s2_1fba7280661fe764.v8)) /* stage4 */, s4_group_56AEEA0B4D7608AE as  (select * from umbra.identity(table(yago2_3_s2_1fba7280661fe764)) NATURAL JOIN umbra.identity(table(yago5_s3_1fba7280661fe764)) NATURAL JOIN umbra.identity(table(yago23_s3_1fba7280661fe764)) NATURAL JOIN umbra.identity(table(yago2_2_s3_1fba7280661fe764)) NATURAL JOIN umbra.identity(table(yago2_1_s3_1fba7280661fe764)) NATURAL JOIN umbra.identity(table(yago2_0_s3_1fba7280661fe764)))select count(*) from umbra.identity(table(s4_group_56AEEA0B4D7608AE));

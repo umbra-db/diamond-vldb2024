@@ -1,0 +1,10 @@
+alter table nation add foreign key (n_regionkey) references region (r_regionkey);
+alter table supplier add foreign key (s_nationkey) references nation (n_nationkey);
+alter table partsupp add foreign key (ps_partkey) references part (p_partkey);
+alter table partsupp add foreign key (ps_suppkey) references supplier (s_suppkey);
+alter table customer add foreign key (c_nationkey) references nation (n_nationkey);
+alter table orders add foreign key (o_custkey) references customer (c_custkey);
+alter table lineitem add foreign key (l_orderkey) references orders (o_orderkey);
+alter table lineitem add foreign key (l_partkey) references part (p_partkey);
+alter table lineitem add foreign key (l_suppkey) references supplier (s_suppkey);
+alter table lineitem add foreign key (l_partkey, l_suppkey) references partsupp (ps_partkey, ps_suppkey);

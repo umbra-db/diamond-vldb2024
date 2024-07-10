@@ -1,0 +1,588 @@
+\set queryname hetio_cyclic_q3_00
+-- Result size: 88486401
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45177_0 [label="hetio45177_0|<s> s|<d> d"]; hetio45177_1 [label="hetio45177_1|<s> s|<d> d"]; hetio45177_2 [label="hetio45177_2|<s> s|<d> d"]; hetio45177_3 [label="hetio45177_3|<s> s|<d> d"]; hetio45177_0:s -> hetio45177_1:s;hetio45177_0:d -> hetio45177_2:s;hetio45177_1:d -> hetio45177_3:d;hetio45177_2:d -> hetio45177_3:s;}
+-- +--------------+----+----+--------------+----+----+
+-- | hetio45177_0 |  s |  d | hetio45177_2 |  s |  d |
+-- +--------------+----+----+--------------+----+----+
+--                   |    |                   |    |
+--                   |    +-------------------+    |
+--                   |                             |
+-- +--------------+----+----+                      |
+-- | hetio45177_1 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                        |                        |
+--                        |                        |
+--                        |                        |
+-- +--------------+----+----+                      |
+-- | hetio45177_3 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                   |                             |
+--                   +-----------------------------+
+select count(*) from hetio45177 hetio45177_0, hetio45177 hetio45177_1, hetio45177 hetio45177_2, hetio45177 hetio45177_3 where hetio45177_0.s = hetio45177_1.s and hetio45177_0.d = hetio45177_2.s and hetio45177_1.d = hetio45177_3.d and hetio45177_2.d = hetio45177_3.s;
+\set queryname hetio_cyclic_q3_01
+-- Result size: 1529571
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45174_1 [label="hetio45174_1|<s> s|<d> d"]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45174_3 [label="hetio45174_3|<s> s|<d> d"]; hetio45160:s -> hetio45174_1:s;hetio45160:d -> hetio45177:s;hetio45174_1:d -> hetio45174_3:d;hetio45177:d -> hetio45174_3:s;}
+-- +--------------+----+----+------------+----+----+
+-- |  hetio45160  |  s |  d | hetio45177 |  s |  d |
+-- +--------------+----+----+------------+----+----+
+--                   |    |                 |    |
+--                   |    +-----------------+    |
+--                   |                           |
+-- +--------------+----+----+                    |
+-- | hetio45174_1 |  s |  d |                    |
+-- +--------------+----+----+                    |
+--                        |                      |
+--                        |                      |
+--                        |                      |
+-- +--------------+----+----+                    |
+-- | hetio45174_3 |  s |  d |                    |
+-- +--------------+----+----+                    |
+--                   |                           |
+--                   +---------------------------+
+select count(*) from hetio45160, hetio45174 hetio45174_1, hetio45177, hetio45174 hetio45174_3 where hetio45160.s = hetio45174_1.s and hetio45160.d = hetio45177.s and hetio45174_1.d = hetio45174_3.d and hetio45177.d = hetio45174_3.s;
+\set queryname hetio_cyclic_q3_02
+-- Result size: 154024
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45173_0 [label="hetio45173_0|<s> s|<d> d"]; hetio45174_1 [label="hetio45174_1|<s> s|<d> d"]; hetio45173_2 [label="hetio45173_2|<s> s|<d> d"]; hetio45174_3 [label="hetio45174_3|<s> s|<d> d"]; hetio45173_0:s -> hetio45174_1:s;hetio45173_0:d -> hetio45173_2:s;hetio45174_1:d -> hetio45174_3:d;hetio45173_2:d -> hetio45174_3:s;}
+-- +--------------+----+----+--------------+----+----+--------------+----+----+
+-- | hetio45173_0 |  s |  d | hetio45173_2 |  s |  d | hetio45174_3 |  s |  d |
+-- +--------------+----+----+--------------+----+----+--------------+----+----+
+--                   |    |                   |    |                   |    |
+--                   |    +-------------------+    +-------------------+    |
+--                   |                                                      |
+-- +--------------+----+----+                                               |
+-- | hetio45174_1 |  s |  d | ----------------------------------------------+
+-- +--------------+----+----+
+select count(*) from hetio45173 hetio45173_0, hetio45174 hetio45174_1, hetio45173 hetio45173_2, hetio45174 hetio45174_3 where hetio45173_0.s = hetio45174_1.s and hetio45173_0.d = hetio45173_2.s and hetio45174_1.d = hetio45174_3.d and hetio45173_2.d = hetio45174_3.s;
+\set queryname hetio_cyclic_q3_03
+-- Result size: 19208845
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45177_0 [label="hetio45177_0|<s> s|<d> d"]; hetio45177_1 [label="hetio45177_1|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45177_3 [label="hetio45177_3|<s> s|<d> d"]; hetio45177_0:s -> hetio45177_1:s;hetio45177_0:d -> hetio45160:s;hetio45177_1:d -> hetio45177_3:d;hetio45160:d -> hetio45177_3:s;}
+--                 +------------+---------------+----+
+--                 | hetio45160 |       s       |  d |
+--                 +------------+---------------+----+
+--                                 |               |
+--                   +-------------+               |
+--                   |                             |
+--                   |           +--------------+----+----+
+--                   |           | hetio45177_3 |  s |  d |
+--                   |           +--------------+----+----+
+--                   |                                  |
+--                   +-------------+                    |
+--                                 |                    |
+-- +--------------+-------------+---------------+       |
+-- | hetio45177_0 |      s      |       d       |       |
+-- +--------------+-------------+---------------+       |
+--                   |                                  |
+--                   |                                  |
+--                   |                                  |
+-- +--------------+-------------+---------------+       |
+-- | hetio45177_1 |      s      |       d       | ------+
+-- +--------------+-------------+---------------+
+select count(*) from hetio45177 hetio45177_0, hetio45177 hetio45177_1, hetio45160, hetio45177 hetio45177_3 where hetio45177_0.s = hetio45177_1.s and hetio45177_0.d = hetio45160.s and hetio45177_1.d = hetio45177_3.d and hetio45160.d = hetio45177_3.s;
+\set queryname hetio_cyclic_q3_04
+-- Result size: 102272
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45180_1 [label="hetio45180_1|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45180_3 [label="hetio45180_3|<s> s|<d> d"]; hetio45173:s -> hetio45180_1:s;hetio45173:d -> hetio45160:s;hetio45180_1:d -> hetio45180_3:d;hetio45160:d -> hetio45180_3:s;}
+--                 +------------+---------------+----+
+--                 | hetio45160 |       s       |  d |
+--                 +------------+---------------+----+
+--                                 |               |
+--                   +-------------+               |
+--                   |                             |
+--                   |           +--------------+----+----+
+--                   |           | hetio45180_3 |  s |  d |
+--                   |           +--------------+----+----+
+--                   |                                  |
+--                   +-------------+                    |
+--                                 |                    |
+-- +--------------+-------------+---------------+       |
+-- |  hetio45173  |      s      |       d       |       |
+-- +--------------+-------------+---------------+       |
+--                   |                                  |
+--                   |                                  |
+--                   |                                  |
+-- +--------------+-------------+---------------+       |
+-- | hetio45180_1 |      s      |       d       | ------+
+-- +--------------+-------------+---------------+
+select count(*) from hetio45173, hetio45180 hetio45180_1, hetio45160, hetio45180 hetio45180_3 where hetio45173.s = hetio45180_1.s and hetio45173.d = hetio45160.s and hetio45180_1.d = hetio45180_3.d and hetio45160.d = hetio45180_3.s;
+\set queryname hetio_cyclic_q3_05
+-- Result size: 73824
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45176_1 [label="hetio45176_1|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45176_3 [label="hetio45176_3|<s> s|<d> d"]; hetio45173:s -> hetio45176_1:s;hetio45173:d -> hetio45160:s;hetio45176_1:d -> hetio45176_3:d;hetio45160:d -> hetio45176_3:s;}
+--                 +------------+---------------+----+
+--                 | hetio45160 |       s       |  d |
+--                 +------------+---------------+----+
+--                                 |               |
+--                   +-------------+               |
+--                   |                             |
+--                   |           +--------------+----+----+
+--                   |           | hetio45176_3 |  s |  d |
+--                   |           +--------------+----+----+
+--                   |                                  |
+--                   +-------------+                    |
+--                                 |                    |
+-- +--------------+-------------+---------------+       |
+-- |  hetio45173  |      s      |       d       |       |
+-- +--------------+-------------+---------------+       |
+--                   |                                  |
+--                   |                                  |
+--                   |                                  |
+-- +--------------+-------------+---------------+       |
+-- | hetio45176_1 |      s      |       d       | ------+
+-- +--------------+-------------+---------------+
+select count(*) from hetio45173, hetio45176 hetio45176_1, hetio45160, hetio45176 hetio45176_3 where hetio45173.s = hetio45176_1.s and hetio45173.d = hetio45160.s and hetio45176_1.d = hetio45176_3.d and hetio45160.d = hetio45176_3.s;
+\set queryname hetio_cyclic_q3_06
+-- Result size: 5603069
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45160_0 [label="hetio45160_0|<s> s|<d> d"]; hetio45160_1 [label="hetio45160_1|<s> s|<d> d"]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45160_3 [label="hetio45160_3|<s> s|<d> d"]; hetio45160_0:s -> hetio45160_1:s;hetio45160_0:d -> hetio45177:s;hetio45160_1:d -> hetio45160_3:d;hetio45177:d -> hetio45160_3:s;}
+-- +--------------+----+----+------------+----+----+
+-- | hetio45160_0 |  s |  d | hetio45177 |  s |  d |
+-- +--------------+----+----+------------+----+----+
+--                   |    |                 |    |
+--                   |    +-----------------+    |
+--                   |                           |
+-- +--------------+----+----+                    |
+-- | hetio45160_1 |  s |  d |                    |
+-- +--------------+----+----+                    |
+--                        |                      |
+--                        |                      |
+--                        |                      |
+-- +--------------+----+----+                    |
+-- | hetio45160_3 |  s |  d |                    |
+-- +--------------+----+----+                    |
+--                   |                           |
+--                   +---------------------------+
+select count(*) from hetio45160 hetio45160_0, hetio45160 hetio45160_1, hetio45177, hetio45160 hetio45160_3 where hetio45160_0.s = hetio45160_1.s and hetio45160_0.d = hetio45177.s and hetio45160_1.d = hetio45160_3.d and hetio45177.d = hetio45160_3.s;
+\set queryname hetio_cyclic_q3_07
+-- Result size: 98327
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45176_1 [label="hetio45176_1|<s> s|<d> d"]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45176_3 [label="hetio45176_3|<s> s|<d> d"]; hetio45160:s -> hetio45176_1:s;hetio45160:d -> hetio45173:s;hetio45176_1:d -> hetio45176_3:d;hetio45173:d -> hetio45176_3:s;}
+-- +--------------+----+----+------------+----+----+--------------+----+----+
+-- |  hetio45160  |  s |  d | hetio45173 |  s |  d | hetio45176_3 |  s |  d |
+-- +--------------+----+----+------------+----+----+--------------+----+----+
+--                   |    |                 |    |                   |    |
+--                   |    +-----------------+    +-------------------+    |
+--                   |                                                    |
+-- +--------------+----+----+                                             |
+-- | hetio45176_1 |  s |  d | --------------------------------------------+
+-- +--------------+----+----+
+select count(*) from hetio45160, hetio45176 hetio45176_1, hetio45173, hetio45176 hetio45176_3 where hetio45160.s = hetio45176_1.s and hetio45160.d = hetio45173.s and hetio45176_1.d = hetio45176_3.d and hetio45173.d = hetio45176_3.s;
+\set queryname hetio_cyclic_q3_08
+-- Result size: 72909
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45174_1 [label="hetio45174_1|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45174_3 [label="hetio45174_3|<s> s|<d> d"]; hetio45173:s -> hetio45174_1:s;hetio45173:d -> hetio45160:s;hetio45174_1:d -> hetio45174_3:d;hetio45160:d -> hetio45174_3:s;}
+--                 +------------+---------------+----+
+--                 | hetio45160 |       s       |  d |
+--                 +------------+---------------+----+
+--                                 |               |
+--                   +-------------+               |
+--                   |                             |
+--                   |           +--------------+----+----+
+--                   |           | hetio45174_3 |  s |  d |
+--                   |           +--------------+----+----+
+--                   |                                  |
+--                   +-------------+                    |
+--                                 |                    |
+-- +--------------+-------------+---------------+       |
+-- |  hetio45173  |      s      |       d       |       |
+-- +--------------+-------------+---------------+       |
+--                   |                                  |
+--                   |                                  |
+--                   |                                  |
+-- +--------------+-------------+---------------+       |
+-- | hetio45174_1 |      s      |       d       | ------+
+-- +--------------+-------------+---------------+
+select count(*) from hetio45173, hetio45174 hetio45174_1, hetio45160, hetio45174 hetio45174_3 where hetio45173.s = hetio45174_1.s and hetio45173.d = hetio45160.s and hetio45174_1.d = hetio45174_3.d and hetio45160.d = hetio45174_3.s;
+\set queryname hetio_cyclic_q3_09
+-- Result size: 132349
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45173_0 [label="hetio45173_0|<s> s|<d> d"]; hetio45173_1 [label="hetio45173_1|<s> s|<d> d"]; hetio45177_2 [label="hetio45177_2|<s> s|<d> d"]; hetio45177_3 [label="hetio45177_3|<s> s|<d> d"]; hetio45173_0:s -> hetio45173_1:s;hetio45173_0:d -> hetio45177_2:s;hetio45173_1:d -> hetio45177_3:d;hetio45177_2:d -> hetio45177_3:s;}
+-- +--------------+----+----+--------------+----+----+
+-- | hetio45173_0 |  s |  d | hetio45177_2 |  s |  d |
+-- +--------------+----+----+--------------+----+----+
+--                   |    |                   |    |
+--                   |    +-------------------+    |
+--                   |                             |
+-- +--------------+----+----+                      |
+-- | hetio45173_1 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                        |                        |
+--                        |                        |
+--                        |                        |
+-- +--------------+----+----+                      |
+-- | hetio45177_3 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                   |                             |
+--                   +-----------------------------+
+select count(*) from hetio45173 hetio45173_0, hetio45173 hetio45173_1, hetio45177 hetio45177_2, hetio45177 hetio45177_3 where hetio45173_0.s = hetio45173_1.s and hetio45173_0.d = hetio45177_2.s and hetio45173_1.d = hetio45177_3.d and hetio45177_2.d = hetio45177_3.s;
+\set queryname hetio_cyclic_q3_10
+-- Result size: 37875
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45173_0 [label="hetio45173_0|<s> s|<d> d"]; hetio45173_1 [label="hetio45173_1|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45173_0:s -> hetio45173_1:s;hetio45173_0:d -> hetio45160:s;hetio45173_1:d -> hetio45177:d;hetio45160:d -> hetio45177:s;}
+--                 +------------+-------------+----+
+--                 | hetio45160 |      s      |  d |
+--                 +------------+-------------+----+
+--                                 |             |
+--                   +-------------+             |
+--                   |                           |
+--                   |           +------------+----+----+
+--                   |           | hetio45177 |  s |  d |
+--                   |           +------------+----+----+
+--                   |                                |
+--                   +-------------+                  |
+--                                 |                  |
+-- +--------------+-------------+-------------+       |
+-- | hetio45173_0 |      s      |      d      |       |
+-- +--------------+-------------+-------------+       |
+--                   |                                |
+--                   |                                |
+--                   |                                |
+-- +--------------+-------------+-------------+       |
+-- | hetio45173_1 |      s      |      d      | ------+
+-- +--------------+-------------+-------------+
+select count(*) from hetio45173 hetio45173_0, hetio45173 hetio45173_1, hetio45160, hetio45177 where hetio45173_0.s = hetio45173_1.s and hetio45173_0.d = hetio45160.s and hetio45173_1.d = hetio45177.d and hetio45160.d = hetio45177.s;
+\set queryname hetio_cyclic_q3_11
+-- Result size: 38025562
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45160_0 [label="hetio45160_0|<s> s|<d> d"]; hetio45159_1 [label="hetio45159_1|<s> s|<d> d"]; hetio45160_2 [label="hetio45160_2|<s> s|<d> d"]; hetio45159_3 [label="hetio45159_3|<s> s|<d> d"]; hetio45160_0:s -> hetio45159_1:s;hetio45160_0:d -> hetio45160_2:s;hetio45159_1:d -> hetio45159_3:d;hetio45160_2:d -> hetio45159_3:s;}
+-- +--------------+----+----+--------------+----+----+
+-- | hetio45160_0 |  s |  d | hetio45160_2 |  s |  d |
+-- +--------------+----+----+--------------+----+----+
+--                   |    |                   |    |
+--                   |    +-------------------+    |
+--                   |                             |
+-- +--------------+----+----+                      |
+-- | hetio45159_1 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                        |                        |
+--                        |                        |
+--                        |                        |
+-- +--------------+----+----+                      |
+-- | hetio45159_3 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                   |                             |
+--                   +-----------------------------+
+select count(*) from hetio45160 hetio45160_0, hetio45159 hetio45159_1, hetio45160 hetio45160_2, hetio45159 hetio45159_3 where hetio45160_0.s = hetio45159_1.s and hetio45160_0.d = hetio45160_2.s and hetio45159_1.d = hetio45159_3.d and hetio45160_2.d = hetio45159_3.s;
+\set queryname hetio_cyclic_q3_12
+-- Result size: 3788669
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45173_0 [label="hetio45173_0|<s> s|<d> d"]; hetio45173_1 [label="hetio45173_1|<s> s|<d> d"]; hetio45173_2 [label="hetio45173_2|<s> s|<d> d"]; hetio45173_3 [label="hetio45173_3|<s> s|<d> d"]; hetio45173_0:s -> hetio45173_1:s;hetio45173_0:d -> hetio45173_2:s;hetio45173_1:d -> hetio45173_3:d;hetio45173_2:d -> hetio45173_3:s;}
+-- +--------------+----+----+--------------+----+----+
+-- | hetio45173_0 |  s |  d | hetio45173_2 |  s |  d |
+-- +--------------+----+----+--------------+----+----+
+--                   |    |                   |    |
+--                   |    +-------------------+    |
+--                   |                             |
+-- +--------------+----+----+                      |
+-- | hetio45173_1 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                        |                        |
+--                        |                        |
+--                        |                        |
+-- +--------------+----+----+                      |
+-- | hetio45173_3 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                   |                             |
+--                   +-----------------------------+
+select count(*) from hetio45173 hetio45173_0, hetio45173 hetio45173_1, hetio45173 hetio45173_2, hetio45173 hetio45173_3 where hetio45173_0.s = hetio45173_1.s and hetio45173_0.d = hetio45173_2.s and hetio45173_1.d = hetio45173_3.d and hetio45173_2.d = hetio45173_3.s;
+\set queryname hetio_cyclic_q3_13
+-- Result size: 30116
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166_0 [label="hetio45166_0|<s> s|<d> d"]; hetio45166_1 [label="hetio45166_1|<s> s|<d> d"]; hetio45160_2 [label="hetio45160_2|<s> s|<d> d"]; hetio45160_3 [label="hetio45160_3|<s> s|<d> d"]; hetio45166_0:s -> hetio45166_1:s;hetio45166_0:d -> hetio45160_2:s;hetio45166_1:d -> hetio45160_3:d;hetio45160_2:d -> hetio45160_3:s;}
+--                 +--------------+---------------+----+
+--                 | hetio45160_2 |       s       |  d |
+--                 +--------------+---------------+----+
+--                                   |               |
+--                   +---------------+               |
+--                   |                               |
+--                   |             +--------------+----+----+
+--                   |             | hetio45160_3 |  s |  d |
+--                   |             +--------------+----+----+
+--                   |                                    |
+--                   +---------------+                    |
+--                                   |                    |
+-- +--------------+---------------+---------------+       |
+-- | hetio45166_0 |       s       |       d       |       |
+-- +--------------+---------------+---------------+       |
+--                   |                                    |
+--                   |                                    |
+--                   |                                    |
+-- +--------------+---------------+---------------+       |
+-- | hetio45166_1 |       s       |       d       | ------+
+-- +--------------+---------------+---------------+
+select count(*) from hetio45166 hetio45166_0, hetio45166 hetio45166_1, hetio45160 hetio45160_2, hetio45160 hetio45160_3 where hetio45166_0.s = hetio45166_1.s and hetio45166_0.d = hetio45160_2.s and hetio45166_1.d = hetio45160_3.d and hetio45160_2.d = hetio45160_3.s;
+\set queryname hetio_cyclic_q3_14
+-- Result size: 454109
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45178 [label="hetio45178|<s> s|<d> d"]; hetio45177_2 [label="hetio45177_2|<s> s|<d> d"]; hetio45177_3 [label="hetio45177_3|<s> s|<d> d"]; hetio45166:s -> hetio45178:s;hetio45166:d -> hetio45177_2:s;hetio45178:d -> hetio45177_3:d;hetio45177_2:d -> hetio45177_3:s;}
+-- +------------+----+----+--------------+----+----+--------------+----+----+
+-- | hetio45166 |  s |  d | hetio45177_2 |  s |  d | hetio45177_3 |  s |  d |
+-- +------------+----+----+--------------+----+----+--------------+----+----+
+--                 |    |                   |    |                   |    |
+--                 |    +-------------------+    +-------------------+    |
+--                 |                                                      |
+-- +------------+----+----+                                               |
+-- | hetio45178 |  s |  d | ----------------------------------------------+
+-- +------------+----+----+
+select count(*) from hetio45166, hetio45178, hetio45177 hetio45177_2, hetio45177 hetio45177_3 where hetio45166.s = hetio45178.s and hetio45166.d = hetio45177_2.s and hetio45178.d = hetio45177_3.d and hetio45177_2.d = hetio45177_3.s;
+\set queryname hetio_cyclic_q3_15
+-- Result size: 592881
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45161_0 [label="hetio45161_0|<s> s|<d> d"]; hetio45181_1 [label="hetio45181_1|<s> s|<d> d"]; hetio45161_2 [label="hetio45161_2|<s> s|<d> d"]; hetio45181_3 [label="hetio45181_3|<s> s|<d> d"]; hetio45161_0:s -> hetio45181_1:s;hetio45161_0:d -> hetio45161_2:s;hetio45181_1:d -> hetio45181_3:d;hetio45161_2:d -> hetio45181_3:s;}
+-- +--------------+----+----+--------------+----+----+--------------+----+----+
+-- | hetio45161_0 |  s |  d | hetio45161_2 |  s |  d | hetio45181_3 |  s |  d |
+-- +--------------+----+----+--------------+----+----+--------------+----+----+
+--                   |    |                   |    |                   |    |
+--                   |    +-------------------+    +-------------------+    |
+--                   |                                                      |
+-- +--------------+----+----+                                               |
+-- | hetio45181_1 |  s |  d | ----------------------------------------------+
+-- +--------------+----+----+
+select count(*) from hetio45161 hetio45161_0, hetio45181 hetio45181_1, hetio45161 hetio45161_2, hetio45181 hetio45181_3 where hetio45161_0.s = hetio45181_1.s and hetio45161_0.d = hetio45161_2.s and hetio45181_1.d = hetio45181_3.d and hetio45161_2.d = hetio45181_3.s;
+\set queryname hetio_cyclic_q3_16
+-- Result size: 4278084
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45177_0 [label="hetio45177_0|<s> s|<d> d"]; hetio45180_1 [label="hetio45180_1|<s> s|<d> d"]; hetio45177_2 [label="hetio45177_2|<s> s|<d> d"]; hetio45180_3 [label="hetio45180_3|<s> s|<d> d"]; hetio45177_0:s -> hetio45180_1:s;hetio45177_0:d -> hetio45177_2:s;hetio45180_1:d -> hetio45180_3:d;hetio45177_2:d -> hetio45180_3:s;}
+-- +--------------+----+----+--------------+----+----+--------------+----+----+
+-- | hetio45177_0 |  s |  d | hetio45177_2 |  s |  d | hetio45180_3 |  s |  d |
+-- +--------------+----+----+--------------+----+----+--------------+----+----+
+--                   |    |                   |    |                   |    |
+--                   |    +-------------------+    +-------------------+    |
+--                   |                                                      |
+-- +--------------+----+----+                                               |
+-- | hetio45180_1 |  s |  d | ----------------------------------------------+
+-- +--------------+----+----+
+select count(*) from hetio45177 hetio45177_0, hetio45180 hetio45180_1, hetio45177 hetio45177_2, hetio45180 hetio45180_3 where hetio45177_0.s = hetio45180_1.s and hetio45177_0.d = hetio45177_2.s and hetio45180_1.d = hetio45180_3.d and hetio45177_2.d = hetio45180_3.s;
+\set queryname hetio_cyclic_q3_17
+-- Result size: 6695182
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45178_0 [label="hetio45178_0|<s> s|<d> d"]; hetio45178_1 [label="hetio45178_1|<s> s|<d> d"]; hetio45177_2 [label="hetio45177_2|<s> s|<d> d"]; hetio45177_3 [label="hetio45177_3|<s> s|<d> d"]; hetio45178_0:s -> hetio45178_1:s;hetio45178_0:d -> hetio45177_2:s;hetio45178_1:d -> hetio45177_3:d;hetio45177_2:d -> hetio45177_3:s;}
+--                 +--------------+---------------+----+
+--                 | hetio45177_2 |       s       |  d |
+--                 +--------------+---------------+----+
+--                                   |               |
+--                   +---------------+               |
+--                   |                               |
+--                   |             +--------------+----+----+
+--                   |             | hetio45177_3 |  s |  d |
+--                   |             +--------------+----+----+
+--                   |                                    |
+--                   +---------------+                    |
+--                                   |                    |
+-- +--------------+---------------+---------------+       |
+-- | hetio45178_0 |       s       |       d       |       |
+-- +--------------+---------------+---------------+       |
+--                   |                                    |
+--                   |                                    |
+--                   |                                    |
+-- +--------------+---------------+---------------+       |
+-- | hetio45178_1 |       s       |       d       | ------+
+-- +--------------+---------------+---------------+
+select count(*) from hetio45178 hetio45178_0, hetio45178 hetio45178_1, hetio45177 hetio45177_2, hetio45177 hetio45177_3 where hetio45178_0.s = hetio45178_1.s and hetio45178_0.d = hetio45177_2.s and hetio45178_1.d = hetio45177_3.d and hetio45177_2.d = hetio45177_3.s;
+\set queryname hetio_cyclic_q3_18
+-- Result size: 4231
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45175_0 [label="hetio45175_0|<s> s|<d> d"]; hetio45175_1 [label="hetio45175_1|<s> s|<d> d"]; hetio45161_2 [label="hetio45161_2|<s> s|<d> d"]; hetio45161_3 [label="hetio45161_3|<s> s|<d> d"]; hetio45175_0:s -> hetio45175_1:s;hetio45175_0:d -> hetio45161_2:s;hetio45175_1:d -> hetio45161_3:d;hetio45161_2:d -> hetio45161_3:s;}
+--                 +--------------+---------------+----+
+--                 | hetio45161_2 |       s       |  d |
+--                 +--------------+---------------+----+
+--                                   |               |
+--                   +---------------+               |
+--                   |                               |
+--                   |             +--------------+----+----+
+--                   |             | hetio45161_3 |  s |  d |
+--                   |             +--------------+----+----+
+--                   |                                    |
+--                   +---------------+                    |
+--                                   |                    |
+-- +--------------+---------------+---------------+       |
+-- | hetio45175_0 |       s       |       d       |       |
+-- +--------------+---------------+---------------+       |
+--                   |                                    |
+--                   |                                    |
+--                   |                                    |
+-- +--------------+---------------+---------------+       |
+-- | hetio45175_1 |       s       |       d       | ------+
+-- +--------------+---------------+---------------+
+select count(*) from hetio45175 hetio45175_0, hetio45175 hetio45175_1, hetio45161 hetio45161_2, hetio45161 hetio45161_3 where hetio45175_0.s = hetio45175_1.s and hetio45175_0.d = hetio45161_2.s and hetio45175_1.d = hetio45161_3.d and hetio45161_2.d = hetio45161_3.s;
+\set queryname hetio_cyclic_q3_19
+-- Result size: 7265709
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45177_0 [label="hetio45177_0|<s> s|<d> d"]; hetio45177_1 [label="hetio45177_1|<s> s|<d> d"]; hetio45160_2 [label="hetio45160_2|<s> s|<d> d"]; hetio45160_3 [label="hetio45160_3|<s> s|<d> d"]; hetio45177_0:s -> hetio45177_1:s;hetio45177_0:d -> hetio45160_2:s;hetio45177_1:d -> hetio45160_3:d;hetio45160_2:d -> hetio45160_3:s;}
+--                 +--------------+---------------+----+
+--                 | hetio45160_2 |       s       |  d |
+--                 +--------------+---------------+----+
+--                                   |               |
+--                   +---------------+               |
+--                   |                               |
+--                   |             +--------------+----+----+
+--                   |             | hetio45160_3 |  s |  d |
+--                   |             +--------------+----+----+
+--                   |                                    |
+--                   +---------------+                    |
+--                                   |                    |
+-- +--------------+---------------+---------------+       |
+-- | hetio45177_0 |       s       |       d       |       |
+-- +--------------+---------------+---------------+       |
+--                   |                                    |
+--                   |                                    |
+--                   |                                    |
+-- +--------------+---------------+---------------+       |
+-- | hetio45177_1 |       s       |       d       | ------+
+-- +--------------+---------------+---------------+
+select count(*) from hetio45177 hetio45177_0, hetio45177 hetio45177_1, hetio45160 hetio45160_2, hetio45160 hetio45160_3 where hetio45177_0.s = hetio45177_1.s and hetio45177_0.d = hetio45160_2.s and hetio45177_1.d = hetio45160_3.d and hetio45160_2.d = hetio45160_3.s;
+\set queryname hetio_cyclic_q3_20
+-- Result size: 898270
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45159_1 [label="hetio45159_1|<s> s|<d> d"]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45159_3 [label="hetio45159_3|<s> s|<d> d"]; hetio45160:s -> hetio45159_1:s;hetio45160:d -> hetio45173:s;hetio45159_1:d -> hetio45159_3:d;hetio45173:d -> hetio45159_3:s;}
+-- +--------------+----+----+------------+----+----+
+-- |  hetio45160  |  s |  d | hetio45173 |  s |  d |
+-- +--------------+----+----+------------+----+----+
+--                   |    |                 |    |
+--                   |    +-----------------+    |
+--                   |                           |
+-- +--------------+----+----+                    |
+-- | hetio45159_1 |  s |  d |                    |
+-- +--------------+----+----+                    |
+--                        |                      |
+--                        |                      |
+--                        |                      |
+-- +--------------+----+----+                    |
+-- | hetio45159_3 |  s |  d |                    |
+-- +--------------+----+----+                    |
+--                   |                           |
+--                   +---------------------------+
+select count(*) from hetio45160, hetio45159 hetio45159_1, hetio45173, hetio45159 hetio45159_3 where hetio45160.s = hetio45159_1.s and hetio45160.d = hetio45173.s and hetio45159_1.d = hetio45159_3.d and hetio45173.d = hetio45159_3.s;
+\set queryname hetio_cyclic_q3_21
+-- Result size: 32012123
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45177_0 [label="hetio45177_0|<s> s|<d> d"]; hetio45159_1 [label="hetio45159_1|<s> s|<d> d"]; hetio45177_2 [label="hetio45177_2|<s> s|<d> d"]; hetio45159_3 [label="hetio45159_3|<s> s|<d> d"]; hetio45177_0:s -> hetio45159_1:s;hetio45177_0:d -> hetio45177_2:s;hetio45159_1:d -> hetio45159_3:d;hetio45177_2:d -> hetio45159_3:s;}
+-- +--------------+----+----+--------------+----+----+
+-- | hetio45177_0 |  s |  d | hetio45177_2 |  s |  d |
+-- +--------------+----+----+--------------+----+----+
+--                   |    |                   |    |
+--                   |    +-------------------+    |
+--                   |                             |
+-- +--------------+----+----+                      |
+-- | hetio45159_1 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                        |                        |
+--                        |                        |
+--                        |                        |
+-- +--------------+----+----+                      |
+-- | hetio45159_3 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                   |                             |
+--                   +-----------------------------+
+select count(*) from hetio45177 hetio45177_0, hetio45159 hetio45159_1, hetio45177 hetio45177_2, hetio45159 hetio45159_3 where hetio45177_0.s = hetio45159_1.s and hetio45177_0.d = hetio45177_2.s and hetio45159_1.d = hetio45159_3.d and hetio45177_2.d = hetio45159_3.s;
+\set queryname hetio_cyclic_q3_22
+-- Result size: 23072568
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45160_0 [label="hetio45160_0|<s> s|<d> d"]; hetio45160_1 [label="hetio45160_1|<s> s|<d> d"]; hetio45160_2 [label="hetio45160_2|<s> s|<d> d"]; hetio45160_3 [label="hetio45160_3|<s> s|<d> d"]; hetio45160_0:s -> hetio45160_1:s;hetio45160_0:d -> hetio45160_2:s;hetio45160_1:d -> hetio45160_3:d;hetio45160_2:d -> hetio45160_3:s;}
+-- +--------------+----+----+--------------+----+----+
+-- | hetio45160_0 |  s |  d | hetio45160_2 |  s |  d |
+-- +--------------+----+----+--------------+----+----+
+--                   |    |                   |    |
+--                   |    +-------------------+    |
+--                   |                             |
+-- +--------------+----+----+                      |
+-- | hetio45160_1 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                        |                        |
+--                        |                        |
+--                        |                        |
+-- +--------------+----+----+                      |
+-- | hetio45160_3 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                   |                             |
+--                   +-----------------------------+
+select count(*) from hetio45160 hetio45160_0, hetio45160 hetio45160_1, hetio45160 hetio45160_2, hetio45160 hetio45160_3 where hetio45160_0.s = hetio45160_1.s and hetio45160_0.d = hetio45160_2.s and hetio45160_1.d = hetio45160_3.d and hetio45160_2.d = hetio45160_3.s;
+\set queryname hetio_cyclic_q3_23
+-- Result size: 517530
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45159_1 [label="hetio45159_1|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45159_3 [label="hetio45159_3|<s> s|<d> d"]; hetio45173:s -> hetio45159_1:s;hetio45173:d -> hetio45160:s;hetio45159_1:d -> hetio45159_3:d;hetio45160:d -> hetio45159_3:s;}
+--               +--------------+----+----+
+--               |  hetio45173  |  s |  d |
+--               +--------------+----+----+
+--                                 |    |
+--                                 |    +----+
+--                                 |         |
+--               +--------------+----+----+  |
+--               | hetio45159_1 |  s |  d |  |
+--               +--------------+----+----+  |
+--                                      |    |
+--                                      |    |
+--                                      |    |
+--               +--------------+----+----+  |
+--               | hetio45159_3 |  s |  d |  |
+--               +--------------+----+----+  |
+--                                 |         |
+--                                 |         |
+--                                 |         |
+-- +------------+---------------+----+       |
+-- | hetio45160 |       s       |  d |       |
+-- +------------+---------------+----+       |
+--                 |                         |
+--                 +-------------------------+
+select count(*) from hetio45173, hetio45159 hetio45159_1, hetio45160, hetio45159 hetio45159_3 where hetio45173.s = hetio45159_1.s and hetio45173.d = hetio45160.s and hetio45159_1.d = hetio45159_3.d and hetio45160.d = hetio45159_3.s;
+\set queryname hetio_cyclic_q3_24
+-- Result size: 15535617
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45159_1 [label="hetio45159_1|<s> s|<d> d"]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45159_3 [label="hetio45159_3|<s> s|<d> d"]; hetio45160:s -> hetio45159_1:s;hetio45160:d -> hetio45177:s;hetio45159_1:d -> hetio45159_3:d;hetio45177:d -> hetio45159_3:s;}
+-- +--------------+----+----+------------+----+----+
+-- |  hetio45160  |  s |  d | hetio45177 |  s |  d |
+-- +--------------+----+----+------------+----+----+
+--                   |    |                 |    |
+--                   |    +-----------------+    |
+--                   |                           |
+-- +--------------+----+----+                    |
+-- | hetio45159_1 |  s |  d |                    |
+-- +--------------+----+----+                    |
+--                        |                      |
+--                        |                      |
+--                        |                      |
+-- +--------------+----+----+                    |
+-- | hetio45159_3 |  s |  d |                    |
+-- +--------------+----+----+                    |
+--                   |                           |
+--                   +---------------------------+
+select count(*) from hetio45160, hetio45159 hetio45159_1, hetio45177, hetio45159 hetio45159_3 where hetio45160.s = hetio45159_1.s and hetio45160.d = hetio45177.s and hetio45159_1.d = hetio45159_3.d and hetio45177.d = hetio45159_3.s;
+\set queryname hetio_cyclic_q3_25
+-- Result size: 5425626
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45160_0 [label="hetio45160_0|<s> s|<d> d"]; hetio45176_1 [label="hetio45176_1|<s> s|<d> d"]; hetio45160_2 [label="hetio45160_2|<s> s|<d> d"]; hetio45176_3 [label="hetio45176_3|<s> s|<d> d"]; hetio45160_0:s -> hetio45176_1:s;hetio45160_0:d -> hetio45160_2:s;hetio45176_1:d -> hetio45176_3:d;hetio45160_2:d -> hetio45176_3:s;}
+-- +--------------+----+----+--------------+----+----+--------------+----+----+
+-- | hetio45160_0 |  s |  d | hetio45160_2 |  s |  d | hetio45176_3 |  s |  d |
+-- +--------------+----+----+--------------+----+----+--------------+----+----+
+--                   |    |                   |    |                   |    |
+--                   |    +-------------------+    +-------------------+    |
+--                   |                                                      |
+-- +--------------+----+----+                                               |
+-- | hetio45176_1 |  s |  d | ----------------------------------------------+
+-- +--------------+----+----+
+select count(*) from hetio45160 hetio45160_0, hetio45176 hetio45176_1, hetio45160 hetio45160_2, hetio45176 hetio45176_3 where hetio45160_0.s = hetio45176_1.s and hetio45160_0.d = hetio45160_2.s and hetio45176_1.d = hetio45176_3.d and hetio45160_2.d = hetio45176_3.s;
+\set queryname hetio_cyclic_q3_26
+-- Result size: 742398
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45173_0 [label="hetio45173_0|<s> s|<d> d"]; hetio45159_1 [label="hetio45159_1|<s> s|<d> d"]; hetio45173_2 [label="hetio45173_2|<s> s|<d> d"]; hetio45159_3 [label="hetio45159_3|<s> s|<d> d"]; hetio45173_0:s -> hetio45159_1:s;hetio45173_0:d -> hetio45173_2:s;hetio45159_1:d -> hetio45159_3:d;hetio45173_2:d -> hetio45159_3:s;}
+-- +--------------+----+----+--------------+----+----+
+-- | hetio45173_0 |  s |  d | hetio45173_2 |  s |  d |
+-- +--------------+----+----+--------------+----+----+
+--                   |    |                   |    |
+--                   |    +-------------------+    |
+--                   |                             |
+-- +--------------+----+----+                      |
+-- | hetio45159_1 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                        |                        |
+--                        |                        |
+--                        |                        |
+-- +--------------+----+----+                      |
+-- | hetio45159_3 |  s |  d |                      |
+-- +--------------+----+----+                      |
+--                   |                             |
+--                   +-----------------------------+
+select count(*) from hetio45173 hetio45173_0, hetio45159 hetio45159_1, hetio45173 hetio45173_2, hetio45159 hetio45159_3 where hetio45173_0.s = hetio45159_1.s and hetio45173_0.d = hetio45173_2.s and hetio45159_1.d = hetio45159_3.d and hetio45173_2.d = hetio45159_3.s;
+\set queryname hetio_cyclic_q3_27
+-- Result size: 806599
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45159_1 [label="hetio45159_1|<s> s|<d> d"]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45159_3 [label="hetio45159_3|<s> s|<d> d"]; hetio45177:s -> hetio45159_1:s;hetio45177:d -> hetio45173:s;hetio45159_1:d -> hetio45159_3:d;hetio45173:d -> hetio45159_3:s;}
+--               +--------------+----+----+
+--               |  hetio45177  |  s |  d |
+--               +--------------+----+----+
+--                                 |    |
+--                                 |    +----+
+--                                 |         |
+--               +--------------+----+----+  |
+--               | hetio45159_1 |  s |  d |  |
+--               +--------------+----+----+  |
+--                                      |    |
+--                                      |    |
+--                                      |    |
+--               +--------------+----+----+  |
+--               | hetio45159_3 |  s |  d |  |
+--               +--------------+----+----+  |
+--                                 |         |
+--                                 |         |
+--                                 |         |
+-- +------------+---------------+----+       |
+-- | hetio45173 |       s       |  d |       |
+-- +------------+---------------+----+       |
+--                 |                         |
+--                 +-------------------------+
+select count(*) from hetio45177, hetio45159 hetio45159_1, hetio45173, hetio45159 hetio45159_3 where hetio45177.s = hetio45159_1.s and hetio45177.d = hetio45173.s and hetio45159_1.d = hetio45159_3.d and hetio45173.d = hetio45159_3.s;

@@ -1,0 +1,886 @@
+\set queryname watdiv_acyclic_206_00
+-- Result size: 11733
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052648 [label="watdiv1052648|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052642 [label="watdiv1052642|<s> s|<d> d"]; watdiv1052648:s -> watdiv1052649:s;watdiv1052649:s -> watdiv1052646:s;watdiv1052646:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052645:s;watdiv1052645:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052642:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052642 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052629 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052648 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052649 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052646 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052643 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052645 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052642_s1_ce81806641de1b as (select watdiv1052642.s as v0 from watdiv1052642), watdiv1052649_s1_ce81806641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052648_s1_ce81806641de1b as (select watdiv1052648.s as v0 from watdiv1052648), watdiv1052646_s1_ce81806641de1b as (select watdiv1052646.s as v0 from watdiv1052646), watdiv1052645_s1_ce81806641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052643_s1_ce81806641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052629_s1_ce81806641de1b as (select watdiv1052629.s as v0 from watdiv1052629) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7CCA7BE63E3B2CA0 as  (select * from umbra.identity(table(watdiv1052642_s1_ce81806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052629_s1_ce81806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_ce81806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052645_s1_ce81806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052646_s1_ce81806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052648_s1_ce81806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_ce81806641de1b)))select count(*) from umbra.identity(table(s4_group_7CCA7BE63E3B2CA0));
+\set queryname watdiv_acyclic_206_01
+-- Result size: 6368785
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052654 [label="watdiv1052654|<s> s|<d> d"]; watdiv1052648 [label="watdiv1052648|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052645:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052651:s;watdiv1052651:s -> watdiv1052654:s;watdiv1052654:s -> watdiv1052648:s;watdiv1052648:s -> watdiv1052644:s;}
+-- +---------------+----+---+
+-- | watdiv1052644 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052648 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052654 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052651 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052650 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052643 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052645 |  s | d |
+-- +---------------+----+---+
+with dummy as (select) /* stage1 */, watdiv1052644_s1_255e5006641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052654_s1_255e5006641de1b as (select watdiv1052654.s as v0 from watdiv1052654), watdiv1052651_s1_255e5006641de1b as (select watdiv1052651.s as v0 from watdiv1052651), watdiv1052650_s1_255e5006641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052648_s1_255e5006641de1b as (select watdiv1052648.s as v0 from watdiv1052648), watdiv1052645_s1_255e5006641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052643_s1_255e5006641de1b as (select watdiv1052643.s as v0 from watdiv1052643) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_3155A5C62AE4D048 as  (select * from umbra.identity(table(watdiv1052644_s1_255e5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_255e5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052645_s1_255e5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052648_s1_255e5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_255e5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052651_s1_255e5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052654_s1_255e5006641de1b)))select count(*) from umbra.identity(table(s4_group_3155A5C62AE4D048));
+\set queryname watdiv_acyclic_206_02
+-- Result size: 1255751
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052642 [label="watdiv1052642|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052642:s -> watdiv1052644:s;watdiv1052644:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052649:s;watdiv1052649:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052646:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052646 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052650 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052629 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052642 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052644 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052643 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052649 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052642_s1_267c1006641de1b as (select watdiv1052642.s as v0 from watdiv1052642), watdiv1052650_s1_267c1006641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052649_s1_267c1006641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052646_s1_267c1006641de1b as (select watdiv1052646.s as v0 from watdiv1052646), watdiv1052644_s1_267c1006641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052643_s1_267c1006641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052629_s1_267c1006641de1b as (select watdiv1052629.s as v0 from watdiv1052629) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6FA2C0CC8B164970 as  (select * from umbra.identity(table(watdiv1052642_s1_267c1006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052629_s1_267c1006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_267c1006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052644_s1_267c1006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052646_s1_267c1006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_267c1006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_267c1006641de1b)))select count(*) from umbra.identity(table(s4_group_6FA2C0CC8B164970));
+\set queryname watdiv_acyclic_206_03
+-- Result size: 151
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052631 [label="watdiv1052631|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052654 [label="watdiv1052654|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052645:s -> watdiv1052646:s;watdiv1052646:s -> watdiv1052649:s;watdiv1052649:s -> watdiv1052631:s;watdiv1052631:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052654:s;watdiv1052654:s -> watdiv1052629:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052629 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052645 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052646 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052649 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052631 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052650 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052654 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052631_s1_30af0006641de1b as (select watdiv1052631.s as v0 from watdiv1052631), watdiv1052654_s1_30af0006641de1b as (select watdiv1052654.s as v0 from watdiv1052654), watdiv1052650_s1_30af0006641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052649_s1_30af0006641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052646_s1_30af0006641de1b as (select watdiv1052646.s as v0 from watdiv1052646), watdiv1052645_s1_30af0006641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052629_s1_30af0006641de1b as (select watdiv1052629.s as v0 from watdiv1052629) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_464041D99092546F as  (select * from umbra.identity(table(watdiv1052631_s1_30af0006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052629_s1_30af0006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052645_s1_30af0006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052646_s1_30af0006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_30af0006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_30af0006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052654_s1_30af0006641de1b)))select count(*) from umbra.identity(table(s4_group_464041D99092546F));
+\set queryname watdiv_acyclic_206_04
+-- Result size: 19486534
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052647 [label="watdiv1052647|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052642 [label="watdiv1052642|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052584:s -> watdiv1052647:s;watdiv1052647:s -> watdiv1052646:s;watdiv1052646:s -> watdiv1052651:s;watdiv1052651:s -> watdiv1052644:s;watdiv1052644:s -> watdiv1052642:s;watdiv1052642:s -> watdiv1052629:s;}
+-- +---------------+----+---+
+-- | watdiv1052584 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052647 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052646 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052651 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052644 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052642 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052629 |  s | d |
+-- +---------------+----+---+
+with dummy as (select) /* stage1 */, watdiv1052629_s1_3f615006641de1b as (select watdiv1052629.s as v0 from watdiv1052629), watdiv1052651_s1_3f615006641de1b as (select watdiv1052651.s as v0 from watdiv1052651), watdiv1052647_s1_3f615006641de1b as (select watdiv1052647.s as v0 from watdiv1052647), watdiv1052646_s1_3f615006641de1b as (select watdiv1052646.s as v0 from watdiv1052646), watdiv1052644_s1_3f615006641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052642_s1_3f615006641de1b as (select watdiv1052642.s as v0 from watdiv1052642), watdiv1052584_s1_3f615006641de1b as (select watdiv1052584.s as v0 from watdiv1052584) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6FC4D1D4268147C1 as  (select * from umbra.identity(table(watdiv1052629_s1_3f615006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052584_s1_3f615006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052642_s1_3f615006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052644_s1_3f615006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052646_s1_3f615006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052647_s1_3f615006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052651_s1_3f615006641de1b)))select count(*) from umbra.identity(table(s4_group_6FC4D1D4268147C1));
+\set queryname watdiv_acyclic_206_05
+-- Result size: 9378
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052648 [label="watdiv1052648|<s> s|<d> d"]; watdiv1052647 [label="watdiv1052647|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052642 [label="watdiv1052642|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052648:s -> watdiv1052647:s;watdiv1052647:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052642:s;watdiv1052642:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052649:s;watdiv1052649:s -> watdiv1052643:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052643 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052649 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052629 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052648 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052647 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052650 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052642 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052642_s1_4a6ed006641de1b as (select watdiv1052642.s as v0 from watdiv1052642), watdiv1052650_s1_4a6ed006641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052649_s1_4a6ed006641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052648_s1_4a6ed006641de1b as (select watdiv1052648.s as v0 from watdiv1052648), watdiv1052647_s1_4a6ed006641de1b as (select watdiv1052647.s as v0 from watdiv1052647), watdiv1052643_s1_4a6ed006641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052629_s1_4a6ed006641de1b as (select watdiv1052629.s as v0 from watdiv1052629) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_630D790086AED16C as  (select * from umbra.identity(table(watdiv1052642_s1_4a6ed006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052629_s1_4a6ed006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_4a6ed006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052647_s1_4a6ed006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052648_s1_4a6ed006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_4a6ed006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_4a6ed006641de1b)))select count(*) from umbra.identity(table(s4_group_630D790086AED16C));
+\set queryname watdiv_acyclic_206_06
+-- Result size: 1374890
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052649:s -> watdiv1052584:s;watdiv1052584:s -> watdiv1052644:s;watdiv1052644:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052645:s;}
+-- +---------------+----+---+
+-- | watdiv1052645 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052643 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052650 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052629 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052644 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052584 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052649 |  s | d |
+-- +---------------+----+---+
+with dummy as (select) /* stage1 */, watdiv1052629_s1_3b609806641de1b as (select watdiv1052629.s as v0 from watdiv1052629), watdiv1052650_s1_3b609806641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052649_s1_3b609806641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052645_s1_3b609806641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052644_s1_3b609806641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052643_s1_3b609806641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052584_s1_3b609806641de1b as (select watdiv1052584.s as v0 from watdiv1052584) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_14B008A3CF32A72B as  (select * from umbra.identity(table(watdiv1052629_s1_3b609806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052584_s1_3b609806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_3b609806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052644_s1_3b609806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052645_s1_3b609806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_3b609806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_3b609806641de1b)))select count(*) from umbra.identity(table(s4_group_14B008A3CF32A72B));
+\set queryname watdiv_acyclic_206_07
+-- Result size: 923338
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052650:s -> watdiv1052584:s;watdiv1052584:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052646:s;watdiv1052646:s -> watdiv1052649:s;watdiv1052649:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052644:s;}
+-- +---------------+----+---+
+-- | watdiv1052644 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052629 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052649 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052646 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052643 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052584 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052650 |  s | d |
+-- +---------------+----+---+
+with dummy as (select) /* stage1 */, watdiv1052629_s1_8613e806641de1b as (select watdiv1052629.s as v0 from watdiv1052629), watdiv1052650_s1_8613e806641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052649_s1_8613e806641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052646_s1_8613e806641de1b as (select watdiv1052646.s as v0 from watdiv1052646), watdiv1052644_s1_8613e806641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052643_s1_8613e806641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052584_s1_8613e806641de1b as (select watdiv1052584.s as v0 from watdiv1052584) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_16A4C22C74AEC316 as  (select * from umbra.identity(table(watdiv1052629_s1_8613e806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052584_s1_8613e806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_8613e806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052644_s1_8613e806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052646_s1_8613e806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_8613e806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_8613e806641de1b)))select count(*) from umbra.identity(table(s4_group_16A4C22C74AEC316));
+\set queryname watdiv_acyclic_206_08
+-- Result size: 400170
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052655 [label="watdiv1052655|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052647 [label="watdiv1052647|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052643:s -> watdiv1052655:s;watdiv1052655:s -> watdiv1052649:s;watdiv1052649:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052647:s;watdiv1052647:s -> watdiv1052644:s;watdiv1052644:s -> watdiv1052645:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052645 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052644 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052647 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052629 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052643 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052655 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052649 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052643_s1_9603f806641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052655_s1_9603f806641de1b as (select watdiv1052655.s as v0 from watdiv1052655), watdiv1052649_s1_9603f806641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052647_s1_9603f806641de1b as (select watdiv1052647.s as v0 from watdiv1052647), watdiv1052645_s1_9603f806641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052644_s1_9603f806641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052629_s1_9603f806641de1b as (select watdiv1052629.s as v0 from watdiv1052629) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_12F5C5B87984FF54 as  (select * from umbra.identity(table(watdiv1052643_s1_9603f806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052629_s1_9603f806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052644_s1_9603f806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052645_s1_9603f806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052647_s1_9603f806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_9603f806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052655_s1_9603f806641de1b)))select count(*) from umbra.identity(table(s4_group_12F5C5B87984FF54));
+\set queryname watdiv_acyclic_206_09
+-- Result size: 3665166
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052586 [label="watdiv1052586|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052648 [label="watdiv1052648|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052586:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052584:s;watdiv1052584:s -> watdiv1052644:s;watdiv1052644:s -> watdiv1052648:s;watdiv1052648:s -> watdiv1052651:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052651 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052648 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052644 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052584 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052586 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052629 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052643 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052586_s1_a17f3806641de1b as (select watdiv1052586.s as v0 from watdiv1052586), watdiv1052651_s1_a17f3806641de1b as (select watdiv1052651.s as v0 from watdiv1052651), watdiv1052648_s1_a17f3806641de1b as (select watdiv1052648.s as v0 from watdiv1052648), watdiv1052644_s1_a17f3806641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052643_s1_a17f3806641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052629_s1_a17f3806641de1b as (select watdiv1052629.s as v0 from watdiv1052629), watdiv1052584_s1_a17f3806641de1b as (select watdiv1052584.s as v0 from watdiv1052584) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_14894C09B9A586C5 as  (select * from umbra.identity(table(watdiv1052586_s1_a17f3806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052584_s1_a17f3806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052629_s1_a17f3806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_a17f3806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052644_s1_a17f3806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052648_s1_a17f3806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052651_s1_a17f3806641de1b)))select count(*) from umbra.identity(table(s4_group_14894C09B9A586C5));
+\set queryname watdiv_acyclic_206_10
+-- Result size: 18955
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052652 [label="watdiv1052652|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052584:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052646:s;watdiv1052646:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052645:s;watdiv1052645:s -> watdiv1052652:s;watdiv1052652:s -> watdiv1052643:s;}
+-- +---------------+----+---+
+-- | watdiv1052584 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052629 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052646 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052650 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052645 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052652 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052643 |  s | d |
+-- +---------------+----+---+
+with dummy as (select) /* stage1 */, watdiv1052629_s1_afe82806641de1b as (select watdiv1052629.s as v0 from watdiv1052629), watdiv1052652_s1_afe82806641de1b as (select watdiv1052652.s as v0 from watdiv1052652), watdiv1052650_s1_afe82806641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052646_s1_afe82806641de1b as (select watdiv1052646.s as v0 from watdiv1052646), watdiv1052645_s1_afe82806641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052643_s1_afe82806641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052584_s1_afe82806641de1b as (select watdiv1052584.s as v0 from watdiv1052584) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_D37F2E0A5375055 as  (select * from umbra.identity(table(watdiv1052629_s1_afe82806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052584_s1_afe82806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_afe82806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052645_s1_afe82806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052646_s1_afe82806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_afe82806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052652_s1_afe82806641de1b)))select count(*) from umbra.identity(table(s4_group_D37F2E0A5375055));
+\set queryname watdiv_acyclic_206_11
+-- Result size: 457
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052583 [label="watdiv1052583|<s> s|<d> d"]; watdiv1052598 [label="watdiv1052598|<s> s|<d> d"]; watdiv1052582 [label="watdiv1052582|<s> s|<d> d"]; watdiv1052596 [label="watdiv1052596|<s> s|<d> d"]; watdiv1052620 [label="watdiv1052620|<s> s|<d> d"]; watdiv1052602 [label="watdiv1052602|<s> s|<d> d"]; watdiv1052581 [label="watdiv1052581|<s> s|<d> d"]; watdiv1052583:s -> watdiv1052598:s;watdiv1052598:s -> watdiv1052582:s;watdiv1052582:s -> watdiv1052596:s;watdiv1052596:s -> watdiv1052620:s;watdiv1052620:s -> watdiv1052602:s;watdiv1052602:s -> watdiv1052581:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052581 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052583 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052598 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052582 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052596 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052620 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052602 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052582_s1_b74f9006641de1b as (select watdiv1052582.s as v0 from watdiv1052582), watdiv1052620_s1_b74f9006641de1b as (select watdiv1052620.s as v0 from watdiv1052620), watdiv1052602_s1_b74f9006641de1b as (select watdiv1052602.s as v0 from watdiv1052602), watdiv1052598_s1_b74f9006641de1b as (select watdiv1052598.s as v0 from watdiv1052598), watdiv1052596_s1_b74f9006641de1b as (select watdiv1052596.s as v0 from watdiv1052596), watdiv1052583_s1_b74f9006641de1b as (select watdiv1052583.s as v0 from watdiv1052583), watdiv1052581_s1_b74f9006641de1b as (select watdiv1052581.s as v0 from watdiv1052581) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2772559E9CE4E4A8 as  (select * from umbra.identity(table(watdiv1052582_s1_b74f9006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052581_s1_b74f9006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052583_s1_b74f9006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052596_s1_b74f9006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052598_s1_b74f9006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052602_s1_b74f9006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052620_s1_b74f9006641de1b)))select count(*) from umbra.identity(table(s4_group_2772559E9CE4E4A8));
+\set queryname watdiv_acyclic_206_12
+-- Result size: 2575488
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052653 [label="watdiv1052653|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052649:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052653:s;watdiv1052653:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052644:s;watdiv1052644:s -> watdiv1052651:s;watdiv1052651:s -> watdiv1052645:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052645 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052651 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052644 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052629 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052649 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052643 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052653 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052643_s1_b97cb006641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052653_s1_b97cb006641de1b as (select watdiv1052653.s as v0 from watdiv1052653), watdiv1052651_s1_b97cb006641de1b as (select watdiv1052651.s as v0 from watdiv1052651), watdiv1052649_s1_b97cb006641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052645_s1_b97cb006641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052644_s1_b97cb006641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052629_s1_b97cb006641de1b as (select watdiv1052629.s as v0 from watdiv1052629) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_77BE557AA339D5C2 as  (select * from umbra.identity(table(watdiv1052643_s1_b97cb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052629_s1_b97cb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052644_s1_b97cb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052645_s1_b97cb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_b97cb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052651_s1_b97cb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052653_s1_b97cb006641de1b)))select count(*) from umbra.identity(table(s4_group_77BE557AA339D5C2));
+\set queryname watdiv_acyclic_206_13
+-- Result size: 233986
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052654 [label="watdiv1052654|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052648 [label="watdiv1052648|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052654:s -> watdiv1052649:s;watdiv1052649:s -> watdiv1052584:s;watdiv1052584:s -> watdiv1052648:s;watdiv1052648:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052644:s;watdiv1052644:s -> watdiv1052629:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052629 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052644 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052643 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052648 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052584 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052654 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052649 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052629_s1_1160b5006641de1b as (select watdiv1052629.s as v0 from watdiv1052629), watdiv1052654_s1_1160b5006641de1b as (select watdiv1052654.s as v0 from watdiv1052654), watdiv1052649_s1_1160b5006641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052648_s1_1160b5006641de1b as (select watdiv1052648.s as v0 from watdiv1052648), watdiv1052644_s1_1160b5006641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052643_s1_1160b5006641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052584_s1_1160b5006641de1b as (select watdiv1052584.s as v0 from watdiv1052584) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_75F057079B611728 as  (select * from umbra.identity(table(watdiv1052629_s1_1160b5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052584_s1_1160b5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_1160b5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052644_s1_1160b5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052648_s1_1160b5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_1160b5006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052654_s1_1160b5006641de1b)))select count(*) from umbra.identity(table(s4_group_75F057079B611728));
+\set queryname watdiv_acyclic_206_14
+-- Result size: 1892808
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052651:s -> watdiv1052645:s;watdiv1052645:s -> watdiv1052629:s;watdiv1052629:s -> watdiv1052584:s;watdiv1052584:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052649:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052649 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052650 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052643 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052584 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052651 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052645 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052629 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052629_s1_d39c1806641de1b as (select watdiv1052629.s as v0 from watdiv1052629), watdiv1052651_s1_d39c1806641de1b as (select watdiv1052651.s as v0 from watdiv1052651), watdiv1052650_s1_d39c1806641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052649_s1_d39c1806641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052645_s1_d39c1806641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052643_s1_d39c1806641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052584_s1_d39c1806641de1b as (select watdiv1052584.s as v0 from watdiv1052584) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_11B73D44B32A08E4 as  (select * from umbra.identity(table(watdiv1052629_s1_d39c1806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052584_s1_d39c1806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_d39c1806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052645_s1_d39c1806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_d39c1806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_d39c1806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052651_s1_d39c1806641de1b)))select count(*) from umbra.identity(table(s4_group_11B73D44B32A08E4));
+\set queryname watdiv_acyclic_206_15
+-- Result size: 6963
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052648 [label="watdiv1052648|<s> s|<d> d"]; watdiv1052654 [label="watdiv1052654|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052629:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052648:s;watdiv1052648:s -> watdiv1052654:s;watdiv1052654:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052649:s;watdiv1052649:s -> watdiv1052584:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052584 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052629 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052650 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052648 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052654 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052643 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052649 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052629_s1_e2dfb006641de1b as (select watdiv1052629.s as v0 from watdiv1052629), watdiv1052654_s1_e2dfb006641de1b as (select watdiv1052654.s as v0 from watdiv1052654), watdiv1052650_s1_e2dfb006641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052649_s1_e2dfb006641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052648_s1_e2dfb006641de1b as (select watdiv1052648.s as v0 from watdiv1052648), watdiv1052643_s1_e2dfb006641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052584_s1_e2dfb006641de1b as (select watdiv1052584.s as v0 from watdiv1052584) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_79EEA9E648FF642F as  (select * from umbra.identity(table(watdiv1052629_s1_e2dfb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052584_s1_e2dfb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_e2dfb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052648_s1_e2dfb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_e2dfb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_e2dfb006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052654_s1_e2dfb006641de1b)))select count(*) from umbra.identity(table(s4_group_79EEA9E648FF642F));
+\set queryname watdiv_acyclic_206_16
+-- Result size: 39891620
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052642 [label="watdiv1052642|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052651:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052645:s;watdiv1052645:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052644:s;watdiv1052644:s -> watdiv1052642:s;watdiv1052642:s -> watdiv1052646:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052646 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----+----+
+--                  | watdiv1052642 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052651 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052650 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052645 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052643 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052644 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052643_s1_f43a6006641de1b as (select watdiv1052643.s as v0 from watdiv1052643), watdiv1052651_s1_f43a6006641de1b as (select watdiv1052651.s as v0 from watdiv1052651), watdiv1052650_s1_f43a6006641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052646_s1_f43a6006641de1b as (select watdiv1052646.s as v0 from watdiv1052646), watdiv1052645_s1_f43a6006641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052644_s1_f43a6006641de1b as (select watdiv1052644.s as v0 from watdiv1052644), watdiv1052642_s1_f43a6006641de1b as (select watdiv1052642.s as v0 from watdiv1052642) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6C01E8280CDF146E as  (select * from umbra.identity(table(watdiv1052643_s1_f43a6006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052642_s1_f43a6006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052644_s1_f43a6006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052645_s1_f43a6006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052646_s1_f43a6006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_f43a6006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052651_s1_f43a6006641de1b)))select count(*) from umbra.identity(table(s4_group_6C01E8280CDF146E));
+\set queryname watdiv_acyclic_206_17
+-- Result size: 61
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052581 [label="watdiv1052581|<s> s|<d> d"]; watdiv1052611 [label="watdiv1052611|<s> s|<d> d"]; watdiv1052586 [label="watdiv1052586|<s> s|<d> d"]; watdiv1052610 [label="watdiv1052610|<s> s|<d> d"]; watdiv1052589 [label="watdiv1052589|<s> s|<d> d"]; watdiv1052582 [label="watdiv1052582|<s> s|<d> d"]; watdiv1052584:s -> watdiv1052581:s;watdiv1052581:s -> watdiv1052611:s;watdiv1052611:s -> watdiv1052586:s;watdiv1052586:s -> watdiv1052610:s;watdiv1052610:s -> watdiv1052589:s;watdiv1052589:s -> watdiv1052582:s;}
+-- +---------------+----+---+
+-- | watdiv1052582 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052589 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052610 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052586 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052611 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052581 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052584 |  s | d |
+-- +---------------+----+---+
+with dummy as (select) /* stage1 */, watdiv1052582_s1_10803a806641de1b as (select watdiv1052582.s as v0 from watdiv1052582), watdiv1052611_s1_10803a806641de1b as (select watdiv1052611.s as v0 from watdiv1052611), watdiv1052610_s1_10803a806641de1b as (select watdiv1052610.s as v0 from watdiv1052610), watdiv1052589_s1_10803a806641de1b as (select watdiv1052589.s as v0 from watdiv1052589), watdiv1052586_s1_10803a806641de1b as (select watdiv1052586.s as v0 from watdiv1052586), watdiv1052584_s1_10803a806641de1b as (select watdiv1052584.s as v0 from watdiv1052584), watdiv1052581_s1_10803a806641de1b as (select watdiv1052581.s as v0 from watdiv1052581) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_3C2D2FB704037C16 as  (select * from umbra.identity(table(watdiv1052582_s1_10803a806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052581_s1_10803a806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052584_s1_10803a806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052586_s1_10803a806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052589_s1_10803a806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052610_s1_10803a806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052611_s1_10803a806641de1b)))select count(*) from umbra.identity(table(s4_group_3C2D2FB704037C16));
+\set queryname watdiv_acyclic_206_18
+-- Result size: 956
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052590 [label="watdiv1052590|<s> s|<d> d"]; watdiv1052581 [label="watdiv1052581|<s> s|<d> d"]; watdiv1052589 [label="watdiv1052589|<s> s|<d> d"]; watdiv1052615 [label="watdiv1052615|<s> s|<d> d"]; watdiv1052582 [label="watdiv1052582|<s> s|<d> d"]; watdiv1052591 [label="watdiv1052591|<s> s|<d> d"]; watdiv1052595 [label="watdiv1052595|<s> s|<d> d"]; watdiv1052590:s -> watdiv1052581:s;watdiv1052581:s -> watdiv1052589:s;watdiv1052589:s -> watdiv1052615:s;watdiv1052615:s -> watdiv1052582:s;watdiv1052582:s -> watdiv1052591:s;watdiv1052591:s -> watdiv1052595:s;}
+-- +---------------+----+---+
+-- | watdiv1052595 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052591 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052582 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052615 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052589 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052581 |  s | d |
+-- +---------------+----+---+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+---+
+-- | watdiv1052590 |  s | d |
+-- +---------------+----+---+
+with dummy as (select) /* stage1 */, watdiv1052582_s1_136a68806641de1b as (select watdiv1052582.s as v0 from watdiv1052582), watdiv1052615_s1_136a68806641de1b as (select watdiv1052615.s as v0 from watdiv1052615), watdiv1052595_s1_136a68806641de1b as (select watdiv1052595.s as v0 from watdiv1052595), watdiv1052591_s1_136a68806641de1b as (select watdiv1052591.s as v0 from watdiv1052591), watdiv1052590_s1_136a68806641de1b as (select watdiv1052590.s as v0 from watdiv1052590), watdiv1052589_s1_136a68806641de1b as (select watdiv1052589.s as v0 from watdiv1052589), watdiv1052581_s1_136a68806641de1b as (select watdiv1052581.s as v0 from watdiv1052581) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_29CC9BA80690CE21 as  (select * from umbra.identity(table(watdiv1052582_s1_136a68806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052581_s1_136a68806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052589_s1_136a68806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052590_s1_136a68806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052591_s1_136a68806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052595_s1_136a68806641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052615_s1_136a68806641de1b)))select count(*) from umbra.identity(table(s4_group_29CC9BA80690CE21));
+\set queryname watdiv_acyclic_206_19
+-- Result size: 1634
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052647 [label="watdiv1052647|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052648 [label="watdiv1052648|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052647:s -> watdiv1052650:s;watdiv1052650:s -> watdiv1052649:s;watdiv1052649:s -> watdiv1052648:s;watdiv1052648:s -> watdiv1052646:s;watdiv1052646:s -> watdiv1052645:s;watdiv1052645:s -> watdiv1052643:s;}
+--                  +---------------+----+----+
+--                  | watdiv1052643 |  s |  d |
+--                  +---------------+----+----+
+--                                     |
+--                                     +----+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052647 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052650 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052649 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052648 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052646 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052645 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    +---------------------+
+with dummy as (select) /* stage1 */, watdiv1052645_s1_12a561006641de1b as (select watdiv1052645.s as v0 from watdiv1052645), watdiv1052650_s1_12a561006641de1b as (select watdiv1052650.s as v0 from watdiv1052650), watdiv1052649_s1_12a561006641de1b as (select watdiv1052649.s as v0 from watdiv1052649), watdiv1052648_s1_12a561006641de1b as (select watdiv1052648.s as v0 from watdiv1052648), watdiv1052647_s1_12a561006641de1b as (select watdiv1052647.s as v0 from watdiv1052647), watdiv1052646_s1_12a561006641de1b as (select watdiv1052646.s as v0 from watdiv1052646), watdiv1052643_s1_12a561006641de1b as (select watdiv1052643.s as v0 from watdiv1052643) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2E6871524B5DF60F as  (select * from umbra.identity(table(watdiv1052645_s1_12a561006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052643_s1_12a561006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052646_s1_12a561006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052647_s1_12a561006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052648_s1_12a561006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052649_s1_12a561006641de1b)) NATURAL JOIN umbra.identity(table(watdiv1052650_s1_12a561006641de1b)))select count(*) from umbra.identity(table(s4_group_2E6871524B5DF60F));

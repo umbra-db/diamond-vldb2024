@@ -1,0 +1,924 @@
+\set queryname dblp_acyclic_214_00
+-- Result size: 1958328
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp14 [label="dblp14|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp17:s -> dblp7:s;dblp7:s -> dblp21:s;dblp21:s -> dblp20:s;dblp20:s -> dblp6:s;dblp6:s -> dblp2:s;dblp2:d -> dblp14:s;dblp14:d -> dblp5:s;}
+--                +--------+----+----+-------+----+---+
+--                | dblp14 |  s |  d | dblp5 |  s | d |
+--                +--------+----+----+-------+----+---+
+--                            |    |            |
+--   +------------------------+    +------------+
+--   |
+--   |  +--------+---------+----+
+--   |  | dblp17 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp7  |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp21 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp20 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp6  |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp2  |    s    |  d |
+--   |  +--------+---------+----+
+--   |                        |
+--   +------------------------+
+with dummy as (select) /* stage1 */, dblp2_s1_18c4a680661fe561 as (select dblp2.d as v6,dblp2.s as v0 from dblp2), dblp14_s1_18c4a680661fe561 as (select dblp14.s as v6,dblp14.d as v8 from dblp14), dblp5_s2_18c4a680661fe561 as (select dblp5.s as v8 from dblp5), dblp7_s2_18c4a680661fe561 as (select dblp7.s as v0 from dblp7), dblp6_s2_18c4a680661fe561 as (select dblp6.s as v0 from dblp6), dblp21_s2_18c4a680661fe561 as (select dblp21.s as v0 from dblp21), dblp20_s2_18c4a680661fe561 as (select dblp20.s as v0 from dblp20), dblp17_s2_18c4a680661fe561 as (select dblp17.s as v0 from dblp17) /* stage2 */, dblp14_s2_18c4a680661fe561 as (select * from umbra.identity(table(dblp14_s1_18c4a680661fe561)) where exists (select from umbra.identity(table(dblp5_s2_18c4a680661fe561)) where dblp14_s1_18c4a680661fe561.v8 = dblp5_s2_18c4a680661fe561.v8)), dblp2_s2_18c4a680661fe561 as (select * from umbra.identity(table(dblp2_s1_18c4a680661fe561)) where exists (select from umbra.identity(table(dblp17_s2_18c4a680661fe561)) where dblp2_s1_18c4a680661fe561.v0 = dblp17_s2_18c4a680661fe561.v0) AND exists (select from umbra.identity(table(dblp20_s2_18c4a680661fe561)) where dblp2_s1_18c4a680661fe561.v0 = dblp20_s2_18c4a680661fe561.v0) AND exists (select from umbra.identity(table(dblp21_s2_18c4a680661fe561)) where dblp2_s1_18c4a680661fe561.v0 = dblp21_s2_18c4a680661fe561.v0) AND exists (select from umbra.identity(table(dblp6_s2_18c4a680661fe561)) where dblp2_s1_18c4a680661fe561.v0 = dblp6_s2_18c4a680661fe561.v0) AND exists (select from umbra.identity(table(dblp7_s2_18c4a680661fe561)) where dblp2_s1_18c4a680661fe561.v0 = dblp7_s2_18c4a680661fe561.v0) AND exists (select from umbra.identity(table(dblp14_s2_18c4a680661fe561)) where dblp2_s1_18c4a680661fe561.v6 = dblp14_s2_18c4a680661fe561.v6)) /* stage3 */, dblp14_s3_18c4a680661fe561 as (select * from umbra.identity(table(dblp14_s2_18c4a680661fe561)) where exists (select from umbra.identity(table(dblp2_s2_18c4a680661fe561)) where dblp14_s2_18c4a680661fe561.v6 = dblp2_s2_18c4a680661fe561.v6)), dblp5_s3_18c4a680661fe561 as (select * from umbra.identity(table(dblp5_s2_18c4a680661fe561)) where exists (select from umbra.identity(table(dblp14_s2_18c4a680661fe561)) where dblp5_s2_18c4a680661fe561.v8 = dblp14_s2_18c4a680661fe561.v8)), dblp7_s3_18c4a680661fe561 as (select * from umbra.identity(table(dblp7_s2_18c4a680661fe561)) where exists (select from umbra.identity(table(dblp2_s2_18c4a680661fe561)) where dblp7_s2_18c4a680661fe561.v0 = dblp2_s2_18c4a680661fe561.v0)), dblp6_s3_18c4a680661fe561 as (select * from umbra.identity(table(dblp6_s2_18c4a680661fe561)) where exists (select from umbra.identity(table(dblp2_s2_18c4a680661fe561)) where dblp6_s2_18c4a680661fe561.v0 = dblp2_s2_18c4a680661fe561.v0)), dblp21_s3_18c4a680661fe561 as (select * from umbra.identity(table(dblp21_s2_18c4a680661fe561)) where exists (select from umbra.identity(table(dblp2_s2_18c4a680661fe561)) where dblp21_s2_18c4a680661fe561.v0 = dblp2_s2_18c4a680661fe561.v0)), dblp20_s3_18c4a680661fe561 as (select * from umbra.identity(table(dblp20_s2_18c4a680661fe561)) where exists (select from umbra.identity(table(dblp2_s2_18c4a680661fe561)) where dblp20_s2_18c4a680661fe561.v0 = dblp2_s2_18c4a680661fe561.v0)), dblp17_s3_18c4a680661fe561 as (select * from umbra.identity(table(dblp17_s2_18c4a680661fe561)) where exists (select from umbra.identity(table(dblp2_s2_18c4a680661fe561)) where dblp17_s2_18c4a680661fe561.v0 = dblp2_s2_18c4a680661fe561.v0)) /* stage4 */, s4_group_3A7D83B754A4BDFC as  (select * from umbra.identity(table(dblp2_s2_18c4a680661fe561)) NATURAL JOIN umbra.identity(table(dblp17_s3_18c4a680661fe561)) NATURAL JOIN umbra.identity(table(dblp20_s3_18c4a680661fe561)) NATURAL JOIN umbra.identity(table(dblp21_s3_18c4a680661fe561)) NATURAL JOIN umbra.identity(table(dblp6_s3_18c4a680661fe561)) NATURAL JOIN umbra.identity(table(dblp7_s3_18c4a680661fe561)) NATURAL JOIN umbra.identity(table(dblp14_s3_18c4a680661fe561)) NATURAL JOIN umbra.identity(table(dblp5_s3_18c4a680661fe561)))select count(*) from umbra.identity(table(s4_group_3A7D83B754A4BDFC));
+\set queryname dblp_acyclic_214_01
+-- Result size: 1155328
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp10 [label="dblp10|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp23:s -> dblp10:s;dblp10:s -> dblp1:s;dblp1:s -> dblp22:s;dblp22:s -> dblp18:s;dblp18:s -> dblp9:s;dblp9:d -> dblp8:s;dblp8:d -> dblp2:s;}
+--                    +--------+----+----+
+--                    | dblp9  |  s |  d |
+--                    +--------+----+----+
+--                                |    |
+--                                |    +----+
+--                                |         |
+--                    +--------+----+----+  |
+--                    | dblp18 |  s |  d |  |
+--                    +--------+----+----+  |
+--                                |         |
+--                                |         |
+--                                |         |
+--                    +--------+----+----+  |
+--                    | dblp22 |  s |  d |  |
+--                    +--------+----+----+  |
+--                                |         |
+--                                |         |
+--                                |         |
+--                    +--------+----+----+  |
+--                    | dblp1  |  s |  d |  |
+--                    +--------+----+----+  |
+--                                |         |
+--                                +----+    |
+--                                     |    |
+--          +--------+---------+----+  |    |
+--          | dblp23 |    s    |  d |  |    |
+--          +--------+---------+----+  |    |
+--                      |              |    |
+--                      |              |    |
+--                      |              |    |
+--          +--------+---------+----+  |    |
+--          | dblp10 |    s    |  d |  |    |
+--          +--------+---------+----+  |    |
+--                      |              |    |
+--                      +--------------+    |
+--                                          |
+--                                          |
+--            +-----------------------------+
+--            |
+-- +-------+---------+---------+
+-- | dblp8 |    s    |    d    |
+-- +-------+---------+---------+
+--                      |
+--                      |
+--                      |
+--          +--------+---------+----+
+--          | dblp2  |    s    |  d |
+--          +--------+---------+----+
+with dummy as (select) /* stage1 */, dblp9_s1_1557400661fe562 as (select dblp9.d as v6,dblp9.s as v0 from dblp9), dblp8_s1_1557400661fe562 as (select dblp8.s as v6,dblp8.d as v8 from dblp8), dblp2_s2_1557400661fe562 as (select dblp2.s as v8 from dblp2), dblp10_s1_1557400661fe562 as (select dblp10.s as v0 from dblp10), dblp23_s2_1557400661fe562 as (select dblp23.s as v0 from dblp23), dblp22_s2_1557400661fe562 as (select dblp22.s as v0 from dblp22), dblp18_s2_1557400661fe562 as (select dblp18.s as v0 from dblp18), dblp1_s2_1557400661fe562 as (select dblp1.s as v0 from dblp1) /* stage2 */, dblp10_s2_1557400661fe562 as (select * from umbra.identity(table(dblp10_s1_1557400661fe562)) where exists (select from umbra.identity(table(dblp1_s2_1557400661fe562)) where dblp10_s1_1557400661fe562.v0 = dblp1_s2_1557400661fe562.v0) AND exists (select from umbra.identity(table(dblp18_s2_1557400661fe562)) where dblp10_s1_1557400661fe562.v0 = dblp18_s2_1557400661fe562.v0) AND exists (select from umbra.identity(table(dblp22_s2_1557400661fe562)) where dblp10_s1_1557400661fe562.v0 = dblp22_s2_1557400661fe562.v0) AND exists (select from umbra.identity(table(dblp23_s2_1557400661fe562)) where dblp10_s1_1557400661fe562.v0 = dblp23_s2_1557400661fe562.v0)), dblp8_s2_1557400661fe562 as (select * from umbra.identity(table(dblp8_s1_1557400661fe562)) where exists (select from umbra.identity(table(dblp2_s2_1557400661fe562)) where dblp8_s1_1557400661fe562.v8 = dblp2_s2_1557400661fe562.v8)), dblp9_s2_1557400661fe562 as (select * from umbra.identity(table(dblp9_s1_1557400661fe562)) where exists (select from umbra.identity(table(dblp10_s2_1557400661fe562)) where dblp9_s1_1557400661fe562.v0 = dblp10_s2_1557400661fe562.v0) AND exists (select from umbra.identity(table(dblp8_s2_1557400661fe562)) where dblp9_s1_1557400661fe562.v6 = dblp8_s2_1557400661fe562.v6)) /* stage3 */, dblp8_s3_1557400661fe562 as (select * from umbra.identity(table(dblp8_s2_1557400661fe562)) where exists (select from umbra.identity(table(dblp9_s2_1557400661fe562)) where dblp8_s2_1557400661fe562.v6 = dblp9_s2_1557400661fe562.v6)), dblp2_s3_1557400661fe562 as (select * from umbra.identity(table(dblp2_s2_1557400661fe562)) where exists (select from umbra.identity(table(dblp8_s2_1557400661fe562)) where dblp2_s2_1557400661fe562.v8 = dblp8_s2_1557400661fe562.v8)), dblp10_s3_1557400661fe562 as (select * from umbra.identity(table(dblp10_s2_1557400661fe562)) where exists (select from umbra.identity(table(dblp9_s2_1557400661fe562)) where dblp10_s2_1557400661fe562.v0 = dblp9_s2_1557400661fe562.v0)), dblp23_s3_1557400661fe562 as (select * from umbra.identity(table(dblp23_s2_1557400661fe562)) where exists (select from umbra.identity(table(dblp10_s2_1557400661fe562)) where dblp23_s2_1557400661fe562.v0 = dblp10_s2_1557400661fe562.v0)), dblp22_s3_1557400661fe562 as (select * from umbra.identity(table(dblp22_s2_1557400661fe562)) where exists (select from umbra.identity(table(dblp10_s2_1557400661fe562)) where dblp22_s2_1557400661fe562.v0 = dblp10_s2_1557400661fe562.v0)), dblp18_s3_1557400661fe562 as (select * from umbra.identity(table(dblp18_s2_1557400661fe562)) where exists (select from umbra.identity(table(dblp10_s2_1557400661fe562)) where dblp18_s2_1557400661fe562.v0 = dblp10_s2_1557400661fe562.v0)), dblp1_s3_1557400661fe562 as (select * from umbra.identity(table(dblp1_s2_1557400661fe562)) where exists (select from umbra.identity(table(dblp10_s2_1557400661fe562)) where dblp1_s2_1557400661fe562.v0 = dblp10_s2_1557400661fe562.v0)) /* stage4 */, s4_group_71D81B55893CF807 as  (select * from umbra.identity(table(dblp9_s2_1557400661fe562)) NATURAL JOIN umbra.identity(table(dblp10_s3_1557400661fe562)) NATURAL JOIN umbra.identity(table(dblp1_s3_1557400661fe562)) NATURAL JOIN umbra.identity(table(dblp18_s3_1557400661fe562)) NATURAL JOIN umbra.identity(table(dblp22_s3_1557400661fe562)) NATURAL JOIN umbra.identity(table(dblp23_s3_1557400661fe562)) NATURAL JOIN umbra.identity(table(dblp8_s3_1557400661fe562)) NATURAL JOIN umbra.identity(table(dblp2_s3_1557400661fe562)))select count(*) from umbra.identity(table(s4_group_71D81B55893CF807));
+\set queryname dblp_acyclic_214_02
+-- Result size: 11879912
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp6:s -> dblp5:s;dblp5:s -> dblp23:s;dblp23:s -> dblp25:s;dblp25:s -> dblp1:s;dblp1:s -> dblp21:s;dblp21:d -> dblp9:s;dblp9:d -> dblp7:s;}
+--           +--------+----+----+-------+----+----+-------+----+---+
+--           | dblp21 |  s |  d | dblp9 |  s |  d | dblp7 |  s | d |
+--           +--------+----+----+-------+----+----+-------+----+---+
+--                       |    |            |    |            |
+--                       |    +------------+    +------------+
+--                       |
+--           +--------+----+----+
+--           | dblp1  |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       +----+
+--                            |
+-- +--------+---------+----+  |
+-- | dblp6  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp5  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp23 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp25 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             +--------------+
+with dummy as (select) /* stage1 */, dblp9_s1_9d8d680661fe562 as (select dblp9.s as v6,dblp9.d as v8 from dblp9), dblp21_s1_9d8d680661fe562 as (select dblp21.d as v6,dblp21.s as v0 from dblp21), dblp6_s2_9d8d680661fe562 as (select dblp6.s as v0 from dblp6), dblp5_s2_9d8d680661fe562 as (select dblp5.s as v0 from dblp5), dblp25_s2_9d8d680661fe562 as (select dblp25.s as v0 from dblp25), dblp23_s2_9d8d680661fe562 as (select dblp23.s as v0 from dblp23), dblp1_s2_9d8d680661fe562 as (select dblp1.s as v0 from dblp1), dblp7_s2_9d8d680661fe562 as (select dblp7.s as v8 from dblp7) /* stage2 */, dblp21_s2_9d8d680661fe562 as (select * from umbra.identity(table(dblp21_s1_9d8d680661fe562)) where exists (select from umbra.identity(table(dblp1_s2_9d8d680661fe562)) where dblp21_s1_9d8d680661fe562.v0 = dblp1_s2_9d8d680661fe562.v0) AND exists (select from umbra.identity(table(dblp23_s2_9d8d680661fe562)) where dblp21_s1_9d8d680661fe562.v0 = dblp23_s2_9d8d680661fe562.v0) AND exists (select from umbra.identity(table(dblp25_s2_9d8d680661fe562)) where dblp21_s1_9d8d680661fe562.v0 = dblp25_s2_9d8d680661fe562.v0) AND exists (select from umbra.identity(table(dblp5_s2_9d8d680661fe562)) where dblp21_s1_9d8d680661fe562.v0 = dblp5_s2_9d8d680661fe562.v0) AND exists (select from umbra.identity(table(dblp6_s2_9d8d680661fe562)) where dblp21_s1_9d8d680661fe562.v0 = dblp6_s2_9d8d680661fe562.v0)), dblp9_s2_9d8d680661fe562 as (select * from umbra.identity(table(dblp9_s1_9d8d680661fe562)) where exists (select from umbra.identity(table(dblp7_s2_9d8d680661fe562)) where dblp9_s1_9d8d680661fe562.v8 = dblp7_s2_9d8d680661fe562.v8) AND exists (select from umbra.identity(table(dblp21_s2_9d8d680661fe562)) where dblp9_s1_9d8d680661fe562.v6 = dblp21_s2_9d8d680661fe562.v6)) /* stage3 */, dblp21_s3_9d8d680661fe562 as (select * from umbra.identity(table(dblp21_s2_9d8d680661fe562)) where exists (select from umbra.identity(table(dblp9_s2_9d8d680661fe562)) where dblp21_s2_9d8d680661fe562.v6 = dblp9_s2_9d8d680661fe562.v6)), dblp6_s3_9d8d680661fe562 as (select * from umbra.identity(table(dblp6_s2_9d8d680661fe562)) where exists (select from umbra.identity(table(dblp21_s2_9d8d680661fe562)) where dblp6_s2_9d8d680661fe562.v0 = dblp21_s2_9d8d680661fe562.v0)), dblp5_s3_9d8d680661fe562 as (select * from umbra.identity(table(dblp5_s2_9d8d680661fe562)) where exists (select from umbra.identity(table(dblp21_s2_9d8d680661fe562)) where dblp5_s2_9d8d680661fe562.v0 = dblp21_s2_9d8d680661fe562.v0)), dblp25_s3_9d8d680661fe562 as (select * from umbra.identity(table(dblp25_s2_9d8d680661fe562)) where exists (select from umbra.identity(table(dblp21_s2_9d8d680661fe562)) where dblp25_s2_9d8d680661fe562.v0 = dblp21_s2_9d8d680661fe562.v0)), dblp23_s3_9d8d680661fe562 as (select * from umbra.identity(table(dblp23_s2_9d8d680661fe562)) where exists (select from umbra.identity(table(dblp21_s2_9d8d680661fe562)) where dblp23_s2_9d8d680661fe562.v0 = dblp21_s2_9d8d680661fe562.v0)), dblp1_s3_9d8d680661fe562 as (select * from umbra.identity(table(dblp1_s2_9d8d680661fe562)) where exists (select from umbra.identity(table(dblp21_s2_9d8d680661fe562)) where dblp1_s2_9d8d680661fe562.v0 = dblp21_s2_9d8d680661fe562.v0)), dblp7_s3_9d8d680661fe562 as (select * from umbra.identity(table(dblp7_s2_9d8d680661fe562)) where exists (select from umbra.identity(table(dblp9_s2_9d8d680661fe562)) where dblp7_s2_9d8d680661fe562.v8 = dblp9_s2_9d8d680661fe562.v8)) /* stage4 */, s4_group_51A374E629473640 as  (select * from umbra.identity(table(dblp9_s2_9d8d680661fe562)) NATURAL JOIN umbra.identity(table(dblp7_s3_9d8d680661fe562)) NATURAL JOIN umbra.identity(table(dblp21_s3_9d8d680661fe562)) NATURAL JOIN umbra.identity(table(dblp1_s3_9d8d680661fe562)) NATURAL JOIN umbra.identity(table(dblp23_s3_9d8d680661fe562)) NATURAL JOIN umbra.identity(table(dblp25_s3_9d8d680661fe562)) NATURAL JOIN umbra.identity(table(dblp5_s3_9d8d680661fe562)) NATURAL JOIN umbra.identity(table(dblp6_s3_9d8d680661fe562)))select count(*) from umbra.identity(table(s4_group_51A374E629473640));
+\set queryname dblp_acyclic_214_03
+-- Result size: 19770560
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp12 [label="dblp12|<s> s|<d> d"]; dblp20:s -> dblp18:s;dblp18:s -> dblp21:s;dblp21:s -> dblp25:s;dblp25:s -> dblp17:s;dblp17:s -> dblp8:s;dblp8:d -> dblp9:s;dblp9:d -> dblp12:s;}
+--           +--------+----+----+
+--           | dblp12 |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       +----+
+--                            |
+-- +--------+---------+----+  |
+-- | dblp20 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp18 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp21 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp25 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp17 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp8  |    s    |  d |  |
+-- +--------+---------+----+  |
+--                       |    |
+--                       |    |
+--                       |    |
+--           +--------+----+----+
+--           | dblp9  |  s |  d |
+--           +--------+----+----+
+with dummy as (select) /* stage1 */, dblp9_s1_129ccf00661fe562 as (select dblp9.s as v6,dblp9.d as v8 from dblp9), dblp8_s1_129ccf00661fe562 as (select dblp8.s as v0,dblp8.d as v6 from dblp8), dblp18_s1_129ccf00661fe562 as (select dblp18.s as v0 from dblp18), dblp25_s2_129ccf00661fe562 as (select dblp25.s as v0 from dblp25), dblp21_s2_129ccf00661fe562 as (select dblp21.s as v0 from dblp21), dblp20_s2_129ccf00661fe562 as (select dblp20.s as v0 from dblp20), dblp17_s2_129ccf00661fe562 as (select dblp17.s as v0 from dblp17), dblp12_s2_129ccf00661fe562 as (select dblp12.s as v8 from dblp12) /* stage2 */, dblp18_s2_129ccf00661fe562 as (select * from umbra.identity(table(dblp18_s1_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp17_s2_129ccf00661fe562)) where dblp18_s1_129ccf00661fe562.v0 = dblp17_s2_129ccf00661fe562.v0) AND exists (select from umbra.identity(table(dblp20_s2_129ccf00661fe562)) where dblp18_s1_129ccf00661fe562.v0 = dblp20_s2_129ccf00661fe562.v0) AND exists (select from umbra.identity(table(dblp21_s2_129ccf00661fe562)) where dblp18_s1_129ccf00661fe562.v0 = dblp21_s2_129ccf00661fe562.v0) AND exists (select from umbra.identity(table(dblp25_s2_129ccf00661fe562)) where dblp18_s1_129ccf00661fe562.v0 = dblp25_s2_129ccf00661fe562.v0)), dblp8_s2_129ccf00661fe562 as (select * from umbra.identity(table(dblp8_s1_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp18_s2_129ccf00661fe562)) where dblp8_s1_129ccf00661fe562.v0 = dblp18_s2_129ccf00661fe562.v0)), dblp9_s2_129ccf00661fe562 as (select * from umbra.identity(table(dblp9_s1_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp12_s2_129ccf00661fe562)) where dblp9_s1_129ccf00661fe562.v8 = dblp12_s2_129ccf00661fe562.v8) AND exists (select from umbra.identity(table(dblp8_s2_129ccf00661fe562)) where dblp9_s1_129ccf00661fe562.v6 = dblp8_s2_129ccf00661fe562.v6)) /* stage3 */, dblp8_s3_129ccf00661fe562 as (select * from umbra.identity(table(dblp8_s2_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp9_s2_129ccf00661fe562)) where dblp8_s2_129ccf00661fe562.v6 = dblp9_s2_129ccf00661fe562.v6)), dblp18_s3_129ccf00661fe562 as (select * from umbra.identity(table(dblp18_s2_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp8_s2_129ccf00661fe562)) where dblp18_s2_129ccf00661fe562.v0 = dblp8_s2_129ccf00661fe562.v0)), dblp25_s3_129ccf00661fe562 as (select * from umbra.identity(table(dblp25_s2_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp18_s2_129ccf00661fe562)) where dblp25_s2_129ccf00661fe562.v0 = dblp18_s2_129ccf00661fe562.v0)), dblp21_s3_129ccf00661fe562 as (select * from umbra.identity(table(dblp21_s2_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp18_s2_129ccf00661fe562)) where dblp21_s2_129ccf00661fe562.v0 = dblp18_s2_129ccf00661fe562.v0)), dblp20_s3_129ccf00661fe562 as (select * from umbra.identity(table(dblp20_s2_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp18_s2_129ccf00661fe562)) where dblp20_s2_129ccf00661fe562.v0 = dblp18_s2_129ccf00661fe562.v0)), dblp17_s3_129ccf00661fe562 as (select * from umbra.identity(table(dblp17_s2_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp18_s2_129ccf00661fe562)) where dblp17_s2_129ccf00661fe562.v0 = dblp18_s2_129ccf00661fe562.v0)), dblp12_s3_129ccf00661fe562 as (select * from umbra.identity(table(dblp12_s2_129ccf00661fe562)) where exists (select from umbra.identity(table(dblp9_s2_129ccf00661fe562)) where dblp12_s2_129ccf00661fe562.v8 = dblp9_s2_129ccf00661fe562.v8)) /* stage4 */, s4_group_427F4894DED3D1E4 as  (select * from umbra.identity(table(dblp9_s2_129ccf00661fe562)) NATURAL JOIN umbra.identity(table(dblp12_s3_129ccf00661fe562)) NATURAL JOIN umbra.identity(table(dblp8_s3_129ccf00661fe562)) NATURAL JOIN umbra.identity(table(dblp18_s3_129ccf00661fe562)) NATURAL JOIN umbra.identity(table(dblp17_s3_129ccf00661fe562)) NATURAL JOIN umbra.identity(table(dblp20_s3_129ccf00661fe562)) NATURAL JOIN umbra.identity(table(dblp21_s3_129ccf00661fe562)) NATURAL JOIN umbra.identity(table(dblp25_s3_129ccf00661fe562)))select count(*) from umbra.identity(table(s4_group_427F4894DED3D1E4));
+\set queryname dblp_acyclic_214_04
+-- Result size: 634053
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp16:s -> dblp7:s;dblp7:s -> dblp8:s;dblp8:s -> dblp2:s;dblp2:s -> dblp17:s;dblp17:s -> dblp1:s;dblp1:d -> dblp26:s;dblp26:d -> dblp21:s;}
+--                           +-------------+
+--                           |             |
+--           +-------+----+----+--------+---------+----+
+--           | dblp1 |  s |  d | dblp26 |    s    |  d |
+--           +-------+----+----+--------+---------+----+
+--                      |                            |
+--                      +----+                       |
+--                           |                       |
+-- +--------+--------+----+  |           +--------+----+---+
+-- | dblp16 |    s   |  d |  |           | dblp21 |  s | d |
+-- +--------+--------+----+  |           +--------+----+---+
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp7  |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp8  |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp2  |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp17 |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             +-------------+
+with dummy as (select) /* stage1 */, dblp26_s1_1ba41480661fe562 as (select dblp26.d as v8,dblp26.s as v6 from dblp26), dblp1_s1_1ba41480661fe562 as (select dblp1.s as v0,dblp1.d as v6 from dblp1), dblp8_s2_1ba41480661fe562 as (select dblp8.s as v0 from dblp8), dblp7_s2_1ba41480661fe562 as (select dblp7.s as v0 from dblp7), dblp2_s2_1ba41480661fe562 as (select dblp2.s as v0 from dblp2), dblp17_s2_1ba41480661fe562 as (select dblp17.s as v0 from dblp17), dblp16_s2_1ba41480661fe562 as (select dblp16.s as v0 from dblp16), dblp21_s2_1ba41480661fe562 as (select dblp21.s as v8 from dblp21) /* stage2 */, dblp1_s2_1ba41480661fe562 as (select * from umbra.identity(table(dblp1_s1_1ba41480661fe562)) where exists (select from umbra.identity(table(dblp16_s2_1ba41480661fe562)) where dblp1_s1_1ba41480661fe562.v0 = dblp16_s2_1ba41480661fe562.v0) AND exists (select from umbra.identity(table(dblp17_s2_1ba41480661fe562)) where dblp1_s1_1ba41480661fe562.v0 = dblp17_s2_1ba41480661fe562.v0) AND exists (select from umbra.identity(table(dblp2_s2_1ba41480661fe562)) where dblp1_s1_1ba41480661fe562.v0 = dblp2_s2_1ba41480661fe562.v0) AND exists (select from umbra.identity(table(dblp7_s2_1ba41480661fe562)) where dblp1_s1_1ba41480661fe562.v0 = dblp7_s2_1ba41480661fe562.v0) AND exists (select from umbra.identity(table(dblp8_s2_1ba41480661fe562)) where dblp1_s1_1ba41480661fe562.v0 = dblp8_s2_1ba41480661fe562.v0)), dblp26_s2_1ba41480661fe562 as (select * from umbra.identity(table(dblp26_s1_1ba41480661fe562)) where exists (select from umbra.identity(table(dblp21_s2_1ba41480661fe562)) where dblp26_s1_1ba41480661fe562.v8 = dblp21_s2_1ba41480661fe562.v8) AND exists (select from umbra.identity(table(dblp1_s2_1ba41480661fe562)) where dblp26_s1_1ba41480661fe562.v6 = dblp1_s2_1ba41480661fe562.v6)) /* stage3 */, dblp1_s3_1ba41480661fe562 as (select * from umbra.identity(table(dblp1_s2_1ba41480661fe562)) where exists (select from umbra.identity(table(dblp26_s2_1ba41480661fe562)) where dblp1_s2_1ba41480661fe562.v6 = dblp26_s2_1ba41480661fe562.v6)), dblp8_s3_1ba41480661fe562 as (select * from umbra.identity(table(dblp8_s2_1ba41480661fe562)) where exists (select from umbra.identity(table(dblp1_s2_1ba41480661fe562)) where dblp8_s2_1ba41480661fe562.v0 = dblp1_s2_1ba41480661fe562.v0)), dblp7_s3_1ba41480661fe562 as (select * from umbra.identity(table(dblp7_s2_1ba41480661fe562)) where exists (select from umbra.identity(table(dblp1_s2_1ba41480661fe562)) where dblp7_s2_1ba41480661fe562.v0 = dblp1_s2_1ba41480661fe562.v0)), dblp2_s3_1ba41480661fe562 as (select * from umbra.identity(table(dblp2_s2_1ba41480661fe562)) where exists (select from umbra.identity(table(dblp1_s2_1ba41480661fe562)) where dblp2_s2_1ba41480661fe562.v0 = dblp1_s2_1ba41480661fe562.v0)), dblp17_s3_1ba41480661fe562 as (select * from umbra.identity(table(dblp17_s2_1ba41480661fe562)) where exists (select from umbra.identity(table(dblp1_s2_1ba41480661fe562)) where dblp17_s2_1ba41480661fe562.v0 = dblp1_s2_1ba41480661fe562.v0)), dblp16_s3_1ba41480661fe562 as (select * from umbra.identity(table(dblp16_s2_1ba41480661fe562)) where exists (select from umbra.identity(table(dblp1_s2_1ba41480661fe562)) where dblp16_s2_1ba41480661fe562.v0 = dblp1_s2_1ba41480661fe562.v0)), dblp21_s3_1ba41480661fe562 as (select * from umbra.identity(table(dblp21_s2_1ba41480661fe562)) where exists (select from umbra.identity(table(dblp26_s2_1ba41480661fe562)) where dblp21_s2_1ba41480661fe562.v8 = dblp26_s2_1ba41480661fe562.v8)) /* stage4 */, s4_group_4DA42472BF3FB365 as  (select * from umbra.identity(table(dblp26_s2_1ba41480661fe562)) NATURAL JOIN umbra.identity(table(dblp21_s3_1ba41480661fe562)) NATURAL JOIN umbra.identity(table(dblp1_s3_1ba41480661fe562)) NATURAL JOIN umbra.identity(table(dblp16_s3_1ba41480661fe562)) NATURAL JOIN umbra.identity(table(dblp17_s3_1ba41480661fe562)) NATURAL JOIN umbra.identity(table(dblp2_s3_1ba41480661fe562)) NATURAL JOIN umbra.identity(table(dblp7_s3_1ba41480661fe562)) NATURAL JOIN umbra.identity(table(dblp8_s3_1ba41480661fe562)))select count(*) from umbra.identity(table(s4_group_4DA42472BF3FB365));
+\set queryname dblp_acyclic_214_05
+-- Result size: 3646673
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp14 [label="dblp14|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp8:s -> dblp14:s;dblp14:s -> dblp21:s;dblp21:s -> dblp2:s;dblp2:s -> dblp16:s;dblp16:s -> dblp19:s;dblp19:d -> dblp17:s;dblp17:d -> dblp1:s;}
+--             +------------------+
+--             |                  |
+-- +--------+--------+----+       |
+-- | dblp17 |    s   |  d |       |
+-- +--------+--------+----+       |
+--                      |         |
+--                      |         |
+--                      |         |
+--           +-------+----+----+  |
+--           | dblp1 |  s |  d |  |
+--           +-------+----+----+  |
+-- +--------+--------+----+       |
+-- | dblp8  |    s   |  d |       |
+-- +--------+--------+----+       |
+--             |                  |
+--             |                  |
+--             |                  |
+-- +--------+--------+----+       |
+-- | dblp14 |    s   |  d |       |
+-- +--------+--------+----+       |
+--             |                  |
+--             |                  |
+--             |                  |
+-- +--------+--------+----+       |
+-- | dblp21 |    s   |  d |       |
+-- +--------+--------+----+       |
+--             |                  |
+--             |                  |
+--             |                  |
+-- +--------+--------+----+       |
+-- | dblp2  |    s   |  d |       |
+-- +--------+--------+----+       |
+--             |                  |
+--             |                  |
+--             |                  |
+-- +--------+--------+----+       |
+-- | dblp16 |    s   |  d |       |
+-- +--------+--------+----+       |
+--             |                  |
+--             |                  |
+--             |                  |
+-- +--------+--------+----+       |
+-- | dblp19 |    s   |  d | ------+
+-- +--------+--------+----+
+with dummy as (select) /* stage1 */, dblp19_s1_429b480661fe563 as (select dblp19.d as v6,dblp19.s as v0 from dblp19), dblp17_s1_429b480661fe563 as (select dblp17.d as v8,dblp17.s as v6 from dblp17), dblp1_s2_429b480661fe563 as (select dblp1.s as v8 from dblp1), dblp16_s1_429b480661fe563 as (select dblp16.s as v0 from dblp16), dblp8_s2_429b480661fe563 as (select dblp8.s as v0 from dblp8), dblp21_s2_429b480661fe563 as (select dblp21.s as v0 from dblp21), dblp2_s2_429b480661fe563 as (select dblp2.s as v0 from dblp2), dblp14_s2_429b480661fe563 as (select dblp14.s as v0 from dblp14) /* stage2 */, dblp16_s2_429b480661fe563 as (select * from umbra.identity(table(dblp16_s1_429b480661fe563)) where exists (select from umbra.identity(table(dblp14_s2_429b480661fe563)) where dblp16_s1_429b480661fe563.v0 = dblp14_s2_429b480661fe563.v0) AND exists (select from umbra.identity(table(dblp2_s2_429b480661fe563)) where dblp16_s1_429b480661fe563.v0 = dblp2_s2_429b480661fe563.v0) AND exists (select from umbra.identity(table(dblp21_s2_429b480661fe563)) where dblp16_s1_429b480661fe563.v0 = dblp21_s2_429b480661fe563.v0) AND exists (select from umbra.identity(table(dblp8_s2_429b480661fe563)) where dblp16_s1_429b480661fe563.v0 = dblp8_s2_429b480661fe563.v0)), dblp17_s2_429b480661fe563 as (select * from umbra.identity(table(dblp17_s1_429b480661fe563)) where exists (select from umbra.identity(table(dblp1_s2_429b480661fe563)) where dblp17_s1_429b480661fe563.v8 = dblp1_s2_429b480661fe563.v8)), dblp19_s2_429b480661fe563 as (select * from umbra.identity(table(dblp19_s1_429b480661fe563)) where exists (select from umbra.identity(table(dblp16_s2_429b480661fe563)) where dblp19_s1_429b480661fe563.v0 = dblp16_s2_429b480661fe563.v0) AND exists (select from umbra.identity(table(dblp17_s2_429b480661fe563)) where dblp19_s1_429b480661fe563.v6 = dblp17_s2_429b480661fe563.v6)) /* stage3 */, dblp17_s3_429b480661fe563 as (select * from umbra.identity(table(dblp17_s2_429b480661fe563)) where exists (select from umbra.identity(table(dblp19_s2_429b480661fe563)) where dblp17_s2_429b480661fe563.v6 = dblp19_s2_429b480661fe563.v6)), dblp1_s3_429b480661fe563 as (select * from umbra.identity(table(dblp1_s2_429b480661fe563)) where exists (select from umbra.identity(table(dblp17_s2_429b480661fe563)) where dblp1_s2_429b480661fe563.v8 = dblp17_s2_429b480661fe563.v8)), dblp16_s3_429b480661fe563 as (select * from umbra.identity(table(dblp16_s2_429b480661fe563)) where exists (select from umbra.identity(table(dblp19_s2_429b480661fe563)) where dblp16_s2_429b480661fe563.v0 = dblp19_s2_429b480661fe563.v0)), dblp8_s3_429b480661fe563 as (select * from umbra.identity(table(dblp8_s2_429b480661fe563)) where exists (select from umbra.identity(table(dblp16_s2_429b480661fe563)) where dblp8_s2_429b480661fe563.v0 = dblp16_s2_429b480661fe563.v0)), dblp21_s3_429b480661fe563 as (select * from umbra.identity(table(dblp21_s2_429b480661fe563)) where exists (select from umbra.identity(table(dblp16_s2_429b480661fe563)) where dblp21_s2_429b480661fe563.v0 = dblp16_s2_429b480661fe563.v0)), dblp2_s3_429b480661fe563 as (select * from umbra.identity(table(dblp2_s2_429b480661fe563)) where exists (select from umbra.identity(table(dblp16_s2_429b480661fe563)) where dblp2_s2_429b480661fe563.v0 = dblp16_s2_429b480661fe563.v0)), dblp14_s3_429b480661fe563 as (select * from umbra.identity(table(dblp14_s2_429b480661fe563)) where exists (select from umbra.identity(table(dblp16_s2_429b480661fe563)) where dblp14_s2_429b480661fe563.v0 = dblp16_s2_429b480661fe563.v0)) /* stage4 */, s4_group_7018A264EFB9DF as  (select * from umbra.identity(table(dblp19_s2_429b480661fe563)) NATURAL JOIN umbra.identity(table(dblp16_s3_429b480661fe563)) NATURAL JOIN umbra.identity(table(dblp14_s3_429b480661fe563)) NATURAL JOIN umbra.identity(table(dblp2_s3_429b480661fe563)) NATURAL JOIN umbra.identity(table(dblp21_s3_429b480661fe563)) NATURAL JOIN umbra.identity(table(dblp8_s3_429b480661fe563)) NATURAL JOIN umbra.identity(table(dblp17_s3_429b480661fe563)) NATURAL JOIN umbra.identity(table(dblp1_s3_429b480661fe563)))select count(*) from umbra.identity(table(s4_group_7018A264EFB9DF));
+\set queryname dblp_acyclic_214_06
+-- Result size: 9707488
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp14 [label="dblp14|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp12 [label="dblp12|<s> s|<d> d"]; dblp14:s -> dblp20:s;dblp20:s -> dblp24:s;dblp24:s -> dblp5:s;dblp5:s -> dblp7:s;dblp7:s -> dblp8:s;dblp8:d -> dblp9:s;dblp9:d -> dblp12:s;}
+--           +--------+----+----+
+--           | dblp12 |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       +----+
+--                            |
+-- +--------+---------+----+  |
+-- | dblp14 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp20 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp24 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp5  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp7  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp8  |    s    |  d |  |
+-- +--------+---------+----+  |
+--                       |    |
+--                       |    |
+--                       |    |
+--           +--------+----+----+
+--           | dblp9  |  s |  d |
+--           +--------+----+----+
+with dummy as (select) /* stage1 */, dblp9_s1_cac4880661fe563 as (select dblp9.d as v8,dblp9.s as v6 from dblp9), dblp8_s1_cac4880661fe563 as (select dblp8.s as v0,dblp8.d as v6 from dblp8), dblp20_s1_cac4880661fe563 as (select dblp20.s as v0 from dblp20), dblp7_s2_cac4880661fe563 as (select dblp7.s as v0 from dblp7), dblp5_s2_cac4880661fe563 as (select dblp5.s as v0 from dblp5), dblp24_s2_cac4880661fe563 as (select dblp24.s as v0 from dblp24), dblp14_s2_cac4880661fe563 as (select dblp14.s as v0 from dblp14), dblp12_s2_cac4880661fe563 as (select dblp12.s as v8 from dblp12) /* stage2 */, dblp20_s2_cac4880661fe563 as (select * from umbra.identity(table(dblp20_s1_cac4880661fe563)) where exists (select from umbra.identity(table(dblp14_s2_cac4880661fe563)) where dblp20_s1_cac4880661fe563.v0 = dblp14_s2_cac4880661fe563.v0) AND exists (select from umbra.identity(table(dblp24_s2_cac4880661fe563)) where dblp20_s1_cac4880661fe563.v0 = dblp24_s2_cac4880661fe563.v0) AND exists (select from umbra.identity(table(dblp5_s2_cac4880661fe563)) where dblp20_s1_cac4880661fe563.v0 = dblp5_s2_cac4880661fe563.v0) AND exists (select from umbra.identity(table(dblp7_s2_cac4880661fe563)) where dblp20_s1_cac4880661fe563.v0 = dblp7_s2_cac4880661fe563.v0)), dblp8_s2_cac4880661fe563 as (select * from umbra.identity(table(dblp8_s1_cac4880661fe563)) where exists (select from umbra.identity(table(dblp20_s2_cac4880661fe563)) where dblp8_s1_cac4880661fe563.v0 = dblp20_s2_cac4880661fe563.v0)), dblp9_s2_cac4880661fe563 as (select * from umbra.identity(table(dblp9_s1_cac4880661fe563)) where exists (select from umbra.identity(table(dblp12_s2_cac4880661fe563)) where dblp9_s1_cac4880661fe563.v8 = dblp12_s2_cac4880661fe563.v8) AND exists (select from umbra.identity(table(dblp8_s2_cac4880661fe563)) where dblp9_s1_cac4880661fe563.v6 = dblp8_s2_cac4880661fe563.v6)) /* stage3 */, dblp8_s3_cac4880661fe563 as (select * from umbra.identity(table(dblp8_s2_cac4880661fe563)) where exists (select from umbra.identity(table(dblp9_s2_cac4880661fe563)) where dblp8_s2_cac4880661fe563.v6 = dblp9_s2_cac4880661fe563.v6)), dblp20_s3_cac4880661fe563 as (select * from umbra.identity(table(dblp20_s2_cac4880661fe563)) where exists (select from umbra.identity(table(dblp8_s2_cac4880661fe563)) where dblp20_s2_cac4880661fe563.v0 = dblp8_s2_cac4880661fe563.v0)), dblp7_s3_cac4880661fe563 as (select * from umbra.identity(table(dblp7_s2_cac4880661fe563)) where exists (select from umbra.identity(table(dblp20_s2_cac4880661fe563)) where dblp7_s2_cac4880661fe563.v0 = dblp20_s2_cac4880661fe563.v0)), dblp5_s3_cac4880661fe563 as (select * from umbra.identity(table(dblp5_s2_cac4880661fe563)) where exists (select from umbra.identity(table(dblp20_s2_cac4880661fe563)) where dblp5_s2_cac4880661fe563.v0 = dblp20_s2_cac4880661fe563.v0)), dblp24_s3_cac4880661fe563 as (select * from umbra.identity(table(dblp24_s2_cac4880661fe563)) where exists (select from umbra.identity(table(dblp20_s2_cac4880661fe563)) where dblp24_s2_cac4880661fe563.v0 = dblp20_s2_cac4880661fe563.v0)), dblp14_s3_cac4880661fe563 as (select * from umbra.identity(table(dblp14_s2_cac4880661fe563)) where exists (select from umbra.identity(table(dblp20_s2_cac4880661fe563)) where dblp14_s2_cac4880661fe563.v0 = dblp20_s2_cac4880661fe563.v0)), dblp12_s3_cac4880661fe563 as (select * from umbra.identity(table(dblp12_s2_cac4880661fe563)) where exists (select from umbra.identity(table(dblp9_s2_cac4880661fe563)) where dblp12_s2_cac4880661fe563.v8 = dblp9_s2_cac4880661fe563.v8)) /* stage4 */, s4_group_163B7974FC1CF1F7 as  (select * from umbra.identity(table(dblp9_s2_cac4880661fe563)) NATURAL JOIN umbra.identity(table(dblp12_s3_cac4880661fe563)) NATURAL JOIN umbra.identity(table(dblp8_s3_cac4880661fe563)) NATURAL JOIN umbra.identity(table(dblp20_s3_cac4880661fe563)) NATURAL JOIN umbra.identity(table(dblp14_s3_cac4880661fe563)) NATURAL JOIN umbra.identity(table(dblp24_s3_cac4880661fe563)) NATURAL JOIN umbra.identity(table(dblp5_s3_cac4880661fe563)) NATURAL JOIN umbra.identity(table(dblp7_s3_cac4880661fe563)))select count(*) from umbra.identity(table(s4_group_163B7974FC1CF1F7));
+\set queryname dblp_acyclic_214_07
+-- Result size: 289746
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp19:s -> dblp25:s;dblp25:s -> dblp16:s;dblp16:s -> dblp6:s;dblp6:s -> dblp17:s;dblp17:s -> dblp21:s;dblp21:d -> dblp5:s;dblp5:d -> dblp24:s;}
+--           +--------+----+----+-------+----+----+--------+----+---+
+--           | dblp21 |  s |  d | dblp5 |  s |  d | dblp24 |  s | d |
+--           +--------+----+----+-------+----+----+--------+----+---+
+--                       |    |            |    |             |
+--                       |    +------------+    +-------------+
+--                       |
+--           +--------+----+----+
+--           | dblp17 |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       |
+--                       |
+--           +--------+----+----+
+--           | dblp6  |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       |
+--                       |
+--           +--------+----+----+
+--           | dblp16 |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       +----+
+--                            |
+-- +--------+---------+----+  |
+-- | dblp19 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp25 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             +--------------+
+with dummy as (select) /* stage1 */, dblp5_s1_1520bd00661fe563 as (select dblp5.s as v6,dblp5.d as v8 from dblp5), dblp21_s1_1520bd00661fe563 as (select dblp21.s as v0,dblp21.d as v6 from dblp21), dblp17_s1_1520bd00661fe563 as (select dblp17.s as v0 from dblp17), dblp6_s2_1520bd00661fe563 as (select dblp6.s as v0 from dblp6), dblp25_s2_1520bd00661fe563 as (select dblp25.s as v0 from dblp25), dblp19_s2_1520bd00661fe563 as (select dblp19.s as v0 from dblp19), dblp16_s2_1520bd00661fe563 as (select dblp16.s as v0 from dblp16), dblp24_s2_1520bd00661fe563 as (select dblp24.s as v8 from dblp24) /* stage2 */, dblp17_s2_1520bd00661fe563 as (select * from umbra.identity(table(dblp17_s1_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp16_s2_1520bd00661fe563)) where dblp17_s1_1520bd00661fe563.v0 = dblp16_s2_1520bd00661fe563.v0) AND exists (select from umbra.identity(table(dblp19_s2_1520bd00661fe563)) where dblp17_s1_1520bd00661fe563.v0 = dblp19_s2_1520bd00661fe563.v0) AND exists (select from umbra.identity(table(dblp25_s2_1520bd00661fe563)) where dblp17_s1_1520bd00661fe563.v0 = dblp25_s2_1520bd00661fe563.v0) AND exists (select from umbra.identity(table(dblp6_s2_1520bd00661fe563)) where dblp17_s1_1520bd00661fe563.v0 = dblp6_s2_1520bd00661fe563.v0)), dblp21_s2_1520bd00661fe563 as (select * from umbra.identity(table(dblp21_s1_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1520bd00661fe563)) where dblp21_s1_1520bd00661fe563.v0 = dblp17_s2_1520bd00661fe563.v0)), dblp5_s2_1520bd00661fe563 as (select * from umbra.identity(table(dblp5_s1_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp24_s2_1520bd00661fe563)) where dblp5_s1_1520bd00661fe563.v8 = dblp24_s2_1520bd00661fe563.v8) AND exists (select from umbra.identity(table(dblp21_s2_1520bd00661fe563)) where dblp5_s1_1520bd00661fe563.v6 = dblp21_s2_1520bd00661fe563.v6)) /* stage3 */, dblp21_s3_1520bd00661fe563 as (select * from umbra.identity(table(dblp21_s2_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp5_s2_1520bd00661fe563)) where dblp21_s2_1520bd00661fe563.v6 = dblp5_s2_1520bd00661fe563.v6)), dblp17_s3_1520bd00661fe563 as (select * from umbra.identity(table(dblp17_s2_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp21_s2_1520bd00661fe563)) where dblp17_s2_1520bd00661fe563.v0 = dblp21_s2_1520bd00661fe563.v0)), dblp6_s3_1520bd00661fe563 as (select * from umbra.identity(table(dblp6_s2_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1520bd00661fe563)) where dblp6_s2_1520bd00661fe563.v0 = dblp17_s2_1520bd00661fe563.v0)), dblp25_s3_1520bd00661fe563 as (select * from umbra.identity(table(dblp25_s2_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1520bd00661fe563)) where dblp25_s2_1520bd00661fe563.v0 = dblp17_s2_1520bd00661fe563.v0)), dblp19_s3_1520bd00661fe563 as (select * from umbra.identity(table(dblp19_s2_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1520bd00661fe563)) where dblp19_s2_1520bd00661fe563.v0 = dblp17_s2_1520bd00661fe563.v0)), dblp16_s3_1520bd00661fe563 as (select * from umbra.identity(table(dblp16_s2_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1520bd00661fe563)) where dblp16_s2_1520bd00661fe563.v0 = dblp17_s2_1520bd00661fe563.v0)), dblp24_s3_1520bd00661fe563 as (select * from umbra.identity(table(dblp24_s2_1520bd00661fe563)) where exists (select from umbra.identity(table(dblp5_s2_1520bd00661fe563)) where dblp24_s2_1520bd00661fe563.v8 = dblp5_s2_1520bd00661fe563.v8)) /* stage4 */, s4_group_44AF880E715315D9 as  (select * from umbra.identity(table(dblp5_s2_1520bd00661fe563)) NATURAL JOIN umbra.identity(table(dblp24_s3_1520bd00661fe563)) NATURAL JOIN umbra.identity(table(dblp21_s3_1520bd00661fe563)) NATURAL JOIN umbra.identity(table(dblp17_s3_1520bd00661fe563)) NATURAL JOIN umbra.identity(table(dblp16_s3_1520bd00661fe563)) NATURAL JOIN umbra.identity(table(dblp19_s3_1520bd00661fe563)) NATURAL JOIN umbra.identity(table(dblp25_s3_1520bd00661fe563)) NATURAL JOIN umbra.identity(table(dblp6_s3_1520bd00661fe563)))select count(*) from umbra.identity(table(s4_group_44AF880E715315D9));
+\set queryname dblp_acyclic_214_08
+-- Result size: 943947
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp1:s -> dblp6:s;dblp6:s -> dblp7:s;dblp7:s -> dblp9:s;dblp9:s -> dblp17:s;dblp17:s -> dblp5:s;dblp5:d -> dblp8:s;dblp8:d -> dblp18:s;}
+-- +--------+--------+---------+
+-- | dblp1  |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp6  |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp7  |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp9  |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp17 |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp5  |    s   |    d    |
+-- +--------+--------+---------+
+--                      |
+--                      |
+--                      |
+--           +-------+---------+----+
+--           | dblp8 |    s    |  d |
+--           +-------+---------+----+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp18 |  s | d |
+--                    +--------+----+---+
+with dummy as (select) /* stage1 */, dblp8_s1_1d796200661fe563 as (select dblp8.d as v8,dblp8.s as v6 from dblp8), dblp5_s1_1d796200661fe563 as (select dblp5.s as v0,dblp5.d as v6 from dblp5), dblp17_s1_1d796200661fe563 as (select dblp17.s as v0 from dblp17), dblp9_s2_1d796200661fe563 as (select dblp9.s as v0 from dblp9), dblp7_s2_1d796200661fe563 as (select dblp7.s as v0 from dblp7), dblp6_s2_1d796200661fe563 as (select dblp6.s as v0 from dblp6), dblp1_s2_1d796200661fe563 as (select dblp1.s as v0 from dblp1), dblp18_s2_1d796200661fe563 as (select dblp18.s as v8 from dblp18) /* stage2 */, dblp17_s2_1d796200661fe563 as (select * from umbra.identity(table(dblp17_s1_1d796200661fe563)) where exists (select from umbra.identity(table(dblp1_s2_1d796200661fe563)) where dblp17_s1_1d796200661fe563.v0 = dblp1_s2_1d796200661fe563.v0) AND exists (select from umbra.identity(table(dblp6_s2_1d796200661fe563)) where dblp17_s1_1d796200661fe563.v0 = dblp6_s2_1d796200661fe563.v0) AND exists (select from umbra.identity(table(dblp7_s2_1d796200661fe563)) where dblp17_s1_1d796200661fe563.v0 = dblp7_s2_1d796200661fe563.v0) AND exists (select from umbra.identity(table(dblp9_s2_1d796200661fe563)) where dblp17_s1_1d796200661fe563.v0 = dblp9_s2_1d796200661fe563.v0)), dblp5_s2_1d796200661fe563 as (select * from umbra.identity(table(dblp5_s1_1d796200661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1d796200661fe563)) where dblp5_s1_1d796200661fe563.v0 = dblp17_s2_1d796200661fe563.v0)), dblp8_s2_1d796200661fe563 as (select * from umbra.identity(table(dblp8_s1_1d796200661fe563)) where exists (select from umbra.identity(table(dblp18_s2_1d796200661fe563)) where dblp8_s1_1d796200661fe563.v8 = dblp18_s2_1d796200661fe563.v8) AND exists (select from umbra.identity(table(dblp5_s2_1d796200661fe563)) where dblp8_s1_1d796200661fe563.v6 = dblp5_s2_1d796200661fe563.v6)) /* stage3 */, dblp5_s3_1d796200661fe563 as (select * from umbra.identity(table(dblp5_s2_1d796200661fe563)) where exists (select from umbra.identity(table(dblp8_s2_1d796200661fe563)) where dblp5_s2_1d796200661fe563.v6 = dblp8_s2_1d796200661fe563.v6)), dblp17_s3_1d796200661fe563 as (select * from umbra.identity(table(dblp17_s2_1d796200661fe563)) where exists (select from umbra.identity(table(dblp5_s2_1d796200661fe563)) where dblp17_s2_1d796200661fe563.v0 = dblp5_s2_1d796200661fe563.v0)), dblp9_s3_1d796200661fe563 as (select * from umbra.identity(table(dblp9_s2_1d796200661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1d796200661fe563)) where dblp9_s2_1d796200661fe563.v0 = dblp17_s2_1d796200661fe563.v0)), dblp7_s3_1d796200661fe563 as (select * from umbra.identity(table(dblp7_s2_1d796200661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1d796200661fe563)) where dblp7_s2_1d796200661fe563.v0 = dblp17_s2_1d796200661fe563.v0)), dblp6_s3_1d796200661fe563 as (select * from umbra.identity(table(dblp6_s2_1d796200661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1d796200661fe563)) where dblp6_s2_1d796200661fe563.v0 = dblp17_s2_1d796200661fe563.v0)), dblp1_s3_1d796200661fe563 as (select * from umbra.identity(table(dblp1_s2_1d796200661fe563)) where exists (select from umbra.identity(table(dblp17_s2_1d796200661fe563)) where dblp1_s2_1d796200661fe563.v0 = dblp17_s2_1d796200661fe563.v0)), dblp18_s3_1d796200661fe563 as (select * from umbra.identity(table(dblp18_s2_1d796200661fe563)) where exists (select from umbra.identity(table(dblp8_s2_1d796200661fe563)) where dblp18_s2_1d796200661fe563.v8 = dblp8_s2_1d796200661fe563.v8)) /* stage4 */, s4_group_4EF7A753E3666E00 as  (select * from umbra.identity(table(dblp8_s2_1d796200661fe563)) NATURAL JOIN umbra.identity(table(dblp18_s3_1d796200661fe563)) NATURAL JOIN umbra.identity(table(dblp5_s3_1d796200661fe563)) NATURAL JOIN umbra.identity(table(dblp17_s3_1d796200661fe563)) NATURAL JOIN umbra.identity(table(dblp1_s3_1d796200661fe563)) NATURAL JOIN umbra.identity(table(dblp6_s3_1d796200661fe563)) NATURAL JOIN umbra.identity(table(dblp7_s3_1d796200661fe563)) NATURAL JOIN umbra.identity(table(dblp9_s3_1d796200661fe563)))select count(*) from umbra.identity(table(s4_group_4EF7A753E3666E00));
+\set queryname dblp_acyclic_214_09
+-- Result size: 14268660
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp6:s -> dblp17:s;dblp17:s -> dblp9:s;dblp9:s -> dblp23:s;dblp23:s -> dblp1:s;dblp1:s -> dblp2:s;dblp2:d -> dblp25:s;dblp25:d -> dblp21:s;}
+--           +-------+----+----+--------+----+----+--------+----+---+
+--           | dblp2 |  s |  d | dblp25 |  s |  d | dblp21 |  s | d |
+--           +-------+----+----+--------+----+----+--------+----+---+
+--                      |    |             |    |             |
+--                      |    +-------------+    +-------------+
+--                      |
+--           +-------+----+----+
+--           | dblp1 |  s |  d |
+--           +-------+----+----+
+--                      |
+--                      +----+
+--                           |
+-- +--------+--------+----+  |
+-- | dblp6  |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp17 |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp9  |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp23 |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             +-------------+
+with dummy as (select) /* stage1 */, dblp25_s1_5d30900661fe564 as (select dblp25.s as v6,dblp25.d as v8 from dblp25), dblp2_s1_5d30900661fe564 as (select dblp2.d as v6,dblp2.s as v0 from dblp2), dblp17_s1_5d30900661fe564 as (select dblp17.s as v0 from dblp17), dblp9_s2_5d30900661fe564 as (select dblp9.s as v0 from dblp9), dblp6_s2_5d30900661fe564 as (select dblp6.s as v0 from dblp6), dblp23_s2_5d30900661fe564 as (select dblp23.s as v0 from dblp23), dblp1_s2_5d30900661fe564 as (select dblp1.s as v0 from dblp1), dblp21_s2_5d30900661fe564 as (select dblp21.s as v8 from dblp21) /* stage2 */, dblp17_s2_5d30900661fe564 as (select * from umbra.identity(table(dblp17_s1_5d30900661fe564)) where exists (select from umbra.identity(table(dblp1_s2_5d30900661fe564)) where dblp17_s1_5d30900661fe564.v0 = dblp1_s2_5d30900661fe564.v0) AND exists (select from umbra.identity(table(dblp23_s2_5d30900661fe564)) where dblp17_s1_5d30900661fe564.v0 = dblp23_s2_5d30900661fe564.v0) AND exists (select from umbra.identity(table(dblp6_s2_5d30900661fe564)) where dblp17_s1_5d30900661fe564.v0 = dblp6_s2_5d30900661fe564.v0) AND exists (select from umbra.identity(table(dblp9_s2_5d30900661fe564)) where dblp17_s1_5d30900661fe564.v0 = dblp9_s2_5d30900661fe564.v0)), dblp2_s2_5d30900661fe564 as (select * from umbra.identity(table(dblp2_s1_5d30900661fe564)) where exists (select from umbra.identity(table(dblp17_s2_5d30900661fe564)) where dblp2_s1_5d30900661fe564.v0 = dblp17_s2_5d30900661fe564.v0)), dblp25_s2_5d30900661fe564 as (select * from umbra.identity(table(dblp25_s1_5d30900661fe564)) where exists (select from umbra.identity(table(dblp21_s2_5d30900661fe564)) where dblp25_s1_5d30900661fe564.v8 = dblp21_s2_5d30900661fe564.v8) AND exists (select from umbra.identity(table(dblp2_s2_5d30900661fe564)) where dblp25_s1_5d30900661fe564.v6 = dblp2_s2_5d30900661fe564.v6)) /* stage3 */, dblp2_s3_5d30900661fe564 as (select * from umbra.identity(table(dblp2_s2_5d30900661fe564)) where exists (select from umbra.identity(table(dblp25_s2_5d30900661fe564)) where dblp2_s2_5d30900661fe564.v6 = dblp25_s2_5d30900661fe564.v6)), dblp17_s3_5d30900661fe564 as (select * from umbra.identity(table(dblp17_s2_5d30900661fe564)) where exists (select from umbra.identity(table(dblp2_s2_5d30900661fe564)) where dblp17_s2_5d30900661fe564.v0 = dblp2_s2_5d30900661fe564.v0)), dblp9_s3_5d30900661fe564 as (select * from umbra.identity(table(dblp9_s2_5d30900661fe564)) where exists (select from umbra.identity(table(dblp17_s2_5d30900661fe564)) where dblp9_s2_5d30900661fe564.v0 = dblp17_s2_5d30900661fe564.v0)), dblp6_s3_5d30900661fe564 as (select * from umbra.identity(table(dblp6_s2_5d30900661fe564)) where exists (select from umbra.identity(table(dblp17_s2_5d30900661fe564)) where dblp6_s2_5d30900661fe564.v0 = dblp17_s2_5d30900661fe564.v0)), dblp23_s3_5d30900661fe564 as (select * from umbra.identity(table(dblp23_s2_5d30900661fe564)) where exists (select from umbra.identity(table(dblp17_s2_5d30900661fe564)) where dblp23_s2_5d30900661fe564.v0 = dblp17_s2_5d30900661fe564.v0)), dblp1_s3_5d30900661fe564 as (select * from umbra.identity(table(dblp1_s2_5d30900661fe564)) where exists (select from umbra.identity(table(dblp17_s2_5d30900661fe564)) where dblp1_s2_5d30900661fe564.v0 = dblp17_s2_5d30900661fe564.v0)), dblp21_s3_5d30900661fe564 as (select * from umbra.identity(table(dblp21_s2_5d30900661fe564)) where exists (select from umbra.identity(table(dblp25_s2_5d30900661fe564)) where dblp21_s2_5d30900661fe564.v8 = dblp25_s2_5d30900661fe564.v8)) /* stage4 */, s4_group_6D100FAFA29636EA as  (select * from umbra.identity(table(dblp25_s2_5d30900661fe564)) NATURAL JOIN umbra.identity(table(dblp21_s3_5d30900661fe564)) NATURAL JOIN umbra.identity(table(dblp2_s3_5d30900661fe564)) NATURAL JOIN umbra.identity(table(dblp17_s3_5d30900661fe564)) NATURAL JOIN umbra.identity(table(dblp1_s3_5d30900661fe564)) NATURAL JOIN umbra.identity(table(dblp23_s3_5d30900661fe564)) NATURAL JOIN umbra.identity(table(dblp6_s3_5d30900661fe564)) NATURAL JOIN umbra.identity(table(dblp9_s3_5d30900661fe564)))select count(*) from umbra.identity(table(s4_group_6D100FAFA29636EA));
+\set queryname dblp_acyclic_214_10
+-- Result size: 1137004
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp4 [label="dblp4|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp18:s -> dblp24:s;dblp24:s -> dblp23:s;dblp23:s -> dblp4:s;dblp4:s -> dblp22:s;dblp22:s -> dblp5:s;dblp5:d -> dblp8:s;dblp8:d -> dblp1:s;}
+--           +-------+----+----+
+--           | dblp1 |  s |  d |
+--           +-------+----+----+
+--                      |
+--                      +----+
+--                           |
+-- +--------+--------+----+  |
+-- | dblp18 |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp24 |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp23 |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp4  |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp22 |    s   |  d |  |
+-- +--------+--------+----+  |
+--             |             |
+--             |             |
+--             |             |
+-- +--------+--------+----+  |
+-- | dblp5  |    s   |  d |  |
+-- +--------+--------+----+  |
+--                      |    |
+--                      |    |
+--                      |    |
+--           +-------+----+----+
+--           | dblp8 |  s |  d |
+--           +-------+----+----+
+with dummy as (select) /* stage1 */, dblp8_s1_e3e1d00661fe564 as (select dblp8.d as v8,dblp8.s as v6 from dblp8), dblp5_s1_e3e1d00661fe564 as (select dblp5.s as v0,dblp5.d as v6 from dblp5), dblp22_s1_e3e1d00661fe564 as (select dblp22.s as v0 from dblp22), dblp4_s2_e3e1d00661fe564 as (select dblp4.s as v0 from dblp4), dblp24_s2_e3e1d00661fe564 as (select dblp24.s as v0 from dblp24), dblp23_s2_e3e1d00661fe564 as (select dblp23.s as v0 from dblp23), dblp18_s2_e3e1d00661fe564 as (select dblp18.s as v0 from dblp18), dblp1_s2_e3e1d00661fe564 as (select dblp1.s as v8 from dblp1) /* stage2 */, dblp22_s2_e3e1d00661fe564 as (select * from umbra.identity(table(dblp22_s1_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp18_s2_e3e1d00661fe564)) where dblp22_s1_e3e1d00661fe564.v0 = dblp18_s2_e3e1d00661fe564.v0) AND exists (select from umbra.identity(table(dblp23_s2_e3e1d00661fe564)) where dblp22_s1_e3e1d00661fe564.v0 = dblp23_s2_e3e1d00661fe564.v0) AND exists (select from umbra.identity(table(dblp24_s2_e3e1d00661fe564)) where dblp22_s1_e3e1d00661fe564.v0 = dblp24_s2_e3e1d00661fe564.v0) AND exists (select from umbra.identity(table(dblp4_s2_e3e1d00661fe564)) where dblp22_s1_e3e1d00661fe564.v0 = dblp4_s2_e3e1d00661fe564.v0)), dblp5_s2_e3e1d00661fe564 as (select * from umbra.identity(table(dblp5_s1_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp22_s2_e3e1d00661fe564)) where dblp5_s1_e3e1d00661fe564.v0 = dblp22_s2_e3e1d00661fe564.v0)), dblp8_s2_e3e1d00661fe564 as (select * from umbra.identity(table(dblp8_s1_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp1_s2_e3e1d00661fe564)) where dblp8_s1_e3e1d00661fe564.v8 = dblp1_s2_e3e1d00661fe564.v8) AND exists (select from umbra.identity(table(dblp5_s2_e3e1d00661fe564)) where dblp8_s1_e3e1d00661fe564.v6 = dblp5_s2_e3e1d00661fe564.v6)) /* stage3 */, dblp5_s3_e3e1d00661fe564 as (select * from umbra.identity(table(dblp5_s2_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp8_s2_e3e1d00661fe564)) where dblp5_s2_e3e1d00661fe564.v6 = dblp8_s2_e3e1d00661fe564.v6)), dblp22_s3_e3e1d00661fe564 as (select * from umbra.identity(table(dblp22_s2_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp5_s2_e3e1d00661fe564)) where dblp22_s2_e3e1d00661fe564.v0 = dblp5_s2_e3e1d00661fe564.v0)), dblp4_s3_e3e1d00661fe564 as (select * from umbra.identity(table(dblp4_s2_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp22_s2_e3e1d00661fe564)) where dblp4_s2_e3e1d00661fe564.v0 = dblp22_s2_e3e1d00661fe564.v0)), dblp24_s3_e3e1d00661fe564 as (select * from umbra.identity(table(dblp24_s2_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp22_s2_e3e1d00661fe564)) where dblp24_s2_e3e1d00661fe564.v0 = dblp22_s2_e3e1d00661fe564.v0)), dblp23_s3_e3e1d00661fe564 as (select * from umbra.identity(table(dblp23_s2_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp22_s2_e3e1d00661fe564)) where dblp23_s2_e3e1d00661fe564.v0 = dblp22_s2_e3e1d00661fe564.v0)), dblp18_s3_e3e1d00661fe564 as (select * from umbra.identity(table(dblp18_s2_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp22_s2_e3e1d00661fe564)) where dblp18_s2_e3e1d00661fe564.v0 = dblp22_s2_e3e1d00661fe564.v0)), dblp1_s3_e3e1d00661fe564 as (select * from umbra.identity(table(dblp1_s2_e3e1d00661fe564)) where exists (select from umbra.identity(table(dblp8_s2_e3e1d00661fe564)) where dblp1_s2_e3e1d00661fe564.v8 = dblp8_s2_e3e1d00661fe564.v8)) /* stage4 */, s4_group_2B82EB5B3A15B710 as  (select * from umbra.identity(table(dblp8_s2_e3e1d00661fe564)) NATURAL JOIN umbra.identity(table(dblp1_s3_e3e1d00661fe564)) NATURAL JOIN umbra.identity(table(dblp5_s3_e3e1d00661fe564)) NATURAL JOIN umbra.identity(table(dblp22_s3_e3e1d00661fe564)) NATURAL JOIN umbra.identity(table(dblp18_s3_e3e1d00661fe564)) NATURAL JOIN umbra.identity(table(dblp23_s3_e3e1d00661fe564)) NATURAL JOIN umbra.identity(table(dblp24_s3_e3e1d00661fe564)) NATURAL JOIN umbra.identity(table(dblp4_s3_e3e1d00661fe564)))select count(*) from umbra.identity(table(s4_group_2B82EB5B3A15B710));
+\set queryname dblp_acyclic_214_11
+-- Result size: 526428
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp22:s -> dblp7:s;dblp7:s -> dblp21:s;dblp21:s -> dblp19:s;dblp19:s -> dblp6:s;dblp6:s -> dblp5:s;dblp5:d -> dblp8:s;dblp8:d -> dblp18:s;}
+--           +--------+----+----+
+--           | dblp18 |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       +----+
+--                            |
+-- +--------+---------+----+  |
+-- | dblp22 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp7  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp21 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp19 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp6  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp5  |    s    |  d |  |
+-- +--------+---------+----+  |
+--                       |    |
+--                       |    |
+--                       |    |
+--           +--------+----+----+
+--           | dblp8  |  s |  d |
+--           +--------+----+----+
+with dummy as (select) /* stage1 */, dblp8_s1_16b58c00661fe564 as (select dblp8.d as v8,dblp8.s as v6 from dblp8), dblp5_s1_16b58c00661fe564 as (select dblp5.s as v0,dblp5.d as v6 from dblp5), dblp21_s1_16b58c00661fe564 as (select dblp21.s as v0 from dblp21), dblp7_s2_16b58c00661fe564 as (select dblp7.s as v0 from dblp7), dblp6_s2_16b58c00661fe564 as (select dblp6.s as v0 from dblp6), dblp22_s2_16b58c00661fe564 as (select dblp22.s as v0 from dblp22), dblp19_s2_16b58c00661fe564 as (select dblp19.s as v0 from dblp19), dblp18_s2_16b58c00661fe564 as (select dblp18.s as v8 from dblp18) /* stage2 */, dblp21_s2_16b58c00661fe564 as (select * from umbra.identity(table(dblp21_s1_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp19_s2_16b58c00661fe564)) where dblp21_s1_16b58c00661fe564.v0 = dblp19_s2_16b58c00661fe564.v0) AND exists (select from umbra.identity(table(dblp22_s2_16b58c00661fe564)) where dblp21_s1_16b58c00661fe564.v0 = dblp22_s2_16b58c00661fe564.v0) AND exists (select from umbra.identity(table(dblp6_s2_16b58c00661fe564)) where dblp21_s1_16b58c00661fe564.v0 = dblp6_s2_16b58c00661fe564.v0) AND exists (select from umbra.identity(table(dblp7_s2_16b58c00661fe564)) where dblp21_s1_16b58c00661fe564.v0 = dblp7_s2_16b58c00661fe564.v0)), dblp5_s2_16b58c00661fe564 as (select * from umbra.identity(table(dblp5_s1_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp21_s2_16b58c00661fe564)) where dblp5_s1_16b58c00661fe564.v0 = dblp21_s2_16b58c00661fe564.v0)), dblp8_s2_16b58c00661fe564 as (select * from umbra.identity(table(dblp8_s1_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp18_s2_16b58c00661fe564)) where dblp8_s1_16b58c00661fe564.v8 = dblp18_s2_16b58c00661fe564.v8) AND exists (select from umbra.identity(table(dblp5_s2_16b58c00661fe564)) where dblp8_s1_16b58c00661fe564.v6 = dblp5_s2_16b58c00661fe564.v6)) /* stage3 */, dblp5_s3_16b58c00661fe564 as (select * from umbra.identity(table(dblp5_s2_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp8_s2_16b58c00661fe564)) where dblp5_s2_16b58c00661fe564.v6 = dblp8_s2_16b58c00661fe564.v6)), dblp21_s3_16b58c00661fe564 as (select * from umbra.identity(table(dblp21_s2_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp5_s2_16b58c00661fe564)) where dblp21_s2_16b58c00661fe564.v0 = dblp5_s2_16b58c00661fe564.v0)), dblp7_s3_16b58c00661fe564 as (select * from umbra.identity(table(dblp7_s2_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp21_s2_16b58c00661fe564)) where dblp7_s2_16b58c00661fe564.v0 = dblp21_s2_16b58c00661fe564.v0)), dblp6_s3_16b58c00661fe564 as (select * from umbra.identity(table(dblp6_s2_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp21_s2_16b58c00661fe564)) where dblp6_s2_16b58c00661fe564.v0 = dblp21_s2_16b58c00661fe564.v0)), dblp22_s3_16b58c00661fe564 as (select * from umbra.identity(table(dblp22_s2_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp21_s2_16b58c00661fe564)) where dblp22_s2_16b58c00661fe564.v0 = dblp21_s2_16b58c00661fe564.v0)), dblp19_s3_16b58c00661fe564 as (select * from umbra.identity(table(dblp19_s2_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp21_s2_16b58c00661fe564)) where dblp19_s2_16b58c00661fe564.v0 = dblp21_s2_16b58c00661fe564.v0)), dblp18_s3_16b58c00661fe564 as (select * from umbra.identity(table(dblp18_s2_16b58c00661fe564)) where exists (select from umbra.identity(table(dblp8_s2_16b58c00661fe564)) where dblp18_s2_16b58c00661fe564.v8 = dblp8_s2_16b58c00661fe564.v8)) /* stage4 */, s4_group_30594B62F3984C91 as  (select * from umbra.identity(table(dblp8_s2_16b58c00661fe564)) NATURAL JOIN umbra.identity(table(dblp18_s3_16b58c00661fe564)) NATURAL JOIN umbra.identity(table(dblp5_s3_16b58c00661fe564)) NATURAL JOIN umbra.identity(table(dblp21_s3_16b58c00661fe564)) NATURAL JOIN umbra.identity(table(dblp19_s3_16b58c00661fe564)) NATURAL JOIN umbra.identity(table(dblp22_s3_16b58c00661fe564)) NATURAL JOIN umbra.identity(table(dblp6_s3_16b58c00661fe564)) NATURAL JOIN umbra.identity(table(dblp7_s3_16b58c00661fe564)))select count(*) from umbra.identity(table(s4_group_30594B62F3984C91));
+\set queryname dblp_acyclic_214_12
+-- Result size: 1959947
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp8:s -> dblp1:s;dblp1:s -> dblp17:s;dblp17:s -> dblp6:s;dblp6:s -> dblp18:s;dblp18:s -> dblp25:s;dblp25:d -> dblp26:s;dblp26:d -> dblp5:s;}
+-- +--------+----+----+--------+----+----+-------+----+---+
+-- | dblp25 |  s |  d | dblp26 |  s |  d | dblp5 |  s | d |
+-- +--------+----+----+--------+----+----+-------+----+---+
+--             |    |             |    |            |
+--             |    +-------------+    +------------+
+--             |
+-- +--------+----+----+
+-- | dblp18 |  s |  d |
+-- +--------+----+----+
+--             |
+--             |
+--             |
+-- +--------+----+----+
+-- | dblp6  |  s |  d |
+-- +--------+----+----+
+--             |
+--             |
+--             |
+-- +--------+----+----+
+-- | dblp17 |  s |  d |
+-- +--------+----+----+
+--             |
+--             |
+--             |
+-- +--------+----+----+
+-- | dblp1  |  s |  d |
+-- +--------+----+----+
+--             |
+--             |
+--             |
+-- +--------+----+----+
+-- | dblp8  |  s |  d |
+-- +--------+----+----+
+with dummy as (select) /* stage1 */, dblp26_s1_1f187c80661fe564 as (select dblp26.d as v8,dblp26.s as v6 from dblp26), dblp25_s1_1f187c80661fe564 as (select dblp25.s as v0,dblp25.d as v6 from dblp25), dblp17_s1_1f187c80661fe564 as (select dblp17.s as v0 from dblp17), dblp8_s2_1f187c80661fe564 as (select dblp8.s as v0 from dblp8), dblp6_s2_1f187c80661fe564 as (select dblp6.s as v0 from dblp6), dblp18_s2_1f187c80661fe564 as (select dblp18.s as v0 from dblp18), dblp1_s2_1f187c80661fe564 as (select dblp1.s as v0 from dblp1), dblp5_s2_1f187c80661fe564 as (select dblp5.s as v8 from dblp5) /* stage2 */, dblp17_s2_1f187c80661fe564 as (select * from umbra.identity(table(dblp17_s1_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp1_s2_1f187c80661fe564)) where dblp17_s1_1f187c80661fe564.v0 = dblp1_s2_1f187c80661fe564.v0) AND exists (select from umbra.identity(table(dblp18_s2_1f187c80661fe564)) where dblp17_s1_1f187c80661fe564.v0 = dblp18_s2_1f187c80661fe564.v0) AND exists (select from umbra.identity(table(dblp6_s2_1f187c80661fe564)) where dblp17_s1_1f187c80661fe564.v0 = dblp6_s2_1f187c80661fe564.v0) AND exists (select from umbra.identity(table(dblp8_s2_1f187c80661fe564)) where dblp17_s1_1f187c80661fe564.v0 = dblp8_s2_1f187c80661fe564.v0)), dblp25_s2_1f187c80661fe564 as (select * from umbra.identity(table(dblp25_s1_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp17_s2_1f187c80661fe564)) where dblp25_s1_1f187c80661fe564.v0 = dblp17_s2_1f187c80661fe564.v0)), dblp26_s2_1f187c80661fe564 as (select * from umbra.identity(table(dblp26_s1_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp5_s2_1f187c80661fe564)) where dblp26_s1_1f187c80661fe564.v8 = dblp5_s2_1f187c80661fe564.v8) AND exists (select from umbra.identity(table(dblp25_s2_1f187c80661fe564)) where dblp26_s1_1f187c80661fe564.v6 = dblp25_s2_1f187c80661fe564.v6)) /* stage3 */, dblp25_s3_1f187c80661fe564 as (select * from umbra.identity(table(dblp25_s2_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp26_s2_1f187c80661fe564)) where dblp25_s2_1f187c80661fe564.v6 = dblp26_s2_1f187c80661fe564.v6)), dblp17_s3_1f187c80661fe564 as (select * from umbra.identity(table(dblp17_s2_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp25_s2_1f187c80661fe564)) where dblp17_s2_1f187c80661fe564.v0 = dblp25_s2_1f187c80661fe564.v0)), dblp8_s3_1f187c80661fe564 as (select * from umbra.identity(table(dblp8_s2_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp17_s2_1f187c80661fe564)) where dblp8_s2_1f187c80661fe564.v0 = dblp17_s2_1f187c80661fe564.v0)), dblp6_s3_1f187c80661fe564 as (select * from umbra.identity(table(dblp6_s2_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp17_s2_1f187c80661fe564)) where dblp6_s2_1f187c80661fe564.v0 = dblp17_s2_1f187c80661fe564.v0)), dblp18_s3_1f187c80661fe564 as (select * from umbra.identity(table(dblp18_s2_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp17_s2_1f187c80661fe564)) where dblp18_s2_1f187c80661fe564.v0 = dblp17_s2_1f187c80661fe564.v0)), dblp1_s3_1f187c80661fe564 as (select * from umbra.identity(table(dblp1_s2_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp17_s2_1f187c80661fe564)) where dblp1_s2_1f187c80661fe564.v0 = dblp17_s2_1f187c80661fe564.v0)), dblp5_s3_1f187c80661fe564 as (select * from umbra.identity(table(dblp5_s2_1f187c80661fe564)) where exists (select from umbra.identity(table(dblp26_s2_1f187c80661fe564)) where dblp5_s2_1f187c80661fe564.v8 = dblp26_s2_1f187c80661fe564.v8)) /* stage4 */, s4_group_4E92F57069AB4B70 as  (select * from umbra.identity(table(dblp26_s2_1f187c80661fe564)) NATURAL JOIN umbra.identity(table(dblp5_s3_1f187c80661fe564)) NATURAL JOIN umbra.identity(table(dblp25_s3_1f187c80661fe564)) NATURAL JOIN umbra.identity(table(dblp17_s3_1f187c80661fe564)) NATURAL JOIN umbra.identity(table(dblp1_s3_1f187c80661fe564)) NATURAL JOIN umbra.identity(table(dblp18_s3_1f187c80661fe564)) NATURAL JOIN umbra.identity(table(dblp6_s3_1f187c80661fe564)) NATURAL JOIN umbra.identity(table(dblp8_s3_1f187c80661fe564)))select count(*) from umbra.identity(table(s4_group_4E92F57069AB4B70));
+\set queryname dblp_acyclic_214_13
+-- Result size: 6744529
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp24:s -> dblp7:s;dblp7:s -> dblp25:s;dblp25:s -> dblp1:s;dblp1:s -> dblp18:s;dblp18:s -> dblp21:s;dblp21:d -> dblp2:s;dblp2:d -> dblp8:s;}
+--                    +--------+----+----+
+--                    | dblp21 |  s |  d |
+--                    +--------+----+----+
+--                                |    |
+--                                |    +----+
+--                                |         |
+--                    +--------+----+----+  |
+--                    | dblp18 |  s |  d |  |
+--                    +--------+----+----+  |
+--                                |         |
+--                                |         |
+--                                |         |
+--                    +--------+----+----+  |
+--                    | dblp1  |  s |  d |  |
+--                    +--------+----+----+  |
+--                                |         |
+--                                +----+    |
+--                                     |    |
+--          +--------+---------+----+  |    |
+--          | dblp24 |    s    |  d |  |    |
+--          +--------+---------+----+  |    |
+--                      |              |    |
+--                      |              |    |
+--                      |              |    |
+--          +--------+---------+----+  |    |
+--          | dblp7  |    s    |  d |  |    |
+--          +--------+---------+----+  |    |
+--                      |              |    |
+--                      |              |    |
+--                      |              |    |
+--          +--------+---------+----+  |    |
+--          | dblp25 |    s    |  d |  |    |
+--          +--------+---------+----+  |    |
+--                      |              |    |
+--                      +--------------+    |
+--                                          |
+--                                          |
+--            +-----------------------------+
+--            |
+-- +-------+---------+---------+
+-- | dblp2 |    s    |    d    |
+-- +-------+---------+---------+
+--                      |
+--                      |
+--                      |
+--          +--------+---------+----+
+--          | dblp8  |    s    |  d |
+--          +--------+---------+----+
+with dummy as (select) /* stage1 */, dblp21_s1_79e2080661fe565 as (select dblp21.d as v6,dblp21.s as v0 from dblp21), dblp2_s1_79e2080661fe565 as (select dblp2.s as v6,dblp2.d as v8 from dblp2), dblp8_s2_79e2080661fe565 as (select dblp8.s as v8 from dblp8), dblp18_s1_79e2080661fe565 as (select dblp18.s as v0 from dblp18), dblp7_s2_79e2080661fe565 as (select dblp7.s as v0 from dblp7), dblp25_s2_79e2080661fe565 as (select dblp25.s as v0 from dblp25), dblp24_s2_79e2080661fe565 as (select dblp24.s as v0 from dblp24), dblp1_s2_79e2080661fe565 as (select dblp1.s as v0 from dblp1) /* stage2 */, dblp18_s2_79e2080661fe565 as (select * from umbra.identity(table(dblp18_s1_79e2080661fe565)) where exists (select from umbra.identity(table(dblp1_s2_79e2080661fe565)) where dblp18_s1_79e2080661fe565.v0 = dblp1_s2_79e2080661fe565.v0) AND exists (select from umbra.identity(table(dblp24_s2_79e2080661fe565)) where dblp18_s1_79e2080661fe565.v0 = dblp24_s2_79e2080661fe565.v0) AND exists (select from umbra.identity(table(dblp25_s2_79e2080661fe565)) where dblp18_s1_79e2080661fe565.v0 = dblp25_s2_79e2080661fe565.v0) AND exists (select from umbra.identity(table(dblp7_s2_79e2080661fe565)) where dblp18_s1_79e2080661fe565.v0 = dblp7_s2_79e2080661fe565.v0)), dblp2_s2_79e2080661fe565 as (select * from umbra.identity(table(dblp2_s1_79e2080661fe565)) where exists (select from umbra.identity(table(dblp8_s2_79e2080661fe565)) where dblp2_s1_79e2080661fe565.v8 = dblp8_s2_79e2080661fe565.v8)), dblp21_s2_79e2080661fe565 as (select * from umbra.identity(table(dblp21_s1_79e2080661fe565)) where exists (select from umbra.identity(table(dblp18_s2_79e2080661fe565)) where dblp21_s1_79e2080661fe565.v0 = dblp18_s2_79e2080661fe565.v0) AND exists (select from umbra.identity(table(dblp2_s2_79e2080661fe565)) where dblp21_s1_79e2080661fe565.v6 = dblp2_s2_79e2080661fe565.v6)) /* stage3 */, dblp2_s3_79e2080661fe565 as (select * from umbra.identity(table(dblp2_s2_79e2080661fe565)) where exists (select from umbra.identity(table(dblp21_s2_79e2080661fe565)) where dblp2_s2_79e2080661fe565.v6 = dblp21_s2_79e2080661fe565.v6)), dblp8_s3_79e2080661fe565 as (select * from umbra.identity(table(dblp8_s2_79e2080661fe565)) where exists (select from umbra.identity(table(dblp2_s2_79e2080661fe565)) where dblp8_s2_79e2080661fe565.v8 = dblp2_s2_79e2080661fe565.v8)), dblp18_s3_79e2080661fe565 as (select * from umbra.identity(table(dblp18_s2_79e2080661fe565)) where exists (select from umbra.identity(table(dblp21_s2_79e2080661fe565)) where dblp18_s2_79e2080661fe565.v0 = dblp21_s2_79e2080661fe565.v0)), dblp7_s3_79e2080661fe565 as (select * from umbra.identity(table(dblp7_s2_79e2080661fe565)) where exists (select from umbra.identity(table(dblp18_s2_79e2080661fe565)) where dblp7_s2_79e2080661fe565.v0 = dblp18_s2_79e2080661fe565.v0)), dblp25_s3_79e2080661fe565 as (select * from umbra.identity(table(dblp25_s2_79e2080661fe565)) where exists (select from umbra.identity(table(dblp18_s2_79e2080661fe565)) where dblp25_s2_79e2080661fe565.v0 = dblp18_s2_79e2080661fe565.v0)), dblp24_s3_79e2080661fe565 as (select * from umbra.identity(table(dblp24_s2_79e2080661fe565)) where exists (select from umbra.identity(table(dblp18_s2_79e2080661fe565)) where dblp24_s2_79e2080661fe565.v0 = dblp18_s2_79e2080661fe565.v0)), dblp1_s3_79e2080661fe565 as (select * from umbra.identity(table(dblp1_s2_79e2080661fe565)) where exists (select from umbra.identity(table(dblp18_s2_79e2080661fe565)) where dblp1_s2_79e2080661fe565.v0 = dblp18_s2_79e2080661fe565.v0)) /* stage4 */, s4_group_1EC2956FDEE58911 as  (select * from umbra.identity(table(dblp21_s2_79e2080661fe565)) NATURAL JOIN umbra.identity(table(dblp18_s3_79e2080661fe565)) NATURAL JOIN umbra.identity(table(dblp1_s3_79e2080661fe565)) NATURAL JOIN umbra.identity(table(dblp24_s3_79e2080661fe565)) NATURAL JOIN umbra.identity(table(dblp25_s3_79e2080661fe565)) NATURAL JOIN umbra.identity(table(dblp7_s3_79e2080661fe565)) NATURAL JOIN umbra.identity(table(dblp2_s3_79e2080661fe565)) NATURAL JOIN umbra.identity(table(dblp8_s3_79e2080661fe565)))select count(*) from umbra.identity(table(s4_group_1EC2956FDEE58911));
+\set queryname dblp_acyclic_214_14
+-- Result size: 3793642
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp7:s -> dblp1:s;dblp1:s -> dblp24:s;dblp24:s -> dblp6:s;dblp6:s -> dblp21:s;dblp21:s -> dblp9:s;dblp9:d -> dblp19:s;dblp19:d -> dblp20:s;}
+--             +------------------------+
+--             |                        |
+--             |       +--------+----+----+
+--             |       | dblp9  |  s |  d |
+--             |       +--------+----+----+
+--             |                   |
+--             |                   |
+--             |                   |
+--             |       +--------+----+----+
+--             |       | dblp21 |  s |  d |
+--             |       +--------+----+----+
+--             |                   |
+--             |                   |
+--             |                   |
+--             |       +--------+----+----+
+--             |       | dblp6  |  s |  d |
+--             |       +--------+----+----+
+--             |                   |
+--             |                   |
+--             |                   |
+--             |       +--------+----+----+
+--             |       | dblp24 |  s |  d |
+--             |       +--------+----+----+
+--             |                   |
+--             |                   |
+--             |                   |
+--             |       +--------+----+----+
+--             |       | dblp1  |  s |  d |
+--             |       +--------+----+----+
+--             |                   |
+--             |                   |
+--             |                   |
+--             |       +--------+----+----+
+--             |       | dblp7  |  s |  d |
+--             |       +--------+----+----+
+--             |
+--             |
+--             |
+-- +--------+---------+---------+
+-- | dblp19 |    s    |    d    |
+-- +--------+---------+---------+
+--                       |
+--                       |
+--                       |
+--           +--------+---------+----+
+--           | dblp20 |    s    |  d |
+--           +--------+---------+----+
+with dummy as (select) /* stage1 */, dblp9_s1_103b2900661fe565 as (select dblp9.s as v0,dblp9.d as v6 from dblp9), dblp19_s1_103b2900661fe565 as (select dblp19.d as v8,dblp19.s as v6 from dblp19), dblp20_s2_103b2900661fe565 as (select dblp20.s as v8 from dblp20), dblp21_s1_103b2900661fe565 as (select dblp21.s as v0 from dblp21), dblp7_s2_103b2900661fe565 as (select dblp7.s as v0 from dblp7), dblp6_s2_103b2900661fe565 as (select dblp6.s as v0 from dblp6), dblp24_s2_103b2900661fe565 as (select dblp24.s as v0 from dblp24), dblp1_s2_103b2900661fe565 as (select dblp1.s as v0 from dblp1) /* stage2 */, dblp21_s2_103b2900661fe565 as (select * from umbra.identity(table(dblp21_s1_103b2900661fe565)) where exists (select from umbra.identity(table(dblp1_s2_103b2900661fe565)) where dblp21_s1_103b2900661fe565.v0 = dblp1_s2_103b2900661fe565.v0) AND exists (select from umbra.identity(table(dblp24_s2_103b2900661fe565)) where dblp21_s1_103b2900661fe565.v0 = dblp24_s2_103b2900661fe565.v0) AND exists (select from umbra.identity(table(dblp6_s2_103b2900661fe565)) where dblp21_s1_103b2900661fe565.v0 = dblp6_s2_103b2900661fe565.v0) AND exists (select from umbra.identity(table(dblp7_s2_103b2900661fe565)) where dblp21_s1_103b2900661fe565.v0 = dblp7_s2_103b2900661fe565.v0)), dblp19_s2_103b2900661fe565 as (select * from umbra.identity(table(dblp19_s1_103b2900661fe565)) where exists (select from umbra.identity(table(dblp20_s2_103b2900661fe565)) where dblp19_s1_103b2900661fe565.v8 = dblp20_s2_103b2900661fe565.v8)), dblp9_s2_103b2900661fe565 as (select * from umbra.identity(table(dblp9_s1_103b2900661fe565)) where exists (select from umbra.identity(table(dblp21_s2_103b2900661fe565)) where dblp9_s1_103b2900661fe565.v0 = dblp21_s2_103b2900661fe565.v0) AND exists (select from umbra.identity(table(dblp19_s2_103b2900661fe565)) where dblp9_s1_103b2900661fe565.v6 = dblp19_s2_103b2900661fe565.v6)) /* stage3 */, dblp19_s3_103b2900661fe565 as (select * from umbra.identity(table(dblp19_s2_103b2900661fe565)) where exists (select from umbra.identity(table(dblp9_s2_103b2900661fe565)) where dblp19_s2_103b2900661fe565.v6 = dblp9_s2_103b2900661fe565.v6)), dblp20_s3_103b2900661fe565 as (select * from umbra.identity(table(dblp20_s2_103b2900661fe565)) where exists (select from umbra.identity(table(dblp19_s2_103b2900661fe565)) where dblp20_s2_103b2900661fe565.v8 = dblp19_s2_103b2900661fe565.v8)), dblp21_s3_103b2900661fe565 as (select * from umbra.identity(table(dblp21_s2_103b2900661fe565)) where exists (select from umbra.identity(table(dblp9_s2_103b2900661fe565)) where dblp21_s2_103b2900661fe565.v0 = dblp9_s2_103b2900661fe565.v0)), dblp7_s3_103b2900661fe565 as (select * from umbra.identity(table(dblp7_s2_103b2900661fe565)) where exists (select from umbra.identity(table(dblp21_s2_103b2900661fe565)) where dblp7_s2_103b2900661fe565.v0 = dblp21_s2_103b2900661fe565.v0)), dblp6_s3_103b2900661fe565 as (select * from umbra.identity(table(dblp6_s2_103b2900661fe565)) where exists (select from umbra.identity(table(dblp21_s2_103b2900661fe565)) where dblp6_s2_103b2900661fe565.v0 = dblp21_s2_103b2900661fe565.v0)), dblp24_s3_103b2900661fe565 as (select * from umbra.identity(table(dblp24_s2_103b2900661fe565)) where exists (select from umbra.identity(table(dblp21_s2_103b2900661fe565)) where dblp24_s2_103b2900661fe565.v0 = dblp21_s2_103b2900661fe565.v0)), dblp1_s3_103b2900661fe565 as (select * from umbra.identity(table(dblp1_s2_103b2900661fe565)) where exists (select from umbra.identity(table(dblp21_s2_103b2900661fe565)) where dblp1_s2_103b2900661fe565.v0 = dblp21_s2_103b2900661fe565.v0)) /* stage4 */, s4_group_4AEE7F76E9641823 as  (select * from umbra.identity(table(dblp9_s2_103b2900661fe565)) NATURAL JOIN umbra.identity(table(dblp21_s3_103b2900661fe565)) NATURAL JOIN umbra.identity(table(dblp1_s3_103b2900661fe565)) NATURAL JOIN umbra.identity(table(dblp24_s3_103b2900661fe565)) NATURAL JOIN umbra.identity(table(dblp6_s3_103b2900661fe565)) NATURAL JOIN umbra.identity(table(dblp7_s3_103b2900661fe565)) NATURAL JOIN umbra.identity(table(dblp19_s3_103b2900661fe565)) NATURAL JOIN umbra.identity(table(dblp20_s3_103b2900661fe565)))select count(*) from umbra.identity(table(s4_group_4AEE7F76E9641823));
+\set queryname dblp_acyclic_214_15
+-- Result size: 5406852
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp8:s -> dblp24:s;dblp24:s -> dblp5:s;dblp5:s -> dblp20:s;dblp20:s -> dblp7:s;dblp7:s -> dblp2:s;dblp2:d -> dblp19:s;dblp19:d -> dblp23:s;}
+--                +--------+----+----+--------+----+---+
+--                | dblp19 |  s |  d | dblp23 |  s | d |
+--                +--------+----+----+--------+----+---+
+--                            |    |             |
+--   +------------------------+    +-------------+
+--   |
+--   |  +--------+---------+----+
+--   |  | dblp8  |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp24 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp5  |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp20 |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp7  |    s    |  d |
+--   |  +--------+---------+----+
+--   |              |
+--   |              |
+--   |              |
+--   |  +--------+---------+----+
+--   |  | dblp2  |    s    |  d |
+--   |  +--------+---------+----+
+--   |                        |
+--   +------------------------+
+with dummy as (select) /* stage1 */, dblp2_s1_19215780661fe565 as (select dblp2.d as v6,dblp2.s as v0 from dblp2), dblp19_s1_19215780661fe565 as (select dblp19.s as v6,dblp19.d as v8 from dblp19), dblp23_s2_19215780661fe565 as (select dblp23.s as v8 from dblp23), dblp8_s2_19215780661fe565 as (select dblp8.s as v0 from dblp8), dblp7_s2_19215780661fe565 as (select dblp7.s as v0 from dblp7), dblp5_s2_19215780661fe565 as (select dblp5.s as v0 from dblp5), dblp24_s2_19215780661fe565 as (select dblp24.s as v0 from dblp24), dblp20_s2_19215780661fe565 as (select dblp20.s as v0 from dblp20) /* stage2 */, dblp19_s2_19215780661fe565 as (select * from umbra.identity(table(dblp19_s1_19215780661fe565)) where exists (select from umbra.identity(table(dblp23_s2_19215780661fe565)) where dblp19_s1_19215780661fe565.v8 = dblp23_s2_19215780661fe565.v8)), dblp2_s2_19215780661fe565 as (select * from umbra.identity(table(dblp2_s1_19215780661fe565)) where exists (select from umbra.identity(table(dblp20_s2_19215780661fe565)) where dblp2_s1_19215780661fe565.v0 = dblp20_s2_19215780661fe565.v0) AND exists (select from umbra.identity(table(dblp24_s2_19215780661fe565)) where dblp2_s1_19215780661fe565.v0 = dblp24_s2_19215780661fe565.v0) AND exists (select from umbra.identity(table(dblp5_s2_19215780661fe565)) where dblp2_s1_19215780661fe565.v0 = dblp5_s2_19215780661fe565.v0) AND exists (select from umbra.identity(table(dblp7_s2_19215780661fe565)) where dblp2_s1_19215780661fe565.v0 = dblp7_s2_19215780661fe565.v0) AND exists (select from umbra.identity(table(dblp8_s2_19215780661fe565)) where dblp2_s1_19215780661fe565.v0 = dblp8_s2_19215780661fe565.v0) AND exists (select from umbra.identity(table(dblp19_s2_19215780661fe565)) where dblp2_s1_19215780661fe565.v6 = dblp19_s2_19215780661fe565.v6)) /* stage3 */, dblp19_s3_19215780661fe565 as (select * from umbra.identity(table(dblp19_s2_19215780661fe565)) where exists (select from umbra.identity(table(dblp2_s2_19215780661fe565)) where dblp19_s2_19215780661fe565.v6 = dblp2_s2_19215780661fe565.v6)), dblp23_s3_19215780661fe565 as (select * from umbra.identity(table(dblp23_s2_19215780661fe565)) where exists (select from umbra.identity(table(dblp19_s2_19215780661fe565)) where dblp23_s2_19215780661fe565.v8 = dblp19_s2_19215780661fe565.v8)), dblp8_s3_19215780661fe565 as (select * from umbra.identity(table(dblp8_s2_19215780661fe565)) where exists (select from umbra.identity(table(dblp2_s2_19215780661fe565)) where dblp8_s2_19215780661fe565.v0 = dblp2_s2_19215780661fe565.v0)), dblp7_s3_19215780661fe565 as (select * from umbra.identity(table(dblp7_s2_19215780661fe565)) where exists (select from umbra.identity(table(dblp2_s2_19215780661fe565)) where dblp7_s2_19215780661fe565.v0 = dblp2_s2_19215780661fe565.v0)), dblp5_s3_19215780661fe565 as (select * from umbra.identity(table(dblp5_s2_19215780661fe565)) where exists (select from umbra.identity(table(dblp2_s2_19215780661fe565)) where dblp5_s2_19215780661fe565.v0 = dblp2_s2_19215780661fe565.v0)), dblp24_s3_19215780661fe565 as (select * from umbra.identity(table(dblp24_s2_19215780661fe565)) where exists (select from umbra.identity(table(dblp2_s2_19215780661fe565)) where dblp24_s2_19215780661fe565.v0 = dblp2_s2_19215780661fe565.v0)), dblp20_s3_19215780661fe565 as (select * from umbra.identity(table(dblp20_s2_19215780661fe565)) where exists (select from umbra.identity(table(dblp2_s2_19215780661fe565)) where dblp20_s2_19215780661fe565.v0 = dblp2_s2_19215780661fe565.v0)) /* stage4 */, s4_group_4295B050C90D879 as  (select * from umbra.identity(table(dblp2_s2_19215780661fe565)) NATURAL JOIN umbra.identity(table(dblp20_s3_19215780661fe565)) NATURAL JOIN umbra.identity(table(dblp24_s3_19215780661fe565)) NATURAL JOIN umbra.identity(table(dblp5_s3_19215780661fe565)) NATURAL JOIN umbra.identity(table(dblp7_s3_19215780661fe565)) NATURAL JOIN umbra.identity(table(dblp8_s3_19215780661fe565)) NATURAL JOIN umbra.identity(table(dblp19_s3_19215780661fe565)) NATURAL JOIN umbra.identity(table(dblp23_s3_19215780661fe565)))select count(*) from umbra.identity(table(s4_group_4295B050C90D879));
+\set queryname dblp_acyclic_214_16
+-- Result size: 21140276
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp20:s -> dblp23:s;dblp23:s -> dblp17:s;dblp17:s -> dblp2:s;dblp2:s -> dblp6:s;dblp6:s -> dblp9:s;dblp9:d -> dblp8:s;dblp8:d -> dblp25:s;}
+--                    +--------+----+----+
+--                    | dblp9  |  s |  d |
+--                    +--------+----+----+
+--                                |    |
+--                                |    +----+
+--                                |         |
+--                    +--------+----+----+  |
+--                    | dblp6  |  s |  d |  |
+--                    +--------+----+----+  |
+--                                |         |
+--                                |         |
+--                                |         |
+--                    +--------+----+----+  |
+--                    | dblp2  |  s |  d |  |
+--                    +--------+----+----+  |
+--                                |         |
+--                                |         |
+--                                |         |
+--                    +--------+----+----+  |
+--                    | dblp17 |  s |  d |  |
+--                    +--------+----+----+  |
+--                                |         |
+--                                +----+    |
+--                                     |    |
+--          +--------+---------+----+  |    |
+--          | dblp20 |    s    |  d |  |    |
+--          +--------+---------+----+  |    |
+--                      |              |    |
+--                      |              |    |
+--                      |              |    |
+--          +--------+---------+----+  |    |
+--          | dblp23 |    s    |  d |  |    |
+--          +--------+---------+----+  |    |
+--                      |              |    |
+--                      +--------------+    |
+--                                          |
+--                                          |
+--            +-----------------------------+
+--            |
+-- +-------+---------+---------+
+-- | dblp8 |    s    |    d    |
+-- +-------+---------+---------+
+--                      |
+--                      |
+--                      |
+--          +--------+---------+----+
+--          | dblp25 |    s    |  d |
+--          +--------+---------+----+
+with dummy as (select) /* stage1 */, dblp9_s1_1c71500661fe566 as (select dblp9.s as v0,dblp9.d as v6 from dblp9), dblp8_s1_1c71500661fe566 as (select dblp8.d as v8,dblp8.s as v6 from dblp8), dblp25_s2_1c71500661fe566 as (select dblp25.s as v8 from dblp25), dblp2_s1_1c71500661fe566 as (select dblp2.s as v0 from dblp2), dblp6_s2_1c71500661fe566 as (select dblp6.s as v0 from dblp6), dblp23_s2_1c71500661fe566 as (select dblp23.s as v0 from dblp23), dblp20_s2_1c71500661fe566 as (select dblp20.s as v0 from dblp20), dblp17_s2_1c71500661fe566 as (select dblp17.s as v0 from dblp17) /* stage2 */, dblp2_s2_1c71500661fe566 as (select * from umbra.identity(table(dblp2_s1_1c71500661fe566)) where exists (select from umbra.identity(table(dblp17_s2_1c71500661fe566)) where dblp2_s1_1c71500661fe566.v0 = dblp17_s2_1c71500661fe566.v0) AND exists (select from umbra.identity(table(dblp20_s2_1c71500661fe566)) where dblp2_s1_1c71500661fe566.v0 = dblp20_s2_1c71500661fe566.v0) AND exists (select from umbra.identity(table(dblp23_s2_1c71500661fe566)) where dblp2_s1_1c71500661fe566.v0 = dblp23_s2_1c71500661fe566.v0) AND exists (select from umbra.identity(table(dblp6_s2_1c71500661fe566)) where dblp2_s1_1c71500661fe566.v0 = dblp6_s2_1c71500661fe566.v0)), dblp8_s2_1c71500661fe566 as (select * from umbra.identity(table(dblp8_s1_1c71500661fe566)) where exists (select from umbra.identity(table(dblp25_s2_1c71500661fe566)) where dblp8_s1_1c71500661fe566.v8 = dblp25_s2_1c71500661fe566.v8)), dblp9_s2_1c71500661fe566 as (select * from umbra.identity(table(dblp9_s1_1c71500661fe566)) where exists (select from umbra.identity(table(dblp2_s2_1c71500661fe566)) where dblp9_s1_1c71500661fe566.v0 = dblp2_s2_1c71500661fe566.v0) AND exists (select from umbra.identity(table(dblp8_s2_1c71500661fe566)) where dblp9_s1_1c71500661fe566.v6 = dblp8_s2_1c71500661fe566.v6)) /* stage3 */, dblp8_s3_1c71500661fe566 as (select * from umbra.identity(table(dblp8_s2_1c71500661fe566)) where exists (select from umbra.identity(table(dblp9_s2_1c71500661fe566)) where dblp8_s2_1c71500661fe566.v6 = dblp9_s2_1c71500661fe566.v6)), dblp25_s3_1c71500661fe566 as (select * from umbra.identity(table(dblp25_s2_1c71500661fe566)) where exists (select from umbra.identity(table(dblp8_s2_1c71500661fe566)) where dblp25_s2_1c71500661fe566.v8 = dblp8_s2_1c71500661fe566.v8)), dblp2_s3_1c71500661fe566 as (select * from umbra.identity(table(dblp2_s2_1c71500661fe566)) where exists (select from umbra.identity(table(dblp9_s2_1c71500661fe566)) where dblp2_s2_1c71500661fe566.v0 = dblp9_s2_1c71500661fe566.v0)), dblp6_s3_1c71500661fe566 as (select * from umbra.identity(table(dblp6_s2_1c71500661fe566)) where exists (select from umbra.identity(table(dblp2_s2_1c71500661fe566)) where dblp6_s2_1c71500661fe566.v0 = dblp2_s2_1c71500661fe566.v0)), dblp23_s3_1c71500661fe566 as (select * from umbra.identity(table(dblp23_s2_1c71500661fe566)) where exists (select from umbra.identity(table(dblp2_s2_1c71500661fe566)) where dblp23_s2_1c71500661fe566.v0 = dblp2_s2_1c71500661fe566.v0)), dblp20_s3_1c71500661fe566 as (select * from umbra.identity(table(dblp20_s2_1c71500661fe566)) where exists (select from umbra.identity(table(dblp2_s2_1c71500661fe566)) where dblp20_s2_1c71500661fe566.v0 = dblp2_s2_1c71500661fe566.v0)), dblp17_s3_1c71500661fe566 as (select * from umbra.identity(table(dblp17_s2_1c71500661fe566)) where exists (select from umbra.identity(table(dblp2_s2_1c71500661fe566)) where dblp17_s2_1c71500661fe566.v0 = dblp2_s2_1c71500661fe566.v0)) /* stage4 */, s4_group_23A3B7F3611E2294 as  (select * from umbra.identity(table(dblp9_s2_1c71500661fe566)) NATURAL JOIN umbra.identity(table(dblp2_s3_1c71500661fe566)) NATURAL JOIN umbra.identity(table(dblp17_s3_1c71500661fe566)) NATURAL JOIN umbra.identity(table(dblp20_s3_1c71500661fe566)) NATURAL JOIN umbra.identity(table(dblp23_s3_1c71500661fe566)) NATURAL JOIN umbra.identity(table(dblp6_s3_1c71500661fe566)) NATURAL JOIN umbra.identity(table(dblp8_s3_1c71500661fe566)) NATURAL JOIN umbra.identity(table(dblp25_s3_1c71500661fe566)))select count(*) from umbra.identity(table(s4_group_23A3B7F3611E2294));
+\set queryname dblp_acyclic_214_17
+-- Result size: 2514587
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp8:s -> dblp7:s;dblp7:s -> dblp24:s;dblp24:s -> dblp17:s;dblp17:s -> dblp9:s;dblp9:s -> dblp18:s;dblp18:d -> dblp5:s;dblp5:d -> dblp22:s;}
+--           +--------+----+----+-------+----+----+--------+----+---+
+--           | dblp18 |  s |  d | dblp5 |  s |  d | dblp22 |  s | d |
+--           +--------+----+----+-------+----+----+--------+----+---+
+--                       |    |            |    |             |
+--                       |    +------------+    +-------------+
+--                       |
+--           +--------+----+----+
+--           | dblp9  |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       |
+--                       |
+--           +--------+----+----+
+--           | dblp17 |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       +----+
+--                            |
+-- +--------+---------+----+  |
+-- | dblp8  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp7  |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             |              |
+--             |              |
+-- +--------+---------+----+  |
+-- | dblp24 |    s    |  d |  |
+-- +--------+---------+----+  |
+--             |              |
+--             +--------------+
+with dummy as (select) /* stage1 */, dblp5_s1_a4d5980661fe566 as (select dblp5.s as v6,dblp5.d as v8 from dblp5), dblp18_s1_a4d5980661fe566 as (select dblp18.d as v6,dblp18.s as v0 from dblp18), dblp9_s2_a4d5980661fe566 as (select dblp9.s as v0 from dblp9), dblp8_s2_a4d5980661fe566 as (select dblp8.s as v0 from dblp8), dblp7_s2_a4d5980661fe566 as (select dblp7.s as v0 from dblp7), dblp24_s2_a4d5980661fe566 as (select dblp24.s as v0 from dblp24), dblp17_s2_a4d5980661fe566 as (select dblp17.s as v0 from dblp17), dblp22_s2_a4d5980661fe566 as (select dblp22.s as v8 from dblp22) /* stage2 */, dblp18_s2_a4d5980661fe566 as (select * from umbra.identity(table(dblp18_s1_a4d5980661fe566)) where exists (select from umbra.identity(table(dblp17_s2_a4d5980661fe566)) where dblp18_s1_a4d5980661fe566.v0 = dblp17_s2_a4d5980661fe566.v0) AND exists (select from umbra.identity(table(dblp24_s2_a4d5980661fe566)) where dblp18_s1_a4d5980661fe566.v0 = dblp24_s2_a4d5980661fe566.v0) AND exists (select from umbra.identity(table(dblp7_s2_a4d5980661fe566)) where dblp18_s1_a4d5980661fe566.v0 = dblp7_s2_a4d5980661fe566.v0) AND exists (select from umbra.identity(table(dblp8_s2_a4d5980661fe566)) where dblp18_s1_a4d5980661fe566.v0 = dblp8_s2_a4d5980661fe566.v0) AND exists (select from umbra.identity(table(dblp9_s2_a4d5980661fe566)) where dblp18_s1_a4d5980661fe566.v0 = dblp9_s2_a4d5980661fe566.v0)), dblp5_s2_a4d5980661fe566 as (select * from umbra.identity(table(dblp5_s1_a4d5980661fe566)) where exists (select from umbra.identity(table(dblp22_s2_a4d5980661fe566)) where dblp5_s1_a4d5980661fe566.v8 = dblp22_s2_a4d5980661fe566.v8) AND exists (select from umbra.identity(table(dblp18_s2_a4d5980661fe566)) where dblp5_s1_a4d5980661fe566.v6 = dblp18_s2_a4d5980661fe566.v6)) /* stage3 */, dblp18_s3_a4d5980661fe566 as (select * from umbra.identity(table(dblp18_s2_a4d5980661fe566)) where exists (select from umbra.identity(table(dblp5_s2_a4d5980661fe566)) where dblp18_s2_a4d5980661fe566.v6 = dblp5_s2_a4d5980661fe566.v6)), dblp9_s3_a4d5980661fe566 as (select * from umbra.identity(table(dblp9_s2_a4d5980661fe566)) where exists (select from umbra.identity(table(dblp18_s2_a4d5980661fe566)) where dblp9_s2_a4d5980661fe566.v0 = dblp18_s2_a4d5980661fe566.v0)), dblp8_s3_a4d5980661fe566 as (select * from umbra.identity(table(dblp8_s2_a4d5980661fe566)) where exists (select from umbra.identity(table(dblp18_s2_a4d5980661fe566)) where dblp8_s2_a4d5980661fe566.v0 = dblp18_s2_a4d5980661fe566.v0)), dblp7_s3_a4d5980661fe566 as (select * from umbra.identity(table(dblp7_s2_a4d5980661fe566)) where exists (select from umbra.identity(table(dblp18_s2_a4d5980661fe566)) where dblp7_s2_a4d5980661fe566.v0 = dblp18_s2_a4d5980661fe566.v0)), dblp24_s3_a4d5980661fe566 as (select * from umbra.identity(table(dblp24_s2_a4d5980661fe566)) where exists (select from umbra.identity(table(dblp18_s2_a4d5980661fe566)) where dblp24_s2_a4d5980661fe566.v0 = dblp18_s2_a4d5980661fe566.v0)), dblp17_s3_a4d5980661fe566 as (select * from umbra.identity(table(dblp17_s2_a4d5980661fe566)) where exists (select from umbra.identity(table(dblp18_s2_a4d5980661fe566)) where dblp17_s2_a4d5980661fe566.v0 = dblp18_s2_a4d5980661fe566.v0)), dblp22_s3_a4d5980661fe566 as (select * from umbra.identity(table(dblp22_s2_a4d5980661fe566)) where exists (select from umbra.identity(table(dblp5_s2_a4d5980661fe566)) where dblp22_s2_a4d5980661fe566.v8 = dblp5_s2_a4d5980661fe566.v8)) /* stage4 */, s4_group_11E7824515BD3AD8 as  (select * from umbra.identity(table(dblp5_s2_a4d5980661fe566)) NATURAL JOIN umbra.identity(table(dblp22_s3_a4d5980661fe566)) NATURAL JOIN umbra.identity(table(dblp18_s3_a4d5980661fe566)) NATURAL JOIN umbra.identity(table(dblp17_s3_a4d5980661fe566)) NATURAL JOIN umbra.identity(table(dblp24_s3_a4d5980661fe566)) NATURAL JOIN umbra.identity(table(dblp7_s3_a4d5980661fe566)) NATURAL JOIN umbra.identity(table(dblp8_s3_a4d5980661fe566)) NATURAL JOIN umbra.identity(table(dblp9_s3_a4d5980661fe566)))select count(*) from umbra.identity(table(s4_group_11E7824515BD3AD8));
+\set queryname dblp_acyclic_214_18
+-- Result size: 1803960
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp14 [label="dblp14|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp14:s -> dblp25:s;dblp25:s -> dblp7:s;dblp7:s -> dblp5:s;dblp5:s -> dblp16:s;dblp16:s -> dblp19:s;dblp19:d -> dblp9:s;dblp9:d -> dblp18:s;}
+-- +--------+--------+---------+
+-- | dblp14 |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp25 |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp7  |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp5  |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp16 |    s   |    d    |
+-- +--------+--------+---------+
+--             |
+--             |
+--             |
+-- +--------+--------+---------+
+-- | dblp19 |    s   |    d    |
+-- +--------+--------+---------+
+--                      |
+--                      |
+--                      |
+--           +-------+---------+----+
+--           | dblp9 |    s    |  d |
+--           +-------+---------+----+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp18 |  s | d |
+--                    +--------+----+---+
+with dummy as (select) /* stage1 */, dblp9_s1_12bac880661fe566 as (select dblp9.d as v8,dblp9.s as v6 from dblp9), dblp19_s1_12bac880661fe566 as (select dblp19.s as v0,dblp19.d as v6 from dblp19), dblp16_s1_12bac880661fe566 as (select dblp16.s as v0 from dblp16), dblp7_s2_12bac880661fe566 as (select dblp7.s as v0 from dblp7), dblp5_s2_12bac880661fe566 as (select dblp5.s as v0 from dblp5), dblp25_s2_12bac880661fe566 as (select dblp25.s as v0 from dblp25), dblp14_s2_12bac880661fe566 as (select dblp14.s as v0 from dblp14), dblp18_s2_12bac880661fe566 as (select dblp18.s as v8 from dblp18) /* stage2 */, dblp16_s2_12bac880661fe566 as (select * from umbra.identity(table(dblp16_s1_12bac880661fe566)) where exists (select from umbra.identity(table(dblp14_s2_12bac880661fe566)) where dblp16_s1_12bac880661fe566.v0 = dblp14_s2_12bac880661fe566.v0) AND exists (select from umbra.identity(table(dblp25_s2_12bac880661fe566)) where dblp16_s1_12bac880661fe566.v0 = dblp25_s2_12bac880661fe566.v0) AND exists (select from umbra.identity(table(dblp5_s2_12bac880661fe566)) where dblp16_s1_12bac880661fe566.v0 = dblp5_s2_12bac880661fe566.v0) AND exists (select from umbra.identity(table(dblp7_s2_12bac880661fe566)) where dblp16_s1_12bac880661fe566.v0 = dblp7_s2_12bac880661fe566.v0)), dblp19_s2_12bac880661fe566 as (select * from umbra.identity(table(dblp19_s1_12bac880661fe566)) where exists (select from umbra.identity(table(dblp16_s2_12bac880661fe566)) where dblp19_s1_12bac880661fe566.v0 = dblp16_s2_12bac880661fe566.v0)), dblp9_s2_12bac880661fe566 as (select * from umbra.identity(table(dblp9_s1_12bac880661fe566)) where exists (select from umbra.identity(table(dblp18_s2_12bac880661fe566)) where dblp9_s1_12bac880661fe566.v8 = dblp18_s2_12bac880661fe566.v8) AND exists (select from umbra.identity(table(dblp19_s2_12bac880661fe566)) where dblp9_s1_12bac880661fe566.v6 = dblp19_s2_12bac880661fe566.v6)) /* stage3 */, dblp19_s3_12bac880661fe566 as (select * from umbra.identity(table(dblp19_s2_12bac880661fe566)) where exists (select from umbra.identity(table(dblp9_s2_12bac880661fe566)) where dblp19_s2_12bac880661fe566.v6 = dblp9_s2_12bac880661fe566.v6)), dblp16_s3_12bac880661fe566 as (select * from umbra.identity(table(dblp16_s2_12bac880661fe566)) where exists (select from umbra.identity(table(dblp19_s2_12bac880661fe566)) where dblp16_s2_12bac880661fe566.v0 = dblp19_s2_12bac880661fe566.v0)), dblp7_s3_12bac880661fe566 as (select * from umbra.identity(table(dblp7_s2_12bac880661fe566)) where exists (select from umbra.identity(table(dblp16_s2_12bac880661fe566)) where dblp7_s2_12bac880661fe566.v0 = dblp16_s2_12bac880661fe566.v0)), dblp5_s3_12bac880661fe566 as (select * from umbra.identity(table(dblp5_s2_12bac880661fe566)) where exists (select from umbra.identity(table(dblp16_s2_12bac880661fe566)) where dblp5_s2_12bac880661fe566.v0 = dblp16_s2_12bac880661fe566.v0)), dblp25_s3_12bac880661fe566 as (select * from umbra.identity(table(dblp25_s2_12bac880661fe566)) where exists (select from umbra.identity(table(dblp16_s2_12bac880661fe566)) where dblp25_s2_12bac880661fe566.v0 = dblp16_s2_12bac880661fe566.v0)), dblp14_s3_12bac880661fe566 as (select * from umbra.identity(table(dblp14_s2_12bac880661fe566)) where exists (select from umbra.identity(table(dblp16_s2_12bac880661fe566)) where dblp14_s2_12bac880661fe566.v0 = dblp16_s2_12bac880661fe566.v0)), dblp18_s3_12bac880661fe566 as (select * from umbra.identity(table(dblp18_s2_12bac880661fe566)) where exists (select from umbra.identity(table(dblp9_s2_12bac880661fe566)) where dblp18_s2_12bac880661fe566.v8 = dblp9_s2_12bac880661fe566.v8)) /* stage4 */, s4_group_103CA1088E792EF6 as  (select * from umbra.identity(table(dblp9_s2_12bac880661fe566)) NATURAL JOIN umbra.identity(table(dblp18_s3_12bac880661fe566)) NATURAL JOIN umbra.identity(table(dblp19_s3_12bac880661fe566)) NATURAL JOIN umbra.identity(table(dblp16_s3_12bac880661fe566)) NATURAL JOIN umbra.identity(table(dblp14_s3_12bac880661fe566)) NATURAL JOIN umbra.identity(table(dblp25_s3_12bac880661fe566)) NATURAL JOIN umbra.identity(table(dblp5_s3_12bac880661fe566)) NATURAL JOIN umbra.identity(table(dblp7_s3_12bac880661fe566)))select count(*) from umbra.identity(table(s4_group_103CA1088E792EF6));
+\set queryname dblp_acyclic_214_19
+-- Result size: 5869276
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp21:s -> dblp1:s;dblp1:s -> dblp5:s;dblp5:s -> dblp17:s;dblp17:s -> dblp6:s;dblp6:s -> dblp9:s;dblp9:d -> dblp8:s;dblp8:d -> dblp22:s;}
+--            +------------------------+
+--            |                        |
+--            |       +--------+----+----+
+--            |       | dblp9  |  s |  d |
+--            |       +--------+----+----+
+--            |                   |
+--            |                   |
+--            |                   |
+--            |       +--------+----+----+
+--            |       | dblp6  |  s |  d |
+--            |       +--------+----+----+
+--            |                   |
+--            |                   |
+--            |                   |
+--            |       +--------+----+----+
+--            |       | dblp17 |  s |  d |
+--            |       +--------+----+----+
+--            |                   |
+--            |                   |
+--            |                   |
+--            |       +--------+----+----+
+--            |       | dblp5  |  s |  d |
+--            |       +--------+----+----+
+--            |                   |
+--            |                   |
+--            |                   |
+--            |       +--------+----+----+
+--            |       | dblp1  |  s |  d |
+--            |       +--------+----+----+
+--            |                   |
+--            |                   |
+--            |                   |
+--            |       +--------+----+----+
+--            |       | dblp21 |  s |  d |
+--            |       +--------+----+----+
+--            |
+--            |
+--            |
+-- +-------+---------+---------+
+-- | dblp8 |    s    |    d    |
+-- +-------+---------+---------+
+--                      |
+--                      |
+--                      |
+--          +--------+---------+----+
+--          | dblp22 |    s    |  d |
+--          +--------+---------+----+
+with dummy as (select) /* stage1 */, dblp9_s1_1b467680661fe566 as (select dblp9.d as v6,dblp9.s as v0 from dblp9), dblp8_s1_1b467680661fe566 as (select dblp8.s as v6,dblp8.d as v8 from dblp8), dblp22_s2_1b467680661fe566 as (select dblp22.s as v8 from dblp22), dblp17_s1_1b467680661fe566 as (select dblp17.s as v0 from dblp17), dblp6_s2_1b467680661fe566 as (select dblp6.s as v0 from dblp6), dblp5_s2_1b467680661fe566 as (select dblp5.s as v0 from dblp5), dblp21_s2_1b467680661fe566 as (select dblp21.s as v0 from dblp21), dblp1_s2_1b467680661fe566 as (select dblp1.s as v0 from dblp1) /* stage2 */, dblp17_s2_1b467680661fe566 as (select * from umbra.identity(table(dblp17_s1_1b467680661fe566)) where exists (select from umbra.identity(table(dblp1_s2_1b467680661fe566)) where dblp17_s1_1b467680661fe566.v0 = dblp1_s2_1b467680661fe566.v0) AND exists (select from umbra.identity(table(dblp21_s2_1b467680661fe566)) where dblp17_s1_1b467680661fe566.v0 = dblp21_s2_1b467680661fe566.v0) AND exists (select from umbra.identity(table(dblp5_s2_1b467680661fe566)) where dblp17_s1_1b467680661fe566.v0 = dblp5_s2_1b467680661fe566.v0) AND exists (select from umbra.identity(table(dblp6_s2_1b467680661fe566)) where dblp17_s1_1b467680661fe566.v0 = dblp6_s2_1b467680661fe566.v0)), dblp8_s2_1b467680661fe566 as (select * from umbra.identity(table(dblp8_s1_1b467680661fe566)) where exists (select from umbra.identity(table(dblp22_s2_1b467680661fe566)) where dblp8_s1_1b467680661fe566.v8 = dblp22_s2_1b467680661fe566.v8)), dblp9_s2_1b467680661fe566 as (select * from umbra.identity(table(dblp9_s1_1b467680661fe566)) where exists (select from umbra.identity(table(dblp17_s2_1b467680661fe566)) where dblp9_s1_1b467680661fe566.v0 = dblp17_s2_1b467680661fe566.v0) AND exists (select from umbra.identity(table(dblp8_s2_1b467680661fe566)) where dblp9_s1_1b467680661fe566.v6 = dblp8_s2_1b467680661fe566.v6)) /* stage3 */, dblp8_s3_1b467680661fe566 as (select * from umbra.identity(table(dblp8_s2_1b467680661fe566)) where exists (select from umbra.identity(table(dblp9_s2_1b467680661fe566)) where dblp8_s2_1b467680661fe566.v6 = dblp9_s2_1b467680661fe566.v6)), dblp22_s3_1b467680661fe566 as (select * from umbra.identity(table(dblp22_s2_1b467680661fe566)) where exists (select from umbra.identity(table(dblp8_s2_1b467680661fe566)) where dblp22_s2_1b467680661fe566.v8 = dblp8_s2_1b467680661fe566.v8)), dblp17_s3_1b467680661fe566 as (select * from umbra.identity(table(dblp17_s2_1b467680661fe566)) where exists (select from umbra.identity(table(dblp9_s2_1b467680661fe566)) where dblp17_s2_1b467680661fe566.v0 = dblp9_s2_1b467680661fe566.v0)), dblp6_s3_1b467680661fe566 as (select * from umbra.identity(table(dblp6_s2_1b467680661fe566)) where exists (select from umbra.identity(table(dblp17_s2_1b467680661fe566)) where dblp6_s2_1b467680661fe566.v0 = dblp17_s2_1b467680661fe566.v0)), dblp5_s3_1b467680661fe566 as (select * from umbra.identity(table(dblp5_s2_1b467680661fe566)) where exists (select from umbra.identity(table(dblp17_s2_1b467680661fe566)) where dblp5_s2_1b467680661fe566.v0 = dblp17_s2_1b467680661fe566.v0)), dblp21_s3_1b467680661fe566 as (select * from umbra.identity(table(dblp21_s2_1b467680661fe566)) where exists (select from umbra.identity(table(dblp17_s2_1b467680661fe566)) where dblp21_s2_1b467680661fe566.v0 = dblp17_s2_1b467680661fe566.v0)), dblp1_s3_1b467680661fe566 as (select * from umbra.identity(table(dblp1_s2_1b467680661fe566)) where exists (select from umbra.identity(table(dblp17_s2_1b467680661fe566)) where dblp1_s2_1b467680661fe566.v0 = dblp17_s2_1b467680661fe566.v0)) /* stage4 */, s4_group_612888BCD6A54BB as  (select * from umbra.identity(table(dblp9_s2_1b467680661fe566)) NATURAL JOIN umbra.identity(table(dblp17_s3_1b467680661fe566)) NATURAL JOIN umbra.identity(table(dblp1_s3_1b467680661fe566)) NATURAL JOIN umbra.identity(table(dblp21_s3_1b467680661fe566)) NATURAL JOIN umbra.identity(table(dblp5_s3_1b467680661fe566)) NATURAL JOIN umbra.identity(table(dblp6_s3_1b467680661fe566)) NATURAL JOIN umbra.identity(table(dblp8_s3_1b467680661fe566)) NATURAL JOIN umbra.identity(table(dblp22_s3_1b467680661fe566)))select count(*) from umbra.identity(table(s4_group_612888BCD6A54BB));

@@ -1,0 +1,865 @@
+\set queryname epinions_acyclic_208_00
+-- Result size: 48264089
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75931 [label="epinions75931|<s> s|<d> d"]; epinions75891 [label="epinions75891|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75908 [label="epinions75908|<s> s|<d> d"]; epinions75896 [label="epinions75896|<s> s|<d> d"]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75902:s -> epinions75931:s;epinions75931:s -> epinions75891:s;epinions75891:s -> epinions75918:s;epinions75918:d -> epinions75908:s;epinions75908:d -> epinions75896:s;epinions75896:s -> epinions75928:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75918 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |    |
+--                                                      |    +----+
+--                                                      |         |
+--                                   +---------------+----+----+  |
+--                                   | epinions75891 |  s |  d |  |
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75902 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75931 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75908 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75896 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75928 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75918_s1_19d6ec00661fe5a1 as (select epinions75918.d as v4,epinions75918.s as v0 from epinions75918), epinions75908_s1_19d6ec00661fe5a1 as (select epinions75908.s as v4,epinions75908.d as v6 from epinions75908), epinions75928_s2_19d6ec00661fe5a1 as (select epinions75928.s as v6 from epinions75928), epinions75896_s2_19d6ec00661fe5a1 as (select epinions75896.s as v6 from epinions75896), epinions75902_s1_19d6ec00661fe5a1 as (select epinions75902.s as v0 from epinions75902), epinions75931_s2_19d6ec00661fe5a1 as (select epinions75931.s as v0 from epinions75931), epinions75891_s2_19d6ec00661fe5a1 as (select epinions75891.s as v0 from epinions75891) /* stage2 */, epinions75902_s2_19d6ec00661fe5a1 as (select * from umbra.identity(table(epinions75902_s1_19d6ec00661fe5a1)) where exists (select from umbra.identity(table(epinions75891_s2_19d6ec00661fe5a1)) where epinions75902_s1_19d6ec00661fe5a1.v0 = epinions75891_s2_19d6ec00661fe5a1.v0) AND exists (select from umbra.identity(table(epinions75931_s2_19d6ec00661fe5a1)) where epinions75902_s1_19d6ec00661fe5a1.v0 = epinions75931_s2_19d6ec00661fe5a1.v0)), epinions75908_s2_19d6ec00661fe5a1 as (select * from umbra.identity(table(epinions75908_s1_19d6ec00661fe5a1)) where exists (select from umbra.identity(table(epinions75896_s2_19d6ec00661fe5a1)) where epinions75908_s1_19d6ec00661fe5a1.v6 = epinions75896_s2_19d6ec00661fe5a1.v6) AND exists (select from umbra.identity(table(epinions75928_s2_19d6ec00661fe5a1)) where epinions75908_s1_19d6ec00661fe5a1.v6 = epinions75928_s2_19d6ec00661fe5a1.v6)), epinions75918_s2_19d6ec00661fe5a1 as (select * from umbra.identity(table(epinions75918_s1_19d6ec00661fe5a1)) where exists (select from umbra.identity(table(epinions75902_s2_19d6ec00661fe5a1)) where epinions75918_s1_19d6ec00661fe5a1.v0 = epinions75902_s2_19d6ec00661fe5a1.v0) AND exists (select from umbra.identity(table(epinions75908_s2_19d6ec00661fe5a1)) where epinions75918_s1_19d6ec00661fe5a1.v4 = epinions75908_s2_19d6ec00661fe5a1.v4)) /* stage3 */, epinions75908_s3_19d6ec00661fe5a1 as (select * from umbra.identity(table(epinions75908_s2_19d6ec00661fe5a1)) where exists (select from umbra.identity(table(epinions75918_s2_19d6ec00661fe5a1)) where epinions75908_s2_19d6ec00661fe5a1.v4 = epinions75918_s2_19d6ec00661fe5a1.v4)), epinions75928_s3_19d6ec00661fe5a1 as (select * from umbra.identity(table(epinions75928_s2_19d6ec00661fe5a1)) where exists (select from umbra.identity(table(epinions75908_s2_19d6ec00661fe5a1)) where epinions75928_s2_19d6ec00661fe5a1.v6 = epinions75908_s2_19d6ec00661fe5a1.v6)), epinions75896_s3_19d6ec00661fe5a1 as (select * from umbra.identity(table(epinions75896_s2_19d6ec00661fe5a1)) where exists (select from umbra.identity(table(epinions75908_s2_19d6ec00661fe5a1)) where epinions75896_s2_19d6ec00661fe5a1.v6 = epinions75908_s2_19d6ec00661fe5a1.v6)), epinions75902_s3_19d6ec00661fe5a1 as (select * from umbra.identity(table(epinions75902_s2_19d6ec00661fe5a1)) where exists (select from umbra.identity(table(epinions75918_s2_19d6ec00661fe5a1)) where epinions75902_s2_19d6ec00661fe5a1.v0 = epinions75918_s2_19d6ec00661fe5a1.v0)), epinions75931_s3_19d6ec00661fe5a1 as (select * from umbra.identity(table(epinions75931_s2_19d6ec00661fe5a1)) where exists (select from umbra.identity(table(epinions75902_s2_19d6ec00661fe5a1)) where epinions75931_s2_19d6ec00661fe5a1.v0 = epinions75902_s2_19d6ec00661fe5a1.v0)), epinions75891_s3_19d6ec00661fe5a1 as (select * from umbra.identity(table(epinions75891_s2_19d6ec00661fe5a1)) where exists (select from umbra.identity(table(epinions75902_s2_19d6ec00661fe5a1)) where epinions75891_s2_19d6ec00661fe5a1.v0 = epinions75902_s2_19d6ec00661fe5a1.v0)) /* stage4 */, s4_group_7F6EA8059F25EFE6 as  (select * from umbra.identity(table(epinions75918_s2_19d6ec00661fe5a1)) NATURAL JOIN umbra.identity(table(epinions75902_s3_19d6ec00661fe5a1)) NATURAL JOIN umbra.identity(table(epinions75891_s3_19d6ec00661fe5a1)) NATURAL JOIN umbra.identity(table(epinions75931_s3_19d6ec00661fe5a1)) NATURAL JOIN umbra.identity(table(epinions75908_s3_19d6ec00661fe5a1)) NATURAL JOIN umbra.identity(table(epinions75896_s3_19d6ec00661fe5a1)) NATURAL JOIN umbra.identity(table(epinions75928_s3_19d6ec00661fe5a1)))select count(*) from umbra.identity(table(s4_group_7F6EA8059F25EFE6));
+\set queryname epinions_acyclic_208_01
+-- Result size: 129057101
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75888 [label="epinions75888|<s> s|<d> d"]; epinions75923 [label="epinions75923|<s> s|<d> d"]; epinions75899 [label="epinions75899|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75893 [label="epinions75893|<s> s|<d> d"]; epinions75920 [label="epinions75920|<s> s|<d> d"]; epinions75889 [label="epinions75889|<s> s|<d> d"]; epinions75888:s -> epinions75923:s;epinions75923:s -> epinions75899:s;epinions75899:s -> epinions75930:s;epinions75930:d -> epinions75893:s;epinions75893:d -> epinions75920:s;epinions75920:s -> epinions75889:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75888 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75923 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75899 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75930 |  s |  d |
+--                                   +---------------+----+----+
+--                                                           |
+--                    +--------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75893 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75920 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75889 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75930_s1_2e3f800661fe5a2 as (select epinions75930.d as v4,epinions75930.s as v0 from epinions75930), epinions75893_s1_2e3f800661fe5a2 as (select epinions75893.s as v4,epinions75893.d as v6 from epinions75893), epinions75920_s2_2e3f800661fe5a2 as (select epinions75920.s as v6 from epinions75920), epinions75889_s2_2e3f800661fe5a2 as (select epinions75889.s as v6 from epinions75889), epinions75899_s1_2e3f800661fe5a2 as (select epinions75899.s as v0 from epinions75899), epinions75923_s2_2e3f800661fe5a2 as (select epinions75923.s as v0 from epinions75923), epinions75888_s2_2e3f800661fe5a2 as (select epinions75888.s as v0 from epinions75888) /* stage2 */, epinions75899_s2_2e3f800661fe5a2 as (select * from umbra.identity(table(epinions75899_s1_2e3f800661fe5a2)) where exists (select from umbra.identity(table(epinions75888_s2_2e3f800661fe5a2)) where epinions75899_s1_2e3f800661fe5a2.v0 = epinions75888_s2_2e3f800661fe5a2.v0) AND exists (select from umbra.identity(table(epinions75923_s2_2e3f800661fe5a2)) where epinions75899_s1_2e3f800661fe5a2.v0 = epinions75923_s2_2e3f800661fe5a2.v0)), epinions75893_s2_2e3f800661fe5a2 as (select * from umbra.identity(table(epinions75893_s1_2e3f800661fe5a2)) where exists (select from umbra.identity(table(epinions75889_s2_2e3f800661fe5a2)) where epinions75893_s1_2e3f800661fe5a2.v6 = epinions75889_s2_2e3f800661fe5a2.v6) AND exists (select from umbra.identity(table(epinions75920_s2_2e3f800661fe5a2)) where epinions75893_s1_2e3f800661fe5a2.v6 = epinions75920_s2_2e3f800661fe5a2.v6)), epinions75930_s2_2e3f800661fe5a2 as (select * from umbra.identity(table(epinions75930_s1_2e3f800661fe5a2)) where exists (select from umbra.identity(table(epinions75899_s2_2e3f800661fe5a2)) where epinions75930_s1_2e3f800661fe5a2.v0 = epinions75899_s2_2e3f800661fe5a2.v0) AND exists (select from umbra.identity(table(epinions75893_s2_2e3f800661fe5a2)) where epinions75930_s1_2e3f800661fe5a2.v4 = epinions75893_s2_2e3f800661fe5a2.v4)) /* stage3 */, epinions75893_s3_2e3f800661fe5a2 as (select * from umbra.identity(table(epinions75893_s2_2e3f800661fe5a2)) where exists (select from umbra.identity(table(epinions75930_s2_2e3f800661fe5a2)) where epinions75893_s2_2e3f800661fe5a2.v4 = epinions75930_s2_2e3f800661fe5a2.v4)), epinions75920_s3_2e3f800661fe5a2 as (select * from umbra.identity(table(epinions75920_s2_2e3f800661fe5a2)) where exists (select from umbra.identity(table(epinions75893_s2_2e3f800661fe5a2)) where epinions75920_s2_2e3f800661fe5a2.v6 = epinions75893_s2_2e3f800661fe5a2.v6)), epinions75889_s3_2e3f800661fe5a2 as (select * from umbra.identity(table(epinions75889_s2_2e3f800661fe5a2)) where exists (select from umbra.identity(table(epinions75893_s2_2e3f800661fe5a2)) where epinions75889_s2_2e3f800661fe5a2.v6 = epinions75893_s2_2e3f800661fe5a2.v6)), epinions75899_s3_2e3f800661fe5a2 as (select * from umbra.identity(table(epinions75899_s2_2e3f800661fe5a2)) where exists (select from umbra.identity(table(epinions75930_s2_2e3f800661fe5a2)) where epinions75899_s2_2e3f800661fe5a2.v0 = epinions75930_s2_2e3f800661fe5a2.v0)), epinions75923_s3_2e3f800661fe5a2 as (select * from umbra.identity(table(epinions75923_s2_2e3f800661fe5a2)) where exists (select from umbra.identity(table(epinions75899_s2_2e3f800661fe5a2)) where epinions75923_s2_2e3f800661fe5a2.v0 = epinions75899_s2_2e3f800661fe5a2.v0)), epinions75888_s3_2e3f800661fe5a2 as (select * from umbra.identity(table(epinions75888_s2_2e3f800661fe5a2)) where exists (select from umbra.identity(table(epinions75899_s2_2e3f800661fe5a2)) where epinions75888_s2_2e3f800661fe5a2.v0 = epinions75899_s2_2e3f800661fe5a2.v0)) /* stage4 */, s4_group_5B81BBC004D4A5B9 as  (select * from umbra.identity(table(epinions75930_s2_2e3f800661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75899_s3_2e3f800661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75888_s3_2e3f800661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75923_s3_2e3f800661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75893_s3_2e3f800661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75889_s3_2e3f800661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75920_s3_2e3f800661fe5a2)))select count(*) from umbra.identity(table(s4_group_5B81BBC004D4A5B9));
+\set queryname epinions_acyclic_208_02
+-- Result size: 50801055
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75925 [label="epinions75925|<s> s|<d> d"]; epinions75904 [label="epinions75904|<s> s|<d> d"]; epinions75932 [label="epinions75932|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75926 [label="epinions75926|<s> s|<d> d"]; epinions75925:s -> epinions75904:s;epinions75904:s -> epinions75932:s;epinions75932:s -> epinions75927:s;epinions75927:d -> epinions75905:s;epinions75905:d -> epinions75919:s;epinions75919:s -> epinions75926:s;}
+--                    +--------------------------------------+
+--                    |                                      |
+--                    |              +---------------+----+----+
+--                    |              | epinions75927 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75932 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75904 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75925 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |
+--                    |
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75905 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75919 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75926 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75927_s1_b72ca80661fe5a2 as (select epinions75927.d as v4,epinions75927.s as v0 from epinions75927), epinions75905_s1_b72ca80661fe5a2 as (select epinions75905.s as v4,epinions75905.d as v6 from epinions75905), epinions75926_s2_b72ca80661fe5a2 as (select epinions75926.s as v6 from epinions75926), epinions75919_s2_b72ca80661fe5a2 as (select epinions75919.s as v6 from epinions75919), epinions75925_s1_b72ca80661fe5a2 as (select epinions75925.s as v0 from epinions75925), epinions75932_s2_b72ca80661fe5a2 as (select epinions75932.s as v0 from epinions75932), epinions75904_s2_b72ca80661fe5a2 as (select epinions75904.s as v0 from epinions75904) /* stage2 */, epinions75925_s2_b72ca80661fe5a2 as (select * from umbra.identity(table(epinions75925_s1_b72ca80661fe5a2)) where exists (select from umbra.identity(table(epinions75904_s2_b72ca80661fe5a2)) where epinions75925_s1_b72ca80661fe5a2.v0 = epinions75904_s2_b72ca80661fe5a2.v0) AND exists (select from umbra.identity(table(epinions75932_s2_b72ca80661fe5a2)) where epinions75925_s1_b72ca80661fe5a2.v0 = epinions75932_s2_b72ca80661fe5a2.v0)), epinions75905_s2_b72ca80661fe5a2 as (select * from umbra.identity(table(epinions75905_s1_b72ca80661fe5a2)) where exists (select from umbra.identity(table(epinions75919_s2_b72ca80661fe5a2)) where epinions75905_s1_b72ca80661fe5a2.v6 = epinions75919_s2_b72ca80661fe5a2.v6) AND exists (select from umbra.identity(table(epinions75926_s2_b72ca80661fe5a2)) where epinions75905_s1_b72ca80661fe5a2.v6 = epinions75926_s2_b72ca80661fe5a2.v6)), epinions75927_s2_b72ca80661fe5a2 as (select * from umbra.identity(table(epinions75927_s1_b72ca80661fe5a2)) where exists (select from umbra.identity(table(epinions75925_s2_b72ca80661fe5a2)) where epinions75927_s1_b72ca80661fe5a2.v0 = epinions75925_s2_b72ca80661fe5a2.v0) AND exists (select from umbra.identity(table(epinions75905_s2_b72ca80661fe5a2)) where epinions75927_s1_b72ca80661fe5a2.v4 = epinions75905_s2_b72ca80661fe5a2.v4)) /* stage3 */, epinions75905_s3_b72ca80661fe5a2 as (select * from umbra.identity(table(epinions75905_s2_b72ca80661fe5a2)) where exists (select from umbra.identity(table(epinions75927_s2_b72ca80661fe5a2)) where epinions75905_s2_b72ca80661fe5a2.v4 = epinions75927_s2_b72ca80661fe5a2.v4)), epinions75926_s3_b72ca80661fe5a2 as (select * from umbra.identity(table(epinions75926_s2_b72ca80661fe5a2)) where exists (select from umbra.identity(table(epinions75905_s2_b72ca80661fe5a2)) where epinions75926_s2_b72ca80661fe5a2.v6 = epinions75905_s2_b72ca80661fe5a2.v6)), epinions75919_s3_b72ca80661fe5a2 as (select * from umbra.identity(table(epinions75919_s2_b72ca80661fe5a2)) where exists (select from umbra.identity(table(epinions75905_s2_b72ca80661fe5a2)) where epinions75919_s2_b72ca80661fe5a2.v6 = epinions75905_s2_b72ca80661fe5a2.v6)), epinions75925_s3_b72ca80661fe5a2 as (select * from umbra.identity(table(epinions75925_s2_b72ca80661fe5a2)) where exists (select from umbra.identity(table(epinions75927_s2_b72ca80661fe5a2)) where epinions75925_s2_b72ca80661fe5a2.v0 = epinions75927_s2_b72ca80661fe5a2.v0)), epinions75932_s3_b72ca80661fe5a2 as (select * from umbra.identity(table(epinions75932_s2_b72ca80661fe5a2)) where exists (select from umbra.identity(table(epinions75925_s2_b72ca80661fe5a2)) where epinions75932_s2_b72ca80661fe5a2.v0 = epinions75925_s2_b72ca80661fe5a2.v0)), epinions75904_s3_b72ca80661fe5a2 as (select * from umbra.identity(table(epinions75904_s2_b72ca80661fe5a2)) where exists (select from umbra.identity(table(epinions75925_s2_b72ca80661fe5a2)) where epinions75904_s2_b72ca80661fe5a2.v0 = epinions75925_s2_b72ca80661fe5a2.v0)) /* stage4 */, s4_group_600FDF533B8AC4D9 as  (select * from umbra.identity(table(epinions75927_s2_b72ca80661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75925_s3_b72ca80661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75904_s3_b72ca80661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75932_s3_b72ca80661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75905_s3_b72ca80661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75919_s3_b72ca80661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75926_s3_b72ca80661fe5a2)))select count(*) from umbra.identity(table(s4_group_600FDF533B8AC4D9));
+\set queryname epinions_acyclic_208_03
+-- Result size: 66815347
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75929 [label="epinions75929|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75893 [label="epinions75893|<s> s|<d> d"]; epinions75908 [label="epinions75908|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75910 [label="epinions75910|<s> s|<d> d"]; epinions75915 [label="epinions75915|<s> s|<d> d"]; epinions75929:s -> epinions75909:s;epinions75909:s -> epinions75893:s;epinions75893:s -> epinions75908:s;epinions75908:d -> epinions75911:s;epinions75911:d -> epinions75910:s;epinions75910:s -> epinions75915:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75908 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |    |
+--                                                      |    +----+
+--                                                      |         |
+--                                   +---------------+----+----+  |
+--                                   | epinions75893 |  s |  d |  |
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75929 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75909 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75911 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75910 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75915 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75911_s1_13fcf980661fe5a2 as (select epinions75911.d as v6,epinions75911.s as v4 from epinions75911), epinions75908_s1_13fcf980661fe5a2 as (select epinions75908.d as v4,epinions75908.s as v0 from epinions75908), epinions75929_s2_13fcf980661fe5a2 as (select epinions75929.s as v0 from epinions75929), epinions75909_s2_13fcf980661fe5a2 as (select epinions75909.s as v0 from epinions75909), epinions75893_s2_13fcf980661fe5a2 as (select epinions75893.s as v0 from epinions75893), epinions75915_s2_13fcf980661fe5a2 as (select epinions75915.s as v6 from epinions75915), epinions75910_s2_13fcf980661fe5a2 as (select epinions75910.s as v6 from epinions75910) /* stage2 */, epinions75908_s2_13fcf980661fe5a2 as (select * from umbra.identity(table(epinions75908_s1_13fcf980661fe5a2)) where exists (select from umbra.identity(table(epinions75893_s2_13fcf980661fe5a2)) where epinions75908_s1_13fcf980661fe5a2.v0 = epinions75893_s2_13fcf980661fe5a2.v0) AND exists (select from umbra.identity(table(epinions75909_s2_13fcf980661fe5a2)) where epinions75908_s1_13fcf980661fe5a2.v0 = epinions75909_s2_13fcf980661fe5a2.v0) AND exists (select from umbra.identity(table(epinions75929_s2_13fcf980661fe5a2)) where epinions75908_s1_13fcf980661fe5a2.v0 = epinions75929_s2_13fcf980661fe5a2.v0)), epinions75911_s2_13fcf980661fe5a2 as (select * from umbra.identity(table(epinions75911_s1_13fcf980661fe5a2)) where exists (select from umbra.identity(table(epinions75910_s2_13fcf980661fe5a2)) where epinions75911_s1_13fcf980661fe5a2.v6 = epinions75910_s2_13fcf980661fe5a2.v6) AND exists (select from umbra.identity(table(epinions75915_s2_13fcf980661fe5a2)) where epinions75911_s1_13fcf980661fe5a2.v6 = epinions75915_s2_13fcf980661fe5a2.v6) AND exists (select from umbra.identity(table(epinions75908_s2_13fcf980661fe5a2)) where epinions75911_s1_13fcf980661fe5a2.v4 = epinions75908_s2_13fcf980661fe5a2.v4)) /* stage3 */, epinions75908_s3_13fcf980661fe5a2 as (select * from umbra.identity(table(epinions75908_s2_13fcf980661fe5a2)) where exists (select from umbra.identity(table(epinions75911_s2_13fcf980661fe5a2)) where epinions75908_s2_13fcf980661fe5a2.v4 = epinions75911_s2_13fcf980661fe5a2.v4)), epinions75929_s3_13fcf980661fe5a2 as (select * from umbra.identity(table(epinions75929_s2_13fcf980661fe5a2)) where exists (select from umbra.identity(table(epinions75908_s2_13fcf980661fe5a2)) where epinions75929_s2_13fcf980661fe5a2.v0 = epinions75908_s2_13fcf980661fe5a2.v0)), epinions75909_s3_13fcf980661fe5a2 as (select * from umbra.identity(table(epinions75909_s2_13fcf980661fe5a2)) where exists (select from umbra.identity(table(epinions75908_s2_13fcf980661fe5a2)) where epinions75909_s2_13fcf980661fe5a2.v0 = epinions75908_s2_13fcf980661fe5a2.v0)), epinions75893_s3_13fcf980661fe5a2 as (select * from umbra.identity(table(epinions75893_s2_13fcf980661fe5a2)) where exists (select from umbra.identity(table(epinions75908_s2_13fcf980661fe5a2)) where epinions75893_s2_13fcf980661fe5a2.v0 = epinions75908_s2_13fcf980661fe5a2.v0)), epinions75915_s3_13fcf980661fe5a2 as (select * from umbra.identity(table(epinions75915_s2_13fcf980661fe5a2)) where exists (select from umbra.identity(table(epinions75911_s2_13fcf980661fe5a2)) where epinions75915_s2_13fcf980661fe5a2.v6 = epinions75911_s2_13fcf980661fe5a2.v6)), epinions75910_s3_13fcf980661fe5a2 as (select * from umbra.identity(table(epinions75910_s2_13fcf980661fe5a2)) where exists (select from umbra.identity(table(epinions75911_s2_13fcf980661fe5a2)) where epinions75910_s2_13fcf980661fe5a2.v6 = epinions75911_s2_13fcf980661fe5a2.v6)) /* stage4 */, s4_group_3E034686FCB066ED as  (select * from umbra.identity(table(epinions75911_s2_13fcf980661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75910_s3_13fcf980661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75915_s3_13fcf980661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75908_s3_13fcf980661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75893_s3_13fcf980661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75909_s3_13fcf980661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75929_s3_13fcf980661fe5a2)))select count(*) from umbra.identity(table(s4_group_3E034686FCB066ED));
+\set queryname epinions_acyclic_208_04
+-- Result size: 69201013
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75921 [label="epinions75921|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75906 [label="epinions75906|<s> s|<d> d"]; epinions75889 [label="epinions75889|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75911:s -> epinions75921:s;epinions75921:s -> epinions75930:s;epinions75930:s -> epinions75900:s;epinions75900:d -> epinions75906:s;epinions75906:d -> epinions75889:s;epinions75889:s -> epinions75918:s;}
+--                                              +--------------------------+
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75906 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                                               |         |
+--                                                               |         |
+--                                                               |         |
+-- +---------------+----+---+                 +---------------+----+----+  |
+-- | epinions75918 |  s | d |                 | epinions75889 |  s |  d |  |
+-- +---------------+----+---+                 +---------------+----+----+  |
+--                    |                                          |         |
+--                    +------------------------------------------+         |
+--                                                                         |
+--                           +---------------+----------------+----+       |
+--                           | epinions75911 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75921 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75930 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75900 |        s       |  d | ------+
+--                           +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75906_s1_1c77d680661fe5a2 as (select epinions75906.s as v4,epinions75906.d as v6 from epinions75906), epinions75900_s1_1c77d680661fe5a2 as (select epinions75900.d as v4,epinions75900.s as v0 from epinions75900), epinions75930_s2_1c77d680661fe5a2 as (select epinions75930.s as v0 from epinions75930), epinions75921_s2_1c77d680661fe5a2 as (select epinions75921.s as v0 from epinions75921), epinions75911_s2_1c77d680661fe5a2 as (select epinions75911.s as v0 from epinions75911), epinions75918_s2_1c77d680661fe5a2 as (select epinions75918.s as v6 from epinions75918), epinions75889_s2_1c77d680661fe5a2 as (select epinions75889.s as v6 from epinions75889) /* stage2 */, epinions75900_s2_1c77d680661fe5a2 as (select * from umbra.identity(table(epinions75900_s1_1c77d680661fe5a2)) where exists (select from umbra.identity(table(epinions75911_s2_1c77d680661fe5a2)) where epinions75900_s1_1c77d680661fe5a2.v0 = epinions75911_s2_1c77d680661fe5a2.v0) AND exists (select from umbra.identity(table(epinions75921_s2_1c77d680661fe5a2)) where epinions75900_s1_1c77d680661fe5a2.v0 = epinions75921_s2_1c77d680661fe5a2.v0) AND exists (select from umbra.identity(table(epinions75930_s2_1c77d680661fe5a2)) where epinions75900_s1_1c77d680661fe5a2.v0 = epinions75930_s2_1c77d680661fe5a2.v0)), epinions75906_s2_1c77d680661fe5a2 as (select * from umbra.identity(table(epinions75906_s1_1c77d680661fe5a2)) where exists (select from umbra.identity(table(epinions75889_s2_1c77d680661fe5a2)) where epinions75906_s1_1c77d680661fe5a2.v6 = epinions75889_s2_1c77d680661fe5a2.v6) AND exists (select from umbra.identity(table(epinions75918_s2_1c77d680661fe5a2)) where epinions75906_s1_1c77d680661fe5a2.v6 = epinions75918_s2_1c77d680661fe5a2.v6) AND exists (select from umbra.identity(table(epinions75900_s2_1c77d680661fe5a2)) where epinions75906_s1_1c77d680661fe5a2.v4 = epinions75900_s2_1c77d680661fe5a2.v4)) /* stage3 */, epinions75900_s3_1c77d680661fe5a2 as (select * from umbra.identity(table(epinions75900_s2_1c77d680661fe5a2)) where exists (select from umbra.identity(table(epinions75906_s2_1c77d680661fe5a2)) where epinions75900_s2_1c77d680661fe5a2.v4 = epinions75906_s2_1c77d680661fe5a2.v4)), epinions75930_s3_1c77d680661fe5a2 as (select * from umbra.identity(table(epinions75930_s2_1c77d680661fe5a2)) where exists (select from umbra.identity(table(epinions75900_s2_1c77d680661fe5a2)) where epinions75930_s2_1c77d680661fe5a2.v0 = epinions75900_s2_1c77d680661fe5a2.v0)), epinions75921_s3_1c77d680661fe5a2 as (select * from umbra.identity(table(epinions75921_s2_1c77d680661fe5a2)) where exists (select from umbra.identity(table(epinions75900_s2_1c77d680661fe5a2)) where epinions75921_s2_1c77d680661fe5a2.v0 = epinions75900_s2_1c77d680661fe5a2.v0)), epinions75911_s3_1c77d680661fe5a2 as (select * from umbra.identity(table(epinions75911_s2_1c77d680661fe5a2)) where exists (select from umbra.identity(table(epinions75900_s2_1c77d680661fe5a2)) where epinions75911_s2_1c77d680661fe5a2.v0 = epinions75900_s2_1c77d680661fe5a2.v0)), epinions75918_s3_1c77d680661fe5a2 as (select * from umbra.identity(table(epinions75918_s2_1c77d680661fe5a2)) where exists (select from umbra.identity(table(epinions75906_s2_1c77d680661fe5a2)) where epinions75918_s2_1c77d680661fe5a2.v6 = epinions75906_s2_1c77d680661fe5a2.v6)), epinions75889_s3_1c77d680661fe5a2 as (select * from umbra.identity(table(epinions75889_s2_1c77d680661fe5a2)) where exists (select from umbra.identity(table(epinions75906_s2_1c77d680661fe5a2)) where epinions75889_s2_1c77d680661fe5a2.v6 = epinions75906_s2_1c77d680661fe5a2.v6)) /* stage4 */, s4_group_1990C1E1D8CE8474 as  (select * from umbra.identity(table(epinions75906_s2_1c77d680661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75889_s3_1c77d680661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75918_s3_1c77d680661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75900_s3_1c77d680661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75911_s3_1c77d680661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75921_s3_1c77d680661fe5a2)) NATURAL JOIN umbra.identity(table(epinions75930_s3_1c77d680661fe5a2)))select count(*) from umbra.identity(table(s4_group_1990C1E1D8CE8474));
+\set queryname epinions_acyclic_208_05
+-- Result size: 39041556
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75922 [label="epinions75922|<s> s|<d> d"]; epinions75893 [label="epinions75893|<s> s|<d> d"]; epinions75896 [label="epinions75896|<s> s|<d> d"]; epinions75936 [label="epinions75936|<s> s|<d> d"]; epinions75924 [label="epinions75924|<s> s|<d> d"]; epinions75928:s -> epinions75909:s;epinions75909:s -> epinions75922:s;epinions75922:s -> epinions75893:s;epinions75893:d -> epinions75896:s;epinions75896:d -> epinions75936:s;epinions75936:s -> epinions75924:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75893 |  s |  d | -+
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75928 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75909 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75922 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75896 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75936 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75924 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75896_s1_4faf100661fe5a3 as (select epinions75896.s as v4,epinions75896.d as v6 from epinions75896), epinions75893_s1_4faf100661fe5a3 as (select epinions75893.d as v4,epinions75893.s as v0 from epinions75893), epinions75928_s2_4faf100661fe5a3 as (select epinions75928.s as v0 from epinions75928), epinions75922_s2_4faf100661fe5a3 as (select epinions75922.s as v0 from epinions75922), epinions75909_s2_4faf100661fe5a3 as (select epinions75909.s as v0 from epinions75909), epinions75936_s2_4faf100661fe5a3 as (select epinions75936.s as v6 from epinions75936), epinions75924_s2_4faf100661fe5a3 as (select epinions75924.s as v6 from epinions75924) /* stage2 */, epinions75893_s2_4faf100661fe5a3 as (select * from umbra.identity(table(epinions75893_s1_4faf100661fe5a3)) where exists (select from umbra.identity(table(epinions75909_s2_4faf100661fe5a3)) where epinions75893_s1_4faf100661fe5a3.v0 = epinions75909_s2_4faf100661fe5a3.v0) AND exists (select from umbra.identity(table(epinions75922_s2_4faf100661fe5a3)) where epinions75893_s1_4faf100661fe5a3.v0 = epinions75922_s2_4faf100661fe5a3.v0) AND exists (select from umbra.identity(table(epinions75928_s2_4faf100661fe5a3)) where epinions75893_s1_4faf100661fe5a3.v0 = epinions75928_s2_4faf100661fe5a3.v0)), epinions75896_s2_4faf100661fe5a3 as (select * from umbra.identity(table(epinions75896_s1_4faf100661fe5a3)) where exists (select from umbra.identity(table(epinions75924_s2_4faf100661fe5a3)) where epinions75896_s1_4faf100661fe5a3.v6 = epinions75924_s2_4faf100661fe5a3.v6) AND exists (select from umbra.identity(table(epinions75936_s2_4faf100661fe5a3)) where epinions75896_s1_4faf100661fe5a3.v6 = epinions75936_s2_4faf100661fe5a3.v6) AND exists (select from umbra.identity(table(epinions75893_s2_4faf100661fe5a3)) where epinions75896_s1_4faf100661fe5a3.v4 = epinions75893_s2_4faf100661fe5a3.v4)) /* stage3 */, epinions75893_s3_4faf100661fe5a3 as (select * from umbra.identity(table(epinions75893_s2_4faf100661fe5a3)) where exists (select from umbra.identity(table(epinions75896_s2_4faf100661fe5a3)) where epinions75893_s2_4faf100661fe5a3.v4 = epinions75896_s2_4faf100661fe5a3.v4)), epinions75928_s3_4faf100661fe5a3 as (select * from umbra.identity(table(epinions75928_s2_4faf100661fe5a3)) where exists (select from umbra.identity(table(epinions75893_s2_4faf100661fe5a3)) where epinions75928_s2_4faf100661fe5a3.v0 = epinions75893_s2_4faf100661fe5a3.v0)), epinions75922_s3_4faf100661fe5a3 as (select * from umbra.identity(table(epinions75922_s2_4faf100661fe5a3)) where exists (select from umbra.identity(table(epinions75893_s2_4faf100661fe5a3)) where epinions75922_s2_4faf100661fe5a3.v0 = epinions75893_s2_4faf100661fe5a3.v0)), epinions75909_s3_4faf100661fe5a3 as (select * from umbra.identity(table(epinions75909_s2_4faf100661fe5a3)) where exists (select from umbra.identity(table(epinions75893_s2_4faf100661fe5a3)) where epinions75909_s2_4faf100661fe5a3.v0 = epinions75893_s2_4faf100661fe5a3.v0)), epinions75936_s3_4faf100661fe5a3 as (select * from umbra.identity(table(epinions75936_s2_4faf100661fe5a3)) where exists (select from umbra.identity(table(epinions75896_s2_4faf100661fe5a3)) where epinions75936_s2_4faf100661fe5a3.v6 = epinions75896_s2_4faf100661fe5a3.v6)), epinions75924_s3_4faf100661fe5a3 as (select * from umbra.identity(table(epinions75924_s2_4faf100661fe5a3)) where exists (select from umbra.identity(table(epinions75896_s2_4faf100661fe5a3)) where epinions75924_s2_4faf100661fe5a3.v6 = epinions75896_s2_4faf100661fe5a3.v6)) /* stage4 */, s4_group_66DB6DFBB4221729 as  (select * from umbra.identity(table(epinions75896_s2_4faf100661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75924_s3_4faf100661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75936_s3_4faf100661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75893_s3_4faf100661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75909_s3_4faf100661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75922_s3_4faf100661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75928_s3_4faf100661fe5a3)))select count(*) from umbra.identity(table(s4_group_66DB6DFBB4221729));
+\set queryname epinions_acyclic_208_06
+-- Result size: 46158425
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75937 [label="epinions75937|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75914 [label="epinions75914|<s> s|<d> d"]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75896 [label="epinions75896|<s> s|<d> d"]; epinions75899 [label="epinions75899|<s> s|<d> d"]; epinions75937:s -> epinions75927:s;epinions75927:s -> epinions75909:s;epinions75909:s -> epinions75914:s;epinions75914:d -> epinions75928:s;epinions75928:d -> epinions75896:s;epinions75896:s -> epinions75899:s;}
+--                                              +--------------------------+
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75928 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                                               |         |
+--                                                               |         |
+--                                                               |         |
+-- +---------------+----+---+                 +---------------+----+----+  |
+-- | epinions75899 |  s | d |                 | epinions75896 |  s |  d |  |
+-- +---------------+----+---+                 +---------------+----+----+  |
+--                    |                                          |         |
+--                    +------------------------------------------+         |
+--                                                                         |
+--                           +---------------+----------------+----+       |
+--                           | epinions75937 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75927 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75909 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75914 |        s       |  d | ------+
+--                           +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75928_s1_da38b80661fe5a3 as (select epinions75928.s as v4,epinions75928.d as v6 from epinions75928), epinions75914_s1_da38b80661fe5a3 as (select epinions75914.d as v4,epinions75914.s as v0 from epinions75914), epinions75937_s2_da38b80661fe5a3 as (select epinions75937.s as v0 from epinions75937), epinions75927_s2_da38b80661fe5a3 as (select epinions75927.s as v0 from epinions75927), epinions75909_s2_da38b80661fe5a3 as (select epinions75909.s as v0 from epinions75909), epinions75899_s1_da38b80661fe5a3 as (select epinions75899.s as v6 from epinions75899), epinions75896_s2_da38b80661fe5a3 as (select epinions75896.s as v6 from epinions75896) /* stage2 */, epinions75899_s2_da38b80661fe5a3 as (select * from umbra.identity(table(epinions75899_s1_da38b80661fe5a3)) where exists (select from umbra.identity(table(epinions75896_s2_da38b80661fe5a3)) where epinions75899_s1_da38b80661fe5a3.v6 = epinions75896_s2_da38b80661fe5a3.v6)), epinions75914_s2_da38b80661fe5a3 as (select * from umbra.identity(table(epinions75914_s1_da38b80661fe5a3)) where exists (select from umbra.identity(table(epinions75909_s2_da38b80661fe5a3)) where epinions75914_s1_da38b80661fe5a3.v0 = epinions75909_s2_da38b80661fe5a3.v0) AND exists (select from umbra.identity(table(epinions75927_s2_da38b80661fe5a3)) where epinions75914_s1_da38b80661fe5a3.v0 = epinions75927_s2_da38b80661fe5a3.v0) AND exists (select from umbra.identity(table(epinions75937_s2_da38b80661fe5a3)) where epinions75914_s1_da38b80661fe5a3.v0 = epinions75937_s2_da38b80661fe5a3.v0)), epinions75928_s2_da38b80661fe5a3 as (select * from umbra.identity(table(epinions75928_s1_da38b80661fe5a3)) where exists (select from umbra.identity(table(epinions75899_s2_da38b80661fe5a3)) where epinions75928_s1_da38b80661fe5a3.v6 = epinions75899_s2_da38b80661fe5a3.v6) AND exists (select from umbra.identity(table(epinions75914_s2_da38b80661fe5a3)) where epinions75928_s1_da38b80661fe5a3.v4 = epinions75914_s2_da38b80661fe5a3.v4)) /* stage3 */, epinions75914_s3_da38b80661fe5a3 as (select * from umbra.identity(table(epinions75914_s2_da38b80661fe5a3)) where exists (select from umbra.identity(table(epinions75928_s2_da38b80661fe5a3)) where epinions75914_s2_da38b80661fe5a3.v4 = epinions75928_s2_da38b80661fe5a3.v4)), epinions75937_s3_da38b80661fe5a3 as (select * from umbra.identity(table(epinions75937_s2_da38b80661fe5a3)) where exists (select from umbra.identity(table(epinions75914_s2_da38b80661fe5a3)) where epinions75937_s2_da38b80661fe5a3.v0 = epinions75914_s2_da38b80661fe5a3.v0)), epinions75927_s3_da38b80661fe5a3 as (select * from umbra.identity(table(epinions75927_s2_da38b80661fe5a3)) where exists (select from umbra.identity(table(epinions75914_s2_da38b80661fe5a3)) where epinions75927_s2_da38b80661fe5a3.v0 = epinions75914_s2_da38b80661fe5a3.v0)), epinions75909_s3_da38b80661fe5a3 as (select * from umbra.identity(table(epinions75909_s2_da38b80661fe5a3)) where exists (select from umbra.identity(table(epinions75914_s2_da38b80661fe5a3)) where epinions75909_s2_da38b80661fe5a3.v0 = epinions75914_s2_da38b80661fe5a3.v0)), epinions75899_s3_da38b80661fe5a3 as (select * from umbra.identity(table(epinions75899_s2_da38b80661fe5a3)) where exists (select from umbra.identity(table(epinions75928_s2_da38b80661fe5a3)) where epinions75899_s2_da38b80661fe5a3.v6 = epinions75928_s2_da38b80661fe5a3.v6)), epinions75896_s3_da38b80661fe5a3 as (select * from umbra.identity(table(epinions75896_s2_da38b80661fe5a3)) where exists (select from umbra.identity(table(epinions75899_s2_da38b80661fe5a3)) where epinions75896_s2_da38b80661fe5a3.v6 = epinions75899_s2_da38b80661fe5a3.v6)) /* stage4 */, s4_group_55D7A0E6C8DB00ED as  (select * from umbra.identity(table(epinions75928_s2_da38b80661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75899_s3_da38b80661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75896_s3_da38b80661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75914_s3_da38b80661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75909_s3_da38b80661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75927_s3_da38b80661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75937_s3_da38b80661fe5a3)))select count(*) from umbra.identity(table(s4_group_55D7A0E6C8DB00ED));
+\set queryname epinions_acyclic_208_07
+-- Result size: 107115615
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75903 [label="epinions75903|<s> s|<d> d"]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75929 [label="epinions75929|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75917 [label="epinions75917|<s> s|<d> d"]; epinions75903:s -> epinions75900:s;epinions75900:s -> epinions75934:s;epinions75934:s -> epinions75929:s;epinions75929:d -> epinions75930:s;epinions75930:d -> epinions75897:s;epinions75897:s -> epinions75917:s;}
+--                                              +--------------------------+
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75930 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                                               |         |
+--                                                               |         |
+--                                                               |         |
+-- +---------------+----+---+                 +---------------+----+----+  |
+-- | epinions75917 |  s | d |                 | epinions75897 |  s |  d |  |
+-- +---------------+----+---+                 +---------------+----+----+  |
+--                    |                                          |         |
+--                    +------------------------------------------+         |
+--                                                                         |
+--                           +---------------+----------------+----+       |
+--                           | epinions75903 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75900 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75934 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75929 |        s       |  d | ------+
+--                           +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75930_s1_161e4280661fe5a3 as (select epinions75930.s as v4,epinions75930.d as v6 from epinions75930), epinions75929_s1_161e4280661fe5a3 as (select epinions75929.d as v4,epinions75929.s as v0 from epinions75929), epinions75903_s1_161e4280661fe5a3 as (select epinions75903.s as v0 from epinions75903), epinions75934_s2_161e4280661fe5a3 as (select epinions75934.s as v0 from epinions75934), epinions75900_s2_161e4280661fe5a3 as (select epinions75900.s as v0 from epinions75900), epinions75917_s1_161e4280661fe5a3 as (select epinions75917.s as v6 from epinions75917), epinions75897_s2_161e4280661fe5a3 as (select epinions75897.s as v6 from epinions75897) /* stage2 */, epinions75917_s2_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75917_s1_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75897_s2_161e4280661fe5a3)) where epinions75917_s1_161e4280661fe5a3.v6 = epinions75897_s2_161e4280661fe5a3.v6)), epinions75903_s2_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75903_s1_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75900_s2_161e4280661fe5a3)) where epinions75903_s1_161e4280661fe5a3.v0 = epinions75900_s2_161e4280661fe5a3.v0) AND exists (select from umbra.identity(table(epinions75934_s2_161e4280661fe5a3)) where epinions75903_s1_161e4280661fe5a3.v0 = epinions75934_s2_161e4280661fe5a3.v0)), epinions75929_s2_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75929_s1_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75903_s2_161e4280661fe5a3)) where epinions75929_s1_161e4280661fe5a3.v0 = epinions75903_s2_161e4280661fe5a3.v0)), epinions75930_s2_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75930_s1_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75917_s2_161e4280661fe5a3)) where epinions75930_s1_161e4280661fe5a3.v6 = epinions75917_s2_161e4280661fe5a3.v6) AND exists (select from umbra.identity(table(epinions75929_s2_161e4280661fe5a3)) where epinions75930_s1_161e4280661fe5a3.v4 = epinions75929_s2_161e4280661fe5a3.v4)) /* stage3 */, epinions75929_s3_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75929_s2_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75930_s2_161e4280661fe5a3)) where epinions75929_s2_161e4280661fe5a3.v4 = epinions75930_s2_161e4280661fe5a3.v4)), epinions75903_s3_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75903_s2_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75929_s2_161e4280661fe5a3)) where epinions75903_s2_161e4280661fe5a3.v0 = epinions75929_s2_161e4280661fe5a3.v0)), epinions75934_s3_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75934_s2_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75903_s2_161e4280661fe5a3)) where epinions75934_s2_161e4280661fe5a3.v0 = epinions75903_s2_161e4280661fe5a3.v0)), epinions75900_s3_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75900_s2_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75903_s2_161e4280661fe5a3)) where epinions75900_s2_161e4280661fe5a3.v0 = epinions75903_s2_161e4280661fe5a3.v0)), epinions75917_s3_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75917_s2_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75930_s2_161e4280661fe5a3)) where epinions75917_s2_161e4280661fe5a3.v6 = epinions75930_s2_161e4280661fe5a3.v6)), epinions75897_s3_161e4280661fe5a3 as (select * from umbra.identity(table(epinions75897_s2_161e4280661fe5a3)) where exists (select from umbra.identity(table(epinions75917_s2_161e4280661fe5a3)) where epinions75897_s2_161e4280661fe5a3.v6 = epinions75917_s2_161e4280661fe5a3.v6)) /* stage4 */, s4_group_7D7A2AFB80D65B2F as  (select * from umbra.identity(table(epinions75930_s2_161e4280661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75917_s3_161e4280661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75897_s3_161e4280661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75929_s3_161e4280661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75903_s3_161e4280661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75900_s3_161e4280661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75934_s3_161e4280661fe5a3)))select count(*) from umbra.identity(table(s4_group_7D7A2AFB80D65B2F));
+\set queryname epinions_acyclic_208_08
+-- Result size: 191631370
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75924 [label="epinions75924|<s> s|<d> d"]; epinions75937 [label="epinions75937|<s> s|<d> d"]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75913 [label="epinions75913|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75888 [label="epinions75888|<s> s|<d> d"]; epinions75930:s -> epinions75924:s;epinions75924:s -> epinions75937:s;epinions75937:s -> epinions75900:s;epinions75900:d -> epinions75913:s;epinions75913:d -> epinions75911:s;epinions75911:s -> epinions75888:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75888 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      +----+
+--                                                           |
+--                  +---------------+----------------+----+  |
+--                  | epinions75930 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75924 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75937 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75900 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                                      |    |
+--                    +---------------------------------+    |
+--                    |                                      |
+-- +---------------+----------------+----------------+       |
+-- | epinions75913 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75911 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     +---------------------+
+with dummy as (select) /* stage1 */, epinions75913_s1_1ebdae00661fe5a3 as (select epinions75913.s as v4,epinions75913.d as v6 from epinions75913), epinions75900_s1_1ebdae00661fe5a3 as (select epinions75900.d as v4,epinions75900.s as v0 from epinions75900), epinions75937_s2_1ebdae00661fe5a3 as (select epinions75937.s as v0 from epinions75937), epinions75930_s2_1ebdae00661fe5a3 as (select epinions75930.s as v0 from epinions75930), epinions75924_s2_1ebdae00661fe5a3 as (select epinions75924.s as v0 from epinions75924), epinions75911_s1_1ebdae00661fe5a3 as (select epinions75911.s as v6 from epinions75911), epinions75888_s2_1ebdae00661fe5a3 as (select epinions75888.s as v6 from epinions75888) /* stage2 */, epinions75911_s2_1ebdae00661fe5a3 as (select * from umbra.identity(table(epinions75911_s1_1ebdae00661fe5a3)) where exists (select from umbra.identity(table(epinions75888_s2_1ebdae00661fe5a3)) where epinions75911_s1_1ebdae00661fe5a3.v6 = epinions75888_s2_1ebdae00661fe5a3.v6)), epinions75900_s2_1ebdae00661fe5a3 as (select * from umbra.identity(table(epinions75900_s1_1ebdae00661fe5a3)) where exists (select from umbra.identity(table(epinions75924_s2_1ebdae00661fe5a3)) where epinions75900_s1_1ebdae00661fe5a3.v0 = epinions75924_s2_1ebdae00661fe5a3.v0) AND exists (select from umbra.identity(table(epinions75930_s2_1ebdae00661fe5a3)) where epinions75900_s1_1ebdae00661fe5a3.v0 = epinions75930_s2_1ebdae00661fe5a3.v0) AND exists (select from umbra.identity(table(epinions75937_s2_1ebdae00661fe5a3)) where epinions75900_s1_1ebdae00661fe5a3.v0 = epinions75937_s2_1ebdae00661fe5a3.v0)), epinions75913_s2_1ebdae00661fe5a3 as (select * from umbra.identity(table(epinions75913_s1_1ebdae00661fe5a3)) where exists (select from umbra.identity(table(epinions75911_s2_1ebdae00661fe5a3)) where epinions75913_s1_1ebdae00661fe5a3.v6 = epinions75911_s2_1ebdae00661fe5a3.v6) AND exists (select from umbra.identity(table(epinions75900_s2_1ebdae00661fe5a3)) where epinions75913_s1_1ebdae00661fe5a3.v4 = epinions75900_s2_1ebdae00661fe5a3.v4)) /* stage3 */, epinions75900_s3_1ebdae00661fe5a3 as (select * from umbra.identity(table(epinions75900_s2_1ebdae00661fe5a3)) where exists (select from umbra.identity(table(epinions75913_s2_1ebdae00661fe5a3)) where epinions75900_s2_1ebdae00661fe5a3.v4 = epinions75913_s2_1ebdae00661fe5a3.v4)), epinions75937_s3_1ebdae00661fe5a3 as (select * from umbra.identity(table(epinions75937_s2_1ebdae00661fe5a3)) where exists (select from umbra.identity(table(epinions75900_s2_1ebdae00661fe5a3)) where epinions75937_s2_1ebdae00661fe5a3.v0 = epinions75900_s2_1ebdae00661fe5a3.v0)), epinions75930_s3_1ebdae00661fe5a3 as (select * from umbra.identity(table(epinions75930_s2_1ebdae00661fe5a3)) where exists (select from umbra.identity(table(epinions75900_s2_1ebdae00661fe5a3)) where epinions75930_s2_1ebdae00661fe5a3.v0 = epinions75900_s2_1ebdae00661fe5a3.v0)), epinions75924_s3_1ebdae00661fe5a3 as (select * from umbra.identity(table(epinions75924_s2_1ebdae00661fe5a3)) where exists (select from umbra.identity(table(epinions75900_s2_1ebdae00661fe5a3)) where epinions75924_s2_1ebdae00661fe5a3.v0 = epinions75900_s2_1ebdae00661fe5a3.v0)), epinions75911_s3_1ebdae00661fe5a3 as (select * from umbra.identity(table(epinions75911_s2_1ebdae00661fe5a3)) where exists (select from umbra.identity(table(epinions75913_s2_1ebdae00661fe5a3)) where epinions75911_s2_1ebdae00661fe5a3.v6 = epinions75913_s2_1ebdae00661fe5a3.v6)), epinions75888_s3_1ebdae00661fe5a3 as (select * from umbra.identity(table(epinions75888_s2_1ebdae00661fe5a3)) where exists (select from umbra.identity(table(epinions75911_s2_1ebdae00661fe5a3)) where epinions75888_s2_1ebdae00661fe5a3.v6 = epinions75911_s2_1ebdae00661fe5a3.v6)) /* stage4 */, s4_group_1E0604AEB3C45DE5 as  (select * from umbra.identity(table(epinions75913_s2_1ebdae00661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75911_s3_1ebdae00661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75888_s3_1ebdae00661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75900_s3_1ebdae00661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75924_s3_1ebdae00661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75930_s3_1ebdae00661fe5a3)) NATURAL JOIN umbra.identity(table(epinions75937_s3_1ebdae00661fe5a3)))select count(*) from umbra.identity(table(s4_group_1E0604AEB3C45DE5));
+\set queryname epinions_acyclic_208_09
+-- Result size: 48585785
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75888 [label="epinions75888|<s> s|<d> d"]; epinions75912 [label="epinions75912|<s> s|<d> d"]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75925 [label="epinions75925|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75928:s -> epinions75888:s;epinions75888:s -> epinions75912:s;epinions75912:s -> epinions75902:s;epinions75902:d -> epinions75925:s;epinions75925:d -> epinions75911:s;epinions75911:s -> epinions75905:s;}
+--                    +--------------------------------------+
+--                    |                                      |
+--                    |              +---------------+----+----+
+--                    |              | epinions75902 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75912 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75888 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75928 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |
+--                    |
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75925 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75911 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75905 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75925_s1_72c9c00661fe5a4 as (select epinions75925.s as v4,epinions75925.d as v6 from epinions75925), epinions75902_s1_72c9c00661fe5a4 as (select epinions75902.d as v4,epinions75902.s as v0 from epinions75902), epinions75928_s2_72c9c00661fe5a4 as (select epinions75928.s as v0 from epinions75928), epinions75912_s2_72c9c00661fe5a4 as (select epinions75912.s as v0 from epinions75912), epinions75888_s2_72c9c00661fe5a4 as (select epinions75888.s as v0 from epinions75888), epinions75911_s1_72c9c00661fe5a4 as (select epinions75911.s as v6 from epinions75911), epinions75905_s2_72c9c00661fe5a4 as (select epinions75905.s as v6 from epinions75905) /* stage2 */, epinions75911_s2_72c9c00661fe5a4 as (select * from umbra.identity(table(epinions75911_s1_72c9c00661fe5a4)) where exists (select from umbra.identity(table(epinions75905_s2_72c9c00661fe5a4)) where epinions75911_s1_72c9c00661fe5a4.v6 = epinions75905_s2_72c9c00661fe5a4.v6)), epinions75902_s2_72c9c00661fe5a4 as (select * from umbra.identity(table(epinions75902_s1_72c9c00661fe5a4)) where exists (select from umbra.identity(table(epinions75888_s2_72c9c00661fe5a4)) where epinions75902_s1_72c9c00661fe5a4.v0 = epinions75888_s2_72c9c00661fe5a4.v0) AND exists (select from umbra.identity(table(epinions75912_s2_72c9c00661fe5a4)) where epinions75902_s1_72c9c00661fe5a4.v0 = epinions75912_s2_72c9c00661fe5a4.v0) AND exists (select from umbra.identity(table(epinions75928_s2_72c9c00661fe5a4)) where epinions75902_s1_72c9c00661fe5a4.v0 = epinions75928_s2_72c9c00661fe5a4.v0)), epinions75925_s2_72c9c00661fe5a4 as (select * from umbra.identity(table(epinions75925_s1_72c9c00661fe5a4)) where exists (select from umbra.identity(table(epinions75911_s2_72c9c00661fe5a4)) where epinions75925_s1_72c9c00661fe5a4.v6 = epinions75911_s2_72c9c00661fe5a4.v6) AND exists (select from umbra.identity(table(epinions75902_s2_72c9c00661fe5a4)) where epinions75925_s1_72c9c00661fe5a4.v4 = epinions75902_s2_72c9c00661fe5a4.v4)) /* stage3 */, epinions75902_s3_72c9c00661fe5a4 as (select * from umbra.identity(table(epinions75902_s2_72c9c00661fe5a4)) where exists (select from umbra.identity(table(epinions75925_s2_72c9c00661fe5a4)) where epinions75902_s2_72c9c00661fe5a4.v4 = epinions75925_s2_72c9c00661fe5a4.v4)), epinions75928_s3_72c9c00661fe5a4 as (select * from umbra.identity(table(epinions75928_s2_72c9c00661fe5a4)) where exists (select from umbra.identity(table(epinions75902_s2_72c9c00661fe5a4)) where epinions75928_s2_72c9c00661fe5a4.v0 = epinions75902_s2_72c9c00661fe5a4.v0)), epinions75912_s3_72c9c00661fe5a4 as (select * from umbra.identity(table(epinions75912_s2_72c9c00661fe5a4)) where exists (select from umbra.identity(table(epinions75902_s2_72c9c00661fe5a4)) where epinions75912_s2_72c9c00661fe5a4.v0 = epinions75902_s2_72c9c00661fe5a4.v0)), epinions75888_s3_72c9c00661fe5a4 as (select * from umbra.identity(table(epinions75888_s2_72c9c00661fe5a4)) where exists (select from umbra.identity(table(epinions75902_s2_72c9c00661fe5a4)) where epinions75888_s2_72c9c00661fe5a4.v0 = epinions75902_s2_72c9c00661fe5a4.v0)), epinions75911_s3_72c9c00661fe5a4 as (select * from umbra.identity(table(epinions75911_s2_72c9c00661fe5a4)) where exists (select from umbra.identity(table(epinions75925_s2_72c9c00661fe5a4)) where epinions75911_s2_72c9c00661fe5a4.v6 = epinions75925_s2_72c9c00661fe5a4.v6)), epinions75905_s3_72c9c00661fe5a4 as (select * from umbra.identity(table(epinions75905_s2_72c9c00661fe5a4)) where exists (select from umbra.identity(table(epinions75911_s2_72c9c00661fe5a4)) where epinions75905_s2_72c9c00661fe5a4.v6 = epinions75911_s2_72c9c00661fe5a4.v6)) /* stage4 */, s4_group_6A0E5D5399BCCD28 as  (select * from umbra.identity(table(epinions75925_s2_72c9c00661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75911_s3_72c9c00661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75905_s3_72c9c00661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75902_s3_72c9c00661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75888_s3_72c9c00661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75912_s3_72c9c00661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75928_s3_72c9c00661fe5a4)))select count(*) from umbra.identity(table(s4_group_6A0E5D5399BCCD28));
+\set queryname epinions_acyclic_208_10
+-- Result size: 45563032
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75925 [label="epinions75925|<s> s|<d> d"]; epinions75904 [label="epinions75904|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75916 [label="epinions75916|<s> s|<d> d"]; epinions75917 [label="epinions75917|<s> s|<d> d"]; epinions75900:s -> epinions75907:s;epinions75907:s -> epinions75925:s;epinions75925:s -> epinions75904:s;epinions75904:d -> epinions75919:s;epinions75919:d -> epinions75916:s;epinions75916:s -> epinions75917:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75900 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75907 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75925 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75904 |  s |  d |
+--                                   +---------------+----+----+
+--                                                           |
+--                    +--------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75919 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75916 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75917 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75919_s1_10005200661fe5a4 as (select epinions75919.d as v6,epinions75919.s as v4 from epinions75919), epinions75904_s1_10005200661fe5a4 as (select epinions75904.s as v0,epinions75904.d as v4 from epinions75904), epinions75925_s2_10005200661fe5a4 as (select epinions75925.s as v0 from epinions75925), epinions75907_s2_10005200661fe5a4 as (select epinions75907.s as v0 from epinions75907), epinions75900_s2_10005200661fe5a4 as (select epinions75900.s as v0 from epinions75900), epinions75917_s1_10005200661fe5a4 as (select epinions75917.s as v6 from epinions75917), epinions75916_s2_10005200661fe5a4 as (select epinions75916.s as v6 from epinions75916) /* stage2 */, epinions75917_s2_10005200661fe5a4 as (select * from umbra.identity(table(epinions75917_s1_10005200661fe5a4)) where exists (select from umbra.identity(table(epinions75916_s2_10005200661fe5a4)) where epinions75917_s1_10005200661fe5a4.v6 = epinions75916_s2_10005200661fe5a4.v6)), epinions75904_s2_10005200661fe5a4 as (select * from umbra.identity(table(epinions75904_s1_10005200661fe5a4)) where exists (select from umbra.identity(table(epinions75900_s2_10005200661fe5a4)) where epinions75904_s1_10005200661fe5a4.v0 = epinions75900_s2_10005200661fe5a4.v0) AND exists (select from umbra.identity(table(epinions75907_s2_10005200661fe5a4)) where epinions75904_s1_10005200661fe5a4.v0 = epinions75907_s2_10005200661fe5a4.v0) AND exists (select from umbra.identity(table(epinions75925_s2_10005200661fe5a4)) where epinions75904_s1_10005200661fe5a4.v0 = epinions75925_s2_10005200661fe5a4.v0)), epinions75919_s2_10005200661fe5a4 as (select * from umbra.identity(table(epinions75919_s1_10005200661fe5a4)) where exists (select from umbra.identity(table(epinions75917_s2_10005200661fe5a4)) where epinions75919_s1_10005200661fe5a4.v6 = epinions75917_s2_10005200661fe5a4.v6) AND exists (select from umbra.identity(table(epinions75904_s2_10005200661fe5a4)) where epinions75919_s1_10005200661fe5a4.v4 = epinions75904_s2_10005200661fe5a4.v4)) /* stage3 */, epinions75904_s3_10005200661fe5a4 as (select * from umbra.identity(table(epinions75904_s2_10005200661fe5a4)) where exists (select from umbra.identity(table(epinions75919_s2_10005200661fe5a4)) where epinions75904_s2_10005200661fe5a4.v4 = epinions75919_s2_10005200661fe5a4.v4)), epinions75925_s3_10005200661fe5a4 as (select * from umbra.identity(table(epinions75925_s2_10005200661fe5a4)) where exists (select from umbra.identity(table(epinions75904_s2_10005200661fe5a4)) where epinions75925_s2_10005200661fe5a4.v0 = epinions75904_s2_10005200661fe5a4.v0)), epinions75907_s3_10005200661fe5a4 as (select * from umbra.identity(table(epinions75907_s2_10005200661fe5a4)) where exists (select from umbra.identity(table(epinions75904_s2_10005200661fe5a4)) where epinions75907_s2_10005200661fe5a4.v0 = epinions75904_s2_10005200661fe5a4.v0)), epinions75900_s3_10005200661fe5a4 as (select * from umbra.identity(table(epinions75900_s2_10005200661fe5a4)) where exists (select from umbra.identity(table(epinions75904_s2_10005200661fe5a4)) where epinions75900_s2_10005200661fe5a4.v0 = epinions75904_s2_10005200661fe5a4.v0)), epinions75917_s3_10005200661fe5a4 as (select * from umbra.identity(table(epinions75917_s2_10005200661fe5a4)) where exists (select from umbra.identity(table(epinions75919_s2_10005200661fe5a4)) where epinions75917_s2_10005200661fe5a4.v6 = epinions75919_s2_10005200661fe5a4.v6)), epinions75916_s3_10005200661fe5a4 as (select * from umbra.identity(table(epinions75916_s2_10005200661fe5a4)) where exists (select from umbra.identity(table(epinions75917_s2_10005200661fe5a4)) where epinions75916_s2_10005200661fe5a4.v6 = epinions75917_s2_10005200661fe5a4.v6)) /* stage4 */, s4_group_72991F2B79E2134 as  (select * from umbra.identity(table(epinions75919_s2_10005200661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75917_s3_10005200661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75916_s3_10005200661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75904_s3_10005200661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75900_s3_10005200661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75907_s3_10005200661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75925_s3_10005200661fe5a4)))select count(*) from umbra.identity(table(s4_group_72991F2B79E2134));
+\set queryname epinions_acyclic_208_11
+-- Result size: 36443718
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75933 [label="epinions75933|<s> s|<d> d"]; epinions75890 [label="epinions75890|<s> s|<d> d"]; epinions75903 [label="epinions75903|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75904 [label="epinions75904|<s> s|<d> d"]; epinions75902:s -> epinions75927:s;epinions75927:s -> epinions75933:s;epinions75933:s -> epinions75890:s;epinions75890:d -> epinions75903:s;epinions75903:d -> epinions75930:s;epinions75930:s -> epinions75904:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75890 |  s |  d | -+
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75902 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75927 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75933 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75903 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75930 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75904 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75903_s1_18b7b800661fe5a4 as (select epinions75903.s as v4,epinions75903.d as v6 from epinions75903), epinions75890_s1_18b7b800661fe5a4 as (select epinions75890.s as v0,epinions75890.d as v4 from epinions75890), epinions75933_s2_18b7b800661fe5a4 as (select epinions75933.s as v0 from epinions75933), epinions75927_s2_18b7b800661fe5a4 as (select epinions75927.s as v0 from epinions75927), epinions75902_s2_18b7b800661fe5a4 as (select epinions75902.s as v0 from epinions75902), epinions75930_s2_18b7b800661fe5a4 as (select epinions75930.s as v6 from epinions75930), epinions75904_s2_18b7b800661fe5a4 as (select epinions75904.s as v6 from epinions75904) /* stage2 */, epinions75890_s2_18b7b800661fe5a4 as (select * from umbra.identity(table(epinions75890_s1_18b7b800661fe5a4)) where exists (select from umbra.identity(table(epinions75902_s2_18b7b800661fe5a4)) where epinions75890_s1_18b7b800661fe5a4.v0 = epinions75902_s2_18b7b800661fe5a4.v0) AND exists (select from umbra.identity(table(epinions75927_s2_18b7b800661fe5a4)) where epinions75890_s1_18b7b800661fe5a4.v0 = epinions75927_s2_18b7b800661fe5a4.v0) AND exists (select from umbra.identity(table(epinions75933_s2_18b7b800661fe5a4)) where epinions75890_s1_18b7b800661fe5a4.v0 = epinions75933_s2_18b7b800661fe5a4.v0)), epinions75903_s2_18b7b800661fe5a4 as (select * from umbra.identity(table(epinions75903_s1_18b7b800661fe5a4)) where exists (select from umbra.identity(table(epinions75904_s2_18b7b800661fe5a4)) where epinions75903_s1_18b7b800661fe5a4.v6 = epinions75904_s2_18b7b800661fe5a4.v6) AND exists (select from umbra.identity(table(epinions75930_s2_18b7b800661fe5a4)) where epinions75903_s1_18b7b800661fe5a4.v6 = epinions75930_s2_18b7b800661fe5a4.v6) AND exists (select from umbra.identity(table(epinions75890_s2_18b7b800661fe5a4)) where epinions75903_s1_18b7b800661fe5a4.v4 = epinions75890_s2_18b7b800661fe5a4.v4)) /* stage3 */, epinions75890_s3_18b7b800661fe5a4 as (select * from umbra.identity(table(epinions75890_s2_18b7b800661fe5a4)) where exists (select from umbra.identity(table(epinions75903_s2_18b7b800661fe5a4)) where epinions75890_s2_18b7b800661fe5a4.v4 = epinions75903_s2_18b7b800661fe5a4.v4)), epinions75933_s3_18b7b800661fe5a4 as (select * from umbra.identity(table(epinions75933_s2_18b7b800661fe5a4)) where exists (select from umbra.identity(table(epinions75890_s2_18b7b800661fe5a4)) where epinions75933_s2_18b7b800661fe5a4.v0 = epinions75890_s2_18b7b800661fe5a4.v0)), epinions75927_s3_18b7b800661fe5a4 as (select * from umbra.identity(table(epinions75927_s2_18b7b800661fe5a4)) where exists (select from umbra.identity(table(epinions75890_s2_18b7b800661fe5a4)) where epinions75927_s2_18b7b800661fe5a4.v0 = epinions75890_s2_18b7b800661fe5a4.v0)), epinions75902_s3_18b7b800661fe5a4 as (select * from umbra.identity(table(epinions75902_s2_18b7b800661fe5a4)) where exists (select from umbra.identity(table(epinions75890_s2_18b7b800661fe5a4)) where epinions75902_s2_18b7b800661fe5a4.v0 = epinions75890_s2_18b7b800661fe5a4.v0)), epinions75930_s3_18b7b800661fe5a4 as (select * from umbra.identity(table(epinions75930_s2_18b7b800661fe5a4)) where exists (select from umbra.identity(table(epinions75903_s2_18b7b800661fe5a4)) where epinions75930_s2_18b7b800661fe5a4.v6 = epinions75903_s2_18b7b800661fe5a4.v6)), epinions75904_s3_18b7b800661fe5a4 as (select * from umbra.identity(table(epinions75904_s2_18b7b800661fe5a4)) where exists (select from umbra.identity(table(epinions75903_s2_18b7b800661fe5a4)) where epinions75904_s2_18b7b800661fe5a4.v6 = epinions75903_s2_18b7b800661fe5a4.v6)) /* stage4 */, s4_group_5CD0FAADB9A0F84 as  (select * from umbra.identity(table(epinions75903_s2_18b7b800661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75904_s3_18b7b800661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75930_s3_18b7b800661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75890_s3_18b7b800661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75902_s3_18b7b800661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75927_s3_18b7b800661fe5a4)) NATURAL JOIN umbra.identity(table(epinions75933_s3_18b7b800661fe5a4)))select count(*) from umbra.identity(table(s4_group_5CD0FAADB9A0F84));
+\set queryname epinions_acyclic_208_12
+-- Result size: 103565359
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75899 [label="epinions75899|<s> s|<d> d"]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75922 [label="epinions75922|<s> s|<d> d"]; epinions75901 [label="epinions75901|<s> s|<d> d"]; epinions75897:s -> epinions75918:s;epinions75918:s -> epinions75919:s;epinions75919:s -> epinions75899:s;epinions75899:d -> epinions75902:s;epinions75902:d -> epinions75922:s;epinions75922:s -> epinions75901:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75897 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75918 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75919 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75899 |  s |  d |
+--                                   +---------------+----+----+
+--                                                           |
+--                    +--------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75902 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75922 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75901 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75902_s1_17f7180661fe5a5 as (select epinions75902.s as v4,epinions75902.d as v6 from epinions75902), epinions75899_s1_17f7180661fe5a5 as (select epinions75899.d as v4,epinions75899.s as v0 from epinions75899), epinions75919_s2_17f7180661fe5a5 as (select epinions75919.s as v0 from epinions75919), epinions75918_s2_17f7180661fe5a5 as (select epinions75918.s as v0 from epinions75918), epinions75897_s2_17f7180661fe5a5 as (select epinions75897.s as v0 from epinions75897), epinions75922_s2_17f7180661fe5a5 as (select epinions75922.s as v6 from epinions75922), epinions75901_s2_17f7180661fe5a5 as (select epinions75901.s as v6 from epinions75901) /* stage2 */, epinions75899_s2_17f7180661fe5a5 as (select * from umbra.identity(table(epinions75899_s1_17f7180661fe5a5)) where exists (select from umbra.identity(table(epinions75897_s2_17f7180661fe5a5)) where epinions75899_s1_17f7180661fe5a5.v0 = epinions75897_s2_17f7180661fe5a5.v0) AND exists (select from umbra.identity(table(epinions75918_s2_17f7180661fe5a5)) where epinions75899_s1_17f7180661fe5a5.v0 = epinions75918_s2_17f7180661fe5a5.v0) AND exists (select from umbra.identity(table(epinions75919_s2_17f7180661fe5a5)) where epinions75899_s1_17f7180661fe5a5.v0 = epinions75919_s2_17f7180661fe5a5.v0)), epinions75902_s2_17f7180661fe5a5 as (select * from umbra.identity(table(epinions75902_s1_17f7180661fe5a5)) where exists (select from umbra.identity(table(epinions75901_s2_17f7180661fe5a5)) where epinions75902_s1_17f7180661fe5a5.v6 = epinions75901_s2_17f7180661fe5a5.v6) AND exists (select from umbra.identity(table(epinions75922_s2_17f7180661fe5a5)) where epinions75902_s1_17f7180661fe5a5.v6 = epinions75922_s2_17f7180661fe5a5.v6) AND exists (select from umbra.identity(table(epinions75899_s2_17f7180661fe5a5)) where epinions75902_s1_17f7180661fe5a5.v4 = epinions75899_s2_17f7180661fe5a5.v4)) /* stage3 */, epinions75899_s3_17f7180661fe5a5 as (select * from umbra.identity(table(epinions75899_s2_17f7180661fe5a5)) where exists (select from umbra.identity(table(epinions75902_s2_17f7180661fe5a5)) where epinions75899_s2_17f7180661fe5a5.v4 = epinions75902_s2_17f7180661fe5a5.v4)), epinions75919_s3_17f7180661fe5a5 as (select * from umbra.identity(table(epinions75919_s2_17f7180661fe5a5)) where exists (select from umbra.identity(table(epinions75899_s2_17f7180661fe5a5)) where epinions75919_s2_17f7180661fe5a5.v0 = epinions75899_s2_17f7180661fe5a5.v0)), epinions75918_s3_17f7180661fe5a5 as (select * from umbra.identity(table(epinions75918_s2_17f7180661fe5a5)) where exists (select from umbra.identity(table(epinions75899_s2_17f7180661fe5a5)) where epinions75918_s2_17f7180661fe5a5.v0 = epinions75899_s2_17f7180661fe5a5.v0)), epinions75897_s3_17f7180661fe5a5 as (select * from umbra.identity(table(epinions75897_s2_17f7180661fe5a5)) where exists (select from umbra.identity(table(epinions75899_s2_17f7180661fe5a5)) where epinions75897_s2_17f7180661fe5a5.v0 = epinions75899_s2_17f7180661fe5a5.v0)), epinions75922_s3_17f7180661fe5a5 as (select * from umbra.identity(table(epinions75922_s2_17f7180661fe5a5)) where exists (select from umbra.identity(table(epinions75902_s2_17f7180661fe5a5)) where epinions75922_s2_17f7180661fe5a5.v6 = epinions75902_s2_17f7180661fe5a5.v6)), epinions75901_s3_17f7180661fe5a5 as (select * from umbra.identity(table(epinions75901_s2_17f7180661fe5a5)) where exists (select from umbra.identity(table(epinions75902_s2_17f7180661fe5a5)) where epinions75901_s2_17f7180661fe5a5.v6 = epinions75902_s2_17f7180661fe5a5.v6)) /* stage4 */, s4_group_7CC1D71AD21270D1 as  (select * from umbra.identity(table(epinions75902_s2_17f7180661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75901_s3_17f7180661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75922_s3_17f7180661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75899_s3_17f7180661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75897_s3_17f7180661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75918_s3_17f7180661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75919_s3_17f7180661fe5a5)))select count(*) from umbra.identity(table(s4_group_7CC1D71AD21270D1));
+\set queryname epinions_acyclic_208_13
+-- Result size: 164667501
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75921 [label="epinions75921|<s> s|<d> d"]; epinions75933 [label="epinions75933|<s> s|<d> d"]; epinions75923 [label="epinions75923|<s> s|<d> d"]; epinions75914 [label="epinions75914|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75917 [label="epinions75917|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75921:s -> epinions75933:s;epinions75933:s -> epinions75923:s;epinions75923:s -> epinions75914:s;epinions75914:d -> epinions75907:s;epinions75907:d -> epinions75917:s;epinions75917:s -> epinions75909:s;}
+--                                                                     +---------+
+--                                                                     |         |
+--                       +---------------+----+----+----------------+----+----+  |
+--                       | epinions75907 |  s |  d |  epinions75917 |  s |  d |  |
+--                       +---------------+----+----+----------------+----+----+  |
+--                                          |    |                     |         |
+--   +--------------------------------------+    +---------------------+         |
+--   |                                                                           |
+--   |  +---------------+----------------+----+     +---------------+----+----+  |
+--   |  | epinions75921 |        s       |  d |     | epinions75909 |  s |  d |  |
+--   |  +---------------+----------------+----+     +---------------+----+----+  |
+--   |                     |                                           |         |
+--   |                     |                                           +---------+
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | epinions75933 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                     |
+--   |                     |
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | epinions75923 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                     |
+--   |                     |
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | epinions75914 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                                      |
+--   +--------------------------------------+
+with dummy as (select) /* stage1 */, epinions75914_s1_add2f00661fe5a5 as (select epinions75914.d as v4,epinions75914.s as v0 from epinions75914), epinions75907_s1_add2f00661fe5a5 as (select epinions75907.d as v6,epinions75907.s as v4 from epinions75907), epinions75917_s2_add2f00661fe5a5 as (select epinions75917.s as v6 from epinions75917), epinions75909_s2_add2f00661fe5a5 as (select epinions75909.s as v6 from epinions75909), epinions75933_s2_add2f00661fe5a5 as (select epinions75933.s as v0 from epinions75933), epinions75923_s2_add2f00661fe5a5 as (select epinions75923.s as v0 from epinions75923), epinions75921_s2_add2f00661fe5a5 as (select epinions75921.s as v0 from epinions75921) /* stage2 */, epinions75907_s2_add2f00661fe5a5 as (select * from umbra.identity(table(epinions75907_s1_add2f00661fe5a5)) where exists (select from umbra.identity(table(epinions75909_s2_add2f00661fe5a5)) where epinions75907_s1_add2f00661fe5a5.v6 = epinions75909_s2_add2f00661fe5a5.v6) AND exists (select from umbra.identity(table(epinions75917_s2_add2f00661fe5a5)) where epinions75907_s1_add2f00661fe5a5.v6 = epinions75917_s2_add2f00661fe5a5.v6)), epinions75914_s2_add2f00661fe5a5 as (select * from umbra.identity(table(epinions75914_s1_add2f00661fe5a5)) where exists (select from umbra.identity(table(epinions75921_s2_add2f00661fe5a5)) where epinions75914_s1_add2f00661fe5a5.v0 = epinions75921_s2_add2f00661fe5a5.v0) AND exists (select from umbra.identity(table(epinions75923_s2_add2f00661fe5a5)) where epinions75914_s1_add2f00661fe5a5.v0 = epinions75923_s2_add2f00661fe5a5.v0) AND exists (select from umbra.identity(table(epinions75933_s2_add2f00661fe5a5)) where epinions75914_s1_add2f00661fe5a5.v0 = epinions75933_s2_add2f00661fe5a5.v0) AND exists (select from umbra.identity(table(epinions75907_s2_add2f00661fe5a5)) where epinions75914_s1_add2f00661fe5a5.v4 = epinions75907_s2_add2f00661fe5a5.v4)) /* stage3 */, epinions75907_s3_add2f00661fe5a5 as (select * from umbra.identity(table(epinions75907_s2_add2f00661fe5a5)) where exists (select from umbra.identity(table(epinions75914_s2_add2f00661fe5a5)) where epinions75907_s2_add2f00661fe5a5.v4 = epinions75914_s2_add2f00661fe5a5.v4)), epinions75917_s3_add2f00661fe5a5 as (select * from umbra.identity(table(epinions75917_s2_add2f00661fe5a5)) where exists (select from umbra.identity(table(epinions75907_s2_add2f00661fe5a5)) where epinions75917_s2_add2f00661fe5a5.v6 = epinions75907_s2_add2f00661fe5a5.v6)), epinions75909_s3_add2f00661fe5a5 as (select * from umbra.identity(table(epinions75909_s2_add2f00661fe5a5)) where exists (select from umbra.identity(table(epinions75907_s2_add2f00661fe5a5)) where epinions75909_s2_add2f00661fe5a5.v6 = epinions75907_s2_add2f00661fe5a5.v6)), epinions75933_s3_add2f00661fe5a5 as (select * from umbra.identity(table(epinions75933_s2_add2f00661fe5a5)) where exists (select from umbra.identity(table(epinions75914_s2_add2f00661fe5a5)) where epinions75933_s2_add2f00661fe5a5.v0 = epinions75914_s2_add2f00661fe5a5.v0)), epinions75923_s3_add2f00661fe5a5 as (select * from umbra.identity(table(epinions75923_s2_add2f00661fe5a5)) where exists (select from umbra.identity(table(epinions75914_s2_add2f00661fe5a5)) where epinions75923_s2_add2f00661fe5a5.v0 = epinions75914_s2_add2f00661fe5a5.v0)), epinions75921_s3_add2f00661fe5a5 as (select * from umbra.identity(table(epinions75921_s2_add2f00661fe5a5)) where exists (select from umbra.identity(table(epinions75914_s2_add2f00661fe5a5)) where epinions75921_s2_add2f00661fe5a5.v0 = epinions75914_s2_add2f00661fe5a5.v0)) /* stage4 */, s4_group_556A38AE3C1C4989 as  (select * from umbra.identity(table(epinions75914_s2_add2f00661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75921_s3_add2f00661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75923_s3_add2f00661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75933_s3_add2f00661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75907_s3_add2f00661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75909_s3_add2f00661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75917_s3_add2f00661fe5a5)))select count(*) from umbra.identity(table(s4_group_556A38AE3C1C4989));
+\set queryname epinions_acyclic_208_14
+-- Result size: 47393560
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75904 [label="epinions75904|<s> s|<d> d"]; epinions75906 [label="epinions75906|<s> s|<d> d"]; epinions75894 [label="epinions75894|<s> s|<d> d"]; epinions75916 [label="epinions75916|<s> s|<d> d"]; epinions75931 [label="epinions75931|<s> s|<d> d"]; epinions75912 [label="epinions75912|<s> s|<d> d"]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75904:s -> epinions75906:s;epinions75906:s -> epinions75894:s;epinions75894:s -> epinions75916:s;epinions75916:d -> epinions75931:s;epinions75931:d -> epinions75912:s;epinions75912:s -> epinions75897:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75916 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |    |
+--                                                      |    +----+
+--                                                      |         |
+--                                   +---------------+----+----+  |
+--                                   | epinions75894 |  s |  d |  |
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75904 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75906 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75931 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75912 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75897 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75931_s1_13995480661fe5a5 as (select epinions75931.s as v4,epinions75931.d as v6 from epinions75931), epinions75916_s1_13995480661fe5a5 as (select epinions75916.d as v4,epinions75916.s as v0 from epinions75916), epinions75904_s1_13995480661fe5a5 as (select epinions75904.s as v0 from epinions75904), epinions75906_s2_13995480661fe5a5 as (select epinions75906.s as v0 from epinions75906), epinions75894_s2_13995480661fe5a5 as (select epinions75894.s as v0 from epinions75894), epinions75912_s1_13995480661fe5a5 as (select epinions75912.s as v6 from epinions75912), epinions75897_s2_13995480661fe5a5 as (select epinions75897.s as v6 from epinions75897) /* stage2 */, epinions75912_s2_13995480661fe5a5 as (select * from umbra.identity(table(epinions75912_s1_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75897_s2_13995480661fe5a5)) where epinions75912_s1_13995480661fe5a5.v6 = epinions75897_s2_13995480661fe5a5.v6)), epinions75904_s2_13995480661fe5a5 as (select * from umbra.identity(table(epinions75904_s1_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75894_s2_13995480661fe5a5)) where epinions75904_s1_13995480661fe5a5.v0 = epinions75894_s2_13995480661fe5a5.v0) AND exists (select from umbra.identity(table(epinions75906_s2_13995480661fe5a5)) where epinions75904_s1_13995480661fe5a5.v0 = epinions75906_s2_13995480661fe5a5.v0)), epinions75916_s2_13995480661fe5a5 as (select * from umbra.identity(table(epinions75916_s1_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75904_s2_13995480661fe5a5)) where epinions75916_s1_13995480661fe5a5.v0 = epinions75904_s2_13995480661fe5a5.v0)), epinions75931_s2_13995480661fe5a5 as (select * from umbra.identity(table(epinions75931_s1_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75912_s2_13995480661fe5a5)) where epinions75931_s1_13995480661fe5a5.v6 = epinions75912_s2_13995480661fe5a5.v6) AND exists (select from umbra.identity(table(epinions75916_s2_13995480661fe5a5)) where epinions75931_s1_13995480661fe5a5.v4 = epinions75916_s2_13995480661fe5a5.v4)) /* stage3 */, epinions75916_s3_13995480661fe5a5 as (select * from umbra.identity(table(epinions75916_s2_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75931_s2_13995480661fe5a5)) where epinions75916_s2_13995480661fe5a5.v4 = epinions75931_s2_13995480661fe5a5.v4)), epinions75904_s3_13995480661fe5a5 as (select * from umbra.identity(table(epinions75904_s2_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75916_s2_13995480661fe5a5)) where epinions75904_s2_13995480661fe5a5.v0 = epinions75916_s2_13995480661fe5a5.v0)), epinions75906_s3_13995480661fe5a5 as (select * from umbra.identity(table(epinions75906_s2_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75904_s2_13995480661fe5a5)) where epinions75906_s2_13995480661fe5a5.v0 = epinions75904_s2_13995480661fe5a5.v0)), epinions75894_s3_13995480661fe5a5 as (select * from umbra.identity(table(epinions75894_s2_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75904_s2_13995480661fe5a5)) where epinions75894_s2_13995480661fe5a5.v0 = epinions75904_s2_13995480661fe5a5.v0)), epinions75912_s3_13995480661fe5a5 as (select * from umbra.identity(table(epinions75912_s2_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75931_s2_13995480661fe5a5)) where epinions75912_s2_13995480661fe5a5.v6 = epinions75931_s2_13995480661fe5a5.v6)), epinions75897_s3_13995480661fe5a5 as (select * from umbra.identity(table(epinions75897_s2_13995480661fe5a5)) where exists (select from umbra.identity(table(epinions75912_s2_13995480661fe5a5)) where epinions75897_s2_13995480661fe5a5.v6 = epinions75912_s2_13995480661fe5a5.v6)) /* stage4 */, s4_group_68E1F9208A67EFC2 as  (select * from umbra.identity(table(epinions75931_s2_13995480661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75912_s3_13995480661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75897_s3_13995480661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75916_s3_13995480661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75904_s3_13995480661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75894_s3_13995480661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75906_s3_13995480661fe5a5)))select count(*) from umbra.identity(table(s4_group_68E1F9208A67EFC2));
+\set queryname epinions_acyclic_208_15
+-- Result size: 74202621
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75935 [label="epinions75935|<s> s|<d> d"]; epinions75920 [label="epinions75920|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75923 [label="epinions75923|<s> s|<d> d"]; epinions75935:s -> epinions75920:s;epinions75920:s -> epinions75934:s;epinions75934:s -> epinions75905:s;epinions75905:d -> epinions75930:s;epinions75930:d -> epinions75909:s;epinions75909:s -> epinions75923:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75905 |  s |  d | -+
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75935 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75920 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75934 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75930 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75909 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75923 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75930_s1_1c07e880661fe5a5 as (select epinions75930.d as v6,epinions75930.s as v4 from epinions75930), epinions75905_s1_1c07e880661fe5a5 as (select epinions75905.d as v4,epinions75905.s as v0 from epinions75905), epinions75935_s2_1c07e880661fe5a5 as (select epinions75935.s as v0 from epinions75935), epinions75934_s2_1c07e880661fe5a5 as (select epinions75934.s as v0 from epinions75934), epinions75920_s2_1c07e880661fe5a5 as (select epinions75920.s as v0 from epinions75920), epinions75923_s1_1c07e880661fe5a5 as (select epinions75923.s as v6 from epinions75923), epinions75909_s2_1c07e880661fe5a5 as (select epinions75909.s as v6 from epinions75909) /* stage2 */, epinions75923_s2_1c07e880661fe5a5 as (select * from umbra.identity(table(epinions75923_s1_1c07e880661fe5a5)) where exists (select from umbra.identity(table(epinions75909_s2_1c07e880661fe5a5)) where epinions75923_s1_1c07e880661fe5a5.v6 = epinions75909_s2_1c07e880661fe5a5.v6)), epinions75905_s2_1c07e880661fe5a5 as (select * from umbra.identity(table(epinions75905_s1_1c07e880661fe5a5)) where exists (select from umbra.identity(table(epinions75920_s2_1c07e880661fe5a5)) where epinions75905_s1_1c07e880661fe5a5.v0 = epinions75920_s2_1c07e880661fe5a5.v0) AND exists (select from umbra.identity(table(epinions75934_s2_1c07e880661fe5a5)) where epinions75905_s1_1c07e880661fe5a5.v0 = epinions75934_s2_1c07e880661fe5a5.v0) AND exists (select from umbra.identity(table(epinions75935_s2_1c07e880661fe5a5)) where epinions75905_s1_1c07e880661fe5a5.v0 = epinions75935_s2_1c07e880661fe5a5.v0)), epinions75930_s2_1c07e880661fe5a5 as (select * from umbra.identity(table(epinions75930_s1_1c07e880661fe5a5)) where exists (select from umbra.identity(table(epinions75923_s2_1c07e880661fe5a5)) where epinions75930_s1_1c07e880661fe5a5.v6 = epinions75923_s2_1c07e880661fe5a5.v6) AND exists (select from umbra.identity(table(epinions75905_s2_1c07e880661fe5a5)) where epinions75930_s1_1c07e880661fe5a5.v4 = epinions75905_s2_1c07e880661fe5a5.v4)) /* stage3 */, epinions75905_s3_1c07e880661fe5a5 as (select * from umbra.identity(table(epinions75905_s2_1c07e880661fe5a5)) where exists (select from umbra.identity(table(epinions75930_s2_1c07e880661fe5a5)) where epinions75905_s2_1c07e880661fe5a5.v4 = epinions75930_s2_1c07e880661fe5a5.v4)), epinions75935_s3_1c07e880661fe5a5 as (select * from umbra.identity(table(epinions75935_s2_1c07e880661fe5a5)) where exists (select from umbra.identity(table(epinions75905_s2_1c07e880661fe5a5)) where epinions75935_s2_1c07e880661fe5a5.v0 = epinions75905_s2_1c07e880661fe5a5.v0)), epinions75934_s3_1c07e880661fe5a5 as (select * from umbra.identity(table(epinions75934_s2_1c07e880661fe5a5)) where exists (select from umbra.identity(table(epinions75905_s2_1c07e880661fe5a5)) where epinions75934_s2_1c07e880661fe5a5.v0 = epinions75905_s2_1c07e880661fe5a5.v0)), epinions75920_s3_1c07e880661fe5a5 as (select * from umbra.identity(table(epinions75920_s2_1c07e880661fe5a5)) where exists (select from umbra.identity(table(epinions75905_s2_1c07e880661fe5a5)) where epinions75920_s2_1c07e880661fe5a5.v0 = epinions75905_s2_1c07e880661fe5a5.v0)), epinions75923_s3_1c07e880661fe5a5 as (select * from umbra.identity(table(epinions75923_s2_1c07e880661fe5a5)) where exists (select from umbra.identity(table(epinions75930_s2_1c07e880661fe5a5)) where epinions75923_s2_1c07e880661fe5a5.v6 = epinions75930_s2_1c07e880661fe5a5.v6)), epinions75909_s3_1c07e880661fe5a5 as (select * from umbra.identity(table(epinions75909_s2_1c07e880661fe5a5)) where exists (select from umbra.identity(table(epinions75923_s2_1c07e880661fe5a5)) where epinions75909_s2_1c07e880661fe5a5.v6 = epinions75923_s2_1c07e880661fe5a5.v6)) /* stage4 */, s4_group_405749E71613EB36 as  (select * from umbra.identity(table(epinions75930_s2_1c07e880661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75923_s3_1c07e880661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75909_s3_1c07e880661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75905_s3_1c07e880661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75920_s3_1c07e880661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75934_s3_1c07e880661fe5a5)) NATURAL JOIN umbra.identity(table(epinions75935_s3_1c07e880661fe5a5)))select count(*) from umbra.identity(table(s4_group_405749E71613EB36));
+\set queryname epinions_acyclic_208_16
+-- Result size: 53274835
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75936 [label="epinions75936|<s> s|<d> d"]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75920 [label="epinions75920|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75896 [label="epinions75896|<s> s|<d> d"]; epinions75919:s -> epinions75936:s;epinions75936:s -> epinions75900:s;epinions75900:s -> epinions75907:s;epinions75907:d -> epinions75920:s;epinions75920:d -> epinions75934:s;epinions75934:s -> epinions75896:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75896 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      +----+
+--                                                           |
+--                  +---------------+----------------+----+  |
+--                  | epinions75919 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75936 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75900 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75907 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                                      |    |
+--                    +---------------------------------+    |
+--                    |                                      |
+-- +---------------+----------------+----------------+       |
+-- | epinions75920 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75934 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     +---------------------+
+with dummy as (select) /* stage1 */, epinions75920_s1_499a000661fe5a6 as (select epinions75920.d as v6,epinions75920.s as v4 from epinions75920), epinions75907_s1_499a000661fe5a6 as (select epinions75907.d as v4,epinions75907.s as v0 from epinions75907), epinions75936_s2_499a000661fe5a6 as (select epinions75936.s as v0 from epinions75936), epinions75919_s2_499a000661fe5a6 as (select epinions75919.s as v0 from epinions75919), epinions75900_s2_499a000661fe5a6 as (select epinions75900.s as v0 from epinions75900), epinions75934_s2_499a000661fe5a6 as (select epinions75934.s as v6 from epinions75934), epinions75896_s2_499a000661fe5a6 as (select epinions75896.s as v6 from epinions75896) /* stage2 */, epinions75907_s2_499a000661fe5a6 as (select * from umbra.identity(table(epinions75907_s1_499a000661fe5a6)) where exists (select from umbra.identity(table(epinions75900_s2_499a000661fe5a6)) where epinions75907_s1_499a000661fe5a6.v0 = epinions75900_s2_499a000661fe5a6.v0) AND exists (select from umbra.identity(table(epinions75919_s2_499a000661fe5a6)) where epinions75907_s1_499a000661fe5a6.v0 = epinions75919_s2_499a000661fe5a6.v0) AND exists (select from umbra.identity(table(epinions75936_s2_499a000661fe5a6)) where epinions75907_s1_499a000661fe5a6.v0 = epinions75936_s2_499a000661fe5a6.v0)), epinions75920_s2_499a000661fe5a6 as (select * from umbra.identity(table(epinions75920_s1_499a000661fe5a6)) where exists (select from umbra.identity(table(epinions75896_s2_499a000661fe5a6)) where epinions75920_s1_499a000661fe5a6.v6 = epinions75896_s2_499a000661fe5a6.v6) AND exists (select from umbra.identity(table(epinions75934_s2_499a000661fe5a6)) where epinions75920_s1_499a000661fe5a6.v6 = epinions75934_s2_499a000661fe5a6.v6) AND exists (select from umbra.identity(table(epinions75907_s2_499a000661fe5a6)) where epinions75920_s1_499a000661fe5a6.v4 = epinions75907_s2_499a000661fe5a6.v4)) /* stage3 */, epinions75907_s3_499a000661fe5a6 as (select * from umbra.identity(table(epinions75907_s2_499a000661fe5a6)) where exists (select from umbra.identity(table(epinions75920_s2_499a000661fe5a6)) where epinions75907_s2_499a000661fe5a6.v4 = epinions75920_s2_499a000661fe5a6.v4)), epinions75936_s3_499a000661fe5a6 as (select * from umbra.identity(table(epinions75936_s2_499a000661fe5a6)) where exists (select from umbra.identity(table(epinions75907_s2_499a000661fe5a6)) where epinions75936_s2_499a000661fe5a6.v0 = epinions75907_s2_499a000661fe5a6.v0)), epinions75919_s3_499a000661fe5a6 as (select * from umbra.identity(table(epinions75919_s2_499a000661fe5a6)) where exists (select from umbra.identity(table(epinions75907_s2_499a000661fe5a6)) where epinions75919_s2_499a000661fe5a6.v0 = epinions75907_s2_499a000661fe5a6.v0)), epinions75900_s3_499a000661fe5a6 as (select * from umbra.identity(table(epinions75900_s2_499a000661fe5a6)) where exists (select from umbra.identity(table(epinions75907_s2_499a000661fe5a6)) where epinions75900_s2_499a000661fe5a6.v0 = epinions75907_s2_499a000661fe5a6.v0)), epinions75934_s3_499a000661fe5a6 as (select * from umbra.identity(table(epinions75934_s2_499a000661fe5a6)) where exists (select from umbra.identity(table(epinions75920_s2_499a000661fe5a6)) where epinions75934_s2_499a000661fe5a6.v6 = epinions75920_s2_499a000661fe5a6.v6)), epinions75896_s3_499a000661fe5a6 as (select * from umbra.identity(table(epinions75896_s2_499a000661fe5a6)) where exists (select from umbra.identity(table(epinions75920_s2_499a000661fe5a6)) where epinions75896_s2_499a000661fe5a6.v6 = epinions75920_s2_499a000661fe5a6.v6)) /* stage4 */, s4_group_6BED6BA0B0C71300 as  (select * from umbra.identity(table(epinions75920_s2_499a000661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75896_s3_499a000661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75934_s3_499a000661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75907_s3_499a000661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75900_s3_499a000661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75919_s3_499a000661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75936_s3_499a000661fe5a6)))select count(*) from umbra.identity(table(s4_group_6BED6BA0B0C71300));
+\set queryname epinions_acyclic_208_17
+-- Result size: 44224802
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75890 [label="epinions75890|<s> s|<d> d"]; epinions75931 [label="epinions75931|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75921 [label="epinions75921|<s> s|<d> d"]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75929 [label="epinions75929|<s> s|<d> d"]; epinions75890:s -> epinions75931:s;epinions75931:s -> epinions75918:s;epinions75918:s -> epinions75921:s;epinions75921:d -> epinions75905:s;epinions75905:d -> epinions75919:s;epinions75919:s -> epinions75929:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75890 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75931 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75918 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75921 |  s |  d |
+--                                   +---------------+----+----+
+--                                                           |
+--                    +--------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75905 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75919 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75929 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75921_s1_d1e5080661fe5a6 as (select epinions75921.s as v0,epinions75921.d as v4 from epinions75921), epinions75905_s1_d1e5080661fe5a6 as (select epinions75905.d as v6,epinions75905.s as v4 from epinions75905), epinions75929_s2_d1e5080661fe5a6 as (select epinions75929.s as v6 from epinions75929), epinions75919_s2_d1e5080661fe5a6 as (select epinions75919.s as v6 from epinions75919), epinions75918_s1_d1e5080661fe5a6 as (select epinions75918.s as v0 from epinions75918), epinions75931_s2_d1e5080661fe5a6 as (select epinions75931.s as v0 from epinions75931), epinions75890_s2_d1e5080661fe5a6 as (select epinions75890.s as v0 from epinions75890) /* stage2 */, epinions75918_s2_d1e5080661fe5a6 as (select * from umbra.identity(table(epinions75918_s1_d1e5080661fe5a6)) where exists (select from umbra.identity(table(epinions75890_s2_d1e5080661fe5a6)) where epinions75918_s1_d1e5080661fe5a6.v0 = epinions75890_s2_d1e5080661fe5a6.v0) AND exists (select from umbra.identity(table(epinions75931_s2_d1e5080661fe5a6)) where epinions75918_s1_d1e5080661fe5a6.v0 = epinions75931_s2_d1e5080661fe5a6.v0)), epinions75905_s2_d1e5080661fe5a6 as (select * from umbra.identity(table(epinions75905_s1_d1e5080661fe5a6)) where exists (select from umbra.identity(table(epinions75919_s2_d1e5080661fe5a6)) where epinions75905_s1_d1e5080661fe5a6.v6 = epinions75919_s2_d1e5080661fe5a6.v6) AND exists (select from umbra.identity(table(epinions75929_s2_d1e5080661fe5a6)) where epinions75905_s1_d1e5080661fe5a6.v6 = epinions75929_s2_d1e5080661fe5a6.v6)), epinions75921_s2_d1e5080661fe5a6 as (select * from umbra.identity(table(epinions75921_s1_d1e5080661fe5a6)) where exists (select from umbra.identity(table(epinions75918_s2_d1e5080661fe5a6)) where epinions75921_s1_d1e5080661fe5a6.v0 = epinions75918_s2_d1e5080661fe5a6.v0) AND exists (select from umbra.identity(table(epinions75905_s2_d1e5080661fe5a6)) where epinions75921_s1_d1e5080661fe5a6.v4 = epinions75905_s2_d1e5080661fe5a6.v4)) /* stage3 */, epinions75905_s3_d1e5080661fe5a6 as (select * from umbra.identity(table(epinions75905_s2_d1e5080661fe5a6)) where exists (select from umbra.identity(table(epinions75921_s2_d1e5080661fe5a6)) where epinions75905_s2_d1e5080661fe5a6.v4 = epinions75921_s2_d1e5080661fe5a6.v4)), epinions75929_s3_d1e5080661fe5a6 as (select * from umbra.identity(table(epinions75929_s2_d1e5080661fe5a6)) where exists (select from umbra.identity(table(epinions75905_s2_d1e5080661fe5a6)) where epinions75929_s2_d1e5080661fe5a6.v6 = epinions75905_s2_d1e5080661fe5a6.v6)), epinions75919_s3_d1e5080661fe5a6 as (select * from umbra.identity(table(epinions75919_s2_d1e5080661fe5a6)) where exists (select from umbra.identity(table(epinions75905_s2_d1e5080661fe5a6)) where epinions75919_s2_d1e5080661fe5a6.v6 = epinions75905_s2_d1e5080661fe5a6.v6)), epinions75918_s3_d1e5080661fe5a6 as (select * from umbra.identity(table(epinions75918_s2_d1e5080661fe5a6)) where exists (select from umbra.identity(table(epinions75921_s2_d1e5080661fe5a6)) where epinions75918_s2_d1e5080661fe5a6.v0 = epinions75921_s2_d1e5080661fe5a6.v0)), epinions75931_s3_d1e5080661fe5a6 as (select * from umbra.identity(table(epinions75931_s2_d1e5080661fe5a6)) where exists (select from umbra.identity(table(epinions75918_s2_d1e5080661fe5a6)) where epinions75931_s2_d1e5080661fe5a6.v0 = epinions75918_s2_d1e5080661fe5a6.v0)), epinions75890_s3_d1e5080661fe5a6 as (select * from umbra.identity(table(epinions75890_s2_d1e5080661fe5a6)) where exists (select from umbra.identity(table(epinions75918_s2_d1e5080661fe5a6)) where epinions75890_s2_d1e5080661fe5a6.v0 = epinions75918_s2_d1e5080661fe5a6.v0)) /* stage4 */, s4_group_79CB3AFEE58D7BFB as  (select * from umbra.identity(table(epinions75921_s2_d1e5080661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75918_s3_d1e5080661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75890_s3_d1e5080661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75931_s3_d1e5080661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75905_s3_d1e5080661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75919_s3_d1e5080661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75929_s3_d1e5080661fe5a6)))select count(*) from umbra.identity(table(s4_group_79CB3AFEE58D7BFB));
+\set queryname epinions_acyclic_208_18
+-- Result size: 52030778
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75908 [label="epinions75908|<s> s|<d> d"]; epinions75906 [label="epinions75906|<s> s|<d> d"]; epinions75901 [label="epinions75901|<s> s|<d> d"]; epinions75913 [label="epinions75913|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75905:s -> epinions75908:s;epinions75908:s -> epinions75906:s;epinions75906:s -> epinions75901:s;epinions75901:d -> epinions75913:s;epinions75913:d -> epinions75919:s;epinions75919:s -> epinions75934:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75901 |  s |  d | -+
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75905 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75908 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75906 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75913 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75919 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75934 |        s       |  d |
+--                  +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75913_s1_15a37300661fe5a6 as (select epinions75913.d as v6,epinions75913.s as v4 from epinions75913), epinions75901_s1_15a37300661fe5a6 as (select epinions75901.d as v4,epinions75901.s as v0 from epinions75901), epinions75908_s2_15a37300661fe5a6 as (select epinions75908.s as v0 from epinions75908), epinions75906_s2_15a37300661fe5a6 as (select epinions75906.s as v0 from epinions75906), epinions75905_s2_15a37300661fe5a6 as (select epinions75905.s as v0 from epinions75905), epinions75934_s2_15a37300661fe5a6 as (select epinions75934.s as v6 from epinions75934), epinions75919_s2_15a37300661fe5a6 as (select epinions75919.s as v6 from epinions75919) /* stage2 */, epinions75901_s2_15a37300661fe5a6 as (select * from umbra.identity(table(epinions75901_s1_15a37300661fe5a6)) where exists (select from umbra.identity(table(epinions75905_s2_15a37300661fe5a6)) where epinions75901_s1_15a37300661fe5a6.v0 = epinions75905_s2_15a37300661fe5a6.v0) AND exists (select from umbra.identity(table(epinions75906_s2_15a37300661fe5a6)) where epinions75901_s1_15a37300661fe5a6.v0 = epinions75906_s2_15a37300661fe5a6.v0) AND exists (select from umbra.identity(table(epinions75908_s2_15a37300661fe5a6)) where epinions75901_s1_15a37300661fe5a6.v0 = epinions75908_s2_15a37300661fe5a6.v0)), epinions75913_s2_15a37300661fe5a6 as (select * from umbra.identity(table(epinions75913_s1_15a37300661fe5a6)) where exists (select from umbra.identity(table(epinions75919_s2_15a37300661fe5a6)) where epinions75913_s1_15a37300661fe5a6.v6 = epinions75919_s2_15a37300661fe5a6.v6) AND exists (select from umbra.identity(table(epinions75934_s2_15a37300661fe5a6)) where epinions75913_s1_15a37300661fe5a6.v6 = epinions75934_s2_15a37300661fe5a6.v6) AND exists (select from umbra.identity(table(epinions75901_s2_15a37300661fe5a6)) where epinions75913_s1_15a37300661fe5a6.v4 = epinions75901_s2_15a37300661fe5a6.v4)) /* stage3 */, epinions75901_s3_15a37300661fe5a6 as (select * from umbra.identity(table(epinions75901_s2_15a37300661fe5a6)) where exists (select from umbra.identity(table(epinions75913_s2_15a37300661fe5a6)) where epinions75901_s2_15a37300661fe5a6.v4 = epinions75913_s2_15a37300661fe5a6.v4)), epinions75908_s3_15a37300661fe5a6 as (select * from umbra.identity(table(epinions75908_s2_15a37300661fe5a6)) where exists (select from umbra.identity(table(epinions75901_s2_15a37300661fe5a6)) where epinions75908_s2_15a37300661fe5a6.v0 = epinions75901_s2_15a37300661fe5a6.v0)), epinions75906_s3_15a37300661fe5a6 as (select * from umbra.identity(table(epinions75906_s2_15a37300661fe5a6)) where exists (select from umbra.identity(table(epinions75901_s2_15a37300661fe5a6)) where epinions75906_s2_15a37300661fe5a6.v0 = epinions75901_s2_15a37300661fe5a6.v0)), epinions75905_s3_15a37300661fe5a6 as (select * from umbra.identity(table(epinions75905_s2_15a37300661fe5a6)) where exists (select from umbra.identity(table(epinions75901_s2_15a37300661fe5a6)) where epinions75905_s2_15a37300661fe5a6.v0 = epinions75901_s2_15a37300661fe5a6.v0)), epinions75934_s3_15a37300661fe5a6 as (select * from umbra.identity(table(epinions75934_s2_15a37300661fe5a6)) where exists (select from umbra.identity(table(epinions75913_s2_15a37300661fe5a6)) where epinions75934_s2_15a37300661fe5a6.v6 = epinions75913_s2_15a37300661fe5a6.v6)), epinions75919_s3_15a37300661fe5a6 as (select * from umbra.identity(table(epinions75919_s2_15a37300661fe5a6)) where exists (select from umbra.identity(table(epinions75913_s2_15a37300661fe5a6)) where epinions75919_s2_15a37300661fe5a6.v6 = epinions75913_s2_15a37300661fe5a6.v6)) /* stage4 */, s4_group_2C0A3A5CA75D3666 as  (select * from umbra.identity(table(epinions75913_s2_15a37300661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75919_s3_15a37300661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75934_s3_15a37300661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75901_s3_15a37300661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75905_s3_15a37300661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75906_s3_15a37300661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75908_s3_15a37300661fe5a6)))select count(*) from umbra.identity(table(s4_group_2C0A3A5CA75D3666));
+\set queryname epinions_acyclic_208_19
+-- Result size: 120641625
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75898 [label="epinions75898|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75921 [label="epinions75921|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75917 [label="epinions75917|<s> s|<d> d"]; epinions75893 [label="epinions75893|<s> s|<d> d"]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75898:s -> epinions75918:s;epinions75918:s -> epinions75921:s;epinions75921:s -> epinions75911:s;epinions75911:d -> epinions75917:s;epinions75917:d -> epinions75893:s;epinions75893:s -> epinions75928:s;}
+--                                              +--------------------------+
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75917 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                                               |         |
+--                                                               |         |
+--                                                               |         |
+-- +---------------+----+---+                 +---------------+----+----+  |
+-- | epinions75928 |  s | d |                 | epinions75893 |  s |  d |  |
+-- +---------------+----+---+                 +---------------+----+----+  |
+--                    |                                          |         |
+--                    +------------------------------------------+         |
+--                                                                         |
+--                           +---------------+----------------+----+       |
+--                           | epinions75898 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75918 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75921 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75911 |        s       |  d | ------+
+--                           +---------------+----------------+----+
+with dummy as (select) /* stage1 */, epinions75917_s1_1e194d80661fe5a6 as (select epinions75917.d as v6,epinions75917.s as v4 from epinions75917), epinions75911_s1_1e194d80661fe5a6 as (select epinions75911.s as v0,epinions75911.d as v4 from epinions75911), epinions75921_s2_1e194d80661fe5a6 as (select epinions75921.s as v0 from epinions75921), epinions75918_s2_1e194d80661fe5a6 as (select epinions75918.s as v0 from epinions75918), epinions75898_s2_1e194d80661fe5a6 as (select epinions75898.s as v0 from epinions75898), epinions75928_s2_1e194d80661fe5a6 as (select epinions75928.s as v6 from epinions75928), epinions75893_s2_1e194d80661fe5a6 as (select epinions75893.s as v6 from epinions75893) /* stage2 */, epinions75911_s2_1e194d80661fe5a6 as (select * from umbra.identity(table(epinions75911_s1_1e194d80661fe5a6)) where exists (select from umbra.identity(table(epinions75898_s2_1e194d80661fe5a6)) where epinions75911_s1_1e194d80661fe5a6.v0 = epinions75898_s2_1e194d80661fe5a6.v0) AND exists (select from umbra.identity(table(epinions75918_s2_1e194d80661fe5a6)) where epinions75911_s1_1e194d80661fe5a6.v0 = epinions75918_s2_1e194d80661fe5a6.v0) AND exists (select from umbra.identity(table(epinions75921_s2_1e194d80661fe5a6)) where epinions75911_s1_1e194d80661fe5a6.v0 = epinions75921_s2_1e194d80661fe5a6.v0)), epinions75917_s2_1e194d80661fe5a6 as (select * from umbra.identity(table(epinions75917_s1_1e194d80661fe5a6)) where exists (select from umbra.identity(table(epinions75893_s2_1e194d80661fe5a6)) where epinions75917_s1_1e194d80661fe5a6.v6 = epinions75893_s2_1e194d80661fe5a6.v6) AND exists (select from umbra.identity(table(epinions75928_s2_1e194d80661fe5a6)) where epinions75917_s1_1e194d80661fe5a6.v6 = epinions75928_s2_1e194d80661fe5a6.v6) AND exists (select from umbra.identity(table(epinions75911_s2_1e194d80661fe5a6)) where epinions75917_s1_1e194d80661fe5a6.v4 = epinions75911_s2_1e194d80661fe5a6.v4)) /* stage3 */, epinions75911_s3_1e194d80661fe5a6 as (select * from umbra.identity(table(epinions75911_s2_1e194d80661fe5a6)) where exists (select from umbra.identity(table(epinions75917_s2_1e194d80661fe5a6)) where epinions75911_s2_1e194d80661fe5a6.v4 = epinions75917_s2_1e194d80661fe5a6.v4)), epinions75921_s3_1e194d80661fe5a6 as (select * from umbra.identity(table(epinions75921_s2_1e194d80661fe5a6)) where exists (select from umbra.identity(table(epinions75911_s2_1e194d80661fe5a6)) where epinions75921_s2_1e194d80661fe5a6.v0 = epinions75911_s2_1e194d80661fe5a6.v0)), epinions75918_s3_1e194d80661fe5a6 as (select * from umbra.identity(table(epinions75918_s2_1e194d80661fe5a6)) where exists (select from umbra.identity(table(epinions75911_s2_1e194d80661fe5a6)) where epinions75918_s2_1e194d80661fe5a6.v0 = epinions75911_s2_1e194d80661fe5a6.v0)), epinions75898_s3_1e194d80661fe5a6 as (select * from umbra.identity(table(epinions75898_s2_1e194d80661fe5a6)) where exists (select from umbra.identity(table(epinions75911_s2_1e194d80661fe5a6)) where epinions75898_s2_1e194d80661fe5a6.v0 = epinions75911_s2_1e194d80661fe5a6.v0)), epinions75928_s3_1e194d80661fe5a6 as (select * from umbra.identity(table(epinions75928_s2_1e194d80661fe5a6)) where exists (select from umbra.identity(table(epinions75917_s2_1e194d80661fe5a6)) where epinions75928_s2_1e194d80661fe5a6.v6 = epinions75917_s2_1e194d80661fe5a6.v6)), epinions75893_s3_1e194d80661fe5a6 as (select * from umbra.identity(table(epinions75893_s2_1e194d80661fe5a6)) where exists (select from umbra.identity(table(epinions75917_s2_1e194d80661fe5a6)) where epinions75893_s2_1e194d80661fe5a6.v6 = epinions75917_s2_1e194d80661fe5a6.v6)) /* stage4 */, s4_group_55E42CB5CAE22121 as  (select * from umbra.identity(table(epinions75917_s2_1e194d80661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75893_s3_1e194d80661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75928_s3_1e194d80661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75911_s3_1e194d80661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75898_s3_1e194d80661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75918_s3_1e194d80661fe5a6)) NATURAL JOIN umbra.identity(table(epinions75921_s3_1e194d80661fe5a6)))select count(*) from umbra.identity(table(s4_group_55E42CB5CAE22121));

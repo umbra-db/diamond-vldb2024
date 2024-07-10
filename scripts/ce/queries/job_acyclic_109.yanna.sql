@@ -1,0 +1,2149 @@
+\set queryname job_acyclic_109_00
+-- Result size: 270231180
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb3:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb8:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb3  | s |     d    | imdb7 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb120 | s |     d    | imdb8 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb120_s1_1901bb00661fe6b6 as (select imdb120.d as v0 from imdb120), imdb8_s2_1901bb00661fe6b6 as (select imdb8.s as v0 from imdb8), imdb7_s2_1901bb00661fe6b6 as (select imdb7.s as v0 from imdb7), imdb3_s2_1901bb00661fe6b6 as (select imdb3.d as v0 from imdb3), imdb100_s2_1901bb00661fe6b6 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb120_s2_1901bb00661fe6b6 as (select * from umbra.identity(table(imdb120_s1_1901bb00661fe6b6)) where exists (select from umbra.identity(table(imdb100_s2_1901bb00661fe6b6)) where imdb120_s1_1901bb00661fe6b6.v0 = imdb100_s2_1901bb00661fe6b6.v0) AND exists (select from umbra.identity(table(imdb3_s2_1901bb00661fe6b6)) where imdb120_s1_1901bb00661fe6b6.v0 = imdb3_s2_1901bb00661fe6b6.v0) AND exists (select from umbra.identity(table(imdb7_s2_1901bb00661fe6b6)) where imdb120_s1_1901bb00661fe6b6.v0 = imdb7_s2_1901bb00661fe6b6.v0) AND exists (select from umbra.identity(table(imdb8_s2_1901bb00661fe6b6)) where imdb120_s1_1901bb00661fe6b6.v0 = imdb8_s2_1901bb00661fe6b6.v0)) /* stage3 */, imdb8_s3_1901bb00661fe6b6 as (select * from umbra.identity(table(imdb8_s2_1901bb00661fe6b6)) where exists (select from umbra.identity(table(imdb120_s2_1901bb00661fe6b6)) where imdb8_s2_1901bb00661fe6b6.v0 = imdb120_s2_1901bb00661fe6b6.v0)), imdb7_s3_1901bb00661fe6b6 as (select * from umbra.identity(table(imdb7_s2_1901bb00661fe6b6)) where exists (select from umbra.identity(table(imdb120_s2_1901bb00661fe6b6)) where imdb7_s2_1901bb00661fe6b6.v0 = imdb120_s2_1901bb00661fe6b6.v0)), imdb3_s3_1901bb00661fe6b6 as (select * from umbra.identity(table(imdb3_s2_1901bb00661fe6b6)) where exists (select from umbra.identity(table(imdb120_s2_1901bb00661fe6b6)) where imdb3_s2_1901bb00661fe6b6.v0 = imdb120_s2_1901bb00661fe6b6.v0)), imdb100_s3_1901bb00661fe6b6 as (select * from umbra.identity(table(imdb100_s2_1901bb00661fe6b6)) where exists (select from umbra.identity(table(imdb120_s2_1901bb00661fe6b6)) where imdb100_s2_1901bb00661fe6b6.v0 = imdb120_s2_1901bb00661fe6b6.v0)) /* stage4 */, s4_group_3C205F53B58F98B9 as  (select * from umbra.identity(table(imdb120_s2_1901bb00661fe6b6)) NATURAL JOIN umbra.identity(table(imdb100_s3_1901bb00661fe6b6)) NATURAL JOIN umbra.identity(table(imdb3_s3_1901bb00661fe6b6)) NATURAL JOIN umbra.identity(table(imdb7_s3_1901bb00661fe6b6)) NATURAL JOIN umbra.identity(table(imdb8_s3_1901bb00661fe6b6)))select count(*) from umbra.identity(table(s4_group_3C205F53B58F98B9));
+\set queryname job_acyclic_109_01
+-- Result size: 110137595
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb11 [label="imdb11|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb2:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb11:s;imdb11:s -> imdb7:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb11 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb118 | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb11_s1_1c3e280661fe6b7 as (select imdb11.s as v0 from imdb11), imdb7_s2_1c3e280661fe6b7 as (select imdb7.s as v0 from imdb7), imdb2_s2_1c3e280661fe6b7 as (select imdb2.d as v0 from imdb2), imdb118_s2_1c3e280661fe6b7 as (select imdb118.d as v0 from imdb118), imdb100_s2_1c3e280661fe6b7 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb11_s2_1c3e280661fe6b7 as (select * from umbra.identity(table(imdb11_s1_1c3e280661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_1c3e280661fe6b7)) where imdb11_s1_1c3e280661fe6b7.v0 = imdb100_s2_1c3e280661fe6b7.v0) AND exists (select from umbra.identity(table(imdb118_s2_1c3e280661fe6b7)) where imdb11_s1_1c3e280661fe6b7.v0 = imdb118_s2_1c3e280661fe6b7.v0) AND exists (select from umbra.identity(table(imdb2_s2_1c3e280661fe6b7)) where imdb11_s1_1c3e280661fe6b7.v0 = imdb2_s2_1c3e280661fe6b7.v0) AND exists (select from umbra.identity(table(imdb7_s2_1c3e280661fe6b7)) where imdb11_s1_1c3e280661fe6b7.v0 = imdb7_s2_1c3e280661fe6b7.v0)) /* stage3 */, imdb7_s3_1c3e280661fe6b7 as (select * from umbra.identity(table(imdb7_s2_1c3e280661fe6b7)) where exists (select from umbra.identity(table(imdb11_s2_1c3e280661fe6b7)) where imdb7_s2_1c3e280661fe6b7.v0 = imdb11_s2_1c3e280661fe6b7.v0)), imdb2_s3_1c3e280661fe6b7 as (select * from umbra.identity(table(imdb2_s2_1c3e280661fe6b7)) where exists (select from umbra.identity(table(imdb11_s2_1c3e280661fe6b7)) where imdb2_s2_1c3e280661fe6b7.v0 = imdb11_s2_1c3e280661fe6b7.v0)), imdb118_s3_1c3e280661fe6b7 as (select * from umbra.identity(table(imdb118_s2_1c3e280661fe6b7)) where exists (select from umbra.identity(table(imdb11_s2_1c3e280661fe6b7)) where imdb118_s2_1c3e280661fe6b7.v0 = imdb11_s2_1c3e280661fe6b7.v0)), imdb100_s3_1c3e280661fe6b7 as (select * from umbra.identity(table(imdb100_s2_1c3e280661fe6b7)) where exists (select from umbra.identity(table(imdb11_s2_1c3e280661fe6b7)) where imdb100_s2_1c3e280661fe6b7.v0 = imdb11_s2_1c3e280661fe6b7.v0)) /* stage4 */, s4_group_65F70E6469D1F9AC as  (select * from umbra.identity(table(imdb11_s2_1c3e280661fe6b7)) NATURAL JOIN umbra.identity(table(imdb100_s3_1c3e280661fe6b7)) NATURAL JOIN umbra.identity(table(imdb118_s3_1c3e280661fe6b7)) NATURAL JOIN umbra.identity(table(imdb2_s3_1c3e280661fe6b7)) NATURAL JOIN umbra.identity(table(imdb7_s3_1c3e280661fe6b7)))select count(*) from umbra.identity(table(s4_group_65F70E6469D1F9AC));
+--\set queryname job_acyclic_109_02
+-- Result size: 6746754456
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb2:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb12:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb12 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_a3c8780661fe6b7 as (select imdb117.d as v0 from imdb117), imdb7_s2_a3c8780661fe6b7 as (select imdb7.s as v0 from imdb7), imdb2_s2_a3c8780661fe6b7 as (select imdb2.d as v0 from imdb2), imdb12_s2_a3c8780661fe6b7 as (select imdb12.s as v0 from imdb12), imdb100_s2_a3c8780661fe6b7 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_a3c8780661fe6b7 as (select * from umbra.identity(table(imdb117_s1_a3c8780661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_a3c8780661fe6b7)) where imdb117_s1_a3c8780661fe6b7.v0 = imdb100_s2_a3c8780661fe6b7.v0) AND exists (select from umbra.identity(table(imdb12_s2_a3c8780661fe6b7)) where imdb117_s1_a3c8780661fe6b7.v0 = imdb12_s2_a3c8780661fe6b7.v0) AND exists (select from umbra.identity(table(imdb2_s2_a3c8780661fe6b7)) where imdb117_s1_a3c8780661fe6b7.v0 = imdb2_s2_a3c8780661fe6b7.v0) AND exists (select from umbra.identity(table(imdb7_s2_a3c8780661fe6b7)) where imdb117_s1_a3c8780661fe6b7.v0 = imdb7_s2_a3c8780661fe6b7.v0)) /* stage3 */, imdb7_s3_a3c8780661fe6b7 as (select * from umbra.identity(table(imdb7_s2_a3c8780661fe6b7)) where exists (select from umbra.identity(table(imdb117_s2_a3c8780661fe6b7)) where imdb7_s2_a3c8780661fe6b7.v0 = imdb117_s2_a3c8780661fe6b7.v0)), imdb2_s3_a3c8780661fe6b7 as (select * from umbra.identity(table(imdb2_s2_a3c8780661fe6b7)) where exists (select from umbra.identity(table(imdb117_s2_a3c8780661fe6b7)) where imdb2_s2_a3c8780661fe6b7.v0 = imdb117_s2_a3c8780661fe6b7.v0)), imdb12_s3_a3c8780661fe6b7 as (select * from umbra.identity(table(imdb12_s2_a3c8780661fe6b7)) where exists (select from umbra.identity(table(imdb117_s2_a3c8780661fe6b7)) where imdb12_s2_a3c8780661fe6b7.v0 = imdb117_s2_a3c8780661fe6b7.v0)), imdb100_s3_a3c8780661fe6b7 as (select * from umbra.identity(table(imdb100_s2_a3c8780661fe6b7)) where exists (select from umbra.identity(table(imdb117_s2_a3c8780661fe6b7)) where imdb100_s2_a3c8780661fe6b7.v0 = imdb117_s2_a3c8780661fe6b7.v0)) /* stage4 */, s4_group_1E02E0BF8479235A as  (select * from umbra.identity(table(imdb117_s2_a3c8780661fe6b7)) NATURAL JOIN umbra.identity(table(imdb100_s3_a3c8780661fe6b7)) NATURAL JOIN umbra.identity(table(imdb12_s3_a3c8780661fe6b7)) NATURAL JOIN umbra.identity(table(imdb2_s3_a3c8780661fe6b7)) NATURAL JOIN umbra.identity(table(imdb7_s3_a3c8780661fe6b7)))select count(*) from umbra.identity(table(s4_group_1E02E0BF8479235A));
+\set queryname job_acyclic_109_03
+-- Result size: 306262616
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb2:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb10:s;imdb10:s -> imdb5:s;}
+--                +--------+----+---+
+--                | imdb5  |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+--                +--------+----+---+
+--                | imdb10 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+-- +---------+---+---------+  |
+-- |  imdb2  | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb121 | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb100 | s |    d    | -+
+-- +---------+---+---------+
+with dummy as (select) /* stage1 */, imdb100_s1_12a7a980661fe6b7 as (select imdb100.d as v0 from imdb100), imdb5_s2_12a7a980661fe6b7 as (select imdb5.s as v0 from imdb5), imdb2_s2_12a7a980661fe6b7 as (select imdb2.d as v0 from imdb2), imdb121_s2_12a7a980661fe6b7 as (select imdb121.d as v0 from imdb121), imdb10_s2_12a7a980661fe6b7 as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_12a7a980661fe6b7 as (select * from umbra.identity(table(imdb100_s1_12a7a980661fe6b7)) where exists (select from umbra.identity(table(imdb10_s2_12a7a980661fe6b7)) where imdb100_s1_12a7a980661fe6b7.v0 = imdb10_s2_12a7a980661fe6b7.v0) AND exists (select from umbra.identity(table(imdb121_s2_12a7a980661fe6b7)) where imdb100_s1_12a7a980661fe6b7.v0 = imdb121_s2_12a7a980661fe6b7.v0) AND exists (select from umbra.identity(table(imdb2_s2_12a7a980661fe6b7)) where imdb100_s1_12a7a980661fe6b7.v0 = imdb2_s2_12a7a980661fe6b7.v0) AND exists (select from umbra.identity(table(imdb5_s2_12a7a980661fe6b7)) where imdb100_s1_12a7a980661fe6b7.v0 = imdb5_s2_12a7a980661fe6b7.v0)) /* stage3 */, imdb5_s3_12a7a980661fe6b7 as (select * from umbra.identity(table(imdb5_s2_12a7a980661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_12a7a980661fe6b7)) where imdb5_s2_12a7a980661fe6b7.v0 = imdb100_s2_12a7a980661fe6b7.v0)), imdb2_s3_12a7a980661fe6b7 as (select * from umbra.identity(table(imdb2_s2_12a7a980661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_12a7a980661fe6b7)) where imdb2_s2_12a7a980661fe6b7.v0 = imdb100_s2_12a7a980661fe6b7.v0)), imdb121_s3_12a7a980661fe6b7 as (select * from umbra.identity(table(imdb121_s2_12a7a980661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_12a7a980661fe6b7)) where imdb121_s2_12a7a980661fe6b7.v0 = imdb100_s2_12a7a980661fe6b7.v0)), imdb10_s3_12a7a980661fe6b7 as (select * from umbra.identity(table(imdb10_s2_12a7a980661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_12a7a980661fe6b7)) where imdb10_s2_12a7a980661fe6b7.v0 = imdb100_s2_12a7a980661fe6b7.v0)) /* stage4 */, s4_group_A6216746F1512EE as  (select * from umbra.identity(table(imdb100_s2_12a7a980661fe6b7)) NATURAL JOIN umbra.identity(table(imdb10_s3_12a7a980661fe6b7)) NATURAL JOIN umbra.identity(table(imdb121_s3_12a7a980661fe6b7)) NATURAL JOIN umbra.identity(table(imdb2_s3_12a7a980661fe6b7)) NATURAL JOIN umbra.identity(table(imdb5_s3_12a7a980661fe6b7)))select count(*) from umbra.identity(table(s4_group_A6216746F1512EE));
+\set queryname job_acyclic_109_04
+-- Result size: 379950557
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb3:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb10:s;}
+--                     +--------+----+----+
+--                     | imdb10 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 +----+
+--                                      |
+-- +---------+--------+---------+       |
+-- |  imdb3  |    s   |    d    |       |
+-- +---------+--------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +---------+--------+---------+       |
+-- | imdb118 |    s   |    d    |       |
+-- +---------+--------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +---------+--------+---------+       |
+-- | imdb100 |    s   |    d    |       |
+-- +---------+--------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+--            +-------+---------+----+  |
+--            | imdb7 |    s    |  d |  |
+--            +-------+---------+----+  |
+--                       |              |
+--                       +--------------+
+with dummy as (select) /* stage1 */, imdb100_s1_1b82ad80661fe6b7 as (select imdb100.d as v0 from imdb100), imdb7_s2_1b82ad80661fe6b7 as (select imdb7.s as v0 from imdb7), imdb3_s2_1b82ad80661fe6b7 as (select imdb3.d as v0 from imdb3), imdb118_s2_1b82ad80661fe6b7 as (select imdb118.d as v0 from imdb118), imdb10_s2_1b82ad80661fe6b7 as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_1b82ad80661fe6b7 as (select * from umbra.identity(table(imdb100_s1_1b82ad80661fe6b7)) where exists (select from umbra.identity(table(imdb10_s2_1b82ad80661fe6b7)) where imdb100_s1_1b82ad80661fe6b7.v0 = imdb10_s2_1b82ad80661fe6b7.v0) AND exists (select from umbra.identity(table(imdb118_s2_1b82ad80661fe6b7)) where imdb100_s1_1b82ad80661fe6b7.v0 = imdb118_s2_1b82ad80661fe6b7.v0) AND exists (select from umbra.identity(table(imdb3_s2_1b82ad80661fe6b7)) where imdb100_s1_1b82ad80661fe6b7.v0 = imdb3_s2_1b82ad80661fe6b7.v0) AND exists (select from umbra.identity(table(imdb7_s2_1b82ad80661fe6b7)) where imdb100_s1_1b82ad80661fe6b7.v0 = imdb7_s2_1b82ad80661fe6b7.v0)) /* stage3 */, imdb7_s3_1b82ad80661fe6b7 as (select * from umbra.identity(table(imdb7_s2_1b82ad80661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_1b82ad80661fe6b7)) where imdb7_s2_1b82ad80661fe6b7.v0 = imdb100_s2_1b82ad80661fe6b7.v0)), imdb3_s3_1b82ad80661fe6b7 as (select * from umbra.identity(table(imdb3_s2_1b82ad80661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_1b82ad80661fe6b7)) where imdb3_s2_1b82ad80661fe6b7.v0 = imdb100_s2_1b82ad80661fe6b7.v0)), imdb118_s3_1b82ad80661fe6b7 as (select * from umbra.identity(table(imdb118_s2_1b82ad80661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_1b82ad80661fe6b7)) where imdb118_s2_1b82ad80661fe6b7.v0 = imdb100_s2_1b82ad80661fe6b7.v0)), imdb10_s3_1b82ad80661fe6b7 as (select * from umbra.identity(table(imdb10_s2_1b82ad80661fe6b7)) where exists (select from umbra.identity(table(imdb100_s2_1b82ad80661fe6b7)) where imdb10_s2_1b82ad80661fe6b7.v0 = imdb100_s2_1b82ad80661fe6b7.v0)) /* stage4 */, s4_group_5607F0AF46D7D41B as  (select * from umbra.identity(table(imdb100_s2_1b82ad80661fe6b7)) NATURAL JOIN umbra.identity(table(imdb10_s3_1b82ad80661fe6b7)) NATURAL JOIN umbra.identity(table(imdb118_s3_1b82ad80661fe6b7)) NATURAL JOIN umbra.identity(table(imdb3_s3_1b82ad80661fe6b7)) NATURAL JOIN umbra.identity(table(imdb7_s3_1b82ad80661fe6b7)))select count(*) from umbra.identity(table(s4_group_5607F0AF46D7D41B));
+--\set queryname job_acyclic_109_05
+-- Result size: 1117414123
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb3:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb13:s;imdb13:s -> imdb6:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    |  imdb6 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_3f78a80661fe6b8 as (select imdb117.d as v0 from imdb117), imdb6_s2_3f78a80661fe6b8 as (select imdb6.s as v0 from imdb6), imdb3_s2_3f78a80661fe6b8 as (select imdb3.d as v0 from imdb3), imdb13_s2_3f78a80661fe6b8 as (select imdb13.s as v0 from imdb13), imdb100_s2_3f78a80661fe6b8 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_3f78a80661fe6b8 as (select * from umbra.identity(table(imdb117_s1_3f78a80661fe6b8)) where exists (select from umbra.identity(table(imdb100_s2_3f78a80661fe6b8)) where imdb117_s1_3f78a80661fe6b8.v0 = imdb100_s2_3f78a80661fe6b8.v0) AND exists (select from umbra.identity(table(imdb13_s2_3f78a80661fe6b8)) where imdb117_s1_3f78a80661fe6b8.v0 = imdb13_s2_3f78a80661fe6b8.v0) AND exists (select from umbra.identity(table(imdb3_s2_3f78a80661fe6b8)) where imdb117_s1_3f78a80661fe6b8.v0 = imdb3_s2_3f78a80661fe6b8.v0) AND exists (select from umbra.identity(table(imdb6_s2_3f78a80661fe6b8)) where imdb117_s1_3f78a80661fe6b8.v0 = imdb6_s2_3f78a80661fe6b8.v0)) /* stage3 */, imdb6_s3_3f78a80661fe6b8 as (select * from umbra.identity(table(imdb6_s2_3f78a80661fe6b8)) where exists (select from umbra.identity(table(imdb117_s2_3f78a80661fe6b8)) where imdb6_s2_3f78a80661fe6b8.v0 = imdb117_s2_3f78a80661fe6b8.v0)), imdb3_s3_3f78a80661fe6b8 as (select * from umbra.identity(table(imdb3_s2_3f78a80661fe6b8)) where exists (select from umbra.identity(table(imdb117_s2_3f78a80661fe6b8)) where imdb3_s2_3f78a80661fe6b8.v0 = imdb117_s2_3f78a80661fe6b8.v0)), imdb13_s3_3f78a80661fe6b8 as (select * from umbra.identity(table(imdb13_s2_3f78a80661fe6b8)) where exists (select from umbra.identity(table(imdb117_s2_3f78a80661fe6b8)) where imdb13_s2_3f78a80661fe6b8.v0 = imdb117_s2_3f78a80661fe6b8.v0)), imdb100_s3_3f78a80661fe6b8 as (select * from umbra.identity(table(imdb100_s2_3f78a80661fe6b8)) where exists (select from umbra.identity(table(imdb117_s2_3f78a80661fe6b8)) where imdb100_s2_3f78a80661fe6b8.v0 = imdb117_s2_3f78a80661fe6b8.v0)) /* stage4 */, s4_group_1629F376A1BC378B as  (select * from umbra.identity(table(imdb117_s2_3f78a80661fe6b8)) NATURAL JOIN umbra.identity(table(imdb100_s3_3f78a80661fe6b8)) NATURAL JOIN umbra.identity(table(imdb13_s3_3f78a80661fe6b8)) NATURAL JOIN umbra.identity(table(imdb3_s3_3f78a80661fe6b8)) NATURAL JOIN umbra.identity(table(imdb6_s3_3f78a80661fe6b8)))select count(*) from umbra.identity(table(s4_group_1629F376A1BC378B));
+--\set queryname job_acyclic_109_06
+-- Result size: 3089702256
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb3:d -> imdb119:d;imdb119:d -> imdb100:d;imdb100:d -> imdb8:s;imdb8:s -> imdb9:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb3  | s |     d    | imdb8 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb119 | s |     d    | imdb9 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+--with dummy as (select) /* stage1 */, imdb119_s1_c568a00661fe6b8 as (select imdb119.d as v0 from imdb119), imdb9_s2_c568a00661fe6b8 as (select imdb9.s as v0 from imdb9), imdb8_s2_c568a00661fe6b8 as (select imdb8.s as v0 from imdb8), imdb3_s2_c568a00661fe6b8 as (select imdb3.d as v0 from imdb3), imdb100_s2_c568a00661fe6b8 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb119_s2_c568a00661fe6b8 as (select * from umbra.identity(table(imdb119_s1_c568a00661fe6b8)) where exists (select from umbra.identity(table(imdb100_s2_c568a00661fe6b8)) where imdb119_s1_c568a00661fe6b8.v0 = imdb100_s2_c568a00661fe6b8.v0) AND exists (select from umbra.identity(table(imdb3_s2_c568a00661fe6b8)) where imdb119_s1_c568a00661fe6b8.v0 = imdb3_s2_c568a00661fe6b8.v0) AND exists (select from umbra.identity(table(imdb8_s2_c568a00661fe6b8)) where imdb119_s1_c568a00661fe6b8.v0 = imdb8_s2_c568a00661fe6b8.v0) AND exists (select from umbra.identity(table(imdb9_s2_c568a00661fe6b8)) where imdb119_s1_c568a00661fe6b8.v0 = imdb9_s2_c568a00661fe6b8.v0)) /* stage3 */, imdb9_s3_c568a00661fe6b8 as (select * from umbra.identity(table(imdb9_s2_c568a00661fe6b8)) where exists (select from umbra.identity(table(imdb119_s2_c568a00661fe6b8)) where imdb9_s2_c568a00661fe6b8.v0 = imdb119_s2_c568a00661fe6b8.v0)), imdb8_s3_c568a00661fe6b8 as (select * from umbra.identity(table(imdb8_s2_c568a00661fe6b8)) where exists (select from umbra.identity(table(imdb119_s2_c568a00661fe6b8)) where imdb8_s2_c568a00661fe6b8.v0 = imdb119_s2_c568a00661fe6b8.v0)), imdb3_s3_c568a00661fe6b8 as (select * from umbra.identity(table(imdb3_s2_c568a00661fe6b8)) where exists (select from umbra.identity(table(imdb119_s2_c568a00661fe6b8)) where imdb3_s2_c568a00661fe6b8.v0 = imdb119_s2_c568a00661fe6b8.v0)), imdb100_s3_c568a00661fe6b8 as (select * from umbra.identity(table(imdb100_s2_c568a00661fe6b8)) where exists (select from umbra.identity(table(imdb119_s2_c568a00661fe6b8)) where imdb100_s2_c568a00661fe6b8.v0 = imdb119_s2_c568a00661fe6b8.v0)) /* stage4 */, s4_group_38DC0DAB31A1D0D1 as  (select * from umbra.identity(table(imdb119_s2_c568a00661fe6b8)) NATURAL JOIN umbra.identity(table(imdb100_s3_c568a00661fe6b8)) NATURAL JOIN umbra.identity(table(imdb3_s3_c568a00661fe6b8)) NATURAL JOIN umbra.identity(table(imdb8_s3_c568a00661fe6b8)) NATURAL JOIN umbra.identity(table(imdb9_s3_c568a00661fe6b8)))select count(*) from umbra.identity(table(s4_group_38DC0DAB31A1D0D1));
+\set queryname job_acyclic_109_07
+-- Result size: 151229604
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb2:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb5:s;imdb5:s -> imdb6:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb2  | s |     d    | imdb5 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb126 | s |     d    | imdb6 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_14db8800661fe6b8 as (select imdb126.d as v0 from imdb126), imdb6_s2_14db8800661fe6b8 as (select imdb6.s as v0 from imdb6), imdb5_s2_14db8800661fe6b8 as (select imdb5.s as v0 from imdb5), imdb2_s2_14db8800661fe6b8 as (select imdb2.d as v0 from imdb2), imdb100_s2_14db8800661fe6b8 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_14db8800661fe6b8 as (select * from umbra.identity(table(imdb126_s1_14db8800661fe6b8)) where exists (select from umbra.identity(table(imdb100_s2_14db8800661fe6b8)) where imdb126_s1_14db8800661fe6b8.v0 = imdb100_s2_14db8800661fe6b8.v0) AND exists (select from umbra.identity(table(imdb2_s2_14db8800661fe6b8)) where imdb126_s1_14db8800661fe6b8.v0 = imdb2_s2_14db8800661fe6b8.v0) AND exists (select from umbra.identity(table(imdb5_s2_14db8800661fe6b8)) where imdb126_s1_14db8800661fe6b8.v0 = imdb5_s2_14db8800661fe6b8.v0) AND exists (select from umbra.identity(table(imdb6_s2_14db8800661fe6b8)) where imdb126_s1_14db8800661fe6b8.v0 = imdb6_s2_14db8800661fe6b8.v0)) /* stage3 */, imdb6_s3_14db8800661fe6b8 as (select * from umbra.identity(table(imdb6_s2_14db8800661fe6b8)) where exists (select from umbra.identity(table(imdb126_s2_14db8800661fe6b8)) where imdb6_s2_14db8800661fe6b8.v0 = imdb126_s2_14db8800661fe6b8.v0)), imdb5_s3_14db8800661fe6b8 as (select * from umbra.identity(table(imdb5_s2_14db8800661fe6b8)) where exists (select from umbra.identity(table(imdb126_s2_14db8800661fe6b8)) where imdb5_s2_14db8800661fe6b8.v0 = imdb126_s2_14db8800661fe6b8.v0)), imdb2_s3_14db8800661fe6b8 as (select * from umbra.identity(table(imdb2_s2_14db8800661fe6b8)) where exists (select from umbra.identity(table(imdb126_s2_14db8800661fe6b8)) where imdb2_s2_14db8800661fe6b8.v0 = imdb126_s2_14db8800661fe6b8.v0)), imdb100_s3_14db8800661fe6b8 as (select * from umbra.identity(table(imdb100_s2_14db8800661fe6b8)) where exists (select from umbra.identity(table(imdb126_s2_14db8800661fe6b8)) where imdb100_s2_14db8800661fe6b8.v0 = imdb126_s2_14db8800661fe6b8.v0)) /* stage4 */, s4_group_7822576B61A25110 as  (select * from umbra.identity(table(imdb126_s2_14db8800661fe6b8)) NATURAL JOIN umbra.identity(table(imdb100_s3_14db8800661fe6b8)) NATURAL JOIN umbra.identity(table(imdb2_s3_14db8800661fe6b8)) NATURAL JOIN umbra.identity(table(imdb5_s3_14db8800661fe6b8)) NATURAL JOIN umbra.identity(table(imdb6_s3_14db8800661fe6b8)))select count(*) from umbra.identity(table(s4_group_7822576B61A25110));
+--\set queryname job_acyclic_109_08
+-- Result size: 3916829838
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb2:d -> imdb119:d;imdb119:d -> imdb100:d;imdb100:d -> imdb13:s;imdb13:s -> imdb5:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb119 | s |     d    |  imdb5 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb119_s1_1d330180661fe6b8 as (select imdb119.d as v0 from imdb119), imdb5_s2_1d330180661fe6b8 as (select imdb5.s as v0 from imdb5), imdb2_s2_1d330180661fe6b8 as (select imdb2.d as v0 from imdb2), imdb13_s2_1d330180661fe6b8 as (select imdb13.s as v0 from imdb13), imdb100_s2_1d330180661fe6b8 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb119_s2_1d330180661fe6b8 as (select * from umbra.identity(table(imdb119_s1_1d330180661fe6b8)) where exists (select from umbra.identity(table(imdb100_s2_1d330180661fe6b8)) where imdb119_s1_1d330180661fe6b8.v0 = imdb100_s2_1d330180661fe6b8.v0) AND exists (select from umbra.identity(table(imdb13_s2_1d330180661fe6b8)) where imdb119_s1_1d330180661fe6b8.v0 = imdb13_s2_1d330180661fe6b8.v0) AND exists (select from umbra.identity(table(imdb2_s2_1d330180661fe6b8)) where imdb119_s1_1d330180661fe6b8.v0 = imdb2_s2_1d330180661fe6b8.v0) AND exists (select from umbra.identity(table(imdb5_s2_1d330180661fe6b8)) where imdb119_s1_1d330180661fe6b8.v0 = imdb5_s2_1d330180661fe6b8.v0)) /* stage3 */, imdb5_s3_1d330180661fe6b8 as (select * from umbra.identity(table(imdb5_s2_1d330180661fe6b8)) where exists (select from umbra.identity(table(imdb119_s2_1d330180661fe6b8)) where imdb5_s2_1d330180661fe6b8.v0 = imdb119_s2_1d330180661fe6b8.v0)), imdb2_s3_1d330180661fe6b8 as (select * from umbra.identity(table(imdb2_s2_1d330180661fe6b8)) where exists (select from umbra.identity(table(imdb119_s2_1d330180661fe6b8)) where imdb2_s2_1d330180661fe6b8.v0 = imdb119_s2_1d330180661fe6b8.v0)), imdb13_s3_1d330180661fe6b8 as (select * from umbra.identity(table(imdb13_s2_1d330180661fe6b8)) where exists (select from umbra.identity(table(imdb119_s2_1d330180661fe6b8)) where imdb13_s2_1d330180661fe6b8.v0 = imdb119_s2_1d330180661fe6b8.v0)), imdb100_s3_1d330180661fe6b8 as (select * from umbra.identity(table(imdb100_s2_1d330180661fe6b8)) where exists (select from umbra.identity(table(imdb119_s2_1d330180661fe6b8)) where imdb100_s2_1d330180661fe6b8.v0 = imdb119_s2_1d330180661fe6b8.v0)) /* stage4 */, s4_group_FAC0EC01186ED60 as  (select * from umbra.identity(table(imdb119_s2_1d330180661fe6b8)) NATURAL JOIN umbra.identity(table(imdb100_s3_1d330180661fe6b8)) NATURAL JOIN umbra.identity(table(imdb13_s3_1d330180661fe6b8)) NATURAL JOIN umbra.identity(table(imdb2_s3_1d330180661fe6b8)) NATURAL JOIN umbra.identity(table(imdb5_s3_1d330180661fe6b8)))select count(*) from umbra.identity(table(s4_group_FAC0EC01186ED60));
+\set queryname job_acyclic_109_09
+-- Result size: 29391228
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb3:d -> imdb124:d;imdb124:d -> imdb100:d;imdb100:d -> imdb6:s;imdb6:s -> imdb7:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb3  | s |     d    | imdb6 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb124 | s |     d    | imdb7 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb124_s1_5a44f80661fe6b9 as (select imdb124.d as v0 from imdb124), imdb7_s2_5a44f80661fe6b9 as (select imdb7.s as v0 from imdb7), imdb6_s2_5a44f80661fe6b9 as (select imdb6.s as v0 from imdb6), imdb3_s2_5a44f80661fe6b9 as (select imdb3.d as v0 from imdb3), imdb100_s2_5a44f80661fe6b9 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb124_s2_5a44f80661fe6b9 as (select * from umbra.identity(table(imdb124_s1_5a44f80661fe6b9)) where exists (select from umbra.identity(table(imdb100_s2_5a44f80661fe6b9)) where imdb124_s1_5a44f80661fe6b9.v0 = imdb100_s2_5a44f80661fe6b9.v0) AND exists (select from umbra.identity(table(imdb3_s2_5a44f80661fe6b9)) where imdb124_s1_5a44f80661fe6b9.v0 = imdb3_s2_5a44f80661fe6b9.v0) AND exists (select from umbra.identity(table(imdb6_s2_5a44f80661fe6b9)) where imdb124_s1_5a44f80661fe6b9.v0 = imdb6_s2_5a44f80661fe6b9.v0) AND exists (select from umbra.identity(table(imdb7_s2_5a44f80661fe6b9)) where imdb124_s1_5a44f80661fe6b9.v0 = imdb7_s2_5a44f80661fe6b9.v0)) /* stage3 */, imdb7_s3_5a44f80661fe6b9 as (select * from umbra.identity(table(imdb7_s2_5a44f80661fe6b9)) where exists (select from umbra.identity(table(imdb124_s2_5a44f80661fe6b9)) where imdb7_s2_5a44f80661fe6b9.v0 = imdb124_s2_5a44f80661fe6b9.v0)), imdb6_s3_5a44f80661fe6b9 as (select * from umbra.identity(table(imdb6_s2_5a44f80661fe6b9)) where exists (select from umbra.identity(table(imdb124_s2_5a44f80661fe6b9)) where imdb6_s2_5a44f80661fe6b9.v0 = imdb124_s2_5a44f80661fe6b9.v0)), imdb3_s3_5a44f80661fe6b9 as (select * from umbra.identity(table(imdb3_s2_5a44f80661fe6b9)) where exists (select from umbra.identity(table(imdb124_s2_5a44f80661fe6b9)) where imdb3_s2_5a44f80661fe6b9.v0 = imdb124_s2_5a44f80661fe6b9.v0)), imdb100_s3_5a44f80661fe6b9 as (select * from umbra.identity(table(imdb100_s2_5a44f80661fe6b9)) where exists (select from umbra.identity(table(imdb124_s2_5a44f80661fe6b9)) where imdb100_s2_5a44f80661fe6b9.v0 = imdb124_s2_5a44f80661fe6b9.v0)) /* stage4 */, s4_group_5B62030B33175AC6 as  (select * from umbra.identity(table(imdb124_s2_5a44f80661fe6b9)) NATURAL JOIN umbra.identity(table(imdb100_s3_5a44f80661fe6b9)) NATURAL JOIN umbra.identity(table(imdb3_s3_5a44f80661fe6b9)) NATURAL JOIN umbra.identity(table(imdb6_s3_5a44f80661fe6b9)) NATURAL JOIN umbra.identity(table(imdb7_s3_5a44f80661fe6b9)))select count(*) from umbra.identity(table(s4_group_5B62030B33175AC6));
+\set queryname job_acyclic_109_10
+-- Result size: 574460834
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb2:d -> imdb123:d;imdb123:d -> imdb100:d;imdb100:d -> imdb10:s;imdb10:s -> imdb5:s;}
+--                +--------+----+---+
+--                | imdb5  |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+--                +--------+----+---+
+--                | imdb10 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+-- +---------+---+---------+  |
+-- |  imdb2  | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb123 | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb100 | s |    d    | -+
+-- +---------+---+---------+
+with dummy as (select) /* stage1 */, imdb100_s1_e1a6880661fe6b9 as (select imdb100.d as v0 from imdb100), imdb5_s2_e1a6880661fe6b9 as (select imdb5.s as v0 from imdb5), imdb2_s2_e1a6880661fe6b9 as (select imdb2.d as v0 from imdb2), imdb123_s2_e1a6880661fe6b9 as (select imdb123.d as v0 from imdb123), imdb10_s2_e1a6880661fe6b9 as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_e1a6880661fe6b9 as (select * from umbra.identity(table(imdb100_s1_e1a6880661fe6b9)) where exists (select from umbra.identity(table(imdb10_s2_e1a6880661fe6b9)) where imdb100_s1_e1a6880661fe6b9.v0 = imdb10_s2_e1a6880661fe6b9.v0) AND exists (select from umbra.identity(table(imdb123_s2_e1a6880661fe6b9)) where imdb100_s1_e1a6880661fe6b9.v0 = imdb123_s2_e1a6880661fe6b9.v0) AND exists (select from umbra.identity(table(imdb2_s2_e1a6880661fe6b9)) where imdb100_s1_e1a6880661fe6b9.v0 = imdb2_s2_e1a6880661fe6b9.v0) AND exists (select from umbra.identity(table(imdb5_s2_e1a6880661fe6b9)) where imdb100_s1_e1a6880661fe6b9.v0 = imdb5_s2_e1a6880661fe6b9.v0)) /* stage3 */, imdb5_s3_e1a6880661fe6b9 as (select * from umbra.identity(table(imdb5_s2_e1a6880661fe6b9)) where exists (select from umbra.identity(table(imdb100_s2_e1a6880661fe6b9)) where imdb5_s2_e1a6880661fe6b9.v0 = imdb100_s2_e1a6880661fe6b9.v0)), imdb2_s3_e1a6880661fe6b9 as (select * from umbra.identity(table(imdb2_s2_e1a6880661fe6b9)) where exists (select from umbra.identity(table(imdb100_s2_e1a6880661fe6b9)) where imdb2_s2_e1a6880661fe6b9.v0 = imdb100_s2_e1a6880661fe6b9.v0)), imdb123_s3_e1a6880661fe6b9 as (select * from umbra.identity(table(imdb123_s2_e1a6880661fe6b9)) where exists (select from umbra.identity(table(imdb100_s2_e1a6880661fe6b9)) where imdb123_s2_e1a6880661fe6b9.v0 = imdb100_s2_e1a6880661fe6b9.v0)), imdb10_s3_e1a6880661fe6b9 as (select * from umbra.identity(table(imdb10_s2_e1a6880661fe6b9)) where exists (select from umbra.identity(table(imdb100_s2_e1a6880661fe6b9)) where imdb10_s2_e1a6880661fe6b9.v0 = imdb100_s2_e1a6880661fe6b9.v0)) /* stage4 */, s4_group_60E9FA232CDA8582 as  (select * from umbra.identity(table(imdb100_s2_e1a6880661fe6b9)) NATURAL JOIN umbra.identity(table(imdb10_s3_e1a6880661fe6b9)) NATURAL JOIN umbra.identity(table(imdb123_s3_e1a6880661fe6b9)) NATURAL JOIN umbra.identity(table(imdb2_s3_e1a6880661fe6b9)) NATURAL JOIN umbra.identity(table(imdb5_s3_e1a6880661fe6b9)))select count(*) from umbra.identity(table(s4_group_60E9FA232CDA8582));
+\set queryname job_acyclic_109_11
+-- Result size: 32484976
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb2:d -> imdb124:d;imdb124:d -> imdb100:d;imdb100:d -> imdb8:s;imdb8:s -> imdb6:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb2  | s |     d    | imdb8 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb124 | s |     d    | imdb6 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb124_s1_167ab600661fe6b9 as (select imdb124.d as v0 from imdb124), imdb8_s2_167ab600661fe6b9 as (select imdb8.s as v0 from imdb8), imdb6_s2_167ab600661fe6b9 as (select imdb6.s as v0 from imdb6), imdb2_s2_167ab600661fe6b9 as (select imdb2.d as v0 from imdb2), imdb100_s2_167ab600661fe6b9 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb124_s2_167ab600661fe6b9 as (select * from umbra.identity(table(imdb124_s1_167ab600661fe6b9)) where exists (select from umbra.identity(table(imdb100_s2_167ab600661fe6b9)) where imdb124_s1_167ab600661fe6b9.v0 = imdb100_s2_167ab600661fe6b9.v0) AND exists (select from umbra.identity(table(imdb2_s2_167ab600661fe6b9)) where imdb124_s1_167ab600661fe6b9.v0 = imdb2_s2_167ab600661fe6b9.v0) AND exists (select from umbra.identity(table(imdb6_s2_167ab600661fe6b9)) where imdb124_s1_167ab600661fe6b9.v0 = imdb6_s2_167ab600661fe6b9.v0) AND exists (select from umbra.identity(table(imdb8_s2_167ab600661fe6b9)) where imdb124_s1_167ab600661fe6b9.v0 = imdb8_s2_167ab600661fe6b9.v0)) /* stage3 */, imdb8_s3_167ab600661fe6b9 as (select * from umbra.identity(table(imdb8_s2_167ab600661fe6b9)) where exists (select from umbra.identity(table(imdb124_s2_167ab600661fe6b9)) where imdb8_s2_167ab600661fe6b9.v0 = imdb124_s2_167ab600661fe6b9.v0)), imdb6_s3_167ab600661fe6b9 as (select * from umbra.identity(table(imdb6_s2_167ab600661fe6b9)) where exists (select from umbra.identity(table(imdb124_s2_167ab600661fe6b9)) where imdb6_s2_167ab600661fe6b9.v0 = imdb124_s2_167ab600661fe6b9.v0)), imdb2_s3_167ab600661fe6b9 as (select * from umbra.identity(table(imdb2_s2_167ab600661fe6b9)) where exists (select from umbra.identity(table(imdb124_s2_167ab600661fe6b9)) where imdb2_s2_167ab600661fe6b9.v0 = imdb124_s2_167ab600661fe6b9.v0)), imdb100_s3_167ab600661fe6b9 as (select * from umbra.identity(table(imdb100_s2_167ab600661fe6b9)) where exists (select from umbra.identity(table(imdb124_s2_167ab600661fe6b9)) where imdb100_s2_167ab600661fe6b9.v0 = imdb124_s2_167ab600661fe6b9.v0)) /* stage4 */, s4_group_337657C538EB002E as  (select * from umbra.identity(table(imdb124_s2_167ab600661fe6b9)) NATURAL JOIN umbra.identity(table(imdb100_s3_167ab600661fe6b9)) NATURAL JOIN umbra.identity(table(imdb2_s3_167ab600661fe6b9)) NATURAL JOIN umbra.identity(table(imdb6_s3_167ab600661fe6b9)) NATURAL JOIN umbra.identity(table(imdb8_s3_167ab600661fe6b9)))select count(*) from umbra.identity(table(s4_group_337657C538EB002E));
+--\set queryname job_acyclic_109_12
+-- Result size: 1189651396
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb2:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb15:s;imdb15:s -> imdb6:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    |  imdb6 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_1f0bf200661fe6b9 as (select imdb117.d as v0 from imdb117), imdb6_s2_1f0bf200661fe6b9 as (select imdb6.s as v0 from imdb6), imdb2_s2_1f0bf200661fe6b9 as (select imdb2.d as v0 from imdb2), imdb15_s2_1f0bf200661fe6b9 as (select imdb15.s as v0 from imdb15), imdb100_s2_1f0bf200661fe6b9 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_1f0bf200661fe6b9 as (select * from umbra.identity(table(imdb117_s1_1f0bf200661fe6b9)) where exists (select from umbra.identity(table(imdb100_s2_1f0bf200661fe6b9)) where imdb117_s1_1f0bf200661fe6b9.v0 = imdb100_s2_1f0bf200661fe6b9.v0) AND exists (select from umbra.identity(table(imdb15_s2_1f0bf200661fe6b9)) where imdb117_s1_1f0bf200661fe6b9.v0 = imdb15_s2_1f0bf200661fe6b9.v0) AND exists (select from umbra.identity(table(imdb2_s2_1f0bf200661fe6b9)) where imdb117_s1_1f0bf200661fe6b9.v0 = imdb2_s2_1f0bf200661fe6b9.v0) AND exists (select from umbra.identity(table(imdb6_s2_1f0bf200661fe6b9)) where imdb117_s1_1f0bf200661fe6b9.v0 = imdb6_s2_1f0bf200661fe6b9.v0)) /* stage3 */, imdb6_s3_1f0bf200661fe6b9 as (select * from umbra.identity(table(imdb6_s2_1f0bf200661fe6b9)) where exists (select from umbra.identity(table(imdb117_s2_1f0bf200661fe6b9)) where imdb6_s2_1f0bf200661fe6b9.v0 = imdb117_s2_1f0bf200661fe6b9.v0)), imdb2_s3_1f0bf200661fe6b9 as (select * from umbra.identity(table(imdb2_s2_1f0bf200661fe6b9)) where exists (select from umbra.identity(table(imdb117_s2_1f0bf200661fe6b9)) where imdb2_s2_1f0bf200661fe6b9.v0 = imdb117_s2_1f0bf200661fe6b9.v0)), imdb15_s3_1f0bf200661fe6b9 as (select * from umbra.identity(table(imdb15_s2_1f0bf200661fe6b9)) where exists (select from umbra.identity(table(imdb117_s2_1f0bf200661fe6b9)) where imdb15_s2_1f0bf200661fe6b9.v0 = imdb117_s2_1f0bf200661fe6b9.v0)), imdb100_s3_1f0bf200661fe6b9 as (select * from umbra.identity(table(imdb100_s2_1f0bf200661fe6b9)) where exists (select from umbra.identity(table(imdb117_s2_1f0bf200661fe6b9)) where imdb100_s2_1f0bf200661fe6b9.v0 = imdb117_s2_1f0bf200661fe6b9.v0)) /* stage4 */, s4_group_370E57A09BCAB1B as  (select * from umbra.identity(table(imdb117_s2_1f0bf200661fe6b9)) NATURAL JOIN umbra.identity(table(imdb100_s3_1f0bf200661fe6b9)) NATURAL JOIN umbra.identity(table(imdb15_s3_1f0bf200661fe6b9)) NATURAL JOIN umbra.identity(table(imdb2_s3_1f0bf200661fe6b9)) NATURAL JOIN umbra.identity(table(imdb6_s3_1f0bf200661fe6b9)))select count(*) from umbra.identity(table(s4_group_370E57A09BCAB1B));
+\set queryname job_acyclic_109_13
+-- Result size: 605666096
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb3:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb5:s;imdb5:s -> imdb6:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb3  | s |     d    | imdb5 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb126 | s |     d    | imdb6 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_7723700661fe6ba as (select imdb126.d as v0 from imdb126), imdb6_s2_7723700661fe6ba as (select imdb6.s as v0 from imdb6), imdb5_s2_7723700661fe6ba as (select imdb5.s as v0 from imdb5), imdb3_s2_7723700661fe6ba as (select imdb3.d as v0 from imdb3), imdb100_s2_7723700661fe6ba as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_7723700661fe6ba as (select * from umbra.identity(table(imdb126_s1_7723700661fe6ba)) where exists (select from umbra.identity(table(imdb100_s2_7723700661fe6ba)) where imdb126_s1_7723700661fe6ba.v0 = imdb100_s2_7723700661fe6ba.v0) AND exists (select from umbra.identity(table(imdb3_s2_7723700661fe6ba)) where imdb126_s1_7723700661fe6ba.v0 = imdb3_s2_7723700661fe6ba.v0) AND exists (select from umbra.identity(table(imdb5_s2_7723700661fe6ba)) where imdb126_s1_7723700661fe6ba.v0 = imdb5_s2_7723700661fe6ba.v0) AND exists (select from umbra.identity(table(imdb6_s2_7723700661fe6ba)) where imdb126_s1_7723700661fe6ba.v0 = imdb6_s2_7723700661fe6ba.v0)) /* stage3 */, imdb6_s3_7723700661fe6ba as (select * from umbra.identity(table(imdb6_s2_7723700661fe6ba)) where exists (select from umbra.identity(table(imdb126_s2_7723700661fe6ba)) where imdb6_s2_7723700661fe6ba.v0 = imdb126_s2_7723700661fe6ba.v0)), imdb5_s3_7723700661fe6ba as (select * from umbra.identity(table(imdb5_s2_7723700661fe6ba)) where exists (select from umbra.identity(table(imdb126_s2_7723700661fe6ba)) where imdb5_s2_7723700661fe6ba.v0 = imdb126_s2_7723700661fe6ba.v0)), imdb3_s3_7723700661fe6ba as (select * from umbra.identity(table(imdb3_s2_7723700661fe6ba)) where exists (select from umbra.identity(table(imdb126_s2_7723700661fe6ba)) where imdb3_s2_7723700661fe6ba.v0 = imdb126_s2_7723700661fe6ba.v0)), imdb100_s3_7723700661fe6ba as (select * from umbra.identity(table(imdb100_s2_7723700661fe6ba)) where exists (select from umbra.identity(table(imdb126_s2_7723700661fe6ba)) where imdb100_s2_7723700661fe6ba.v0 = imdb126_s2_7723700661fe6ba.v0)) /* stage4 */, s4_group_2543BA6D39723B07 as  (select * from umbra.identity(table(imdb126_s2_7723700661fe6ba)) NATURAL JOIN umbra.identity(table(imdb100_s3_7723700661fe6ba)) NATURAL JOIN umbra.identity(table(imdb3_s3_7723700661fe6ba)) NATURAL JOIN umbra.identity(table(imdb5_s3_7723700661fe6ba)) NATURAL JOIN umbra.identity(table(imdb6_s3_7723700661fe6ba)))select count(*) from umbra.identity(table(s4_group_2543BA6D39723B07));
+--\set queryname job_acyclic_109_14
+-- Result size: 5120709500
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb3:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb8:s;imdb8:s -> imdb5:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb3  | s |     d    | imdb8 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb125 | s |     d    | imdb5 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+--with dummy as (select) /* stage1 */, imdb125_s1_fd37280661fe6ba as (select imdb125.d as v0 from imdb125), imdb8_s2_fd37280661fe6ba as (select imdb8.s as v0 from imdb8), imdb5_s2_fd37280661fe6ba as (select imdb5.s as v0 from imdb5), imdb3_s2_fd37280661fe6ba as (select imdb3.d as v0 from imdb3), imdb100_s2_fd37280661fe6ba as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb125_s2_fd37280661fe6ba as (select * from umbra.identity(table(imdb125_s1_fd37280661fe6ba)) where exists (select from umbra.identity(table(imdb100_s2_fd37280661fe6ba)) where imdb125_s1_fd37280661fe6ba.v0 = imdb100_s2_fd37280661fe6ba.v0) AND exists (select from umbra.identity(table(imdb3_s2_fd37280661fe6ba)) where imdb125_s1_fd37280661fe6ba.v0 = imdb3_s2_fd37280661fe6ba.v0) AND exists (select from umbra.identity(table(imdb5_s2_fd37280661fe6ba)) where imdb125_s1_fd37280661fe6ba.v0 = imdb5_s2_fd37280661fe6ba.v0) AND exists (select from umbra.identity(table(imdb8_s2_fd37280661fe6ba)) where imdb125_s1_fd37280661fe6ba.v0 = imdb8_s2_fd37280661fe6ba.v0)) /* stage3 */, imdb8_s3_fd37280661fe6ba as (select * from umbra.identity(table(imdb8_s2_fd37280661fe6ba)) where exists (select from umbra.identity(table(imdb125_s2_fd37280661fe6ba)) where imdb8_s2_fd37280661fe6ba.v0 = imdb125_s2_fd37280661fe6ba.v0)), imdb5_s3_fd37280661fe6ba as (select * from umbra.identity(table(imdb5_s2_fd37280661fe6ba)) where exists (select from umbra.identity(table(imdb125_s2_fd37280661fe6ba)) where imdb5_s2_fd37280661fe6ba.v0 = imdb125_s2_fd37280661fe6ba.v0)), imdb3_s3_fd37280661fe6ba as (select * from umbra.identity(table(imdb3_s2_fd37280661fe6ba)) where exists (select from umbra.identity(table(imdb125_s2_fd37280661fe6ba)) where imdb3_s2_fd37280661fe6ba.v0 = imdb125_s2_fd37280661fe6ba.v0)), imdb100_s3_fd37280661fe6ba as (select * from umbra.identity(table(imdb100_s2_fd37280661fe6ba)) where exists (select from umbra.identity(table(imdb125_s2_fd37280661fe6ba)) where imdb100_s2_fd37280661fe6ba.v0 = imdb125_s2_fd37280661fe6ba.v0)) /* stage4 */, s4_group_21382A356114F301 as  (select * from umbra.identity(table(imdb125_s2_fd37280661fe6ba)) NATURAL JOIN umbra.identity(table(imdb100_s3_fd37280661fe6ba)) NATURAL JOIN umbra.identity(table(imdb3_s3_fd37280661fe6ba)) NATURAL JOIN umbra.identity(table(imdb5_s3_fd37280661fe6ba)) NATURAL JOIN umbra.identity(table(imdb8_s3_fd37280661fe6ba)))select count(*) from umbra.identity(table(s4_group_21382A356114F301));
+\set queryname job_acyclic_109_15
+-- Result size: 36085307
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb2:d -> imdb123:d;imdb123:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb9:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb2  | s |     d    | imdb7 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb123 | s |     d    | imdb9 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb123_s1_185d7900661fe6ba as (select imdb123.d as v0 from imdb123), imdb9_s2_185d7900661fe6ba as (select imdb9.s as v0 from imdb9), imdb7_s2_185d7900661fe6ba as (select imdb7.s as v0 from imdb7), imdb2_s2_185d7900661fe6ba as (select imdb2.d as v0 from imdb2), imdb100_s2_185d7900661fe6ba as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb123_s2_185d7900661fe6ba as (select * from umbra.identity(table(imdb123_s1_185d7900661fe6ba)) where exists (select from umbra.identity(table(imdb100_s2_185d7900661fe6ba)) where imdb123_s1_185d7900661fe6ba.v0 = imdb100_s2_185d7900661fe6ba.v0) AND exists (select from umbra.identity(table(imdb2_s2_185d7900661fe6ba)) where imdb123_s1_185d7900661fe6ba.v0 = imdb2_s2_185d7900661fe6ba.v0) AND exists (select from umbra.identity(table(imdb7_s2_185d7900661fe6ba)) where imdb123_s1_185d7900661fe6ba.v0 = imdb7_s2_185d7900661fe6ba.v0) AND exists (select from umbra.identity(table(imdb9_s2_185d7900661fe6ba)) where imdb123_s1_185d7900661fe6ba.v0 = imdb9_s2_185d7900661fe6ba.v0)) /* stage3 */, imdb9_s3_185d7900661fe6ba as (select * from umbra.identity(table(imdb9_s2_185d7900661fe6ba)) where exists (select from umbra.identity(table(imdb123_s2_185d7900661fe6ba)) where imdb9_s2_185d7900661fe6ba.v0 = imdb123_s2_185d7900661fe6ba.v0)), imdb7_s3_185d7900661fe6ba as (select * from umbra.identity(table(imdb7_s2_185d7900661fe6ba)) where exists (select from umbra.identity(table(imdb123_s2_185d7900661fe6ba)) where imdb7_s2_185d7900661fe6ba.v0 = imdb123_s2_185d7900661fe6ba.v0)), imdb2_s3_185d7900661fe6ba as (select * from umbra.identity(table(imdb2_s2_185d7900661fe6ba)) where exists (select from umbra.identity(table(imdb123_s2_185d7900661fe6ba)) where imdb2_s2_185d7900661fe6ba.v0 = imdb123_s2_185d7900661fe6ba.v0)), imdb100_s3_185d7900661fe6ba as (select * from umbra.identity(table(imdb100_s2_185d7900661fe6ba)) where exists (select from umbra.identity(table(imdb123_s2_185d7900661fe6ba)) where imdb100_s2_185d7900661fe6ba.v0 = imdb123_s2_185d7900661fe6ba.v0)) /* stage4 */, s4_group_50D7000DDE29C3DA as  (select * from umbra.identity(table(imdb123_s2_185d7900661fe6ba)) NATURAL JOIN umbra.identity(table(imdb100_s3_185d7900661fe6ba)) NATURAL JOIN umbra.identity(table(imdb2_s3_185d7900661fe6ba)) NATURAL JOIN umbra.identity(table(imdb7_s3_185d7900661fe6ba)) NATURAL JOIN umbra.identity(table(imdb9_s3_185d7900661fe6ba)))select count(*) from umbra.identity(table(s4_group_50D7000DDE29C3DA));
+\set queryname job_acyclic_109_16
+-- Result size: 264463362
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb2:d -> imdb119:d;imdb119:d -> imdb100:d;imdb100:d -> imdb13:s;imdb13:s -> imdb7:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb119 | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb119_s1_ad4700661fe6bb as (select imdb119.d as v0 from imdb119), imdb7_s2_ad4700661fe6bb as (select imdb7.s as v0 from imdb7), imdb2_s2_ad4700661fe6bb as (select imdb2.d as v0 from imdb2), imdb13_s2_ad4700661fe6bb as (select imdb13.s as v0 from imdb13), imdb100_s2_ad4700661fe6bb as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb119_s2_ad4700661fe6bb as (select * from umbra.identity(table(imdb119_s1_ad4700661fe6bb)) where exists (select from umbra.identity(table(imdb100_s2_ad4700661fe6bb)) where imdb119_s1_ad4700661fe6bb.v0 = imdb100_s2_ad4700661fe6bb.v0) AND exists (select from umbra.identity(table(imdb13_s2_ad4700661fe6bb)) where imdb119_s1_ad4700661fe6bb.v0 = imdb13_s2_ad4700661fe6bb.v0) AND exists (select from umbra.identity(table(imdb2_s2_ad4700661fe6bb)) where imdb119_s1_ad4700661fe6bb.v0 = imdb2_s2_ad4700661fe6bb.v0) AND exists (select from umbra.identity(table(imdb7_s2_ad4700661fe6bb)) where imdb119_s1_ad4700661fe6bb.v0 = imdb7_s2_ad4700661fe6bb.v0)) /* stage3 */, imdb7_s3_ad4700661fe6bb as (select * from umbra.identity(table(imdb7_s2_ad4700661fe6bb)) where exists (select from umbra.identity(table(imdb119_s2_ad4700661fe6bb)) where imdb7_s2_ad4700661fe6bb.v0 = imdb119_s2_ad4700661fe6bb.v0)), imdb2_s3_ad4700661fe6bb as (select * from umbra.identity(table(imdb2_s2_ad4700661fe6bb)) where exists (select from umbra.identity(table(imdb119_s2_ad4700661fe6bb)) where imdb2_s2_ad4700661fe6bb.v0 = imdb119_s2_ad4700661fe6bb.v0)), imdb13_s3_ad4700661fe6bb as (select * from umbra.identity(table(imdb13_s2_ad4700661fe6bb)) where exists (select from umbra.identity(table(imdb119_s2_ad4700661fe6bb)) where imdb13_s2_ad4700661fe6bb.v0 = imdb119_s2_ad4700661fe6bb.v0)), imdb100_s3_ad4700661fe6bb as (select * from umbra.identity(table(imdb100_s2_ad4700661fe6bb)) where exists (select from umbra.identity(table(imdb119_s2_ad4700661fe6bb)) where imdb100_s2_ad4700661fe6bb.v0 = imdb119_s2_ad4700661fe6bb.v0)) /* stage4 */, s4_group_449987168F7E7B85 as  (select * from umbra.identity(table(imdb119_s2_ad4700661fe6bb)) NATURAL JOIN umbra.identity(table(imdb100_s3_ad4700661fe6bb)) NATURAL JOIN umbra.identity(table(imdb13_s3_ad4700661fe6bb)) NATURAL JOIN umbra.identity(table(imdb2_s3_ad4700661fe6bb)) NATURAL JOIN umbra.identity(table(imdb7_s3_ad4700661fe6bb)))select count(*) from umbra.identity(table(s4_group_449987168F7E7B85));
+--\set queryname job_acyclic_109_17
+-- Result size: 5988359718
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb3:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb6:s;imdb6:s -> imdb15:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    |  imdb6 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_93fd180661fe6bb as (select imdb117.d as v0 from imdb117), imdb6_s2_93fd180661fe6bb as (select imdb6.s as v0 from imdb6), imdb3_s2_93fd180661fe6bb as (select imdb3.d as v0 from imdb3), imdb15_s2_93fd180661fe6bb as (select imdb15.s as v0 from imdb15), imdb100_s2_93fd180661fe6bb as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_93fd180661fe6bb as (select * from umbra.identity(table(imdb117_s1_93fd180661fe6bb)) where exists (select from umbra.identity(table(imdb100_s2_93fd180661fe6bb)) where imdb117_s1_93fd180661fe6bb.v0 = imdb100_s2_93fd180661fe6bb.v0) AND exists (select from umbra.identity(table(imdb15_s2_93fd180661fe6bb)) where imdb117_s1_93fd180661fe6bb.v0 = imdb15_s2_93fd180661fe6bb.v0) AND exists (select from umbra.identity(table(imdb3_s2_93fd180661fe6bb)) where imdb117_s1_93fd180661fe6bb.v0 = imdb3_s2_93fd180661fe6bb.v0) AND exists (select from umbra.identity(table(imdb6_s2_93fd180661fe6bb)) where imdb117_s1_93fd180661fe6bb.v0 = imdb6_s2_93fd180661fe6bb.v0)) /* stage3 */, imdb6_s3_93fd180661fe6bb as (select * from umbra.identity(table(imdb6_s2_93fd180661fe6bb)) where exists (select from umbra.identity(table(imdb117_s2_93fd180661fe6bb)) where imdb6_s2_93fd180661fe6bb.v0 = imdb117_s2_93fd180661fe6bb.v0)), imdb3_s3_93fd180661fe6bb as (select * from umbra.identity(table(imdb3_s2_93fd180661fe6bb)) where exists (select from umbra.identity(table(imdb117_s2_93fd180661fe6bb)) where imdb3_s2_93fd180661fe6bb.v0 = imdb117_s2_93fd180661fe6bb.v0)), imdb15_s3_93fd180661fe6bb as (select * from umbra.identity(table(imdb15_s2_93fd180661fe6bb)) where exists (select from umbra.identity(table(imdb117_s2_93fd180661fe6bb)) where imdb15_s2_93fd180661fe6bb.v0 = imdb117_s2_93fd180661fe6bb.v0)), imdb100_s3_93fd180661fe6bb as (select * from umbra.identity(table(imdb100_s2_93fd180661fe6bb)) where exists (select from umbra.identity(table(imdb117_s2_93fd180661fe6bb)) where imdb100_s2_93fd180661fe6bb.v0 = imdb117_s2_93fd180661fe6bb.v0)) /* stage4 */, s4_group_591FF599A4404D8F as  (select * from umbra.identity(table(imdb117_s2_93fd180661fe6bb)) NATURAL JOIN umbra.identity(table(imdb100_s3_93fd180661fe6bb)) NATURAL JOIN umbra.identity(table(imdb15_s3_93fd180661fe6bb)) NATURAL JOIN umbra.identity(table(imdb3_s3_93fd180661fe6bb)) NATURAL JOIN umbra.identity(table(imdb6_s3_93fd180661fe6bb)))select count(*) from umbra.identity(table(s4_group_591FF599A4404D8F));
+\set queryname job_acyclic_109_18
+-- Result size: 122453218
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb2:d -> imdb123:d;imdb123:d -> imdb100:d;imdb100:d -> imdb8:s;imdb8:s -> imdb9:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb2  | s |     d    | imdb8 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb123 | s |     d    | imdb9 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb123_s1_11d57900661fe6bb as (select imdb123.d as v0 from imdb123), imdb9_s2_11d57900661fe6bb as (select imdb9.s as v0 from imdb9), imdb8_s2_11d57900661fe6bb as (select imdb8.s as v0 from imdb8), imdb2_s2_11d57900661fe6bb as (select imdb2.d as v0 from imdb2), imdb100_s2_11d57900661fe6bb as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb123_s2_11d57900661fe6bb as (select * from umbra.identity(table(imdb123_s1_11d57900661fe6bb)) where exists (select from umbra.identity(table(imdb100_s2_11d57900661fe6bb)) where imdb123_s1_11d57900661fe6bb.v0 = imdb100_s2_11d57900661fe6bb.v0) AND exists (select from umbra.identity(table(imdb2_s2_11d57900661fe6bb)) where imdb123_s1_11d57900661fe6bb.v0 = imdb2_s2_11d57900661fe6bb.v0) AND exists (select from umbra.identity(table(imdb8_s2_11d57900661fe6bb)) where imdb123_s1_11d57900661fe6bb.v0 = imdb8_s2_11d57900661fe6bb.v0) AND exists (select from umbra.identity(table(imdb9_s2_11d57900661fe6bb)) where imdb123_s1_11d57900661fe6bb.v0 = imdb9_s2_11d57900661fe6bb.v0)) /* stage3 */, imdb9_s3_11d57900661fe6bb as (select * from umbra.identity(table(imdb9_s2_11d57900661fe6bb)) where exists (select from umbra.identity(table(imdb123_s2_11d57900661fe6bb)) where imdb9_s2_11d57900661fe6bb.v0 = imdb123_s2_11d57900661fe6bb.v0)), imdb8_s3_11d57900661fe6bb as (select * from umbra.identity(table(imdb8_s2_11d57900661fe6bb)) where exists (select from umbra.identity(table(imdb123_s2_11d57900661fe6bb)) where imdb8_s2_11d57900661fe6bb.v0 = imdb123_s2_11d57900661fe6bb.v0)), imdb2_s3_11d57900661fe6bb as (select * from umbra.identity(table(imdb2_s2_11d57900661fe6bb)) where exists (select from umbra.identity(table(imdb123_s2_11d57900661fe6bb)) where imdb2_s2_11d57900661fe6bb.v0 = imdb123_s2_11d57900661fe6bb.v0)), imdb100_s3_11d57900661fe6bb as (select * from umbra.identity(table(imdb100_s2_11d57900661fe6bb)) where exists (select from umbra.identity(table(imdb123_s2_11d57900661fe6bb)) where imdb100_s2_11d57900661fe6bb.v0 = imdb123_s2_11d57900661fe6bb.v0)) /* stage4 */, s4_group_6266E3C28E6833F9 as  (select * from umbra.identity(table(imdb123_s2_11d57900661fe6bb)) NATURAL JOIN umbra.identity(table(imdb100_s3_11d57900661fe6bb)) NATURAL JOIN umbra.identity(table(imdb2_s3_11d57900661fe6bb)) NATURAL JOIN umbra.identity(table(imdb8_s3_11d57900661fe6bb)) NATURAL JOIN umbra.identity(table(imdb9_s3_11d57900661fe6bb)))select count(*) from umbra.identity(table(s4_group_6266E3C28E6833F9));
+--\set queryname job_acyclic_109_19
+-- Result size: 4890177890
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb3:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb5:s;imdb5:s -> imdb8:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb3  | s |     d    | imdb5 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb126 | s |     d    | imdb8 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+--with dummy as (select) /* stage1 */, imdb126_s1_1a537e80661fe6bb as (select imdb126.d as v0 from imdb126), imdb8_s2_1a537e80661fe6bb as (select imdb8.s as v0 from imdb8), imdb5_s2_1a537e80661fe6bb as (select imdb5.s as v0 from imdb5), imdb3_s2_1a537e80661fe6bb as (select imdb3.d as v0 from imdb3), imdb100_s2_1a537e80661fe6bb as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_1a537e80661fe6bb as (select * from umbra.identity(table(imdb126_s1_1a537e80661fe6bb)) where exists (select from umbra.identity(table(imdb100_s2_1a537e80661fe6bb)) where imdb126_s1_1a537e80661fe6bb.v0 = imdb100_s2_1a537e80661fe6bb.v0) AND exists (select from umbra.identity(table(imdb3_s2_1a537e80661fe6bb)) where imdb126_s1_1a537e80661fe6bb.v0 = imdb3_s2_1a537e80661fe6bb.v0) AND exists (select from umbra.identity(table(imdb5_s2_1a537e80661fe6bb)) where imdb126_s1_1a537e80661fe6bb.v0 = imdb5_s2_1a537e80661fe6bb.v0) AND exists (select from umbra.identity(table(imdb8_s2_1a537e80661fe6bb)) where imdb126_s1_1a537e80661fe6bb.v0 = imdb8_s2_1a537e80661fe6bb.v0)) /* stage3 */, imdb8_s3_1a537e80661fe6bb as (select * from umbra.identity(table(imdb8_s2_1a537e80661fe6bb)) where exists (select from umbra.identity(table(imdb126_s2_1a537e80661fe6bb)) where imdb8_s2_1a537e80661fe6bb.v0 = imdb126_s2_1a537e80661fe6bb.v0)), imdb5_s3_1a537e80661fe6bb as (select * from umbra.identity(table(imdb5_s2_1a537e80661fe6bb)) where exists (select from umbra.identity(table(imdb126_s2_1a537e80661fe6bb)) where imdb5_s2_1a537e80661fe6bb.v0 = imdb126_s2_1a537e80661fe6bb.v0)), imdb3_s3_1a537e80661fe6bb as (select * from umbra.identity(table(imdb3_s2_1a537e80661fe6bb)) where exists (select from umbra.identity(table(imdb126_s2_1a537e80661fe6bb)) where imdb3_s2_1a537e80661fe6bb.v0 = imdb126_s2_1a537e80661fe6bb.v0)), imdb100_s3_1a537e80661fe6bb as (select * from umbra.identity(table(imdb100_s2_1a537e80661fe6bb)) where exists (select from umbra.identity(table(imdb126_s2_1a537e80661fe6bb)) where imdb100_s2_1a537e80661fe6bb.v0 = imdb126_s2_1a537e80661fe6bb.v0)) /* stage4 */, s4_group_27938764D1F9F479 as  (select * from umbra.identity(table(imdb126_s2_1a537e80661fe6bb)) NATURAL JOIN umbra.identity(table(imdb100_s3_1a537e80661fe6bb)) NATURAL JOIN umbra.identity(table(imdb3_s3_1a537e80661fe6bb)) NATURAL JOIN umbra.identity(table(imdb5_s3_1a537e80661fe6bb)) NATURAL JOIN umbra.identity(table(imdb8_s3_1a537e80661fe6bb)))select count(*) from umbra.identity(table(s4_group_27938764D1F9F479));
+\set queryname job_acyclic_109_20
+-- Result size: 318086394
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb2:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb17:s;imdb17:s -> imdb7:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb17 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb117_s1_2c00c80661fe6bc as (select imdb117.d as v0 from imdb117), imdb7_s2_2c00c80661fe6bc as (select imdb7.s as v0 from imdb7), imdb2_s2_2c00c80661fe6bc as (select imdb2.d as v0 from imdb2), imdb17_s2_2c00c80661fe6bc as (select imdb17.s as v0 from imdb17), imdb100_s2_2c00c80661fe6bc as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_2c00c80661fe6bc as (select * from umbra.identity(table(imdb117_s1_2c00c80661fe6bc)) where exists (select from umbra.identity(table(imdb100_s2_2c00c80661fe6bc)) where imdb117_s1_2c00c80661fe6bc.v0 = imdb100_s2_2c00c80661fe6bc.v0) AND exists (select from umbra.identity(table(imdb17_s2_2c00c80661fe6bc)) where imdb117_s1_2c00c80661fe6bc.v0 = imdb17_s2_2c00c80661fe6bc.v0) AND exists (select from umbra.identity(table(imdb2_s2_2c00c80661fe6bc)) where imdb117_s1_2c00c80661fe6bc.v0 = imdb2_s2_2c00c80661fe6bc.v0) AND exists (select from umbra.identity(table(imdb7_s2_2c00c80661fe6bc)) where imdb117_s1_2c00c80661fe6bc.v0 = imdb7_s2_2c00c80661fe6bc.v0)) /* stage3 */, imdb7_s3_2c00c80661fe6bc as (select * from umbra.identity(table(imdb7_s2_2c00c80661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_2c00c80661fe6bc)) where imdb7_s2_2c00c80661fe6bc.v0 = imdb117_s2_2c00c80661fe6bc.v0)), imdb2_s3_2c00c80661fe6bc as (select * from umbra.identity(table(imdb2_s2_2c00c80661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_2c00c80661fe6bc)) where imdb2_s2_2c00c80661fe6bc.v0 = imdb117_s2_2c00c80661fe6bc.v0)), imdb17_s3_2c00c80661fe6bc as (select * from umbra.identity(table(imdb17_s2_2c00c80661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_2c00c80661fe6bc)) where imdb17_s2_2c00c80661fe6bc.v0 = imdb117_s2_2c00c80661fe6bc.v0)), imdb100_s3_2c00c80661fe6bc as (select * from umbra.identity(table(imdb100_s2_2c00c80661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_2c00c80661fe6bc)) where imdb100_s2_2c00c80661fe6bc.v0 = imdb117_s2_2c00c80661fe6bc.v0)) /* stage4 */, s4_group_515C695719D42804 as  (select * from umbra.identity(table(imdb117_s2_2c00c80661fe6bc)) NATURAL JOIN umbra.identity(table(imdb100_s3_2c00c80661fe6bc)) NATURAL JOIN umbra.identity(table(imdb17_s3_2c00c80661fe6bc)) NATURAL JOIN umbra.identity(table(imdb2_s3_2c00c80661fe6bc)) NATURAL JOIN umbra.identity(table(imdb7_s3_2c00c80661fe6bc)))select count(*) from umbra.identity(table(s4_group_515C695719D42804));
+\set queryname job_acyclic_109_21
+-- Result size: 318086394
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb2:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb17:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb17 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb117_s1_b1dcc80661fe6bc as (select imdb117.d as v0 from imdb117), imdb7_s2_b1dcc80661fe6bc as (select imdb7.s as v0 from imdb7), imdb2_s2_b1dcc80661fe6bc as (select imdb2.d as v0 from imdb2), imdb17_s2_b1dcc80661fe6bc as (select imdb17.s as v0 from imdb17), imdb100_s2_b1dcc80661fe6bc as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_b1dcc80661fe6bc as (select * from umbra.identity(table(imdb117_s1_b1dcc80661fe6bc)) where exists (select from umbra.identity(table(imdb100_s2_b1dcc80661fe6bc)) where imdb117_s1_b1dcc80661fe6bc.v0 = imdb100_s2_b1dcc80661fe6bc.v0) AND exists (select from umbra.identity(table(imdb17_s2_b1dcc80661fe6bc)) where imdb117_s1_b1dcc80661fe6bc.v0 = imdb17_s2_b1dcc80661fe6bc.v0) AND exists (select from umbra.identity(table(imdb2_s2_b1dcc80661fe6bc)) where imdb117_s1_b1dcc80661fe6bc.v0 = imdb2_s2_b1dcc80661fe6bc.v0) AND exists (select from umbra.identity(table(imdb7_s2_b1dcc80661fe6bc)) where imdb117_s1_b1dcc80661fe6bc.v0 = imdb7_s2_b1dcc80661fe6bc.v0)) /* stage3 */, imdb7_s3_b1dcc80661fe6bc as (select * from umbra.identity(table(imdb7_s2_b1dcc80661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_b1dcc80661fe6bc)) where imdb7_s2_b1dcc80661fe6bc.v0 = imdb117_s2_b1dcc80661fe6bc.v0)), imdb2_s3_b1dcc80661fe6bc as (select * from umbra.identity(table(imdb2_s2_b1dcc80661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_b1dcc80661fe6bc)) where imdb2_s2_b1dcc80661fe6bc.v0 = imdb117_s2_b1dcc80661fe6bc.v0)), imdb17_s3_b1dcc80661fe6bc as (select * from umbra.identity(table(imdb17_s2_b1dcc80661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_b1dcc80661fe6bc)) where imdb17_s2_b1dcc80661fe6bc.v0 = imdb117_s2_b1dcc80661fe6bc.v0)), imdb100_s3_b1dcc80661fe6bc as (select * from umbra.identity(table(imdb100_s2_b1dcc80661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_b1dcc80661fe6bc)) where imdb100_s2_b1dcc80661fe6bc.v0 = imdb117_s2_b1dcc80661fe6bc.v0)) /* stage4 */, s4_group_139F5E4EE6F250D5 as  (select * from umbra.identity(table(imdb117_s2_b1dcc80661fe6bc)) NATURAL JOIN umbra.identity(table(imdb100_s3_b1dcc80661fe6bc)) NATURAL JOIN umbra.identity(table(imdb17_s3_b1dcc80661fe6bc)) NATURAL JOIN umbra.identity(table(imdb2_s3_b1dcc80661fe6bc)) NATURAL JOIN umbra.identity(table(imdb7_s3_b1dcc80661fe6bc)))select count(*) from umbra.identity(table(s4_group_139F5E4EE6F250D5));
+\set queryname job_acyclic_109_22
+-- Result size: 11632530
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb2:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb6:s;imdb6:s -> imdb9:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb2  | s |     d    | imdb6 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb126 | s |     d    | imdb9 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_13b8ef00661fe6bc as (select imdb126.d as v0 from imdb126), imdb9_s2_13b8ef00661fe6bc as (select imdb9.s as v0 from imdb9), imdb6_s2_13b8ef00661fe6bc as (select imdb6.s as v0 from imdb6), imdb2_s2_13b8ef00661fe6bc as (select imdb2.d as v0 from imdb2), imdb100_s2_13b8ef00661fe6bc as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_13b8ef00661fe6bc as (select * from umbra.identity(table(imdb126_s1_13b8ef00661fe6bc)) where exists (select from umbra.identity(table(imdb100_s2_13b8ef00661fe6bc)) where imdb126_s1_13b8ef00661fe6bc.v0 = imdb100_s2_13b8ef00661fe6bc.v0) AND exists (select from umbra.identity(table(imdb2_s2_13b8ef00661fe6bc)) where imdb126_s1_13b8ef00661fe6bc.v0 = imdb2_s2_13b8ef00661fe6bc.v0) AND exists (select from umbra.identity(table(imdb6_s2_13b8ef00661fe6bc)) where imdb126_s1_13b8ef00661fe6bc.v0 = imdb6_s2_13b8ef00661fe6bc.v0) AND exists (select from umbra.identity(table(imdb9_s2_13b8ef00661fe6bc)) where imdb126_s1_13b8ef00661fe6bc.v0 = imdb9_s2_13b8ef00661fe6bc.v0)) /* stage3 */, imdb9_s3_13b8ef00661fe6bc as (select * from umbra.identity(table(imdb9_s2_13b8ef00661fe6bc)) where exists (select from umbra.identity(table(imdb126_s2_13b8ef00661fe6bc)) where imdb9_s2_13b8ef00661fe6bc.v0 = imdb126_s2_13b8ef00661fe6bc.v0)), imdb6_s3_13b8ef00661fe6bc as (select * from umbra.identity(table(imdb6_s2_13b8ef00661fe6bc)) where exists (select from umbra.identity(table(imdb126_s2_13b8ef00661fe6bc)) where imdb6_s2_13b8ef00661fe6bc.v0 = imdb126_s2_13b8ef00661fe6bc.v0)), imdb2_s3_13b8ef00661fe6bc as (select * from umbra.identity(table(imdb2_s2_13b8ef00661fe6bc)) where exists (select from umbra.identity(table(imdb126_s2_13b8ef00661fe6bc)) where imdb2_s2_13b8ef00661fe6bc.v0 = imdb126_s2_13b8ef00661fe6bc.v0)), imdb100_s3_13b8ef00661fe6bc as (select * from umbra.identity(table(imdb100_s2_13b8ef00661fe6bc)) where exists (select from umbra.identity(table(imdb126_s2_13b8ef00661fe6bc)) where imdb100_s2_13b8ef00661fe6bc.v0 = imdb126_s2_13b8ef00661fe6bc.v0)) /* stage4 */, s4_group_728C9492743EDBFE as  (select * from umbra.identity(table(imdb126_s2_13b8ef00661fe6bc)) NATURAL JOIN umbra.identity(table(imdb100_s3_13b8ef00661fe6bc)) NATURAL JOIN umbra.identity(table(imdb2_s3_13b8ef00661fe6bc)) NATURAL JOIN umbra.identity(table(imdb6_s3_13b8ef00661fe6bc)) NATURAL JOIN umbra.identity(table(imdb9_s3_13b8ef00661fe6bc)))select count(*) from umbra.identity(table(s4_group_728C9492743EDBFE));
+--\set queryname job_acyclic_109_23
+-- Result size: 2670825606
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb2:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb6:s;imdb6:s -> imdb18:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb6 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb18 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_1c01f080661fe6bc as (select imdb117.d as v0 from imdb117), imdb6_s2_1c01f080661fe6bc as (select imdb6.s as v0 from imdb6), imdb2_s2_1c01f080661fe6bc as (select imdb2.d as v0 from imdb2), imdb18_s2_1c01f080661fe6bc as (select imdb18.s as v0 from imdb18), imdb100_s2_1c01f080661fe6bc as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_1c01f080661fe6bc as (select * from umbra.identity(table(imdb117_s1_1c01f080661fe6bc)) where exists (select from umbra.identity(table(imdb100_s2_1c01f080661fe6bc)) where imdb117_s1_1c01f080661fe6bc.v0 = imdb100_s2_1c01f080661fe6bc.v0) AND exists (select from umbra.identity(table(imdb18_s2_1c01f080661fe6bc)) where imdb117_s1_1c01f080661fe6bc.v0 = imdb18_s2_1c01f080661fe6bc.v0) AND exists (select from umbra.identity(table(imdb2_s2_1c01f080661fe6bc)) where imdb117_s1_1c01f080661fe6bc.v0 = imdb2_s2_1c01f080661fe6bc.v0) AND exists (select from umbra.identity(table(imdb6_s2_1c01f080661fe6bc)) where imdb117_s1_1c01f080661fe6bc.v0 = imdb6_s2_1c01f080661fe6bc.v0)) /* stage3 */, imdb6_s3_1c01f080661fe6bc as (select * from umbra.identity(table(imdb6_s2_1c01f080661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_1c01f080661fe6bc)) where imdb6_s2_1c01f080661fe6bc.v0 = imdb117_s2_1c01f080661fe6bc.v0)), imdb2_s3_1c01f080661fe6bc as (select * from umbra.identity(table(imdb2_s2_1c01f080661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_1c01f080661fe6bc)) where imdb2_s2_1c01f080661fe6bc.v0 = imdb117_s2_1c01f080661fe6bc.v0)), imdb18_s3_1c01f080661fe6bc as (select * from umbra.identity(table(imdb18_s2_1c01f080661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_1c01f080661fe6bc)) where imdb18_s2_1c01f080661fe6bc.v0 = imdb117_s2_1c01f080661fe6bc.v0)), imdb100_s3_1c01f080661fe6bc as (select * from umbra.identity(table(imdb100_s2_1c01f080661fe6bc)) where exists (select from umbra.identity(table(imdb117_s2_1c01f080661fe6bc)) where imdb100_s2_1c01f080661fe6bc.v0 = imdb117_s2_1c01f080661fe6bc.v0)) /* stage4 */, s4_group_68B8DFBA555F9017 as  (select * from umbra.identity(table(imdb117_s2_1c01f080661fe6bc)) NATURAL JOIN umbra.identity(table(imdb100_s3_1c01f080661fe6bc)) NATURAL JOIN umbra.identity(table(imdb18_s3_1c01f080661fe6bc)) NATURAL JOIN umbra.identity(table(imdb2_s3_1c01f080661fe6bc)) NATURAL JOIN umbra.identity(table(imdb6_s3_1c01f080661fe6bc)))select count(*) from umbra.identity(table(s4_group_68B8DFBA555F9017));
+\set queryname job_acyclic_109_24
+-- Result size: 391236418
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb2:d -> imdb122:d;imdb122:d -> imdb100:d;imdb100:d -> imdb13:s;imdb13:s -> imdb6:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb122 | s |     d    |  imdb6 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb122_s1_464c300661fe6bd as (select imdb122.d as v0 from imdb122), imdb6_s2_464c300661fe6bd as (select imdb6.s as v0 from imdb6), imdb2_s2_464c300661fe6bd as (select imdb2.d as v0 from imdb2), imdb13_s2_464c300661fe6bd as (select imdb13.s as v0 from imdb13), imdb100_s2_464c300661fe6bd as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb122_s2_464c300661fe6bd as (select * from umbra.identity(table(imdb122_s1_464c300661fe6bd)) where exists (select from umbra.identity(table(imdb100_s2_464c300661fe6bd)) where imdb122_s1_464c300661fe6bd.v0 = imdb100_s2_464c300661fe6bd.v0) AND exists (select from umbra.identity(table(imdb13_s2_464c300661fe6bd)) where imdb122_s1_464c300661fe6bd.v0 = imdb13_s2_464c300661fe6bd.v0) AND exists (select from umbra.identity(table(imdb2_s2_464c300661fe6bd)) where imdb122_s1_464c300661fe6bd.v0 = imdb2_s2_464c300661fe6bd.v0) AND exists (select from umbra.identity(table(imdb6_s2_464c300661fe6bd)) where imdb122_s1_464c300661fe6bd.v0 = imdb6_s2_464c300661fe6bd.v0)) /* stage3 */, imdb6_s3_464c300661fe6bd as (select * from umbra.identity(table(imdb6_s2_464c300661fe6bd)) where exists (select from umbra.identity(table(imdb122_s2_464c300661fe6bd)) where imdb6_s2_464c300661fe6bd.v0 = imdb122_s2_464c300661fe6bd.v0)), imdb2_s3_464c300661fe6bd as (select * from umbra.identity(table(imdb2_s2_464c300661fe6bd)) where exists (select from umbra.identity(table(imdb122_s2_464c300661fe6bd)) where imdb2_s2_464c300661fe6bd.v0 = imdb122_s2_464c300661fe6bd.v0)), imdb13_s3_464c300661fe6bd as (select * from umbra.identity(table(imdb13_s2_464c300661fe6bd)) where exists (select from umbra.identity(table(imdb122_s2_464c300661fe6bd)) where imdb13_s2_464c300661fe6bd.v0 = imdb122_s2_464c300661fe6bd.v0)), imdb100_s3_464c300661fe6bd as (select * from umbra.identity(table(imdb100_s2_464c300661fe6bd)) where exists (select from umbra.identity(table(imdb122_s2_464c300661fe6bd)) where imdb100_s2_464c300661fe6bd.v0 = imdb122_s2_464c300661fe6bd.v0)) /* stage4 */, s4_group_631D7894A09BD2DA as  (select * from umbra.identity(table(imdb122_s2_464c300661fe6bd)) NATURAL JOIN umbra.identity(table(imdb100_s3_464c300661fe6bd)) NATURAL JOIN umbra.identity(table(imdb13_s3_464c300661fe6bd)) NATURAL JOIN umbra.identity(table(imdb2_s3_464c300661fe6bd)) NATURAL JOIN umbra.identity(table(imdb6_s3_464c300661fe6bd)))select count(*) from umbra.identity(table(s4_group_631D7894A09BD2DA));
+\set queryname job_acyclic_109_25
+-- Result size: 67509708
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb2:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb8:s;imdb8:s -> imdb7:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb2  | s |     d    | imdb8 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb126 | s |     d    | imdb7 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_cd07f00661fe6bd as (select imdb126.d as v0 from imdb126), imdb8_s2_cd07f00661fe6bd as (select imdb8.s as v0 from imdb8), imdb7_s2_cd07f00661fe6bd as (select imdb7.s as v0 from imdb7), imdb2_s2_cd07f00661fe6bd as (select imdb2.d as v0 from imdb2), imdb100_s2_cd07f00661fe6bd as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_cd07f00661fe6bd as (select * from umbra.identity(table(imdb126_s1_cd07f00661fe6bd)) where exists (select from umbra.identity(table(imdb100_s2_cd07f00661fe6bd)) where imdb126_s1_cd07f00661fe6bd.v0 = imdb100_s2_cd07f00661fe6bd.v0) AND exists (select from umbra.identity(table(imdb2_s2_cd07f00661fe6bd)) where imdb126_s1_cd07f00661fe6bd.v0 = imdb2_s2_cd07f00661fe6bd.v0) AND exists (select from umbra.identity(table(imdb7_s2_cd07f00661fe6bd)) where imdb126_s1_cd07f00661fe6bd.v0 = imdb7_s2_cd07f00661fe6bd.v0) AND exists (select from umbra.identity(table(imdb8_s2_cd07f00661fe6bd)) where imdb126_s1_cd07f00661fe6bd.v0 = imdb8_s2_cd07f00661fe6bd.v0)) /* stage3 */, imdb8_s3_cd07f00661fe6bd as (select * from umbra.identity(table(imdb8_s2_cd07f00661fe6bd)) where exists (select from umbra.identity(table(imdb126_s2_cd07f00661fe6bd)) where imdb8_s2_cd07f00661fe6bd.v0 = imdb126_s2_cd07f00661fe6bd.v0)), imdb7_s3_cd07f00661fe6bd as (select * from umbra.identity(table(imdb7_s2_cd07f00661fe6bd)) where exists (select from umbra.identity(table(imdb126_s2_cd07f00661fe6bd)) where imdb7_s2_cd07f00661fe6bd.v0 = imdb126_s2_cd07f00661fe6bd.v0)), imdb2_s3_cd07f00661fe6bd as (select * from umbra.identity(table(imdb2_s2_cd07f00661fe6bd)) where exists (select from umbra.identity(table(imdb126_s2_cd07f00661fe6bd)) where imdb2_s2_cd07f00661fe6bd.v0 = imdb126_s2_cd07f00661fe6bd.v0)), imdb100_s3_cd07f00661fe6bd as (select * from umbra.identity(table(imdb100_s2_cd07f00661fe6bd)) where exists (select from umbra.identity(table(imdb126_s2_cd07f00661fe6bd)) where imdb100_s2_cd07f00661fe6bd.v0 = imdb126_s2_cd07f00661fe6bd.v0)) /* stage4 */, s4_group_6299595E62232F13 as  (select * from umbra.identity(table(imdb126_s2_cd07f00661fe6bd)) NATURAL JOIN umbra.identity(table(imdb100_s3_cd07f00661fe6bd)) NATURAL JOIN umbra.identity(table(imdb2_s3_cd07f00661fe6bd)) NATURAL JOIN umbra.identity(table(imdb7_s3_cd07f00661fe6bd)) NATURAL JOIN umbra.identity(table(imdb8_s3_cd07f00661fe6bd)))select count(*) from umbra.identity(table(s4_group_6299595E62232F13));
+--\set queryname job_acyclic_109_26
+-- Result size: 1385695446
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb3:d -> imdb122:d;imdb122:d -> imdb100:d;imdb100:d -> imdb13:s;imdb13:s -> imdb6:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb122 | s |     d    |  imdb6 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb122_s1_1533cd00661fe6bd as (select imdb122.d as v0 from imdb122), imdb6_s2_1533cd00661fe6bd as (select imdb6.s as v0 from imdb6), imdb3_s2_1533cd00661fe6bd as (select imdb3.d as v0 from imdb3), imdb13_s2_1533cd00661fe6bd as (select imdb13.s as v0 from imdb13), imdb100_s2_1533cd00661fe6bd as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb122_s2_1533cd00661fe6bd as (select * from umbra.identity(table(imdb122_s1_1533cd00661fe6bd)) where exists (select from umbra.identity(table(imdb100_s2_1533cd00661fe6bd)) where imdb122_s1_1533cd00661fe6bd.v0 = imdb100_s2_1533cd00661fe6bd.v0) AND exists (select from umbra.identity(table(imdb13_s2_1533cd00661fe6bd)) where imdb122_s1_1533cd00661fe6bd.v0 = imdb13_s2_1533cd00661fe6bd.v0) AND exists (select from umbra.identity(table(imdb3_s2_1533cd00661fe6bd)) where imdb122_s1_1533cd00661fe6bd.v0 = imdb3_s2_1533cd00661fe6bd.v0) AND exists (select from umbra.identity(table(imdb6_s2_1533cd00661fe6bd)) where imdb122_s1_1533cd00661fe6bd.v0 = imdb6_s2_1533cd00661fe6bd.v0)) /* stage3 */, imdb6_s3_1533cd00661fe6bd as (select * from umbra.identity(table(imdb6_s2_1533cd00661fe6bd)) where exists (select from umbra.identity(table(imdb122_s2_1533cd00661fe6bd)) where imdb6_s2_1533cd00661fe6bd.v0 = imdb122_s2_1533cd00661fe6bd.v0)), imdb3_s3_1533cd00661fe6bd as (select * from umbra.identity(table(imdb3_s2_1533cd00661fe6bd)) where exists (select from umbra.identity(table(imdb122_s2_1533cd00661fe6bd)) where imdb3_s2_1533cd00661fe6bd.v0 = imdb122_s2_1533cd00661fe6bd.v0)), imdb13_s3_1533cd00661fe6bd as (select * from umbra.identity(table(imdb13_s2_1533cd00661fe6bd)) where exists (select from umbra.identity(table(imdb122_s2_1533cd00661fe6bd)) where imdb13_s2_1533cd00661fe6bd.v0 = imdb122_s2_1533cd00661fe6bd.v0)), imdb100_s3_1533cd00661fe6bd as (select * from umbra.identity(table(imdb100_s2_1533cd00661fe6bd)) where exists (select from umbra.identity(table(imdb122_s2_1533cd00661fe6bd)) where imdb100_s2_1533cd00661fe6bd.v0 = imdb122_s2_1533cd00661fe6bd.v0)) /* stage4 */, s4_group_6C33860CD4FFC70A as  (select * from umbra.identity(table(imdb122_s2_1533cd00661fe6bd)) NATURAL JOIN umbra.identity(table(imdb100_s3_1533cd00661fe6bd)) NATURAL JOIN umbra.identity(table(imdb13_s3_1533cd00661fe6bd)) NATURAL JOIN umbra.identity(table(imdb3_s3_1533cd00661fe6bd)) NATURAL JOIN umbra.identity(table(imdb6_s3_1533cd00661fe6bd)))select count(*) from umbra.identity(table(s4_group_6C33860CD4FFC70A));
+\set queryname job_acyclic_109_27
+-- Result size: 142931218
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb2:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb17:s;imdb17:s -> imdb5:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb17 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb120 | s |     d    |  imdb5 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb120_s1_1da54d80661fe6bd as (select imdb120.d as v0 from imdb120), imdb5_s2_1da54d80661fe6bd as (select imdb5.s as v0 from imdb5), imdb2_s2_1da54d80661fe6bd as (select imdb2.d as v0 from imdb2), imdb17_s2_1da54d80661fe6bd as (select imdb17.s as v0 from imdb17), imdb100_s2_1da54d80661fe6bd as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb120_s2_1da54d80661fe6bd as (select * from umbra.identity(table(imdb120_s1_1da54d80661fe6bd)) where exists (select from umbra.identity(table(imdb100_s2_1da54d80661fe6bd)) where imdb120_s1_1da54d80661fe6bd.v0 = imdb100_s2_1da54d80661fe6bd.v0) AND exists (select from umbra.identity(table(imdb17_s2_1da54d80661fe6bd)) where imdb120_s1_1da54d80661fe6bd.v0 = imdb17_s2_1da54d80661fe6bd.v0) AND exists (select from umbra.identity(table(imdb2_s2_1da54d80661fe6bd)) where imdb120_s1_1da54d80661fe6bd.v0 = imdb2_s2_1da54d80661fe6bd.v0) AND exists (select from umbra.identity(table(imdb5_s2_1da54d80661fe6bd)) where imdb120_s1_1da54d80661fe6bd.v0 = imdb5_s2_1da54d80661fe6bd.v0)) /* stage3 */, imdb5_s3_1da54d80661fe6bd as (select * from umbra.identity(table(imdb5_s2_1da54d80661fe6bd)) where exists (select from umbra.identity(table(imdb120_s2_1da54d80661fe6bd)) where imdb5_s2_1da54d80661fe6bd.v0 = imdb120_s2_1da54d80661fe6bd.v0)), imdb2_s3_1da54d80661fe6bd as (select * from umbra.identity(table(imdb2_s2_1da54d80661fe6bd)) where exists (select from umbra.identity(table(imdb120_s2_1da54d80661fe6bd)) where imdb2_s2_1da54d80661fe6bd.v0 = imdb120_s2_1da54d80661fe6bd.v0)), imdb17_s3_1da54d80661fe6bd as (select * from umbra.identity(table(imdb17_s2_1da54d80661fe6bd)) where exists (select from umbra.identity(table(imdb120_s2_1da54d80661fe6bd)) where imdb17_s2_1da54d80661fe6bd.v0 = imdb120_s2_1da54d80661fe6bd.v0)), imdb100_s3_1da54d80661fe6bd as (select * from umbra.identity(table(imdb100_s2_1da54d80661fe6bd)) where exists (select from umbra.identity(table(imdb120_s2_1da54d80661fe6bd)) where imdb100_s2_1da54d80661fe6bd.v0 = imdb120_s2_1da54d80661fe6bd.v0)) /* stage4 */, s4_group_4657EA191066195C as  (select * from umbra.identity(table(imdb120_s2_1da54d80661fe6bd)) NATURAL JOIN umbra.identity(table(imdb100_s3_1da54d80661fe6bd)) NATURAL JOIN umbra.identity(table(imdb17_s3_1da54d80661fe6bd)) NATURAL JOIN umbra.identity(table(imdb2_s3_1da54d80661fe6bd)) NATURAL JOIN umbra.identity(table(imdb5_s3_1da54d80661fe6bd)))select count(*) from umbra.identity(table(s4_group_4657EA191066195C));
+\set queryname job_acyclic_109_28
+-- Result size: 56939831
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb2:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb9:s;imdb9:s -> imdb17:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb9 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb118 | s |     d    | imdb17 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb118_s1_639f880661fe6be as (select imdb118.d as v0 from imdb118), imdb9_s2_639f880661fe6be as (select imdb9.s as v0 from imdb9), imdb2_s2_639f880661fe6be as (select imdb2.d as v0 from imdb2), imdb17_s2_639f880661fe6be as (select imdb17.s as v0 from imdb17), imdb100_s2_639f880661fe6be as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb118_s2_639f880661fe6be as (select * from umbra.identity(table(imdb118_s1_639f880661fe6be)) where exists (select from umbra.identity(table(imdb100_s2_639f880661fe6be)) where imdb118_s1_639f880661fe6be.v0 = imdb100_s2_639f880661fe6be.v0) AND exists (select from umbra.identity(table(imdb17_s2_639f880661fe6be)) where imdb118_s1_639f880661fe6be.v0 = imdb17_s2_639f880661fe6be.v0) AND exists (select from umbra.identity(table(imdb2_s2_639f880661fe6be)) where imdb118_s1_639f880661fe6be.v0 = imdb2_s2_639f880661fe6be.v0) AND exists (select from umbra.identity(table(imdb9_s2_639f880661fe6be)) where imdb118_s1_639f880661fe6be.v0 = imdb9_s2_639f880661fe6be.v0)) /* stage3 */, imdb9_s3_639f880661fe6be as (select * from umbra.identity(table(imdb9_s2_639f880661fe6be)) where exists (select from umbra.identity(table(imdb118_s2_639f880661fe6be)) where imdb9_s2_639f880661fe6be.v0 = imdb118_s2_639f880661fe6be.v0)), imdb2_s3_639f880661fe6be as (select * from umbra.identity(table(imdb2_s2_639f880661fe6be)) where exists (select from umbra.identity(table(imdb118_s2_639f880661fe6be)) where imdb2_s2_639f880661fe6be.v0 = imdb118_s2_639f880661fe6be.v0)), imdb17_s3_639f880661fe6be as (select * from umbra.identity(table(imdb17_s2_639f880661fe6be)) where exists (select from umbra.identity(table(imdb118_s2_639f880661fe6be)) where imdb17_s2_639f880661fe6be.v0 = imdb118_s2_639f880661fe6be.v0)), imdb100_s3_639f880661fe6be as (select * from umbra.identity(table(imdb100_s2_639f880661fe6be)) where exists (select from umbra.identity(table(imdb118_s2_639f880661fe6be)) where imdb100_s2_639f880661fe6be.v0 = imdb118_s2_639f880661fe6be.v0)) /* stage4 */, s4_group_CD496A64165581 as  (select * from umbra.identity(table(imdb118_s2_639f880661fe6be)) NATURAL JOIN umbra.identity(table(imdb100_s3_639f880661fe6be)) NATURAL JOIN umbra.identity(table(imdb17_s3_639f880661fe6be)) NATURAL JOIN umbra.identity(table(imdb2_s3_639f880661fe6be)) NATURAL JOIN umbra.identity(table(imdb9_s3_639f880661fe6be)))select count(*) from umbra.identity(table(s4_group_CD496A64165581));
+--\set queryname job_acyclic_109_29
+-- Result size: 1964921650
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb2:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb13:s;imdb13:s -> imdb15:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_ec14100661fe6be as (select imdb117.d as v0 from imdb117), imdb2_s2_ec14100661fe6be as (select imdb2.d as v0 from imdb2), imdb15_s2_ec14100661fe6be as (select imdb15.s as v0 from imdb15), imdb13_s2_ec14100661fe6be as (select imdb13.s as v0 from imdb13), imdb100_s2_ec14100661fe6be as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_ec14100661fe6be as (select * from umbra.identity(table(imdb117_s1_ec14100661fe6be)) where exists (select from umbra.identity(table(imdb100_s2_ec14100661fe6be)) where imdb117_s1_ec14100661fe6be.v0 = imdb100_s2_ec14100661fe6be.v0) AND exists (select from umbra.identity(table(imdb13_s2_ec14100661fe6be)) where imdb117_s1_ec14100661fe6be.v0 = imdb13_s2_ec14100661fe6be.v0) AND exists (select from umbra.identity(table(imdb15_s2_ec14100661fe6be)) where imdb117_s1_ec14100661fe6be.v0 = imdb15_s2_ec14100661fe6be.v0) AND exists (select from umbra.identity(table(imdb2_s2_ec14100661fe6be)) where imdb117_s1_ec14100661fe6be.v0 = imdb2_s2_ec14100661fe6be.v0)) /* stage3 */, imdb2_s3_ec14100661fe6be as (select * from umbra.identity(table(imdb2_s2_ec14100661fe6be)) where exists (select from umbra.identity(table(imdb117_s2_ec14100661fe6be)) where imdb2_s2_ec14100661fe6be.v0 = imdb117_s2_ec14100661fe6be.v0)), imdb15_s3_ec14100661fe6be as (select * from umbra.identity(table(imdb15_s2_ec14100661fe6be)) where exists (select from umbra.identity(table(imdb117_s2_ec14100661fe6be)) where imdb15_s2_ec14100661fe6be.v0 = imdb117_s2_ec14100661fe6be.v0)), imdb13_s3_ec14100661fe6be as (select * from umbra.identity(table(imdb13_s2_ec14100661fe6be)) where exists (select from umbra.identity(table(imdb117_s2_ec14100661fe6be)) where imdb13_s2_ec14100661fe6be.v0 = imdb117_s2_ec14100661fe6be.v0)), imdb100_s3_ec14100661fe6be as (select * from umbra.identity(table(imdb100_s2_ec14100661fe6be)) where exists (select from umbra.identity(table(imdb117_s2_ec14100661fe6be)) where imdb100_s2_ec14100661fe6be.v0 = imdb117_s2_ec14100661fe6be.v0)) /* stage4 */, s4_group_53EE4E53EDD25786 as  (select * from umbra.identity(table(imdb117_s2_ec14100661fe6be)) NATURAL JOIN umbra.identity(table(imdb100_s3_ec14100661fe6be)) NATURAL JOIN umbra.identity(table(imdb13_s3_ec14100661fe6be)) NATURAL JOIN umbra.identity(table(imdb15_s3_ec14100661fe6be)) NATURAL JOIN umbra.identity(table(imdb2_s3_ec14100661fe6be)))select count(*) from umbra.identity(table(s4_group_53EE4E53EDD25786));
+--\set queryname job_acyclic_109_30
+-- Result size: 17941659104
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb3:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb9:s;imdb9:s -> imdb18:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    |  imdb9 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb18 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_17295800661fe6be as (select imdb117.d as v0 from imdb117), imdb9_s2_17295800661fe6be as (select imdb9.s as v0 from imdb9), imdb3_s2_17295800661fe6be as (select imdb3.d as v0 from imdb3), imdb18_s2_17295800661fe6be as (select imdb18.s as v0 from imdb18), imdb100_s2_17295800661fe6be as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_17295800661fe6be as (select * from umbra.identity(table(imdb117_s1_17295800661fe6be)) where exists (select from umbra.identity(table(imdb100_s2_17295800661fe6be)) where imdb117_s1_17295800661fe6be.v0 = imdb100_s2_17295800661fe6be.v0) AND exists (select from umbra.identity(table(imdb18_s2_17295800661fe6be)) where imdb117_s1_17295800661fe6be.v0 = imdb18_s2_17295800661fe6be.v0) AND exists (select from umbra.identity(table(imdb3_s2_17295800661fe6be)) where imdb117_s1_17295800661fe6be.v0 = imdb3_s2_17295800661fe6be.v0) AND exists (select from umbra.identity(table(imdb9_s2_17295800661fe6be)) where imdb117_s1_17295800661fe6be.v0 = imdb9_s2_17295800661fe6be.v0)) /* stage3 */, imdb9_s3_17295800661fe6be as (select * from umbra.identity(table(imdb9_s2_17295800661fe6be)) where exists (select from umbra.identity(table(imdb117_s2_17295800661fe6be)) where imdb9_s2_17295800661fe6be.v0 = imdb117_s2_17295800661fe6be.v0)), imdb3_s3_17295800661fe6be as (select * from umbra.identity(table(imdb3_s2_17295800661fe6be)) where exists (select from umbra.identity(table(imdb117_s2_17295800661fe6be)) where imdb3_s2_17295800661fe6be.v0 = imdb117_s2_17295800661fe6be.v0)), imdb18_s3_17295800661fe6be as (select * from umbra.identity(table(imdb18_s2_17295800661fe6be)) where exists (select from umbra.identity(table(imdb117_s2_17295800661fe6be)) where imdb18_s2_17295800661fe6be.v0 = imdb117_s2_17295800661fe6be.v0)), imdb100_s3_17295800661fe6be as (select * from umbra.identity(table(imdb100_s2_17295800661fe6be)) where exists (select from umbra.identity(table(imdb117_s2_17295800661fe6be)) where imdb100_s2_17295800661fe6be.v0 = imdb117_s2_17295800661fe6be.v0)) /* stage4 */, s4_group_7BCB4E8B64800562 as  (select * from umbra.identity(table(imdb117_s2_17295800661fe6be)) NATURAL JOIN umbra.identity(table(imdb100_s3_17295800661fe6be)) NATURAL JOIN umbra.identity(table(imdb18_s3_17295800661fe6be)) NATURAL JOIN umbra.identity(table(imdb3_s3_17295800661fe6be)) NATURAL JOIN umbra.identity(table(imdb9_s3_17295800661fe6be)))select count(*) from umbra.identity(table(s4_group_7BCB4E8B64800562));
+\set queryname job_acyclic_109_31
+-- Result size: 196433760
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb3:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb15:s;imdb15:s -> imdb9:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb120 | s |     d    |  imdb9 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb120_s1_1ff2f900661fe6be as (select imdb120.d as v0 from imdb120), imdb9_s2_1ff2f900661fe6be as (select imdb9.s as v0 from imdb9), imdb3_s2_1ff2f900661fe6be as (select imdb3.d as v0 from imdb3), imdb15_s2_1ff2f900661fe6be as (select imdb15.s as v0 from imdb15), imdb100_s2_1ff2f900661fe6be as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb120_s2_1ff2f900661fe6be as (select * from umbra.identity(table(imdb120_s1_1ff2f900661fe6be)) where exists (select from umbra.identity(table(imdb100_s2_1ff2f900661fe6be)) where imdb120_s1_1ff2f900661fe6be.v0 = imdb100_s2_1ff2f900661fe6be.v0) AND exists (select from umbra.identity(table(imdb15_s2_1ff2f900661fe6be)) where imdb120_s1_1ff2f900661fe6be.v0 = imdb15_s2_1ff2f900661fe6be.v0) AND exists (select from umbra.identity(table(imdb3_s2_1ff2f900661fe6be)) where imdb120_s1_1ff2f900661fe6be.v0 = imdb3_s2_1ff2f900661fe6be.v0) AND exists (select from umbra.identity(table(imdb9_s2_1ff2f900661fe6be)) where imdb120_s1_1ff2f900661fe6be.v0 = imdb9_s2_1ff2f900661fe6be.v0)) /* stage3 */, imdb9_s3_1ff2f900661fe6be as (select * from umbra.identity(table(imdb9_s2_1ff2f900661fe6be)) where exists (select from umbra.identity(table(imdb120_s2_1ff2f900661fe6be)) where imdb9_s2_1ff2f900661fe6be.v0 = imdb120_s2_1ff2f900661fe6be.v0)), imdb3_s3_1ff2f900661fe6be as (select * from umbra.identity(table(imdb3_s2_1ff2f900661fe6be)) where exists (select from umbra.identity(table(imdb120_s2_1ff2f900661fe6be)) where imdb3_s2_1ff2f900661fe6be.v0 = imdb120_s2_1ff2f900661fe6be.v0)), imdb15_s3_1ff2f900661fe6be as (select * from umbra.identity(table(imdb15_s2_1ff2f900661fe6be)) where exists (select from umbra.identity(table(imdb120_s2_1ff2f900661fe6be)) where imdb15_s2_1ff2f900661fe6be.v0 = imdb120_s2_1ff2f900661fe6be.v0)), imdb100_s3_1ff2f900661fe6be as (select * from umbra.identity(table(imdb100_s2_1ff2f900661fe6be)) where exists (select from umbra.identity(table(imdb120_s2_1ff2f900661fe6be)) where imdb100_s2_1ff2f900661fe6be.v0 = imdb120_s2_1ff2f900661fe6be.v0)) /* stage4 */, s4_group_5F74C578615FAB0E as  (select * from umbra.identity(table(imdb120_s2_1ff2f900661fe6be)) NATURAL JOIN umbra.identity(table(imdb100_s3_1ff2f900661fe6be)) NATURAL JOIN umbra.identity(table(imdb15_s3_1ff2f900661fe6be)) NATURAL JOIN umbra.identity(table(imdb3_s3_1ff2f900661fe6be)) NATURAL JOIN umbra.identity(table(imdb9_s3_1ff2f900661fe6be)))select count(*) from umbra.identity(table(s4_group_5F74C578615FAB0E));
+\set queryname job_acyclic_109_32
+-- Result size: 156236042
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb2:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb12:s;imdb12:s -> imdb13:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb12 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb120 | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb12_s1_8545500661fe6bf as (select imdb12.s as v0 from imdb12), imdb2_s2_8545500661fe6bf as (select imdb2.d as v0 from imdb2), imdb13_s2_8545500661fe6bf as (select imdb13.s as v0 from imdb13), imdb120_s2_8545500661fe6bf as (select imdb120.d as v0 from imdb120), imdb100_s2_8545500661fe6bf as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb12_s2_8545500661fe6bf as (select * from umbra.identity(table(imdb12_s1_8545500661fe6bf)) where exists (select from umbra.identity(table(imdb100_s2_8545500661fe6bf)) where imdb12_s1_8545500661fe6bf.v0 = imdb100_s2_8545500661fe6bf.v0) AND exists (select from umbra.identity(table(imdb120_s2_8545500661fe6bf)) where imdb12_s1_8545500661fe6bf.v0 = imdb120_s2_8545500661fe6bf.v0) AND exists (select from umbra.identity(table(imdb13_s2_8545500661fe6bf)) where imdb12_s1_8545500661fe6bf.v0 = imdb13_s2_8545500661fe6bf.v0) AND exists (select from umbra.identity(table(imdb2_s2_8545500661fe6bf)) where imdb12_s1_8545500661fe6bf.v0 = imdb2_s2_8545500661fe6bf.v0)) /* stage3 */, imdb2_s3_8545500661fe6bf as (select * from umbra.identity(table(imdb2_s2_8545500661fe6bf)) where exists (select from umbra.identity(table(imdb12_s2_8545500661fe6bf)) where imdb2_s2_8545500661fe6bf.v0 = imdb12_s2_8545500661fe6bf.v0)), imdb13_s3_8545500661fe6bf as (select * from umbra.identity(table(imdb13_s2_8545500661fe6bf)) where exists (select from umbra.identity(table(imdb12_s2_8545500661fe6bf)) where imdb13_s2_8545500661fe6bf.v0 = imdb12_s2_8545500661fe6bf.v0)), imdb120_s3_8545500661fe6bf as (select * from umbra.identity(table(imdb120_s2_8545500661fe6bf)) where exists (select from umbra.identity(table(imdb12_s2_8545500661fe6bf)) where imdb120_s2_8545500661fe6bf.v0 = imdb12_s2_8545500661fe6bf.v0)), imdb100_s3_8545500661fe6bf as (select * from umbra.identity(table(imdb100_s2_8545500661fe6bf)) where exists (select from umbra.identity(table(imdb12_s2_8545500661fe6bf)) where imdb100_s2_8545500661fe6bf.v0 = imdb12_s2_8545500661fe6bf.v0)) /* stage4 */, s4_group_3396C7904405B6F6 as  (select * from umbra.identity(table(imdb12_s2_8545500661fe6bf)) NATURAL JOIN umbra.identity(table(imdb100_s3_8545500661fe6bf)) NATURAL JOIN umbra.identity(table(imdb120_s3_8545500661fe6bf)) NATURAL JOIN umbra.identity(table(imdb13_s3_8545500661fe6bf)) NATURAL JOIN umbra.identity(table(imdb2_s3_8545500661fe6bf)))select count(*) from umbra.identity(table(s4_group_3396C7904405B6F6));
+--\set queryname job_acyclic_109_33
+-- Result size: 3612035158
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb2:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb24:s;imdb24:s -> imdb5:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb24 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    |  imdb5 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_10d17980661fe6bf as (select imdb117.d as v0 from imdb117), imdb5_s2_10d17980661fe6bf as (select imdb5.s as v0 from imdb5), imdb24_s2_10d17980661fe6bf as (select imdb24.s as v0 from imdb24), imdb2_s2_10d17980661fe6bf as (select imdb2.d as v0 from imdb2), imdb100_s2_10d17980661fe6bf as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_10d17980661fe6bf as (select * from umbra.identity(table(imdb117_s1_10d17980661fe6bf)) where exists (select from umbra.identity(table(imdb100_s2_10d17980661fe6bf)) where imdb117_s1_10d17980661fe6bf.v0 = imdb100_s2_10d17980661fe6bf.v0) AND exists (select from umbra.identity(table(imdb2_s2_10d17980661fe6bf)) where imdb117_s1_10d17980661fe6bf.v0 = imdb2_s2_10d17980661fe6bf.v0) AND exists (select from umbra.identity(table(imdb24_s2_10d17980661fe6bf)) where imdb117_s1_10d17980661fe6bf.v0 = imdb24_s2_10d17980661fe6bf.v0) AND exists (select from umbra.identity(table(imdb5_s2_10d17980661fe6bf)) where imdb117_s1_10d17980661fe6bf.v0 = imdb5_s2_10d17980661fe6bf.v0)) /* stage3 */, imdb5_s3_10d17980661fe6bf as (select * from umbra.identity(table(imdb5_s2_10d17980661fe6bf)) where exists (select from umbra.identity(table(imdb117_s2_10d17980661fe6bf)) where imdb5_s2_10d17980661fe6bf.v0 = imdb117_s2_10d17980661fe6bf.v0)), imdb24_s3_10d17980661fe6bf as (select * from umbra.identity(table(imdb24_s2_10d17980661fe6bf)) where exists (select from umbra.identity(table(imdb117_s2_10d17980661fe6bf)) where imdb24_s2_10d17980661fe6bf.v0 = imdb117_s2_10d17980661fe6bf.v0)), imdb2_s3_10d17980661fe6bf as (select * from umbra.identity(table(imdb2_s2_10d17980661fe6bf)) where exists (select from umbra.identity(table(imdb117_s2_10d17980661fe6bf)) where imdb2_s2_10d17980661fe6bf.v0 = imdb117_s2_10d17980661fe6bf.v0)), imdb100_s3_10d17980661fe6bf as (select * from umbra.identity(table(imdb100_s2_10d17980661fe6bf)) where exists (select from umbra.identity(table(imdb117_s2_10d17980661fe6bf)) where imdb100_s2_10d17980661fe6bf.v0 = imdb117_s2_10d17980661fe6bf.v0)) /* stage4 */, s4_group_7AADF48F4012B5B0 as  (select * from umbra.identity(table(imdb117_s2_10d17980661fe6bf)) NATURAL JOIN umbra.identity(table(imdb100_s3_10d17980661fe6bf)) NATURAL JOIN umbra.identity(table(imdb2_s3_10d17980661fe6bf)) NATURAL JOIN umbra.identity(table(imdb24_s3_10d17980661fe6bf)) NATURAL JOIN umbra.identity(table(imdb5_s3_10d17980661fe6bf)))select count(*) from umbra.identity(table(s4_group_7AADF48F4012B5B0));
+\set queryname job_acyclic_109_34
+-- Result size: 610247029
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb3:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb18:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb120 | s |     d    | imdb18 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb120_s1_193a1e80661fe6bf as (select imdb120.d as v0 from imdb120), imdb7_s2_193a1e80661fe6bf as (select imdb7.s as v0 from imdb7), imdb3_s2_193a1e80661fe6bf as (select imdb3.d as v0 from imdb3), imdb18_s2_193a1e80661fe6bf as (select imdb18.s as v0 from imdb18), imdb100_s2_193a1e80661fe6bf as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb120_s2_193a1e80661fe6bf as (select * from umbra.identity(table(imdb120_s1_193a1e80661fe6bf)) where exists (select from umbra.identity(table(imdb100_s2_193a1e80661fe6bf)) where imdb120_s1_193a1e80661fe6bf.v0 = imdb100_s2_193a1e80661fe6bf.v0) AND exists (select from umbra.identity(table(imdb18_s2_193a1e80661fe6bf)) where imdb120_s1_193a1e80661fe6bf.v0 = imdb18_s2_193a1e80661fe6bf.v0) AND exists (select from umbra.identity(table(imdb3_s2_193a1e80661fe6bf)) where imdb120_s1_193a1e80661fe6bf.v0 = imdb3_s2_193a1e80661fe6bf.v0) AND exists (select from umbra.identity(table(imdb7_s2_193a1e80661fe6bf)) where imdb120_s1_193a1e80661fe6bf.v0 = imdb7_s2_193a1e80661fe6bf.v0)) /* stage3 */, imdb7_s3_193a1e80661fe6bf as (select * from umbra.identity(table(imdb7_s2_193a1e80661fe6bf)) where exists (select from umbra.identity(table(imdb120_s2_193a1e80661fe6bf)) where imdb7_s2_193a1e80661fe6bf.v0 = imdb120_s2_193a1e80661fe6bf.v0)), imdb3_s3_193a1e80661fe6bf as (select * from umbra.identity(table(imdb3_s2_193a1e80661fe6bf)) where exists (select from umbra.identity(table(imdb120_s2_193a1e80661fe6bf)) where imdb3_s2_193a1e80661fe6bf.v0 = imdb120_s2_193a1e80661fe6bf.v0)), imdb18_s3_193a1e80661fe6bf as (select * from umbra.identity(table(imdb18_s2_193a1e80661fe6bf)) where exists (select from umbra.identity(table(imdb120_s2_193a1e80661fe6bf)) where imdb18_s2_193a1e80661fe6bf.v0 = imdb120_s2_193a1e80661fe6bf.v0)), imdb100_s3_193a1e80661fe6bf as (select * from umbra.identity(table(imdb100_s2_193a1e80661fe6bf)) where exists (select from umbra.identity(table(imdb120_s2_193a1e80661fe6bf)) where imdb100_s2_193a1e80661fe6bf.v0 = imdb120_s2_193a1e80661fe6bf.v0)) /* stage4 */, s4_group_1BF000C136C22360 as  (select * from umbra.identity(table(imdb120_s2_193a1e80661fe6bf)) NATURAL JOIN umbra.identity(table(imdb100_s3_193a1e80661fe6bf)) NATURAL JOIN umbra.identity(table(imdb18_s3_193a1e80661fe6bf)) NATURAL JOIN umbra.identity(table(imdb3_s3_193a1e80661fe6bf)) NATURAL JOIN umbra.identity(table(imdb7_s3_193a1e80661fe6bf)))select count(*) from umbra.identity(table(s4_group_1BF000C136C22360));
+--\set queryname job_acyclic_109_35
+-- Result size: 1460797877
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb3:d -> imdb122:d;imdb122:d -> imdb100:d;imdb100:d -> imdb16:s;imdb16:s -> imdb7:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb16 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb122 | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb122_s1_1b49180661fe6c0 as (select imdb122.d as v0 from imdb122), imdb7_s2_1b49180661fe6c0 as (select imdb7.s as v0 from imdb7), imdb3_s2_1b49180661fe6c0 as (select imdb3.d as v0 from imdb3), imdb16_s2_1b49180661fe6c0 as (select imdb16.s as v0 from imdb16), imdb100_s2_1b49180661fe6c0 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb122_s2_1b49180661fe6c0 as (select * from umbra.identity(table(imdb122_s1_1b49180661fe6c0)) where exists (select from umbra.identity(table(imdb100_s2_1b49180661fe6c0)) where imdb122_s1_1b49180661fe6c0.v0 = imdb100_s2_1b49180661fe6c0.v0) AND exists (select from umbra.identity(table(imdb16_s2_1b49180661fe6c0)) where imdb122_s1_1b49180661fe6c0.v0 = imdb16_s2_1b49180661fe6c0.v0) AND exists (select from umbra.identity(table(imdb3_s2_1b49180661fe6c0)) where imdb122_s1_1b49180661fe6c0.v0 = imdb3_s2_1b49180661fe6c0.v0) AND exists (select from umbra.identity(table(imdb7_s2_1b49180661fe6c0)) where imdb122_s1_1b49180661fe6c0.v0 = imdb7_s2_1b49180661fe6c0.v0)) /* stage3 */, imdb7_s3_1b49180661fe6c0 as (select * from umbra.identity(table(imdb7_s2_1b49180661fe6c0)) where exists (select from umbra.identity(table(imdb122_s2_1b49180661fe6c0)) where imdb7_s2_1b49180661fe6c0.v0 = imdb122_s2_1b49180661fe6c0.v0)), imdb3_s3_1b49180661fe6c0 as (select * from umbra.identity(table(imdb3_s2_1b49180661fe6c0)) where exists (select from umbra.identity(table(imdb122_s2_1b49180661fe6c0)) where imdb3_s2_1b49180661fe6c0.v0 = imdb122_s2_1b49180661fe6c0.v0)), imdb16_s3_1b49180661fe6c0 as (select * from umbra.identity(table(imdb16_s2_1b49180661fe6c0)) where exists (select from umbra.identity(table(imdb122_s2_1b49180661fe6c0)) where imdb16_s2_1b49180661fe6c0.v0 = imdb122_s2_1b49180661fe6c0.v0)), imdb100_s3_1b49180661fe6c0 as (select * from umbra.identity(table(imdb100_s2_1b49180661fe6c0)) where exists (select from umbra.identity(table(imdb122_s2_1b49180661fe6c0)) where imdb100_s2_1b49180661fe6c0.v0 = imdb122_s2_1b49180661fe6c0.v0)) /* stage4 */, s4_group_5DEF91B34CFA85A5 as  (select * from umbra.identity(table(imdb122_s2_1b49180661fe6c0)) NATURAL JOIN umbra.identity(table(imdb100_s3_1b49180661fe6c0)) NATURAL JOIN umbra.identity(table(imdb16_s3_1b49180661fe6c0)) NATURAL JOIN umbra.identity(table(imdb3_s3_1b49180661fe6c0)) NATURAL JOIN umbra.identity(table(imdb7_s3_1b49180661fe6c0)))select count(*) from umbra.identity(table(s4_group_5DEF91B34CFA85A5));
+\set queryname job_acyclic_109_36
+-- Result size: 55945663
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb3:d -> imdb123:d;imdb123:d -> imdb100:d;imdb100:d -> imdb6:s;imdb6:s -> imdb16:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    |  imdb6 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb123 | s |     d    | imdb16 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb123_s1_a3e4480661fe6c0 as (select imdb123.d as v0 from imdb123), imdb6_s2_a3e4480661fe6c0 as (select imdb6.s as v0 from imdb6), imdb3_s2_a3e4480661fe6c0 as (select imdb3.d as v0 from imdb3), imdb16_s2_a3e4480661fe6c0 as (select imdb16.s as v0 from imdb16), imdb100_s2_a3e4480661fe6c0 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb123_s2_a3e4480661fe6c0 as (select * from umbra.identity(table(imdb123_s1_a3e4480661fe6c0)) where exists (select from umbra.identity(table(imdb100_s2_a3e4480661fe6c0)) where imdb123_s1_a3e4480661fe6c0.v0 = imdb100_s2_a3e4480661fe6c0.v0) AND exists (select from umbra.identity(table(imdb16_s2_a3e4480661fe6c0)) where imdb123_s1_a3e4480661fe6c0.v0 = imdb16_s2_a3e4480661fe6c0.v0) AND exists (select from umbra.identity(table(imdb3_s2_a3e4480661fe6c0)) where imdb123_s1_a3e4480661fe6c0.v0 = imdb3_s2_a3e4480661fe6c0.v0) AND exists (select from umbra.identity(table(imdb6_s2_a3e4480661fe6c0)) where imdb123_s1_a3e4480661fe6c0.v0 = imdb6_s2_a3e4480661fe6c0.v0)) /* stage3 */, imdb6_s3_a3e4480661fe6c0 as (select * from umbra.identity(table(imdb6_s2_a3e4480661fe6c0)) where exists (select from umbra.identity(table(imdb123_s2_a3e4480661fe6c0)) where imdb6_s2_a3e4480661fe6c0.v0 = imdb123_s2_a3e4480661fe6c0.v0)), imdb3_s3_a3e4480661fe6c0 as (select * from umbra.identity(table(imdb3_s2_a3e4480661fe6c0)) where exists (select from umbra.identity(table(imdb123_s2_a3e4480661fe6c0)) where imdb3_s2_a3e4480661fe6c0.v0 = imdb123_s2_a3e4480661fe6c0.v0)), imdb16_s3_a3e4480661fe6c0 as (select * from umbra.identity(table(imdb16_s2_a3e4480661fe6c0)) where exists (select from umbra.identity(table(imdb123_s2_a3e4480661fe6c0)) where imdb16_s2_a3e4480661fe6c0.v0 = imdb123_s2_a3e4480661fe6c0.v0)), imdb100_s3_a3e4480661fe6c0 as (select * from umbra.identity(table(imdb100_s2_a3e4480661fe6c0)) where exists (select from umbra.identity(table(imdb123_s2_a3e4480661fe6c0)) where imdb100_s2_a3e4480661fe6c0.v0 = imdb123_s2_a3e4480661fe6c0.v0)) /* stage4 */, s4_group_3577C04299DDEC4E as  (select * from umbra.identity(table(imdb123_s2_a3e4480661fe6c0)) NATURAL JOIN umbra.identity(table(imdb100_s3_a3e4480661fe6c0)) NATURAL JOIN umbra.identity(table(imdb16_s3_a3e4480661fe6c0)) NATURAL JOIN umbra.identity(table(imdb3_s3_a3e4480661fe6c0)) NATURAL JOIN umbra.identity(table(imdb6_s3_a3e4480661fe6c0)))select count(*) from umbra.identity(table(s4_group_3577C04299DDEC4E));
+--\set queryname job_acyclic_109_37
+-- Result size: 1039005277
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb3:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb16:s;imdb16:s -> imdb13:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb16 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_12a12e00661fe6c0 as (select imdb117.d as v0 from imdb117), imdb3_s2_12a12e00661fe6c0 as (select imdb3.d as v0 from imdb3), imdb16_s2_12a12e00661fe6c0 as (select imdb16.s as v0 from imdb16), imdb13_s2_12a12e00661fe6c0 as (select imdb13.s as v0 from imdb13), imdb100_s2_12a12e00661fe6c0 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_12a12e00661fe6c0 as (select * from umbra.identity(table(imdb117_s1_12a12e00661fe6c0)) where exists (select from umbra.identity(table(imdb100_s2_12a12e00661fe6c0)) where imdb117_s1_12a12e00661fe6c0.v0 = imdb100_s2_12a12e00661fe6c0.v0) AND exists (select from umbra.identity(table(imdb13_s2_12a12e00661fe6c0)) where imdb117_s1_12a12e00661fe6c0.v0 = imdb13_s2_12a12e00661fe6c0.v0) AND exists (select from umbra.identity(table(imdb16_s2_12a12e00661fe6c0)) where imdb117_s1_12a12e00661fe6c0.v0 = imdb16_s2_12a12e00661fe6c0.v0) AND exists (select from umbra.identity(table(imdb3_s2_12a12e00661fe6c0)) where imdb117_s1_12a12e00661fe6c0.v0 = imdb3_s2_12a12e00661fe6c0.v0)) /* stage3 */, imdb3_s3_12a12e00661fe6c0 as (select * from umbra.identity(table(imdb3_s2_12a12e00661fe6c0)) where exists (select from umbra.identity(table(imdb117_s2_12a12e00661fe6c0)) where imdb3_s2_12a12e00661fe6c0.v0 = imdb117_s2_12a12e00661fe6c0.v0)), imdb16_s3_12a12e00661fe6c0 as (select * from umbra.identity(table(imdb16_s2_12a12e00661fe6c0)) where exists (select from umbra.identity(table(imdb117_s2_12a12e00661fe6c0)) where imdb16_s2_12a12e00661fe6c0.v0 = imdb117_s2_12a12e00661fe6c0.v0)), imdb13_s3_12a12e00661fe6c0 as (select * from umbra.identity(table(imdb13_s2_12a12e00661fe6c0)) where exists (select from umbra.identity(table(imdb117_s2_12a12e00661fe6c0)) where imdb13_s2_12a12e00661fe6c0.v0 = imdb117_s2_12a12e00661fe6c0.v0)), imdb100_s3_12a12e00661fe6c0 as (select * from umbra.identity(table(imdb100_s2_12a12e00661fe6c0)) where exists (select from umbra.identity(table(imdb117_s2_12a12e00661fe6c0)) where imdb100_s2_12a12e00661fe6c0.v0 = imdb117_s2_12a12e00661fe6c0.v0)) /* stage4 */, s4_group_6EEA8227673476A2 as  (select * from umbra.identity(table(imdb117_s2_12a12e00661fe6c0)) NATURAL JOIN umbra.identity(table(imdb100_s3_12a12e00661fe6c0)) NATURAL JOIN umbra.identity(table(imdb13_s3_12a12e00661fe6c0)) NATURAL JOIN umbra.identity(table(imdb16_s3_12a12e00661fe6c0)) NATURAL JOIN umbra.identity(table(imdb3_s3_12a12e00661fe6c0)))select count(*) from umbra.identity(table(s4_group_6EEA8227673476A2));
+\set queryname job_acyclic_109_38
+-- Result size: 431318587
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb11 [label="imdb11|<s> s|<d> d"]; imdb3:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb15:s;imdb15:s -> imdb11:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb121 | s |     d    | imdb11 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb11_s1_1ae73100661fe6c0 as (select imdb11.s as v0 from imdb11), imdb3_s2_1ae73100661fe6c0 as (select imdb3.d as v0 from imdb3), imdb15_s2_1ae73100661fe6c0 as (select imdb15.s as v0 from imdb15), imdb121_s2_1ae73100661fe6c0 as (select imdb121.d as v0 from imdb121), imdb100_s2_1ae73100661fe6c0 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb11_s2_1ae73100661fe6c0 as (select * from umbra.identity(table(imdb11_s1_1ae73100661fe6c0)) where exists (select from umbra.identity(table(imdb100_s2_1ae73100661fe6c0)) where imdb11_s1_1ae73100661fe6c0.v0 = imdb100_s2_1ae73100661fe6c0.v0) AND exists (select from umbra.identity(table(imdb121_s2_1ae73100661fe6c0)) where imdb11_s1_1ae73100661fe6c0.v0 = imdb121_s2_1ae73100661fe6c0.v0) AND exists (select from umbra.identity(table(imdb15_s2_1ae73100661fe6c0)) where imdb11_s1_1ae73100661fe6c0.v0 = imdb15_s2_1ae73100661fe6c0.v0) AND exists (select from umbra.identity(table(imdb3_s2_1ae73100661fe6c0)) where imdb11_s1_1ae73100661fe6c0.v0 = imdb3_s2_1ae73100661fe6c0.v0)) /* stage3 */, imdb3_s3_1ae73100661fe6c0 as (select * from umbra.identity(table(imdb3_s2_1ae73100661fe6c0)) where exists (select from umbra.identity(table(imdb11_s2_1ae73100661fe6c0)) where imdb3_s2_1ae73100661fe6c0.v0 = imdb11_s2_1ae73100661fe6c0.v0)), imdb15_s3_1ae73100661fe6c0 as (select * from umbra.identity(table(imdb15_s2_1ae73100661fe6c0)) where exists (select from umbra.identity(table(imdb11_s2_1ae73100661fe6c0)) where imdb15_s2_1ae73100661fe6c0.v0 = imdb11_s2_1ae73100661fe6c0.v0)), imdb121_s3_1ae73100661fe6c0 as (select * from umbra.identity(table(imdb121_s2_1ae73100661fe6c0)) where exists (select from umbra.identity(table(imdb11_s2_1ae73100661fe6c0)) where imdb121_s2_1ae73100661fe6c0.v0 = imdb11_s2_1ae73100661fe6c0.v0)), imdb100_s3_1ae73100661fe6c0 as (select * from umbra.identity(table(imdb100_s2_1ae73100661fe6c0)) where exists (select from umbra.identity(table(imdb11_s2_1ae73100661fe6c0)) where imdb100_s2_1ae73100661fe6c0.v0 = imdb11_s2_1ae73100661fe6c0.v0)) /* stage4 */, s4_group_7613E03F6C4C6E2C as  (select * from umbra.identity(table(imdb11_s2_1ae73100661fe6c0)) NATURAL JOIN umbra.identity(table(imdb100_s3_1ae73100661fe6c0)) NATURAL JOIN umbra.identity(table(imdb121_s3_1ae73100661fe6c0)) NATURAL JOIN umbra.identity(table(imdb15_s3_1ae73100661fe6c0)) NATURAL JOIN umbra.identity(table(imdb3_s3_1ae73100661fe6c0)))select count(*) from umbra.identity(table(s4_group_7613E03F6C4C6E2C));
+\set queryname job_acyclic_109_39
+-- Result size: 702379796
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb2:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb22:s;imdb22:s -> imdb9:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    |  imdb9 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb117_s1_3894100661fe6c1 as (select imdb117.d as v0 from imdb117), imdb9_s2_3894100661fe6c1 as (select imdb9.s as v0 from imdb9), imdb22_s2_3894100661fe6c1 as (select imdb22.s as v0 from imdb22), imdb2_s2_3894100661fe6c1 as (select imdb2.d as v0 from imdb2), imdb100_s2_3894100661fe6c1 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_3894100661fe6c1 as (select * from umbra.identity(table(imdb117_s1_3894100661fe6c1)) where exists (select from umbra.identity(table(imdb100_s2_3894100661fe6c1)) where imdb117_s1_3894100661fe6c1.v0 = imdb100_s2_3894100661fe6c1.v0) AND exists (select from umbra.identity(table(imdb2_s2_3894100661fe6c1)) where imdb117_s1_3894100661fe6c1.v0 = imdb2_s2_3894100661fe6c1.v0) AND exists (select from umbra.identity(table(imdb22_s2_3894100661fe6c1)) where imdb117_s1_3894100661fe6c1.v0 = imdb22_s2_3894100661fe6c1.v0) AND exists (select from umbra.identity(table(imdb9_s2_3894100661fe6c1)) where imdb117_s1_3894100661fe6c1.v0 = imdb9_s2_3894100661fe6c1.v0)) /* stage3 */, imdb9_s3_3894100661fe6c1 as (select * from umbra.identity(table(imdb9_s2_3894100661fe6c1)) where exists (select from umbra.identity(table(imdb117_s2_3894100661fe6c1)) where imdb9_s2_3894100661fe6c1.v0 = imdb117_s2_3894100661fe6c1.v0)), imdb22_s3_3894100661fe6c1 as (select * from umbra.identity(table(imdb22_s2_3894100661fe6c1)) where exists (select from umbra.identity(table(imdb117_s2_3894100661fe6c1)) where imdb22_s2_3894100661fe6c1.v0 = imdb117_s2_3894100661fe6c1.v0)), imdb2_s3_3894100661fe6c1 as (select * from umbra.identity(table(imdb2_s2_3894100661fe6c1)) where exists (select from umbra.identity(table(imdb117_s2_3894100661fe6c1)) where imdb2_s2_3894100661fe6c1.v0 = imdb117_s2_3894100661fe6c1.v0)), imdb100_s3_3894100661fe6c1 as (select * from umbra.identity(table(imdb100_s2_3894100661fe6c1)) where exists (select from umbra.identity(table(imdb117_s2_3894100661fe6c1)) where imdb100_s2_3894100661fe6c1.v0 = imdb117_s2_3894100661fe6c1.v0)) /* stage4 */, s4_group_1098F93CA97EACE3 as  (select * from umbra.identity(table(imdb117_s2_3894100661fe6c1)) NATURAL JOIN umbra.identity(table(imdb100_s3_3894100661fe6c1)) NATURAL JOIN umbra.identity(table(imdb2_s3_3894100661fe6c1)) NATURAL JOIN umbra.identity(table(imdb22_s3_3894100661fe6c1)) NATURAL JOIN umbra.identity(table(imdb9_s3_3894100661fe6c1)))select count(*) from umbra.identity(table(s4_group_1098F93CA97EACE3));
+\set queryname job_acyclic_109_40
+-- Result size: 9046533
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb2:d -> imdb127:d;imdb127:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb14:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb127 | s |     d    | imdb14 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb127_s1_bfb7400661fe6c1 as (select imdb127.d as v0 from imdb127), imdb7_s2_bfb7400661fe6c1 as (select imdb7.s as v0 from imdb7), imdb2_s2_bfb7400661fe6c1 as (select imdb2.d as v0 from imdb2), imdb14_s2_bfb7400661fe6c1 as (select imdb14.s as v0 from imdb14), imdb100_s2_bfb7400661fe6c1 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb127_s2_bfb7400661fe6c1 as (select * from umbra.identity(table(imdb127_s1_bfb7400661fe6c1)) where exists (select from umbra.identity(table(imdb100_s2_bfb7400661fe6c1)) where imdb127_s1_bfb7400661fe6c1.v0 = imdb100_s2_bfb7400661fe6c1.v0) AND exists (select from umbra.identity(table(imdb14_s2_bfb7400661fe6c1)) where imdb127_s1_bfb7400661fe6c1.v0 = imdb14_s2_bfb7400661fe6c1.v0) AND exists (select from umbra.identity(table(imdb2_s2_bfb7400661fe6c1)) where imdb127_s1_bfb7400661fe6c1.v0 = imdb2_s2_bfb7400661fe6c1.v0) AND exists (select from umbra.identity(table(imdb7_s2_bfb7400661fe6c1)) where imdb127_s1_bfb7400661fe6c1.v0 = imdb7_s2_bfb7400661fe6c1.v0)) /* stage3 */, imdb7_s3_bfb7400661fe6c1 as (select * from umbra.identity(table(imdb7_s2_bfb7400661fe6c1)) where exists (select from umbra.identity(table(imdb127_s2_bfb7400661fe6c1)) where imdb7_s2_bfb7400661fe6c1.v0 = imdb127_s2_bfb7400661fe6c1.v0)), imdb2_s3_bfb7400661fe6c1 as (select * from umbra.identity(table(imdb2_s2_bfb7400661fe6c1)) where exists (select from umbra.identity(table(imdb127_s2_bfb7400661fe6c1)) where imdb2_s2_bfb7400661fe6c1.v0 = imdb127_s2_bfb7400661fe6c1.v0)), imdb14_s3_bfb7400661fe6c1 as (select * from umbra.identity(table(imdb14_s2_bfb7400661fe6c1)) where exists (select from umbra.identity(table(imdb127_s2_bfb7400661fe6c1)) where imdb14_s2_bfb7400661fe6c1.v0 = imdb127_s2_bfb7400661fe6c1.v0)), imdb100_s3_bfb7400661fe6c1 as (select * from umbra.identity(table(imdb100_s2_bfb7400661fe6c1)) where exists (select from umbra.identity(table(imdb127_s2_bfb7400661fe6c1)) where imdb100_s2_bfb7400661fe6c1.v0 = imdb127_s2_bfb7400661fe6c1.v0)) /* stage4 */, s4_group_6906475803DA3FE9 as  (select * from umbra.identity(table(imdb127_s2_bfb7400661fe6c1)) NATURAL JOIN umbra.identity(table(imdb100_s3_bfb7400661fe6c1)) NATURAL JOIN umbra.identity(table(imdb14_s3_bfb7400661fe6c1)) NATURAL JOIN umbra.identity(table(imdb2_s3_bfb7400661fe6c1)) NATURAL JOIN umbra.identity(table(imdb7_s3_bfb7400661fe6c1)))select count(*) from umbra.identity(table(s4_group_6906475803DA3FE9));
+--\set queryname job_acyclic_109_41
+-- Result size: 1039005277
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb3:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb17:s;imdb17:s -> imdb13:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb17 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_14697d80661fe6c1 as (select imdb117.d as v0 from imdb117), imdb3_s2_14697d80661fe6c1 as (select imdb3.d as v0 from imdb3), imdb17_s2_14697d80661fe6c1 as (select imdb17.s as v0 from imdb17), imdb13_s2_14697d80661fe6c1 as (select imdb13.s as v0 from imdb13), imdb100_s2_14697d80661fe6c1 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_14697d80661fe6c1 as (select * from umbra.identity(table(imdb117_s1_14697d80661fe6c1)) where exists (select from umbra.identity(table(imdb100_s2_14697d80661fe6c1)) where imdb117_s1_14697d80661fe6c1.v0 = imdb100_s2_14697d80661fe6c1.v0) AND exists (select from umbra.identity(table(imdb13_s2_14697d80661fe6c1)) where imdb117_s1_14697d80661fe6c1.v0 = imdb13_s2_14697d80661fe6c1.v0) AND exists (select from umbra.identity(table(imdb17_s2_14697d80661fe6c1)) where imdb117_s1_14697d80661fe6c1.v0 = imdb17_s2_14697d80661fe6c1.v0) AND exists (select from umbra.identity(table(imdb3_s2_14697d80661fe6c1)) where imdb117_s1_14697d80661fe6c1.v0 = imdb3_s2_14697d80661fe6c1.v0)) /* stage3 */, imdb3_s3_14697d80661fe6c1 as (select * from umbra.identity(table(imdb3_s2_14697d80661fe6c1)) where exists (select from umbra.identity(table(imdb117_s2_14697d80661fe6c1)) where imdb3_s2_14697d80661fe6c1.v0 = imdb117_s2_14697d80661fe6c1.v0)), imdb17_s3_14697d80661fe6c1 as (select * from umbra.identity(table(imdb17_s2_14697d80661fe6c1)) where exists (select from umbra.identity(table(imdb117_s2_14697d80661fe6c1)) where imdb17_s2_14697d80661fe6c1.v0 = imdb117_s2_14697d80661fe6c1.v0)), imdb13_s3_14697d80661fe6c1 as (select * from umbra.identity(table(imdb13_s2_14697d80661fe6c1)) where exists (select from umbra.identity(table(imdb117_s2_14697d80661fe6c1)) where imdb13_s2_14697d80661fe6c1.v0 = imdb117_s2_14697d80661fe6c1.v0)), imdb100_s3_14697d80661fe6c1 as (select * from umbra.identity(table(imdb100_s2_14697d80661fe6c1)) where exists (select from umbra.identity(table(imdb117_s2_14697d80661fe6c1)) where imdb100_s2_14697d80661fe6c1.v0 = imdb117_s2_14697d80661fe6c1.v0)) /* stage4 */, s4_group_5F332CB2A82C0C0E as  (select * from umbra.identity(table(imdb117_s2_14697d80661fe6c1)) NATURAL JOIN umbra.identity(table(imdb100_s3_14697d80661fe6c1)) NATURAL JOIN umbra.identity(table(imdb13_s3_14697d80661fe6c1)) NATURAL JOIN umbra.identity(table(imdb17_s3_14697d80661fe6c1)) NATURAL JOIN umbra.identity(table(imdb3_s3_14697d80661fe6c1)))select count(*) from umbra.identity(table(s4_group_5F332CB2A82C0C0E));
+\set queryname job_acyclic_109_42
+-- Result size: 148440104
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb21 [label="imdb21|<s> s|<d> d"]; imdb2:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb9:s;imdb9:s -> imdb21:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb9 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb118 | s |     d    | imdb21 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb118_s1_1cd70f80661fe6c1 as (select imdb118.d as v0 from imdb118), imdb9_s2_1cd70f80661fe6c1 as (select imdb9.s as v0 from imdb9), imdb21_s2_1cd70f80661fe6c1 as (select imdb21.s as v0 from imdb21), imdb2_s2_1cd70f80661fe6c1 as (select imdb2.d as v0 from imdb2), imdb100_s2_1cd70f80661fe6c1 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb118_s2_1cd70f80661fe6c1 as (select * from umbra.identity(table(imdb118_s1_1cd70f80661fe6c1)) where exists (select from umbra.identity(table(imdb100_s2_1cd70f80661fe6c1)) where imdb118_s1_1cd70f80661fe6c1.v0 = imdb100_s2_1cd70f80661fe6c1.v0) AND exists (select from umbra.identity(table(imdb2_s2_1cd70f80661fe6c1)) where imdb118_s1_1cd70f80661fe6c1.v0 = imdb2_s2_1cd70f80661fe6c1.v0) AND exists (select from umbra.identity(table(imdb21_s2_1cd70f80661fe6c1)) where imdb118_s1_1cd70f80661fe6c1.v0 = imdb21_s2_1cd70f80661fe6c1.v0) AND exists (select from umbra.identity(table(imdb9_s2_1cd70f80661fe6c1)) where imdb118_s1_1cd70f80661fe6c1.v0 = imdb9_s2_1cd70f80661fe6c1.v0)) /* stage3 */, imdb9_s3_1cd70f80661fe6c1 as (select * from umbra.identity(table(imdb9_s2_1cd70f80661fe6c1)) where exists (select from umbra.identity(table(imdb118_s2_1cd70f80661fe6c1)) where imdb9_s2_1cd70f80661fe6c1.v0 = imdb118_s2_1cd70f80661fe6c1.v0)), imdb21_s3_1cd70f80661fe6c1 as (select * from umbra.identity(table(imdb21_s2_1cd70f80661fe6c1)) where exists (select from umbra.identity(table(imdb118_s2_1cd70f80661fe6c1)) where imdb21_s2_1cd70f80661fe6c1.v0 = imdb118_s2_1cd70f80661fe6c1.v0)), imdb2_s3_1cd70f80661fe6c1 as (select * from umbra.identity(table(imdb2_s2_1cd70f80661fe6c1)) where exists (select from umbra.identity(table(imdb118_s2_1cd70f80661fe6c1)) where imdb2_s2_1cd70f80661fe6c1.v0 = imdb118_s2_1cd70f80661fe6c1.v0)), imdb100_s3_1cd70f80661fe6c1 as (select * from umbra.identity(table(imdb100_s2_1cd70f80661fe6c1)) where exists (select from umbra.identity(table(imdb118_s2_1cd70f80661fe6c1)) where imdb100_s2_1cd70f80661fe6c1.v0 = imdb118_s2_1cd70f80661fe6c1.v0)) /* stage4 */, s4_group_5EFF7664B7B4CAC2 as  (select * from umbra.identity(table(imdb118_s2_1cd70f80661fe6c1)) NATURAL JOIN umbra.identity(table(imdb100_s3_1cd70f80661fe6c1)) NATURAL JOIN umbra.identity(table(imdb2_s3_1cd70f80661fe6c1)) NATURAL JOIN umbra.identity(table(imdb21_s3_1cd70f80661fe6c1)) NATURAL JOIN umbra.identity(table(imdb9_s3_1cd70f80661fe6c1)))select count(*) from umbra.identity(table(s4_group_5EFF7664B7B4CAC2));
+--\set queryname job_acyclic_109_43
+-- Result size: 19322667996
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb3:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb13:s;imdb13:s -> imdb18:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb18 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_5379e80661fe6c2 as (select imdb117.d as v0 from imdb117), imdb3_s2_5379e80661fe6c2 as (select imdb3.d as v0 from imdb3), imdb18_s2_5379e80661fe6c2 as (select imdb18.s as v0 from imdb18), imdb13_s2_5379e80661fe6c2 as (select imdb13.s as v0 from imdb13), imdb100_s2_5379e80661fe6c2 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_5379e80661fe6c2 as (select * from umbra.identity(table(imdb117_s1_5379e80661fe6c2)) where exists (select from umbra.identity(table(imdb100_s2_5379e80661fe6c2)) where imdb117_s1_5379e80661fe6c2.v0 = imdb100_s2_5379e80661fe6c2.v0) AND exists (select from umbra.identity(table(imdb13_s2_5379e80661fe6c2)) where imdb117_s1_5379e80661fe6c2.v0 = imdb13_s2_5379e80661fe6c2.v0) AND exists (select from umbra.identity(table(imdb18_s2_5379e80661fe6c2)) where imdb117_s1_5379e80661fe6c2.v0 = imdb18_s2_5379e80661fe6c2.v0) AND exists (select from umbra.identity(table(imdb3_s2_5379e80661fe6c2)) where imdb117_s1_5379e80661fe6c2.v0 = imdb3_s2_5379e80661fe6c2.v0)) /* stage3 */, imdb3_s3_5379e80661fe6c2 as (select * from umbra.identity(table(imdb3_s2_5379e80661fe6c2)) where exists (select from umbra.identity(table(imdb117_s2_5379e80661fe6c2)) where imdb3_s2_5379e80661fe6c2.v0 = imdb117_s2_5379e80661fe6c2.v0)), imdb18_s3_5379e80661fe6c2 as (select * from umbra.identity(table(imdb18_s2_5379e80661fe6c2)) where exists (select from umbra.identity(table(imdb117_s2_5379e80661fe6c2)) where imdb18_s2_5379e80661fe6c2.v0 = imdb117_s2_5379e80661fe6c2.v0)), imdb13_s3_5379e80661fe6c2 as (select * from umbra.identity(table(imdb13_s2_5379e80661fe6c2)) where exists (select from umbra.identity(table(imdb117_s2_5379e80661fe6c2)) where imdb13_s2_5379e80661fe6c2.v0 = imdb117_s2_5379e80661fe6c2.v0)), imdb100_s3_5379e80661fe6c2 as (select * from umbra.identity(table(imdb100_s2_5379e80661fe6c2)) where exists (select from umbra.identity(table(imdb117_s2_5379e80661fe6c2)) where imdb100_s2_5379e80661fe6c2.v0 = imdb117_s2_5379e80661fe6c2.v0)) /* stage4 */, s4_group_5FE817B8E7E73D73 as  (select * from umbra.identity(table(imdb117_s2_5379e80661fe6c2)) NATURAL JOIN umbra.identity(table(imdb100_s3_5379e80661fe6c2)) NATURAL JOIN umbra.identity(table(imdb13_s3_5379e80661fe6c2)) NATURAL JOIN umbra.identity(table(imdb18_s3_5379e80661fe6c2)) NATURAL JOIN umbra.identity(table(imdb3_s3_5379e80661fe6c2)))select count(*) from umbra.identity(table(s4_group_5FE817B8E7E73D73));
+\set queryname job_acyclic_109_44
+-- Result size: 96583532
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb2:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb24:s;imdb24:s -> imdb5:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb24 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb120 | s |     d    |  imdb5 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb120_s1_da68a00661fe6c2 as (select imdb120.d as v0 from imdb120), imdb5_s2_da68a00661fe6c2 as (select imdb5.s as v0 from imdb5), imdb24_s2_da68a00661fe6c2 as (select imdb24.s as v0 from imdb24), imdb2_s2_da68a00661fe6c2 as (select imdb2.d as v0 from imdb2), imdb100_s2_da68a00661fe6c2 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb120_s2_da68a00661fe6c2 as (select * from umbra.identity(table(imdb120_s1_da68a00661fe6c2)) where exists (select from umbra.identity(table(imdb100_s2_da68a00661fe6c2)) where imdb120_s1_da68a00661fe6c2.v0 = imdb100_s2_da68a00661fe6c2.v0) AND exists (select from umbra.identity(table(imdb2_s2_da68a00661fe6c2)) where imdb120_s1_da68a00661fe6c2.v0 = imdb2_s2_da68a00661fe6c2.v0) AND exists (select from umbra.identity(table(imdb24_s2_da68a00661fe6c2)) where imdb120_s1_da68a00661fe6c2.v0 = imdb24_s2_da68a00661fe6c2.v0) AND exists (select from umbra.identity(table(imdb5_s2_da68a00661fe6c2)) where imdb120_s1_da68a00661fe6c2.v0 = imdb5_s2_da68a00661fe6c2.v0)) /* stage3 */, imdb5_s3_da68a00661fe6c2 as (select * from umbra.identity(table(imdb5_s2_da68a00661fe6c2)) where exists (select from umbra.identity(table(imdb120_s2_da68a00661fe6c2)) where imdb5_s2_da68a00661fe6c2.v0 = imdb120_s2_da68a00661fe6c2.v0)), imdb24_s3_da68a00661fe6c2 as (select * from umbra.identity(table(imdb24_s2_da68a00661fe6c2)) where exists (select from umbra.identity(table(imdb120_s2_da68a00661fe6c2)) where imdb24_s2_da68a00661fe6c2.v0 = imdb120_s2_da68a00661fe6c2.v0)), imdb2_s3_da68a00661fe6c2 as (select * from umbra.identity(table(imdb2_s2_da68a00661fe6c2)) where exists (select from umbra.identity(table(imdb120_s2_da68a00661fe6c2)) where imdb2_s2_da68a00661fe6c2.v0 = imdb120_s2_da68a00661fe6c2.v0)), imdb100_s3_da68a00661fe6c2 as (select * from umbra.identity(table(imdb100_s2_da68a00661fe6c2)) where exists (select from umbra.identity(table(imdb120_s2_da68a00661fe6c2)) where imdb100_s2_da68a00661fe6c2.v0 = imdb120_s2_da68a00661fe6c2.v0)) /* stage4 */, s4_group_49A8AB5F57A019E4 as  (select * from umbra.identity(table(imdb120_s2_da68a00661fe6c2)) NATURAL JOIN umbra.identity(table(imdb100_s3_da68a00661fe6c2)) NATURAL JOIN umbra.identity(table(imdb2_s3_da68a00661fe6c2)) NATURAL JOIN umbra.identity(table(imdb24_s3_da68a00661fe6c2)) NATURAL JOIN umbra.identity(table(imdb5_s3_da68a00661fe6c2)))select count(*) from umbra.identity(table(s4_group_49A8AB5F57A019E4));
+\set queryname job_acyclic_109_45
+-- Result size: 152822176
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb2:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb12:s;imdb12:s -> imdb13:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb12 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb125 | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb12_s1_160e5e00661fe6c2 as (select imdb12.s as v0 from imdb12), imdb2_s2_160e5e00661fe6c2 as (select imdb2.d as v0 from imdb2), imdb13_s2_160e5e00661fe6c2 as (select imdb13.s as v0 from imdb13), imdb125_s2_160e5e00661fe6c2 as (select imdb125.d as v0 from imdb125), imdb100_s2_160e5e00661fe6c2 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb12_s2_160e5e00661fe6c2 as (select * from umbra.identity(table(imdb12_s1_160e5e00661fe6c2)) where exists (select from umbra.identity(table(imdb100_s2_160e5e00661fe6c2)) where imdb12_s1_160e5e00661fe6c2.v0 = imdb100_s2_160e5e00661fe6c2.v0) AND exists (select from umbra.identity(table(imdb125_s2_160e5e00661fe6c2)) where imdb12_s1_160e5e00661fe6c2.v0 = imdb125_s2_160e5e00661fe6c2.v0) AND exists (select from umbra.identity(table(imdb13_s2_160e5e00661fe6c2)) where imdb12_s1_160e5e00661fe6c2.v0 = imdb13_s2_160e5e00661fe6c2.v0) AND exists (select from umbra.identity(table(imdb2_s2_160e5e00661fe6c2)) where imdb12_s1_160e5e00661fe6c2.v0 = imdb2_s2_160e5e00661fe6c2.v0)) /* stage3 */, imdb2_s3_160e5e00661fe6c2 as (select * from umbra.identity(table(imdb2_s2_160e5e00661fe6c2)) where exists (select from umbra.identity(table(imdb12_s2_160e5e00661fe6c2)) where imdb2_s2_160e5e00661fe6c2.v0 = imdb12_s2_160e5e00661fe6c2.v0)), imdb13_s3_160e5e00661fe6c2 as (select * from umbra.identity(table(imdb13_s2_160e5e00661fe6c2)) where exists (select from umbra.identity(table(imdb12_s2_160e5e00661fe6c2)) where imdb13_s2_160e5e00661fe6c2.v0 = imdb12_s2_160e5e00661fe6c2.v0)), imdb125_s3_160e5e00661fe6c2 as (select * from umbra.identity(table(imdb125_s2_160e5e00661fe6c2)) where exists (select from umbra.identity(table(imdb12_s2_160e5e00661fe6c2)) where imdb125_s2_160e5e00661fe6c2.v0 = imdb12_s2_160e5e00661fe6c2.v0)), imdb100_s3_160e5e00661fe6c2 as (select * from umbra.identity(table(imdb100_s2_160e5e00661fe6c2)) where exists (select from umbra.identity(table(imdb12_s2_160e5e00661fe6c2)) where imdb100_s2_160e5e00661fe6c2.v0 = imdb12_s2_160e5e00661fe6c2.v0)) /* stage4 */, s4_group_34E04E14B494E86B as  (select * from umbra.identity(table(imdb12_s2_160e5e00661fe6c2)) NATURAL JOIN umbra.identity(table(imdb100_s3_160e5e00661fe6c2)) NATURAL JOIN umbra.identity(table(imdb125_s3_160e5e00661fe6c2)) NATURAL JOIN umbra.identity(table(imdb13_s3_160e5e00661fe6c2)) NATURAL JOIN umbra.identity(table(imdb2_s3_160e5e00661fe6c2)))select count(*) from umbra.identity(table(s4_group_34E04E14B494E86B));
+\set queryname job_acyclic_109_46
+-- Result size: 53563889
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb2:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb15:s;imdb15:s -> imdb10:s;}
+--                      +--------+----+----+
+--                      | imdb10 |  s |  d |
+--                      +--------+----+----+
+--                                  |
+--                                  +----+
+--                                       |
+-- +---------+---------+---------+       |
+-- |  imdb2  |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb125 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb100 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+--            +--------+---------+----+  |
+--            | imdb15 |    s    |  d |  |
+--            +--------+---------+----+  |
+--                        |              |
+--                        +--------------+
+with dummy as (select) /* stage1 */, imdb100_s1_1e764280661fe6c2 as (select imdb100.d as v0 from imdb100), imdb2_s2_1e764280661fe6c2 as (select imdb2.d as v0 from imdb2), imdb15_s2_1e764280661fe6c2 as (select imdb15.s as v0 from imdb15), imdb125_s2_1e764280661fe6c2 as (select imdb125.d as v0 from imdb125), imdb10_s2_1e764280661fe6c2 as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_1e764280661fe6c2 as (select * from umbra.identity(table(imdb100_s1_1e764280661fe6c2)) where exists (select from umbra.identity(table(imdb10_s2_1e764280661fe6c2)) where imdb100_s1_1e764280661fe6c2.v0 = imdb10_s2_1e764280661fe6c2.v0) AND exists (select from umbra.identity(table(imdb125_s2_1e764280661fe6c2)) where imdb100_s1_1e764280661fe6c2.v0 = imdb125_s2_1e764280661fe6c2.v0) AND exists (select from umbra.identity(table(imdb15_s2_1e764280661fe6c2)) where imdb100_s1_1e764280661fe6c2.v0 = imdb15_s2_1e764280661fe6c2.v0) AND exists (select from umbra.identity(table(imdb2_s2_1e764280661fe6c2)) where imdb100_s1_1e764280661fe6c2.v0 = imdb2_s2_1e764280661fe6c2.v0)) /* stage3 */, imdb2_s3_1e764280661fe6c2 as (select * from umbra.identity(table(imdb2_s2_1e764280661fe6c2)) where exists (select from umbra.identity(table(imdb100_s2_1e764280661fe6c2)) where imdb2_s2_1e764280661fe6c2.v0 = imdb100_s2_1e764280661fe6c2.v0)), imdb15_s3_1e764280661fe6c2 as (select * from umbra.identity(table(imdb15_s2_1e764280661fe6c2)) where exists (select from umbra.identity(table(imdb100_s2_1e764280661fe6c2)) where imdb15_s2_1e764280661fe6c2.v0 = imdb100_s2_1e764280661fe6c2.v0)), imdb125_s3_1e764280661fe6c2 as (select * from umbra.identity(table(imdb125_s2_1e764280661fe6c2)) where exists (select from umbra.identity(table(imdb100_s2_1e764280661fe6c2)) where imdb125_s2_1e764280661fe6c2.v0 = imdb100_s2_1e764280661fe6c2.v0)), imdb10_s3_1e764280661fe6c2 as (select * from umbra.identity(table(imdb10_s2_1e764280661fe6c2)) where exists (select from umbra.identity(table(imdb100_s2_1e764280661fe6c2)) where imdb10_s2_1e764280661fe6c2.v0 = imdb100_s2_1e764280661fe6c2.v0)) /* stage4 */, s4_group_32A2B0AAC8304E4 as  (select * from umbra.identity(table(imdb100_s2_1e764280661fe6c2)) NATURAL JOIN umbra.identity(table(imdb10_s3_1e764280661fe6c2)) NATURAL JOIN umbra.identity(table(imdb125_s3_1e764280661fe6c2)) NATURAL JOIN umbra.identity(table(imdb15_s3_1e764280661fe6c2)) NATURAL JOIN umbra.identity(table(imdb2_s3_1e764280661fe6c2)))select count(*) from umbra.identity(table(s4_group_32A2B0AAC8304E4));
+\set queryname job_acyclic_109_47
+-- Result size: 642689772
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb23 [label="imdb23|<s> s|<d> d"]; imdb3:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb23:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb120 | s |     d    | imdb23 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb120_s1_6e29480661fe6c3 as (select imdb120.d as v0 from imdb120), imdb7_s2_6e29480661fe6c3 as (select imdb7.s as v0 from imdb7), imdb3_s2_6e29480661fe6c3 as (select imdb3.d as v0 from imdb3), imdb23_s2_6e29480661fe6c3 as (select imdb23.s as v0 from imdb23), imdb100_s2_6e29480661fe6c3 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb120_s2_6e29480661fe6c3 as (select * from umbra.identity(table(imdb120_s1_6e29480661fe6c3)) where exists (select from umbra.identity(table(imdb100_s2_6e29480661fe6c3)) where imdb120_s1_6e29480661fe6c3.v0 = imdb100_s2_6e29480661fe6c3.v0) AND exists (select from umbra.identity(table(imdb23_s2_6e29480661fe6c3)) where imdb120_s1_6e29480661fe6c3.v0 = imdb23_s2_6e29480661fe6c3.v0) AND exists (select from umbra.identity(table(imdb3_s2_6e29480661fe6c3)) where imdb120_s1_6e29480661fe6c3.v0 = imdb3_s2_6e29480661fe6c3.v0) AND exists (select from umbra.identity(table(imdb7_s2_6e29480661fe6c3)) where imdb120_s1_6e29480661fe6c3.v0 = imdb7_s2_6e29480661fe6c3.v0)) /* stage3 */, imdb7_s3_6e29480661fe6c3 as (select * from umbra.identity(table(imdb7_s2_6e29480661fe6c3)) where exists (select from umbra.identity(table(imdb120_s2_6e29480661fe6c3)) where imdb7_s2_6e29480661fe6c3.v0 = imdb120_s2_6e29480661fe6c3.v0)), imdb3_s3_6e29480661fe6c3 as (select * from umbra.identity(table(imdb3_s2_6e29480661fe6c3)) where exists (select from umbra.identity(table(imdb120_s2_6e29480661fe6c3)) where imdb3_s2_6e29480661fe6c3.v0 = imdb120_s2_6e29480661fe6c3.v0)), imdb23_s3_6e29480661fe6c3 as (select * from umbra.identity(table(imdb23_s2_6e29480661fe6c3)) where exists (select from umbra.identity(table(imdb120_s2_6e29480661fe6c3)) where imdb23_s2_6e29480661fe6c3.v0 = imdb120_s2_6e29480661fe6c3.v0)), imdb100_s3_6e29480661fe6c3 as (select * from umbra.identity(table(imdb100_s2_6e29480661fe6c3)) where exists (select from umbra.identity(table(imdb120_s2_6e29480661fe6c3)) where imdb100_s2_6e29480661fe6c3.v0 = imdb120_s2_6e29480661fe6c3.v0)) /* stage4 */, s4_group_54E34B532424D602 as  (select * from umbra.identity(table(imdb120_s2_6e29480661fe6c3)) NATURAL JOIN umbra.identity(table(imdb100_s3_6e29480661fe6c3)) NATURAL JOIN umbra.identity(table(imdb23_s3_6e29480661fe6c3)) NATURAL JOIN umbra.identity(table(imdb3_s3_6e29480661fe6c3)) NATURAL JOIN umbra.identity(table(imdb7_s3_6e29480661fe6c3)))select count(*) from umbra.identity(table(s4_group_54E34B532424D602));
+\set queryname job_acyclic_109_48
+-- Result size: 123301801
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb3:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb22:s;imdb22:s -> imdb7:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb121 | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb121_s1_100e4f80661fe6c3 as (select imdb121.d as v0 from imdb121), imdb7_s2_100e4f80661fe6c3 as (select imdb7.s as v0 from imdb7), imdb3_s2_100e4f80661fe6c3 as (select imdb3.d as v0 from imdb3), imdb22_s2_100e4f80661fe6c3 as (select imdb22.s as v0 from imdb22), imdb100_s2_100e4f80661fe6c3 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb121_s2_100e4f80661fe6c3 as (select * from umbra.identity(table(imdb121_s1_100e4f80661fe6c3)) where exists (select from umbra.identity(table(imdb100_s2_100e4f80661fe6c3)) where imdb121_s1_100e4f80661fe6c3.v0 = imdb100_s2_100e4f80661fe6c3.v0) AND exists (select from umbra.identity(table(imdb22_s2_100e4f80661fe6c3)) where imdb121_s1_100e4f80661fe6c3.v0 = imdb22_s2_100e4f80661fe6c3.v0) AND exists (select from umbra.identity(table(imdb3_s2_100e4f80661fe6c3)) where imdb121_s1_100e4f80661fe6c3.v0 = imdb3_s2_100e4f80661fe6c3.v0) AND exists (select from umbra.identity(table(imdb7_s2_100e4f80661fe6c3)) where imdb121_s1_100e4f80661fe6c3.v0 = imdb7_s2_100e4f80661fe6c3.v0)) /* stage3 */, imdb7_s3_100e4f80661fe6c3 as (select * from umbra.identity(table(imdb7_s2_100e4f80661fe6c3)) where exists (select from umbra.identity(table(imdb121_s2_100e4f80661fe6c3)) where imdb7_s2_100e4f80661fe6c3.v0 = imdb121_s2_100e4f80661fe6c3.v0)), imdb3_s3_100e4f80661fe6c3 as (select * from umbra.identity(table(imdb3_s2_100e4f80661fe6c3)) where exists (select from umbra.identity(table(imdb121_s2_100e4f80661fe6c3)) where imdb3_s2_100e4f80661fe6c3.v0 = imdb121_s2_100e4f80661fe6c3.v0)), imdb22_s3_100e4f80661fe6c3 as (select * from umbra.identity(table(imdb22_s2_100e4f80661fe6c3)) where exists (select from umbra.identity(table(imdb121_s2_100e4f80661fe6c3)) where imdb22_s2_100e4f80661fe6c3.v0 = imdb121_s2_100e4f80661fe6c3.v0)), imdb100_s3_100e4f80661fe6c3 as (select * from umbra.identity(table(imdb100_s2_100e4f80661fe6c3)) where exists (select from umbra.identity(table(imdb121_s2_100e4f80661fe6c3)) where imdb100_s2_100e4f80661fe6c3.v0 = imdb121_s2_100e4f80661fe6c3.v0)) /* stage4 */, s4_group_5CB89D3A96C64952 as  (select * from umbra.identity(table(imdb121_s2_100e4f80661fe6c3)) NATURAL JOIN umbra.identity(table(imdb100_s3_100e4f80661fe6c3)) NATURAL JOIN umbra.identity(table(imdb22_s3_100e4f80661fe6c3)) NATURAL JOIN umbra.identity(table(imdb3_s3_100e4f80661fe6c3)) NATURAL JOIN umbra.identity(table(imdb7_s3_100e4f80661fe6c3)))select count(*) from umbra.identity(table(s4_group_5CB89D3A96C64952));
+--\set queryname job_acyclic_109_49
+-- Result size: 8923525802
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb2:d -> imdb119:d;imdb119:d -> imdb100:d;imdb100:d -> imdb15:s;imdb15:s -> imdb18:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb119 | s |     d    | imdb18 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb119_s1_18841500661fe6c3 as (select imdb119.d as v0 from imdb119), imdb2_s2_18841500661fe6c3 as (select imdb2.d as v0 from imdb2), imdb18_s2_18841500661fe6c3 as (select imdb18.s as v0 from imdb18), imdb15_s2_18841500661fe6c3 as (select imdb15.s as v0 from imdb15), imdb100_s2_18841500661fe6c3 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb119_s2_18841500661fe6c3 as (select * from umbra.identity(table(imdb119_s1_18841500661fe6c3)) where exists (select from umbra.identity(table(imdb100_s2_18841500661fe6c3)) where imdb119_s1_18841500661fe6c3.v0 = imdb100_s2_18841500661fe6c3.v0) AND exists (select from umbra.identity(table(imdb15_s2_18841500661fe6c3)) where imdb119_s1_18841500661fe6c3.v0 = imdb15_s2_18841500661fe6c3.v0) AND exists (select from umbra.identity(table(imdb18_s2_18841500661fe6c3)) where imdb119_s1_18841500661fe6c3.v0 = imdb18_s2_18841500661fe6c3.v0) AND exists (select from umbra.identity(table(imdb2_s2_18841500661fe6c3)) where imdb119_s1_18841500661fe6c3.v0 = imdb2_s2_18841500661fe6c3.v0)) /* stage3 */, imdb2_s3_18841500661fe6c3 as (select * from umbra.identity(table(imdb2_s2_18841500661fe6c3)) where exists (select from umbra.identity(table(imdb119_s2_18841500661fe6c3)) where imdb2_s2_18841500661fe6c3.v0 = imdb119_s2_18841500661fe6c3.v0)), imdb18_s3_18841500661fe6c3 as (select * from umbra.identity(table(imdb18_s2_18841500661fe6c3)) where exists (select from umbra.identity(table(imdb119_s2_18841500661fe6c3)) where imdb18_s2_18841500661fe6c3.v0 = imdb119_s2_18841500661fe6c3.v0)), imdb15_s3_18841500661fe6c3 as (select * from umbra.identity(table(imdb15_s2_18841500661fe6c3)) where exists (select from umbra.identity(table(imdb119_s2_18841500661fe6c3)) where imdb15_s2_18841500661fe6c3.v0 = imdb119_s2_18841500661fe6c3.v0)), imdb100_s3_18841500661fe6c3 as (select * from umbra.identity(table(imdb100_s2_18841500661fe6c3)) where exists (select from umbra.identity(table(imdb119_s2_18841500661fe6c3)) where imdb100_s2_18841500661fe6c3.v0 = imdb119_s2_18841500661fe6c3.v0)) /* stage4 */, s4_group_4ADC727B61012440 as  (select * from umbra.identity(table(imdb119_s2_18841500661fe6c3)) NATURAL JOIN umbra.identity(table(imdb100_s3_18841500661fe6c3)) NATURAL JOIN umbra.identity(table(imdb15_s3_18841500661fe6c3)) NATURAL JOIN umbra.identity(table(imdb18_s3_18841500661fe6c3)) NATURAL JOIN umbra.identity(table(imdb2_s3_18841500661fe6c3)))select count(*) from umbra.identity(table(s4_group_4ADC727B61012440));
+\set queryname job_acyclic_109_50
+-- Result size: 12333526
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb2:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb14:s;imdb14:s -> imdb13:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb14 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb125 | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb125_s1_10b6380661fe6c4 as (select imdb125.d as v0 from imdb125), imdb2_s2_10b6380661fe6c4 as (select imdb2.d as v0 from imdb2), imdb14_s2_10b6380661fe6c4 as (select imdb14.s as v0 from imdb14), imdb13_s2_10b6380661fe6c4 as (select imdb13.s as v0 from imdb13), imdb100_s2_10b6380661fe6c4 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb125_s2_10b6380661fe6c4 as (select * from umbra.identity(table(imdb125_s1_10b6380661fe6c4)) where exists (select from umbra.identity(table(imdb100_s2_10b6380661fe6c4)) where imdb125_s1_10b6380661fe6c4.v0 = imdb100_s2_10b6380661fe6c4.v0) AND exists (select from umbra.identity(table(imdb13_s2_10b6380661fe6c4)) where imdb125_s1_10b6380661fe6c4.v0 = imdb13_s2_10b6380661fe6c4.v0) AND exists (select from umbra.identity(table(imdb14_s2_10b6380661fe6c4)) where imdb125_s1_10b6380661fe6c4.v0 = imdb14_s2_10b6380661fe6c4.v0) AND exists (select from umbra.identity(table(imdb2_s2_10b6380661fe6c4)) where imdb125_s1_10b6380661fe6c4.v0 = imdb2_s2_10b6380661fe6c4.v0)) /* stage3 */, imdb2_s3_10b6380661fe6c4 as (select * from umbra.identity(table(imdb2_s2_10b6380661fe6c4)) where exists (select from umbra.identity(table(imdb125_s2_10b6380661fe6c4)) where imdb2_s2_10b6380661fe6c4.v0 = imdb125_s2_10b6380661fe6c4.v0)), imdb14_s3_10b6380661fe6c4 as (select * from umbra.identity(table(imdb14_s2_10b6380661fe6c4)) where exists (select from umbra.identity(table(imdb125_s2_10b6380661fe6c4)) where imdb14_s2_10b6380661fe6c4.v0 = imdb125_s2_10b6380661fe6c4.v0)), imdb13_s3_10b6380661fe6c4 as (select * from umbra.identity(table(imdb13_s2_10b6380661fe6c4)) where exists (select from umbra.identity(table(imdb125_s2_10b6380661fe6c4)) where imdb13_s2_10b6380661fe6c4.v0 = imdb125_s2_10b6380661fe6c4.v0)), imdb100_s3_10b6380661fe6c4 as (select * from umbra.identity(table(imdb100_s2_10b6380661fe6c4)) where exists (select from umbra.identity(table(imdb125_s2_10b6380661fe6c4)) where imdb100_s2_10b6380661fe6c4.v0 = imdb125_s2_10b6380661fe6c4.v0)) /* stage4 */, s4_group_68B6033B0E858E93 as  (select * from umbra.identity(table(imdb125_s2_10b6380661fe6c4)) NATURAL JOIN umbra.identity(table(imdb100_s3_10b6380661fe6c4)) NATURAL JOIN umbra.identity(table(imdb13_s3_10b6380661fe6c4)) NATURAL JOIN umbra.identity(table(imdb14_s3_10b6380661fe6c4)) NATURAL JOIN umbra.identity(table(imdb2_s3_10b6380661fe6c4)))select count(*) from umbra.identity(table(s4_group_68B6033B0E858E93));
+\set queryname job_acyclic_109_51
+-- Result size: 559108515
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb2:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb8:s;imdb8:s -> imdb18:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb8 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb126 | s |     d    | imdb18 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_9507900661fe6c4 as (select imdb126.d as v0 from imdb126), imdb8_s2_9507900661fe6c4 as (select imdb8.s as v0 from imdb8), imdb2_s2_9507900661fe6c4 as (select imdb2.d as v0 from imdb2), imdb18_s2_9507900661fe6c4 as (select imdb18.s as v0 from imdb18), imdb100_s2_9507900661fe6c4 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_9507900661fe6c4 as (select * from umbra.identity(table(imdb126_s1_9507900661fe6c4)) where exists (select from umbra.identity(table(imdb100_s2_9507900661fe6c4)) where imdb126_s1_9507900661fe6c4.v0 = imdb100_s2_9507900661fe6c4.v0) AND exists (select from umbra.identity(table(imdb18_s2_9507900661fe6c4)) where imdb126_s1_9507900661fe6c4.v0 = imdb18_s2_9507900661fe6c4.v0) AND exists (select from umbra.identity(table(imdb2_s2_9507900661fe6c4)) where imdb126_s1_9507900661fe6c4.v0 = imdb2_s2_9507900661fe6c4.v0) AND exists (select from umbra.identity(table(imdb8_s2_9507900661fe6c4)) where imdb126_s1_9507900661fe6c4.v0 = imdb8_s2_9507900661fe6c4.v0)) /* stage3 */, imdb8_s3_9507900661fe6c4 as (select * from umbra.identity(table(imdb8_s2_9507900661fe6c4)) where exists (select from umbra.identity(table(imdb126_s2_9507900661fe6c4)) where imdb8_s2_9507900661fe6c4.v0 = imdb126_s2_9507900661fe6c4.v0)), imdb2_s3_9507900661fe6c4 as (select * from umbra.identity(table(imdb2_s2_9507900661fe6c4)) where exists (select from umbra.identity(table(imdb126_s2_9507900661fe6c4)) where imdb2_s2_9507900661fe6c4.v0 = imdb126_s2_9507900661fe6c4.v0)), imdb18_s3_9507900661fe6c4 as (select * from umbra.identity(table(imdb18_s2_9507900661fe6c4)) where exists (select from umbra.identity(table(imdb126_s2_9507900661fe6c4)) where imdb18_s2_9507900661fe6c4.v0 = imdb126_s2_9507900661fe6c4.v0)), imdb100_s3_9507900661fe6c4 as (select * from umbra.identity(table(imdb100_s2_9507900661fe6c4)) where exists (select from umbra.identity(table(imdb126_s2_9507900661fe6c4)) where imdb100_s2_9507900661fe6c4.v0 = imdb126_s2_9507900661fe6c4.v0)) /* stage4 */, s4_group_526C2C5E55AE07EE as  (select * from umbra.identity(table(imdb126_s2_9507900661fe6c4)) NATURAL JOIN umbra.identity(table(imdb100_s3_9507900661fe6c4)) NATURAL JOIN umbra.identity(table(imdb18_s3_9507900661fe6c4)) NATURAL JOIN umbra.identity(table(imdb2_s3_9507900661fe6c4)) NATURAL JOIN umbra.identity(table(imdb8_s3_9507900661fe6c4)))select count(*) from umbra.identity(table(s4_group_526C2C5E55AE07EE));
+\set queryname job_acyclic_109_52
+-- Result size: 78490350
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb2:d -> imdb124:d;imdb124:d -> imdb100:d;imdb100:d -> imdb16:s;imdb16:s -> imdb12:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb16 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb124 | s |     d    | imdb12 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb12_s1_11cabb80661fe6c4 as (select imdb12.s as v0 from imdb12), imdb2_s2_11cabb80661fe6c4 as (select imdb2.d as v0 from imdb2), imdb16_s2_11cabb80661fe6c4 as (select imdb16.s as v0 from imdb16), imdb124_s2_11cabb80661fe6c4 as (select imdb124.d as v0 from imdb124), imdb100_s2_11cabb80661fe6c4 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb12_s2_11cabb80661fe6c4 as (select * from umbra.identity(table(imdb12_s1_11cabb80661fe6c4)) where exists (select from umbra.identity(table(imdb100_s2_11cabb80661fe6c4)) where imdb12_s1_11cabb80661fe6c4.v0 = imdb100_s2_11cabb80661fe6c4.v0) AND exists (select from umbra.identity(table(imdb124_s2_11cabb80661fe6c4)) where imdb12_s1_11cabb80661fe6c4.v0 = imdb124_s2_11cabb80661fe6c4.v0) AND exists (select from umbra.identity(table(imdb16_s2_11cabb80661fe6c4)) where imdb12_s1_11cabb80661fe6c4.v0 = imdb16_s2_11cabb80661fe6c4.v0) AND exists (select from umbra.identity(table(imdb2_s2_11cabb80661fe6c4)) where imdb12_s1_11cabb80661fe6c4.v0 = imdb2_s2_11cabb80661fe6c4.v0)) /* stage3 */, imdb2_s3_11cabb80661fe6c4 as (select * from umbra.identity(table(imdb2_s2_11cabb80661fe6c4)) where exists (select from umbra.identity(table(imdb12_s2_11cabb80661fe6c4)) where imdb2_s2_11cabb80661fe6c4.v0 = imdb12_s2_11cabb80661fe6c4.v0)), imdb16_s3_11cabb80661fe6c4 as (select * from umbra.identity(table(imdb16_s2_11cabb80661fe6c4)) where exists (select from umbra.identity(table(imdb12_s2_11cabb80661fe6c4)) where imdb16_s2_11cabb80661fe6c4.v0 = imdb12_s2_11cabb80661fe6c4.v0)), imdb124_s3_11cabb80661fe6c4 as (select * from umbra.identity(table(imdb124_s2_11cabb80661fe6c4)) where exists (select from umbra.identity(table(imdb12_s2_11cabb80661fe6c4)) where imdb124_s2_11cabb80661fe6c4.v0 = imdb12_s2_11cabb80661fe6c4.v0)), imdb100_s3_11cabb80661fe6c4 as (select * from umbra.identity(table(imdb100_s2_11cabb80661fe6c4)) where exists (select from umbra.identity(table(imdb12_s2_11cabb80661fe6c4)) where imdb100_s2_11cabb80661fe6c4.v0 = imdb12_s2_11cabb80661fe6c4.v0)) /* stage4 */, s4_group_2FA57EFEF81CC35F as  (select * from umbra.identity(table(imdb12_s2_11cabb80661fe6c4)) NATURAL JOIN umbra.identity(table(imdb100_s3_11cabb80661fe6c4)) NATURAL JOIN umbra.identity(table(imdb124_s3_11cabb80661fe6c4)) NATURAL JOIN umbra.identity(table(imdb16_s3_11cabb80661fe6c4)) NATURAL JOIN umbra.identity(table(imdb2_s3_11cabb80661fe6c4)))select count(*) from umbra.identity(table(s4_group_2FA57EFEF81CC35F));
+\set queryname job_acyclic_109_53
+-- Result size: 74830080
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb2:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb14:s;imdb14:s -> imdb18:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb14 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb120 | s |     d    | imdb18 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb120_s1_1a202a00661fe6c4 as (select imdb120.d as v0 from imdb120), imdb2_s2_1a202a00661fe6c4 as (select imdb2.d as v0 from imdb2), imdb18_s2_1a202a00661fe6c4 as (select imdb18.s as v0 from imdb18), imdb14_s2_1a202a00661fe6c4 as (select imdb14.s as v0 from imdb14), imdb100_s2_1a202a00661fe6c4 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb120_s2_1a202a00661fe6c4 as (select * from umbra.identity(table(imdb120_s1_1a202a00661fe6c4)) where exists (select from umbra.identity(table(imdb100_s2_1a202a00661fe6c4)) where imdb120_s1_1a202a00661fe6c4.v0 = imdb100_s2_1a202a00661fe6c4.v0) AND exists (select from umbra.identity(table(imdb14_s2_1a202a00661fe6c4)) where imdb120_s1_1a202a00661fe6c4.v0 = imdb14_s2_1a202a00661fe6c4.v0) AND exists (select from umbra.identity(table(imdb18_s2_1a202a00661fe6c4)) where imdb120_s1_1a202a00661fe6c4.v0 = imdb18_s2_1a202a00661fe6c4.v0) AND exists (select from umbra.identity(table(imdb2_s2_1a202a00661fe6c4)) where imdb120_s1_1a202a00661fe6c4.v0 = imdb2_s2_1a202a00661fe6c4.v0)) /* stage3 */, imdb2_s3_1a202a00661fe6c4 as (select * from umbra.identity(table(imdb2_s2_1a202a00661fe6c4)) where exists (select from umbra.identity(table(imdb120_s2_1a202a00661fe6c4)) where imdb2_s2_1a202a00661fe6c4.v0 = imdb120_s2_1a202a00661fe6c4.v0)), imdb18_s3_1a202a00661fe6c4 as (select * from umbra.identity(table(imdb18_s2_1a202a00661fe6c4)) where exists (select from umbra.identity(table(imdb120_s2_1a202a00661fe6c4)) where imdb18_s2_1a202a00661fe6c4.v0 = imdb120_s2_1a202a00661fe6c4.v0)), imdb14_s3_1a202a00661fe6c4 as (select * from umbra.identity(table(imdb14_s2_1a202a00661fe6c4)) where exists (select from umbra.identity(table(imdb120_s2_1a202a00661fe6c4)) where imdb14_s2_1a202a00661fe6c4.v0 = imdb120_s2_1a202a00661fe6c4.v0)), imdb100_s3_1a202a00661fe6c4 as (select * from umbra.identity(table(imdb100_s2_1a202a00661fe6c4)) where exists (select from umbra.identity(table(imdb120_s2_1a202a00661fe6c4)) where imdb100_s2_1a202a00661fe6c4.v0 = imdb120_s2_1a202a00661fe6c4.v0)) /* stage4 */, s4_group_1FF9B27791425C9F as  (select * from umbra.identity(table(imdb120_s2_1a202a00661fe6c4)) NATURAL JOIN umbra.identity(table(imdb100_s3_1a202a00661fe6c4)) NATURAL JOIN umbra.identity(table(imdb14_s3_1a202a00661fe6c4)) NATURAL JOIN umbra.identity(table(imdb18_s3_1a202a00661fe6c4)) NATURAL JOIN umbra.identity(table(imdb2_s3_1a202a00661fe6c4)))select count(*) from umbra.identity(table(s4_group_1FF9B27791425C9F));
+--\set queryname job_acyclic_109_54
+-- Result size: 1518530449
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb3:d -> imdb119:d;imdb119:d -> imdb100:d;imdb100:d -> imdb22:s;imdb22:s -> imdb10:s;}
+--                      +--------+----+----+
+--                      | imdb10 |  s |  d |
+--                      +--------+----+----+
+--                                  |
+--                                  +----+
+--                                       |
+-- +---------+---------+---------+       |
+-- |  imdb3  |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb119 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb100 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+--            +--------+---------+----+  |
+--            | imdb22 |    s    |  d |  |
+--            +--------+---------+----+  |
+--                        |              |
+--                        +--------------+
+--with dummy as (select) /* stage1 */, imdb100_s1_2cd8700661fe6c5 as (select imdb100.d as v0 from imdb100), imdb3_s2_2cd8700661fe6c5 as (select imdb3.d as v0 from imdb3), imdb22_s2_2cd8700661fe6c5 as (select imdb22.s as v0 from imdb22), imdb119_s2_2cd8700661fe6c5 as (select imdb119.d as v0 from imdb119), imdb10_s2_2cd8700661fe6c5 as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_2cd8700661fe6c5 as (select * from umbra.identity(table(imdb100_s1_2cd8700661fe6c5)) where exists (select from umbra.identity(table(imdb10_s2_2cd8700661fe6c5)) where imdb100_s1_2cd8700661fe6c5.v0 = imdb10_s2_2cd8700661fe6c5.v0) AND exists (select from umbra.identity(table(imdb119_s2_2cd8700661fe6c5)) where imdb100_s1_2cd8700661fe6c5.v0 = imdb119_s2_2cd8700661fe6c5.v0) AND exists (select from umbra.identity(table(imdb22_s2_2cd8700661fe6c5)) where imdb100_s1_2cd8700661fe6c5.v0 = imdb22_s2_2cd8700661fe6c5.v0) AND exists (select from umbra.identity(table(imdb3_s2_2cd8700661fe6c5)) where imdb100_s1_2cd8700661fe6c5.v0 = imdb3_s2_2cd8700661fe6c5.v0)) /* stage3 */, imdb3_s3_2cd8700661fe6c5 as (select * from umbra.identity(table(imdb3_s2_2cd8700661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_2cd8700661fe6c5)) where imdb3_s2_2cd8700661fe6c5.v0 = imdb100_s2_2cd8700661fe6c5.v0)), imdb22_s3_2cd8700661fe6c5 as (select * from umbra.identity(table(imdb22_s2_2cd8700661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_2cd8700661fe6c5)) where imdb22_s2_2cd8700661fe6c5.v0 = imdb100_s2_2cd8700661fe6c5.v0)), imdb119_s3_2cd8700661fe6c5 as (select * from umbra.identity(table(imdb119_s2_2cd8700661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_2cd8700661fe6c5)) where imdb119_s2_2cd8700661fe6c5.v0 = imdb100_s2_2cd8700661fe6c5.v0)), imdb10_s3_2cd8700661fe6c5 as (select * from umbra.identity(table(imdb10_s2_2cd8700661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_2cd8700661fe6c5)) where imdb10_s2_2cd8700661fe6c5.v0 = imdb100_s2_2cd8700661fe6c5.v0)) /* stage4 */, s4_group_2121D429792C0138 as  (select * from umbra.identity(table(imdb100_s2_2cd8700661fe6c5)) NATURAL JOIN umbra.identity(table(imdb10_s3_2cd8700661fe6c5)) NATURAL JOIN umbra.identity(table(imdb119_s3_2cd8700661fe6c5)) NATURAL JOIN umbra.identity(table(imdb22_s3_2cd8700661fe6c5)) NATURAL JOIN umbra.identity(table(imdb3_s3_2cd8700661fe6c5)))select count(*) from umbra.identity(table(s4_group_2121D429792C0138));
+\set queryname job_acyclic_109_55
+-- Result size: 956798765
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb23 [label="imdb23|<s> s|<d> d"]; imdb11 [label="imdb11|<s> s|<d> d"]; imdb2:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb23:s;imdb23:s -> imdb11:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb23 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb118 | s |     d    | imdb11 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb11_s1_b675700661fe6c5 as (select imdb11.s as v0 from imdb11), imdb23_s2_b675700661fe6c5 as (select imdb23.s as v0 from imdb23), imdb2_s2_b675700661fe6c5 as (select imdb2.d as v0 from imdb2), imdb118_s2_b675700661fe6c5 as (select imdb118.d as v0 from imdb118), imdb100_s2_b675700661fe6c5 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb11_s2_b675700661fe6c5 as (select * from umbra.identity(table(imdb11_s1_b675700661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_b675700661fe6c5)) where imdb11_s1_b675700661fe6c5.v0 = imdb100_s2_b675700661fe6c5.v0) AND exists (select from umbra.identity(table(imdb118_s2_b675700661fe6c5)) where imdb11_s1_b675700661fe6c5.v0 = imdb118_s2_b675700661fe6c5.v0) AND exists (select from umbra.identity(table(imdb2_s2_b675700661fe6c5)) where imdb11_s1_b675700661fe6c5.v0 = imdb2_s2_b675700661fe6c5.v0) AND exists (select from umbra.identity(table(imdb23_s2_b675700661fe6c5)) where imdb11_s1_b675700661fe6c5.v0 = imdb23_s2_b675700661fe6c5.v0)) /* stage3 */, imdb23_s3_b675700661fe6c5 as (select * from umbra.identity(table(imdb23_s2_b675700661fe6c5)) where exists (select from umbra.identity(table(imdb11_s2_b675700661fe6c5)) where imdb23_s2_b675700661fe6c5.v0 = imdb11_s2_b675700661fe6c5.v0)), imdb2_s3_b675700661fe6c5 as (select * from umbra.identity(table(imdb2_s2_b675700661fe6c5)) where exists (select from umbra.identity(table(imdb11_s2_b675700661fe6c5)) where imdb2_s2_b675700661fe6c5.v0 = imdb11_s2_b675700661fe6c5.v0)), imdb118_s3_b675700661fe6c5 as (select * from umbra.identity(table(imdb118_s2_b675700661fe6c5)) where exists (select from umbra.identity(table(imdb11_s2_b675700661fe6c5)) where imdb118_s2_b675700661fe6c5.v0 = imdb11_s2_b675700661fe6c5.v0)), imdb100_s3_b675700661fe6c5 as (select * from umbra.identity(table(imdb100_s2_b675700661fe6c5)) where exists (select from umbra.identity(table(imdb11_s2_b675700661fe6c5)) where imdb100_s2_b675700661fe6c5.v0 = imdb11_s2_b675700661fe6c5.v0)) /* stage4 */, s4_group_3F42D221A9975F40 as  (select * from umbra.identity(table(imdb11_s2_b675700661fe6c5)) NATURAL JOIN umbra.identity(table(imdb100_s3_b675700661fe6c5)) NATURAL JOIN umbra.identity(table(imdb118_s3_b675700661fe6c5)) NATURAL JOIN umbra.identity(table(imdb2_s3_b675700661fe6c5)) NATURAL JOIN umbra.identity(table(imdb23_s3_b675700661fe6c5)))select count(*) from umbra.identity(table(s4_group_3F42D221A9975F40));
+\set queryname job_acyclic_109_56
+-- Result size: 12935928
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb2:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb14:s;imdb14:s -> imdb13:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb14 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb126 | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_13b97300661fe6c5 as (select imdb126.d as v0 from imdb126), imdb2_s2_13b97300661fe6c5 as (select imdb2.d as v0 from imdb2), imdb14_s2_13b97300661fe6c5 as (select imdb14.s as v0 from imdb14), imdb13_s2_13b97300661fe6c5 as (select imdb13.s as v0 from imdb13), imdb100_s2_13b97300661fe6c5 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_13b97300661fe6c5 as (select * from umbra.identity(table(imdb126_s1_13b97300661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_13b97300661fe6c5)) where imdb126_s1_13b97300661fe6c5.v0 = imdb100_s2_13b97300661fe6c5.v0) AND exists (select from umbra.identity(table(imdb13_s2_13b97300661fe6c5)) where imdb126_s1_13b97300661fe6c5.v0 = imdb13_s2_13b97300661fe6c5.v0) AND exists (select from umbra.identity(table(imdb14_s2_13b97300661fe6c5)) where imdb126_s1_13b97300661fe6c5.v0 = imdb14_s2_13b97300661fe6c5.v0) AND exists (select from umbra.identity(table(imdb2_s2_13b97300661fe6c5)) where imdb126_s1_13b97300661fe6c5.v0 = imdb2_s2_13b97300661fe6c5.v0)) /* stage3 */, imdb2_s3_13b97300661fe6c5 as (select * from umbra.identity(table(imdb2_s2_13b97300661fe6c5)) where exists (select from umbra.identity(table(imdb126_s2_13b97300661fe6c5)) where imdb2_s2_13b97300661fe6c5.v0 = imdb126_s2_13b97300661fe6c5.v0)), imdb14_s3_13b97300661fe6c5 as (select * from umbra.identity(table(imdb14_s2_13b97300661fe6c5)) where exists (select from umbra.identity(table(imdb126_s2_13b97300661fe6c5)) where imdb14_s2_13b97300661fe6c5.v0 = imdb126_s2_13b97300661fe6c5.v0)), imdb13_s3_13b97300661fe6c5 as (select * from umbra.identity(table(imdb13_s2_13b97300661fe6c5)) where exists (select from umbra.identity(table(imdb126_s2_13b97300661fe6c5)) where imdb13_s2_13b97300661fe6c5.v0 = imdb126_s2_13b97300661fe6c5.v0)), imdb100_s3_13b97300661fe6c5 as (select * from umbra.identity(table(imdb100_s2_13b97300661fe6c5)) where exists (select from umbra.identity(table(imdb126_s2_13b97300661fe6c5)) where imdb100_s2_13b97300661fe6c5.v0 = imdb126_s2_13b97300661fe6c5.v0)) /* stage4 */, s4_group_F5C3C42188EE9AA as  (select * from umbra.identity(table(imdb126_s2_13b97300661fe6c5)) NATURAL JOIN umbra.identity(table(imdb100_s3_13b97300661fe6c5)) NATURAL JOIN umbra.identity(table(imdb13_s3_13b97300661fe6c5)) NATURAL JOIN umbra.identity(table(imdb14_s3_13b97300661fe6c5)) NATURAL JOIN umbra.identity(table(imdb2_s3_13b97300661fe6c5)))select count(*) from umbra.identity(table(s4_group_F5C3C42188EE9AA));
+\set queryname job_acyclic_109_57
+-- Result size: 29757553
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb3:d -> imdb127:d;imdb127:d -> imdb100:d;imdb100:d -> imdb16:s;imdb16:s -> imdb10:s;}
+--                      +--------+----+----+
+--                      | imdb10 |  s |  d |
+--                      +--------+----+----+
+--                                  |
+--                                  +----+
+--                                       |
+-- +---------+---------+---------+       |
+-- |  imdb3  |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb127 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb100 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+--            +--------+---------+----+  |
+--            | imdb16 |    s    |  d |  |
+--            +--------+---------+----+  |
+--                        |              |
+--                        +--------------+
+with dummy as (select) /* stage1 */, imdb100_s1_1c191b80661fe6c5 as (select imdb100.d as v0 from imdb100), imdb3_s2_1c191b80661fe6c5 as (select imdb3.d as v0 from imdb3), imdb16_s2_1c191b80661fe6c5 as (select imdb16.s as v0 from imdb16), imdb127_s2_1c191b80661fe6c5 as (select imdb127.d as v0 from imdb127), imdb10_s2_1c191b80661fe6c5 as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_1c191b80661fe6c5 as (select * from umbra.identity(table(imdb100_s1_1c191b80661fe6c5)) where exists (select from umbra.identity(table(imdb10_s2_1c191b80661fe6c5)) where imdb100_s1_1c191b80661fe6c5.v0 = imdb10_s2_1c191b80661fe6c5.v0) AND exists (select from umbra.identity(table(imdb127_s2_1c191b80661fe6c5)) where imdb100_s1_1c191b80661fe6c5.v0 = imdb127_s2_1c191b80661fe6c5.v0) AND exists (select from umbra.identity(table(imdb16_s2_1c191b80661fe6c5)) where imdb100_s1_1c191b80661fe6c5.v0 = imdb16_s2_1c191b80661fe6c5.v0) AND exists (select from umbra.identity(table(imdb3_s2_1c191b80661fe6c5)) where imdb100_s1_1c191b80661fe6c5.v0 = imdb3_s2_1c191b80661fe6c5.v0)) /* stage3 */, imdb3_s3_1c191b80661fe6c5 as (select * from umbra.identity(table(imdb3_s2_1c191b80661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_1c191b80661fe6c5)) where imdb3_s2_1c191b80661fe6c5.v0 = imdb100_s2_1c191b80661fe6c5.v0)), imdb16_s3_1c191b80661fe6c5 as (select * from umbra.identity(table(imdb16_s2_1c191b80661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_1c191b80661fe6c5)) where imdb16_s2_1c191b80661fe6c5.v0 = imdb100_s2_1c191b80661fe6c5.v0)), imdb127_s3_1c191b80661fe6c5 as (select * from umbra.identity(table(imdb127_s2_1c191b80661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_1c191b80661fe6c5)) where imdb127_s2_1c191b80661fe6c5.v0 = imdb100_s2_1c191b80661fe6c5.v0)), imdb10_s3_1c191b80661fe6c5 as (select * from umbra.identity(table(imdb10_s2_1c191b80661fe6c5)) where exists (select from umbra.identity(table(imdb100_s2_1c191b80661fe6c5)) where imdb10_s2_1c191b80661fe6c5.v0 = imdb100_s2_1c191b80661fe6c5.v0)) /* stage4 */, s4_group_61DA5B9050C1AD84 as  (select * from umbra.identity(table(imdb100_s2_1c191b80661fe6c5)) NATURAL JOIN umbra.identity(table(imdb10_s3_1c191b80661fe6c5)) NATURAL JOIN umbra.identity(table(imdb127_s3_1c191b80661fe6c5)) NATURAL JOIN umbra.identity(table(imdb16_s3_1c191b80661fe6c5)) NATURAL JOIN umbra.identity(table(imdb3_s3_1c191b80661fe6c5)))select count(*) from umbra.identity(table(s4_group_61DA5B9050C1AD84));
+\set queryname job_acyclic_109_58
+-- Result size: 9538570
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb2:d -> imdb124:d;imdb124:d -> imdb100:d;imdb100:d -> imdb13:s;imdb13:s -> imdb17:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb124 | s |     d    | imdb17 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb124_s1_4c6a880661fe6c6 as (select imdb124.d as v0 from imdb124), imdb2_s2_4c6a880661fe6c6 as (select imdb2.d as v0 from imdb2), imdb17_s2_4c6a880661fe6c6 as (select imdb17.s as v0 from imdb17), imdb13_s2_4c6a880661fe6c6 as (select imdb13.s as v0 from imdb13), imdb100_s2_4c6a880661fe6c6 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb124_s2_4c6a880661fe6c6 as (select * from umbra.identity(table(imdb124_s1_4c6a880661fe6c6)) where exists (select from umbra.identity(table(imdb100_s2_4c6a880661fe6c6)) where imdb124_s1_4c6a880661fe6c6.v0 = imdb100_s2_4c6a880661fe6c6.v0) AND exists (select from umbra.identity(table(imdb13_s2_4c6a880661fe6c6)) where imdb124_s1_4c6a880661fe6c6.v0 = imdb13_s2_4c6a880661fe6c6.v0) AND exists (select from umbra.identity(table(imdb17_s2_4c6a880661fe6c6)) where imdb124_s1_4c6a880661fe6c6.v0 = imdb17_s2_4c6a880661fe6c6.v0) AND exists (select from umbra.identity(table(imdb2_s2_4c6a880661fe6c6)) where imdb124_s1_4c6a880661fe6c6.v0 = imdb2_s2_4c6a880661fe6c6.v0)) /* stage3 */, imdb2_s3_4c6a880661fe6c6 as (select * from umbra.identity(table(imdb2_s2_4c6a880661fe6c6)) where exists (select from umbra.identity(table(imdb124_s2_4c6a880661fe6c6)) where imdb2_s2_4c6a880661fe6c6.v0 = imdb124_s2_4c6a880661fe6c6.v0)), imdb17_s3_4c6a880661fe6c6 as (select * from umbra.identity(table(imdb17_s2_4c6a880661fe6c6)) where exists (select from umbra.identity(table(imdb124_s2_4c6a880661fe6c6)) where imdb17_s2_4c6a880661fe6c6.v0 = imdb124_s2_4c6a880661fe6c6.v0)), imdb13_s3_4c6a880661fe6c6 as (select * from umbra.identity(table(imdb13_s2_4c6a880661fe6c6)) where exists (select from umbra.identity(table(imdb124_s2_4c6a880661fe6c6)) where imdb13_s2_4c6a880661fe6c6.v0 = imdb124_s2_4c6a880661fe6c6.v0)), imdb100_s3_4c6a880661fe6c6 as (select * from umbra.identity(table(imdb100_s2_4c6a880661fe6c6)) where exists (select from umbra.identity(table(imdb124_s2_4c6a880661fe6c6)) where imdb100_s2_4c6a880661fe6c6.v0 = imdb124_s2_4c6a880661fe6c6.v0)) /* stage4 */, s4_group_7C18FEA24AA9C1A0 as  (select * from umbra.identity(table(imdb124_s2_4c6a880661fe6c6)) NATURAL JOIN umbra.identity(table(imdb100_s3_4c6a880661fe6c6)) NATURAL JOIN umbra.identity(table(imdb13_s3_4c6a880661fe6c6)) NATURAL JOIN umbra.identity(table(imdb17_s3_4c6a880661fe6c6)) NATURAL JOIN umbra.identity(table(imdb2_s3_4c6a880661fe6c6)))select count(*) from umbra.identity(table(s4_group_7C18FEA24AA9C1A0));
+\set queryname job_acyclic_109_59
+-- Result size: 576133866
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb3:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb22:s;imdb22:s -> imdb13:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb118 | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb118_s1_d478700661fe6c6 as (select imdb118.d as v0 from imdb118), imdb3_s2_d478700661fe6c6 as (select imdb3.d as v0 from imdb3), imdb22_s2_d478700661fe6c6 as (select imdb22.s as v0 from imdb22), imdb13_s2_d478700661fe6c6 as (select imdb13.s as v0 from imdb13), imdb100_s2_d478700661fe6c6 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb118_s2_d478700661fe6c6 as (select * from umbra.identity(table(imdb118_s1_d478700661fe6c6)) where exists (select from umbra.identity(table(imdb100_s2_d478700661fe6c6)) where imdb118_s1_d478700661fe6c6.v0 = imdb100_s2_d478700661fe6c6.v0) AND exists (select from umbra.identity(table(imdb13_s2_d478700661fe6c6)) where imdb118_s1_d478700661fe6c6.v0 = imdb13_s2_d478700661fe6c6.v0) AND exists (select from umbra.identity(table(imdb22_s2_d478700661fe6c6)) where imdb118_s1_d478700661fe6c6.v0 = imdb22_s2_d478700661fe6c6.v0) AND exists (select from umbra.identity(table(imdb3_s2_d478700661fe6c6)) where imdb118_s1_d478700661fe6c6.v0 = imdb3_s2_d478700661fe6c6.v0)) /* stage3 */, imdb3_s3_d478700661fe6c6 as (select * from umbra.identity(table(imdb3_s2_d478700661fe6c6)) where exists (select from umbra.identity(table(imdb118_s2_d478700661fe6c6)) where imdb3_s2_d478700661fe6c6.v0 = imdb118_s2_d478700661fe6c6.v0)), imdb22_s3_d478700661fe6c6 as (select * from umbra.identity(table(imdb22_s2_d478700661fe6c6)) where exists (select from umbra.identity(table(imdb118_s2_d478700661fe6c6)) where imdb22_s2_d478700661fe6c6.v0 = imdb118_s2_d478700661fe6c6.v0)), imdb13_s3_d478700661fe6c6 as (select * from umbra.identity(table(imdb13_s2_d478700661fe6c6)) where exists (select from umbra.identity(table(imdb118_s2_d478700661fe6c6)) where imdb13_s2_d478700661fe6c6.v0 = imdb118_s2_d478700661fe6c6.v0)), imdb100_s3_d478700661fe6c6 as (select * from umbra.identity(table(imdb100_s2_d478700661fe6c6)) where exists (select from umbra.identity(table(imdb118_s2_d478700661fe6c6)) where imdb100_s2_d478700661fe6c6.v0 = imdb118_s2_d478700661fe6c6.v0)) /* stage4 */, s4_group_405065FA0DDC0E11 as  (select * from umbra.identity(table(imdb118_s2_d478700661fe6c6)) NATURAL JOIN umbra.identity(table(imdb100_s3_d478700661fe6c6)) NATURAL JOIN umbra.identity(table(imdb13_s3_d478700661fe6c6)) NATURAL JOIN umbra.identity(table(imdb22_s3_d478700661fe6c6)) NATURAL JOIN umbra.identity(table(imdb3_s3_d478700661fe6c6)))select count(*) from umbra.identity(table(s4_group_405065FA0DDC0E11));
+\set queryname job_acyclic_109_60
+-- Result size: 560802477
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb2:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb15:s;imdb15:s -> imdb22:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb118 | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb118_s1_15c97500661fe6c6 as (select imdb118.d as v0 from imdb118), imdb22_s2_15c97500661fe6c6 as (select imdb22.s as v0 from imdb22), imdb2_s2_15c97500661fe6c6 as (select imdb2.d as v0 from imdb2), imdb15_s2_15c97500661fe6c6 as (select imdb15.s as v0 from imdb15), imdb100_s2_15c97500661fe6c6 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb118_s2_15c97500661fe6c6 as (select * from umbra.identity(table(imdb118_s1_15c97500661fe6c6)) where exists (select from umbra.identity(table(imdb100_s2_15c97500661fe6c6)) where imdb118_s1_15c97500661fe6c6.v0 = imdb100_s2_15c97500661fe6c6.v0) AND exists (select from umbra.identity(table(imdb15_s2_15c97500661fe6c6)) where imdb118_s1_15c97500661fe6c6.v0 = imdb15_s2_15c97500661fe6c6.v0) AND exists (select from umbra.identity(table(imdb2_s2_15c97500661fe6c6)) where imdb118_s1_15c97500661fe6c6.v0 = imdb2_s2_15c97500661fe6c6.v0) AND exists (select from umbra.identity(table(imdb22_s2_15c97500661fe6c6)) where imdb118_s1_15c97500661fe6c6.v0 = imdb22_s2_15c97500661fe6c6.v0)) /* stage3 */, imdb22_s3_15c97500661fe6c6 as (select * from umbra.identity(table(imdb22_s2_15c97500661fe6c6)) where exists (select from umbra.identity(table(imdb118_s2_15c97500661fe6c6)) where imdb22_s2_15c97500661fe6c6.v0 = imdb118_s2_15c97500661fe6c6.v0)), imdb2_s3_15c97500661fe6c6 as (select * from umbra.identity(table(imdb2_s2_15c97500661fe6c6)) where exists (select from umbra.identity(table(imdb118_s2_15c97500661fe6c6)) where imdb2_s2_15c97500661fe6c6.v0 = imdb118_s2_15c97500661fe6c6.v0)), imdb15_s3_15c97500661fe6c6 as (select * from umbra.identity(table(imdb15_s2_15c97500661fe6c6)) where exists (select from umbra.identity(table(imdb118_s2_15c97500661fe6c6)) where imdb15_s2_15c97500661fe6c6.v0 = imdb118_s2_15c97500661fe6c6.v0)), imdb100_s3_15c97500661fe6c6 as (select * from umbra.identity(table(imdb100_s2_15c97500661fe6c6)) where exists (select from umbra.identity(table(imdb118_s2_15c97500661fe6c6)) where imdb100_s2_15c97500661fe6c6.v0 = imdb118_s2_15c97500661fe6c6.v0)) /* stage4 */, s4_group_1BA58CDBF3C0629A as  (select * from umbra.identity(table(imdb118_s2_15c97500661fe6c6)) NATURAL JOIN umbra.identity(table(imdb100_s3_15c97500661fe6c6)) NATURAL JOIN umbra.identity(table(imdb15_s3_15c97500661fe6c6)) NATURAL JOIN umbra.identity(table(imdb2_s3_15c97500661fe6c6)) NATURAL JOIN umbra.identity(table(imdb22_s3_15c97500661fe6c6)))select count(*) from umbra.identity(table(s4_group_1BA58CDBF3C0629A));
+\set queryname job_acyclic_109_61
+-- Result size: 29840306
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb2:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb22:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb126 | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_1e453600661fe6c6 as (select imdb126.d as v0 from imdb126), imdb7_s2_1e453600661fe6c6 as (select imdb7.s as v0 from imdb7), imdb22_s2_1e453600661fe6c6 as (select imdb22.s as v0 from imdb22), imdb2_s2_1e453600661fe6c6 as (select imdb2.d as v0 from imdb2), imdb100_s2_1e453600661fe6c6 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_1e453600661fe6c6 as (select * from umbra.identity(table(imdb126_s1_1e453600661fe6c6)) where exists (select from umbra.identity(table(imdb100_s2_1e453600661fe6c6)) where imdb126_s1_1e453600661fe6c6.v0 = imdb100_s2_1e453600661fe6c6.v0) AND exists (select from umbra.identity(table(imdb2_s2_1e453600661fe6c6)) where imdb126_s1_1e453600661fe6c6.v0 = imdb2_s2_1e453600661fe6c6.v0) AND exists (select from umbra.identity(table(imdb22_s2_1e453600661fe6c6)) where imdb126_s1_1e453600661fe6c6.v0 = imdb22_s2_1e453600661fe6c6.v0) AND exists (select from umbra.identity(table(imdb7_s2_1e453600661fe6c6)) where imdb126_s1_1e453600661fe6c6.v0 = imdb7_s2_1e453600661fe6c6.v0)) /* stage3 */, imdb7_s3_1e453600661fe6c6 as (select * from umbra.identity(table(imdb7_s2_1e453600661fe6c6)) where exists (select from umbra.identity(table(imdb126_s2_1e453600661fe6c6)) where imdb7_s2_1e453600661fe6c6.v0 = imdb126_s2_1e453600661fe6c6.v0)), imdb22_s3_1e453600661fe6c6 as (select * from umbra.identity(table(imdb22_s2_1e453600661fe6c6)) where exists (select from umbra.identity(table(imdb126_s2_1e453600661fe6c6)) where imdb22_s2_1e453600661fe6c6.v0 = imdb126_s2_1e453600661fe6c6.v0)), imdb2_s3_1e453600661fe6c6 as (select * from umbra.identity(table(imdb2_s2_1e453600661fe6c6)) where exists (select from umbra.identity(table(imdb126_s2_1e453600661fe6c6)) where imdb2_s2_1e453600661fe6c6.v0 = imdb126_s2_1e453600661fe6c6.v0)), imdb100_s3_1e453600661fe6c6 as (select * from umbra.identity(table(imdb100_s2_1e453600661fe6c6)) where exists (select from umbra.identity(table(imdb126_s2_1e453600661fe6c6)) where imdb100_s2_1e453600661fe6c6.v0 = imdb126_s2_1e453600661fe6c6.v0)) /* stage4 */, s4_group_5BBE424999CB3E86 as  (select * from umbra.identity(table(imdb126_s2_1e453600661fe6c6)) NATURAL JOIN umbra.identity(table(imdb100_s3_1e453600661fe6c6)) NATURAL JOIN umbra.identity(table(imdb2_s3_1e453600661fe6c6)) NATURAL JOIN umbra.identity(table(imdb22_s3_1e453600661fe6c6)) NATURAL JOIN umbra.identity(table(imdb7_s3_1e453600661fe6c6)))select count(*) from umbra.identity(table(s4_group_5BBE424999CB3E86));
+\set queryname job_acyclic_109_62
+-- Result size: 34374316
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb3:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb13:s;imdb13:s -> imdb16:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb13 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb125 | s |     d    | imdb16 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb125_s1_6b31d00661fe6c7 as (select imdb125.d as v0 from imdb125), imdb3_s2_6b31d00661fe6c7 as (select imdb3.d as v0 from imdb3), imdb16_s2_6b31d00661fe6c7 as (select imdb16.s as v0 from imdb16), imdb13_s2_6b31d00661fe6c7 as (select imdb13.s as v0 from imdb13), imdb100_s2_6b31d00661fe6c7 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb125_s2_6b31d00661fe6c7 as (select * from umbra.identity(table(imdb125_s1_6b31d00661fe6c7)) where exists (select from umbra.identity(table(imdb100_s2_6b31d00661fe6c7)) where imdb125_s1_6b31d00661fe6c7.v0 = imdb100_s2_6b31d00661fe6c7.v0) AND exists (select from umbra.identity(table(imdb13_s2_6b31d00661fe6c7)) where imdb125_s1_6b31d00661fe6c7.v0 = imdb13_s2_6b31d00661fe6c7.v0) AND exists (select from umbra.identity(table(imdb16_s2_6b31d00661fe6c7)) where imdb125_s1_6b31d00661fe6c7.v0 = imdb16_s2_6b31d00661fe6c7.v0) AND exists (select from umbra.identity(table(imdb3_s2_6b31d00661fe6c7)) where imdb125_s1_6b31d00661fe6c7.v0 = imdb3_s2_6b31d00661fe6c7.v0)) /* stage3 */, imdb3_s3_6b31d00661fe6c7 as (select * from umbra.identity(table(imdb3_s2_6b31d00661fe6c7)) where exists (select from umbra.identity(table(imdb125_s2_6b31d00661fe6c7)) where imdb3_s2_6b31d00661fe6c7.v0 = imdb125_s2_6b31d00661fe6c7.v0)), imdb16_s3_6b31d00661fe6c7 as (select * from umbra.identity(table(imdb16_s2_6b31d00661fe6c7)) where exists (select from umbra.identity(table(imdb125_s2_6b31d00661fe6c7)) where imdb16_s2_6b31d00661fe6c7.v0 = imdb125_s2_6b31d00661fe6c7.v0)), imdb13_s3_6b31d00661fe6c7 as (select * from umbra.identity(table(imdb13_s2_6b31d00661fe6c7)) where exists (select from umbra.identity(table(imdb125_s2_6b31d00661fe6c7)) where imdb13_s2_6b31d00661fe6c7.v0 = imdb125_s2_6b31d00661fe6c7.v0)), imdb100_s3_6b31d00661fe6c7 as (select * from umbra.identity(table(imdb100_s2_6b31d00661fe6c7)) where exists (select from umbra.identity(table(imdb125_s2_6b31d00661fe6c7)) where imdb100_s2_6b31d00661fe6c7.v0 = imdb125_s2_6b31d00661fe6c7.v0)) /* stage4 */, s4_group_189DF32BAF56A5B8 as  (select * from umbra.identity(table(imdb125_s2_6b31d00661fe6c7)) NATURAL JOIN umbra.identity(table(imdb100_s3_6b31d00661fe6c7)) NATURAL JOIN umbra.identity(table(imdb13_s3_6b31d00661fe6c7)) NATURAL JOIN umbra.identity(table(imdb16_s3_6b31d00661fe6c7)) NATURAL JOIN umbra.identity(table(imdb3_s3_6b31d00661fe6c7)))select count(*) from umbra.identity(table(s4_group_189DF32BAF56A5B8));
+\set queryname job_acyclic_109_63
+-- Result size: 57586824
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb23 [label="imdb23|<s> s|<d> d"]; imdb2:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb6:s;imdb6:s -> imdb23:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb6 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb126 | s |     d    | imdb23 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_f273500661fe6c7 as (select imdb126.d as v0 from imdb126), imdb6_s2_f273500661fe6c7 as (select imdb6.s as v0 from imdb6), imdb23_s2_f273500661fe6c7 as (select imdb23.s as v0 from imdb23), imdb2_s2_f273500661fe6c7 as (select imdb2.d as v0 from imdb2), imdb100_s2_f273500661fe6c7 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_f273500661fe6c7 as (select * from umbra.identity(table(imdb126_s1_f273500661fe6c7)) where exists (select from umbra.identity(table(imdb100_s2_f273500661fe6c7)) where imdb126_s1_f273500661fe6c7.v0 = imdb100_s2_f273500661fe6c7.v0) AND exists (select from umbra.identity(table(imdb2_s2_f273500661fe6c7)) where imdb126_s1_f273500661fe6c7.v0 = imdb2_s2_f273500661fe6c7.v0) AND exists (select from umbra.identity(table(imdb23_s2_f273500661fe6c7)) where imdb126_s1_f273500661fe6c7.v0 = imdb23_s2_f273500661fe6c7.v0) AND exists (select from umbra.identity(table(imdb6_s2_f273500661fe6c7)) where imdb126_s1_f273500661fe6c7.v0 = imdb6_s2_f273500661fe6c7.v0)) /* stage3 */, imdb6_s3_f273500661fe6c7 as (select * from umbra.identity(table(imdb6_s2_f273500661fe6c7)) where exists (select from umbra.identity(table(imdb126_s2_f273500661fe6c7)) where imdb6_s2_f273500661fe6c7.v0 = imdb126_s2_f273500661fe6c7.v0)), imdb23_s3_f273500661fe6c7 as (select * from umbra.identity(table(imdb23_s2_f273500661fe6c7)) where exists (select from umbra.identity(table(imdb126_s2_f273500661fe6c7)) where imdb23_s2_f273500661fe6c7.v0 = imdb126_s2_f273500661fe6c7.v0)), imdb2_s3_f273500661fe6c7 as (select * from umbra.identity(table(imdb2_s2_f273500661fe6c7)) where exists (select from umbra.identity(table(imdb126_s2_f273500661fe6c7)) where imdb2_s2_f273500661fe6c7.v0 = imdb126_s2_f273500661fe6c7.v0)), imdb100_s3_f273500661fe6c7 as (select * from umbra.identity(table(imdb100_s2_f273500661fe6c7)) where exists (select from umbra.identity(table(imdb126_s2_f273500661fe6c7)) where imdb100_s2_f273500661fe6c7.v0 = imdb126_s2_f273500661fe6c7.v0)) /* stage4 */, s4_group_6FDF85C40567435D as  (select * from umbra.identity(table(imdb126_s2_f273500661fe6c7)) NATURAL JOIN umbra.identity(table(imdb100_s3_f273500661fe6c7)) NATURAL JOIN umbra.identity(table(imdb2_s3_f273500661fe6c7)) NATURAL JOIN umbra.identity(table(imdb23_s3_f273500661fe6c7)) NATURAL JOIN umbra.identity(table(imdb6_s3_f273500661fe6c7)))select count(*) from umbra.identity(table(s4_group_6FDF85C40567435D));
+\set queryname job_acyclic_109_64
+-- Result size: 5621157
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb2:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb24:s;imdb24:s -> imdb7:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb24 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb125 | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb125_s1_176f1700661fe6c7 as (select imdb125.d as v0 from imdb125), imdb7_s2_176f1700661fe6c7 as (select imdb7.s as v0 from imdb7), imdb24_s2_176f1700661fe6c7 as (select imdb24.s as v0 from imdb24), imdb2_s2_176f1700661fe6c7 as (select imdb2.d as v0 from imdb2), imdb100_s2_176f1700661fe6c7 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb125_s2_176f1700661fe6c7 as (select * from umbra.identity(table(imdb125_s1_176f1700661fe6c7)) where exists (select from umbra.identity(table(imdb100_s2_176f1700661fe6c7)) where imdb125_s1_176f1700661fe6c7.v0 = imdb100_s2_176f1700661fe6c7.v0) AND exists (select from umbra.identity(table(imdb2_s2_176f1700661fe6c7)) where imdb125_s1_176f1700661fe6c7.v0 = imdb2_s2_176f1700661fe6c7.v0) AND exists (select from umbra.identity(table(imdb24_s2_176f1700661fe6c7)) where imdb125_s1_176f1700661fe6c7.v0 = imdb24_s2_176f1700661fe6c7.v0) AND exists (select from umbra.identity(table(imdb7_s2_176f1700661fe6c7)) where imdb125_s1_176f1700661fe6c7.v0 = imdb7_s2_176f1700661fe6c7.v0)) /* stage3 */, imdb7_s3_176f1700661fe6c7 as (select * from umbra.identity(table(imdb7_s2_176f1700661fe6c7)) where exists (select from umbra.identity(table(imdb125_s2_176f1700661fe6c7)) where imdb7_s2_176f1700661fe6c7.v0 = imdb125_s2_176f1700661fe6c7.v0)), imdb24_s3_176f1700661fe6c7 as (select * from umbra.identity(table(imdb24_s2_176f1700661fe6c7)) where exists (select from umbra.identity(table(imdb125_s2_176f1700661fe6c7)) where imdb24_s2_176f1700661fe6c7.v0 = imdb125_s2_176f1700661fe6c7.v0)), imdb2_s3_176f1700661fe6c7 as (select * from umbra.identity(table(imdb2_s2_176f1700661fe6c7)) where exists (select from umbra.identity(table(imdb125_s2_176f1700661fe6c7)) where imdb2_s2_176f1700661fe6c7.v0 = imdb125_s2_176f1700661fe6c7.v0)), imdb100_s3_176f1700661fe6c7 as (select * from umbra.identity(table(imdb100_s2_176f1700661fe6c7)) where exists (select from umbra.identity(table(imdb125_s2_176f1700661fe6c7)) where imdb100_s2_176f1700661fe6c7.v0 = imdb125_s2_176f1700661fe6c7.v0)) /* stage4 */, s4_group_7C23D05D748B50FB as  (select * from umbra.identity(table(imdb125_s2_176f1700661fe6c7)) NATURAL JOIN umbra.identity(table(imdb100_s3_176f1700661fe6c7)) NATURAL JOIN umbra.identity(table(imdb2_s3_176f1700661fe6c7)) NATURAL JOIN umbra.identity(table(imdb24_s3_176f1700661fe6c7)) NATURAL JOIN umbra.identity(table(imdb7_s3_176f1700661fe6c7)))select count(*) from umbra.identity(table(s4_group_7C23D05D748B50FB));
+\set queryname job_acyclic_109_65
+-- Result size: 18659423
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb3:d -> imdb124:d;imdb124:d -> imdb100:d;imdb100:d -> imdb24:s;imdb24:s -> imdb7:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb24 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb124 | s |     d    |  imdb7 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb124_s1_1fc8d980661fe6c7 as (select imdb124.d as v0 from imdb124), imdb7_s2_1fc8d980661fe6c7 as (select imdb7.s as v0 from imdb7), imdb3_s2_1fc8d980661fe6c7 as (select imdb3.d as v0 from imdb3), imdb24_s2_1fc8d980661fe6c7 as (select imdb24.s as v0 from imdb24), imdb100_s2_1fc8d980661fe6c7 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb124_s2_1fc8d980661fe6c7 as (select * from umbra.identity(table(imdb124_s1_1fc8d980661fe6c7)) where exists (select from umbra.identity(table(imdb100_s2_1fc8d980661fe6c7)) where imdb124_s1_1fc8d980661fe6c7.v0 = imdb100_s2_1fc8d980661fe6c7.v0) AND exists (select from umbra.identity(table(imdb24_s2_1fc8d980661fe6c7)) where imdb124_s1_1fc8d980661fe6c7.v0 = imdb24_s2_1fc8d980661fe6c7.v0) AND exists (select from umbra.identity(table(imdb3_s2_1fc8d980661fe6c7)) where imdb124_s1_1fc8d980661fe6c7.v0 = imdb3_s2_1fc8d980661fe6c7.v0) AND exists (select from umbra.identity(table(imdb7_s2_1fc8d980661fe6c7)) where imdb124_s1_1fc8d980661fe6c7.v0 = imdb7_s2_1fc8d980661fe6c7.v0)) /* stage3 */, imdb7_s3_1fc8d980661fe6c7 as (select * from umbra.identity(table(imdb7_s2_1fc8d980661fe6c7)) where exists (select from umbra.identity(table(imdb124_s2_1fc8d980661fe6c7)) where imdb7_s2_1fc8d980661fe6c7.v0 = imdb124_s2_1fc8d980661fe6c7.v0)), imdb3_s3_1fc8d980661fe6c7 as (select * from umbra.identity(table(imdb3_s2_1fc8d980661fe6c7)) where exists (select from umbra.identity(table(imdb124_s2_1fc8d980661fe6c7)) where imdb3_s2_1fc8d980661fe6c7.v0 = imdb124_s2_1fc8d980661fe6c7.v0)), imdb24_s3_1fc8d980661fe6c7 as (select * from umbra.identity(table(imdb24_s2_1fc8d980661fe6c7)) where exists (select from umbra.identity(table(imdb124_s2_1fc8d980661fe6c7)) where imdb24_s2_1fc8d980661fe6c7.v0 = imdb124_s2_1fc8d980661fe6c7.v0)), imdb100_s3_1fc8d980661fe6c7 as (select * from umbra.identity(table(imdb100_s2_1fc8d980661fe6c7)) where exists (select from umbra.identity(table(imdb124_s2_1fc8d980661fe6c7)) where imdb100_s2_1fc8d980661fe6c7.v0 = imdb124_s2_1fc8d980661fe6c7.v0)) /* stage4 */, s4_group_52E1E246D998EB15 as  (select * from umbra.identity(table(imdb124_s2_1fc8d980661fe6c7)) NATURAL JOIN umbra.identity(table(imdb100_s3_1fc8d980661fe6c7)) NATURAL JOIN umbra.identity(table(imdb24_s3_1fc8d980661fe6c7)) NATURAL JOIN umbra.identity(table(imdb3_s3_1fc8d980661fe6c7)) NATURAL JOIN umbra.identity(table(imdb7_s3_1fc8d980661fe6c7)))select count(*) from umbra.identity(table(s4_group_52E1E246D998EB15));
+\set queryname job_acyclic_109_66
+-- Result size: 28054312
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb21 [label="imdb21|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb2:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb21:s;imdb21:s -> imdb10:s;}
+--                      +--------+----+----+
+--                      | imdb10 |  s |  d |
+--                      +--------+----+----+
+--                                  |
+--                                  +----+
+--                                       |
+-- +---------+---------+---------+       |
+-- |  imdb2  |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb125 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb100 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+--            +--------+---------+----+  |
+--            | imdb21 |    s    |  d |  |
+--            +--------+---------+----+  |
+--                        |              |
+--                        +--------------+
+with dummy as (select) /* stage1 */, imdb100_s1_8c3e680661fe6c8 as (select imdb100.d as v0 from imdb100), imdb21_s2_8c3e680661fe6c8 as (select imdb21.s as v0 from imdb21), imdb2_s2_8c3e680661fe6c8 as (select imdb2.d as v0 from imdb2), imdb125_s2_8c3e680661fe6c8 as (select imdb125.d as v0 from imdb125), imdb10_s2_8c3e680661fe6c8 as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_8c3e680661fe6c8 as (select * from umbra.identity(table(imdb100_s1_8c3e680661fe6c8)) where exists (select from umbra.identity(table(imdb10_s2_8c3e680661fe6c8)) where imdb100_s1_8c3e680661fe6c8.v0 = imdb10_s2_8c3e680661fe6c8.v0) AND exists (select from umbra.identity(table(imdb125_s2_8c3e680661fe6c8)) where imdb100_s1_8c3e680661fe6c8.v0 = imdb125_s2_8c3e680661fe6c8.v0) AND exists (select from umbra.identity(table(imdb2_s2_8c3e680661fe6c8)) where imdb100_s1_8c3e680661fe6c8.v0 = imdb2_s2_8c3e680661fe6c8.v0) AND exists (select from umbra.identity(table(imdb21_s2_8c3e680661fe6c8)) where imdb100_s1_8c3e680661fe6c8.v0 = imdb21_s2_8c3e680661fe6c8.v0)) /* stage3 */, imdb21_s3_8c3e680661fe6c8 as (select * from umbra.identity(table(imdb21_s2_8c3e680661fe6c8)) where exists (select from umbra.identity(table(imdb100_s2_8c3e680661fe6c8)) where imdb21_s2_8c3e680661fe6c8.v0 = imdb100_s2_8c3e680661fe6c8.v0)), imdb2_s3_8c3e680661fe6c8 as (select * from umbra.identity(table(imdb2_s2_8c3e680661fe6c8)) where exists (select from umbra.identity(table(imdb100_s2_8c3e680661fe6c8)) where imdb2_s2_8c3e680661fe6c8.v0 = imdb100_s2_8c3e680661fe6c8.v0)), imdb125_s3_8c3e680661fe6c8 as (select * from umbra.identity(table(imdb125_s2_8c3e680661fe6c8)) where exists (select from umbra.identity(table(imdb100_s2_8c3e680661fe6c8)) where imdb125_s2_8c3e680661fe6c8.v0 = imdb100_s2_8c3e680661fe6c8.v0)), imdb10_s3_8c3e680661fe6c8 as (select * from umbra.identity(table(imdb10_s2_8c3e680661fe6c8)) where exists (select from umbra.identity(table(imdb100_s2_8c3e680661fe6c8)) where imdb10_s2_8c3e680661fe6c8.v0 = imdb100_s2_8c3e680661fe6c8.v0)) /* stage4 */, s4_group_6F99FCA165C3FAA2 as  (select * from umbra.identity(table(imdb100_s2_8c3e680661fe6c8)) NATURAL JOIN umbra.identity(table(imdb10_s3_8c3e680661fe6c8)) NATURAL JOIN umbra.identity(table(imdb125_s3_8c3e680661fe6c8)) NATURAL JOIN umbra.identity(table(imdb2_s3_8c3e680661fe6c8)) NATURAL JOIN umbra.identity(table(imdb21_s3_8c3e680661fe6c8)))select count(*) from umbra.identity(table(s4_group_6F99FCA165C3FAA2));
+\set queryname job_acyclic_109_67
+-- Result size: 20299031
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb26 [label="imdb26|<s> s|<d> d"]; imdb2:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb10:s;imdb10:s -> imdb26:s;}
+--                +--------+----+---+
+--                | imdb26 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+--                +--------+----+---+
+--                | imdb10 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+-- +---------+---+---------+  |
+-- |  imdb2  | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb121 | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb100 | s |    d    | -+
+-- +---------+---+---------+
+with dummy as (select) /* stage1 */, imdb100_s1_113ba880661fe6c8 as (select imdb100.d as v0 from imdb100), imdb26_s2_113ba880661fe6c8 as (select imdb26.s as v0 from imdb26), imdb2_s2_113ba880661fe6c8 as (select imdb2.d as v0 from imdb2), imdb121_s2_113ba880661fe6c8 as (select imdb121.d as v0 from imdb121), imdb10_s2_113ba880661fe6c8 as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_113ba880661fe6c8 as (select * from umbra.identity(table(imdb100_s1_113ba880661fe6c8)) where exists (select from umbra.identity(table(imdb10_s2_113ba880661fe6c8)) where imdb100_s1_113ba880661fe6c8.v0 = imdb10_s2_113ba880661fe6c8.v0) AND exists (select from umbra.identity(table(imdb121_s2_113ba880661fe6c8)) where imdb100_s1_113ba880661fe6c8.v0 = imdb121_s2_113ba880661fe6c8.v0) AND exists (select from umbra.identity(table(imdb2_s2_113ba880661fe6c8)) where imdb100_s1_113ba880661fe6c8.v0 = imdb2_s2_113ba880661fe6c8.v0) AND exists (select from umbra.identity(table(imdb26_s2_113ba880661fe6c8)) where imdb100_s1_113ba880661fe6c8.v0 = imdb26_s2_113ba880661fe6c8.v0)) /* stage3 */, imdb26_s3_113ba880661fe6c8 as (select * from umbra.identity(table(imdb26_s2_113ba880661fe6c8)) where exists (select from umbra.identity(table(imdb100_s2_113ba880661fe6c8)) where imdb26_s2_113ba880661fe6c8.v0 = imdb100_s2_113ba880661fe6c8.v0)), imdb2_s3_113ba880661fe6c8 as (select * from umbra.identity(table(imdb2_s2_113ba880661fe6c8)) where exists (select from umbra.identity(table(imdb100_s2_113ba880661fe6c8)) where imdb2_s2_113ba880661fe6c8.v0 = imdb100_s2_113ba880661fe6c8.v0)), imdb121_s3_113ba880661fe6c8 as (select * from umbra.identity(table(imdb121_s2_113ba880661fe6c8)) where exists (select from umbra.identity(table(imdb100_s2_113ba880661fe6c8)) where imdb121_s2_113ba880661fe6c8.v0 = imdb100_s2_113ba880661fe6c8.v0)), imdb10_s3_113ba880661fe6c8 as (select * from umbra.identity(table(imdb10_s2_113ba880661fe6c8)) where exists (select from umbra.identity(table(imdb100_s2_113ba880661fe6c8)) where imdb10_s2_113ba880661fe6c8.v0 = imdb100_s2_113ba880661fe6c8.v0)) /* stage4 */, s4_group_4A87C5BA07F96E33 as  (select * from umbra.identity(table(imdb100_s2_113ba880661fe6c8)) NATURAL JOIN umbra.identity(table(imdb10_s3_113ba880661fe6c8)) NATURAL JOIN umbra.identity(table(imdb121_s3_113ba880661fe6c8)) NATURAL JOIN umbra.identity(table(imdb2_s3_113ba880661fe6c8)) NATURAL JOIN umbra.identity(table(imdb26_s3_113ba880661fe6c8)))select count(*) from umbra.identity(table(s4_group_4A87C5BA07F96E33));
+\set queryname job_acyclic_109_68
+-- Result size: 335329797
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb3:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb17:s;imdb17:s -> imdb22:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb17 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb118 | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb118_s1_19d10380661fe6c8 as (select imdb118.d as v0 from imdb118), imdb3_s2_19d10380661fe6c8 as (select imdb3.d as v0 from imdb3), imdb22_s2_19d10380661fe6c8 as (select imdb22.s as v0 from imdb22), imdb17_s2_19d10380661fe6c8 as (select imdb17.s as v0 from imdb17), imdb100_s2_19d10380661fe6c8 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb118_s2_19d10380661fe6c8 as (select * from umbra.identity(table(imdb118_s1_19d10380661fe6c8)) where exists (select from umbra.identity(table(imdb100_s2_19d10380661fe6c8)) where imdb118_s1_19d10380661fe6c8.v0 = imdb100_s2_19d10380661fe6c8.v0) AND exists (select from umbra.identity(table(imdb17_s2_19d10380661fe6c8)) where imdb118_s1_19d10380661fe6c8.v0 = imdb17_s2_19d10380661fe6c8.v0) AND exists (select from umbra.identity(table(imdb22_s2_19d10380661fe6c8)) where imdb118_s1_19d10380661fe6c8.v0 = imdb22_s2_19d10380661fe6c8.v0) AND exists (select from umbra.identity(table(imdb3_s2_19d10380661fe6c8)) where imdb118_s1_19d10380661fe6c8.v0 = imdb3_s2_19d10380661fe6c8.v0)) /* stage3 */, imdb3_s3_19d10380661fe6c8 as (select * from umbra.identity(table(imdb3_s2_19d10380661fe6c8)) where exists (select from umbra.identity(table(imdb118_s2_19d10380661fe6c8)) where imdb3_s2_19d10380661fe6c8.v0 = imdb118_s2_19d10380661fe6c8.v0)), imdb22_s3_19d10380661fe6c8 as (select * from umbra.identity(table(imdb22_s2_19d10380661fe6c8)) where exists (select from umbra.identity(table(imdb118_s2_19d10380661fe6c8)) where imdb22_s2_19d10380661fe6c8.v0 = imdb118_s2_19d10380661fe6c8.v0)), imdb17_s3_19d10380661fe6c8 as (select * from umbra.identity(table(imdb17_s2_19d10380661fe6c8)) where exists (select from umbra.identity(table(imdb118_s2_19d10380661fe6c8)) where imdb17_s2_19d10380661fe6c8.v0 = imdb118_s2_19d10380661fe6c8.v0)), imdb100_s3_19d10380661fe6c8 as (select * from umbra.identity(table(imdb100_s2_19d10380661fe6c8)) where exists (select from umbra.identity(table(imdb118_s2_19d10380661fe6c8)) where imdb100_s2_19d10380661fe6c8.v0 = imdb118_s2_19d10380661fe6c8.v0)) /* stage4 */, s4_group_6CDEE3902803C5D2 as  (select * from umbra.identity(table(imdb118_s2_19d10380661fe6c8)) NATURAL JOIN umbra.identity(table(imdb100_s3_19d10380661fe6c8)) NATURAL JOIN umbra.identity(table(imdb17_s3_19d10380661fe6c8)) NATURAL JOIN umbra.identity(table(imdb22_s3_19d10380661fe6c8)) NATURAL JOIN umbra.identity(table(imdb3_s3_19d10380661fe6c8)))select count(*) from umbra.identity(table(s4_group_6CDEE3902803C5D2));
+\set queryname job_acyclic_109_69
+-- Result size: 19853376
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb2:d -> imdb127:d;imdb127:d -> imdb100:d;imdb100:d -> imdb9:s;imdb9:s -> imdb22:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    |  imdb9 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb127 | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb127_s1_231ea80661fe6c9 as (select imdb127.d as v0 from imdb127), imdb9_s2_231ea80661fe6c9 as (select imdb9.s as v0 from imdb9), imdb22_s2_231ea80661fe6c9 as (select imdb22.s as v0 from imdb22), imdb2_s2_231ea80661fe6c9 as (select imdb2.d as v0 from imdb2), imdb100_s2_231ea80661fe6c9 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb127_s2_231ea80661fe6c9 as (select * from umbra.identity(table(imdb127_s1_231ea80661fe6c9)) where exists (select from umbra.identity(table(imdb100_s2_231ea80661fe6c9)) where imdb127_s1_231ea80661fe6c9.v0 = imdb100_s2_231ea80661fe6c9.v0) AND exists (select from umbra.identity(table(imdb2_s2_231ea80661fe6c9)) where imdb127_s1_231ea80661fe6c9.v0 = imdb2_s2_231ea80661fe6c9.v0) AND exists (select from umbra.identity(table(imdb22_s2_231ea80661fe6c9)) where imdb127_s1_231ea80661fe6c9.v0 = imdb22_s2_231ea80661fe6c9.v0) AND exists (select from umbra.identity(table(imdb9_s2_231ea80661fe6c9)) where imdb127_s1_231ea80661fe6c9.v0 = imdb9_s2_231ea80661fe6c9.v0)) /* stage3 */, imdb9_s3_231ea80661fe6c9 as (select * from umbra.identity(table(imdb9_s2_231ea80661fe6c9)) where exists (select from umbra.identity(table(imdb127_s2_231ea80661fe6c9)) where imdb9_s2_231ea80661fe6c9.v0 = imdb127_s2_231ea80661fe6c9.v0)), imdb22_s3_231ea80661fe6c9 as (select * from umbra.identity(table(imdb22_s2_231ea80661fe6c9)) where exists (select from umbra.identity(table(imdb127_s2_231ea80661fe6c9)) where imdb22_s2_231ea80661fe6c9.v0 = imdb127_s2_231ea80661fe6c9.v0)), imdb2_s3_231ea80661fe6c9 as (select * from umbra.identity(table(imdb2_s2_231ea80661fe6c9)) where exists (select from umbra.identity(table(imdb127_s2_231ea80661fe6c9)) where imdb2_s2_231ea80661fe6c9.v0 = imdb127_s2_231ea80661fe6c9.v0)), imdb100_s3_231ea80661fe6c9 as (select * from umbra.identity(table(imdb100_s2_231ea80661fe6c9)) where exists (select from umbra.identity(table(imdb127_s2_231ea80661fe6c9)) where imdb100_s2_231ea80661fe6c9.v0 = imdb127_s2_231ea80661fe6c9.v0)) /* stage4 */, s4_group_64CF823CE93F2A0E as  (select * from umbra.identity(table(imdb127_s2_231ea80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb100_s3_231ea80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb2_s3_231ea80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb22_s3_231ea80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb9_s3_231ea80661fe6c9)))select count(*) from umbra.identity(table(s4_group_64CF823CE93F2A0E));
+\set queryname job_acyclic_109_70
+-- Result size: 268318292
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb26 [label="imdb26|<s> s|<d> d"]; imdb2:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb12:s;imdb12:s -> imdb26:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb12 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb120 | s |     d    | imdb26 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb12_s1_a870d80661fe6c9 as (select imdb12.s as v0 from imdb12), imdb26_s2_a870d80661fe6c9 as (select imdb26.s as v0 from imdb26), imdb2_s2_a870d80661fe6c9 as (select imdb2.d as v0 from imdb2), imdb120_s2_a870d80661fe6c9 as (select imdb120.d as v0 from imdb120), imdb100_s2_a870d80661fe6c9 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb12_s2_a870d80661fe6c9 as (select * from umbra.identity(table(imdb12_s1_a870d80661fe6c9)) where exists (select from umbra.identity(table(imdb100_s2_a870d80661fe6c9)) where imdb12_s1_a870d80661fe6c9.v0 = imdb100_s2_a870d80661fe6c9.v0) AND exists (select from umbra.identity(table(imdb120_s2_a870d80661fe6c9)) where imdb12_s1_a870d80661fe6c9.v0 = imdb120_s2_a870d80661fe6c9.v0) AND exists (select from umbra.identity(table(imdb2_s2_a870d80661fe6c9)) where imdb12_s1_a870d80661fe6c9.v0 = imdb2_s2_a870d80661fe6c9.v0) AND exists (select from umbra.identity(table(imdb26_s2_a870d80661fe6c9)) where imdb12_s1_a870d80661fe6c9.v0 = imdb26_s2_a870d80661fe6c9.v0)) /* stage3 */, imdb26_s3_a870d80661fe6c9 as (select * from umbra.identity(table(imdb26_s2_a870d80661fe6c9)) where exists (select from umbra.identity(table(imdb12_s2_a870d80661fe6c9)) where imdb26_s2_a870d80661fe6c9.v0 = imdb12_s2_a870d80661fe6c9.v0)), imdb2_s3_a870d80661fe6c9 as (select * from umbra.identity(table(imdb2_s2_a870d80661fe6c9)) where exists (select from umbra.identity(table(imdb12_s2_a870d80661fe6c9)) where imdb2_s2_a870d80661fe6c9.v0 = imdb12_s2_a870d80661fe6c9.v0)), imdb120_s3_a870d80661fe6c9 as (select * from umbra.identity(table(imdb120_s2_a870d80661fe6c9)) where exists (select from umbra.identity(table(imdb12_s2_a870d80661fe6c9)) where imdb120_s2_a870d80661fe6c9.v0 = imdb12_s2_a870d80661fe6c9.v0)), imdb100_s3_a870d80661fe6c9 as (select * from umbra.identity(table(imdb100_s2_a870d80661fe6c9)) where exists (select from umbra.identity(table(imdb12_s2_a870d80661fe6c9)) where imdb100_s2_a870d80661fe6c9.v0 = imdb12_s2_a870d80661fe6c9.v0)) /* stage4 */, s4_group_55B11FDAE5996BBD as  (select * from umbra.identity(table(imdb12_s2_a870d80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb100_s3_a870d80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb120_s3_a870d80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb2_s3_a870d80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb26_s3_a870d80661fe6c9)))select count(*) from umbra.identity(table(s4_group_55B11FDAE5996BBD));
+\set queryname job_acyclic_109_71
+-- Result size: 511808045
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb3:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb22:s;imdb22:s -> imdb15:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb121 | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb121_s1_12e4ce80661fe6c9 as (select imdb121.d as v0 from imdb121), imdb3_s2_12e4ce80661fe6c9 as (select imdb3.d as v0 from imdb3), imdb22_s2_12e4ce80661fe6c9 as (select imdb22.s as v0 from imdb22), imdb15_s2_12e4ce80661fe6c9 as (select imdb15.s as v0 from imdb15), imdb100_s2_12e4ce80661fe6c9 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb121_s2_12e4ce80661fe6c9 as (select * from umbra.identity(table(imdb121_s1_12e4ce80661fe6c9)) where exists (select from umbra.identity(table(imdb100_s2_12e4ce80661fe6c9)) where imdb121_s1_12e4ce80661fe6c9.v0 = imdb100_s2_12e4ce80661fe6c9.v0) AND exists (select from umbra.identity(table(imdb15_s2_12e4ce80661fe6c9)) where imdb121_s1_12e4ce80661fe6c9.v0 = imdb15_s2_12e4ce80661fe6c9.v0) AND exists (select from umbra.identity(table(imdb22_s2_12e4ce80661fe6c9)) where imdb121_s1_12e4ce80661fe6c9.v0 = imdb22_s2_12e4ce80661fe6c9.v0) AND exists (select from umbra.identity(table(imdb3_s2_12e4ce80661fe6c9)) where imdb121_s1_12e4ce80661fe6c9.v0 = imdb3_s2_12e4ce80661fe6c9.v0)) /* stage3 */, imdb3_s3_12e4ce80661fe6c9 as (select * from umbra.identity(table(imdb3_s2_12e4ce80661fe6c9)) where exists (select from umbra.identity(table(imdb121_s2_12e4ce80661fe6c9)) where imdb3_s2_12e4ce80661fe6c9.v0 = imdb121_s2_12e4ce80661fe6c9.v0)), imdb22_s3_12e4ce80661fe6c9 as (select * from umbra.identity(table(imdb22_s2_12e4ce80661fe6c9)) where exists (select from umbra.identity(table(imdb121_s2_12e4ce80661fe6c9)) where imdb22_s2_12e4ce80661fe6c9.v0 = imdb121_s2_12e4ce80661fe6c9.v0)), imdb15_s3_12e4ce80661fe6c9 as (select * from umbra.identity(table(imdb15_s2_12e4ce80661fe6c9)) where exists (select from umbra.identity(table(imdb121_s2_12e4ce80661fe6c9)) where imdb15_s2_12e4ce80661fe6c9.v0 = imdb121_s2_12e4ce80661fe6c9.v0)), imdb100_s3_12e4ce80661fe6c9 as (select * from umbra.identity(table(imdb100_s2_12e4ce80661fe6c9)) where exists (select from umbra.identity(table(imdb121_s2_12e4ce80661fe6c9)) where imdb100_s2_12e4ce80661fe6c9.v0 = imdb121_s2_12e4ce80661fe6c9.v0)) /* stage4 */, s4_group_540DD9D6CDD7E607 as  (select * from umbra.identity(table(imdb121_s2_12e4ce80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb100_s3_12e4ce80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb15_s3_12e4ce80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb22_s3_12e4ce80661fe6c9)) NATURAL JOIN umbra.identity(table(imdb3_s3_12e4ce80661fe6c9)))select count(*) from umbra.identity(table(s4_group_540DD9D6CDD7E607));
+\set queryname job_acyclic_109_72
+-- Result size: 72611366
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb2:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb18:s;imdb18:s -> imdb16:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb18 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb126 | s |     d    | imdb16 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_1b4cef00661fe6c9 as (select imdb126.d as v0 from imdb126), imdb2_s2_1b4cef00661fe6c9 as (select imdb2.d as v0 from imdb2), imdb18_s2_1b4cef00661fe6c9 as (select imdb18.s as v0 from imdb18), imdb16_s2_1b4cef00661fe6c9 as (select imdb16.s as v0 from imdb16), imdb100_s2_1b4cef00661fe6c9 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_1b4cef00661fe6c9 as (select * from umbra.identity(table(imdb126_s1_1b4cef00661fe6c9)) where exists (select from umbra.identity(table(imdb100_s2_1b4cef00661fe6c9)) where imdb126_s1_1b4cef00661fe6c9.v0 = imdb100_s2_1b4cef00661fe6c9.v0) AND exists (select from umbra.identity(table(imdb16_s2_1b4cef00661fe6c9)) where imdb126_s1_1b4cef00661fe6c9.v0 = imdb16_s2_1b4cef00661fe6c9.v0) AND exists (select from umbra.identity(table(imdb18_s2_1b4cef00661fe6c9)) where imdb126_s1_1b4cef00661fe6c9.v0 = imdb18_s2_1b4cef00661fe6c9.v0) AND exists (select from umbra.identity(table(imdb2_s2_1b4cef00661fe6c9)) where imdb126_s1_1b4cef00661fe6c9.v0 = imdb2_s2_1b4cef00661fe6c9.v0)) /* stage3 */, imdb2_s3_1b4cef00661fe6c9 as (select * from umbra.identity(table(imdb2_s2_1b4cef00661fe6c9)) where exists (select from umbra.identity(table(imdb126_s2_1b4cef00661fe6c9)) where imdb2_s2_1b4cef00661fe6c9.v0 = imdb126_s2_1b4cef00661fe6c9.v0)), imdb18_s3_1b4cef00661fe6c9 as (select * from umbra.identity(table(imdb18_s2_1b4cef00661fe6c9)) where exists (select from umbra.identity(table(imdb126_s2_1b4cef00661fe6c9)) where imdb18_s2_1b4cef00661fe6c9.v0 = imdb126_s2_1b4cef00661fe6c9.v0)), imdb16_s3_1b4cef00661fe6c9 as (select * from umbra.identity(table(imdb16_s2_1b4cef00661fe6c9)) where exists (select from umbra.identity(table(imdb126_s2_1b4cef00661fe6c9)) where imdb16_s2_1b4cef00661fe6c9.v0 = imdb126_s2_1b4cef00661fe6c9.v0)), imdb100_s3_1b4cef00661fe6c9 as (select * from umbra.identity(table(imdb100_s2_1b4cef00661fe6c9)) where exists (select from umbra.identity(table(imdb126_s2_1b4cef00661fe6c9)) where imdb100_s2_1b4cef00661fe6c9.v0 = imdb126_s2_1b4cef00661fe6c9.v0)) /* stage4 */, s4_group_14CF82353CB4D36E as  (select * from umbra.identity(table(imdb126_s2_1b4cef00661fe6c9)) NATURAL JOIN umbra.identity(table(imdb100_s3_1b4cef00661fe6c9)) NATURAL JOIN umbra.identity(table(imdb16_s3_1b4cef00661fe6c9)) NATURAL JOIN umbra.identity(table(imdb18_s3_1b4cef00661fe6c9)) NATURAL JOIN umbra.identity(table(imdb2_s3_1b4cef00661fe6c9)))select count(*) from umbra.identity(table(s4_group_14CF82353CB4D36E));
+\set queryname job_acyclic_109_73
+-- Result size: 74101673
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb3:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb16:s;imdb16:s -> imdb22:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb16 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb121 | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb121_s1_3c1a880661fe6ca as (select imdb121.d as v0 from imdb121), imdb3_s2_3c1a880661fe6ca as (select imdb3.d as v0 from imdb3), imdb22_s2_3c1a880661fe6ca as (select imdb22.s as v0 from imdb22), imdb16_s2_3c1a880661fe6ca as (select imdb16.s as v0 from imdb16), imdb100_s2_3c1a880661fe6ca as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb121_s2_3c1a880661fe6ca as (select * from umbra.identity(table(imdb121_s1_3c1a880661fe6ca)) where exists (select from umbra.identity(table(imdb100_s2_3c1a880661fe6ca)) where imdb121_s1_3c1a880661fe6ca.v0 = imdb100_s2_3c1a880661fe6ca.v0) AND exists (select from umbra.identity(table(imdb16_s2_3c1a880661fe6ca)) where imdb121_s1_3c1a880661fe6ca.v0 = imdb16_s2_3c1a880661fe6ca.v0) AND exists (select from umbra.identity(table(imdb22_s2_3c1a880661fe6ca)) where imdb121_s1_3c1a880661fe6ca.v0 = imdb22_s2_3c1a880661fe6ca.v0) AND exists (select from umbra.identity(table(imdb3_s2_3c1a880661fe6ca)) where imdb121_s1_3c1a880661fe6ca.v0 = imdb3_s2_3c1a880661fe6ca.v0)) /* stage3 */, imdb3_s3_3c1a880661fe6ca as (select * from umbra.identity(table(imdb3_s2_3c1a880661fe6ca)) where exists (select from umbra.identity(table(imdb121_s2_3c1a880661fe6ca)) where imdb3_s2_3c1a880661fe6ca.v0 = imdb121_s2_3c1a880661fe6ca.v0)), imdb22_s3_3c1a880661fe6ca as (select * from umbra.identity(table(imdb22_s2_3c1a880661fe6ca)) where exists (select from umbra.identity(table(imdb121_s2_3c1a880661fe6ca)) where imdb22_s2_3c1a880661fe6ca.v0 = imdb121_s2_3c1a880661fe6ca.v0)), imdb16_s3_3c1a880661fe6ca as (select * from umbra.identity(table(imdb16_s2_3c1a880661fe6ca)) where exists (select from umbra.identity(table(imdb121_s2_3c1a880661fe6ca)) where imdb16_s2_3c1a880661fe6ca.v0 = imdb121_s2_3c1a880661fe6ca.v0)), imdb100_s3_3c1a880661fe6ca as (select * from umbra.identity(table(imdb100_s2_3c1a880661fe6ca)) where exists (select from umbra.identity(table(imdb121_s2_3c1a880661fe6ca)) where imdb100_s2_3c1a880661fe6ca.v0 = imdb121_s2_3c1a880661fe6ca.v0)) /* stage4 */, s4_group_4D03AA84F75CB7A4 as  (select * from umbra.identity(table(imdb121_s2_3c1a880661fe6ca)) NATURAL JOIN umbra.identity(table(imdb100_s3_3c1a880661fe6ca)) NATURAL JOIN umbra.identity(table(imdb16_s3_3c1a880661fe6ca)) NATURAL JOIN umbra.identity(table(imdb22_s3_3c1a880661fe6ca)) NATURAL JOIN umbra.identity(table(imdb3_s3_3c1a880661fe6ca)))select count(*) from umbra.identity(table(s4_group_4D03AA84F75CB7A4));
+--\set queryname job_acyclic_109_74
+-- Result size: 1579548176
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb23 [label="imdb23|<s> s|<d> d"]; imdb2:d -> imdb123:d;imdb123:d -> imdb100:d;imdb100:d -> imdb15:s;imdb15:s -> imdb23:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb123 | s |     d    | imdb23 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb123_s1_c2d6000661fe6ca as (select imdb123.d as v0 from imdb123), imdb23_s2_c2d6000661fe6ca as (select imdb23.s as v0 from imdb23), imdb2_s2_c2d6000661fe6ca as (select imdb2.d as v0 from imdb2), imdb15_s2_c2d6000661fe6ca as (select imdb15.s as v0 from imdb15), imdb100_s2_c2d6000661fe6ca as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb123_s2_c2d6000661fe6ca as (select * from umbra.identity(table(imdb123_s1_c2d6000661fe6ca)) where exists (select from umbra.identity(table(imdb100_s2_c2d6000661fe6ca)) where imdb123_s1_c2d6000661fe6ca.v0 = imdb100_s2_c2d6000661fe6ca.v0) AND exists (select from umbra.identity(table(imdb15_s2_c2d6000661fe6ca)) where imdb123_s1_c2d6000661fe6ca.v0 = imdb15_s2_c2d6000661fe6ca.v0) AND exists (select from umbra.identity(table(imdb2_s2_c2d6000661fe6ca)) where imdb123_s1_c2d6000661fe6ca.v0 = imdb2_s2_c2d6000661fe6ca.v0) AND exists (select from umbra.identity(table(imdb23_s2_c2d6000661fe6ca)) where imdb123_s1_c2d6000661fe6ca.v0 = imdb23_s2_c2d6000661fe6ca.v0)) /* stage3 */, imdb23_s3_c2d6000661fe6ca as (select * from umbra.identity(table(imdb23_s2_c2d6000661fe6ca)) where exists (select from umbra.identity(table(imdb123_s2_c2d6000661fe6ca)) where imdb23_s2_c2d6000661fe6ca.v0 = imdb123_s2_c2d6000661fe6ca.v0)), imdb2_s3_c2d6000661fe6ca as (select * from umbra.identity(table(imdb2_s2_c2d6000661fe6ca)) where exists (select from umbra.identity(table(imdb123_s2_c2d6000661fe6ca)) where imdb2_s2_c2d6000661fe6ca.v0 = imdb123_s2_c2d6000661fe6ca.v0)), imdb15_s3_c2d6000661fe6ca as (select * from umbra.identity(table(imdb15_s2_c2d6000661fe6ca)) where exists (select from umbra.identity(table(imdb123_s2_c2d6000661fe6ca)) where imdb15_s2_c2d6000661fe6ca.v0 = imdb123_s2_c2d6000661fe6ca.v0)), imdb100_s3_c2d6000661fe6ca as (select * from umbra.identity(table(imdb100_s2_c2d6000661fe6ca)) where exists (select from umbra.identity(table(imdb123_s2_c2d6000661fe6ca)) where imdb100_s2_c2d6000661fe6ca.v0 = imdb123_s2_c2d6000661fe6ca.v0)) /* stage4 */, s4_group_23B8D9B93633552D as  (select * from umbra.identity(table(imdb123_s2_c2d6000661fe6ca)) NATURAL JOIN umbra.identity(table(imdb100_s3_c2d6000661fe6ca)) NATURAL JOIN umbra.identity(table(imdb15_s3_c2d6000661fe6ca)) NATURAL JOIN umbra.identity(table(imdb2_s3_c2d6000661fe6ca)) NATURAL JOIN umbra.identity(table(imdb23_s3_c2d6000661fe6ca)))select count(*) from umbra.identity(table(s4_group_23B8D9B93633552D));
+\set queryname job_acyclic_109_75
+-- Result size: 18625259
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb2:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb14:s;imdb14:s -> imdb22:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb14 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb125 | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb125_s1_14ed6a00661fe6ca as (select imdb125.d as v0 from imdb125), imdb22_s2_14ed6a00661fe6ca as (select imdb22.s as v0 from imdb22), imdb2_s2_14ed6a00661fe6ca as (select imdb2.d as v0 from imdb2), imdb14_s2_14ed6a00661fe6ca as (select imdb14.s as v0 from imdb14), imdb100_s2_14ed6a00661fe6ca as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb125_s2_14ed6a00661fe6ca as (select * from umbra.identity(table(imdb125_s1_14ed6a00661fe6ca)) where exists (select from umbra.identity(table(imdb100_s2_14ed6a00661fe6ca)) where imdb125_s1_14ed6a00661fe6ca.v0 = imdb100_s2_14ed6a00661fe6ca.v0) AND exists (select from umbra.identity(table(imdb14_s2_14ed6a00661fe6ca)) where imdb125_s1_14ed6a00661fe6ca.v0 = imdb14_s2_14ed6a00661fe6ca.v0) AND exists (select from umbra.identity(table(imdb2_s2_14ed6a00661fe6ca)) where imdb125_s1_14ed6a00661fe6ca.v0 = imdb2_s2_14ed6a00661fe6ca.v0) AND exists (select from umbra.identity(table(imdb22_s2_14ed6a00661fe6ca)) where imdb125_s1_14ed6a00661fe6ca.v0 = imdb22_s2_14ed6a00661fe6ca.v0)) /* stage3 */, imdb22_s3_14ed6a00661fe6ca as (select * from umbra.identity(table(imdb22_s2_14ed6a00661fe6ca)) where exists (select from umbra.identity(table(imdb125_s2_14ed6a00661fe6ca)) where imdb22_s2_14ed6a00661fe6ca.v0 = imdb125_s2_14ed6a00661fe6ca.v0)), imdb2_s3_14ed6a00661fe6ca as (select * from umbra.identity(table(imdb2_s2_14ed6a00661fe6ca)) where exists (select from umbra.identity(table(imdb125_s2_14ed6a00661fe6ca)) where imdb2_s2_14ed6a00661fe6ca.v0 = imdb125_s2_14ed6a00661fe6ca.v0)), imdb14_s3_14ed6a00661fe6ca as (select * from umbra.identity(table(imdb14_s2_14ed6a00661fe6ca)) where exists (select from umbra.identity(table(imdb125_s2_14ed6a00661fe6ca)) where imdb14_s2_14ed6a00661fe6ca.v0 = imdb125_s2_14ed6a00661fe6ca.v0)), imdb100_s3_14ed6a00661fe6ca as (select * from umbra.identity(table(imdb100_s2_14ed6a00661fe6ca)) where exists (select from umbra.identity(table(imdb125_s2_14ed6a00661fe6ca)) where imdb100_s2_14ed6a00661fe6ca.v0 = imdb125_s2_14ed6a00661fe6ca.v0)) /* stage4 */, s4_group_6604D0D0B68E017C as  (select * from umbra.identity(table(imdb125_s2_14ed6a00661fe6ca)) NATURAL JOIN umbra.identity(table(imdb100_s3_14ed6a00661fe6ca)) NATURAL JOIN umbra.identity(table(imdb14_s3_14ed6a00661fe6ca)) NATURAL JOIN umbra.identity(table(imdb2_s3_14ed6a00661fe6ca)) NATURAL JOIN umbra.identity(table(imdb22_s3_14ed6a00661fe6ca)))select count(*) from umbra.identity(table(s4_group_6604D0D0B68E017C));
+\set queryname job_acyclic_109_76
+-- Result size: 256274473
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb3:d -> imdb123:d;imdb123:d -> imdb100:d;imdb100:d -> imdb15:s;imdb15:s -> imdb24:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb123 | s |     d    | imdb24 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb123_s1_1d642c00661fe6ca as (select imdb123.d as v0 from imdb123), imdb3_s2_1d642c00661fe6ca as (select imdb3.d as v0 from imdb3), imdb24_s2_1d642c00661fe6ca as (select imdb24.s as v0 from imdb24), imdb15_s2_1d642c00661fe6ca as (select imdb15.s as v0 from imdb15), imdb100_s2_1d642c00661fe6ca as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb123_s2_1d642c00661fe6ca as (select * from umbra.identity(table(imdb123_s1_1d642c00661fe6ca)) where exists (select from umbra.identity(table(imdb100_s2_1d642c00661fe6ca)) where imdb123_s1_1d642c00661fe6ca.v0 = imdb100_s2_1d642c00661fe6ca.v0) AND exists (select from umbra.identity(table(imdb15_s2_1d642c00661fe6ca)) where imdb123_s1_1d642c00661fe6ca.v0 = imdb15_s2_1d642c00661fe6ca.v0) AND exists (select from umbra.identity(table(imdb24_s2_1d642c00661fe6ca)) where imdb123_s1_1d642c00661fe6ca.v0 = imdb24_s2_1d642c00661fe6ca.v0) AND exists (select from umbra.identity(table(imdb3_s2_1d642c00661fe6ca)) where imdb123_s1_1d642c00661fe6ca.v0 = imdb3_s2_1d642c00661fe6ca.v0)) /* stage3 */, imdb3_s3_1d642c00661fe6ca as (select * from umbra.identity(table(imdb3_s2_1d642c00661fe6ca)) where exists (select from umbra.identity(table(imdb123_s2_1d642c00661fe6ca)) where imdb3_s2_1d642c00661fe6ca.v0 = imdb123_s2_1d642c00661fe6ca.v0)), imdb24_s3_1d642c00661fe6ca as (select * from umbra.identity(table(imdb24_s2_1d642c00661fe6ca)) where exists (select from umbra.identity(table(imdb123_s2_1d642c00661fe6ca)) where imdb24_s2_1d642c00661fe6ca.v0 = imdb123_s2_1d642c00661fe6ca.v0)), imdb15_s3_1d642c00661fe6ca as (select * from umbra.identity(table(imdb15_s2_1d642c00661fe6ca)) where exists (select from umbra.identity(table(imdb123_s2_1d642c00661fe6ca)) where imdb15_s2_1d642c00661fe6ca.v0 = imdb123_s2_1d642c00661fe6ca.v0)), imdb100_s3_1d642c00661fe6ca as (select * from umbra.identity(table(imdb100_s2_1d642c00661fe6ca)) where exists (select from umbra.identity(table(imdb123_s2_1d642c00661fe6ca)) where imdb100_s2_1d642c00661fe6ca.v0 = imdb123_s2_1d642c00661fe6ca.v0)) /* stage4 */, s4_group_D6CCA4E47D5C138 as  (select * from umbra.identity(table(imdb123_s2_1d642c00661fe6ca)) NATURAL JOIN umbra.identity(table(imdb100_s3_1d642c00661fe6ca)) NATURAL JOIN umbra.identity(table(imdb15_s3_1d642c00661fe6ca)) NATURAL JOIN umbra.identity(table(imdb24_s3_1d642c00661fe6ca)) NATURAL JOIN umbra.identity(table(imdb3_s3_1d642c00661fe6ca)))select count(*) from umbra.identity(table(s4_group_D6CCA4E47D5C138));
+\set queryname job_acyclic_109_77
+-- Result size: 96162201
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb3:d -> imdb127:d;imdb127:d -> imdb100:d;imdb100:d -> imdb24:s;imdb24:s -> imdb15:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb24 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb127 | s |     d    | imdb15 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb127_s1_62cf600661fe6cb as (select imdb127.d as v0 from imdb127), imdb3_s2_62cf600661fe6cb as (select imdb3.d as v0 from imdb3), imdb24_s2_62cf600661fe6cb as (select imdb24.s as v0 from imdb24), imdb15_s2_62cf600661fe6cb as (select imdb15.s as v0 from imdb15), imdb100_s2_62cf600661fe6cb as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb127_s2_62cf600661fe6cb as (select * from umbra.identity(table(imdb127_s1_62cf600661fe6cb)) where exists (select from umbra.identity(table(imdb100_s2_62cf600661fe6cb)) where imdb127_s1_62cf600661fe6cb.v0 = imdb100_s2_62cf600661fe6cb.v0) AND exists (select from umbra.identity(table(imdb15_s2_62cf600661fe6cb)) where imdb127_s1_62cf600661fe6cb.v0 = imdb15_s2_62cf600661fe6cb.v0) AND exists (select from umbra.identity(table(imdb24_s2_62cf600661fe6cb)) where imdb127_s1_62cf600661fe6cb.v0 = imdb24_s2_62cf600661fe6cb.v0) AND exists (select from umbra.identity(table(imdb3_s2_62cf600661fe6cb)) where imdb127_s1_62cf600661fe6cb.v0 = imdb3_s2_62cf600661fe6cb.v0)) /* stage3 */, imdb3_s3_62cf600661fe6cb as (select * from umbra.identity(table(imdb3_s2_62cf600661fe6cb)) where exists (select from umbra.identity(table(imdb127_s2_62cf600661fe6cb)) where imdb3_s2_62cf600661fe6cb.v0 = imdb127_s2_62cf600661fe6cb.v0)), imdb24_s3_62cf600661fe6cb as (select * from umbra.identity(table(imdb24_s2_62cf600661fe6cb)) where exists (select from umbra.identity(table(imdb127_s2_62cf600661fe6cb)) where imdb24_s2_62cf600661fe6cb.v0 = imdb127_s2_62cf600661fe6cb.v0)), imdb15_s3_62cf600661fe6cb as (select * from umbra.identity(table(imdb15_s2_62cf600661fe6cb)) where exists (select from umbra.identity(table(imdb127_s2_62cf600661fe6cb)) where imdb15_s2_62cf600661fe6cb.v0 = imdb127_s2_62cf600661fe6cb.v0)), imdb100_s3_62cf600661fe6cb as (select * from umbra.identity(table(imdb100_s2_62cf600661fe6cb)) where exists (select from umbra.identity(table(imdb127_s2_62cf600661fe6cb)) where imdb100_s2_62cf600661fe6cb.v0 = imdb127_s2_62cf600661fe6cb.v0)) /* stage4 */, s4_group_7BFC1F22667C9CFC as  (select * from umbra.identity(table(imdb127_s2_62cf600661fe6cb)) NATURAL JOIN umbra.identity(table(imdb100_s3_62cf600661fe6cb)) NATURAL JOIN umbra.identity(table(imdb15_s3_62cf600661fe6cb)) NATURAL JOIN umbra.identity(table(imdb24_s3_62cf600661fe6cb)) NATURAL JOIN umbra.identity(table(imdb3_s3_62cf600661fe6cb)))select count(*) from umbra.identity(table(s4_group_7BFC1F22667C9CFC));
+\set queryname job_acyclic_109_78
+-- Result size: 391094355
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb26 [label="imdb26|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb2:d -> imdb119:d;imdb119:d -> imdb100:d;imdb100:d -> imdb26:s;imdb26:s -> imdb22:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb26 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb119 | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb119_s1_ec39800661fe6cb as (select imdb119.d as v0 from imdb119), imdb26_s2_ec39800661fe6cb as (select imdb26.s as v0 from imdb26), imdb22_s2_ec39800661fe6cb as (select imdb22.s as v0 from imdb22), imdb2_s2_ec39800661fe6cb as (select imdb2.d as v0 from imdb2), imdb100_s2_ec39800661fe6cb as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb119_s2_ec39800661fe6cb as (select * from umbra.identity(table(imdb119_s1_ec39800661fe6cb)) where exists (select from umbra.identity(table(imdb100_s2_ec39800661fe6cb)) where imdb119_s1_ec39800661fe6cb.v0 = imdb100_s2_ec39800661fe6cb.v0) AND exists (select from umbra.identity(table(imdb2_s2_ec39800661fe6cb)) where imdb119_s1_ec39800661fe6cb.v0 = imdb2_s2_ec39800661fe6cb.v0) AND exists (select from umbra.identity(table(imdb22_s2_ec39800661fe6cb)) where imdb119_s1_ec39800661fe6cb.v0 = imdb22_s2_ec39800661fe6cb.v0) AND exists (select from umbra.identity(table(imdb26_s2_ec39800661fe6cb)) where imdb119_s1_ec39800661fe6cb.v0 = imdb26_s2_ec39800661fe6cb.v0)) /* stage3 */, imdb26_s3_ec39800661fe6cb as (select * from umbra.identity(table(imdb26_s2_ec39800661fe6cb)) where exists (select from umbra.identity(table(imdb119_s2_ec39800661fe6cb)) where imdb26_s2_ec39800661fe6cb.v0 = imdb119_s2_ec39800661fe6cb.v0)), imdb22_s3_ec39800661fe6cb as (select * from umbra.identity(table(imdb22_s2_ec39800661fe6cb)) where exists (select from umbra.identity(table(imdb119_s2_ec39800661fe6cb)) where imdb22_s2_ec39800661fe6cb.v0 = imdb119_s2_ec39800661fe6cb.v0)), imdb2_s3_ec39800661fe6cb as (select * from umbra.identity(table(imdb2_s2_ec39800661fe6cb)) where exists (select from umbra.identity(table(imdb119_s2_ec39800661fe6cb)) where imdb2_s2_ec39800661fe6cb.v0 = imdb119_s2_ec39800661fe6cb.v0)), imdb100_s3_ec39800661fe6cb as (select * from umbra.identity(table(imdb100_s2_ec39800661fe6cb)) where exists (select from umbra.identity(table(imdb119_s2_ec39800661fe6cb)) where imdb100_s2_ec39800661fe6cb.v0 = imdb119_s2_ec39800661fe6cb.v0)) /* stage4 */, s4_group_856A9A7395FB5F4 as  (select * from umbra.identity(table(imdb119_s2_ec39800661fe6cb)) NATURAL JOIN umbra.identity(table(imdb100_s3_ec39800661fe6cb)) NATURAL JOIN umbra.identity(table(imdb2_s3_ec39800661fe6cb)) NATURAL JOIN umbra.identity(table(imdb22_s3_ec39800661fe6cb)) NATURAL JOIN umbra.identity(table(imdb26_s3_ec39800661fe6cb)))select count(*) from umbra.identity(table(s4_group_856A9A7395FB5F4));
+\set queryname job_acyclic_109_79
+-- Result size: 145442276
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb40 [label="imdb40|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb2:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb40:s;imdb40:s -> imdb10:s;}
+--                      +--------+----+----+
+--                      | imdb10 |  s |  d |
+--                      +--------+----+----+
+--                                  |
+--                                  +----+
+--                                       |
+-- +---------+---------+---------+       |
+-- |  imdb2  |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb121 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb100 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+--            +--------+---------+----+  |
+--            | imdb40 |    s    |  d |  |
+--            +--------+---------+----+  |
+--                        |              |
+--                        +--------------+
+with dummy as (select) /* stage1 */, imdb100_s1_172e9d00661fe6cb as (select imdb100.d as v0 from imdb100), imdb40_s2_172e9d00661fe6cb as (select imdb40.s as v0 from imdb40), imdb2_s2_172e9d00661fe6cb as (select imdb2.d as v0 from imdb2), imdb121_s2_172e9d00661fe6cb as (select imdb121.d as v0 from imdb121), imdb10_s2_172e9d00661fe6cb as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_172e9d00661fe6cb as (select * from umbra.identity(table(imdb100_s1_172e9d00661fe6cb)) where exists (select from umbra.identity(table(imdb10_s2_172e9d00661fe6cb)) where imdb100_s1_172e9d00661fe6cb.v0 = imdb10_s2_172e9d00661fe6cb.v0) AND exists (select from umbra.identity(table(imdb121_s2_172e9d00661fe6cb)) where imdb100_s1_172e9d00661fe6cb.v0 = imdb121_s2_172e9d00661fe6cb.v0) AND exists (select from umbra.identity(table(imdb2_s2_172e9d00661fe6cb)) where imdb100_s1_172e9d00661fe6cb.v0 = imdb2_s2_172e9d00661fe6cb.v0) AND exists (select from umbra.identity(table(imdb40_s2_172e9d00661fe6cb)) where imdb100_s1_172e9d00661fe6cb.v0 = imdb40_s2_172e9d00661fe6cb.v0)) /* stage3 */, imdb40_s3_172e9d00661fe6cb as (select * from umbra.identity(table(imdb40_s2_172e9d00661fe6cb)) where exists (select from umbra.identity(table(imdb100_s2_172e9d00661fe6cb)) where imdb40_s2_172e9d00661fe6cb.v0 = imdb100_s2_172e9d00661fe6cb.v0)), imdb2_s3_172e9d00661fe6cb as (select * from umbra.identity(table(imdb2_s2_172e9d00661fe6cb)) where exists (select from umbra.identity(table(imdb100_s2_172e9d00661fe6cb)) where imdb2_s2_172e9d00661fe6cb.v0 = imdb100_s2_172e9d00661fe6cb.v0)), imdb121_s3_172e9d00661fe6cb as (select * from umbra.identity(table(imdb121_s2_172e9d00661fe6cb)) where exists (select from umbra.identity(table(imdb100_s2_172e9d00661fe6cb)) where imdb121_s2_172e9d00661fe6cb.v0 = imdb100_s2_172e9d00661fe6cb.v0)), imdb10_s3_172e9d00661fe6cb as (select * from umbra.identity(table(imdb10_s2_172e9d00661fe6cb)) where exists (select from umbra.identity(table(imdb100_s2_172e9d00661fe6cb)) where imdb10_s2_172e9d00661fe6cb.v0 = imdb100_s2_172e9d00661fe6cb.v0)) /* stage4 */, s4_group_390DA9780462FC9B as  (select * from umbra.identity(table(imdb100_s2_172e9d00661fe6cb)) NATURAL JOIN umbra.identity(table(imdb10_s3_172e9d00661fe6cb)) NATURAL JOIN umbra.identity(table(imdb121_s3_172e9d00661fe6cb)) NATURAL JOIN umbra.identity(table(imdb2_s3_172e9d00661fe6cb)) NATURAL JOIN umbra.identity(table(imdb40_s3_172e9d00661fe6cb)))select count(*) from umbra.identity(table(s4_group_390DA9780462FC9B));
+--\set queryname job_acyclic_109_80
+-- Result size: 13592063804
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb40 [label="imdb40|<s> s|<d> d"]; imdb3:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb14:s;imdb14:s -> imdb40:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb14 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb117 | s |     d    | imdb40 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_1fa41300661fe6cb as (select imdb117.d as v0 from imdb117), imdb40_s2_1fa41300661fe6cb as (select imdb40.s as v0 from imdb40), imdb3_s2_1fa41300661fe6cb as (select imdb3.d as v0 from imdb3), imdb14_s2_1fa41300661fe6cb as (select imdb14.s as v0 from imdb14), imdb100_s2_1fa41300661fe6cb as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_1fa41300661fe6cb as (select * from umbra.identity(table(imdb117_s1_1fa41300661fe6cb)) where exists (select from umbra.identity(table(imdb100_s2_1fa41300661fe6cb)) where imdb117_s1_1fa41300661fe6cb.v0 = imdb100_s2_1fa41300661fe6cb.v0) AND exists (select from umbra.identity(table(imdb14_s2_1fa41300661fe6cb)) where imdb117_s1_1fa41300661fe6cb.v0 = imdb14_s2_1fa41300661fe6cb.v0) AND exists (select from umbra.identity(table(imdb3_s2_1fa41300661fe6cb)) where imdb117_s1_1fa41300661fe6cb.v0 = imdb3_s2_1fa41300661fe6cb.v0) AND exists (select from umbra.identity(table(imdb40_s2_1fa41300661fe6cb)) where imdb117_s1_1fa41300661fe6cb.v0 = imdb40_s2_1fa41300661fe6cb.v0)) /* stage3 */, imdb40_s3_1fa41300661fe6cb as (select * from umbra.identity(table(imdb40_s2_1fa41300661fe6cb)) where exists (select from umbra.identity(table(imdb117_s2_1fa41300661fe6cb)) where imdb40_s2_1fa41300661fe6cb.v0 = imdb117_s2_1fa41300661fe6cb.v0)), imdb3_s3_1fa41300661fe6cb as (select * from umbra.identity(table(imdb3_s2_1fa41300661fe6cb)) where exists (select from umbra.identity(table(imdb117_s2_1fa41300661fe6cb)) where imdb3_s2_1fa41300661fe6cb.v0 = imdb117_s2_1fa41300661fe6cb.v0)), imdb14_s3_1fa41300661fe6cb as (select * from umbra.identity(table(imdb14_s2_1fa41300661fe6cb)) where exists (select from umbra.identity(table(imdb117_s2_1fa41300661fe6cb)) where imdb14_s2_1fa41300661fe6cb.v0 = imdb117_s2_1fa41300661fe6cb.v0)), imdb100_s3_1fa41300661fe6cb as (select * from umbra.identity(table(imdb100_s2_1fa41300661fe6cb)) where exists (select from umbra.identity(table(imdb117_s2_1fa41300661fe6cb)) where imdb100_s2_1fa41300661fe6cb.v0 = imdb117_s2_1fa41300661fe6cb.v0)) /* stage4 */, s4_group_6B50E4DF363BA045 as  (select * from umbra.identity(table(imdb117_s2_1fa41300661fe6cb)) NATURAL JOIN umbra.identity(table(imdb100_s3_1fa41300661fe6cb)) NATURAL JOIN umbra.identity(table(imdb14_s3_1fa41300661fe6cb)) NATURAL JOIN umbra.identity(table(imdb3_s3_1fa41300661fe6cb)) NATURAL JOIN umbra.identity(table(imdb40_s3_1fa41300661fe6cb)))select count(*) from umbra.identity(table(s4_group_6B50E4DF363BA045));
+\set queryname job_acyclic_109_81
+-- Result size: 49523950
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb38 [label="imdb38|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb2:d -> imdb122:d;imdb122:d -> imdb100:d;imdb100:d -> imdb38:s;imdb38:s -> imdb14:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb38 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb122 | s |     d    | imdb14 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb122_s1_88bd180661fe6cc as (select imdb122.d as v0 from imdb122), imdb38_s2_88bd180661fe6cc as (select imdb38.s as v0 from imdb38), imdb2_s2_88bd180661fe6cc as (select imdb2.d as v0 from imdb2), imdb14_s2_88bd180661fe6cc as (select imdb14.s as v0 from imdb14), imdb100_s2_88bd180661fe6cc as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb122_s2_88bd180661fe6cc as (select * from umbra.identity(table(imdb122_s1_88bd180661fe6cc)) where exists (select from umbra.identity(table(imdb100_s2_88bd180661fe6cc)) where imdb122_s1_88bd180661fe6cc.v0 = imdb100_s2_88bd180661fe6cc.v0) AND exists (select from umbra.identity(table(imdb14_s2_88bd180661fe6cc)) where imdb122_s1_88bd180661fe6cc.v0 = imdb14_s2_88bd180661fe6cc.v0) AND exists (select from umbra.identity(table(imdb2_s2_88bd180661fe6cc)) where imdb122_s1_88bd180661fe6cc.v0 = imdb2_s2_88bd180661fe6cc.v0) AND exists (select from umbra.identity(table(imdb38_s2_88bd180661fe6cc)) where imdb122_s1_88bd180661fe6cc.v0 = imdb38_s2_88bd180661fe6cc.v0)) /* stage3 */, imdb38_s3_88bd180661fe6cc as (select * from umbra.identity(table(imdb38_s2_88bd180661fe6cc)) where exists (select from umbra.identity(table(imdb122_s2_88bd180661fe6cc)) where imdb38_s2_88bd180661fe6cc.v0 = imdb122_s2_88bd180661fe6cc.v0)), imdb2_s3_88bd180661fe6cc as (select * from umbra.identity(table(imdb2_s2_88bd180661fe6cc)) where exists (select from umbra.identity(table(imdb122_s2_88bd180661fe6cc)) where imdb2_s2_88bd180661fe6cc.v0 = imdb122_s2_88bd180661fe6cc.v0)), imdb14_s3_88bd180661fe6cc as (select * from umbra.identity(table(imdb14_s2_88bd180661fe6cc)) where exists (select from umbra.identity(table(imdb122_s2_88bd180661fe6cc)) where imdb14_s2_88bd180661fe6cc.v0 = imdb122_s2_88bd180661fe6cc.v0)), imdb100_s3_88bd180661fe6cc as (select * from umbra.identity(table(imdb100_s2_88bd180661fe6cc)) where exists (select from umbra.identity(table(imdb122_s2_88bd180661fe6cc)) where imdb100_s2_88bd180661fe6cc.v0 = imdb122_s2_88bd180661fe6cc.v0)) /* stage4 */, s4_group_96CB28BAC0306A7 as  (select * from umbra.identity(table(imdb122_s2_88bd180661fe6cc)) NATURAL JOIN umbra.identity(table(imdb100_s3_88bd180661fe6cc)) NATURAL JOIN umbra.identity(table(imdb14_s3_88bd180661fe6cc)) NATURAL JOIN umbra.identity(table(imdb2_s3_88bd180661fe6cc)) NATURAL JOIN umbra.identity(table(imdb38_s3_88bd180661fe6cc)))select count(*) from umbra.identity(table(s4_group_96CB28BAC0306A7));
+\set queryname job_acyclic_109_82
+-- Result size: 22589074
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb26 [label="imdb26|<s> s|<d> d"]; imdb2:d -> imdb127:d;imdb127:d -> imdb100:d;imdb100:d -> imdb22:s;imdb22:s -> imdb26:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb22 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb127 | s |     d    | imdb26 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb127_s1_11612880661fe6cc as (select imdb127.d as v0 from imdb127), imdb26_s2_11612880661fe6cc as (select imdb26.s as v0 from imdb26), imdb22_s2_11612880661fe6cc as (select imdb22.s as v0 from imdb22), imdb2_s2_11612880661fe6cc as (select imdb2.d as v0 from imdb2), imdb100_s2_11612880661fe6cc as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb127_s2_11612880661fe6cc as (select * from umbra.identity(table(imdb127_s1_11612880661fe6cc)) where exists (select from umbra.identity(table(imdb100_s2_11612880661fe6cc)) where imdb127_s1_11612880661fe6cc.v0 = imdb100_s2_11612880661fe6cc.v0) AND exists (select from umbra.identity(table(imdb2_s2_11612880661fe6cc)) where imdb127_s1_11612880661fe6cc.v0 = imdb2_s2_11612880661fe6cc.v0) AND exists (select from umbra.identity(table(imdb22_s2_11612880661fe6cc)) where imdb127_s1_11612880661fe6cc.v0 = imdb22_s2_11612880661fe6cc.v0) AND exists (select from umbra.identity(table(imdb26_s2_11612880661fe6cc)) where imdb127_s1_11612880661fe6cc.v0 = imdb26_s2_11612880661fe6cc.v0)) /* stage3 */, imdb26_s3_11612880661fe6cc as (select * from umbra.identity(table(imdb26_s2_11612880661fe6cc)) where exists (select from umbra.identity(table(imdb127_s2_11612880661fe6cc)) where imdb26_s2_11612880661fe6cc.v0 = imdb127_s2_11612880661fe6cc.v0)), imdb22_s3_11612880661fe6cc as (select * from umbra.identity(table(imdb22_s2_11612880661fe6cc)) where exists (select from umbra.identity(table(imdb127_s2_11612880661fe6cc)) where imdb22_s2_11612880661fe6cc.v0 = imdb127_s2_11612880661fe6cc.v0)), imdb2_s3_11612880661fe6cc as (select * from umbra.identity(table(imdb2_s2_11612880661fe6cc)) where exists (select from umbra.identity(table(imdb127_s2_11612880661fe6cc)) where imdb2_s2_11612880661fe6cc.v0 = imdb127_s2_11612880661fe6cc.v0)), imdb100_s3_11612880661fe6cc as (select * from umbra.identity(table(imdb100_s2_11612880661fe6cc)) where exists (select from umbra.identity(table(imdb127_s2_11612880661fe6cc)) where imdb100_s2_11612880661fe6cc.v0 = imdb127_s2_11612880661fe6cc.v0)) /* stage4 */, s4_group_64B18580A5BE0771 as  (select * from umbra.identity(table(imdb127_s2_11612880661fe6cc)) NATURAL JOIN umbra.identity(table(imdb100_s3_11612880661fe6cc)) NATURAL JOIN umbra.identity(table(imdb2_s3_11612880661fe6cc)) NATURAL JOIN umbra.identity(table(imdb22_s3_11612880661fe6cc)) NATURAL JOIN umbra.identity(table(imdb26_s3_11612880661fe6cc)))select count(*) from umbra.identity(table(s4_group_64B18580A5BE0771));
+\set queryname job_acyclic_109_83
+-- Result size: 409808945
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb39 [label="imdb39|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb3:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb39:s;imdb39:s -> imdb12:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb3  | s |     d    | imdb39 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb125 | s |     d    | imdb12 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb12_s1_19de8e80661fe6cc as (select imdb12.s as v0 from imdb12), imdb39_s2_19de8e80661fe6cc as (select imdb39.s as v0 from imdb39), imdb3_s2_19de8e80661fe6cc as (select imdb3.d as v0 from imdb3), imdb125_s2_19de8e80661fe6cc as (select imdb125.d as v0 from imdb125), imdb100_s2_19de8e80661fe6cc as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb12_s2_19de8e80661fe6cc as (select * from umbra.identity(table(imdb12_s1_19de8e80661fe6cc)) where exists (select from umbra.identity(table(imdb100_s2_19de8e80661fe6cc)) where imdb12_s1_19de8e80661fe6cc.v0 = imdb100_s2_19de8e80661fe6cc.v0) AND exists (select from umbra.identity(table(imdb125_s2_19de8e80661fe6cc)) where imdb12_s1_19de8e80661fe6cc.v0 = imdb125_s2_19de8e80661fe6cc.v0) AND exists (select from umbra.identity(table(imdb3_s2_19de8e80661fe6cc)) where imdb12_s1_19de8e80661fe6cc.v0 = imdb3_s2_19de8e80661fe6cc.v0) AND exists (select from umbra.identity(table(imdb39_s2_19de8e80661fe6cc)) where imdb12_s1_19de8e80661fe6cc.v0 = imdb39_s2_19de8e80661fe6cc.v0)) /* stage3 */, imdb39_s3_19de8e80661fe6cc as (select * from umbra.identity(table(imdb39_s2_19de8e80661fe6cc)) where exists (select from umbra.identity(table(imdb12_s2_19de8e80661fe6cc)) where imdb39_s2_19de8e80661fe6cc.v0 = imdb12_s2_19de8e80661fe6cc.v0)), imdb3_s3_19de8e80661fe6cc as (select * from umbra.identity(table(imdb3_s2_19de8e80661fe6cc)) where exists (select from umbra.identity(table(imdb12_s2_19de8e80661fe6cc)) where imdb3_s2_19de8e80661fe6cc.v0 = imdb12_s2_19de8e80661fe6cc.v0)), imdb125_s3_19de8e80661fe6cc as (select * from umbra.identity(table(imdb125_s2_19de8e80661fe6cc)) where exists (select from umbra.identity(table(imdb12_s2_19de8e80661fe6cc)) where imdb125_s2_19de8e80661fe6cc.v0 = imdb12_s2_19de8e80661fe6cc.v0)), imdb100_s3_19de8e80661fe6cc as (select * from umbra.identity(table(imdb100_s2_19de8e80661fe6cc)) where exists (select from umbra.identity(table(imdb12_s2_19de8e80661fe6cc)) where imdb100_s2_19de8e80661fe6cc.v0 = imdb12_s2_19de8e80661fe6cc.v0)) /* stage4 */, s4_group_35279759537FB674 as  (select * from umbra.identity(table(imdb12_s2_19de8e80661fe6cc)) NATURAL JOIN umbra.identity(table(imdb100_s3_19de8e80661fe6cc)) NATURAL JOIN umbra.identity(table(imdb125_s3_19de8e80661fe6cc)) NATURAL JOIN umbra.identity(table(imdb3_s3_19de8e80661fe6cc)) NATURAL JOIN umbra.identity(table(imdb39_s3_19de8e80661fe6cc)))select count(*) from umbra.identity(table(s4_group_35279759537FB674));
+\set queryname job_acyclic_109_84
+-- Result size: 6642984
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb49 [label="imdb49|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb2:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb49:s;imdb49:s -> imdb8:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb49 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb121 | s |     d    |  imdb8 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb121_s1_261b500661fe6cd as (select imdb121.d as v0 from imdb121), imdb8_s2_261b500661fe6cd as (select imdb8.s as v0 from imdb8), imdb49_s2_261b500661fe6cd as (select imdb49.s as v0 from imdb49), imdb2_s2_261b500661fe6cd as (select imdb2.d as v0 from imdb2), imdb100_s2_261b500661fe6cd as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb121_s2_261b500661fe6cd as (select * from umbra.identity(table(imdb121_s1_261b500661fe6cd)) where exists (select from umbra.identity(table(imdb100_s2_261b500661fe6cd)) where imdb121_s1_261b500661fe6cd.v0 = imdb100_s2_261b500661fe6cd.v0) AND exists (select from umbra.identity(table(imdb2_s2_261b500661fe6cd)) where imdb121_s1_261b500661fe6cd.v0 = imdb2_s2_261b500661fe6cd.v0) AND exists (select from umbra.identity(table(imdb49_s2_261b500661fe6cd)) where imdb121_s1_261b500661fe6cd.v0 = imdb49_s2_261b500661fe6cd.v0) AND exists (select from umbra.identity(table(imdb8_s2_261b500661fe6cd)) where imdb121_s1_261b500661fe6cd.v0 = imdb8_s2_261b500661fe6cd.v0)) /* stage3 */, imdb8_s3_261b500661fe6cd as (select * from umbra.identity(table(imdb8_s2_261b500661fe6cd)) where exists (select from umbra.identity(table(imdb121_s2_261b500661fe6cd)) where imdb8_s2_261b500661fe6cd.v0 = imdb121_s2_261b500661fe6cd.v0)), imdb49_s3_261b500661fe6cd as (select * from umbra.identity(table(imdb49_s2_261b500661fe6cd)) where exists (select from umbra.identity(table(imdb121_s2_261b500661fe6cd)) where imdb49_s2_261b500661fe6cd.v0 = imdb121_s2_261b500661fe6cd.v0)), imdb2_s3_261b500661fe6cd as (select * from umbra.identity(table(imdb2_s2_261b500661fe6cd)) where exists (select from umbra.identity(table(imdb121_s2_261b500661fe6cd)) where imdb2_s2_261b500661fe6cd.v0 = imdb121_s2_261b500661fe6cd.v0)), imdb100_s3_261b500661fe6cd as (select * from umbra.identity(table(imdb100_s2_261b500661fe6cd)) where exists (select from umbra.identity(table(imdb121_s2_261b500661fe6cd)) where imdb100_s2_261b500661fe6cd.v0 = imdb121_s2_261b500661fe6cd.v0)) /* stage4 */, s4_group_BEDFD8B7F5D4CDC as  (select * from umbra.identity(table(imdb121_s2_261b500661fe6cd)) NATURAL JOIN umbra.identity(table(imdb100_s3_261b500661fe6cd)) NATURAL JOIN umbra.identity(table(imdb2_s3_261b500661fe6cd)) NATURAL JOIN umbra.identity(table(imdb49_s3_261b500661fe6cd)) NATURAL JOIN umbra.identity(table(imdb8_s3_261b500661fe6cd)))select count(*) from umbra.identity(table(s4_group_BEDFD8B7F5D4CDC));
+\set queryname job_acyclic_109_85
+-- Result size: 42779155
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb40 [label="imdb40|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb2:d -> imdb125:d;imdb125:d -> imdb100:d;imdb100:d -> imdb40:s;imdb40:s -> imdb24:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb40 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb125 | s |     d    | imdb24 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb125_s1_af41080661fe6cd as (select imdb125.d as v0 from imdb125), imdb40_s2_af41080661fe6cd as (select imdb40.s as v0 from imdb40), imdb24_s2_af41080661fe6cd as (select imdb24.s as v0 from imdb24), imdb2_s2_af41080661fe6cd as (select imdb2.d as v0 from imdb2), imdb100_s2_af41080661fe6cd as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb125_s2_af41080661fe6cd as (select * from umbra.identity(table(imdb125_s1_af41080661fe6cd)) where exists (select from umbra.identity(table(imdb100_s2_af41080661fe6cd)) where imdb125_s1_af41080661fe6cd.v0 = imdb100_s2_af41080661fe6cd.v0) AND exists (select from umbra.identity(table(imdb2_s2_af41080661fe6cd)) where imdb125_s1_af41080661fe6cd.v0 = imdb2_s2_af41080661fe6cd.v0) AND exists (select from umbra.identity(table(imdb24_s2_af41080661fe6cd)) where imdb125_s1_af41080661fe6cd.v0 = imdb24_s2_af41080661fe6cd.v0) AND exists (select from umbra.identity(table(imdb40_s2_af41080661fe6cd)) where imdb125_s1_af41080661fe6cd.v0 = imdb40_s2_af41080661fe6cd.v0)) /* stage3 */, imdb40_s3_af41080661fe6cd as (select * from umbra.identity(table(imdb40_s2_af41080661fe6cd)) where exists (select from umbra.identity(table(imdb125_s2_af41080661fe6cd)) where imdb40_s2_af41080661fe6cd.v0 = imdb125_s2_af41080661fe6cd.v0)), imdb24_s3_af41080661fe6cd as (select * from umbra.identity(table(imdb24_s2_af41080661fe6cd)) where exists (select from umbra.identity(table(imdb125_s2_af41080661fe6cd)) where imdb24_s2_af41080661fe6cd.v0 = imdb125_s2_af41080661fe6cd.v0)), imdb2_s3_af41080661fe6cd as (select * from umbra.identity(table(imdb2_s2_af41080661fe6cd)) where exists (select from umbra.identity(table(imdb125_s2_af41080661fe6cd)) where imdb2_s2_af41080661fe6cd.v0 = imdb125_s2_af41080661fe6cd.v0)), imdb100_s3_af41080661fe6cd as (select * from umbra.identity(table(imdb100_s2_af41080661fe6cd)) where exists (select from umbra.identity(table(imdb125_s2_af41080661fe6cd)) where imdb100_s2_af41080661fe6cd.v0 = imdb125_s2_af41080661fe6cd.v0)) /* stage4 */, s4_group_644DB23D675D72E2 as  (select * from umbra.identity(table(imdb125_s2_af41080661fe6cd)) NATURAL JOIN umbra.identity(table(imdb100_s3_af41080661fe6cd)) NATURAL JOIN umbra.identity(table(imdb2_s3_af41080661fe6cd)) NATURAL JOIN umbra.identity(table(imdb24_s3_af41080661fe6cd)) NATURAL JOIN umbra.identity(table(imdb40_s3_af41080661fe6cd)))select count(*) from umbra.identity(table(s4_group_644DB23D675D72E2));
+\set queryname job_acyclic_109_86
+-- Result size: 79053998
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb54 [label="imdb54|<s> s|<d> d"]; imdb2:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb17:s;imdb17:s -> imdb54:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb17 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb121 | s |     d    | imdb54 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb121_s1_13890280661fe6cd as (select imdb121.d as v0 from imdb121), imdb54_s2_13890280661fe6cd as (select imdb54.s as v0 from imdb54), imdb2_s2_13890280661fe6cd as (select imdb2.d as v0 from imdb2), imdb17_s2_13890280661fe6cd as (select imdb17.s as v0 from imdb17), imdb100_s2_13890280661fe6cd as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb121_s2_13890280661fe6cd as (select * from umbra.identity(table(imdb121_s1_13890280661fe6cd)) where exists (select from umbra.identity(table(imdb100_s2_13890280661fe6cd)) where imdb121_s1_13890280661fe6cd.v0 = imdb100_s2_13890280661fe6cd.v0) AND exists (select from umbra.identity(table(imdb17_s2_13890280661fe6cd)) where imdb121_s1_13890280661fe6cd.v0 = imdb17_s2_13890280661fe6cd.v0) AND exists (select from umbra.identity(table(imdb2_s2_13890280661fe6cd)) where imdb121_s1_13890280661fe6cd.v0 = imdb2_s2_13890280661fe6cd.v0) AND exists (select from umbra.identity(table(imdb54_s2_13890280661fe6cd)) where imdb121_s1_13890280661fe6cd.v0 = imdb54_s2_13890280661fe6cd.v0)) /* stage3 */, imdb54_s3_13890280661fe6cd as (select * from umbra.identity(table(imdb54_s2_13890280661fe6cd)) where exists (select from umbra.identity(table(imdb121_s2_13890280661fe6cd)) where imdb54_s2_13890280661fe6cd.v0 = imdb121_s2_13890280661fe6cd.v0)), imdb2_s3_13890280661fe6cd as (select * from umbra.identity(table(imdb2_s2_13890280661fe6cd)) where exists (select from umbra.identity(table(imdb121_s2_13890280661fe6cd)) where imdb2_s2_13890280661fe6cd.v0 = imdb121_s2_13890280661fe6cd.v0)), imdb17_s3_13890280661fe6cd as (select * from umbra.identity(table(imdb17_s2_13890280661fe6cd)) where exists (select from umbra.identity(table(imdb121_s2_13890280661fe6cd)) where imdb17_s2_13890280661fe6cd.v0 = imdb121_s2_13890280661fe6cd.v0)), imdb100_s3_13890280661fe6cd as (select * from umbra.identity(table(imdb100_s2_13890280661fe6cd)) where exists (select from umbra.identity(table(imdb121_s2_13890280661fe6cd)) where imdb100_s2_13890280661fe6cd.v0 = imdb121_s2_13890280661fe6cd.v0)) /* stage4 */, s4_group_17F805E7ED3D1CCD as  (select * from umbra.identity(table(imdb121_s2_13890280661fe6cd)) NATURAL JOIN umbra.identity(table(imdb100_s3_13890280661fe6cd)) NATURAL JOIN umbra.identity(table(imdb17_s3_13890280661fe6cd)) NATURAL JOIN umbra.identity(table(imdb2_s3_13890280661fe6cd)) NATURAL JOIN umbra.identity(table(imdb54_s3_13890280661fe6cd)))select count(*) from umbra.identity(table(s4_group_17F805E7ED3D1CCD));
+\set queryname job_acyclic_109_87
+-- Result size: 42957374
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb38 [label="imdb38|<s> s|<d> d"]; imdb39 [label="imdb39|<s> s|<d> d"]; imdb2:d -> imdb122:d;imdb122:d -> imdb100:d;imdb100:d -> imdb38:s;imdb38:s -> imdb39:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb38 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb122 | s |     d    | imdb39 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb122_s1_1be66580661fe6cd as (select imdb122.d as v0 from imdb122), imdb39_s2_1be66580661fe6cd as (select imdb39.s as v0 from imdb39), imdb38_s2_1be66580661fe6cd as (select imdb38.s as v0 from imdb38), imdb2_s2_1be66580661fe6cd as (select imdb2.d as v0 from imdb2), imdb100_s2_1be66580661fe6cd as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb122_s2_1be66580661fe6cd as (select * from umbra.identity(table(imdb122_s1_1be66580661fe6cd)) where exists (select from umbra.identity(table(imdb100_s2_1be66580661fe6cd)) where imdb122_s1_1be66580661fe6cd.v0 = imdb100_s2_1be66580661fe6cd.v0) AND exists (select from umbra.identity(table(imdb2_s2_1be66580661fe6cd)) where imdb122_s1_1be66580661fe6cd.v0 = imdb2_s2_1be66580661fe6cd.v0) AND exists (select from umbra.identity(table(imdb38_s2_1be66580661fe6cd)) where imdb122_s1_1be66580661fe6cd.v0 = imdb38_s2_1be66580661fe6cd.v0) AND exists (select from umbra.identity(table(imdb39_s2_1be66580661fe6cd)) where imdb122_s1_1be66580661fe6cd.v0 = imdb39_s2_1be66580661fe6cd.v0)) /* stage3 */, imdb39_s3_1be66580661fe6cd as (select * from umbra.identity(table(imdb39_s2_1be66580661fe6cd)) where exists (select from umbra.identity(table(imdb122_s2_1be66580661fe6cd)) where imdb39_s2_1be66580661fe6cd.v0 = imdb122_s2_1be66580661fe6cd.v0)), imdb38_s3_1be66580661fe6cd as (select * from umbra.identity(table(imdb38_s2_1be66580661fe6cd)) where exists (select from umbra.identity(table(imdb122_s2_1be66580661fe6cd)) where imdb38_s2_1be66580661fe6cd.v0 = imdb122_s2_1be66580661fe6cd.v0)), imdb2_s3_1be66580661fe6cd as (select * from umbra.identity(table(imdb2_s2_1be66580661fe6cd)) where exists (select from umbra.identity(table(imdb122_s2_1be66580661fe6cd)) where imdb2_s2_1be66580661fe6cd.v0 = imdb122_s2_1be66580661fe6cd.v0)), imdb100_s3_1be66580661fe6cd as (select * from umbra.identity(table(imdb100_s2_1be66580661fe6cd)) where exists (select from umbra.identity(table(imdb122_s2_1be66580661fe6cd)) where imdb100_s2_1be66580661fe6cd.v0 = imdb122_s2_1be66580661fe6cd.v0)) /* stage4 */, s4_group_2240032D06B08F0C as  (select * from umbra.identity(table(imdb122_s2_1be66580661fe6cd)) NATURAL JOIN umbra.identity(table(imdb100_s3_1be66580661fe6cd)) NATURAL JOIN umbra.identity(table(imdb2_s3_1be66580661fe6cd)) NATURAL JOIN umbra.identity(table(imdb38_s3_1be66580661fe6cd)) NATURAL JOIN umbra.identity(table(imdb39_s3_1be66580661fe6cd)))select count(*) from umbra.identity(table(s4_group_2240032D06B08F0C));
+\set queryname job_acyclic_109_88
+-- Result size: 679422
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb75 [label="imdb75|<s> s|<d> d"]; imdb48 [label="imdb48|<s> s|<d> d"]; imdb2:d -> imdb127:d;imdb127:d -> imdb100:d;imdb100:d -> imdb75:s;imdb75:s -> imdb48:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb75 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb127 | s |     d    | imdb48 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb127_s1_4729080661fe6ce as (select imdb127.d as v0 from imdb127), imdb75_s2_4729080661fe6ce as (select imdb75.s as v0 from imdb75), imdb48_s2_4729080661fe6ce as (select imdb48.s as v0 from imdb48), imdb2_s2_4729080661fe6ce as (select imdb2.d as v0 from imdb2), imdb100_s2_4729080661fe6ce as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb127_s2_4729080661fe6ce as (select * from umbra.identity(table(imdb127_s1_4729080661fe6ce)) where exists (select from umbra.identity(table(imdb100_s2_4729080661fe6ce)) where imdb127_s1_4729080661fe6ce.v0 = imdb100_s2_4729080661fe6ce.v0) AND exists (select from umbra.identity(table(imdb2_s2_4729080661fe6ce)) where imdb127_s1_4729080661fe6ce.v0 = imdb2_s2_4729080661fe6ce.v0) AND exists (select from umbra.identity(table(imdb48_s2_4729080661fe6ce)) where imdb127_s1_4729080661fe6ce.v0 = imdb48_s2_4729080661fe6ce.v0) AND exists (select from umbra.identity(table(imdb75_s2_4729080661fe6ce)) where imdb127_s1_4729080661fe6ce.v0 = imdb75_s2_4729080661fe6ce.v0)) /* stage3 */, imdb75_s3_4729080661fe6ce as (select * from umbra.identity(table(imdb75_s2_4729080661fe6ce)) where exists (select from umbra.identity(table(imdb127_s2_4729080661fe6ce)) where imdb75_s2_4729080661fe6ce.v0 = imdb127_s2_4729080661fe6ce.v0)), imdb48_s3_4729080661fe6ce as (select * from umbra.identity(table(imdb48_s2_4729080661fe6ce)) where exists (select from umbra.identity(table(imdb127_s2_4729080661fe6ce)) where imdb48_s2_4729080661fe6ce.v0 = imdb127_s2_4729080661fe6ce.v0)), imdb2_s3_4729080661fe6ce as (select * from umbra.identity(table(imdb2_s2_4729080661fe6ce)) where exists (select from umbra.identity(table(imdb127_s2_4729080661fe6ce)) where imdb2_s2_4729080661fe6ce.v0 = imdb127_s2_4729080661fe6ce.v0)), imdb100_s3_4729080661fe6ce as (select * from umbra.identity(table(imdb100_s2_4729080661fe6ce)) where exists (select from umbra.identity(table(imdb127_s2_4729080661fe6ce)) where imdb100_s2_4729080661fe6ce.v0 = imdb127_s2_4729080661fe6ce.v0)) /* stage4 */, s4_group_5BFAC3AC070637E3 as  (select * from umbra.identity(table(imdb127_s2_4729080661fe6ce)) NATURAL JOIN umbra.identity(table(imdb100_s3_4729080661fe6ce)) NATURAL JOIN umbra.identity(table(imdb2_s3_4729080661fe6ce)) NATURAL JOIN umbra.identity(table(imdb48_s3_4729080661fe6ce)) NATURAL JOIN umbra.identity(table(imdb75_s3_4729080661fe6ce)))select count(*) from umbra.identity(table(s4_group_5BFAC3AC070637E3));
+\set queryname job_acyclic_109_89
+-- Result size: 10732827
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb86 [label="imdb86|<s> s|<d> d"]; imdb78 [label="imdb78|<s> s|<d> d"]; imdb2:d -> imdb123:d;imdb123:d -> imdb100:d;imdb100:d -> imdb86:s;imdb86:s -> imdb78:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb86 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb123 | s |     d    | imdb78 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb123_s1_ce2f780661fe6ce as (select imdb123.d as v0 from imdb123), imdb86_s2_ce2f780661fe6ce as (select imdb86.s as v0 from imdb86), imdb78_s2_ce2f780661fe6ce as (select imdb78.s as v0 from imdb78), imdb2_s2_ce2f780661fe6ce as (select imdb2.d as v0 from imdb2), imdb100_s2_ce2f780661fe6ce as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb123_s2_ce2f780661fe6ce as (select * from umbra.identity(table(imdb123_s1_ce2f780661fe6ce)) where exists (select from umbra.identity(table(imdb100_s2_ce2f780661fe6ce)) where imdb123_s1_ce2f780661fe6ce.v0 = imdb100_s2_ce2f780661fe6ce.v0) AND exists (select from umbra.identity(table(imdb2_s2_ce2f780661fe6ce)) where imdb123_s1_ce2f780661fe6ce.v0 = imdb2_s2_ce2f780661fe6ce.v0) AND exists (select from umbra.identity(table(imdb78_s2_ce2f780661fe6ce)) where imdb123_s1_ce2f780661fe6ce.v0 = imdb78_s2_ce2f780661fe6ce.v0) AND exists (select from umbra.identity(table(imdb86_s2_ce2f780661fe6ce)) where imdb123_s1_ce2f780661fe6ce.v0 = imdb86_s2_ce2f780661fe6ce.v0)) /* stage3 */, imdb86_s3_ce2f780661fe6ce as (select * from umbra.identity(table(imdb86_s2_ce2f780661fe6ce)) where exists (select from umbra.identity(table(imdb123_s2_ce2f780661fe6ce)) where imdb86_s2_ce2f780661fe6ce.v0 = imdb123_s2_ce2f780661fe6ce.v0)), imdb78_s3_ce2f780661fe6ce as (select * from umbra.identity(table(imdb78_s2_ce2f780661fe6ce)) where exists (select from umbra.identity(table(imdb123_s2_ce2f780661fe6ce)) where imdb78_s2_ce2f780661fe6ce.v0 = imdb123_s2_ce2f780661fe6ce.v0)), imdb2_s3_ce2f780661fe6ce as (select * from umbra.identity(table(imdb2_s2_ce2f780661fe6ce)) where exists (select from umbra.identity(table(imdb123_s2_ce2f780661fe6ce)) where imdb2_s2_ce2f780661fe6ce.v0 = imdb123_s2_ce2f780661fe6ce.v0)), imdb100_s3_ce2f780661fe6ce as (select * from umbra.identity(table(imdb100_s2_ce2f780661fe6ce)) where exists (select from umbra.identity(table(imdb123_s2_ce2f780661fe6ce)) where imdb100_s2_ce2f780661fe6ce.v0 = imdb123_s2_ce2f780661fe6ce.v0)) /* stage4 */, s4_group_10137F9B8D36F631 as  (select * from umbra.identity(table(imdb123_s2_ce2f780661fe6ce)) NATURAL JOIN umbra.identity(table(imdb100_s3_ce2f780661fe6ce)) NATURAL JOIN umbra.identity(table(imdb2_s3_ce2f780661fe6ce)) NATURAL JOIN umbra.identity(table(imdb78_s3_ce2f780661fe6ce)) NATURAL JOIN umbra.identity(table(imdb86_s3_ce2f780661fe6ce)))select count(*) from umbra.identity(table(s4_group_10137F9B8D36F631));
+\set queryname job_acyclic_109_90
+-- Result size: 836914
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb80 [label="imdb80|<s> s|<d> d"]; imdb84 [label="imdb84|<s> s|<d> d"]; imdb2:d -> imdb126:d;imdb126:d -> imdb100:d;imdb100:d -> imdb80:s;imdb80:s -> imdb84:s;}
+--                +---------+--------+----+
+--                | imdb100 |    s   |  d | ------+
+--                +---------+--------+----+       |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +---------+---+----------+--------+----+----+  |
+-- |  imdb2  | s |     d    | imdb80 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                   |         |
+--                  |                   |         |
+--                  |                   |         |
+-- +---------+---+----------+--------+----+----+  |
+-- | imdb126 | s |     d    | imdb84 |  s |  d |  |
+-- +---------+---+----------+--------+----+----+  |
+--                  |                             |
+--                  +-----------------------------+
+with dummy as (select) /* stage1 */, imdb126_s1_154cb400661fe6ce as (select imdb126.d as v0 from imdb126), imdb84_s2_154cb400661fe6ce as (select imdb84.s as v0 from imdb84), imdb80_s2_154cb400661fe6ce as (select imdb80.s as v0 from imdb80), imdb2_s2_154cb400661fe6ce as (select imdb2.d as v0 from imdb2), imdb100_s2_154cb400661fe6ce as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb126_s2_154cb400661fe6ce as (select * from umbra.identity(table(imdb126_s1_154cb400661fe6ce)) where exists (select from umbra.identity(table(imdb100_s2_154cb400661fe6ce)) where imdb126_s1_154cb400661fe6ce.v0 = imdb100_s2_154cb400661fe6ce.v0) AND exists (select from umbra.identity(table(imdb2_s2_154cb400661fe6ce)) where imdb126_s1_154cb400661fe6ce.v0 = imdb2_s2_154cb400661fe6ce.v0) AND exists (select from umbra.identity(table(imdb80_s2_154cb400661fe6ce)) where imdb126_s1_154cb400661fe6ce.v0 = imdb80_s2_154cb400661fe6ce.v0) AND exists (select from umbra.identity(table(imdb84_s2_154cb400661fe6ce)) where imdb126_s1_154cb400661fe6ce.v0 = imdb84_s2_154cb400661fe6ce.v0)) /* stage3 */, imdb84_s3_154cb400661fe6ce as (select * from umbra.identity(table(imdb84_s2_154cb400661fe6ce)) where exists (select from umbra.identity(table(imdb126_s2_154cb400661fe6ce)) where imdb84_s2_154cb400661fe6ce.v0 = imdb126_s2_154cb400661fe6ce.v0)), imdb80_s3_154cb400661fe6ce as (select * from umbra.identity(table(imdb80_s2_154cb400661fe6ce)) where exists (select from umbra.identity(table(imdb126_s2_154cb400661fe6ce)) where imdb80_s2_154cb400661fe6ce.v0 = imdb126_s2_154cb400661fe6ce.v0)), imdb2_s3_154cb400661fe6ce as (select * from umbra.identity(table(imdb2_s2_154cb400661fe6ce)) where exists (select from umbra.identity(table(imdb126_s2_154cb400661fe6ce)) where imdb2_s2_154cb400661fe6ce.v0 = imdb126_s2_154cb400661fe6ce.v0)), imdb100_s3_154cb400661fe6ce as (select * from umbra.identity(table(imdb100_s2_154cb400661fe6ce)) where exists (select from umbra.identity(table(imdb126_s2_154cb400661fe6ce)) where imdb100_s2_154cb400661fe6ce.v0 = imdb126_s2_154cb400661fe6ce.v0)) /* stage4 */, s4_group_61D6237F59C856CD as  (select * from umbra.identity(table(imdb126_s2_154cb400661fe6ce)) NATURAL JOIN umbra.identity(table(imdb100_s3_154cb400661fe6ce)) NATURAL JOIN umbra.identity(table(imdb2_s3_154cb400661fe6ce)) NATURAL JOIN umbra.identity(table(imdb80_s3_154cb400661fe6ce)) NATURAL JOIN umbra.identity(table(imdb84_s3_154cb400661fe6ce)))select count(*) from umbra.identity(table(s4_group_61D6237F59C856CD));
+--\set queryname job_acyclic_109_91
+-- Result size: 8583847812
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb2:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb5:s;imdb5:s -> imdb8:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb2  | s |     d    | imdb5 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb118 | s |     d    | imdb8 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+--with dummy as (select) /* stage1 */, imdb118_s1_1dcd1180661fe6ce as (select imdb118.d as v0 from imdb118), imdb8_s2_1dcd1180661fe6ce as (select imdb8.s as v0 from imdb8), imdb5_s2_1dcd1180661fe6ce as (select imdb5.s as v0 from imdb5), imdb2_s2_1dcd1180661fe6ce as (select imdb2.d as v0 from imdb2), imdb100_s2_1dcd1180661fe6ce as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb118_s2_1dcd1180661fe6ce as (select * from umbra.identity(table(imdb118_s1_1dcd1180661fe6ce)) where exists (select from umbra.identity(table(imdb100_s2_1dcd1180661fe6ce)) where imdb118_s1_1dcd1180661fe6ce.v0 = imdb100_s2_1dcd1180661fe6ce.v0) AND exists (select from umbra.identity(table(imdb2_s2_1dcd1180661fe6ce)) where imdb118_s1_1dcd1180661fe6ce.v0 = imdb2_s2_1dcd1180661fe6ce.v0) AND exists (select from umbra.identity(table(imdb5_s2_1dcd1180661fe6ce)) where imdb118_s1_1dcd1180661fe6ce.v0 = imdb5_s2_1dcd1180661fe6ce.v0) AND exists (select from umbra.identity(table(imdb8_s2_1dcd1180661fe6ce)) where imdb118_s1_1dcd1180661fe6ce.v0 = imdb8_s2_1dcd1180661fe6ce.v0)) /* stage3 */, imdb8_s3_1dcd1180661fe6ce as (select * from umbra.identity(table(imdb8_s2_1dcd1180661fe6ce)) where exists (select from umbra.identity(table(imdb118_s2_1dcd1180661fe6ce)) where imdb8_s2_1dcd1180661fe6ce.v0 = imdb118_s2_1dcd1180661fe6ce.v0)), imdb5_s3_1dcd1180661fe6ce as (select * from umbra.identity(table(imdb5_s2_1dcd1180661fe6ce)) where exists (select from umbra.identity(table(imdb118_s2_1dcd1180661fe6ce)) where imdb5_s2_1dcd1180661fe6ce.v0 = imdb118_s2_1dcd1180661fe6ce.v0)), imdb2_s3_1dcd1180661fe6ce as (select * from umbra.identity(table(imdb2_s2_1dcd1180661fe6ce)) where exists (select from umbra.identity(table(imdb118_s2_1dcd1180661fe6ce)) where imdb2_s2_1dcd1180661fe6ce.v0 = imdb118_s2_1dcd1180661fe6ce.v0)), imdb100_s3_1dcd1180661fe6ce as (select * from umbra.identity(table(imdb100_s2_1dcd1180661fe6ce)) where exists (select from umbra.identity(table(imdb118_s2_1dcd1180661fe6ce)) where imdb100_s2_1dcd1180661fe6ce.v0 = imdb118_s2_1dcd1180661fe6ce.v0)) /* stage4 */, s4_group_7745FBEB5B2F450E as  (select * from umbra.identity(table(imdb118_s2_1dcd1180661fe6ce)) NATURAL JOIN umbra.identity(table(imdb100_s3_1dcd1180661fe6ce)) NATURAL JOIN umbra.identity(table(imdb2_s3_1dcd1180661fe6ce)) NATURAL JOIN umbra.identity(table(imdb5_s3_1dcd1180661fe6ce)) NATURAL JOIN umbra.identity(table(imdb8_s3_1dcd1180661fe6ce)))select count(*) from umbra.identity(table(s4_group_7745FBEB5B2F450E));
+--\set queryname job_acyclic_109_92
+-- Result size: 1267670961
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb3:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb6:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb3  | s |     d    | imdb7 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb117 | s |     d    | imdb6 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+--with dummy as (select) /* stage1 */, imdb117_s1_65d8580661fe6cf as (select imdb117.d as v0 from imdb117), imdb7_s2_65d8580661fe6cf as (select imdb7.s as v0 from imdb7), imdb6_s2_65d8580661fe6cf as (select imdb6.s as v0 from imdb6), imdb3_s2_65d8580661fe6cf as (select imdb3.d as v0 from imdb3), imdb100_s2_65d8580661fe6cf as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb117_s2_65d8580661fe6cf as (select * from umbra.identity(table(imdb117_s1_65d8580661fe6cf)) where exists (select from umbra.identity(table(imdb100_s2_65d8580661fe6cf)) where imdb117_s1_65d8580661fe6cf.v0 = imdb100_s2_65d8580661fe6cf.v0) AND exists (select from umbra.identity(table(imdb3_s2_65d8580661fe6cf)) where imdb117_s1_65d8580661fe6cf.v0 = imdb3_s2_65d8580661fe6cf.v0) AND exists (select from umbra.identity(table(imdb6_s2_65d8580661fe6cf)) where imdb117_s1_65d8580661fe6cf.v0 = imdb6_s2_65d8580661fe6cf.v0) AND exists (select from umbra.identity(table(imdb7_s2_65d8580661fe6cf)) where imdb117_s1_65d8580661fe6cf.v0 = imdb7_s2_65d8580661fe6cf.v0)) /* stage3 */, imdb7_s3_65d8580661fe6cf as (select * from umbra.identity(table(imdb7_s2_65d8580661fe6cf)) where exists (select from umbra.identity(table(imdb117_s2_65d8580661fe6cf)) where imdb7_s2_65d8580661fe6cf.v0 = imdb117_s2_65d8580661fe6cf.v0)), imdb6_s3_65d8580661fe6cf as (select * from umbra.identity(table(imdb6_s2_65d8580661fe6cf)) where exists (select from umbra.identity(table(imdb117_s2_65d8580661fe6cf)) where imdb6_s2_65d8580661fe6cf.v0 = imdb117_s2_65d8580661fe6cf.v0)), imdb3_s3_65d8580661fe6cf as (select * from umbra.identity(table(imdb3_s2_65d8580661fe6cf)) where exists (select from umbra.identity(table(imdb117_s2_65d8580661fe6cf)) where imdb3_s2_65d8580661fe6cf.v0 = imdb117_s2_65d8580661fe6cf.v0)), imdb100_s3_65d8580661fe6cf as (select * from umbra.identity(table(imdb100_s2_65d8580661fe6cf)) where exists (select from umbra.identity(table(imdb117_s2_65d8580661fe6cf)) where imdb100_s2_65d8580661fe6cf.v0 = imdb117_s2_65d8580661fe6cf.v0)) /* stage4 */, s4_group_60B4CF366E3AB67F as  (select * from umbra.identity(table(imdb117_s2_65d8580661fe6cf)) NATURAL JOIN umbra.identity(table(imdb100_s3_65d8580661fe6cf)) NATURAL JOIN umbra.identity(table(imdb3_s3_65d8580661fe6cf)) NATURAL JOIN umbra.identity(table(imdb6_s3_65d8580661fe6cf)) NATURAL JOIN umbra.identity(table(imdb7_s3_65d8580661fe6cf)))select count(*) from umbra.identity(table(s4_group_60B4CF366E3AB67F));
+\set queryname job_acyclic_109_93
+-- Result size: 310070713
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb2:d -> imdb117:d;imdb117:d -> imdb100:d;imdb100:d -> imdb10:s;imdb10:s -> imdb6:s;}
+--                +--------+----+---+
+--                | imdb6  |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+--                +--------+----+---+
+--                | imdb10 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+-- +---------+---+---------+  |
+-- |  imdb2  | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb117 | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb100 | s |    d    | -+
+-- +---------+---+---------+
+with dummy as (select) /* stage1 */, imdb100_s1_ede0d80661fe6cf as (select imdb100.d as v0 from imdb100), imdb6_s2_ede0d80661fe6cf as (select imdb6.s as v0 from imdb6), imdb2_s2_ede0d80661fe6cf as (select imdb2.d as v0 from imdb2), imdb117_s2_ede0d80661fe6cf as (select imdb117.d as v0 from imdb117), imdb10_s2_ede0d80661fe6cf as (select imdb10.s as v0 from imdb10) /* stage2 */, imdb100_s2_ede0d80661fe6cf as (select * from umbra.identity(table(imdb100_s1_ede0d80661fe6cf)) where exists (select from umbra.identity(table(imdb10_s2_ede0d80661fe6cf)) where imdb100_s1_ede0d80661fe6cf.v0 = imdb10_s2_ede0d80661fe6cf.v0) AND exists (select from umbra.identity(table(imdb117_s2_ede0d80661fe6cf)) where imdb100_s1_ede0d80661fe6cf.v0 = imdb117_s2_ede0d80661fe6cf.v0) AND exists (select from umbra.identity(table(imdb2_s2_ede0d80661fe6cf)) where imdb100_s1_ede0d80661fe6cf.v0 = imdb2_s2_ede0d80661fe6cf.v0) AND exists (select from umbra.identity(table(imdb6_s2_ede0d80661fe6cf)) where imdb100_s1_ede0d80661fe6cf.v0 = imdb6_s2_ede0d80661fe6cf.v0)) /* stage3 */, imdb6_s3_ede0d80661fe6cf as (select * from umbra.identity(table(imdb6_s2_ede0d80661fe6cf)) where exists (select from umbra.identity(table(imdb100_s2_ede0d80661fe6cf)) where imdb6_s2_ede0d80661fe6cf.v0 = imdb100_s2_ede0d80661fe6cf.v0)), imdb2_s3_ede0d80661fe6cf as (select * from umbra.identity(table(imdb2_s2_ede0d80661fe6cf)) where exists (select from umbra.identity(table(imdb100_s2_ede0d80661fe6cf)) where imdb2_s2_ede0d80661fe6cf.v0 = imdb100_s2_ede0d80661fe6cf.v0)), imdb117_s3_ede0d80661fe6cf as (select * from umbra.identity(table(imdb117_s2_ede0d80661fe6cf)) where exists (select from umbra.identity(table(imdb100_s2_ede0d80661fe6cf)) where imdb117_s2_ede0d80661fe6cf.v0 = imdb100_s2_ede0d80661fe6cf.v0)), imdb10_s3_ede0d80661fe6cf as (select * from umbra.identity(table(imdb10_s2_ede0d80661fe6cf)) where exists (select from umbra.identity(table(imdb100_s2_ede0d80661fe6cf)) where imdb10_s2_ede0d80661fe6cf.v0 = imdb100_s2_ede0d80661fe6cf.v0)) /* stage4 */, s4_group_500289BDB8B97243 as  (select * from umbra.identity(table(imdb100_s2_ede0d80661fe6cf)) NATURAL JOIN umbra.identity(table(imdb10_s3_ede0d80661fe6cf)) NATURAL JOIN umbra.identity(table(imdb117_s3_ede0d80661fe6cf)) NATURAL JOIN umbra.identity(table(imdb2_s3_ede0d80661fe6cf)) NATURAL JOIN umbra.identity(table(imdb6_s3_ede0d80661fe6cf)))select count(*) from umbra.identity(table(s4_group_500289BDB8B97243));
+--\set queryname job_acyclic_109_94
+-- Result size: 1107122739
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb3:d -> imdb120:d;imdb120:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb5:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb3  | s |     d    | imdb7 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb120 | s |     d    | imdb5 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+--with dummy as (select) /* stage1 */, imdb120_s1_175b8a80661fe6cf as (select imdb120.d as v0 from imdb120), imdb7_s2_175b8a80661fe6cf as (select imdb7.s as v0 from imdb7), imdb5_s2_175b8a80661fe6cf as (select imdb5.s as v0 from imdb5), imdb3_s2_175b8a80661fe6cf as (select imdb3.d as v0 from imdb3), imdb100_s2_175b8a80661fe6cf as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb120_s2_175b8a80661fe6cf as (select * from umbra.identity(table(imdb120_s1_175b8a80661fe6cf)) where exists (select from umbra.identity(table(imdb100_s2_175b8a80661fe6cf)) where imdb120_s1_175b8a80661fe6cf.v0 = imdb100_s2_175b8a80661fe6cf.v0) AND exists (select from umbra.identity(table(imdb3_s2_175b8a80661fe6cf)) where imdb120_s1_175b8a80661fe6cf.v0 = imdb3_s2_175b8a80661fe6cf.v0) AND exists (select from umbra.identity(table(imdb5_s2_175b8a80661fe6cf)) where imdb120_s1_175b8a80661fe6cf.v0 = imdb5_s2_175b8a80661fe6cf.v0) AND exists (select from umbra.identity(table(imdb7_s2_175b8a80661fe6cf)) where imdb120_s1_175b8a80661fe6cf.v0 = imdb7_s2_175b8a80661fe6cf.v0)) /* stage3 */, imdb7_s3_175b8a80661fe6cf as (select * from umbra.identity(table(imdb7_s2_175b8a80661fe6cf)) where exists (select from umbra.identity(table(imdb120_s2_175b8a80661fe6cf)) where imdb7_s2_175b8a80661fe6cf.v0 = imdb120_s2_175b8a80661fe6cf.v0)), imdb5_s3_175b8a80661fe6cf as (select * from umbra.identity(table(imdb5_s2_175b8a80661fe6cf)) where exists (select from umbra.identity(table(imdb120_s2_175b8a80661fe6cf)) where imdb5_s2_175b8a80661fe6cf.v0 = imdb120_s2_175b8a80661fe6cf.v0)), imdb3_s3_175b8a80661fe6cf as (select * from umbra.identity(table(imdb3_s2_175b8a80661fe6cf)) where exists (select from umbra.identity(table(imdb120_s2_175b8a80661fe6cf)) where imdb3_s2_175b8a80661fe6cf.v0 = imdb120_s2_175b8a80661fe6cf.v0)), imdb100_s3_175b8a80661fe6cf as (select * from umbra.identity(table(imdb100_s2_175b8a80661fe6cf)) where exists (select from umbra.identity(table(imdb120_s2_175b8a80661fe6cf)) where imdb100_s2_175b8a80661fe6cf.v0 = imdb120_s2_175b8a80661fe6cf.v0)) /* stage4 */, s4_group_68FA108DFFF28B91 as  (select * from umbra.identity(table(imdb120_s2_175b8a80661fe6cf)) NATURAL JOIN umbra.identity(table(imdb100_s3_175b8a80661fe6cf)) NATURAL JOIN umbra.identity(table(imdb3_s3_175b8a80661fe6cf)) NATURAL JOIN umbra.identity(table(imdb5_s3_175b8a80661fe6cf)) NATURAL JOIN umbra.identity(table(imdb7_s3_175b8a80661fe6cf)))select count(*) from umbra.identity(table(s4_group_68FA108DFFF28B91));
+\set queryname job_acyclic_109_95
+-- Result size: 94584747
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb2:d -> imdb118:d;imdb118:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb9:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb2  | s |     d    | imdb7 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb118 | s |     d    | imdb9 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb118_s1_1fc7e400661fe6cf as (select imdb118.d as v0 from imdb118), imdb9_s2_1fc7e400661fe6cf as (select imdb9.s as v0 from imdb9), imdb7_s2_1fc7e400661fe6cf as (select imdb7.s as v0 from imdb7), imdb2_s2_1fc7e400661fe6cf as (select imdb2.d as v0 from imdb2), imdb100_s2_1fc7e400661fe6cf as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb118_s2_1fc7e400661fe6cf as (select * from umbra.identity(table(imdb118_s1_1fc7e400661fe6cf)) where exists (select from umbra.identity(table(imdb100_s2_1fc7e400661fe6cf)) where imdb118_s1_1fc7e400661fe6cf.v0 = imdb100_s2_1fc7e400661fe6cf.v0) AND exists (select from umbra.identity(table(imdb2_s2_1fc7e400661fe6cf)) where imdb118_s1_1fc7e400661fe6cf.v0 = imdb2_s2_1fc7e400661fe6cf.v0) AND exists (select from umbra.identity(table(imdb7_s2_1fc7e400661fe6cf)) where imdb118_s1_1fc7e400661fe6cf.v0 = imdb7_s2_1fc7e400661fe6cf.v0) AND exists (select from umbra.identity(table(imdb9_s2_1fc7e400661fe6cf)) where imdb118_s1_1fc7e400661fe6cf.v0 = imdb9_s2_1fc7e400661fe6cf.v0)) /* stage3 */, imdb9_s3_1fc7e400661fe6cf as (select * from umbra.identity(table(imdb9_s2_1fc7e400661fe6cf)) where exists (select from umbra.identity(table(imdb118_s2_1fc7e400661fe6cf)) where imdb9_s2_1fc7e400661fe6cf.v0 = imdb118_s2_1fc7e400661fe6cf.v0)), imdb7_s3_1fc7e400661fe6cf as (select * from umbra.identity(table(imdb7_s2_1fc7e400661fe6cf)) where exists (select from umbra.identity(table(imdb118_s2_1fc7e400661fe6cf)) where imdb7_s2_1fc7e400661fe6cf.v0 = imdb118_s2_1fc7e400661fe6cf.v0)), imdb2_s3_1fc7e400661fe6cf as (select * from umbra.identity(table(imdb2_s2_1fc7e400661fe6cf)) where exists (select from umbra.identity(table(imdb118_s2_1fc7e400661fe6cf)) where imdb2_s2_1fc7e400661fe6cf.v0 = imdb118_s2_1fc7e400661fe6cf.v0)), imdb100_s3_1fc7e400661fe6cf as (select * from umbra.identity(table(imdb100_s2_1fc7e400661fe6cf)) where exists (select from umbra.identity(table(imdb118_s2_1fc7e400661fe6cf)) where imdb100_s2_1fc7e400661fe6cf.v0 = imdb118_s2_1fc7e400661fe6cf.v0)) /* stage4 */, s4_group_ADC65A3984719B8 as  (select * from umbra.identity(table(imdb118_s2_1fc7e400661fe6cf)) NATURAL JOIN umbra.identity(table(imdb100_s3_1fc7e400661fe6cf)) NATURAL JOIN umbra.identity(table(imdb2_s3_1fc7e400661fe6cf)) NATURAL JOIN umbra.identity(table(imdb7_s3_1fc7e400661fe6cf)) NATURAL JOIN umbra.identity(table(imdb9_s3_1fc7e400661fe6cf)))select count(*) from umbra.identity(table(s4_group_ADC65A3984719B8));
+\set queryname job_acyclic_109_96
+-- Result size: 15417435
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb2:d -> imdb121:d;imdb121:d -> imdb100:d;imdb100:d -> imdb7:s;imdb7:s -> imdb6:s;}
+--                +---------+-------+----+
+--                | imdb100 |   s   |  d | ------+
+--                +---------+-------+----+       |
+--                                     |         |
+--                                     |         |
+--                                     |         |
+-- +---------+---+----------+-------+----+----+  |
+-- |  imdb2  | s |     d    | imdb7 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                  |         |
+--                  |                  |         |
+--                  |                  |         |
+-- +---------+---+----------+-------+----+----+  |
+-- | imdb121 | s |     d    | imdb6 |  s |  d |  |
+-- +---------+---+----------+-------+----+----+  |
+--                  |                            |
+--                  +----------------------------+
+with dummy as (select) /* stage1 */, imdb121_s1_87abe00661fe6d0 as (select imdb121.d as v0 from imdb121), imdb7_s2_87abe00661fe6d0 as (select imdb7.s as v0 from imdb7), imdb6_s2_87abe00661fe6d0 as (select imdb6.s as v0 from imdb6), imdb2_s2_87abe00661fe6d0 as (select imdb2.d as v0 from imdb2), imdb100_s2_87abe00661fe6d0 as (select imdb100.d as v0 from imdb100) /* stage2 */, imdb121_s2_87abe00661fe6d0 as (select * from umbra.identity(table(imdb121_s1_87abe00661fe6d0)) where exists (select from umbra.identity(table(imdb100_s2_87abe00661fe6d0)) where imdb121_s1_87abe00661fe6d0.v0 = imdb100_s2_87abe00661fe6d0.v0) AND exists (select from umbra.identity(table(imdb2_s2_87abe00661fe6d0)) where imdb121_s1_87abe00661fe6d0.v0 = imdb2_s2_87abe00661fe6d0.v0) AND exists (select from umbra.identity(table(imdb6_s2_87abe00661fe6d0)) where imdb121_s1_87abe00661fe6d0.v0 = imdb6_s2_87abe00661fe6d0.v0) AND exists (select from umbra.identity(table(imdb7_s2_87abe00661fe6d0)) where imdb121_s1_87abe00661fe6d0.v0 = imdb7_s2_87abe00661fe6d0.v0)) /* stage3 */, imdb7_s3_87abe00661fe6d0 as (select * from umbra.identity(table(imdb7_s2_87abe00661fe6d0)) where exists (select from umbra.identity(table(imdb121_s2_87abe00661fe6d0)) where imdb7_s2_87abe00661fe6d0.v0 = imdb121_s2_87abe00661fe6d0.v0)), imdb6_s3_87abe00661fe6d0 as (select * from umbra.identity(table(imdb6_s2_87abe00661fe6d0)) where exists (select from umbra.identity(table(imdb121_s2_87abe00661fe6d0)) where imdb6_s2_87abe00661fe6d0.v0 = imdb121_s2_87abe00661fe6d0.v0)), imdb2_s3_87abe00661fe6d0 as (select * from umbra.identity(table(imdb2_s2_87abe00661fe6d0)) where exists (select from umbra.identity(table(imdb121_s2_87abe00661fe6d0)) where imdb2_s2_87abe00661fe6d0.v0 = imdb121_s2_87abe00661fe6d0.v0)), imdb100_s3_87abe00661fe6d0 as (select * from umbra.identity(table(imdb100_s2_87abe00661fe6d0)) where exists (select from umbra.identity(table(imdb121_s2_87abe00661fe6d0)) where imdb100_s2_87abe00661fe6d0.v0 = imdb121_s2_87abe00661fe6d0.v0)) /* stage4 */, s4_group_5403D55D6A7F21D6 as  (select * from umbra.identity(table(imdb121_s2_87abe00661fe6d0)) NATURAL JOIN umbra.identity(table(imdb100_s3_87abe00661fe6d0)) NATURAL JOIN umbra.identity(table(imdb2_s3_87abe00661fe6d0)) NATURAL JOIN umbra.identity(table(imdb6_s3_87abe00661fe6d0)) NATURAL JOIN umbra.identity(table(imdb7_s3_87abe00661fe6d0)))select count(*) from umbra.identity(table(s4_group_5403D55D6A7F21D6));

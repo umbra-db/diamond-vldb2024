@@ -1,0 +1,1159 @@
+\set queryname epinions_cyclic_q3_00
+-- Result size: 489
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75937_0 [label="epinions75937_0|<s> s|<d> d"]; epinions75937_1 [label="epinions75937_1|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75937_3 [label="epinions75937_3|<s> s|<d> d"]; epinions75937_0:s -> epinions75937_1:s;epinions75937_0:d -> epinions75927:s;epinions75937_1:d -> epinions75937_3:d;epinions75927:d -> epinions75937_3:s;}
+--                    +---------------+------------------+----+
+--                    | epinions75927 |         s        |  d |
+--                    +---------------+------------------+----+
+--                                       |                  |
+--                      +----------------+                  |
+--                      |                                   |
+--                      |              +-----------------+----+----+
+--                      |              | epinions75937_3 |  s |  d |
+--                      |              +-----------------+----+----+
+--                      |                                        |
+--                      +----------------+                       |
+--                                       |                       |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75937_0 |        s       |         d        |       |
+-- +-----------------+----------------+------------------+       |
+--                      |                                        |
+--                      |                                        |
+--                      |                                        |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75937_1 |        s       |         d        | ------+
+-- +-----------------+----------------+------------------+
+select count(*) from epinions75937 epinions75937_0, epinions75937 epinions75937_1, epinions75927, epinions75937 epinions75937_3 where epinions75937_0.s = epinions75937_1.s and epinions75937_0.d = epinions75927.s and epinions75937_1.d = epinions75937_3.d and epinions75927.d = epinions75937_3.s;
+\set queryname epinions_cyclic_q3_01
+-- Result size: 145
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75928_0 [label="epinions75928_0|<s> s|<d> d"]; epinions75928_1 [label="epinions75928_1|<s> s|<d> d"]; epinions75924 [label="epinions75924|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75928_0:s -> epinions75928_1:s;epinions75928_0:d -> epinions75924:s;epinions75928_1:d -> epinions75918:d;epinions75924:d -> epinions75918:s;}
+--                    +---------------+----+----+
+--                    | epinions75918 |  s |  d |
+--                    +---------------+----+----+
+--                                       |    |
+--                                       |    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- |  epinions75924  |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      +----------------+    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- | epinions75928_0 |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      |                     |
+--                      |                     |
+-- +-----------------+----------------+----+  |
+-- | epinions75928_1 |        s       |  d | -+
+-- +-----------------+----------------+----+
+select count(*) from epinions75928 epinions75928_0, epinions75928 epinions75928_1, epinions75924, epinions75918 where epinions75928_0.s = epinions75928_1.s and epinions75928_0.d = epinions75924.s and epinions75928_1.d = epinions75918.d and epinions75924.d = epinions75918.s;
+\set queryname epinions_cyclic_q3_02
+-- Result size: 454
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75917_0 [label="epinions75917_0|<s> s|<d> d"]; epinions75917_1 [label="epinions75917_1|<s> s|<d> d"]; epinions75895 [label="epinions75895|<s> s|<d> d"]; epinions75917_3 [label="epinions75917_3|<s> s|<d> d"]; epinions75917_0:s -> epinions75917_1:s;epinions75917_0:d -> epinions75895:s;epinions75917_1:d -> epinions75917_3:d;epinions75895:d -> epinions75917_3:s;}
+--                    +---------------+------------------+----+
+--                    | epinions75895 |         s        |  d |
+--                    +---------------+------------------+----+
+--                                       |                  |
+--                      +----------------+                  |
+--                      |                                   |
+--                      |              +-----------------+----+----+
+--                      |              | epinions75917_3 |  s |  d |
+--                      |              +-----------------+----+----+
+--                      |                                        |
+--                      +----------------+                       |
+--                                       |                       |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75917_0 |        s       |         d        |       |
+-- +-----------------+----------------+------------------+       |
+--                      |                                        |
+--                      |                                        |
+--                      |                                        |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75917_1 |        s       |         d        | ------+
+-- +-----------------+----------------+------------------+
+select count(*) from epinions75917 epinions75917_0, epinions75917 epinions75917_1, epinions75895, epinions75917 epinions75917_3 where epinions75917_0.s = epinions75917_1.s and epinions75917_0.d = epinions75895.s and epinions75917_1.d = epinions75917_3.d and epinions75895.d = epinions75917_3.s;
+\set queryname epinions_cyclic_q3_03
+-- Result size: 281
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75899_0 [label="epinions75899_0|<s> s|<d> d"]; epinions75899_1 [label="epinions75899_1|<s> s|<d> d"]; epinions75911_2 [label="epinions75911_2|<s> s|<d> d"]; epinions75911_3 [label="epinions75911_3|<s> s|<d> d"]; epinions75899_0:s -> epinions75899_1:s;epinions75899_0:d -> epinions75911_2:s;epinions75899_1:d -> epinions75911_3:d;epinions75911_2:d -> epinions75911_3:s;}
+-- +-----------------+----+----+-----------------+----+----+
+-- | epinions75899_0 |  s |  d | epinions75911_2 |  s |  d |
+-- +-----------------+----+----+-----------------+----+----+
+--                      |    |                      |    |
+--                      |    +----------------------+    |
+--                      |                                |
+-- +-----------------+----+----+                         |
+-- | epinions75899_1 |  s |  d |                         |
+-- +-----------------+----+----+                         |
+--                           |                           |
+--                           |                           |
+--                           |                           |
+-- +-----------------+----+----+                         |
+-- | epinions75911_3 |  s |  d |                         |
+-- +-----------------+----+----+                         |
+--                      |                                |
+--                      +--------------------------------+
+select count(*) from epinions75899 epinions75899_0, epinions75899 epinions75899_1, epinions75911 epinions75911_2, epinions75911 epinions75911_3 where epinions75899_0.s = epinions75899_1.s and epinions75899_0.d = epinions75911_2.s and epinions75899_1.d = epinions75911_3.d and epinions75911_2.d = epinions75911_3.s;
+\set queryname epinions_cyclic_q3_04
+-- Result size: 250
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75925_0 [label="epinions75925_0|<s> s|<d> d"]; epinions75925_1 [label="epinions75925_1|<s> s|<d> d"]; epinions75933 [label="epinions75933|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75925_0:s -> epinions75925_1:s;epinions75925_0:d -> epinions75933:s;epinions75925_1:d -> epinions75934:d;epinions75933:d -> epinions75934:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75925_0 |  s |  d | epinions75933 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75925_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75934  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75925 epinions75925_0, epinions75925 epinions75925_1, epinions75933, epinions75934 where epinions75925_0.s = epinions75925_1.s and epinions75925_0.d = epinions75933.s and epinions75925_1.d = epinions75934.d and epinions75933.d = epinions75934.s;
+\set queryname epinions_cyclic_q3_05
+-- Result size: 201
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75911_0 [label="epinions75911_0|<s> s|<d> d"]; epinions75911_1 [label="epinions75911_1|<s> s|<d> d"]; epinions75890 [label="epinions75890|<s> s|<d> d"]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75911_0:s -> epinions75911_1:s;epinions75911_0:d -> epinions75890:s;epinions75911_1:d -> epinions75905:d;epinions75890:d -> epinions75905:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75890 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75905 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75911_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75911_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75911 epinions75911_0, epinions75911 epinions75911_1, epinions75890, epinions75905 where epinions75911_0.s = epinions75911_1.s and epinions75911_0.d = epinions75890.s and epinions75911_1.d = epinions75905.d and epinions75890.d = epinions75905.s;
+\set queryname epinions_cyclic_q3_06
+-- Result size: 198
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75915_0 [label="epinions75915_0|<s> s|<d> d"]; epinions75915_1 [label="epinions75915_1|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75922 [label="epinions75922|<s> s|<d> d"]; epinions75915_0:s -> epinions75915_1:s;epinions75915_0:d -> epinions75911:s;epinions75915_1:d -> epinions75922:d;epinions75911:d -> epinions75922:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75911 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75922 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75915_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75915_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75915 epinions75915_0, epinions75915 epinions75915_1, epinions75911, epinions75922 where epinions75915_0.s = epinions75915_1.s and epinions75915_0.d = epinions75911.s and epinions75915_1.d = epinions75922.d and epinions75911.d = epinions75922.s;
+\set queryname epinions_cyclic_q3_07
+-- Result size: 204
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75889_0 [label="epinions75889_0|<s> s|<d> d"]; epinions75889_1 [label="epinions75889_1|<s> s|<d> d"]; epinions75912 [label="epinions75912|<s> s|<d> d"]; epinions75929 [label="epinions75929|<s> s|<d> d"]; epinions75889_0:s -> epinions75889_1:s;epinions75889_0:d -> epinions75912:s;epinions75889_1:d -> epinions75929:d;epinions75912:d -> epinions75929:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75889_0 |  s |  d | epinions75912 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75889_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75929  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75889 epinions75889_0, epinions75889 epinions75889_1, epinions75912, epinions75929 where epinions75889_0.s = epinions75889_1.s and epinions75889_0.d = epinions75912.s and epinions75889_1.d = epinions75929.d and epinions75912.d = epinions75929.s;
+\set queryname epinions_cyclic_q3_08
+-- Result size: 185
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75914_0 [label="epinions75914_0|<s> s|<d> d"]; epinions75914_1 [label="epinions75914_1|<s> s|<d> d"]; epinions75929 [label="epinions75929|<s> s|<d> d"]; epinions75920 [label="epinions75920|<s> s|<d> d"]; epinions75914_0:s -> epinions75914_1:s;epinions75914_0:d -> epinions75929:s;epinions75914_1:d -> epinions75920:d;epinions75929:d -> epinions75920:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75914_0 |  s |  d | epinions75929 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75914_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75920  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75914 epinions75914_0, epinions75914 epinions75914_1, epinions75929, epinions75920 where epinions75914_0.s = epinions75914_1.s and epinions75914_0.d = epinions75929.s and epinions75914_1.d = epinions75920.d and epinions75929.d = epinions75920.s;
+\set queryname epinions_cyclic_q3_09
+-- Result size: 231
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75891_0 [label="epinions75891_0|<s> s|<d> d"]; epinions75891_1 [label="epinions75891_1|<s> s|<d> d"]; epinions75904_2 [label="epinions75904_2|<s> s|<d> d"]; epinions75904_3 [label="epinions75904_3|<s> s|<d> d"]; epinions75891_0:s -> epinions75891_1:s;epinions75891_0:d -> epinions75904_2:s;epinions75891_1:d -> epinions75904_3:d;epinions75904_2:d -> epinions75904_3:s;}
+-- +-----------------+----+----+-----------------+----+----+
+-- | epinions75891_0 |  s |  d | epinions75904_2 |  s |  d |
+-- +-----------------+----+----+-----------------+----+----+
+--                      |    |                      |    |
+--                      |    +----------------------+    |
+--                      |                                |
+-- +-----------------+----+----+                         |
+-- | epinions75891_1 |  s |  d |                         |
+-- +-----------------+----+----+                         |
+--                           |                           |
+--                           |                           |
+--                           |                           |
+-- +-----------------+----+----+                         |
+-- | epinions75904_3 |  s |  d |                         |
+-- +-----------------+----+----+                         |
+--                      |                                |
+--                      +--------------------------------+
+select count(*) from epinions75891 epinions75891_0, epinions75891 epinions75891_1, epinions75904 epinions75904_2, epinions75904 epinions75904_3 where epinions75891_0.s = epinions75891_1.s and epinions75891_0.d = epinions75904_2.s and epinions75891_1.d = epinions75904_3.d and epinions75904_2.d = epinions75904_3.s;
+\set queryname epinions_cyclic_q3_10
+-- Result size: 163
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75910_0 [label="epinions75910_0|<s> s|<d> d"]; epinions75910_1 [label="epinions75910_1|<s> s|<d> d"]; epinions75899 [label="epinions75899|<s> s|<d> d"]; epinions75891 [label="epinions75891|<s> s|<d> d"]; epinions75910_0:s -> epinions75910_1:s;epinions75910_0:d -> epinions75899:s;epinions75910_1:d -> epinions75891:d;epinions75899:d -> epinions75891:s;}
+--                    +---------------+----+----+
+--                    | epinions75891 |  s |  d |
+--                    +---------------+----+----+
+--                                       |    |
+--                                       |    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- |  epinions75899  |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      +----------------+    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- | epinions75910_0 |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      |                     |
+--                      |                     |
+-- +-----------------+----------------+----+  |
+-- | epinions75910_1 |        s       |  d | -+
+-- +-----------------+----------------+----+
+select count(*) from epinions75910 epinions75910_0, epinions75910 epinions75910_1, epinions75899, epinions75891 where epinions75910_0.s = epinions75910_1.s and epinions75910_0.d = epinions75899.s and epinions75910_1.d = epinions75891.d and epinions75899.d = epinions75891.s;
+\set queryname epinions_cyclic_q3_11
+-- Result size: 390
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75926_0 [label="epinions75926_0|<s> s|<d> d"]; epinions75926_1 [label="epinions75926_1|<s> s|<d> d"]; epinions75913 [label="epinions75913|<s> s|<d> d"]; epinions75926_3 [label="epinions75926_3|<s> s|<d> d"]; epinions75926_0:s -> epinions75926_1:s;epinions75926_0:d -> epinions75913:s;epinions75926_1:d -> epinions75926_3:d;epinions75913:d -> epinions75926_3:s;}
+--                    +---------------+------------------+----+
+--                    | epinions75913 |         s        |  d |
+--                    +---------------+------------------+----+
+--                                       |                  |
+--                      +----------------+                  |
+--                      |                                   |
+--                      |              +-----------------+----+----+
+--                      |              | epinions75926_3 |  s |  d |
+--                      |              +-----------------+----+----+
+--                      |                                        |
+--                      +----------------+                       |
+--                                       |                       |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75926_0 |        s       |         d        |       |
+-- +-----------------+----------------+------------------+       |
+--                      |                                        |
+--                      |                                        |
+--                      |                                        |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75926_1 |        s       |         d        | ------+
+-- +-----------------+----------------+------------------+
+select count(*) from epinions75926 epinions75926_0, epinions75926 epinions75926_1, epinions75913, epinions75926 epinions75926_3 where epinions75926_0.s = epinions75926_1.s and epinions75926_0.d = epinions75913.s and epinions75926_1.d = epinions75926_3.d and epinions75913.d = epinions75926_3.s;
+\set queryname epinions_cyclic_q3_12
+-- Result size: 228
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75899_0 [label="epinions75899_0|<s> s|<d> d"]; epinions75899_1 [label="epinions75899_1|<s> s|<d> d"]; epinions75890 [label="epinions75890|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75899_0:s -> epinions75899_1:s;epinions75899_0:d -> epinions75890:s;epinions75899_1:d -> epinions75907:d;epinions75890:d -> epinions75907:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75890 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75907 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75899_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75899_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75899 epinions75899_0, epinions75899 epinions75899_1, epinions75890, epinions75907 where epinions75899_0.s = epinions75899_1.s and epinions75899_0.d = epinions75890.s and epinions75899_1.d = epinions75907.d and epinions75890.d = epinions75907.s;
+\set queryname epinions_cyclic_q3_13
+-- Result size: 253
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75899_0 [label="epinions75899_0|<s> s|<d> d"]; epinions75899_1 [label="epinions75899_1|<s> s|<d> d"]; epinions75935 [label="epinions75935|<s> s|<d> d"]; epinions75898 [label="epinions75898|<s> s|<d> d"]; epinions75899_0:s -> epinions75899_1:s;epinions75899_0:d -> epinions75935:s;epinions75899_1:d -> epinions75898:d;epinions75935:d -> epinions75898:s;}
+--                    +---------------+----+---------------+
+--                    | epinions75898 |  s |       d       | -----------+
+--                    +---------------+----+---------------+            |
+--                                       |                              |
+--                                       +-------------------------+    |
+--                                                                 |    |
+-- +-----------------+----------------+----+---------------+----+----+  |
+-- | epinions75899_0 |        s       |  d | epinions75935 |  s |  d |  |
+-- +-----------------+----------------+----+---------------+----+----+  |
+--                      |                |                    |         |
+--                      |                +--------------------+         |
+--                      |                                               |
+-- +-----------------+----------------+----+                            |
+-- | epinions75899_1 |        s       |  d | ---------------------------+
+-- +-----------------+----------------+----+
+select count(*) from epinions75899 epinions75899_0, epinions75899 epinions75899_1, epinions75935, epinions75898 where epinions75899_0.s = epinions75899_1.s and epinions75899_0.d = epinions75935.s and epinions75899_1.d = epinions75898.d and epinions75935.d = epinions75898.s;
+\set queryname epinions_cyclic_q3_14
+-- Result size: 215
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75920_0 [label="epinions75920_0|<s> s|<d> d"]; epinions75920_1 [label="epinions75920_1|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75935 [label="epinions75935|<s> s|<d> d"]; epinions75920_0:s -> epinions75920_1:s;epinions75920_0:d -> epinions75927:s;epinions75920_1:d -> epinions75935:d;epinions75927:d -> epinions75935:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75920_0 |  s |  d | epinions75927 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75920_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75935  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75920 epinions75920_0, epinions75920 epinions75920_1, epinions75927, epinions75935 where epinions75920_0.s = epinions75920_1.s and epinions75920_0.d = epinions75927.s and epinions75920_1.d = epinions75935.d and epinions75927.d = epinions75935.s;
+\set queryname epinions_cyclic_q3_15
+-- Result size: 205
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75915_0 [label="epinions75915_0|<s> s|<d> d"]; epinions75915_1 [label="epinions75915_1|<s> s|<d> d"]; epinions75892 [label="epinions75892|<s> s|<d> d"]; epinions75917 [label="epinions75917|<s> s|<d> d"]; epinions75915_0:s -> epinions75915_1:s;epinions75915_0:d -> epinions75892:s;epinions75915_1:d -> epinions75917:d;epinions75892:d -> epinions75917:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75892 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75917 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75915_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75915_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75915 epinions75915_0, epinions75915 epinions75915_1, epinions75892, epinions75917 where epinions75915_0.s = epinions75915_1.s and epinions75915_0.d = epinions75892.s and epinions75915_1.d = epinions75917.d and epinions75892.d = epinions75917.s;
+\set queryname epinions_cyclic_q3_16
+-- Result size: 218
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75908_0 [label="epinions75908_0|<s> s|<d> d"]; epinions75908_1 [label="epinions75908_1|<s> s|<d> d"]; epinions75908_2 [label="epinions75908_2|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75908_0:s -> epinions75908_1:s;epinions75908_0:d -> epinions75908_2:s;epinions75908_1:d -> epinions75930:d;epinions75908_2:d -> epinions75930:s;}
+-- +-----------------+----+----+-----------------+----+----+
+-- | epinions75908_0 |  s |  d | epinions75908_2 |  s |  d |
+-- +-----------------+----+----+-----------------+----+----+
+--                      |    |                      |    |
+--                      |    +----------------------+    |
+--                      |                                |
+-- +-----------------+----+----+                         |
+-- | epinions75908_1 |  s |  d |                         |
+-- +-----------------+----+----+                         |
+--                           |                           |
+--                           |                           |
+--                           |                           |
+-- +-----------------+----+----+                         |
+-- |  epinions75930  |  s |  d |                         |
+-- +-----------------+----+----+                         |
+--                      |                                |
+--                      +--------------------------------+
+select count(*) from epinions75908 epinions75908_0, epinions75908 epinions75908_1, epinions75908 epinions75908_2, epinions75930 where epinions75908_0.s = epinions75908_1.s and epinions75908_0.d = epinions75908_2.s and epinions75908_1.d = epinions75930.d and epinions75908_2.d = epinions75930.s;
+\set queryname epinions_cyclic_q3_17
+-- Result size: 261
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75933_0 [label="epinions75933_0|<s> s|<d> d"]; epinions75933_1 [label="epinions75933_1|<s> s|<d> d"]; epinions75899 [label="epinions75899|<s> s|<d> d"]; epinions75914 [label="epinions75914|<s> s|<d> d"]; epinions75933_0:s -> epinions75933_1:s;epinions75933_0:d -> epinions75899:s;epinions75933_1:d -> epinions75914:d;epinions75899:d -> epinions75914:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75899 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75914 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75933_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75933_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75933 epinions75933_0, epinions75933 epinions75933_1, epinions75899, epinions75914 where epinions75933_0.s = epinions75933_1.s and epinions75933_0.d = epinions75899.s and epinions75933_1.d = epinions75914.d and epinions75899.d = epinions75914.s;
+\set queryname epinions_cyclic_q3_18
+-- Result size: 229
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75899_0 [label="epinions75899_0|<s> s|<d> d"]; epinions75899_1 [label="epinions75899_1|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75896 [label="epinions75896|<s> s|<d> d"]; epinions75899_0:s -> epinions75899_1:s;epinions75899_0:d -> epinions75907:s;epinions75899_1:d -> epinions75896:d;epinions75907:d -> epinions75896:s;}
+--                    +---------------+----+---------------+
+--                    | epinions75896 |  s |       d       | -----------+
+--                    +---------------+----+---------------+            |
+--                                       |                              |
+--                                       +-------------------------+    |
+--                                                                 |    |
+-- +-----------------+----------------+----+---------------+----+----+  |
+-- | epinions75899_0 |        s       |  d | epinions75907 |  s |  d |  |
+-- +-----------------+----------------+----+---------------+----+----+  |
+--                      |                |                    |         |
+--                      |                +--------------------+         |
+--                      |                                               |
+-- +-----------------+----------------+----+                            |
+-- | epinions75899_1 |        s       |  d | ---------------------------+
+-- +-----------------+----------------+----+
+select count(*) from epinions75899 epinions75899_0, epinions75899 epinions75899_1, epinions75907, epinions75896 where epinions75899_0.s = epinions75899_1.s and epinions75899_0.d = epinions75907.s and epinions75899_1.d = epinions75896.d and epinions75907.d = epinions75896.s;
+\set queryname epinions_cyclic_q3_19
+-- Result size: 201
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75926_0 [label="epinions75926_0|<s> s|<d> d"]; epinions75926_1 [label="epinions75926_1|<s> s|<d> d"]; epinions75923 [label="epinions75923|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75926_0:s -> epinions75926_1:s;epinions75926_0:d -> epinions75923:s;epinions75926_1:d -> epinions75927:d;epinions75923:d -> epinions75927:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75923 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75927 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75926_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75926_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75926 epinions75926_0, epinions75926 epinions75926_1, epinions75923, epinions75927 where epinions75926_0.s = epinions75926_1.s and epinions75926_0.d = epinions75923.s and epinions75926_1.d = epinions75927.d and epinions75923.d = epinions75927.s;
+\set queryname epinions_cyclic_q3_20
+-- Result size: 274
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75910_0 [label="epinions75910_0|<s> s|<d> d"]; epinions75910_1 [label="epinions75910_1|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75910_0:s -> epinions75910_1:s;epinions75910_0:d -> epinions75927:s;epinions75910_1:d -> epinions75897:d;epinions75927:d -> epinions75897:s;}
+--                    +---------------+----+---------------+
+--                    | epinions75897 |  s |       d       | -----------+
+--                    +---------------+----+---------------+            |
+--                                       |                              |
+--                                       +-------------------------+    |
+--                                                                 |    |
+-- +-----------------+----------------+----+---------------+----+----+  |
+-- | epinions75910_0 |        s       |  d | epinions75927 |  s |  d |  |
+-- +-----------------+----------------+----+---------------+----+----+  |
+--                      |                |                    |         |
+--                      |                +--------------------+         |
+--                      |                                               |
+-- +-----------------+----------------+----+                            |
+-- | epinions75910_1 |        s       |  d | ---------------------------+
+-- +-----------------+----------------+----+
+select count(*) from epinions75910 epinions75910_0, epinions75910 epinions75910_1, epinions75927, epinions75897 where epinions75910_0.s = epinions75910_1.s and epinions75910_0.d = epinions75927.s and epinions75910_1.d = epinions75897.d and epinions75927.d = epinions75897.s;
+\set queryname epinions_cyclic_q3_21
+-- Result size: 252
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75903_0 [label="epinions75903_0|<s> s|<d> d"]; epinions75903_1 [label="epinions75903_1|<s> s|<d> d"]; epinions75916 [label="epinions75916|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75903_0:s -> epinions75903_1:s;epinions75903_0:d -> epinions75916:s;epinions75903_1:d -> epinions75909:d;epinions75916:d -> epinions75909:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75903_0 |  s |  d | epinions75916 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75903_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75909  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75903 epinions75903_0, epinions75903 epinions75903_1, epinions75916, epinions75909 where epinions75903_0.s = epinions75903_1.s and epinions75903_0.d = epinions75916.s and epinions75903_1.d = epinions75909.d and epinions75916.d = epinions75909.s;
+\set queryname epinions_cyclic_q3_22
+-- Result size: 33
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75924 [label="epinions75924|<s> s|<d> d"]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75933 [label="epinions75933|<s> s|<d> d"]; epinions75902:s -> epinions75924:s;epinions75902:d -> epinions75928:s;epinions75924:d -> epinions75933:d;epinions75928:d -> epinions75933:s;}
+-- +---------------+----+----+---------------+----+----+
+-- | epinions75902 |  s |  d | epinions75928 |  s |  d |
+-- +---------------+----+----+---------------+----+----+
+--                    |    |                    |    |
+--                    |    +--------------------+    |
+--                    |                              |
+-- +---------------+----+----+                       |
+-- | epinions75924 |  s |  d |                       |
+-- +---------------+----+----+                       |
+--                         |                         |
+--                         |                         |
+--                         |                         |
+-- +---------------+----+----+                       |
+-- | epinions75933 |  s |  d |                       |
+-- +---------------+----+----+                       |
+--                    |                              |
+--                    +------------------------------+
+select count(*) from epinions75902, epinions75924, epinions75928, epinions75933 where epinions75902.s = epinions75924.s and epinions75902.d = epinions75928.s and epinions75924.d = epinions75933.d and epinions75928.d = epinions75933.s;
+\set queryname epinions_cyclic_q3_23
+-- Result size: 156
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75934_0 [label="epinions75934_0|<s> s|<d> d"]; epinions75934_1 [label="epinions75934_1|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75893 [label="epinions75893|<s> s|<d> d"]; epinions75934_0:s -> epinions75934_1:s;epinions75934_0:d -> epinions75919:s;epinions75934_1:d -> epinions75893:d;epinions75919:d -> epinions75893:s;}
+--                    +---------------+----+----+
+--                    | epinions75893 |  s |  d |
+--                    +---------------+----+----+
+--                                       |    |
+--                                       |    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- |  epinions75919  |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      +----------------+    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- | epinions75934_0 |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      |                     |
+--                      |                     |
+-- +-----------------+----------------+----+  |
+-- | epinions75934_1 |        s       |  d | -+
+-- +-----------------+----------------+----+
+select count(*) from epinions75934 epinions75934_0, epinions75934 epinions75934_1, epinions75919, epinions75893 where epinions75934_0.s = epinions75934_1.s and epinions75934_0.d = epinions75919.s and epinions75934_1.d = epinions75893.d and epinions75919.d = epinions75893.s;
+\set queryname epinions_cyclic_q3_24
+-- Result size: 559
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75915_0 [label="epinions75915_0|<s> s|<d> d"]; epinions75915_1 [label="epinions75915_1|<s> s|<d> d"]; epinions75914 [label="epinions75914|<s> s|<d> d"]; epinions75915_3 [label="epinions75915_3|<s> s|<d> d"]; epinions75915_0:s -> epinions75915_1:s;epinions75915_0:d -> epinions75914:s;epinions75915_1:d -> epinions75915_3:d;epinions75914:d -> epinions75915_3:s;}
+--                    +---------------+------------------+----+
+--                    | epinions75914 |         s        |  d |
+--                    +---------------+------------------+----+
+--                                       |                  |
+--                      +----------------+                  |
+--                      |                                   |
+--                      |              +-----------------+----+----+
+--                      |              | epinions75915_3 |  s |  d |
+--                      |              +-----------------+----+----+
+--                      |                                        |
+--                      +----------------+                       |
+--                                       |                       |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75915_0 |        s       |         d        |       |
+-- +-----------------+----------------+------------------+       |
+--                      |                                        |
+--                      |                                        |
+--                      |                                        |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75915_1 |        s       |         d        | ------+
+-- +-----------------+----------------+------------------+
+select count(*) from epinions75915 epinions75915_0, epinions75915 epinions75915_1, epinions75914, epinions75915 epinions75915_3 where epinions75915_0.s = epinions75915_1.s and epinions75915_0.d = epinions75914.s and epinions75915_1.d = epinions75915_3.d and epinions75914.d = epinions75915_3.s;
+\set queryname epinions_cyclic_q3_25
+-- Result size: 215
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75891_0 [label="epinions75891_0|<s> s|<d> d"]; epinions75891_1 [label="epinions75891_1|<s> s|<d> d"]; epinions75903 [label="epinions75903|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75891_0:s -> epinions75891_1:s;epinions75891_0:d -> epinions75903:s;epinions75891_1:d -> epinions75907:d;epinions75903:d -> epinions75907:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75891_0 |  s |  d | epinions75903 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75891_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75907  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75891 epinions75891_0, epinions75891 epinions75891_1, epinions75903, epinions75907 where epinions75891_0.s = epinions75891_1.s and epinions75891_0.d = epinions75903.s and epinions75891_1.d = epinions75907.d and epinions75903.d = epinions75907.s;
+\set queryname epinions_cyclic_q3_26
+-- Result size: 182
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75895_0 [label="epinions75895_0|<s> s|<d> d"]; epinions75895_1 [label="epinions75895_1|<s> s|<d> d"]; epinions75922 [label="epinions75922|<s> s|<d> d"]; epinions75920 [label="epinions75920|<s> s|<d> d"]; epinions75895_0:s -> epinions75895_1:s;epinions75895_0:d -> epinions75922:s;epinions75895_1:d -> epinions75920:d;epinions75922:d -> epinions75920:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75895_0 |  s |  d | epinions75922 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75895_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75920  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75895 epinions75895_0, epinions75895 epinions75895_1, epinions75922, epinions75920 where epinions75895_0.s = epinions75895_1.s and epinions75895_0.d = epinions75922.s and epinions75895_1.d = epinions75920.d and epinions75922.d = epinions75920.s;
+\set queryname epinions_cyclic_q3_27
+-- Result size: 186
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75919_0 [label="epinions75919_0|<s> s|<d> d"]; epinions75919_1 [label="epinions75919_1|<s> s|<d> d"]; epinions75935 [label="epinions75935|<s> s|<d> d"]; epinions75892 [label="epinions75892|<s> s|<d> d"]; epinions75919_0:s -> epinions75919_1:s;epinions75919_0:d -> epinions75935:s;epinions75919_1:d -> epinions75892:d;epinions75935:d -> epinions75892:s;}
+--                    +---------------+----+---------------+
+--                    | epinions75892 |  s |       d       | -----------+
+--                    +---------------+----+---------------+            |
+--                                       |                              |
+--                                       +-------------------------+    |
+--                                                                 |    |
+-- +-----------------+----------------+----+---------------+----+----+  |
+-- | epinions75919_0 |        s       |  d | epinions75935 |  s |  d |  |
+-- +-----------------+----------------+----+---------------+----+----+  |
+--                      |                |                    |         |
+--                      |                +--------------------+         |
+--                      |                                               |
+-- +-----------------+----------------+----+                            |
+-- | epinions75919_1 |        s       |  d | ---------------------------+
+-- +-----------------+----------------+----+
+select count(*) from epinions75919 epinions75919_0, epinions75919 epinions75919_1, epinions75935, epinions75892 where epinions75919_0.s = epinions75919_1.s and epinions75919_0.d = epinions75935.s and epinions75919_1.d = epinions75892.d and epinions75935.d = epinions75892.s;
+\set queryname epinions_cyclic_q3_28
+-- Result size: 732
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75935_0 [label="epinions75935_0|<s> s|<d> d"]; epinions75935_1 [label="epinions75935_1|<s> s|<d> d"]; epinions75922 [label="epinions75922|<s> s|<d> d"]; epinions75935_3 [label="epinions75935_3|<s> s|<d> d"]; epinions75935_0:s -> epinions75935_1:s;epinions75935_0:d -> epinions75922:s;epinions75935_1:d -> epinions75935_3:d;epinions75922:d -> epinions75935_3:s;}
+--                    +---------------+------------------+----+
+--                    | epinions75922 |         s        |  d |
+--                    +---------------+------------------+----+
+--                                       |                  |
+--                      +----------------+                  |
+--                      |                                   |
+--                      |              +-----------------+----+----+
+--                      |              | epinions75935_3 |  s |  d |
+--                      |              +-----------------+----+----+
+--                      |                                        |
+--                      +----------------+                       |
+--                                       |                       |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75935_0 |        s       |         d        |       |
+-- +-----------------+----------------+------------------+       |
+--                      |                                        |
+--                      |                                        |
+--                      |                                        |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75935_1 |        s       |         d        | ------+
+-- +-----------------+----------------+------------------+
+select count(*) from epinions75935 epinions75935_0, epinions75935 epinions75935_1, epinions75922, epinions75935 epinions75935_3 where epinions75935_0.s = epinions75935_1.s and epinions75935_0.d = epinions75922.s and epinions75935_1.d = epinions75935_3.d and epinions75922.d = epinions75935_3.s;
+\set queryname epinions_cyclic_q3_29
+-- Result size: 197
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75928_0 [label="epinions75928_0|<s> s|<d> d"]; epinions75928_1 [label="epinions75928_1|<s> s|<d> d"]; epinions75895 [label="epinions75895|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75928_0:s -> epinions75928_1:s;epinions75928_0:d -> epinions75895:s;epinions75928_1:d -> epinions75911:d;epinions75895:d -> epinions75911:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75895 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75911 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75928_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75928_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75928 epinions75928_0, epinions75928 epinions75928_1, epinions75895, epinions75911 where epinions75928_0.s = epinions75928_1.s and epinions75928_0.d = epinions75895.s and epinions75928_1.d = epinions75911.d and epinions75895.d = epinions75911.s;
+\set queryname epinions_cyclic_q3_30
+-- Result size: 233
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75931_0 [label="epinions75931_0|<s> s|<d> d"]; epinions75931_1 [label="epinions75931_1|<s> s|<d> d"]; epinions75888 [label="epinions75888|<s> s|<d> d"]; epinions75925 [label="epinions75925|<s> s|<d> d"]; epinions75931_0:s -> epinions75931_1:s;epinions75931_0:d -> epinions75888:s;epinions75931_1:d -> epinions75925:d;epinions75888:d -> epinions75925:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75888 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75925 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75931_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75931_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75931 epinions75931_0, epinions75931 epinions75931_1, epinions75888, epinions75925 where epinions75931_0.s = epinions75931_1.s and epinions75931_0.d = epinions75888.s and epinions75931_1.d = epinions75925.d and epinions75888.d = epinions75925.s;
+\set queryname epinions_cyclic_q3_31
+-- Result size: 406
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75933_0 [label="epinions75933_0|<s> s|<d> d"]; epinions75933_1 [label="epinions75933_1|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75933_3 [label="epinions75933_3|<s> s|<d> d"]; epinions75933_0:s -> epinions75933_1:s;epinions75933_0:d -> epinions75930:s;epinions75933_1:d -> epinions75933_3:d;epinions75930:d -> epinions75933_3:s;}
+--                    +---------------+------------------+----+
+--                    | epinions75930 |         s        |  d |
+--                    +---------------+------------------+----+
+--                                       |                  |
+--                      +----------------+                  |
+--                      |                                   |
+--                      |              +-----------------+----+----+
+--                      |              | epinions75933_3 |  s |  d |
+--                      |              +-----------------+----+----+
+--                      |                                        |
+--                      +----------------+                       |
+--                                       |                       |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75933_0 |        s       |         d        |       |
+-- +-----------------+----------------+------------------+       |
+--                      |                                        |
+--                      |                                        |
+--                      |                                        |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75933_1 |        s       |         d        | ------+
+-- +-----------------+----------------+------------------+
+select count(*) from epinions75933 epinions75933_0, epinions75933 epinions75933_1, epinions75930, epinions75933 epinions75933_3 where epinions75933_0.s = epinions75933_1.s and epinions75933_0.d = epinions75930.s and epinions75933_1.d = epinions75933_3.d and epinions75930.d = epinions75933_3.s;
+\set queryname epinions_cyclic_q3_32
+-- Result size: 446
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75920_0 [label="epinions75920_0|<s> s|<d> d"]; epinions75920_1 [label="epinions75920_1|<s> s|<d> d"]; epinions75906 [label="epinions75906|<s> s|<d> d"]; epinions75920_3 [label="epinions75920_3|<s> s|<d> d"]; epinions75920_0:s -> epinions75920_1:s;epinions75920_0:d -> epinions75906:s;epinions75920_1:d -> epinions75920_3:d;epinions75906:d -> epinions75920_3:s;}
+--                    +---------------+------------------+----+
+--                    | epinions75906 |         s        |  d |
+--                    +---------------+------------------+----+
+--                                       |                  |
+--                      +----------------+                  |
+--                      |                                   |
+--                      |              +-----------------+----+----+
+--                      |              | epinions75920_3 |  s |  d |
+--                      |              +-----------------+----+----+
+--                      |                                        |
+--                      +----------------+                       |
+--                                       |                       |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75920_0 |        s       |         d        |       |
+-- +-----------------+----------------+------------------+       |
+--                      |                                        |
+--                      |                                        |
+--                      |                                        |
+-- +-----------------+----------------+------------------+       |
+-- | epinions75920_1 |        s       |         d        | ------+
+-- +-----------------+----------------+------------------+
+select count(*) from epinions75920 epinions75920_0, epinions75920 epinions75920_1, epinions75906, epinions75920 epinions75920_3 where epinions75920_0.s = epinions75920_1.s and epinions75920_0.d = epinions75906.s and epinions75920_1.d = epinions75920_3.d and epinions75906.d = epinions75920_3.s;
+\set queryname epinions_cyclic_q3_33
+-- Result size: 184
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75924_0 [label="epinions75924_0|<s> s|<d> d"]; epinions75924_1 [label="epinions75924_1|<s> s|<d> d"]; epinions75922 [label="epinions75922|<s> s|<d> d"]; epinions75937 [label="epinions75937|<s> s|<d> d"]; epinions75924_0:s -> epinions75924_1:s;epinions75924_0:d -> epinions75922:s;epinions75924_1:d -> epinions75937:d;epinions75922:d -> epinions75937:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75922 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75937 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75924_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75924_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75924 epinions75924_0, epinions75924 epinions75924_1, epinions75922, epinions75937 where epinions75924_0.s = epinions75924_1.s and epinions75924_0.d = epinions75922.s and epinions75924_1.d = epinions75937.d and epinions75922.d = epinions75937.s;
+\set queryname epinions_cyclic_q3_34
+-- Result size: 475
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75904_0 [label="epinions75904_0|<s> s|<d> d"]; epinions75904_1 [label="epinions75904_1|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75904_3 [label="epinions75904_3|<s> s|<d> d"]; epinions75904_0:s -> epinions75904_1:s;epinions75904_0:d -> epinions75909:s;epinions75904_1:d -> epinions75904_3:d;epinions75909:d -> epinions75904_3:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75904_0 |  s |  d | epinions75909 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75904_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- | epinions75904_3 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75904 epinions75904_0, epinions75904 epinions75904_1, epinions75909, epinions75904 epinions75904_3 where epinions75904_0.s = epinions75904_1.s and epinions75904_0.d = epinions75909.s and epinions75904_1.d = epinions75904_3.d and epinions75909.d = epinions75904_3.s;
+\set queryname epinions_cyclic_q3_35
+-- Result size: 217
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75922_0 [label="epinions75922_0|<s> s|<d> d"]; epinions75922_1 [label="epinions75922_1|<s> s|<d> d"]; epinions75936 [label="epinions75936|<s> s|<d> d"]; epinions75903 [label="epinions75903|<s> s|<d> d"]; epinions75922_0:s -> epinions75922_1:s;epinions75922_0:d -> epinions75936:s;epinions75922_1:d -> epinions75903:d;epinions75936:d -> epinions75903:s;}
+--                    +---------------+----+---------------+
+--                    | epinions75903 |  s |       d       | -----------+
+--                    +---------------+----+---------------+            |
+--                                       |                              |
+--                                       +-------------------------+    |
+--                                                                 |    |
+-- +-----------------+----------------+----+---------------+----+----+  |
+-- | epinions75922_0 |        s       |  d | epinions75936 |  s |  d |  |
+-- +-----------------+----------------+----+---------------+----+----+  |
+--                      |                |                    |         |
+--                      |                +--------------------+         |
+--                      |                                               |
+-- +-----------------+----------------+----+                            |
+-- | epinions75922_1 |        s       |  d | ---------------------------+
+-- +-----------------+----------------+----+
+select count(*) from epinions75922 epinions75922_0, epinions75922 epinions75922_1, epinions75936, epinions75903 where epinions75922_0.s = epinions75922_1.s and epinions75922_0.d = epinions75936.s and epinions75922_1.d = epinions75903.d and epinions75936.d = epinions75903.s;
+\set queryname epinions_cyclic_q3_36
+-- Result size: 252
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75917_0 [label="epinions75917_0|<s> s|<d> d"]; epinions75917_1 [label="epinions75917_1|<s> s|<d> d"]; epinions75914 [label="epinions75914|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75917_0:s -> epinions75917_1:s;epinions75917_0:d -> epinions75914:s;epinions75917_1:d -> epinions75934:d;epinions75914:d -> epinions75934:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75914 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75934 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75917_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75917_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75917 epinions75917_0, epinions75917 epinions75917_1, epinions75914, epinions75934 where epinions75917_0.s = epinions75917_1.s and epinions75917_0.d = epinions75914.s and epinions75917_1.d = epinions75934.d and epinions75914.d = epinions75934.s;
+\set queryname epinions_cyclic_q3_37
+-- Result size: 286
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75914_0 [label="epinions75914_0|<s> s|<d> d"]; epinions75914_1 [label="epinions75914_1|<s> s|<d> d"]; epinions75908 [label="epinions75908|<s> s|<d> d"]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75914_0:s -> epinions75914_1:s;epinions75914_0:d -> epinions75908:s;epinions75914_1:d -> epinions75897:d;epinions75908:d -> epinions75897:s;}
+--                    +---------------+----+----+
+--                    | epinions75897 |  s |  d |
+--                    +---------------+----+----+
+--                                       |    |
+--                                       |    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- |  epinions75908  |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      +----------------+    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- | epinions75914_0 |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      |                     |
+--                      |                     |
+-- +-----------------+----------------+----+  |
+-- | epinions75914_1 |        s       |  d | -+
+-- +-----------------+----------------+----+
+select count(*) from epinions75914 epinions75914_0, epinions75914 epinions75914_1, epinions75908, epinions75897 where epinions75914_0.s = epinions75914_1.s and epinions75914_0.d = epinions75908.s and epinions75914_1.d = epinions75897.d and epinions75908.d = epinions75897.s;
+\set queryname epinions_cyclic_q3_38
+-- Result size: 186
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75935_0 [label="epinions75935_0|<s> s|<d> d"]; epinions75935_1 [label="epinions75935_1|<s> s|<d> d"]; epinions75929 [label="epinions75929|<s> s|<d> d"]; epinions75908 [label="epinions75908|<s> s|<d> d"]; epinions75935_0:s -> epinions75935_1:s;epinions75935_0:d -> epinions75929:s;epinions75935_1:d -> epinions75908:d;epinions75929:d -> epinions75908:s;}
+--                    +---------------+----+----+
+--                    | epinions75908 |  s |  d |
+--                    +---------------+----+----+
+--                                       |    |
+--                                       |    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- |  epinions75929  |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      +----------------+    |
+--                                       |    |
+-- +-----------------+----------------+----+  |
+-- | epinions75935_0 |        s       |  d |  |
+-- +-----------------+----------------+----+  |
+--                      |                     |
+--                      |                     |
+--                      |                     |
+-- +-----------------+----------------+----+  |
+-- | epinions75935_1 |        s       |  d | -+
+-- +-----------------+----------------+----+
+select count(*) from epinions75935 epinions75935_0, epinions75935 epinions75935_1, epinions75929, epinions75908 where epinions75935_0.s = epinions75935_1.s and epinions75935_0.d = epinions75929.s and epinions75935_1.d = epinions75908.d and epinions75929.d = epinions75908.s;
+\set queryname epinions_cyclic_q3_39
+-- Result size: 494
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75908_0 [label="epinions75908_0|<s> s|<d> d"]; epinions75908_1 [label="epinions75908_1|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75908_3 [label="epinions75908_3|<s> s|<d> d"]; epinions75908_0:s -> epinions75908_1:s;epinions75908_0:d -> epinions75918:s;epinions75908_1:d -> epinions75908_3:d;epinions75918:d -> epinions75908_3:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75908_0 |  s |  d | epinions75918 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75908_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- | epinions75908_3 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75908 epinions75908_0, epinions75908 epinions75908_1, epinions75918, epinions75908 epinions75908_3 where epinions75908_0.s = epinions75908_1.s and epinions75908_0.d = epinions75918.s and epinions75908_1.d = epinions75908_3.d and epinions75918.d = epinions75908_3.s;
+\set queryname epinions_cyclic_q3_40
+-- Result size: 252
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75900_0 [label="epinions75900_0|<s> s|<d> d"]; epinions75900_1 [label="epinions75900_1|<s> s|<d> d"]; epinions75889 [label="epinions75889|<s> s|<d> d"]; epinions75898 [label="epinions75898|<s> s|<d> d"]; epinions75900_0:s -> epinions75900_1:s;epinions75900_0:d -> epinions75889:s;epinions75900_1:d -> epinions75898:d;epinions75889:d -> epinions75898:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75889 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75898 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75900_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75900_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75900 epinions75900_0, epinions75900 epinions75900_1, epinions75889, epinions75898 where epinions75900_0.s = epinions75900_1.s and epinions75900_0.d = epinions75889.s and epinions75900_1.d = epinions75898.d and epinions75889.d = epinions75898.s;
+\set queryname epinions_cyclic_q3_41
+-- Result size: 529
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75893_0 [label="epinions75893_0|<s> s|<d> d"]; epinions75893_1 [label="epinions75893_1|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75893_3 [label="epinions75893_3|<s> s|<d> d"]; epinions75893_0:s -> epinions75893_1:s;epinions75893_0:d -> epinions75934:s;epinions75893_1:d -> epinions75893_3:d;epinions75934:d -> epinions75893_3:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75893_0 |  s |  d | epinions75934 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75893_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- | epinions75893_3 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75893 epinions75893_0, epinions75893 epinions75893_1, epinions75934, epinions75893 epinions75893_3 where epinions75893_0.s = epinions75893_1.s and epinions75893_0.d = epinions75934.s and epinions75893_1.d = epinions75893_3.d and epinions75934.d = epinions75893_3.s;
+\set queryname epinions_cyclic_q3_42
+-- Result size: 193
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75896_0 [label="epinions75896_0|<s> s|<d> d"]; epinions75896_1 [label="epinions75896_1|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75932 [label="epinions75932|<s> s|<d> d"]; epinions75896_0:s -> epinions75896_1:s;epinions75896_0:d -> epinions75907:s;epinions75896_1:d -> epinions75932:d;epinions75907:d -> epinions75932:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75896_0 |  s |  d | epinions75907 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75896_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75932  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75896 epinions75896_0, epinions75896 epinions75896_1, epinions75907, epinions75932 where epinions75896_0.s = epinions75896_1.s and epinions75896_0.d = epinions75907.s and epinions75896_1.d = epinions75932.d and epinions75907.d = epinions75932.s;
+\set queryname epinions_cyclic_q3_43
+-- Result size: 397
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75903_0 [label="epinions75903_0|<s> s|<d> d"]; epinions75903_1 [label="epinions75903_1|<s> s|<d> d"]; epinions75924 [label="epinions75924|<s> s|<d> d"]; epinions75903_3 [label="epinions75903_3|<s> s|<d> d"]; epinions75903_0:s -> epinions75903_1:s;epinions75903_0:d -> epinions75924:s;epinions75903_1:d -> epinions75903_3:d;epinions75924:d -> epinions75903_3:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75903_0 |  s |  d | epinions75924 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75903_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- | epinions75903_3 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75903 epinions75903_0, epinions75903 epinions75903_1, epinions75924, epinions75903 epinions75903_3 where epinions75903_0.s = epinions75903_1.s and epinions75903_0.d = epinions75924.s and epinions75903_1.d = epinions75903_3.d and epinions75924.d = epinions75903_3.s;
+\set queryname epinions_cyclic_q3_44
+-- Result size: 156
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75891_0 [label="epinions75891_0|<s> s|<d> d"]; epinions75891_1 [label="epinions75891_1|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75892 [label="epinions75892|<s> s|<d> d"]; epinions75891_0:s -> epinions75891_1:s;epinions75891_0:d -> epinions75918:s;epinions75891_1:d -> epinions75892:d;epinions75918:d -> epinions75892:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75891_0 |  s |  d | epinions75918 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75891_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75892  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75891 epinions75891_0, epinions75891 epinions75891_1, epinions75918, epinions75892 where epinions75891_0.s = epinions75891_1.s and epinions75891_0.d = epinions75918.s and epinions75891_1.d = epinions75892.d and epinions75918.d = epinions75892.s;
+\set queryname epinions_cyclic_q3_45
+-- Result size: 201
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75910_0 [label="epinions75910_0|<s> s|<d> d"]; epinions75910_1 [label="epinions75910_1|<s> s|<d> d"]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75921 [label="epinions75921|<s> s|<d> d"]; epinions75910_0:s -> epinions75910_1:s;epinions75910_0:d -> epinions75897:s;epinions75910_1:d -> epinions75921:d;epinions75897:d -> epinions75921:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75897 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75921 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75910_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75910_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75910 epinions75910_0, epinions75910 epinions75910_1, epinions75897, epinions75921 where epinions75910_0.s = epinions75910_1.s and epinions75910_0.d = epinions75897.s and epinions75910_1.d = epinions75921.d and epinions75897.d = epinions75921.s;
+\set queryname epinions_cyclic_q3_46
+-- Result size: 173
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75893_0 [label="epinions75893_0|<s> s|<d> d"]; epinions75893_1 [label="epinions75893_1|<s> s|<d> d"]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75893_0:s -> epinions75893_1:s;epinions75893_0:d -> epinions75897:s;epinions75893_1:d -> epinions75919:d;epinions75897:d -> epinions75919:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75893_0 |  s |  d | epinions75897 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75893_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75919  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75893 epinions75893_0, epinions75893 epinions75893_1, epinions75897, epinions75919 where epinions75893_0.s = epinions75893_1.s and epinions75893_0.d = epinions75897.s and epinions75893_1.d = epinions75919.d and epinions75897.d = epinions75919.s;
+\set queryname epinions_cyclic_q3_47
+-- Result size: 235
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75892_0 [label="epinions75892_0|<s> s|<d> d"]; epinions75892_1 [label="epinions75892_1|<s> s|<d> d"]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75892_0:s -> epinions75892_1:s;epinions75892_0:d -> epinions75928:s;epinions75892_1:d -> epinions75902:d;epinions75928:d -> epinions75902:s;}
+-- +-----------------+----+----+---------------+----+----+
+-- | epinions75892_0 |  s |  d | epinions75928 |  s |  d |
+-- +-----------------+----+----+---------------+----+----+
+--                      |    |                    |    |
+--                      |    +--------------------+    |
+--                      |                              |
+-- +-----------------+----+----+                       |
+-- | epinions75892_1 |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                           |                         |
+--                           |                         |
+--                           |                         |
+-- +-----------------+----+----+                       |
+-- |  epinions75902  |  s |  d |                       |
+-- +-----------------+----+----+                       |
+--                      |                              |
+--                      +------------------------------+
+select count(*) from epinions75892 epinions75892_0, epinions75892 epinions75892_1, epinions75928, epinions75902 where epinions75892_0.s = epinions75892_1.s and epinions75892_0.d = epinions75928.s and epinions75892_1.d = epinions75902.d and epinions75928.d = epinions75902.s;
+\set queryname epinions_cyclic_q3_48
+-- Result size: 176
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75931_0 [label="epinions75931_0|<s> s|<d> d"]; epinions75931_1 [label="epinions75931_1|<s> s|<d> d"]; epinions75891 [label="epinions75891|<s> s|<d> d"]; epinions75904 [label="epinions75904|<s> s|<d> d"]; epinions75931_0:s -> epinions75931_1:s;epinions75931_0:d -> epinions75891:s;epinions75931_1:d -> epinions75904:d;epinions75891:d -> epinions75904:s;}
+--                    +---------------+----------------+----+
+--                    | epinions75891 |        s       |  d |
+--                    +---------------+----------------+----+
+--                                       |                |
+--                      +----------------+                |
+--                      |                                 |
+--                      |              +---------------+----+----+
+--                      |              | epinions75904 |  s |  d |
+--                      |              +---------------+----+----+
+--                      |                                      |
+--                      +----------------+                     |
+--                                       |                     |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75931_0 |        s       |        d       |       |
+-- +-----------------+----------------+----------------+       |
+--                      |                                      |
+--                      |                                      |
+--                      |                                      |
+-- +-----------------+----------------+----------------+       |
+-- | epinions75931_1 |        s       |        d       | ------+
+-- +-----------------+----------------+----------------+
+select count(*) from epinions75931 epinions75931_0, epinions75931 epinions75931_1, epinions75891, epinions75904 where epinions75931_0.s = epinions75931_1.s and epinions75931_0.d = epinions75891.s and epinions75931_1.d = epinions75904.d and epinions75891.d = epinions75904.s;
+\set queryname epinions_cyclic_q3_49
+-- Result size: 200
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75935_0 [label="epinions75935_0|<s> s|<d> d"]; epinions75935_1 [label="epinions75935_1|<s> s|<d> d"]; epinions75937 [label="epinions75937|<s> s|<d> d"]; epinions75901 [label="epinions75901|<s> s|<d> d"]; epinions75935_0:s -> epinions75935_1:s;epinions75935_0:d -> epinions75937:s;epinions75935_1:d -> epinions75901:d;epinions75937:d -> epinions75901:s;}
+--                    +---------------+----+---------------+
+--                    | epinions75901 |  s |       d       | -----------+
+--                    +---------------+----+---------------+            |
+--                                       |                              |
+--                                       +-------------------------+    |
+--                                                                 |    |
+-- +-----------------+----------------+----+---------------+----+----+  |
+-- | epinions75935_0 |        s       |  d | epinions75937 |  s |  d |  |
+-- +-----------------+----------------+----+---------------+----+----+  |
+--                      |                |                    |         |
+--                      |                +--------------------+         |
+--                      |                                               |
+-- +-----------------+----------------+----+                            |
+-- | epinions75935_1 |        s       |  d | ---------------------------+
+-- +-----------------+----------------+----+
+select count(*) from epinions75935 epinions75935_0, epinions75935 epinions75935_1, epinions75937, epinions75901 where epinions75935_0.s = epinions75935_1.s and epinions75935_0.d = epinions75937.s and epinions75935_1.d = epinions75901.d and epinions75937.d = epinions75901.s;
+\set queryname epinions_cyclic_q3_50
+-- Result size: 220
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75891_0 [label="epinions75891_0|<s> s|<d> d"]; epinions75891_1 [label="epinions75891_1|<s> s|<d> d"]; epinions75891_2 [label="epinions75891_2|<s> s|<d> d"]; epinions75932 [label="epinions75932|<s> s|<d> d"]; epinions75891_0:s -> epinions75891_1:s;epinions75891_0:d -> epinions75891_2:s;epinions75891_1:d -> epinions75932:d;epinions75891_2:d -> epinions75932:s;}
+-- +-----------------+----+----+-----------------+----+----+
+-- | epinions75891_0 |  s |  d | epinions75891_2 |  s |  d |
+-- +-----------------+----+----+-----------------+----+----+
+--                      |    |                      |    |
+--                      |    +----------------------+    |
+--                      |                                |
+-- +-----------------+----+----+                         |
+-- | epinions75891_1 |  s |  d |                         |
+-- +-----------------+----+----+                         |
+--                           |                           |
+--                           |                           |
+--                           |                           |
+-- +-----------------+----+----+                         |
+-- |  epinions75932  |  s |  d |                         |
+-- +-----------------+----+----+                         |
+--                      |                                |
+--                      +--------------------------------+
+select count(*) from epinions75891 epinions75891_0, epinions75891 epinions75891_1, epinions75891 epinions75891_2, epinions75932 where epinions75891_0.s = epinions75891_1.s and epinions75891_0.d = epinions75891_2.s and epinions75891_1.d = epinions75932.d and epinions75891_2.d = epinions75932.s;

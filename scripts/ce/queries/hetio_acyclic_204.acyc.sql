@@ -1,0 +1,670 @@
+--\set queryname hetio_acyclic_204_00
+-- Result size: 40742999140
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45167 [label="hetio45167|<s> s|<d> d"]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45161 [label="hetio45161|<s> s|<d> d"]; hetio45178 [label="hetio45178|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45159 [label="hetio45159|<s> s|<d> d"]; hetio45167:s -> hetio45166:s;hetio45166:s -> hetio45161:s;hetio45161:d -> hetio45178:s;hetio45178:d -> hetio45160:s;hetio45160:d -> hetio45159:s;}
+-- +------------+-------------+----+
+-- | hetio45160 |      s      |  d |
+-- +------------+-------------+----+
+--                 |             |
+--   +-------------+             |
+--   |                           |
+--   |           +------------+----+----+
+--   |           | hetio45159 |  s |  d |
+--   |           +------------+----+----+
+--   |
+--   +--------------------------------+
+--                                    |
+-- +------------+-------------+----+  |
+-- | hetio45167 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                 |                  |
+--                 |                  |
+--                 |                  |
+-- +------------+-------------+----+  |
+-- | hetio45166 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                 |                  |
+--                 |                  |
+--                 |                  |
+-- +------------+-------------+----+  |
+-- | hetio45161 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                               |    |
+--                               |    |
+--                               |    |
+--               +------------+----+----+
+--               | hetio45178 |  s |  d |
+--               +------------+----+----+
+--with dummy as (select) /* stage1 */, hetio45178_s1_bbbaa806641de01 as (select hetio45178.d as v5,hetio45178.s as v3 from hetio45178), hetio45161_s1_bbbaa806641de01 as (select hetio45161.s as v0,hetio45161.d as v3 from hetio45161), hetio45167_s1_bbbaa806641de01 as (select hetio45167.s as v0 from hetio45167), hetio45166_s1_bbbaa806641de01 as (select hetio45166.s as v0 from hetio45166), hetio45160_s1_bbbaa806641de01 as (select hetio45160.s as v5,hetio45160.d as v7 from hetio45160), hetio45159_s1_bbbaa806641de01 as (select hetio45159.s as v7 from hetio45159) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_645E0F925704938F as  (select * from umbra.identity(table(hetio45178_s1_bbbaa806641de01)) NATURAL JOIN umbra.identity(table(hetio45160_s1_bbbaa806641de01)) NATURAL JOIN umbra.identity(table(hetio45159_s1_bbbaa806641de01)) NATURAL JOIN umbra.identity(table(hetio45161_s1_bbbaa806641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_bbbaa806641de01)) NATURAL JOIN umbra.identity(table(hetio45167_s1_bbbaa806641de01)))select count(*) from umbra.identity(table(s4_group_645E0F925704938F));
+--\set queryname hetio_acyclic_204_01
+-- Result size: 31937849774
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45167 [label="hetio45167|<s> s|<d> d"]; hetio45161 [label="hetio45161|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45164 [label="hetio45164|<s> s|<d> d"]; hetio45182 [label="hetio45182|<s> s|<d> d"]; hetio45180 [label="hetio45180|<s> s|<d> d"]; hetio45167:s -> hetio45161:s;hetio45161:s -> hetio45170:s;hetio45170:d -> hetio45164:s;hetio45164:d -> hetio45182:s;hetio45182:d -> hetio45180:s;}
+--                 +--------------------------------+
+--                 |                                |
+--                 |           +------------+----+----+
+--                 |           | hetio45170 |  s |  d |
+--                 |           +------------+----+----+
+--                 |                           |
+--                 |                           |
+--                 |                           |
+--                 |           +------------+----+----+
+--                 |           | hetio45161 |  s |  d |
+--                 |           +------------+----+----+
+--                 |                           |
+--                 |                           |
+--                 |                           |
+--                 |           +------------+----+----+
+--                 |           | hetio45167 |  s |  d |
+--                 |           +------------+----+----+
+--                 |
+--                 |
+--                 |
+-- +------------+-------------+-------------+
+-- | hetio45164 |      s      |      d      |
+-- +------------+-------------+-------------+
+--                               |
+--                               |
+--                               |
+--               +------------+-------------+----+
+--               | hetio45182 |      s      |  d |
+--               +------------+-------------+----+
+--                                             |
+--                                             |
+--                                             |
+--                             +------------+----+----+
+--                             | hetio45180 |  s |  d |
+--                             +------------+----+----+
+--with dummy as (select) /* stage1 */, hetio45164_s1_e41d9006641de01 as (select hetio45164.s as v3,hetio45164.d as v5 from hetio45164), hetio45182_s1_e41d9006641de01 as (select hetio45182.d as v7,hetio45182.s as v5 from hetio45182), hetio45180_s1_e41d9006641de01 as (select hetio45180.s as v7 from hetio45180), hetio45170_s1_e41d9006641de01 as (select hetio45170.s as v0,hetio45170.d as v3 from hetio45170), hetio45167_s1_e41d9006641de01 as (select hetio45167.s as v0 from hetio45167), hetio45161_s1_e41d9006641de01 as (select hetio45161.s as v0 from hetio45161) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_236F2F04C33C0E22 as  (select * from umbra.identity(table(hetio45164_s1_e41d9006641de01)) NATURAL JOIN umbra.identity(table(hetio45170_s1_e41d9006641de01)) NATURAL JOIN umbra.identity(table(hetio45167_s1_e41d9006641de01)) NATURAL JOIN umbra.identity(table(hetio45161_s1_e41d9006641de01)) NATURAL JOIN umbra.identity(table(hetio45182_s1_e41d9006641de01)) NATURAL JOIN umbra.identity(table(hetio45180_s1_e41d9006641de01)))select count(*) from umbra.identity(table(s4_group_236F2F04C33C0E22));
+--\set queryname hetio_acyclic_204_02
+-- Result size: 88133731965
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45159 [label="hetio45159|<s> s|<d> d"]; hetio45176 [label="hetio45176|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45180 [label="hetio45180|<s> s|<d> d"]; hetio45159:s -> hetio45176:s;hetio45176:s -> hetio45160:s;hetio45160:d -> hetio45177:s;hetio45177:d -> hetio45173:s;hetio45173:d -> hetio45180:s;}
+--                             +------------+-------------+----+
+--                             | hetio45159 |      s      |  d |
+--                             +------------+-------------+----+
+--                                             |
+--                                             |
+--                                             |
+--                             +------------+-------------+----+
+--                             | hetio45176 |      s      |  d |
+--                             +------------+-------------+----+
+--                                             |
+--                                             |
+--                                             |
+--                             +------------+-------------+----+
+--                             | hetio45160 |      s      |  d |
+--                             +------------+-------------+----+
+--                                                           |
+--                                                           |
+--                                                           |
+--                                           +------------+----+----+
+--                                           | hetio45177 |  s |  d |
+--                                           +------------+----+----+
+--                                                                |
+--                 +----------------------------------------------+
+--                 |
+-- +------------+-------------+-------------+
+-- | hetio45173 |      s      |      d      |
+-- +------------+-------------+-------------+
+--                               |
+--                               |
+--                               |
+--               +------------+-------------+-------------+
+--               | hetio45180 |      s      |      d      |
+--               +------------+-------------+-------------+
+--with dummy as (select) /* stage1 */, hetio45177_s1_1230ec806641de01 as (select hetio45177.d as v5,hetio45177.s as v3 from hetio45177), hetio45173_s1_1230ec806641de01 as (select hetio45173.s as v5,hetio45173.d as v7 from hetio45173), hetio45180_s1_1230ec806641de01 as (select hetio45180.s as v7 from hetio45180), hetio45160_s1_1230ec806641de01 as (select hetio45160.s as v0,hetio45160.d as v3 from hetio45160), hetio45176_s1_1230ec806641de01 as (select hetio45176.s as v0 from hetio45176), hetio45159_s1_1230ec806641de01 as (select hetio45159.s as v0 from hetio45159) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_3A906AC5FC0581E7 as  (select * from umbra.identity(table(hetio45177_s1_1230ec806641de01)) NATURAL JOIN umbra.identity(table(hetio45160_s1_1230ec806641de01)) NATURAL JOIN umbra.identity(table(hetio45159_s1_1230ec806641de01)) NATURAL JOIN umbra.identity(table(hetio45176_s1_1230ec806641de01)) NATURAL JOIN umbra.identity(table(hetio45173_s1_1230ec806641de01)) NATURAL JOIN umbra.identity(table(hetio45180_s1_1230ec806641de01)))select count(*) from umbra.identity(table(s4_group_3A906AC5FC0581E7));
+--\set queryname hetio_acyclic_204_03
+-- Result size: 2798603354042
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45178 [label="hetio45178|<s> s|<d> d"]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45159 [label="hetio45159|<s> s|<d> d"]; hetio45181:s -> hetio45178:s;hetio45178:s -> hetio45166:s;hetio45166:d -> hetio45177:s;hetio45177:d -> hetio45160:s;hetio45160:d -> hetio45159:s;}
+-- +------------+-------------+----+
+-- | hetio45160 |      s      |  d |
+-- +------------+-------------+----+
+--                 |             |
+--   +-------------+             |
+--   |                           |
+--   |           +------------+----+----+
+--   |           | hetio45159 |  s |  d |
+--   |           +------------+----+----+
+--   |
+--   +--------------------------------+
+--                                    |
+-- +------------+-------------+----+  |
+-- | hetio45181 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                 |                  |
+--                 |                  |
+--                 |                  |
+-- +------------+-------------+----+  |
+-- | hetio45178 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                 |                  |
+--                 |                  |
+--                 |                  |
+-- +------------+-------------+----+  |
+-- | hetio45166 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                               |    |
+--                               |    |
+--                               |    |
+--               +------------+----+----+
+--               | hetio45177 |  s |  d |
+--               +------------+----+----+
+--with dummy as (select) /* stage1 */, hetio45177_s1_11b0e0006641de01 as (select hetio45177.s as v3,hetio45177.d as v5 from hetio45177), hetio45166_s1_11b0e0006641de01 as (select hetio45166.s as v0,hetio45166.d as v3 from hetio45166), hetio45181_s1_11b0e0006641de01 as (select hetio45181.s as v0 from hetio45181), hetio45178_s1_11b0e0006641de01 as (select hetio45178.s as v0 from hetio45178), hetio45160_s1_11b0e0006641de01 as (select hetio45160.d as v7,hetio45160.s as v5 from hetio45160), hetio45159_s1_11b0e0006641de01 as (select hetio45159.s as v7 from hetio45159) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5F761BA3EDF2D5F1 as  (select * from umbra.identity(table(hetio45177_s1_11b0e0006641de01)) NATURAL JOIN umbra.identity(table(hetio45160_s1_11b0e0006641de01)) NATURAL JOIN umbra.identity(table(hetio45159_s1_11b0e0006641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_11b0e0006641de01)) NATURAL JOIN umbra.identity(table(hetio45178_s1_11b0e0006641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_11b0e0006641de01)))select count(*) from umbra.identity(table(s4_group_5F761BA3EDF2D5F1));
+--\set queryname hetio_acyclic_204_04
+-- Result size: 60257170163
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45167 [label="hetio45167|<s> s|<d> d"]; hetio45178 [label="hetio45178|<s> s|<d> d"]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45166:s -> hetio45167:s;hetio45167:s -> hetio45178:s;hetio45178:d -> hetio45177:s;hetio45177:d -> hetio45173:s;hetio45173:d -> hetio45160:s;}
+-- +------------+-------------+-------------+
+-- | hetio45177 |      s      |      d      |
+-- +------------+-------------+-------------+
+--                 |             |
+--   +-------------+             |
+--   |                           |
+--   |           +------------+-------------+----+
+--   |           | hetio45173 |      s      |  d |
+--   |           +------------+-------------+----+
+--   |                                         |
+--   |                                         |
+--   |                                         |
+--   |                         +------------+----+---+
+--   |                         | hetio45160 |  s | d |
+--   |                         +------------+----+---+
+--   |           +------------+-------------+----+
+--   |           | hetio45166 |      s      |  d |
+--   |           +------------+-------------+----+
+--   |                           |
+--   |                           |
+--   |                           |
+--   |           +------------+-------------+----+
+--   |           | hetio45167 |      s      |  d |
+--   |           +------------+-------------+----+
+--   |                           |
+--   |                           |
+--   |                           |
+--   |           +------------+-------------+----+
+--   |           | hetio45178 |      s      |  d |
+--   |           +------------+-------------+----+
+--   |                                         |
+--   +-----------------------------------------+
+--with dummy as (select) /* stage1 */, hetio45177_s1_12ce4f806641de01 as (select hetio45177.s as v3,hetio45177.d as v5 from hetio45177), hetio45178_s1_12ce4f806641de01 as (select hetio45178.s as v0,hetio45178.d as v3 from hetio45178), hetio45167_s1_12ce4f806641de01 as (select hetio45167.s as v0 from hetio45167), hetio45166_s1_12ce4f806641de01 as (select hetio45166.s as v0 from hetio45166), hetio45173_s1_12ce4f806641de01 as (select hetio45173.d as v7,hetio45173.s as v5 from hetio45173), hetio45160_s1_12ce4f806641de01 as (select hetio45160.s as v7 from hetio45160) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2456DC3DF71D6DA2 as  (select * from umbra.identity(table(hetio45177_s1_12ce4f806641de01)) NATURAL JOIN umbra.identity(table(hetio45173_s1_12ce4f806641de01)) NATURAL JOIN umbra.identity(table(hetio45160_s1_12ce4f806641de01)) NATURAL JOIN umbra.identity(table(hetio45178_s1_12ce4f806641de01)) NATURAL JOIN umbra.identity(table(hetio45167_s1_12ce4f806641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_12ce4f806641de01)))select count(*) from umbra.identity(table(s4_group_2456DC3DF71D6DA2));
+--\set queryname hetio_acyclic_204_05
+-- Result size: 110258918490
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45167 [label="hetio45167|<s> s|<d> d"]; hetio45178 [label="hetio45178|<s> s|<d> d"]; hetio45161 [label="hetio45161|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45164 [label="hetio45164|<s> s|<d> d"]; hetio45182 [label="hetio45182|<s> s|<d> d"]; hetio45167:s -> hetio45178:s;hetio45178:s -> hetio45161:s;hetio45161:d -> hetio45170:s;hetio45170:d -> hetio45164:s;hetio45164:d -> hetio45182:s;}
+--                                                  +-----------------+
+--                                                  |                 |
+--                             +------------+----+----+------------+----+----+
+--                             | hetio45161 |  s |  d | hetio45170 |  s |  d |
+--                             +------------+----+----+------------+----+----+
+--                                             |                           |
+--                                             +----+                      |
+--                                                  |                      |
+--               +------------+-------------+----+  |                      |
+--               | hetio45167 |      s      |  d |  |                      |
+--               +------------+-------------+----+  |                      |
+--                               |                  |                      |
+--                               |                  |                      |
+--                               |                  |                      |
+--               +------------+-------------+----+  |                      |
+--               | hetio45178 |      s      |  d |  |                      |
+--               +------------+-------------+----+  |                      |
+--                               |                  |                      |
+--                               +------------------+                      |
+--                                                                         |
+--                                                                         |
+--                 +-------------------------------------------------------+
+--                 |
+-- +------------+-------------+-------------+
+-- | hetio45164 |      s      |      d      |
+-- +------------+-------------+-------------+
+--                               |
+--                               |
+--                               |
+--               +------------+-------------+----+
+--               | hetio45182 |      s      |  d |
+--               +------------+-------------+----+
+--with dummy as (select) /* stage1 */, hetio45170_s1_130a6d006641de01 as (select hetio45170.s as v3,hetio45170.d as v5 from hetio45170), hetio45164_s1_130a6d006641de01 as (select hetio45164.d as v7,hetio45164.s as v5 from hetio45164), hetio45182_s1_130a6d006641de01 as (select hetio45182.s as v7 from hetio45182), hetio45161_s1_130a6d006641de01 as (select hetio45161.s as v0,hetio45161.d as v3 from hetio45161), hetio45178_s1_130a6d006641de01 as (select hetio45178.s as v0 from hetio45178), hetio45167_s1_130a6d006641de01 as (select hetio45167.s as v0 from hetio45167) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_31CD7264D302402F as  (select * from umbra.identity(table(hetio45170_s1_130a6d006641de01)) NATURAL JOIN umbra.identity(table(hetio45161_s1_130a6d006641de01)) NATURAL JOIN umbra.identity(table(hetio45167_s1_130a6d006641de01)) NATURAL JOIN umbra.identity(table(hetio45178_s1_130a6d006641de01)) NATURAL JOIN umbra.identity(table(hetio45164_s1_130a6d006641de01)) NATURAL JOIN umbra.identity(table(hetio45182_s1_130a6d006641de01)))select count(*) from umbra.identity(table(s4_group_31CD7264D302402F));
+--\set queryname hetio_acyclic_204_06
+-- Result size: 10780890765
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45161 [label="hetio45161|<s> s|<d> d"]; hetio45165 [label="hetio45165|<s> s|<d> d"]; hetio45169 [label="hetio45169|<s> s|<d> d"]; hetio45180 [label="hetio45180|<s> s|<d> d"]; hetio45166:s -> hetio45181:s;hetio45181:s -> hetio45161:s;hetio45161:d -> hetio45165:s;hetio45165:d -> hetio45169:s;hetio45169:d -> hetio45180:s;}
+--                                    +-----------------+
+--                                    |                 |
+--               +------------+----+----+------------+-------------+-------------+
+--               | hetio45161 |  s |  d | hetio45165 |      s      |      d      |
+--               +------------+----+----+------------+-------------+-------------+
+--                               |                                    |
+--                               +----+                               |
+--                                    |                               |
+-- +------------+-------------+----+  |               +------------+-------------+----+
+-- | hetio45166 |      s      |  d |  |               | hetio45169 |      s      |  d |
+-- +------------+-------------+----+  |               +------------+-------------+----+
+--                 |                  |                                             |
+--                 |                  |                                             |
+--                 |                  |                                             |
+-- +------------+-------------+----+  |                             +------------+----+---+
+-- | hetio45181 |      s      |  d |  |                             | hetio45180 |  s | d |
+-- +------------+-------------+----+  |                             +------------+----+---+
+--                 |                  |
+--                 +------------------+
+--with dummy as (select) /* stage1 */, hetio45165_s1_13c8fd806641de01 as (select hetio45165.d as v5,hetio45165.s as v3 from hetio45165), hetio45169_s1_13c8fd806641de01 as (select hetio45169.s as v5,hetio45169.d as v7 from hetio45169), hetio45180_s1_13c8fd806641de01 as (select hetio45180.s as v7 from hetio45180), hetio45161_s1_13c8fd806641de01 as (select hetio45161.d as v3,hetio45161.s as v0 from hetio45161), hetio45181_s1_13c8fd806641de01 as (select hetio45181.s as v0 from hetio45181), hetio45166_s1_13c8fd806641de01 as (select hetio45166.s as v0 from hetio45166) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6A450ED6057102B2 as  (select * from umbra.identity(table(hetio45165_s1_13c8fd806641de01)) NATURAL JOIN umbra.identity(table(hetio45161_s1_13c8fd806641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_13c8fd806641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_13c8fd806641de01)) NATURAL JOIN umbra.identity(table(hetio45169_s1_13c8fd806641de01)) NATURAL JOIN umbra.identity(table(hetio45180_s1_13c8fd806641de01)))select count(*) from umbra.identity(table(s4_group_6A450ED6057102B2));
+--\set queryname hetio_acyclic_204_07
+-- Result size: 3459021363423
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45164 [label="hetio45164|<s> s|<d> d"]; hetio45182 [label="hetio45182|<s> s|<d> d"]; hetio45159 [label="hetio45159|<s> s|<d> d"]; hetio45181:s -> hetio45166:s;hetio45166:s -> hetio45170:s;hetio45170:d -> hetio45164:s;hetio45164:d -> hetio45182:s;hetio45182:d -> hetio45159:s;}
+--                             +------------+----+----+
+--                             | hetio45159 |  s |  d |
+--                             +------------+----+----+
+--                                             |
+--                                             +----+
+--                                                  |
+--               +------------+-------------+----+  |
+--               | hetio45181 |      s      |  d |  |
+--               +------------+-------------+----+  |
+--                               |                  |
+--                               |                  |
+--                               |                  |
+--               +------------+-------------+----+  |
+--               | hetio45166 |      s      |  d |  |
+--               +------------+-------------+----+  |
+--                               |                  |
+--                               |                  |
+--                               |                  |
+--               +------------+-------------+----+  |
+--               | hetio45170 |      s      |  d |  |
+--               +------------+-------------+----+  |
+--                                             |    |
+--                 +---------------------------+    |
+--                 |                                |
+-- +------------+-------------+-------------+       |
+-- | hetio45164 |      s      |      d      |  +----+
+-- +------------+-------------+-------------+  |
+--                               |             |
+--                               |             |
+--                               |             |
+--               +------------+-------------+----+
+--               | hetio45182 |      s      |  d |
+--               +------------+-------------+----+
+--with dummy as (select) /* stage1 */, hetio45164_s1_17c03a006641de01 as (select hetio45164.s as v3,hetio45164.d as v5 from hetio45164), hetio45182_s1_17c03a006641de01 as (select hetio45182.d as v7,hetio45182.s as v5 from hetio45182), hetio45159_s1_17c03a006641de01 as (select hetio45159.s as v7 from hetio45159), hetio45170_s1_17c03a006641de01 as (select hetio45170.d as v3,hetio45170.s as v0 from hetio45170), hetio45181_s1_17c03a006641de01 as (select hetio45181.s as v0 from hetio45181), hetio45166_s1_17c03a006641de01 as (select hetio45166.s as v0 from hetio45166) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7764546A17FF14E2 as  (select * from umbra.identity(table(hetio45164_s1_17c03a006641de01)) NATURAL JOIN umbra.identity(table(hetio45170_s1_17c03a006641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_17c03a006641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_17c03a006641de01)) NATURAL JOIN umbra.identity(table(hetio45182_s1_17c03a006641de01)) NATURAL JOIN umbra.identity(table(hetio45159_s1_17c03a006641de01)))select count(*) from umbra.identity(table(s4_group_7764546A17FF14E2));
+--\set queryname hetio_acyclic_204_08
+-- Result size: 24961089537
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45161 [label="hetio45161|<s> s|<d> d"]; hetio45178 [label="hetio45178|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45164 [label="hetio45164|<s> s|<d> d"]; hetio45182 [label="hetio45182|<s> s|<d> d"]; hetio45176 [label="hetio45176|<s> s|<d> d"]; hetio45161:s -> hetio45178:s;hetio45178:s -> hetio45170:s;hetio45170:d -> hetio45164:s;hetio45164:d -> hetio45182:s;hetio45182:d -> hetio45176:s;}
+--                             +------------+----+----+
+--                             | hetio45161 |  s |  d |
+--                             +------------+----+----+
+--                                             |
+--                                             |
+--                                             |
+--                             +------------+----+----+
+--                             | hetio45178 |  s |  d |
+--                             +------------+----+----+
+--                                             |
+--                                             |
+--                                             |
+--                             +------------+----+----+
+--                             | hetio45170 |  s |  d |
+--                             +------------+----+----+
+--                                                  |
+--                 +--------------------------------+
+--                 |
+-- +------------+-------------+-------------+
+-- | hetio45164 |      s      |      d      |
+-- +------------+-------------+-------------+
+--                               |
+--                               |
+--                               |
+--               +------------+-------------+----+
+--               | hetio45182 |      s      |  d |
+--               +------------+-------------+----+
+--                                             |
+--                                             |
+--                                             |
+--                             +------------+----+----+
+--                             | hetio45176 |  s |  d |
+--                             +------------+----+----+
+--with dummy as (select) /* stage1 */, hetio45164_s1_16849a006641de01 as (select hetio45164.s as v3,hetio45164.d as v5 from hetio45164), hetio45182_s1_16849a006641de01 as (select hetio45182.d as v7,hetio45182.s as v5 from hetio45182), hetio45176_s1_16849a006641de01 as (select hetio45176.s as v7 from hetio45176), hetio45170_s1_16849a006641de01 as (select hetio45170.d as v3,hetio45170.s as v0 from hetio45170), hetio45178_s1_16849a006641de01 as (select hetio45178.s as v0 from hetio45178), hetio45161_s1_16849a006641de01 as (select hetio45161.s as v0 from hetio45161) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_36EBE690B2BC8ED1 as  (select * from umbra.identity(table(hetio45164_s1_16849a006641de01)) NATURAL JOIN umbra.identity(table(hetio45170_s1_16849a006641de01)) NATURAL JOIN umbra.identity(table(hetio45161_s1_16849a006641de01)) NATURAL JOIN umbra.identity(table(hetio45178_s1_16849a006641de01)) NATURAL JOIN umbra.identity(table(hetio45182_s1_16849a006641de01)) NATURAL JOIN umbra.identity(table(hetio45176_s1_16849a006641de01)))select count(*) from umbra.identity(table(s4_group_36EBE690B2BC8ED1));
+--\set queryname hetio_acyclic_204_09
+-- Result size: 4822118757
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45167 [label="hetio45167|<s> s|<d> d"]; hetio45161 [label="hetio45161|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45169 [label="hetio45169|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45174 [label="hetio45174|<s> s|<d> d"]; hetio45167:s -> hetio45161:s;hetio45161:s -> hetio45170:s;hetio45170:d -> hetio45169:s;hetio45169:d -> hetio45160:s;hetio45160:d -> hetio45174:s;}
+--      +------------+-------------+----+
+--      | hetio45169 |      s      |  d |
+--      +------------+-------------+----+
+--                      |             |
+--   +------------------+             |
+--   |                                |
+--   |                +------------+----+----+------------+----+---+
+--   |                | hetio45160 |  s |  d | hetio45174 |  s | d |
+--   |                +------------+----+----+------------+----+---+
+--   |                                     |                 |
+--   |                                     +-----------------+
+--   |
+--   |  +------------+-------------+----+
+--   |  | hetio45167 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45161 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45170 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                                |
+--   +--------------------------------+
+--with dummy as (select) /* stage1 */, hetio45169_s1_19b467806641de01 as (select hetio45169.d as v5,hetio45169.s as v3 from hetio45169), hetio45170_s1_19b467806641de01 as (select hetio45170.s as v0,hetio45170.d as v3 from hetio45170), hetio45167_s1_19b467806641de01 as (select hetio45167.s as v0 from hetio45167), hetio45161_s1_19b467806641de01 as (select hetio45161.s as v0 from hetio45161), hetio45160_s1_19b467806641de01 as (select hetio45160.s as v5,hetio45160.d as v7 from hetio45160), hetio45174_s1_19b467806641de01 as (select hetio45174.s as v7 from hetio45174) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_10AB990C86FE31D2 as  (select * from umbra.identity(table(hetio45169_s1_19b467806641de01)) NATURAL JOIN umbra.identity(table(hetio45160_s1_19b467806641de01)) NATURAL JOIN umbra.identity(table(hetio45174_s1_19b467806641de01)) NATURAL JOIN umbra.identity(table(hetio45170_s1_19b467806641de01)) NATURAL JOIN umbra.identity(table(hetio45167_s1_19b467806641de01)) NATURAL JOIN umbra.identity(table(hetio45161_s1_19b467806641de01)))select count(*) from umbra.identity(table(s4_group_10AB990C86FE31D2));
+--\set queryname hetio_acyclic_204_10
+-- Result size: 2819462596134
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45167 [label="hetio45167|<s> s|<d> d"]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45165 [label="hetio45165|<s> s|<d> d"]; hetio45168 [label="hetio45168|<s> s|<d> d"]; hetio45164 [label="hetio45164|<s> s|<d> d"]; hetio45182 [label="hetio45182|<s> s|<d> d"]; hetio45167:s -> hetio45181:s;hetio45181:s -> hetio45165:s;hetio45165:d -> hetio45168:s;hetio45168:d -> hetio45164:s;hetio45164:d -> hetio45182:s;}
+--                               +-------------------------------+
+--                               |                               |
+--               +------------+----+----+------------+----+---+  |
+--               | hetio45164 |  s |  d | hetio45182 |  s | d |  |
+--               +------------+----+----+------------+----+---+  |
+--                                    |                 |        |
+--                                    +-----------------+        |
+--                                                               |
+-- +------------+-------------+----+                             |
+-- | hetio45167 |      s      |  d |  +--------------------------+
+-- +------------+-------------+----+  |
+--                 |                  |
+--                 |                  |
+--                 |                  |
+-- +------------+-------------+----+  |
+-- | hetio45181 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                 |                  |
+--                 |                  |
+--                 |                  |
+-- +------------+-------------+----+  |
+-- | hetio45165 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                               |    |
+--                               |    |
+--                               |    |
+--               +------------+----+----+
+--               | hetio45168 |  s |  d |
+--               +------------+----+----+
+--with dummy as (select) /* stage1 */, hetio45168_s1_1799b0006641de01 as (select hetio45168.d as v5,hetio45168.s as v3 from hetio45168), hetio45165_s1_1799b0006641de01 as (select hetio45165.s as v0,hetio45165.d as v3 from hetio45165), hetio45181_s1_1799b0006641de01 as (select hetio45181.s as v0 from hetio45181), hetio45167_s1_1799b0006641de01 as (select hetio45167.s as v0 from hetio45167), hetio45164_s1_1799b0006641de01 as (select hetio45164.d as v7,hetio45164.s as v5 from hetio45164), hetio45182_s1_1799b0006641de01 as (select hetio45182.s as v7 from hetio45182) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_F52B8A2867F2C55 as  (select * from umbra.identity(table(hetio45168_s1_1799b0006641de01)) NATURAL JOIN umbra.identity(table(hetio45164_s1_1799b0006641de01)) NATURAL JOIN umbra.identity(table(hetio45182_s1_1799b0006641de01)) NATURAL JOIN umbra.identity(table(hetio45165_s1_1799b0006641de01)) NATURAL JOIN umbra.identity(table(hetio45167_s1_1799b0006641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_1799b0006641de01)))select count(*) from umbra.identity(table(s4_group_F52B8A2867F2C55));
+--\set queryname hetio_acyclic_204_11
+-- Result size: 4424212582
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45161 [label="hetio45161|<s> s|<d> d"]; hetio45167 [label="hetio45167|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45166:s -> hetio45181:s;hetio45181:s -> hetio45161:s;hetio45161:d -> hetio45167:s;hetio45167:d -> hetio45160:s;hetio45160:d -> hetio45173:s;}
+--                               +-------------------------------+
+--                               |                               |
+--               +------------+----+----+------------+----+---+  |
+--               | hetio45160 |  s |  d | hetio45173 |  s | d |  |
+--               +------------+----+----+------------+----+---+  |
+--                                    |                 |        |
+--                                    +-----------------+        |
+--                                                               |
+-- +------------+-------------+----+                             |
+-- | hetio45166 |      s      |  d |  +--------------------------+
+-- +------------+-------------+----+  |
+--                 |                  |
+--                 |                  |
+--                 |                  |
+-- +------------+-------------+----+  |
+-- | hetio45181 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                 |                  |
+--                 |                  |
+--                 |                  |
+-- +------------+-------------+----+  |
+-- | hetio45161 |      s      |  d |  |
+-- +------------+-------------+----+  |
+--                               |    |
+--                               |    |
+--                               |    |
+--               +------------+----+----+
+--               | hetio45167 |  s |  d |
+--               +------------+----+----+
+--with dummy as (select) /* stage1 */, hetio45167_s1_1ab715006641de01 as (select hetio45167.s as v3,hetio45167.d as v5 from hetio45167), hetio45161_s1_1ab715006641de01 as (select hetio45161.d as v3,hetio45161.s as v0 from hetio45161), hetio45181_s1_1ab715006641de01 as (select hetio45181.s as v0 from hetio45181), hetio45166_s1_1ab715006641de01 as (select hetio45166.s as v0 from hetio45166), hetio45160_s1_1ab715006641de01 as (select hetio45160.d as v7,hetio45160.s as v5 from hetio45160), hetio45173_s1_1ab715006641de01 as (select hetio45173.s as v7 from hetio45173) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_1BE4350E22223D24 as  (select * from umbra.identity(table(hetio45167_s1_1ab715006641de01)) NATURAL JOIN umbra.identity(table(hetio45160_s1_1ab715006641de01)) NATURAL JOIN umbra.identity(table(hetio45173_s1_1ab715006641de01)) NATURAL JOIN umbra.identity(table(hetio45161_s1_1ab715006641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_1ab715006641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_1ab715006641de01)))select count(*) from umbra.identity(table(s4_group_1BE4350E22223D24));
+--\set queryname hetio_acyclic_204_12
+-- Result size: 32021549675
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45167 [label="hetio45167|<s> s|<d> d"]; hetio45178 [label="hetio45178|<s> s|<d> d"]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45180 [label="hetio45180|<s> s|<d> d"]; hetio45166:s -> hetio45167:s;hetio45167:s -> hetio45178:s;hetio45178:d -> hetio45177:s;hetio45177:d -> hetio45173:s;hetio45173:d -> hetio45180:s;}
+--                                           +------------+----+----+
+--                                           | hetio45166 |  s |  d |
+--                                           +------------+----+----+
+--                                                           |
+--                                                           |
+--                                                           |
+--                                           +------------+----+----+
+--                                           | hetio45167 |  s |  d |
+--                                           +------------+----+----+
+--                                                           |
+--                                                           |
+--                                                           |
+--                                           +------------+----+----+
+--                                           | hetio45178 |  s |  d |
+--                                           +------------+----+----+
+--                                                                |
+--                                                                |
+--                                                                |
+--               +------------+-------------+-------------+       |
+--               | hetio45173 |      s      |      d      |       |
+--               +------------+-------------+-------------+       |
+--                               |             |                  |
+--                 +-------------+             |                  |
+--                 |                           |                  |
+--                 |           +------------+-------------+----+  |
+--                 |           | hetio45180 |      s      |  d |  |
+--                 |           +------------+-------------+----+  |
+--                 |                                              |
+--                 +-------------+                                |
+--                               |                                |
+-- +------------+-------------+-------------+                     |
+-- | hetio45177 |      s      |      d      |                     |
+-- +------------+-------------+-------------+                     |
+--                 |                                              |
+--                 +----------------------------------------------+
+--with dummy as (select) /* stage1 */, hetio45177_s1_19342b806641de01 as (select hetio45177.d as v5,hetio45177.s as v3 from hetio45177), hetio45178_s1_19342b806641de01 as (select hetio45178.d as v3,hetio45178.s as v0 from hetio45178), hetio45167_s1_19342b806641de01 as (select hetio45167.s as v0 from hetio45167), hetio45166_s1_19342b806641de01 as (select hetio45166.s as v0 from hetio45166), hetio45173_s1_19342b806641de01 as (select hetio45173.d as v7,hetio45173.s as v5 from hetio45173), hetio45180_s1_19342b806641de01 as (select hetio45180.s as v7 from hetio45180) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2E86666F2354DE53 as  (select * from umbra.identity(table(hetio45177_s1_19342b806641de01)) NATURAL JOIN umbra.identity(table(hetio45173_s1_19342b806641de01)) NATURAL JOIN umbra.identity(table(hetio45180_s1_19342b806641de01)) NATURAL JOIN umbra.identity(table(hetio45178_s1_19342b806641de01)) NATURAL JOIN umbra.identity(table(hetio45167_s1_19342b806641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_19342b806641de01)))select count(*) from umbra.identity(table(s4_group_2E86666F2354DE53));
+--\set queryname hetio_acyclic_204_13
+-- Result size: 33437805853
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45178 [label="hetio45178|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45164 [label="hetio45164|<s> s|<d> d"]; hetio45182 [label="hetio45182|<s> s|<d> d"]; hetio45176 [label="hetio45176|<s> s|<d> d"]; hetio45166:s -> hetio45178:s;hetio45178:s -> hetio45170:s;hetio45170:d -> hetio45164:s;hetio45164:d -> hetio45182:s;hetio45182:d -> hetio45176:s;}
+--                    +------------+----+----+------------+----+----+------------+----+---+
+--                    | hetio45164 |  s |  d | hetio45182 |  s |  d | hetio45176 |  s | d |
+--                    +------------+----+----+------------+----+----+------------+----+---+
+--                                    |    |                 |    |                 |
+--   +--------------------------------+    +-----------------+    +-----------------+
+--   |
+--   |  +------------+-------------+----+
+--   |  | hetio45166 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45178 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45170 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                                |
+--   +--------------------------------+
+--with dummy as (select) /* stage1 */, hetio45164_s1_1b4efa806641de01 as (select hetio45164.s as v3,hetio45164.d as v5 from hetio45164), hetio45182_s1_1b4efa806641de01 as (select hetio45182.s as v5,hetio45182.d as v7 from hetio45182), hetio45176_s1_1b4efa806641de01 as (select hetio45176.s as v7 from hetio45176), hetio45170_s1_1b4efa806641de01 as (select hetio45170.s as v0,hetio45170.d as v3 from hetio45170), hetio45178_s1_1b4efa806641de01 as (select hetio45178.s as v0 from hetio45178), hetio45166_s1_1b4efa806641de01 as (select hetio45166.s as v0 from hetio45166) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2A56F87564C31F50 as  (select * from umbra.identity(table(hetio45164_s1_1b4efa806641de01)) NATURAL JOIN umbra.identity(table(hetio45170_s1_1b4efa806641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_1b4efa806641de01)) NATURAL JOIN umbra.identity(table(hetio45178_s1_1b4efa806641de01)) NATURAL JOIN umbra.identity(table(hetio45182_s1_1b4efa806641de01)) NATURAL JOIN umbra.identity(table(hetio45176_s1_1b4efa806641de01)))select count(*) from umbra.identity(table(s4_group_2A56F87564C31F50));
+--\set queryname hetio_acyclic_204_14
+-- Result size: 1679410564
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45161 [label="hetio45161|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45179 [label="hetio45179|<s> s|<d> d"]; hetio45180 [label="hetio45180|<s> s|<d> d"]; hetio45166:s -> hetio45181:s;hetio45181:s -> hetio45161:s;hetio45161:d -> hetio45170:s;hetio45170:d -> hetio45179:s;hetio45179:d -> hetio45180:s;}
+--                                    +-----------------+
+--                                    |                 |
+--               +------------+----+----+------------+-------------+-------------+
+--               | hetio45161 |  s |  d | hetio45170 |      s      |      d      |
+--               +------------+----+----+------------+-------------+-------------+
+--                               |                                    |
+--                               +----+                               |
+--                                    |                               |
+-- +------------+-------------+----+  |               +------------+-------------+----+
+-- | hetio45166 |      s      |  d |  |               | hetio45179 |      s      |  d |
+-- +------------+-------------+----+  |               +------------+-------------+----+
+--                 |                  |                                             |
+--                 |                  |                                             |
+--                 |                  |                                             |
+-- +------------+-------------+----+  |                             +------------+----+---+
+-- | hetio45181 |      s      |  d |  |                             | hetio45180 |  s | d |
+-- +------------+-------------+----+  |                             +------------+----+---+
+--                 |                  |
+--                 +------------------+
+--with dummy as (select) /* stage1 */, hetio45170_s1_1b11bd006641de01 as (select hetio45170.d as v5,hetio45170.s as v3 from hetio45170), hetio45179_s1_1b11bd006641de01 as (select hetio45179.d as v7,hetio45179.s as v5 from hetio45179), hetio45180_s1_1b11bd006641de01 as (select hetio45180.s as v7 from hetio45180), hetio45161_s1_1b11bd006641de01 as (select hetio45161.s as v0,hetio45161.d as v3 from hetio45161), hetio45181_s1_1b11bd006641de01 as (select hetio45181.s as v0 from hetio45181), hetio45166_s1_1b11bd006641de01 as (select hetio45166.s as v0 from hetio45166) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6567D605EE2CB13A as  (select * from umbra.identity(table(hetio45170_s1_1b11bd006641de01)) NATURAL JOIN umbra.identity(table(hetio45161_s1_1b11bd006641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_1b11bd006641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_1b11bd006641de01)) NATURAL JOIN umbra.identity(table(hetio45179_s1_1b11bd006641de01)) NATURAL JOIN umbra.identity(table(hetio45180_s1_1b11bd006641de01)))select count(*) from umbra.identity(table(s4_group_6567D605EE2CB13A));
+--\set queryname hetio_acyclic_204_15
+-- Result size: 554163092654
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45164 [label="hetio45164|<s> s|<d> d"]; hetio45182 [label="hetio45182|<s> s|<d> d"]; hetio45174 [label="hetio45174|<s> s|<d> d"]; hetio45166:s -> hetio45181:s;hetio45181:s -> hetio45170:s;hetio45170:d -> hetio45164:s;hetio45164:d -> hetio45182:s;hetio45182:d -> hetio45174:s;}
+--                    +------------+----+----+------------+----+----+------------+----+---+
+--                    | hetio45164 |  s |  d | hetio45182 |  s |  d | hetio45174 |  s | d |
+--                    +------------+----+----+------------+----+----+------------+----+---+
+--                                    |    |                 |    |                 |
+--   +--------------------------------+    +-----------------+    +-----------------+
+--   |
+--   |  +------------+-------------+----+
+--   |  | hetio45166 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45181 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45170 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                                |
+--   +--------------------------------+
+--with dummy as (select) /* stage1 */, hetio45164_s1_1bfe8d006641de01 as (select hetio45164.d as v5,hetio45164.s as v3 from hetio45164), hetio45182_s1_1bfe8d006641de01 as (select hetio45182.s as v5,hetio45182.d as v7 from hetio45182), hetio45174_s1_1bfe8d006641de01 as (select hetio45174.s as v7 from hetio45174), hetio45170_s1_1bfe8d006641de01 as (select hetio45170.s as v0,hetio45170.d as v3 from hetio45170), hetio45181_s1_1bfe8d006641de01 as (select hetio45181.s as v0 from hetio45181), hetio45166_s1_1bfe8d006641de01 as (select hetio45166.s as v0 from hetio45166) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5FD34B33B9544507 as  (select * from umbra.identity(table(hetio45164_s1_1bfe8d006641de01)) NATURAL JOIN umbra.identity(table(hetio45170_s1_1bfe8d006641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_1bfe8d006641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_1bfe8d006641de01)) NATURAL JOIN umbra.identity(table(hetio45182_s1_1bfe8d006641de01)) NATURAL JOIN umbra.identity(table(hetio45174_s1_1bfe8d006641de01)))select count(*) from umbra.identity(table(s4_group_5FD34B33B9544507));
+--\set queryname hetio_acyclic_204_16
+-- Result size: 777346268068
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45165 [label="hetio45165|<s> s|<d> d"]; hetio45164 [label="hetio45164|<s> s|<d> d"]; hetio45182 [label="hetio45182|<s> s|<d> d"]; hetio45180 [label="hetio45180|<s> s|<d> d"]; hetio45166:s -> hetio45181:s;hetio45181:s -> hetio45165:s;hetio45165:d -> hetio45164:s;hetio45164:d -> hetio45182:s;hetio45182:d -> hetio45180:s;}
+--                    +------------+----+----+------------+----+----+------------+----+---+
+--                    | hetio45164 |  s |  d | hetio45182 |  s |  d | hetio45180 |  s | d |
+--                    +------------+----+----+------------+----+----+------------+----+---+
+--                                    |    |                 |    |                 |
+--   +--------------------------------+    +-----------------+    +-----------------+
+--   |
+--   |  +------------+-------------+----+
+--   |  | hetio45166 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45181 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45165 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                                |
+--   +--------------------------------+
+--with dummy as (select) /* stage1 */, hetio45164_s1_1c9560806641de01 as (select hetio45164.s as v3,hetio45164.d as v5 from hetio45164), hetio45182_s1_1c9560806641de01 as (select hetio45182.d as v7,hetio45182.s as v5 from hetio45182), hetio45180_s1_1c9560806641de01 as (select hetio45180.s as v7 from hetio45180), hetio45165_s1_1c9560806641de01 as (select hetio45165.s as v0,hetio45165.d as v3 from hetio45165), hetio45181_s1_1c9560806641de01 as (select hetio45181.s as v0 from hetio45181), hetio45166_s1_1c9560806641de01 as (select hetio45166.s as v0 from hetio45166) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_3C75A45BC7D2AD31 as  (select * from umbra.identity(table(hetio45164_s1_1c9560806641de01)) NATURAL JOIN umbra.identity(table(hetio45165_s1_1c9560806641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_1c9560806641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_1c9560806641de01)) NATURAL JOIN umbra.identity(table(hetio45182_s1_1c9560806641de01)) NATURAL JOIN umbra.identity(table(hetio45180_s1_1c9560806641de01)))select count(*) from umbra.identity(table(s4_group_3C75A45BC7D2AD31));
+--\set queryname hetio_acyclic_204_17
+-- Result size: 12253003072
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45162 [label="hetio45162|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45176 [label="hetio45176|<s> s|<d> d"]; hetio45181:s -> hetio45166:s;hetio45166:s -> hetio45170:s;hetio45170:d -> hetio45162:s;hetio45162:d -> hetio45160:s;hetio45160:d -> hetio45176:s;}
+--      +------------+-------------+----+
+--      | hetio45162 |      s      |  d |
+--      +------------+-------------+----+
+--                      |             |
+--   +------------------+             |
+--   |                                |
+--   |                +------------+----+----+------------+----+---+
+--   |                | hetio45160 |  s |  d | hetio45176 |  s | d |
+--   |                +------------+----+----+------------+----+---+
+--   |                                     |                 |
+--   |                                     +-----------------+
+--   |
+--   |  +------------+-------------+----+
+--   |  | hetio45181 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45166 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                  |
+--   |                  |
+--   |                  |
+--   |  +------------+-------------+----+
+--   |  | hetio45170 |      s      |  d |
+--   |  +------------+-------------+----+
+--   |                                |
+--   +--------------------------------+
+--with dummy as (select) /* stage1 */, hetio45162_s1_1c879c806641de01 as (select hetio45162.d as v5,hetio45162.s as v3 from hetio45162), hetio45170_s1_1c879c806641de01 as (select hetio45170.d as v3,hetio45170.s as v0 from hetio45170), hetio45181_s1_1c879c806641de01 as (select hetio45181.s as v0 from hetio45181), hetio45166_s1_1c879c806641de01 as (select hetio45166.s as v0 from hetio45166), hetio45160_s1_1c879c806641de01 as (select hetio45160.s as v5,hetio45160.d as v7 from hetio45160), hetio45176_s1_1c879c806641de01 as (select hetio45176.s as v7 from hetio45176) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2742097CD7F97CCA as  (select * from umbra.identity(table(hetio45162_s1_1c879c806641de01)) NATURAL JOIN umbra.identity(table(hetio45160_s1_1c879c806641de01)) NATURAL JOIN umbra.identity(table(hetio45176_s1_1c879c806641de01)) NATURAL JOIN umbra.identity(table(hetio45170_s1_1c879c806641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_1c879c806641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_1c879c806641de01)))select count(*) from umbra.identity(table(s4_group_2742097CD7F97CCA));
+\set queryname hetio_acyclic_204_18
+-- Result size: 145616598
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45178 [label="hetio45178|<s> s|<d> d"]; hetio45161 [label="hetio45161|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45162 [label="hetio45162|<s> s|<d> d"]; hetio45173 [label="hetio45173|<s> s|<d> d"]; hetio45174 [label="hetio45174|<s> s|<d> d"]; hetio45178:s -> hetio45161:s;hetio45161:s -> hetio45170:s;hetio45170:d -> hetio45162:s;hetio45162:d -> hetio45173:s;hetio45173:d -> hetio45174:s;}
+--                 +--------------------------------+
+--                 |                                |
+--                 |           +------------+----+----+
+--                 |           | hetio45170 |  s |  d |
+--                 |           +------------+----+----+
+--                 |                           |
+--                 |                           |
+--                 |                           |
+--                 |           +------------+----+----+
+--                 |           | hetio45161 |  s |  d |
+--                 |           +------------+----+----+
+--                 |                           |
+--                 |                           |
+--                 |                           |
+--                 |           +------------+----+----+
+--                 |           | hetio45178 |  s |  d |
+--                 |           +------------+----+----+
+--                 |
+--                 |
+--                 |
+-- +------------+-------------+-------------+
+-- | hetio45162 |      s      |      d      |
+-- +------------+-------------+-------------+
+--                               |
+--                               |
+--                               |
+--               +------------+-------------+----+
+--               | hetio45173 |      s      |  d |
+--               +------------+-------------+----+
+--                                             |
+--                                             |
+--                                             |
+--                             +------------+----+----+
+--                             | hetio45174 |  s |  d |
+--                             +------------+----+----+
+with dummy as (select) /* stage1 */, hetio45162_s1_1db6e7806641de01 as (select hetio45162.s as v3,hetio45162.d as v5 from hetio45162), hetio45173_s1_1db6e7806641de01 as (select hetio45173.d as v7,hetio45173.s as v5 from hetio45173), hetio45174_s1_1db6e7806641de01 as (select hetio45174.s as v7 from hetio45174), hetio45170_s1_1db6e7806641de01 as (select hetio45170.d as v3,hetio45170.s as v0 from hetio45170), hetio45178_s1_1db6e7806641de01 as (select hetio45178.s as v0 from hetio45178), hetio45161_s1_1db6e7806641de01 as (select hetio45161.s as v0 from hetio45161) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7B30FED9DC8670A1 as  (select * from umbra.identity(table(hetio45162_s1_1db6e7806641de01)) NATURAL JOIN umbra.identity(table(hetio45170_s1_1db6e7806641de01)) NATURAL JOIN umbra.identity(table(hetio45161_s1_1db6e7806641de01)) NATURAL JOIN umbra.identity(table(hetio45178_s1_1db6e7806641de01)) NATURAL JOIN umbra.identity(table(hetio45173_s1_1db6e7806641de01)) NATURAL JOIN umbra.identity(table(hetio45174_s1_1db6e7806641de01)))select count(*) from umbra.identity(table(s4_group_7B30FED9DC8670A1));
+--\set queryname hetio_acyclic_204_19
+-- Result size: 29778482385
+-- digraph G { node [shape=record]; edge [arrowhead=none]; hetio45181 [label="hetio45181|<s> s|<d> d"]; hetio45170 [label="hetio45170|<s> s|<d> d"]; hetio45166 [label="hetio45166|<s> s|<d> d"]; hetio45160 [label="hetio45160|<s> s|<d> d"]; hetio45177 [label="hetio45177|<s> s|<d> d"]; hetio45159 [label="hetio45159|<s> s|<d> d"]; hetio45181:s -> hetio45170:s;hetio45170:s -> hetio45166:s;hetio45166:d -> hetio45160:s;hetio45160:d -> hetio45177:s;hetio45177:d -> hetio45159:s;}
+--                             +------------+----+----+
+--                             | hetio45159 |  s |  d |
+--                             +------------+----+----+
+--                                             |
+--                                             +----+
+--                                                  |
+--               +------------+-------------+----+  |
+--               | hetio45181 |      s      |  d |  |
+--               +------------+-------------+----+  |
+--                               |                  |
+--                               |                  |
+--                               |                  |
+--               +------------+-------------+----+  |
+--               | hetio45170 |      s      |  d |  |
+--               +------------+-------------+----+  |
+--                               |                  |
+--                               |                  |
+--                               |                  |
+--               +------------+-------------+----+  |
+--               | hetio45166 |      s      |  d |  |
+--               +------------+-------------+----+  |
+--                                             |    |
+--                 +---------------------------+    |
+--                 |                                |
+-- +------------+-------------+-------------+       |
+-- | hetio45160 |      s      |      d      |  +----+
+-- +------------+-------------+-------------+  |
+--                               |             |
+--                               |             |
+--                               |             |
+--               +------------+-------------+----+
+--               | hetio45177 |      s      |  d |
+--               +------------+-------------+----+
+--with dummy as (select) /* stage1 */, hetio45160_s1_1d10d6006641de01 as (select hetio45160.d as v5,hetio45160.s as v3 from hetio45160), hetio45177_s1_1d10d6006641de01 as (select hetio45177.s as v5,hetio45177.d as v7 from hetio45177), hetio45159_s1_1d10d6006641de01 as (select hetio45159.s as v7 from hetio45159), hetio45166_s1_1d10d6006641de01 as (select hetio45166.s as v0,hetio45166.d as v3 from hetio45166), hetio45181_s1_1d10d6006641de01 as (select hetio45181.s as v0 from hetio45181), hetio45170_s1_1d10d6006641de01 as (select hetio45170.s as v0 from hetio45170) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_344828E45FEF1058 as  (select * from umbra.identity(table(hetio45160_s1_1d10d6006641de01)) NATURAL JOIN umbra.identity(table(hetio45166_s1_1d10d6006641de01)) NATURAL JOIN umbra.identity(table(hetio45170_s1_1d10d6006641de01)) NATURAL JOIN umbra.identity(table(hetio45181_s1_1d10d6006641de01)) NATURAL JOIN umbra.identity(table(hetio45177_s1_1d10d6006641de01)) NATURAL JOIN umbra.identity(table(hetio45159_s1_1d10d6006641de01)))select count(*) from umbra.identity(table(s4_group_344828E45FEF1058));

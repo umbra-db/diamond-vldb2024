@@ -1,0 +1,626 @@
+\set queryname watdiv_acyclic_204_00
+-- Result size: 517748467
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052582 [label="watdiv1052582|<s> s|<d> d"]; watdiv1052581 [label="watdiv1052581|<s> s|<d> d"]; watdiv1052595 [label="watdiv1052595|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052582:s -> watdiv1052581:s;watdiv1052581:s -> watdiv1052595:s;watdiv1052595:d -> watdiv1052638:s;watdiv1052638:d -> watdiv1052651:s;watdiv1052651:d -> watdiv1052644:s;}
+-- +---------------+----+----+---------------+----+----+---------------+----+----+---------------+----+---+
+-- | watdiv1052595 |  s |  d | watdiv1052638 |  s |  d | watdiv1052651 |  s |  d | watdiv1052644 |  s | d |
+-- +---------------+----+----+---------------+----+----+---------------+----+----+---------------+----+---+
+--                    |    |                    |    |                    |    |                    |
+--                    |    +--------------------+    +--------------------+    +--------------------+
+--                    |
+-- +---------------+----+----+
+-- | watdiv1052581 |  s |  d |
+-- +---------------+----+----+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+----+
+-- | watdiv1052582 |  s |  d |
+-- +---------------+----+----+
+select count(*) from watdiv1052582, watdiv1052581, watdiv1052595, watdiv1052638, watdiv1052651, watdiv1052644 where watdiv1052582.s = watdiv1052581.s and watdiv1052581.s = watdiv1052595.s and watdiv1052595.d = watdiv1052638.s and watdiv1052638.d = watdiv1052651.s and watdiv1052651.d = watdiv1052644.s;
+\set queryname watdiv_acyclic_204_01
+-- Result size: 20376
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052616 [label="watdiv1052616|<s> s|<d> d"]; watdiv1052581 [label="watdiv1052581|<s> s|<d> d"]; watdiv1052595 [label="watdiv1052595|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052653 [label="watdiv1052653|<s> s|<d> d"]; watdiv1052616:s -> watdiv1052581:s;watdiv1052581:s -> watdiv1052595:s;watdiv1052595:d -> watdiv1052638:s;watdiv1052638:d -> watdiv1052644:s;watdiv1052644:d -> watdiv1052653:s;}
+-- +---------------+----+----+---------------+----+----+---------------+----+----+---------------+----+---+
+-- | watdiv1052595 |  s |  d | watdiv1052638 |  s |  d | watdiv1052644 |  s |  d | watdiv1052653 |  s | d |
+-- +---------------+----+----+---------------+----+----+---------------+----+----+---------------+----+---+
+--                    |    |                    |    |                    |    |                    |
+--                    |    +--------------------+    +--------------------+    +--------------------+
+--                    |
+-- +---------------+----+----+
+-- | watdiv1052581 |  s |  d |
+-- +---------------+----+----+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+----+
+-- | watdiv1052616 |  s |  d |
+-- +---------------+----+----+
+select count(*) from watdiv1052616, watdiv1052581, watdiv1052595, watdiv1052638, watdiv1052644, watdiv1052653 where watdiv1052616.s = watdiv1052581.s and watdiv1052581.s = watdiv1052595.s and watdiv1052595.d = watdiv1052638.s and watdiv1052638.d = watdiv1052644.s and watdiv1052644.d = watdiv1052653.s;
+\set queryname watdiv_acyclic_204_02
+-- Result size: 35993353
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052575 [label="watdiv1052575|<s> s|<d> d"]; watdiv1052578 [label="watdiv1052578|<s> s|<d> d"]; watdiv1052573 [label="watdiv1052573|<s> s|<d> d"]; watdiv1052595 [label="watdiv1052595|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052575:s -> watdiv1052578:s;watdiv1052578:s -> watdiv1052573:s;watdiv1052573:d -> watdiv1052595:s;watdiv1052595:d -> watdiv1052638:s;watdiv1052638:d -> watdiv1052644:s;}
+--                                          +--------------------+
+--                                          |                    |
+--                  +---------------+----+----+---------------+----------------+----------------+
+--                  | watdiv1052573 |  s |  d | watdiv1052595 |        s       |        d       |
+--                  +---------------+----+----+---------------+----------------+----------------+
+--                                     |                                          |
+--                                     +----+                                     |
+--                                          |                                     |
+-- +---------------+----------------+----+  |                  +---------------+----------------+----+
+-- | watdiv1052575 |        s       |  d |  |                  | watdiv1052638 |        s       |  d |
+-- +---------------+----------------+----+  |                  +---------------+----------------+----+
+--                    |                     |                                                      |
+--                    |                     |                                                      |
+--                    |                     |                                                      |
+-- +---------------+----------------+----+  |                                   +---------------+----+---+
+-- | watdiv1052578 |        s       |  d |  |                                   | watdiv1052644 |  s | d |
+-- +---------------+----------------+----+  |                                   +---------------+----+---+
+--                    |                     |
+--                    +---------------------+
+select count(*) from watdiv1052575, watdiv1052578, watdiv1052573, watdiv1052595, watdiv1052638, watdiv1052644 where watdiv1052575.s = watdiv1052578.s and watdiv1052578.s = watdiv1052573.s and watdiv1052573.d = watdiv1052595.s and watdiv1052595.d = watdiv1052638.s and watdiv1052638.d = watdiv1052644.s;
+\set queryname watdiv_acyclic_204_03
+-- Result size: 120344
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052637 [label="watdiv1052637|<s> s|<d> d"]; watdiv1052639 [label="watdiv1052639|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052652 [label="watdiv1052652|<s> s|<d> d"]; watdiv1052581 [label="watdiv1052581|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052637:s -> watdiv1052639:s;watdiv1052639:s -> watdiv1052638:s;watdiv1052638:d -> watdiv1052652:s;watdiv1052652:d -> watdiv1052581:s;watdiv1052581:d -> watdiv1052584:s;}
+--                                     +----------------------------------+
+--                                     |                                  |
+--                  +---------------+----+----+---------------+----+---+  |
+--                  | watdiv1052581 |  s |  d | watdiv1052584 |  s | d |  |
+--                  +---------------+----+----+---------------+----+---+  |
+--                                          |                    |        |
+--                                          +--------------------+        |
+--                                                                        |
+-- +---------------+----------------+----+                                |
+-- | watdiv1052637 |        s       |  d |  +-----------------------------+
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052639 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052638 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                                     |    |
+--                                     |    |
+--                                     |    |
+--                  +---------------+----+----+
+--                  | watdiv1052652 |  s |  d |
+--                  +---------------+----+----+
+select count(*) from watdiv1052637, watdiv1052639, watdiv1052638, watdiv1052652, watdiv1052581, watdiv1052584 where watdiv1052637.s = watdiv1052639.s and watdiv1052639.s = watdiv1052638.s and watdiv1052638.d = watdiv1052652.s and watdiv1052652.d = watdiv1052581.s and watdiv1052581.d = watdiv1052584.s;
+\set queryname watdiv_acyclic_204_04
+-- Result size: 53323848
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052652 [label="watdiv1052652|<s> s|<d> d"]; watdiv1052589 [label="watdiv1052589|<s> s|<d> d"]; watdiv1052643:s -> watdiv1052584:s;watdiv1052584:s -> watdiv1052644:s;watdiv1052644:d -> watdiv1052651:s;watdiv1052651:d -> watdiv1052652:s;watdiv1052652:d -> watdiv1052589:s;}
+-- +---------------+----+----+---------------+----+----+---------------+----+----+---------------+----+---+
+-- | watdiv1052644 |  s |  d | watdiv1052651 |  s |  d | watdiv1052652 |  s |  d | watdiv1052589 |  s | d |
+-- +---------------+----+----+---------------+----+----+---------------+----+----+---------------+----+---+
+--                    |    |                    |    |                    |    |                    |
+--                    |    +--------------------+    +--------------------+    +--------------------+
+--                    |
+-- +---------------+----+----+
+-- | watdiv1052584 |  s |  d |
+-- +---------------+----+----+
+--                    |
+--                    |
+--                    |
+-- +---------------+----+----+
+-- | watdiv1052643 |  s |  d |
+-- +---------------+----+----+
+select count(*) from watdiv1052643, watdiv1052584, watdiv1052644, watdiv1052651, watdiv1052652, watdiv1052589 where watdiv1052643.s = watdiv1052584.s and watdiv1052584.s = watdiv1052644.s and watdiv1052644.d = watdiv1052651.s and watdiv1052651.d = watdiv1052652.s and watdiv1052652.d = watdiv1052589.s;
+\set queryname watdiv_acyclic_204_05
+-- Result size: 182630
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052623 [label="watdiv1052623|<s> s|<d> d"]; watdiv1052574 [label="watdiv1052574|<s> s|<d> d"]; watdiv1052624 [label="watdiv1052624|<s> s|<d> d"]; watdiv1052595 [label="watdiv1052595|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052645 [label="watdiv1052645|<s> s|<d> d"]; watdiv1052623:s -> watdiv1052574:s;watdiv1052574:s -> watdiv1052624:s;watdiv1052624:d -> watdiv1052595:s;watdiv1052595:d -> watdiv1052638:s;watdiv1052638:d -> watdiv1052645:s;}
+--                    +--------------------------------------+
+--                    |                                      |
+--                    |              +---------------+----+----+
+--                    |              | watdiv1052624 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | watdiv1052574 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | watdiv1052623 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |
+--                    |
+--                    |
+-- +---------------+----------------+----------------+
+-- | watdiv1052595 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | watdiv1052638 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | watdiv1052645 |  s |  d |
+--                                   +---------------+----+----+
+select count(*) from watdiv1052623, watdiv1052574, watdiv1052624, watdiv1052595, watdiv1052638, watdiv1052645 where watdiv1052623.s = watdiv1052574.s and watdiv1052574.s = watdiv1052624.s and watdiv1052624.d = watdiv1052595.s and watdiv1052595.d = watdiv1052638.s and watdiv1052638.d = watdiv1052645.s;
+\set queryname watdiv_acyclic_204_06
+-- Result size: 7568449
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052637 [label="watdiv1052637|<s> s|<d> d"]; watdiv1052641 [label="watdiv1052641|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052649 [label="watdiv1052649|<s> s|<d> d"]; watdiv1052637:s -> watdiv1052641:s;watdiv1052641:s -> watdiv1052638:s;watdiv1052638:d -> watdiv1052651:s;watdiv1052651:d -> watdiv1052644:s;watdiv1052644:d -> watdiv1052649:s;}
+--                                   +---------------+----------------+----+
+--                                   | watdiv1052637 |        s       |  d |
+--                                   +---------------+----------------+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----------------+----+
+--                                   | watdiv1052641 |        s       |  d |
+--                                   +---------------+----------------+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----------------+----+
+--                                   | watdiv1052638 |        s       |  d |
+--                                   +---------------+----------------+----+
+--                                                                       |
+--                                                                       |
+--                                                                       |
+--                                                    +---------------+----+----+
+--                                                    | watdiv1052651 |  s |  d |
+--                                                    +---------------+----+----+
+--                                                                            |
+--                    +-------------------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | watdiv1052644 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----------------+
+--                  | watdiv1052649 |        s       |        d       |
+--                  +---------------+----------------+----------------+
+select count(*) from watdiv1052637, watdiv1052641, watdiv1052638, watdiv1052651, watdiv1052644, watdiv1052649 where watdiv1052637.s = watdiv1052641.s and watdiv1052641.s = watdiv1052638.s and watdiv1052638.d = watdiv1052651.s and watdiv1052651.d = watdiv1052644.s and watdiv1052644.d = watdiv1052649.s;
+\set queryname watdiv_acyclic_204_07
+-- Result size: 274061
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052579 [label="watdiv1052579|<s> s|<d> d"]; watdiv1052574 [label="watdiv1052574|<s> s|<d> d"]; watdiv1052573 [label="watdiv1052573|<s> s|<d> d"]; watdiv1052595 [label="watdiv1052595|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052579:s -> watdiv1052574:s;watdiv1052574:s -> watdiv1052573:s;watdiv1052573:d -> watdiv1052595:s;watdiv1052595:d -> watdiv1052638:s;watdiv1052638:d -> watdiv1052584:s;}
+--                                          +--------------------+
+--                                          |                    |
+--                  +---------------+----+----+---------------+----------------+----------------+
+--                  | watdiv1052573 |  s |  d | watdiv1052595 |        s       |        d       |
+--                  +---------------+----+----+---------------+----------------+----------------+
+--                                     |                                          |
+--                                     +----+                                     |
+--                                          |                                     |
+-- +---------------+----------------+----+  |                  +---------------+----------------+----+
+-- | watdiv1052579 |        s       |  d |  |                  | watdiv1052638 |        s       |  d |
+-- +---------------+----------------+----+  |                  +---------------+----------------+----+
+--                    |                     |                                                      |
+--                    |                     |                                                      |
+--                    |                     |                                                      |
+-- +---------------+----------------+----+  |                                   +---------------+----+---+
+-- | watdiv1052574 |        s       |  d |  |                                   | watdiv1052584 |  s | d |
+-- +---------------+----------------+----+  |                                   +---------------+----+---+
+--                    |                     |
+--                    +---------------------+
+select count(*) from watdiv1052579, watdiv1052574, watdiv1052573, watdiv1052595, watdiv1052638, watdiv1052584 where watdiv1052579.s = watdiv1052574.s and watdiv1052574.s = watdiv1052573.s and watdiv1052573.d = watdiv1052595.s and watdiv1052595.d = watdiv1052638.s and watdiv1052638.d = watdiv1052584.s;
+\set queryname watdiv_acyclic_204_08
+-- Result size: 33236
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052626 [label="watdiv1052626|<s> s|<d> d"]; watdiv1052634 [label="watdiv1052634|<s> s|<d> d"]; watdiv1052627 [label="watdiv1052627|<s> s|<d> d"]; watdiv1052573 [label="watdiv1052573|<s> s|<d> d"]; watdiv1052586 [label="watdiv1052586|<s> s|<d> d"]; watdiv1052657 [label="watdiv1052657|<s> s|<d> d"]; watdiv1052626:s -> watdiv1052634:s;watdiv1052634:s -> watdiv1052627:s;watdiv1052627:d -> watdiv1052573:s;watdiv1052573:d -> watdiv1052586:s;watdiv1052586:d -> watdiv1052657:s;}
+--                       +---------------+----+----+---------------+----+----+---------------+----+---+
+--                       | watdiv1052573 |  s |  d | watdiv1052586 |  s |  d | watdiv1052657 |  s | d |
+--                       +---------------+----+----+---------------+----+----+---------------+----+---+
+--                                          |    |                    |    |                    |
+--   +--------------------------------------+    +--------------------+    +--------------------+
+--   |
+--   |  +---------------+----------------+----+
+--   |  | watdiv1052626 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                     |
+--   |                     |
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | watdiv1052634 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                     |
+--   |                     |
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | watdiv1052627 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                                      |
+--   +--------------------------------------+
+select count(*) from watdiv1052626, watdiv1052634, watdiv1052627, watdiv1052573, watdiv1052586, watdiv1052657 where watdiv1052626.s = watdiv1052634.s and watdiv1052634.s = watdiv1052627.s and watdiv1052627.d = watdiv1052573.s and watdiv1052573.d = watdiv1052586.s and watdiv1052586.d = watdiv1052657.s;
+\set queryname watdiv_acyclic_204_09
+-- Result size: 202659
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052623 [label="watdiv1052623|<s> s|<d> d"]; watdiv1052574 [label="watdiv1052574|<s> s|<d> d"]; watdiv1052624 [label="watdiv1052624|<s> s|<d> d"]; watdiv1052595 [label="watdiv1052595|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052650 [label="watdiv1052650|<s> s|<d> d"]; watdiv1052623:s -> watdiv1052574:s;watdiv1052574:s -> watdiv1052624:s;watdiv1052624:d -> watdiv1052595:s;watdiv1052595:d -> watdiv1052638:s;watdiv1052638:d -> watdiv1052650:s;}
+--                    +--------------------------------------+
+--                    |                                      |
+--                    |              +---------------+----+----+
+--                    |              | watdiv1052624 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | watdiv1052574 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | watdiv1052623 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |
+--                    |
+--                    |
+-- +---------------+----------------+----------------+
+-- | watdiv1052595 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | watdiv1052638 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | watdiv1052650 |  s |  d |
+--                                   +---------------+----+----+
+select count(*) from watdiv1052623, watdiv1052574, watdiv1052624, watdiv1052595, watdiv1052638, watdiv1052650 where watdiv1052623.s = watdiv1052574.s and watdiv1052574.s = watdiv1052624.s and watdiv1052624.d = watdiv1052595.s and watdiv1052595.d = watdiv1052638.s and watdiv1052638.d = watdiv1052650.s;
+\set queryname watdiv_acyclic_204_10
+-- Result size: 13267862
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052574 [label="watdiv1052574|<s> s|<d> d"]; watdiv1052623 [label="watdiv1052623|<s> s|<d> d"]; watdiv1052624 [label="watdiv1052624|<s> s|<d> d"]; watdiv1052595 [label="watdiv1052595|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052574:s -> watdiv1052623:s;watdiv1052623:s -> watdiv1052624:s;watdiv1052624:d -> watdiv1052595:s;watdiv1052595:d -> watdiv1052638:s;watdiv1052638:d -> watdiv1052651:s;}
+--                                   +---------------+----+----+
+--                                   | watdiv1052574 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | watdiv1052623 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | watdiv1052624 |  s |  d |
+--                                   +---------------+----+----+
+--                                                           |
+--                    +--------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | watdiv1052595 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | watdiv1052638 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | watdiv1052651 |  s |  d |
+--                                   +---------------+----+----+
+select count(*) from watdiv1052574, watdiv1052623, watdiv1052624, watdiv1052595, watdiv1052638, watdiv1052651 where watdiv1052574.s = watdiv1052623.s and watdiv1052623.s = watdiv1052624.s and watdiv1052624.d = watdiv1052595.s and watdiv1052595.d = watdiv1052638.s and watdiv1052638.d = watdiv1052651.s;
+\set queryname watdiv_acyclic_204_11
+-- Result size: 9385804
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052648 [label="watdiv1052648|<s> s|<d> d"]; watdiv1052584 [label="watdiv1052584|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052655 [label="watdiv1052655|<s> s|<d> d"]; watdiv1052624 [label="watdiv1052624|<s> s|<d> d"]; watdiv1052581 [label="watdiv1052581|<s> s|<d> d"]; watdiv1052648:s -> watdiv1052584:s;watdiv1052584:s -> watdiv1052651:s;watdiv1052651:d -> watdiv1052655:s;watdiv1052655:d -> watdiv1052624:s;watdiv1052624:d -> watdiv1052581:s;}
+-- +---------------+----------------+----+
+-- | watdiv1052624 |        s       |  d |
+-- +---------------+----------------+----+
+--                    |                |
+--   +----------------+                |
+--   |                                 |
+--   |              +---------------+----+----+
+--   |              | watdiv1052581 |  s |  d |
+--   |              +---------------+----+----+
+--   |
+--   +--------------------------------------+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052648 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052584 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052651 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                                     |    |
+--                                     |    |
+--                                     |    |
+--                  +---------------+----+----+
+--                  | watdiv1052655 |  s |  d |
+--                  +---------------+----+----+
+select count(*) from watdiv1052648, watdiv1052584, watdiv1052651, watdiv1052655, watdiv1052624, watdiv1052581 where watdiv1052648.s = watdiv1052584.s and watdiv1052584.s = watdiv1052651.s and watdiv1052651.d = watdiv1052655.s and watdiv1052655.d = watdiv1052624.s and watdiv1052624.d = watdiv1052581.s;
+\set queryname watdiv_acyclic_204_12
+-- Result size: 485962
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052576 [label="watdiv1052576|<s> s|<d> d"]; watdiv1052575 [label="watdiv1052575|<s> s|<d> d"]; watdiv1052573 [label="watdiv1052573|<s> s|<d> d"]; watdiv1052595 [label="watdiv1052595|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052629 [label="watdiv1052629|<s> s|<d> d"]; watdiv1052576:s -> watdiv1052575:s;watdiv1052575:s -> watdiv1052573:s;watdiv1052573:d -> watdiv1052595:s;watdiv1052595:d -> watdiv1052638:s;watdiv1052638:d -> watdiv1052629:s;}
+--                                          +--------------------+
+--                                          |                    |
+--                  +---------------+----+----+---------------+----------------+----------------+
+--                  | watdiv1052573 |  s |  d | watdiv1052595 |        s       |        d       |
+--                  +---------------+----+----+---------------+----------------+----------------+
+--                                     |                                          |
+--                                     +----+                                     |
+--                                          |                                     |
+-- +---------------+----------------+----+  |                  +---------------+----------------+----+
+-- | watdiv1052576 |        s       |  d |  |                  | watdiv1052638 |        s       |  d |
+-- +---------------+----------------+----+  |                  +---------------+----------------+----+
+--                    |                     |                                                      |
+--                    |                     |                                                      |
+--                    |                     |                                                      |
+-- +---------------+----------------+----+  |                                   +---------------+----+---+
+-- | watdiv1052575 |        s       |  d |  |                                   | watdiv1052629 |  s | d |
+-- +---------------+----------------+----+  |                                   +---------------+----+---+
+--                    |                     |
+--                    +---------------------+
+select count(*) from watdiv1052576, watdiv1052575, watdiv1052573, watdiv1052595, watdiv1052638, watdiv1052629 where watdiv1052576.s = watdiv1052575.s and watdiv1052575.s = watdiv1052573.s and watdiv1052573.d = watdiv1052595.s and watdiv1052595.d = watdiv1052638.s and watdiv1052638.d = watdiv1052629.s;
+\set queryname watdiv_acyclic_204_13
+-- Result size: 9961
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052608 [label="watdiv1052608|<s> s|<d> d"]; watdiv1052597 [label="watdiv1052597|<s> s|<d> d"]; watdiv1052593 [label="watdiv1052593|<s> s|<d> d"]; watdiv1052652 [label="watdiv1052652|<s> s|<d> d"]; watdiv1052581 [label="watdiv1052581|<s> s|<d> d"]; watdiv1052587 [label="watdiv1052587|<s> s|<d> d"]; watdiv1052608:s -> watdiv1052597:s;watdiv1052597:s -> watdiv1052593:s;watdiv1052593:d -> watdiv1052652:s;watdiv1052652:d -> watdiv1052581:s;watdiv1052581:d -> watdiv1052587:s;}
+--                                     +----------------------------------+
+--                                     |                                  |
+--                  +---------------+----+----+---------------+----+---+  |
+--                  | watdiv1052581 |  s |  d | watdiv1052587 |  s | d |  |
+--                  +---------------+----+----+---------------+----+---+  |
+--                                          |                    |        |
+--                                          +--------------------+        |
+--                                                                        |
+-- +---------------+----------------+----+                                |
+-- | watdiv1052608 |        s       |  d |  +-----------------------------+
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052597 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052593 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                                     |    |
+--                                     |    |
+--                                     |    |
+--                  +---------------+----+----+
+--                  | watdiv1052652 |  s |  d |
+--                  +---------------+----+----+
+select count(*) from watdiv1052608, watdiv1052597, watdiv1052593, watdiv1052652, watdiv1052581, watdiv1052587 where watdiv1052608.s = watdiv1052597.s and watdiv1052597.s = watdiv1052593.s and watdiv1052593.d = watdiv1052652.s and watdiv1052652.d = watdiv1052581.s and watdiv1052581.d = watdiv1052587.s;
+\set queryname watdiv_acyclic_204_14
+-- Result size: 418420
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052641 [label="watdiv1052641|<s> s|<d> d"]; watdiv1052640 [label="watdiv1052640|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052644 [label="watdiv1052644|<s> s|<d> d"]; watdiv1052655 [label="watdiv1052655|<s> s|<d> d"]; watdiv1052624 [label="watdiv1052624|<s> s|<d> d"]; watdiv1052641:s -> watdiv1052640:s;watdiv1052640:s -> watdiv1052638:s;watdiv1052638:d -> watdiv1052644:s;watdiv1052644:d -> watdiv1052655:s;watdiv1052655:d -> watdiv1052624:s;}
+--                  +---------------+----------------+----+
+--                  | watdiv1052624 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     +---------------------+
+--                                                           |
+-- +---------------+----------------+----------------+       |
+-- | watdiv1052641 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                    |                                      |
+--                    |                                      |
+--                    |                                      |
+-- +---------------+----------------+----------------+       |
+-- | watdiv1052640 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                    |                                      |
+--                    |                                      |
+--                    |                                      |
+-- +---------------+----------------+----------------+       |
+-- | watdiv1052638 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | watdiv1052644 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                                      |    |
+--                                                      |    |
+--                                                      |    |
+--                                   +---------------+----+----+
+--                                   | watdiv1052655 |  s |  d |
+--                                   +---------------+----+----+
+select count(*) from watdiv1052641, watdiv1052640, watdiv1052638, watdiv1052644, watdiv1052655, watdiv1052624 where watdiv1052641.s = watdiv1052640.s and watdiv1052640.s = watdiv1052638.s and watdiv1052638.d = watdiv1052644.s and watdiv1052644.d = watdiv1052655.s and watdiv1052655.d = watdiv1052624.s;
+\set queryname watdiv_acyclic_204_15
+-- Result size: 6213
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052647 [label="watdiv1052647|<s> s|<d> d"]; watdiv1052643 [label="watdiv1052643|<s> s|<d> d"]; watdiv1052655 [label="watdiv1052655|<s> s|<d> d"]; watdiv1052624 [label="watdiv1052624|<s> s|<d> d"]; watdiv1052586 [label="watdiv1052586|<s> s|<d> d"]; watdiv1052656 [label="watdiv1052656|<s> s|<d> d"]; watdiv1052647:s -> watdiv1052643:s;watdiv1052643:s -> watdiv1052655:s;watdiv1052655:d -> watdiv1052624:s;watdiv1052624:d -> watdiv1052586:s;watdiv1052586:d -> watdiv1052656:s;}
+--      +---------------+----------------+----+
+--      | watdiv1052624 |        s       |  d |
+--      +---------------+----------------+----+
+--                         |                |
+--   +---------------------+                |
+--   |                                      |
+--   |                   +---------------+----+----+---------------+----+---+
+--   |                   | watdiv1052586 |  s |  d | watdiv1052656 |  s | d |
+--   |                   +---------------+----+----+---------------+----+---+
+--   |                                           |                    |
+--   |                                           +--------------------+
+--   |
+--   |  +---------------+----------------+----+
+--   |  | watdiv1052647 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                     |
+--   |                     |
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | watdiv1052643 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                     |
+--   |                     |
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | watdiv1052655 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                                      |
+--   +--------------------------------------+
+select count(*) from watdiv1052647, watdiv1052643, watdiv1052655, watdiv1052624, watdiv1052586, watdiv1052656 where watdiv1052647.s = watdiv1052643.s and watdiv1052643.s = watdiv1052655.s and watdiv1052655.d = watdiv1052624.s and watdiv1052624.d = watdiv1052586.s and watdiv1052586.d = watdiv1052656.s;
+\set queryname watdiv_acyclic_204_16
+-- Result size: 7040949
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052640 [label="watdiv1052640|<s> s|<d> d"]; watdiv1052637 [label="watdiv1052637|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052655 [label="watdiv1052655|<s> s|<d> d"]; watdiv1052624 [label="watdiv1052624|<s> s|<d> d"]; watdiv1052640:s -> watdiv1052637:s;watdiv1052637:s -> watdiv1052638:s;watdiv1052638:d -> watdiv1052651:s;watdiv1052651:d -> watdiv1052655:s;watdiv1052655:d -> watdiv1052624:s;}
+--                  +---------------+----------------+----+
+--                  | watdiv1052624 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     +---------------------+
+--                                                           |
+-- +---------------+----------------+----------------+       |
+-- | watdiv1052640 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                    |                                      |
+--                    |                                      |
+--                    |                                      |
+-- +---------------+----------------+----------------+       |
+-- | watdiv1052637 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                    |                                      |
+--                    |                                      |
+--                    |                                      |
+-- +---------------+----------------+----------------+       |
+-- | watdiv1052638 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | watdiv1052651 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                                      |    |
+--                                                      |    |
+--                                                      |    |
+--                                   +---------------+----+----+
+--                                   | watdiv1052655 |  s |  d |
+--                                   +---------------+----+----+
+select count(*) from watdiv1052640, watdiv1052637, watdiv1052638, watdiv1052651, watdiv1052655, watdiv1052624 where watdiv1052640.s = watdiv1052637.s and watdiv1052637.s = watdiv1052638.s and watdiv1052638.d = watdiv1052651.s and watdiv1052651.d = watdiv1052655.s and watdiv1052655.d = watdiv1052624.s;
+\set queryname watdiv_acyclic_204_17
+-- Result size: 806475
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052637 [label="watdiv1052637|<s> s|<d> d"]; watdiv1052639 [label="watdiv1052639|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052572 [label="watdiv1052572|<s> s|<d> d"]; watdiv1052637:s -> watdiv1052639:s;watdiv1052639:s -> watdiv1052638:s;watdiv1052638:d -> watdiv1052651:s;watdiv1052651:d -> watdiv1052646:s;watdiv1052646:d -> watdiv1052572:s;}
+-- +---------------+----------------+----+
+-- | watdiv1052646 |        s       |  d |
+-- +---------------+----------------+----+
+--                    |                |
+--   +----------------+                |
+--   |                                 |
+--   |              +---------------+----+----+
+--   |              | watdiv1052572 |  s |  d |
+--   |              +---------------+----+----+
+--   |
+--   +--------------------------------------+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052637 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052639 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052638 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                                     |    |
+--                                     |    |
+--                                     |    |
+--                  +---------------+----+----+
+--                  | watdiv1052651 |  s |  d |
+--                  +---------------+----+----+
+select count(*) from watdiv1052637, watdiv1052639, watdiv1052638, watdiv1052651, watdiv1052646, watdiv1052572 where watdiv1052637.s = watdiv1052639.s and watdiv1052639.s = watdiv1052638.s and watdiv1052638.d = watdiv1052651.s and watdiv1052651.d = watdiv1052646.s and watdiv1052646.d = watdiv1052572.s;
+\set queryname watdiv_acyclic_204_18
+-- Result size: 1888786
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052640 [label="watdiv1052640|<s> s|<d> d"]; watdiv1052637 [label="watdiv1052637|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052572 [label="watdiv1052572|<s> s|<d> d"]; watdiv1052640:s -> watdiv1052637:s;watdiv1052637:s -> watdiv1052638:s;watdiv1052638:d -> watdiv1052651:s;watdiv1052651:d -> watdiv1052646:s;watdiv1052646:d -> watdiv1052572:s;}
+-- +---------------+----------------+----+
+-- | watdiv1052646 |        s       |  d |
+-- +---------------+----------------+----+
+--                    |                |
+--   +----------------+                |
+--   |                                 |
+--   |              +---------------+----+----+
+--   |              | watdiv1052572 |  s |  d |
+--   |              +---------------+----+----+
+--   |
+--   +--------------------------------------+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052640 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052637 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052638 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                                     |    |
+--                                     |    |
+--                                     |    |
+--                  +---------------+----+----+
+--                  | watdiv1052651 |  s |  d |
+--                  +---------------+----+----+
+select count(*) from watdiv1052640, watdiv1052637, watdiv1052638, watdiv1052651, watdiv1052646, watdiv1052572 where watdiv1052640.s = watdiv1052637.s and watdiv1052637.s = watdiv1052638.s and watdiv1052638.d = watdiv1052651.s and watdiv1052651.d = watdiv1052646.s and watdiv1052646.d = watdiv1052572.s;
+\set queryname watdiv_acyclic_204_19
+-- Result size: 132206
+-- digraph G { node [shape=record]; edge [arrowhead=none]; watdiv1052637 [label="watdiv1052637|<s> s|<d> d"]; watdiv1052641 [label="watdiv1052641|<s> s|<d> d"]; watdiv1052638 [label="watdiv1052638|<s> s|<d> d"]; watdiv1052651 [label="watdiv1052651|<s> s|<d> d"]; watdiv1052646 [label="watdiv1052646|<s> s|<d> d"]; watdiv1052572 [label="watdiv1052572|<s> s|<d> d"]; watdiv1052637:s -> watdiv1052641:s;watdiv1052641:s -> watdiv1052638:s;watdiv1052638:d -> watdiv1052651:s;watdiv1052651:d -> watdiv1052646:s;watdiv1052646:d -> watdiv1052572:s;}
+-- +---------------+----------------+----+
+-- | watdiv1052646 |        s       |  d |
+-- +---------------+----------------+----+
+--                    |                |
+--   +----------------+                |
+--   |                                 |
+--   |              +---------------+----+----+
+--   |              | watdiv1052572 |  s |  d |
+--   |              +---------------+----+----+
+--   |
+--   +--------------------------------------+
+--                                          |
+-- +---------------+----------------+----+  |
+-- | watdiv1052637 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052641 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                    |                     |
+--                    |                     |
+--                    |                     |
+-- +---------------+----------------+----+  |
+-- | watdiv1052638 |        s       |  d |  |
+-- +---------------+----------------+----+  |
+--                                     |    |
+--                                     |    |
+--                                     |    |
+--                  +---------------+----+----+
+--                  | watdiv1052651 |  s |  d |
+--                  +---------------+----+----+
+select count(*) from watdiv1052637, watdiv1052641, watdiv1052638, watdiv1052651, watdiv1052646, watdiv1052572 where watdiv1052637.s = watdiv1052641.s and watdiv1052641.s = watdiv1052638.s and watdiv1052638.d = watdiv1052651.s and watdiv1052651.d = watdiv1052646.s and watdiv1052646.d = watdiv1052572.s;

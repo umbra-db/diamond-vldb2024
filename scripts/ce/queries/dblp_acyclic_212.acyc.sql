@@ -1,0 +1,976 @@
+--\set queryname dblp_acyclic_212_00
+-- Result size: 1252330602
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp3 [label="dblp3|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp16:d -> dblp17:d;dblp17:d -> dblp6:s;dblp6:s -> dblp3:s;dblp3:s -> dblp2:s;dblp2:s -> dblp1:s;dblp1:s -> dblp8:s;dblp8:s -> dblp7:s;}
+--                    +-------+----+----+
+--                    | dblp7 |  s |  d |
+--                    +-------+----+----+
+--                               |
+--                               |
+--                               |
+--                    +-------+----+----+
+--                    | dblp8 |  s |  d |
+--                    +-------+----+----+
+--                               |
+--                               |
+--                               |
+--                    +-------+----+----+
+--                    | dblp1 |  s |  d |
+--                    +-------+----+----+
+--                               |
+--                               +----+
+--                                    |
+-- +--------+--------+--------+       |
+-- | dblp16 |    s   |    d   |       |
+-- +--------+--------+--------+       |
+--                      |             |
+--                      |             |
+--                      |             |
+-- +--------+--------+--------+       |
+-- | dblp17 |    s   |    d   |       |
+-- +--------+--------+--------+       |
+--                      |             |
+--                      |             |
+--                      |             |
+--           +-------+--------+----+  |
+--           | dblp6 |    s   |  d |  |
+--           +-------+--------+----+  |
+--                      |             |
+--                      |             |
+--                      |             |
+--           +-------+--------+----+  |
+--           | dblp3 |    s   |  d |  |
+--           +-------+--------+----+  |
+--                      |             |
+--                      |             |
+--                      |             |
+--           +-------+--------+----+  |
+--           | dblp2 |    s   |  d |  |
+--           +-------+--------+----+  |
+--                      |             |
+--                      +-------------+
+--with dummy as (select) /* stage1 */, dblp16_s1_163aff006641ddf3 as (select dblp16.d as v0 from dblp16), dblp8_s1_163aff006641ddf3 as (select dblp8.s as v0 from dblp8), dblp7_s1_163aff006641ddf3 as (select dblp7.s as v0 from dblp7), dblp6_s1_163aff006641ddf3 as (select dblp6.s as v0 from dblp6), dblp3_s1_163aff006641ddf3 as (select dblp3.s as v0 from dblp3), dblp2_s1_163aff006641ddf3 as (select dblp2.s as v0 from dblp2), dblp17_s1_163aff006641ddf3 as (select dblp17.d as v0 from dblp17), dblp1_s1_163aff006641ddf3 as (select dblp1.s as v0 from dblp1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_1061A386F2D9EF36 as  (select * from umbra.identity(table(dblp16_s1_163aff006641ddf3)) NATURAL JOIN umbra.identity(table(dblp1_s1_163aff006641ddf3)) NATURAL JOIN umbra.identity(table(dblp17_s1_163aff006641ddf3)) NATURAL JOIN umbra.identity(table(dblp2_s1_163aff006641ddf3)) NATURAL JOIN umbra.identity(table(dblp3_s1_163aff006641ddf3)) NATURAL JOIN umbra.identity(table(dblp6_s1_163aff006641ddf3)) NATURAL JOIN umbra.identity(table(dblp7_s1_163aff006641ddf3)) NATURAL JOIN umbra.identity(table(dblp8_s1_163aff006641ddf3)))select count(*) from umbra.identity(table(s4_group_1061A386F2D9EF36));
+--\set queryname dblp_acyclic_212_01
+-- Result size: 182293856592
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp19:d -> dblp16:d;dblp16:d -> dblp20:s;dblp20:s -> dblp23:s;dblp23:s -> dblp2:s;dblp2:s -> dblp22:s;dblp22:s -> dblp6:s;dblp6:s -> dblp17:s;}
+--                 +--------------+
+--                 |              |
+-- +--------+---+----+---------+----+---+
+-- | dblp16 | s |  d |  dblp20 |  s | d |
+-- +--------+---+----+---------+----+---+
+--                 |              |
+--                 |              |
+--                 |              |
+-- +--------+---+----+---------+----+---+
+-- | dblp19 | s |  d |  dblp23 |  s | d |
+-- +--------+---+----+---------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp2  |  s | d |
+--                    +--------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp22 |  s | d |
+--                    +--------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp6  |  s | d |
+--                    +--------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp17 |  s | d |
+--                    +--------+----+---+
+--with dummy as (select) /* stage1 */, dblp17_s1_17547b806641ddf3 as (select dblp17.s as v0 from dblp17), dblp6_s1_17547b806641ddf3 as (select dblp6.s as v0 from dblp6), dblp23_s1_17547b806641ddf3 as (select dblp23.s as v0 from dblp23), dblp22_s1_17547b806641ddf3 as (select dblp22.s as v0 from dblp22), dblp20_s1_17547b806641ddf3 as (select dblp20.s as v0 from dblp20), dblp2_s1_17547b806641ddf3 as (select dblp2.s as v0 from dblp2), dblp19_s1_17547b806641ddf3 as (select dblp19.d as v0 from dblp19), dblp16_s1_17547b806641ddf3 as (select dblp16.d as v0 from dblp16) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_4322300A90EFEFEE as  (select * from umbra.identity(table(dblp17_s1_17547b806641ddf3)) NATURAL JOIN umbra.identity(table(dblp16_s1_17547b806641ddf3)) NATURAL JOIN umbra.identity(table(dblp19_s1_17547b806641ddf3)) NATURAL JOIN umbra.identity(table(dblp2_s1_17547b806641ddf3)) NATURAL JOIN umbra.identity(table(dblp20_s1_17547b806641ddf3)) NATURAL JOIN umbra.identity(table(dblp22_s1_17547b806641ddf3)) NATURAL JOIN umbra.identity(table(dblp23_s1_17547b806641ddf3)) NATURAL JOIN umbra.identity(table(dblp6_s1_17547b806641ddf3)))select count(*) from umbra.identity(table(s4_group_4322300A90EFEFEE));
+\set queryname dblp_acyclic_212_02
+-- Result size: 580058
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp21:d -> dblp26:d;dblp26:d -> dblp25:s;dblp25:s -> dblp6:s;dblp6:s -> dblp17:s;dblp17:s -> dblp5:s;dblp5:s -> dblp18:s;dblp18:s -> dblp8:s;}
+--                     +--------+----+----+
+--                     | dblp8  |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp18 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp5  |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp17 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 +----+
+--                                      |
+-- +--------+---------+---------+       |
+-- | dblp21 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +--------+---------+---------+       |
+-- | dblp26 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp25 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp6  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       +--------------+
+with dummy as (select) /* stage1 */, dblp18_s1_192a98806641ddf3 as (select dblp18.s as v0 from dblp18), dblp8_s1_192a98806641ddf3 as (select dblp8.s as v0 from dblp8), dblp6_s1_192a98806641ddf3 as (select dblp6.s as v0 from dblp6), dblp5_s1_192a98806641ddf3 as (select dblp5.s as v0 from dblp5), dblp26_s1_192a98806641ddf3 as (select dblp26.d as v0 from dblp26), dblp25_s1_192a98806641ddf3 as (select dblp25.s as v0 from dblp25), dblp21_s1_192a98806641ddf3 as (select dblp21.d as v0 from dblp21), dblp17_s1_192a98806641ddf3 as (select dblp17.s as v0 from dblp17) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6CC07B9ACEB00312 as  (select * from umbra.identity(table(dblp18_s1_192a98806641ddf3)) NATURAL JOIN umbra.identity(table(dblp17_s1_192a98806641ddf3)) NATURAL JOIN umbra.identity(table(dblp21_s1_192a98806641ddf3)) NATURAL JOIN umbra.identity(table(dblp25_s1_192a98806641ddf3)) NATURAL JOIN umbra.identity(table(dblp26_s1_192a98806641ddf3)) NATURAL JOIN umbra.identity(table(dblp5_s1_192a98806641ddf3)) NATURAL JOIN umbra.identity(table(dblp6_s1_192a98806641ddf3)) NATURAL JOIN umbra.identity(table(dblp8_s1_192a98806641ddf3)))select count(*) from umbra.identity(table(s4_group_6CC07B9ACEB00312));
+\set queryname dblp_acyclic_212_03
+-- Result size: 8054454
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp5:d -> dblp21:d;dblp21:d -> dblp6:s;dblp6:s -> dblp8:s;dblp8:s -> dblp25:s;dblp25:s -> dblp18:s;dblp18:s -> dblp24:s;dblp24:s -> dblp20:s;}
+--                     +--------+----+----+
+--                     | dblp20 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp24 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp18 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 +----+
+--                                      |
+-- +--------+---------+---------+       |
+-- | dblp5  |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +--------+---------+---------+       |
+-- | dblp21 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp6  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp8  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp25 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       +--------------+
+with dummy as (select) /* stage1 */, dblp20_s1_1b85d6006641ddf3 as (select dblp20.s as v0 from dblp20), dblp8_s1_1b85d6006641ddf3 as (select dblp8.s as v0 from dblp8), dblp6_s1_1b85d6006641ddf3 as (select dblp6.s as v0 from dblp6), dblp5_s1_1b85d6006641ddf3 as (select dblp5.d as v0 from dblp5), dblp25_s1_1b85d6006641ddf3 as (select dblp25.s as v0 from dblp25), dblp24_s1_1b85d6006641ddf3 as (select dblp24.s as v0 from dblp24), dblp21_s1_1b85d6006641ddf3 as (select dblp21.d as v0 from dblp21), dblp18_s1_1b85d6006641ddf3 as (select dblp18.s as v0 from dblp18) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2DC50E972D8D0D55 as  (select * from umbra.identity(table(dblp20_s1_1b85d6006641ddf3)) NATURAL JOIN umbra.identity(table(dblp18_s1_1b85d6006641ddf3)) NATURAL JOIN umbra.identity(table(dblp21_s1_1b85d6006641ddf3)) NATURAL JOIN umbra.identity(table(dblp24_s1_1b85d6006641ddf3)) NATURAL JOIN umbra.identity(table(dblp25_s1_1b85d6006641ddf3)) NATURAL JOIN umbra.identity(table(dblp5_s1_1b85d6006641ddf3)) NATURAL JOIN umbra.identity(table(dblp6_s1_1b85d6006641ddf3)) NATURAL JOIN umbra.identity(table(dblp8_s1_1b85d6006641ddf3)))select count(*) from umbra.identity(table(s4_group_2DC50E972D8D0D55));
+\set queryname dblp_acyclic_212_04
+-- Result size: 61187586
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp21:d -> dblp5:d;dblp5:d -> dblp24:s;dblp24:s -> dblp8:s;dblp8:s -> dblp22:s;dblp22:s -> dblp25:s;dblp25:s -> dblp1:s;dblp1:s -> dblp23:s;}
+--                     +--------+----+----+
+--                     | dblp23 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp1  |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 +----+
+--                                      |
+-- +--------+---------+---------+       |
+-- | dblp21 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +--------+---------+---------+       |
+-- | dblp5  |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp24 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp8  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp22 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp25 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       +--------------+
+with dummy as (select) /* stage1 */, dblp21_s1_1cdb96806641ddf3 as (select dblp21.d as v0 from dblp21), dblp8_s1_1cdb96806641ddf3 as (select dblp8.s as v0 from dblp8), dblp5_s1_1cdb96806641ddf3 as (select dblp5.d as v0 from dblp5), dblp25_s1_1cdb96806641ddf3 as (select dblp25.s as v0 from dblp25), dblp24_s1_1cdb96806641ddf3 as (select dblp24.s as v0 from dblp24), dblp23_s1_1cdb96806641ddf3 as (select dblp23.s as v0 from dblp23), dblp22_s1_1cdb96806641ddf3 as (select dblp22.s as v0 from dblp22), dblp1_s1_1cdb96806641ddf3 as (select dblp1.s as v0 from dblp1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_727B710CCD28D475 as  (select * from umbra.identity(table(dblp21_s1_1cdb96806641ddf3)) NATURAL JOIN umbra.identity(table(dblp1_s1_1cdb96806641ddf3)) NATURAL JOIN umbra.identity(table(dblp22_s1_1cdb96806641ddf3)) NATURAL JOIN umbra.identity(table(dblp23_s1_1cdb96806641ddf3)) NATURAL JOIN umbra.identity(table(dblp24_s1_1cdb96806641ddf3)) NATURAL JOIN umbra.identity(table(dblp25_s1_1cdb96806641ddf3)) NATURAL JOIN umbra.identity(table(dblp5_s1_1cdb96806641ddf3)) NATURAL JOIN umbra.identity(table(dblp8_s1_1cdb96806641ddf3)))select count(*) from umbra.identity(table(s4_group_727B710CCD28D475));
+--\set queryname dblp_acyclic_212_05
+-- Result size: 471102016116
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp19:d -> dblp16:d;dblp16:d -> dblp23:s;dblp23:s -> dblp18:s;dblp18:s -> dblp20:s;dblp20:s -> dblp25:s;dblp25:s -> dblp9:s;dblp9:s -> dblp1:s;}
+--                     +-------+----+----+
+--                     | dblp1 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                +----+
+--                                     |
+-- +--------+---------+--------+       |
+-- | dblp19 |    s    |    d   |       |
+-- +--------+---------+--------+       |
+--                       |             |
+--                       |             |
+--                       |             |
+-- +--------+---------+--------+       |
+-- | dblp16 |    s    |    d   |       |
+-- +--------+---------+--------+       |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp23 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp18 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp20 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp25 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp9  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       +-------------+
+--with dummy as (select) /* stage1 */, dblp16_s1_1df134006641ddf3 as (select dblp16.d as v0 from dblp16), dblp9_s1_1df134006641ddf3 as (select dblp9.s as v0 from dblp9), dblp25_s1_1df134006641ddf3 as (select dblp25.s as v0 from dblp25), dblp23_s1_1df134006641ddf3 as (select dblp23.s as v0 from dblp23), dblp20_s1_1df134006641ddf3 as (select dblp20.s as v0 from dblp20), dblp19_s1_1df134006641ddf3 as (select dblp19.d as v0 from dblp19), dblp18_s1_1df134006641ddf3 as (select dblp18.s as v0 from dblp18), dblp1_s1_1df134006641ddf3 as (select dblp1.s as v0 from dblp1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_C711DB8AAA02561 as  (select * from umbra.identity(table(dblp16_s1_1df134006641ddf3)) NATURAL JOIN umbra.identity(table(dblp1_s1_1df134006641ddf3)) NATURAL JOIN umbra.identity(table(dblp18_s1_1df134006641ddf3)) NATURAL JOIN umbra.identity(table(dblp19_s1_1df134006641ddf3)) NATURAL JOIN umbra.identity(table(dblp20_s1_1df134006641ddf3)) NATURAL JOIN umbra.identity(table(dblp23_s1_1df134006641ddf3)) NATURAL JOIN umbra.identity(table(dblp25_s1_1df134006641ddf3)) NATURAL JOIN umbra.identity(table(dblp9_s1_1df134006641ddf3)))select count(*) from umbra.identity(table(s4_group_C711DB8AAA02561));
+--\set queryname dblp_acyclic_212_06
+-- Result size: 35729709842
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp16:d -> dblp19:d;dblp19:d -> dblp8:s;dblp8:s -> dblp21:s;dblp21:s -> dblp24:s;dblp24:s -> dblp22:s;dblp22:s -> dblp6:s;dblp6:s -> dblp17:s;}
+-- +--------+---------+----+
+-- | dblp16 |    s    |  d |
+-- +--------+---------+----+
+--                       |
+--                       |
+--                       |
+-- +--------+---------+----+
+-- | dblp19 |    s    |  d |
+-- +--------+---------+----+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp8  |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp21 |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp24 |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp22 |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp6  |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp17 |  s | d |
+--           +--------+----+---+
+--with dummy as (select) /* stage1 */, dblp17_s1_1f89eb006641ddf3 as (select dblp17.s as v0 from dblp17), dblp8_s1_1f89eb006641ddf3 as (select dblp8.s as v0 from dblp8), dblp6_s1_1f89eb006641ddf3 as (select dblp6.s as v0 from dblp6), dblp24_s1_1f89eb006641ddf3 as (select dblp24.s as v0 from dblp24), dblp22_s1_1f89eb006641ddf3 as (select dblp22.s as v0 from dblp22), dblp21_s1_1f89eb006641ddf3 as (select dblp21.s as v0 from dblp21), dblp19_s1_1f89eb006641ddf3 as (select dblp19.d as v0 from dblp19), dblp16_s1_1f89eb006641ddf3 as (select dblp16.d as v0 from dblp16) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_A55136DAA757DDE as  (select * from umbra.identity(table(dblp17_s1_1f89eb006641ddf3)) NATURAL JOIN umbra.identity(table(dblp16_s1_1f89eb006641ddf3)) NATURAL JOIN umbra.identity(table(dblp19_s1_1f89eb006641ddf3)) NATURAL JOIN umbra.identity(table(dblp21_s1_1f89eb006641ddf3)) NATURAL JOIN umbra.identity(table(dblp22_s1_1f89eb006641ddf3)) NATURAL JOIN umbra.identity(table(dblp24_s1_1f89eb006641ddf3)) NATURAL JOIN umbra.identity(table(dblp6_s1_1f89eb006641ddf3)) NATURAL JOIN umbra.identity(table(dblp8_s1_1f89eb006641ddf3)))select count(*) from umbra.identity(table(s4_group_A55136DAA757DDE));
+--\set queryname dblp_acyclic_212_07
+-- Result size: 60693905832
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp16:d -> dblp19:d;dblp19:d -> dblp18:s;dblp18:s -> dblp5:s;dblp5:s -> dblp1:s;dblp1:s -> dblp22:s;dblp22:s -> dblp6:s;dblp6:s -> dblp17:s;}
+--                     +--------+----+----+
+--                     | dblp17 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp6  |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp22 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp1  |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 +----+
+--                                      |
+-- +--------+---------+---------+       |
+-- | dblp16 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +--------+---------+---------+       |
+-- | dblp19 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp18 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp5  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       +--------------+
+--with dummy as (select) /* stage1 */, dblp16_s1_6517006641ddf4 as (select dblp16.d as v0 from dblp16), dblp6_s1_6517006641ddf4 as (select dblp6.s as v0 from dblp6), dblp5_s1_6517006641ddf4 as (select dblp5.s as v0 from dblp5), dblp22_s1_6517006641ddf4 as (select dblp22.s as v0 from dblp22), dblp19_s1_6517006641ddf4 as (select dblp19.d as v0 from dblp19), dblp18_s1_6517006641ddf4 as (select dblp18.s as v0 from dblp18), dblp17_s1_6517006641ddf4 as (select dblp17.s as v0 from dblp17), dblp1_s1_6517006641ddf4 as (select dblp1.s as v0 from dblp1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_62E83CCF5939CE52 as  (select * from umbra.identity(table(dblp16_s1_6517006641ddf4)) NATURAL JOIN umbra.identity(table(dblp1_s1_6517006641ddf4)) NATURAL JOIN umbra.identity(table(dblp17_s1_6517006641ddf4)) NATURAL JOIN umbra.identity(table(dblp18_s1_6517006641ddf4)) NATURAL JOIN umbra.identity(table(dblp19_s1_6517006641ddf4)) NATURAL JOIN umbra.identity(table(dblp22_s1_6517006641ddf4)) NATURAL JOIN umbra.identity(table(dblp5_s1_6517006641ddf4)) NATURAL JOIN umbra.identity(table(dblp6_s1_6517006641ddf4)))select count(*) from umbra.identity(table(s4_group_62E83CCF5939CE52));
+\set queryname dblp_acyclic_212_08
+-- Result size: 15093488
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp26:d -> dblp21:d;dblp21:d -> dblp22:s;dblp22:s -> dblp2:s;dblp2:s -> dblp1:s;dblp1:s -> dblp17:s;dblp17:s -> dblp25:s;dblp25:s -> dblp24:s;}
+--                     +--------+----+----+
+--                     | dblp24 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp25 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp17 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp1  |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 +----+
+--                                      |
+-- +--------+---------+---------+       |
+-- | dblp26 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +--------+---------+---------+       |
+-- | dblp21 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp22 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp2  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       +--------------+
+with dummy as (select) /* stage1 */, dblp17_s1_13e7f006641ddf4 as (select dblp17.s as v0 from dblp17), dblp26_s1_13e7f006641ddf4 as (select dblp26.d as v0 from dblp26), dblp25_s1_13e7f006641ddf4 as (select dblp25.s as v0 from dblp25), dblp24_s1_13e7f006641ddf4 as (select dblp24.s as v0 from dblp24), dblp22_s1_13e7f006641ddf4 as (select dblp22.s as v0 from dblp22), dblp21_s1_13e7f006641ddf4 as (select dblp21.d as v0 from dblp21), dblp2_s1_13e7f006641ddf4 as (select dblp2.s as v0 from dblp2), dblp1_s1_13e7f006641ddf4 as (select dblp1.s as v0 from dblp1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_8D997F6147637E as  (select * from umbra.identity(table(dblp17_s1_13e7f006641ddf4)) NATURAL JOIN umbra.identity(table(dblp1_s1_13e7f006641ddf4)) NATURAL JOIN umbra.identity(table(dblp2_s1_13e7f006641ddf4)) NATURAL JOIN umbra.identity(table(dblp21_s1_13e7f006641ddf4)) NATURAL JOIN umbra.identity(table(dblp22_s1_13e7f006641ddf4)) NATURAL JOIN umbra.identity(table(dblp24_s1_13e7f006641ddf4)) NATURAL JOIN umbra.identity(table(dblp25_s1_13e7f006641ddf4)) NATURAL JOIN umbra.identity(table(dblp26_s1_13e7f006641ddf4)))select count(*) from umbra.identity(table(s4_group_8D997F6147637E));
+\set queryname dblp_acyclic_212_09
+-- Result size: 1085411
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp21:d -> dblp26:d;dblp26:d -> dblp5:s;dblp5:s -> dblp6:s;dblp6:s -> dblp25:s;dblp25:s -> dblp22:s;dblp22:s -> dblp17:s;dblp17:s -> dblp18:s;}
+--                     +--------+----+----+
+--                     | dblp18 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                     +--------+----+----+
+--                     | dblp17 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 +----+
+--                                      |
+-- +--------+---------+---------+       |
+-- | dblp21 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +--------+---------+---------+       |
+-- | dblp26 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp5  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp6  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp25 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp22 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       +--------------+
+with dummy as (select) /* stage1 */, dblp18_s1_177d0806641ddf4 as (select dblp18.s as v0 from dblp18), dblp6_s1_177d0806641ddf4 as (select dblp6.s as v0 from dblp6), dblp5_s1_177d0806641ddf4 as (select dblp5.s as v0 from dblp5), dblp26_s1_177d0806641ddf4 as (select dblp26.d as v0 from dblp26), dblp25_s1_177d0806641ddf4 as (select dblp25.s as v0 from dblp25), dblp22_s1_177d0806641ddf4 as (select dblp22.s as v0 from dblp22), dblp21_s1_177d0806641ddf4 as (select dblp21.d as v0 from dblp21), dblp17_s1_177d0806641ddf4 as (select dblp17.s as v0 from dblp17) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_BB282CCBA807D36 as  (select * from umbra.identity(table(dblp18_s1_177d0806641ddf4)) NATURAL JOIN umbra.identity(table(dblp17_s1_177d0806641ddf4)) NATURAL JOIN umbra.identity(table(dblp21_s1_177d0806641ddf4)) NATURAL JOIN umbra.identity(table(dblp22_s1_177d0806641ddf4)) NATURAL JOIN umbra.identity(table(dblp25_s1_177d0806641ddf4)) NATURAL JOIN umbra.identity(table(dblp26_s1_177d0806641ddf4)) NATURAL JOIN umbra.identity(table(dblp5_s1_177d0806641ddf4)) NATURAL JOIN umbra.identity(table(dblp6_s1_177d0806641ddf4)))select count(*) from umbra.identity(table(s4_group_BB282CCBA807D36));
+\set queryname dblp_acyclic_212_10
+-- Result size: 663920
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp21:d -> dblp26:d;dblp26:d -> dblp9:s;dblp9:s -> dblp6:s;dblp6:s -> dblp2:s;dblp2:s -> dblp5:s;dblp5:s -> dblp22:s;dblp22:s -> dblp18:s;}
+--                     +--------+----+----+
+--                     | dblp18 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 +----+
+--                                      |
+-- +--------+---------+---------+       |
+-- | dblp21 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +--------+---------+---------+       |
+-- | dblp26 |    s    |    d    |       |
+-- +--------+---------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp9  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp6  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp2  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp5  |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       |              |
+--                       |              |
+--           +--------+---------+----+  |
+--           | dblp22 |    s    |  d |  |
+--           +--------+---------+----+  |
+--                       |              |
+--                       +--------------+
+with dummy as (select) /* stage1 */, dblp2_s1_3daf5806641ddf4 as (select dblp2.s as v0 from dblp2), dblp9_s1_3daf5806641ddf4 as (select dblp9.s as v0 from dblp9), dblp6_s1_3daf5806641ddf4 as (select dblp6.s as v0 from dblp6), dblp5_s1_3daf5806641ddf4 as (select dblp5.s as v0 from dblp5), dblp26_s1_3daf5806641ddf4 as (select dblp26.d as v0 from dblp26), dblp22_s1_3daf5806641ddf4 as (select dblp22.s as v0 from dblp22), dblp21_s1_3daf5806641ddf4 as (select dblp21.d as v0 from dblp21), dblp18_s1_3daf5806641ddf4 as (select dblp18.s as v0 from dblp18) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_4CD2033CFE9040E as  (select * from umbra.identity(table(dblp2_s1_3daf5806641ddf4)) NATURAL JOIN umbra.identity(table(dblp18_s1_3daf5806641ddf4)) NATURAL JOIN umbra.identity(table(dblp21_s1_3daf5806641ddf4)) NATURAL JOIN umbra.identity(table(dblp22_s1_3daf5806641ddf4)) NATURAL JOIN umbra.identity(table(dblp26_s1_3daf5806641ddf4)) NATURAL JOIN umbra.identity(table(dblp5_s1_3daf5806641ddf4)) NATURAL JOIN umbra.identity(table(dblp6_s1_3daf5806641ddf4)) NATURAL JOIN umbra.identity(table(dblp9_s1_3daf5806641ddf4)))select count(*) from umbra.identity(table(s4_group_4CD2033CFE9040E));
+\set queryname dblp_acyclic_212_11
+-- Result size: 3838275
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp21:d -> dblp26:d;dblp26:d -> dblp17:s;dblp17:s -> dblp25:s;dblp25:s -> dblp2:s;dblp2:s -> dblp8:s;dblp8:s -> dblp9:s;dblp9:s -> dblp1:s;}
+--                     +-------+----+----+
+--                     | dblp1 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                +----+
+--                                     |
+-- +--------+---------+--------+       |
+-- | dblp21 |    s    |    d   |       |
+-- +--------+---------+--------+       |
+--                       |             |
+--                       |             |
+--                       |             |
+-- +--------+---------+--------+       |
+-- | dblp26 |    s    |    d   |       |
+-- +--------+---------+--------+       |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp17 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp25 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp2  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp8  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp9  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       +-------------+
+with dummy as (select) /* stage1 */, dblp17_s1_5a1e1006641ddf4 as (select dblp17.s as v0 from dblp17), dblp9_s1_5a1e1006641ddf4 as (select dblp9.s as v0 from dblp9), dblp8_s1_5a1e1006641ddf4 as (select dblp8.s as v0 from dblp8), dblp26_s1_5a1e1006641ddf4 as (select dblp26.d as v0 from dblp26), dblp25_s1_5a1e1006641ddf4 as (select dblp25.s as v0 from dblp25), dblp21_s1_5a1e1006641ddf4 as (select dblp21.d as v0 from dblp21), dblp2_s1_5a1e1006641ddf4 as (select dblp2.s as v0 from dblp2), dblp1_s1_5a1e1006641ddf4 as (select dblp1.s as v0 from dblp1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7B4C597952F68980 as  (select * from umbra.identity(table(dblp17_s1_5a1e1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp1_s1_5a1e1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp2_s1_5a1e1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp21_s1_5a1e1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp25_s1_5a1e1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp26_s1_5a1e1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp8_s1_5a1e1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp9_s1_5a1e1006641ddf4)))select count(*) from umbra.identity(table(s4_group_7B4C597952F68980));
+--\set queryname dblp_acyclic_212_12
+-- Result size: 20112409992
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp3 [label="dblp3|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp16:d -> dblp19:d;dblp19:d -> dblp25:s;dblp25:s -> dblp3:s;dblp3:s -> dblp21:s;dblp21:s -> dblp23:s;dblp23:s -> dblp2:s;dblp2:s -> dblp6:s;}
+-- +--------+---------+----+
+-- | dblp16 |    s    |  d |
+-- +--------+---------+----+
+--                       |
+--                       |
+--                       |
+-- +--------+---------+----+
+-- | dblp19 |    s    |  d |
+-- +--------+---------+----+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp25 |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp3  |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp21 |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp23 |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp2  |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp6  |  s | d |
+--           +--------+----+---+
+--with dummy as (select) /* stage1 */, dblp19_s1_702f0006641ddf4 as (select dblp19.d as v0 from dblp19), dblp6_s1_702f0006641ddf4 as (select dblp6.s as v0 from dblp6), dblp3_s1_702f0006641ddf4 as (select dblp3.s as v0 from dblp3), dblp25_s1_702f0006641ddf4 as (select dblp25.s as v0 from dblp25), dblp23_s1_702f0006641ddf4 as (select dblp23.s as v0 from dblp23), dblp21_s1_702f0006641ddf4 as (select dblp21.s as v0 from dblp21), dblp2_s1_702f0006641ddf4 as (select dblp2.s as v0 from dblp2), dblp16_s1_702f0006641ddf4 as (select dblp16.d as v0 from dblp16) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2616665AEA876559 as  (select * from umbra.identity(table(dblp19_s1_702f0006641ddf4)) NATURAL JOIN umbra.identity(table(dblp16_s1_702f0006641ddf4)) NATURAL JOIN umbra.identity(table(dblp2_s1_702f0006641ddf4)) NATURAL JOIN umbra.identity(table(dblp21_s1_702f0006641ddf4)) NATURAL JOIN umbra.identity(table(dblp23_s1_702f0006641ddf4)) NATURAL JOIN umbra.identity(table(dblp25_s1_702f0006641ddf4)) NATURAL JOIN umbra.identity(table(dblp3_s1_702f0006641ddf4)) NATURAL JOIN umbra.identity(table(dblp6_s1_702f0006641ddf4)))select count(*) from umbra.identity(table(s4_group_2616665AEA876559));
+--\set queryname dblp_acyclic_212_13
+-- Result size: 69931110050
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp16:d -> dblp19:d;dblp19:d -> dblp25:s;dblp25:s -> dblp20:s;dblp20:s -> dblp17:s;dblp17:s -> dblp5:s;dblp5:s -> dblp6:s;dblp6:s -> dblp7:s;}
+-- +--------+---------+----+
+-- | dblp16 |    s    |  d |
+-- +--------+---------+----+
+--                       |
+--                       |
+--                       |
+-- +--------+---------+----+
+-- | dblp19 |    s    |  d |
+-- +--------+---------+----+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp25 |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp20 |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp17 |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp5  |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp6  |  s | d |
+--           +--------+----+---+
+--                       |
+--                       |
+--                       |
+--           +--------+----+---+
+--           | dblp7  |  s | d |
+--           +--------+----+---+
+--with dummy as (select) /* stage1 */, dblp17_s1_6bbbe806641ddf4 as (select dblp17.s as v0 from dblp17), dblp7_s1_6bbbe806641ddf4 as (select dblp7.s as v0 from dblp7), dblp6_s1_6bbbe806641ddf4 as (select dblp6.s as v0 from dblp6), dblp5_s1_6bbbe806641ddf4 as (select dblp5.s as v0 from dblp5), dblp25_s1_6bbbe806641ddf4 as (select dblp25.s as v0 from dblp25), dblp20_s1_6bbbe806641ddf4 as (select dblp20.s as v0 from dblp20), dblp19_s1_6bbbe806641ddf4 as (select dblp19.d as v0 from dblp19), dblp16_s1_6bbbe806641ddf4 as (select dblp16.d as v0 from dblp16) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7135B7E5654CAAC5 as  (select * from umbra.identity(table(dblp17_s1_6bbbe806641ddf4)) NATURAL JOIN umbra.identity(table(dblp16_s1_6bbbe806641ddf4)) NATURAL JOIN umbra.identity(table(dblp19_s1_6bbbe806641ddf4)) NATURAL JOIN umbra.identity(table(dblp20_s1_6bbbe806641ddf4)) NATURAL JOIN umbra.identity(table(dblp25_s1_6bbbe806641ddf4)) NATURAL JOIN umbra.identity(table(dblp5_s1_6bbbe806641ddf4)) NATURAL JOIN umbra.identity(table(dblp6_s1_6bbbe806641ddf4)) NATURAL JOIN umbra.identity(table(dblp7_s1_6bbbe806641ddf4)))select count(*) from umbra.identity(table(s4_group_7135B7E5654CAAC5));
+--\set queryname dblp_acyclic_212_14
+-- Result size: 132132903372
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp20 [label="dblp20|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp19:d -> dblp16:d;dblp16:d -> dblp21:s;dblp21:s -> dblp20:s;dblp20:s -> dblp8:s;dblp8:s -> dblp23:s;dblp23:s -> dblp9:s;dblp9:s -> dblp1:s;}
+--                     +-------+----+----+
+--                     | dblp1 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                +----+
+--                                     |
+-- +--------+---------+--------+       |
+-- | dblp19 |    s    |    d   |       |
+-- +--------+---------+--------+       |
+--                       |             |
+--                       |             |
+--                       |             |
+-- +--------+---------+--------+       |
+-- | dblp16 |    s    |    d   |       |
+-- +--------+---------+--------+       |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp21 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp20 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp8  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp23 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp9  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       +-------------+
+--with dummy as (select) /* stage1 */, dblp16_s1_8c9c1006641ddf4 as (select dblp16.d as v0 from dblp16), dblp9_s1_8c9c1006641ddf4 as (select dblp9.s as v0 from dblp9), dblp8_s1_8c9c1006641ddf4 as (select dblp8.s as v0 from dblp8), dblp23_s1_8c9c1006641ddf4 as (select dblp23.s as v0 from dblp23), dblp21_s1_8c9c1006641ddf4 as (select dblp21.s as v0 from dblp21), dblp20_s1_8c9c1006641ddf4 as (select dblp20.s as v0 from dblp20), dblp19_s1_8c9c1006641ddf4 as (select dblp19.d as v0 from dblp19), dblp1_s1_8c9c1006641ddf4 as (select dblp1.s as v0 from dblp1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_8460C53C13EED0A as  (select * from umbra.identity(table(dblp16_s1_8c9c1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp1_s1_8c9c1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp19_s1_8c9c1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp20_s1_8c9c1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp21_s1_8c9c1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp23_s1_8c9c1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp8_s1_8c9c1006641ddf4)) NATURAL JOIN umbra.identity(table(dblp9_s1_8c9c1006641ddf4)))select count(*) from umbra.identity(table(s4_group_8460C53C13EED0A));
+--\set queryname dblp_acyclic_212_15
+-- Result size: 72406899798
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp24 [label="dblp24|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp18 [label="dblp18|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp8 [label="dblp8|<s> s|<d> d"]; dblp19:d -> dblp16:d;dblp16:d -> dblp9:s;dblp9:s -> dblp24:s;dblp24:s -> dblp23:s;dblp23:s -> dblp18:s;dblp18:s -> dblp2:s;dblp2:s -> dblp8:s;}
+--                 +--------------+
+--                 |              |
+-- +--------+---+----+---------+----+---+
+-- | dblp16 | s |  d |  dblp9  |  s | d |
+-- +--------+---+----+---------+----+---+
+--                 |              |
+--                 |              |
+--                 |              |
+-- +--------+---+----+---------+----+---+
+-- | dblp19 | s |  d |  dblp24 |  s | d |
+-- +--------+---+----+---------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp23 |  s | d |
+--                    +--------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp18 |  s | d |
+--                    +--------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp2  |  s | d |
+--                    +--------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp8  |  s | d |
+--                    +--------+----+---+
+--with dummy as (select) /* stage1 */, dblp18_s1_a1037006641ddf4 as (select dblp18.s as v0 from dblp18), dblp9_s1_a1037006641ddf4 as (select dblp9.s as v0 from dblp9), dblp8_s1_a1037006641ddf4 as (select dblp8.s as v0 from dblp8), dblp24_s1_a1037006641ddf4 as (select dblp24.s as v0 from dblp24), dblp23_s1_a1037006641ddf4 as (select dblp23.s as v0 from dblp23), dblp2_s1_a1037006641ddf4 as (select dblp2.s as v0 from dblp2), dblp19_s1_a1037006641ddf4 as (select dblp19.d as v0 from dblp19), dblp16_s1_a1037006641ddf4 as (select dblp16.d as v0 from dblp16) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7C68D55165D9065C as  (select * from umbra.identity(table(dblp18_s1_a1037006641ddf4)) NATURAL JOIN umbra.identity(table(dblp16_s1_a1037006641ddf4)) NATURAL JOIN umbra.identity(table(dblp19_s1_a1037006641ddf4)) NATURAL JOIN umbra.identity(table(dblp2_s1_a1037006641ddf4)) NATURAL JOIN umbra.identity(table(dblp23_s1_a1037006641ddf4)) NATURAL JOIN umbra.identity(table(dblp24_s1_a1037006641ddf4)) NATURAL JOIN umbra.identity(table(dblp8_s1_a1037006641ddf4)) NATURAL JOIN umbra.identity(table(dblp9_s1_a1037006641ddf4)))select count(*) from umbra.identity(table(s4_group_7C68D55165D9065C));
+\set queryname dblp_acyclic_212_16
+-- Result size: 37617136
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp4 [label="dblp4|<s> s|<d> d"]; dblp19:d -> dblp16:d;dblp16:d -> dblp9:s;dblp9:s -> dblp7:s;dblp7:s -> dblp6:s;dblp6:s -> dblp21:s;dblp21:s -> dblp5:s;dblp5:s -> dblp4:s;}
+--                 +--------------+
+--                 |              |
+-- +--------+---+----+---------+----+---+
+-- | dblp16 | s |  d |  dblp9  |  s | d |
+-- +--------+---+----+---------+----+---+
+--                 |              |
+--                 |              |
+--                 |              |
+-- +--------+---+----+---------+----+---+
+-- | dblp19 | s |  d |  dblp7  |  s | d |
+-- +--------+---+----+---------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp6  |  s | d |
+--                    +--------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp21 |  s | d |
+--                    +--------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp5  |  s | d |
+--                    +--------+----+---+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+---+
+--                    | dblp4  |  s | d |
+--                    +--------+----+---+
+with dummy as (select) /* stage1 */, dblp19_s1_a6564006641ddf4 as (select dblp19.d as v0 from dblp19), dblp9_s1_a6564006641ddf4 as (select dblp9.s as v0 from dblp9), dblp7_s1_a6564006641ddf4 as (select dblp7.s as v0 from dblp7), dblp6_s1_a6564006641ddf4 as (select dblp6.s as v0 from dblp6), dblp5_s1_a6564006641ddf4 as (select dblp5.s as v0 from dblp5), dblp4_s1_a6564006641ddf4 as (select dblp4.s as v0 from dblp4), dblp21_s1_a6564006641ddf4 as (select dblp21.s as v0 from dblp21), dblp16_s1_a6564006641ddf4 as (select dblp16.d as v0 from dblp16) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_76E4B5B48BBB9C84 as  (select * from umbra.identity(table(dblp19_s1_a6564006641ddf4)) NATURAL JOIN umbra.identity(table(dblp16_s1_a6564006641ddf4)) NATURAL JOIN umbra.identity(table(dblp21_s1_a6564006641ddf4)) NATURAL JOIN umbra.identity(table(dblp4_s1_a6564006641ddf4)) NATURAL JOIN umbra.identity(table(dblp5_s1_a6564006641ddf4)) NATURAL JOIN umbra.identity(table(dblp6_s1_a6564006641ddf4)) NATURAL JOIN umbra.identity(table(dblp7_s1_a6564006641ddf4)) NATURAL JOIN umbra.identity(table(dblp9_s1_a6564006641ddf4)))select count(*) from umbra.identity(table(s4_group_76E4B5B48BBB9C84));
+--\set queryname dblp_acyclic_212_17
+-- Result size: 4016459225
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp16 [label="dblp16|<s> s|<d> d"]; dblp19 [label="dblp19|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp3 [label="dblp3|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp13 [label="dblp13|<s> s|<d> d"]; dblp25 [label="dblp25|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp16:d -> dblp19:d;dblp19:d -> dblp1:s;dblp1:s -> dblp3:s;dblp3:s -> dblp5:s;dblp5:s -> dblp13:s;dblp13:s -> dblp25:s;dblp25:s -> dblp7:s;}
+--               +--------+----+---+
+--               | dblp7  |  s | d |
+--               +--------+----+---+
+--                           |
+--                           |
+--                           |
+--               +--------+----+---+
+--               | dblp25 |  s | d |
+--               +--------+----+---+
+--                           |
+--                           |
+--                           |
+--               +--------+----+---+
+--               | dblp13 |  s | d |
+--               +--------+----+---+
+--                           |
+--                           |
+--                           |
+--               +--------+----+---+
+--               | dblp5  |  s | d |
+--               +--------+----+---+
+--                           |
+--                           |
+--                           |
+--               +--------+----+---+
+--               | dblp3  |  s | d |
+--               +--------+----+---+
+--                           |
+--                           |
+--                           |
+--               +--------+----+---+
+--               | dblp1  |  s | d |
+--               +--------+----+---+
+--                           |
+--                           |
+--                           |
+-- +--------+---+---------+  |
+-- | dblp16 | s |    d    |  |
+-- +--------+---+---------+  |
+--                 |         |
+--                 |         |
+--                 |         |
+-- +--------+---+---------+  |
+-- | dblp19 | s |    d    | -+
+-- +--------+---+---------+
+--with dummy as (select) /* stage1 */, dblp13_s1_b614d806641ddf4 as (select dblp13.s as v0 from dblp13), dblp7_s1_b614d806641ddf4 as (select dblp7.s as v0 from dblp7), dblp5_s1_b614d806641ddf4 as (select dblp5.s as v0 from dblp5), dblp3_s1_b614d806641ddf4 as (select dblp3.s as v0 from dblp3), dblp25_s1_b614d806641ddf4 as (select dblp25.s as v0 from dblp25), dblp19_s1_b614d806641ddf4 as (select dblp19.d as v0 from dblp19), dblp16_s1_b614d806641ddf4 as (select dblp16.d as v0 from dblp16), dblp1_s1_b614d806641ddf4 as (select dblp1.s as v0 from dblp1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_64BE41C4437FCC as  (select * from umbra.identity(table(dblp13_s1_b614d806641ddf4)) NATURAL JOIN umbra.identity(table(dblp1_s1_b614d806641ddf4)) NATURAL JOIN umbra.identity(table(dblp16_s1_b614d806641ddf4)) NATURAL JOIN umbra.identity(table(dblp19_s1_b614d806641ddf4)) NATURAL JOIN umbra.identity(table(dblp25_s1_b614d806641ddf4)) NATURAL JOIN umbra.identity(table(dblp3_s1_b614d806641ddf4)) NATURAL JOIN umbra.identity(table(dblp5_s1_b614d806641ddf4)) NATURAL JOIN umbra.identity(table(dblp7_s1_b614d806641ddf4)))select count(*) from umbra.identity(table(s4_group_64BE41C4437FCC));
+\set queryname dblp_acyclic_212_18
+-- Result size: 2123791
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp26 [label="dblp26|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp22 [label="dblp22|<s> s|<d> d"]; dblp1 [label="dblp1|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp21:d -> dblp26:d;dblp26:d -> dblp5:s;dblp5:s -> dblp2:s;dblp2:s -> dblp22:s;dblp22:s -> dblp1:s;dblp1:s -> dblp7:s;dblp7:s -> dblp6:s;}
+--                     +-------+----+----+
+--                     | dblp6 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                |
+--                                |
+--                     +-------+----+----+
+--                     | dblp7 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                |
+--                                |
+--                     +-------+----+----+
+--                     | dblp1 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                +----+
+--                                     |
+-- +--------+---------+--------+       |
+-- | dblp21 |    s    |    d   |       |
+-- +--------+---------+--------+       |
+--                       |             |
+--                       |             |
+--                       |             |
+-- +--------+---------+--------+       |
+-- | dblp26 |    s    |    d   |       |
+-- +--------+---------+--------+       |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp5  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp2  |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       |             |
+--                       |             |
+--           +--------+--------+----+  |
+--           | dblp22 |    s   |  d |  |
+--           +--------+--------+----+  |
+--                       |             |
+--                       +-------------+
+with dummy as (select) /* stage1 */, dblp2_s1_a4e7e006641ddf4 as (select dblp2.s as v0 from dblp2), dblp7_s1_a4e7e006641ddf4 as (select dblp7.s as v0 from dblp7), dblp6_s1_a4e7e006641ddf4 as (select dblp6.s as v0 from dblp6), dblp5_s1_a4e7e006641ddf4 as (select dblp5.s as v0 from dblp5), dblp26_s1_a4e7e006641ddf4 as (select dblp26.d as v0 from dblp26), dblp22_s1_a4e7e006641ddf4 as (select dblp22.s as v0 from dblp22), dblp21_s1_a4e7e006641ddf4 as (select dblp21.d as v0 from dblp21), dblp1_s1_a4e7e006641ddf4 as (select dblp1.s as v0 from dblp1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_16803FC475FEA77 as  (select * from umbra.identity(table(dblp2_s1_a4e7e006641ddf4)) NATURAL JOIN umbra.identity(table(dblp1_s1_a4e7e006641ddf4)) NATURAL JOIN umbra.identity(table(dblp21_s1_a4e7e006641ddf4)) NATURAL JOIN umbra.identity(table(dblp22_s1_a4e7e006641ddf4)) NATURAL JOIN umbra.identity(table(dblp26_s1_a4e7e006641ddf4)) NATURAL JOIN umbra.identity(table(dblp5_s1_a4e7e006641ddf4)) NATURAL JOIN umbra.identity(table(dblp6_s1_a4e7e006641ddf4)) NATURAL JOIN umbra.identity(table(dblp7_s1_a4e7e006641ddf4)))select count(*) from umbra.identity(table(s4_group_16803FC475FEA77));
+\set queryname dblp_acyclic_212_19
+-- Result size: 2242554
+-- digraph G { node [shape=record]; edge [arrowhead=none]; dblp21 [label="dblp21|<s> s|<d> d"]; dblp5 [label="dblp5|<s> s|<d> d"]; dblp7 [label="dblp7|<s> s|<d> d"]; dblp17 [label="dblp17|<s> s|<d> d"]; dblp2 [label="dblp2|<s> s|<d> d"]; dblp6 [label="dblp6|<s> s|<d> d"]; dblp9 [label="dblp9|<s> s|<d> d"]; dblp23 [label="dblp23|<s> s|<d> d"]; dblp21:d -> dblp5:d;dblp5:d -> dblp7:s;dblp7:s -> dblp17:s;dblp17:s -> dblp2:s;dblp2:s -> dblp6:s;dblp6:s -> dblp9:s;dblp9:s -> dblp23:s;}
+--                    +--------+----+----+
+--                    | dblp23 |  s |  d |
+--                    +--------+----+----+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+----+
+--                    | dblp9  |  s |  d |
+--                    +--------+----+----+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+----+
+--                    | dblp6  |  s |  d |
+--                    +--------+----+----+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+----+
+--                    | dblp2  |  s |  d |
+--                    +--------+----+----+
+--                                |
+--                                |
+--                                |
+--                    +--------+----+----+
+--                    | dblp17 |  s |  d |
+--                    +--------+----+----+
+--                                |
+--                                +----+
+--                                     |
+-- +--------+--------+---------+       |
+-- | dblp21 |    s   |    d    |       |
+-- +--------+--------+---------+       |
+--                      |              |
+--                      |              |
+--                      |              |
+-- +--------+--------+---------+       |
+-- | dblp5  |    s   |    d    |       |
+-- +--------+--------+---------+       |
+--                      |              |
+--                      |              |
+--                      |              |
+--           +-------+---------+----+  |
+--           | dblp7 |    s    |  d |  |
+--           +-------+---------+----+  |
+--                      |              |
+--                      +--------------+
+with dummy as (select) /* stage1 */, dblp2_s1_ac494806641ddf4 as (select dblp2.s as v0 from dblp2), dblp9_s1_ac494806641ddf4 as (select dblp9.s as v0 from dblp9), dblp7_s1_ac494806641ddf4 as (select dblp7.s as v0 from dblp7), dblp6_s1_ac494806641ddf4 as (select dblp6.s as v0 from dblp6), dblp5_s1_ac494806641ddf4 as (select dblp5.d as v0 from dblp5), dblp23_s1_ac494806641ddf4 as (select dblp23.s as v0 from dblp23), dblp21_s1_ac494806641ddf4 as (select dblp21.d as v0 from dblp21), dblp17_s1_ac494806641ddf4 as (select dblp17.s as v0 from dblp17) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_12C693DA6A05CF3A as  (select * from umbra.identity(table(dblp2_s1_ac494806641ddf4)) NATURAL JOIN umbra.identity(table(dblp17_s1_ac494806641ddf4)) NATURAL JOIN umbra.identity(table(dblp21_s1_ac494806641ddf4)) NATURAL JOIN umbra.identity(table(dblp23_s1_ac494806641ddf4)) NATURAL JOIN umbra.identity(table(dblp5_s1_ac494806641ddf4)) NATURAL JOIN umbra.identity(table(dblp6_s1_ac494806641ddf4)) NATURAL JOIN umbra.identity(table(dblp7_s1_ac494806641ddf4)) NATURAL JOIN umbra.identity(table(dblp9_s1_ac494806641ddf4)))select count(*) from umbra.identity(table(s4_group_12C693DA6A05CF3A));

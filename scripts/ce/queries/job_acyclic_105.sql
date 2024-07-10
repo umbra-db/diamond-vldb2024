@@ -1,0 +1,2508 @@
+\set queryname job_acyclic_105_00
+-- Result size: 31076865
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb100:d -> imdb124:d;imdb124:d -> imdb9:s;imdb9:s -> imdb12:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb124 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb9  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb12 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb124, imdb9, imdb12 where imdb100.d = imdb124.d and imdb124.d = imdb9.s and imdb9.s = imdb12.s;
+\set queryname job_acyclic_105_01
+-- Result size: 331696440
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb100:d -> imdb117:d;imdb117:d -> imdb14:s;imdb14:s -> imdb15:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb117 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb14 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb15 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb117, imdb14, imdb15 where imdb100.d = imdb117.d and imdb117.d = imdb14.s and imdb14.s = imdb15.s;
+\set queryname job_acyclic_105_02
+-- Result size: 893040987
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb100:d -> imdb122:d;imdb122:d -> imdb18:s;imdb18:s -> imdb6:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb122 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb18 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb6  |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb122, imdb18, imdb6 where imdb100.d = imdb122.d and imdb122.d = imdb18.s and imdb18.s = imdb6.s;
+\set queryname job_acyclic_105_03
+-- Result size: 3223987
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb100:d -> imdb125:d;imdb125:d -> imdb6:s;imdb6:s -> imdb16:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb125 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb6  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb125, imdb6, imdb16 where imdb100.d = imdb125.d and imdb125.d = imdb6.s and imdb6.s = imdb16.s;
+\set queryname job_acyclic_105_04
+-- Result size: 44524411
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb21 [label="imdb21|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb21:s;imdb21:s -> imdb10:s;}
+--                      +--------+----+----+
+--                      | imdb10 |  s |  d |
+--                      +--------+----+----+
+--                                  |
+--                                  +----+
+--                                       |
+-- +---------+---------+---------+       |
+-- | imdb100 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb118 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+--            +--------+---------+----+  |
+--            | imdb21 |    s    |  d |  |
+--            +--------+---------+----+  |
+--                        |              |
+--                        +--------------+
+select count(*) from imdb100, imdb118, imdb21, imdb10 where imdb100.d = imdb118.d and imdb118.d = imdb21.s and imdb21.s = imdb10.s;
+\set queryname job_acyclic_105_05
+-- Result size: 8399152
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb21 [label="imdb21|<s> s|<d> d"]; imdb100:d -> imdb121:d;imdb121:d -> imdb7:s;imdb7:s -> imdb21:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb121 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb7  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb21 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb121, imdb7, imdb21 where imdb100.d = imdb121.d and imdb121.d = imdb7.s and imdb7.s = imdb21.s;
+\set queryname job_acyclic_105_06
+-- Result size: 14118021
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb11 [label="imdb11|<s> s|<d> d"]; imdb100:d -> imdb124:d;imdb124:d -> imdb15:s;imdb15:s -> imdb11:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb124 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb15 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb11 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb124, imdb15, imdb11 where imdb100.d = imdb124.d and imdb124.d = imdb15.s and imdb15.s = imdb11.s;
+\set queryname job_acyclic_105_07
+-- Result size: 9927570
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb100:d -> imdb120:d;imdb120:d -> imdb15:s;imdb15:s -> imdb16:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb120 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb15 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb120, imdb15, imdb16 where imdb100.d = imdb120.d and imdb120.d = imdb15.s and imdb15.s = imdb16.s;
+\set queryname job_acyclic_105_08
+-- Result size: 693958
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb25 [label="imdb25|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb100:d -> imdb123:d;imdb123:d -> imdb25:s;imdb25:s -> imdb6:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb123 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb25 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb6  |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb123, imdb25, imdb6 where imdb100.d = imdb123.d and imdb123.d = imdb25.s and imdb25.s = imdb6.s;
+\set queryname job_acyclic_105_09
+-- Result size: 1201025
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb19 [label="imdb19|<s> s|<d> d"]; imdb100:d -> imdb120:d;imdb120:d -> imdb16:s;imdb16:s -> imdb19:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb120 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb19 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb120, imdb16, imdb19 where imdb100.d = imdb120.d and imdb120.d = imdb16.s and imdb16.s = imdb19.s;
+\set queryname job_acyclic_105_10
+-- Result size: 25780580
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb100:d -> imdb124:d;imdb124:d -> imdb13:s;imdb13:s -> imdb18:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb124 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb13 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb18 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb124, imdb13, imdb18 where imdb100.d = imdb124.d and imdb124.d = imdb13.s and imdb13.s = imdb18.s;
+\set queryname job_acyclic_105_11
+-- Result size: 741532079
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb23 [label="imdb23|<s> s|<d> d"]; imdb100:d -> imdb117:d;imdb117:d -> imdb16:s;imdb16:s -> imdb23:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb117 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb23 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb117, imdb16, imdb23 where imdb100.d = imdb117.d and imdb117.d = imdb16.s and imdb16.s = imdb23.s;
+\set queryname job_acyclic_105_12
+-- Result size: 1125958
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb100:d -> imdb126:d;imdb126:d -> imdb6:s;imdb6:s -> imdb24:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb126 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb6  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb24 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb126, imdb6, imdb24 where imdb100.d = imdb126.d and imdb126.d = imdb6.s and imdb6.s = imdb24.s;
+\set queryname job_acyclic_105_13
+-- Result size: 1562863
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb11 [label="imdb11|<s> s|<d> d"]; imdb19 [label="imdb19|<s> s|<d> d"]; imdb100:d -> imdb127:d;imdb127:d -> imdb11:s;imdb11:s -> imdb19:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb127 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb11 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb19 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb127, imdb11, imdb19 where imdb100.d = imdb127.d and imdb127.d = imdb11.s and imdb11.s = imdb19.s;
+\set queryname job_acyclic_105_14
+-- Result size: 99095879
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb21 [label="imdb21|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb100:d -> imdb124:d;imdb124:d -> imdb21:s;imdb21:s -> imdb12:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb124 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb21 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb12 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb124, imdb21, imdb12 where imdb100.d = imdb124.d and imdb124.d = imdb21.s and imdb21.s = imdb12.s;
+\set queryname job_acyclic_105_15
+-- Result size: 1067623
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb25 [label="imdb25|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb16:s;imdb16:s -> imdb25:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb118 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb25 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb118, imdb16, imdb25 where imdb100.d = imdb118.d and imdb118.d = imdb16.s and imdb16.s = imdb25.s;
+\set queryname job_acyclic_105_16
+-- Result size: 5171758
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb100:d -> imdb127:d;imdb127:d -> imdb8:s;imdb8:s -> imdb24:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb127 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb8  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb24 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb127, imdb8, imdb24 where imdb100.d = imdb127.d and imdb127.d = imdb8.s and imdb8.s = imdb24.s;
+\set queryname job_acyclic_105_17
+-- Result size: 20901969
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb25 [label="imdb25|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb25:s;imdb25:s -> imdb15:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb25 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb15 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb119, imdb25, imdb15 where imdb100.d = imdb119.d and imdb119.d = imdb25.s and imdb25.s = imdb15.s;
+\set queryname job_acyclic_105_18
+-- Result size: 5442373
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb26 [label="imdb26|<s> s|<d> d"]; imdb100:d -> imdb126:d;imdb126:d -> imdb7:s;imdb7:s -> imdb26:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb126 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb7  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb26 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb126, imdb7, imdb26 where imdb100.d = imdb126.d and imdb126.d = imdb7.s and imdb7.s = imdb26.s;
+\set queryname job_acyclic_105_19
+-- Result size: 21874924
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb100:d -> imdb125:d;imdb125:d -> imdb16:s;imdb16:s -> imdb18:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb125 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb18 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb125, imdb16, imdb18 where imdb100.d = imdb125.d and imdb125.d = imdb16.s and imdb16.s = imdb18.s;
+\set queryname job_acyclic_105_20
+-- Result size: 4585513
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb76 [label="imdb76|<s> s|<d> d"]; imdb85 [label="imdb85|<s> s|<d> d"]; imdb100:d -> imdb2:d;imdb2:d -> imdb76:s;imdb76:s -> imdb85:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb2  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb76 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb85 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb2, imdb76, imdb85 where imdb100.d = imdb2.d and imdb2.d = imdb76.s and imdb76.s = imdb85.s;
+\set queryname job_acyclic_105_21
+-- Result size: 53310356
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb21 [label="imdb21|<s> s|<d> d"]; imdb26 [label="imdb26|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb21:s;imdb21:s -> imdb26:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb118 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb21 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb26 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb118, imdb21, imdb26 where imdb100.d = imdb118.d and imdb118.d = imdb21.s and imdb21.s = imdb26.s;
+\set queryname job_acyclic_105_22
+-- Result size: 185253044
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb21 [label="imdb21|<s> s|<d> d"]; imdb23 [label="imdb23|<s> s|<d> d"]; imdb100:d -> imdb123:d;imdb123:d -> imdb21:s;imdb21:s -> imdb23:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb123 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb21 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb23 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb123, imdb21, imdb23 where imdb100.d = imdb123.d and imdb123.d = imdb21.s and imdb21.s = imdb23.s;
+\set queryname job_acyclic_105_23
+-- Result size: 14868631
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb23 [label="imdb23|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb100:d -> imdb127:d;imdb127:d -> imdb23:s;imdb23:s -> imdb17:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb127 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb23 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb17 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb127, imdb23, imdb17 where imdb100.d = imdb127.d and imdb127.d = imdb23.s and imdb23.s = imdb17.s;
+\set queryname job_acyclic_105_24
+-- Result size: 115243339
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb46 [label="imdb46|<s> s|<d> d"]; imdb100:d -> imdb117:d;imdb117:d -> imdb5:s;imdb5:s -> imdb46:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb117 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb5  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb46 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb117, imdb5, imdb46 where imdb100.d = imdb117.d and imdb117.d = imdb5.s and imdb5.s = imdb46.s;
+\set queryname job_acyclic_105_25
+-- Result size: 1978411
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb38 [label="imdb38|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb38:s;imdb38:s -> imdb14:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb118 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb38 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb14 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb118, imdb38, imdb14 where imdb100.d = imdb118.d and imdb118.d = imdb38.s and imdb38.s = imdb14.s;
+\set queryname job_acyclic_105_26
+-- Result size: 15089731
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb40 [label="imdb40|<s> s|<d> d"]; imdb100:d -> imdb126:d;imdb126:d -> imdb6:s;imdb6:s -> imdb40:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb126 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb6  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb40 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb126, imdb6, imdb40 where imdb100.d = imdb126.d and imdb126.d = imdb6.s and imdb6.s = imdb40.s;
+\set queryname job_acyclic_105_27
+-- Result size: 6672687
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb44 [label="imdb44|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb100:d -> imdb121:d;imdb121:d -> imdb44:s;imdb44:s -> imdb8:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb121 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb44 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb8  |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb121, imdb44, imdb8 where imdb100.d = imdb121.d and imdb121.d = imdb44.s and imdb44.s = imdb8.s;
+--\set queryname job_acyclic_105_28
+-- Result size: 1875990019
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb40 [label="imdb40|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb100:d -> imdb123:d;imdb123:d -> imdb40:s;imdb40:s -> imdb12:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb123 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb40 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb12 |  s | d |
+--            +--------+----+---+
+--select count(*) from imdb100, imdb123, imdb40, imdb12 where imdb100.d = imdb123.d and imdb123.d = imdb40.s and imdb40.s = imdb12.s;
+\set queryname job_acyclic_105_29
+-- Result size: 6236022
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb42 [label="imdb42|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb42:s;imdb42:s -> imdb15:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb118 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb42 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb15 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb118, imdb42, imdb15 where imdb100.d = imdb118.d and imdb118.d = imdb42.s and imdb42.s = imdb15.s;
+--\set queryname job_acyclic_105_30
+-- Result size: 2118511787
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb53 [label="imdb53|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb5:s;imdb5:s -> imdb53:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb5  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb53 |  s | d |
+--            +--------+----+---+
+--select count(*) from imdb100, imdb119, imdb5, imdb53 where imdb100.d = imdb119.d and imdb119.d = imdb5.s and imdb5.s = imdb53.s;
+\set queryname job_acyclic_105_31
+-- Result size: 1448153
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb44 [label="imdb44|<s> s|<d> d"]; imdb100:d -> imdb121:d;imdb121:d -> imdb13:s;imdb13:s -> imdb44:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb121 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb13 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb44 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb121, imdb13, imdb44 where imdb100.d = imdb121.d and imdb121.d = imdb13.s and imdb13.s = imdb44.s;
+\set queryname job_acyclic_105_32
+-- Result size: 507246
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb38 [label="imdb38|<s> s|<d> d"]; imdb100:d -> imdb126:d;imdb126:d -> imdb14:s;imdb14:s -> imdb38:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb126 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb14 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb38 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb126, imdb14, imdb38 where imdb100.d = imdb126.d and imdb126.d = imdb14.s and imdb14.s = imdb38.s;
+\set queryname job_acyclic_105_33
+-- Result size: 441778176
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb54 [label="imdb54|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb7:s;imdb7:s -> imdb54:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb7  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb54 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb119, imdb7, imdb54 where imdb100.d = imdb119.d and imdb119.d = imdb7.s and imdb7.s = imdb54.s;
+\set queryname job_acyclic_105_34
+-- Result size: 130016563
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb48 [label="imdb48|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb15:s;imdb15:s -> imdb48:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb15 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb48 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb119, imdb15, imdb48 where imdb100.d = imdb119.d and imdb119.d = imdb15.s and imdb15.s = imdb48.s;
+\set queryname job_acyclic_105_35
+-- Result size: 14305502
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb52 [label="imdb52|<s> s|<d> d"]; imdb100:d -> imdb127:d;imdb127:d -> imdb8:s;imdb8:s -> imdb52:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb127 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb8  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb52 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb127, imdb8, imdb52 where imdb100.d = imdb127.d and imdb127.d = imdb8.s and imdb8.s = imdb52.s;
+\set queryname job_acyclic_105_36
+-- Result size: 203866
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb49 [label="imdb49|<s> s|<d> d"]; imdb14 [label="imdb14|<s> s|<d> d"]; imdb100:d -> imdb125:d;imdb125:d -> imdb49:s;imdb49:s -> imdb14:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb125 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb49 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb14 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb125, imdb49, imdb14 where imdb100.d = imdb125.d and imdb125.d = imdb49.s and imdb49.s = imdb14.s;
+\set queryname job_acyclic_105_37
+-- Result size: 19340351
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb51 [label="imdb51|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb100:d -> imdb125:d;imdb125:d -> imdb51:s;imdb51:s -> imdb13:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb125 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb51 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb13 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb125, imdb51, imdb13 where imdb100.d = imdb125.d and imdb125.d = imdb51.s and imdb51.s = imdb13.s;
+--\set queryname job_acyclic_105_38
+-- Result size: 1128885649
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb53 [label="imdb53|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb18:s;imdb18:s -> imdb53:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb18 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb53 |  s | d |
+--            +--------+----+---+
+--select count(*) from imdb100, imdb119, imdb18, imdb53 where imdb100.d = imdb119.d and imdb119.d = imdb18.s and imdb18.s = imdb53.s;
+\set queryname job_acyclic_105_39
+-- Result size: 905245919
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb54 [label="imdb54|<s> s|<d> d"]; imdb100:d -> imdb122:d;imdb122:d -> imdb16:s;imdb16:s -> imdb54:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb122 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb54 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb122, imdb16, imdb54 where imdb100.d = imdb122.d and imdb122.d = imdb16.s and imdb16.s = imdb54.s;
+\set queryname job_acyclic_105_40
+-- Result size: 266548563
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb12 [label="imdb12|<s> s|<d> d"]; imdb63 [label="imdb63|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb12:s;imdb12:s -> imdb63:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb12 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb63 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb119, imdb12, imdb63 where imdb100.d = imdb119.d and imdb119.d = imdb12.s and imdb12.s = imdb63.s;
+\set queryname job_acyclic_105_41
+-- Result size: 622771
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb56 [label="imdb56|<s> s|<d> d"]; imdb100:d -> imdb126:d;imdb126:d -> imdb13:s;imdb13:s -> imdb56:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb126 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb13 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb56 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb126, imdb13, imdb56 where imdb100.d = imdb126.d and imdb126.d = imdb13.s and imdb13.s = imdb56.s;
+\set queryname job_acyclic_105_42
+-- Result size: 7229136
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb21 [label="imdb21|<s> s|<d> d"]; imdb52 [label="imdb52|<s> s|<d> d"]; imdb100:d -> imdb124:d;imdb124:d -> imdb21:s;imdb21:s -> imdb52:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb124 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb21 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb52 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb124, imdb21, imdb52 where imdb100.d = imdb124.d and imdb124.d = imdb21.s and imdb21.s = imdb52.s;
+\set queryname job_acyclic_105_43
+-- Result size: 3394425
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb23 [label="imdb23|<s> s|<d> d"]; imdb50 [label="imdb50|<s> s|<d> d"]; imdb100:d -> imdb125:d;imdb125:d -> imdb23:s;imdb23:s -> imdb50:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb125 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb23 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb50 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb125, imdb23, imdb50 where imdb100.d = imdb125.d and imdb125.d = imdb23.s and imdb23.s = imdb50.s;
+\set queryname job_acyclic_105_44
+-- Result size: 2087945
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb70 [label="imdb70|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb100:d -> imdb123:d;imdb123:d -> imdb70:s;imdb70:s -> imdb9:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb123 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb70 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb9  |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb123, imdb70, imdb9 where imdb100.d = imdb123.d and imdb123.d = imdb70.s and imdb70.s = imdb9.s;
+\set queryname job_acyclic_105_45
+-- Result size: 2772329
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb74 [label="imdb74|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb10:s;imdb10:s -> imdb74:s;}
+--                +--------+----+---+
+--                | imdb74 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+--                +--------+----+---+
+--                | imdb10 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+-- +---------+---+---------+  |
+-- | imdb100 | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb118 | s |    d    | -+
+-- +---------+---+---------+
+select count(*) from imdb100, imdb118, imdb10, imdb74 where imdb100.d = imdb118.d and imdb118.d = imdb10.s and imdb10.s = imdb74.s;
+\set queryname job_acyclic_105_46
+-- Result size: 8097203
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb70 [label="imdb70|<s> s|<d> d"]; imdb13 [label="imdb13|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb70:s;imdb70:s -> imdb13:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb70 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb13 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb119, imdb70, imdb13 where imdb100.d = imdb119.d and imdb119.d = imdb70.s and imdb70.s = imdb13.s;
+\set queryname job_acyclic_105_47
+-- Result size: 1943043
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb70 [label="imdb70|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb70:s;imdb70:s -> imdb17:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb118 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb70 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb17 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb118, imdb70, imdb17 where imdb100.d = imdb118.d and imdb118.d = imdb70.s and imdb70.s = imdb17.s;
+\set queryname job_acyclic_105_48
+-- Result size: 119326637
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb51 [label="imdb51|<s> s|<d> d"]; imdb38 [label="imdb38|<s> s|<d> d"]; imdb100:d -> imdb117:d;imdb117:d -> imdb51:s;imdb51:s -> imdb38:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb117 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb51 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb38 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb117, imdb51, imdb38 where imdb100.d = imdb117.d and imdb117.d = imdb51.s and imdb51.s = imdb38.s;
+\set queryname job_acyclic_105_49
+-- Result size: 8503406
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb51 [label="imdb51|<s> s|<d> d"]; imdb39 [label="imdb39|<s> s|<d> d"]; imdb100:d -> imdb120:d;imdb120:d -> imdb51:s;imdb51:s -> imdb39:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb120 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb51 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb39 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb120, imdb51, imdb39 where imdb100.d = imdb120.d and imdb120.d = imdb51.s and imdb51.s = imdb39.s;
+\set queryname job_acyclic_105_50
+-- Result size: 48578
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb50 [label="imdb50|<s> s|<d> d"]; imdb42 [label="imdb42|<s> s|<d> d"]; imdb100:d -> imdb121:d;imdb121:d -> imdb50:s;imdb50:s -> imdb42:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb121 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb50 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb42 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb121, imdb50, imdb42 where imdb100.d = imdb121.d and imdb121.d = imdb50.s and imdb50.s = imdb42.s;
+\set queryname job_acyclic_105_51
+-- Result size: 682193894
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb51 [label="imdb51|<s> s|<d> d"]; imdb40 [label="imdb40|<s> s|<d> d"]; imdb100:d -> imdb123:d;imdb123:d -> imdb51:s;imdb51:s -> imdb40:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb123 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb51 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb40 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb123, imdb51, imdb40 where imdb100.d = imdb123.d and imdb123.d = imdb51.s and imdb51.s = imdb40.s;
+\set queryname job_acyclic_105_52
+-- Result size: 18511123
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb81 [label="imdb81|<s> s|<d> d"]; imdb100:d -> imdb117:d;imdb117:d -> imdb16:s;imdb16:s -> imdb81:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb117 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb81 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb117, imdb16, imdb81 where imdb100.d = imdb117.d and imdb117.d = imdb16.s and imdb16.s = imdb81.s;
+\set queryname job_acyclic_105_53
+-- Result size: 14061683
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb62 [label="imdb62|<s> s|<d> d"]; imdb39 [label="imdb39|<s> s|<d> d"]; imdb100:d -> imdb117:d;imdb117:d -> imdb62:s;imdb62:s -> imdb39:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb117 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb62 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb39 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb117, imdb62, imdb39 where imdb100.d = imdb117.d and imdb117.d = imdb62.s and imdb62.s = imdb39.s;
+\set queryname job_acyclic_105_54
+-- Result size: 491600
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb80 [label="imdb80|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb100:d -> imdb126:d;imdb126:d -> imdb80:s;imdb80:s -> imdb16:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb126 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb80 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb126, imdb80, imdb16 where imdb100.d = imdb126.d and imdb126.d = imdb80.s and imdb80.s = imdb16.s;
+\set queryname job_acyclic_105_55
+-- Result size: 11437649
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb44 [label="imdb44|<s> s|<d> d"]; imdb54 [label="imdb54|<s> s|<d> d"]; imdb100:d -> imdb126:d;imdb126:d -> imdb44:s;imdb44:s -> imdb54:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb126 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb44 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb54 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb126, imdb44, imdb54 where imdb100.d = imdb126.d and imdb126.d = imdb44.s and imdb44.s = imdb54.s;
+\set queryname job_acyclic_105_56
+-- Result size: 162346
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb126 [label="imdb126|<s> s|<d> d"]; imdb42 [label="imdb42|<s> s|<d> d"]; imdb56 [label="imdb56|<s> s|<d> d"]; imdb100:d -> imdb126:d;imdb126:d -> imdb42:s;imdb42:s -> imdb56:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb126 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb42 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb56 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb126, imdb42, imdb56 where imdb100.d = imdb126.d and imdb126.d = imdb42.s and imdb42.s = imdb56.s;
+\set queryname job_acyclic_105_57
+-- Result size: 577824048
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb51 [label="imdb51|<s> s|<d> d"]; imdb54 [label="imdb54|<s> s|<d> d"]; imdb100:d -> imdb121:d;imdb121:d -> imdb51:s;imdb51:s -> imdb54:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb121 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb51 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb54 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb121, imdb51, imdb54 where imdb100.d = imdb121.d and imdb121.d = imdb51.s and imdb51.s = imdb54.s;
+\set queryname job_acyclic_105_58
+-- Result size: 345327
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb93 [label="imdb93|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb100:d -> imdb124:d;imdb124:d -> imdb93:s;imdb93:s -> imdb9:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb124 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb93 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb9  |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb124, imdb93, imdb9 where imdb100.d = imdb124.d and imdb124.d = imdb93.s and imdb93.s = imdb9.s;
+\set queryname job_acyclic_105_59
+-- Result size: 1138288
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb82 [label="imdb82|<s> s|<d> d"]; imdb100:d -> imdb124:d;imdb124:d -> imdb22:s;imdb22:s -> imdb82:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb124 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb22 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb82 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb124, imdb22, imdb82 where imdb100.d = imdb124.d and imdb124.d = imdb22.s and imdb22.s = imdb82.s;
+\set queryname job_acyclic_105_60
+-- Result size: 103594538
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb89 [label="imdb89|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb100:d -> imdb122:d;imdb122:d -> imdb89:s;imdb89:s -> imdb18:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb122 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb89 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb18 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb122, imdb89, imdb18 where imdb100.d = imdb122.d and imdb122.d = imdb89.s and imdb89.s = imdb18.s;
+\set queryname job_acyclic_105_61
+-- Result size: 3919661
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb43 [label="imdb43|<s> s|<d> d"]; imdb68 [label="imdb68|<s> s|<d> d"]; imdb100:d -> imdb123:d;imdb123:d -> imdb43:s;imdb43:s -> imdb68:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb123 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb43 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb68 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb123, imdb43, imdb68 where imdb100.d = imdb123.d and imdb123.d = imdb43.s and imdb43.s = imdb68.s;
+\set queryname job_acyclic_105_62
+-- Result size: 5387124
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb61 [label="imdb61|<s> s|<d> d"]; imdb70 [label="imdb70|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb61:s;imdb61:s -> imdb70:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb118 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb61 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb70 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb118, imdb61, imdb70 where imdb100.d = imdb118.d and imdb118.d = imdb61.s and imdb61.s = imdb70.s;
+\set queryname job_acyclic_105_63
+-- Result size: 18165420
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb61 [label="imdb61|<s> s|<d> d"]; imdb75 [label="imdb75|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb61:s;imdb61:s -> imdb75:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb61 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb75 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb119, imdb61, imdb75 where imdb100.d = imdb119.d and imdb119.d = imdb61.s and imdb61.s = imdb75.s;
+\set queryname job_acyclic_105_64
+-- Result size: 5913717
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb64 [label="imdb64|<s> s|<d> d"]; imdb73 [label="imdb73|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb64:s;imdb64:s -> imdb73:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb118 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb64 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb73 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb118, imdb64, imdb73 where imdb100.d = imdb118.d and imdb118.d = imdb64.s and imdb64.s = imdb73.s;
+\set queryname job_acyclic_105_65
+-- Result size: 431018
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb82 [label="imdb82|<s> s|<d> d"]; imdb52 [label="imdb52|<s> s|<d> d"]; imdb100:d -> imdb125:d;imdb125:d -> imdb82:s;imdb82:s -> imdb52:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb125 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb82 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb52 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb125, imdb82, imdb52 where imdb100.d = imdb125.d and imdb125.d = imdb82.s and imdb82.s = imdb52.s;
+\set queryname job_acyclic_105_66
+-- Result size: 1703515
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb120 [label="imdb120|<s> s|<d> d"]; imdb67 [label="imdb67|<s> s|<d> d"]; imdb72 [label="imdb72|<s> s|<d> d"]; imdb100:d -> imdb120:d;imdb120:d -> imdb67:s;imdb67:s -> imdb72:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb120 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb67 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb72 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb120, imdb67, imdb72 where imdb100.d = imdb120.d and imdb120.d = imdb67.s and imdb67.s = imdb72.s;
+\set queryname job_acyclic_105_67
+-- Result size: 21342282
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb73 [label="imdb73|<s> s|<d> d"]; imdb70 [label="imdb70|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb73:s;imdb73:s -> imdb70:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb73 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb70 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb119, imdb73, imdb70 where imdb100.d = imdb119.d and imdb119.d = imdb73.s and imdb73.s = imdb70.s;
+\set queryname job_acyclic_105_68
+-- Result size: 50466401
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb63 [label="imdb63|<s> s|<d> d"]; imdb78 [label="imdb78|<s> s|<d> d"]; imdb100:d -> imdb122:d;imdb122:d -> imdb63:s;imdb63:s -> imdb78:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb122 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb63 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb78 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb122, imdb63, imdb78 where imdb100.d = imdb122.d and imdb122.d = imdb63.s and imdb63.s = imdb78.s;
+\set queryname job_acyclic_105_69
+-- Result size: 4963736
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb123 [label="imdb123|<s> s|<d> d"]; imdb79 [label="imdb79|<s> s|<d> d"]; imdb62 [label="imdb62|<s> s|<d> d"]; imdb100:d -> imdb123:d;imdb123:d -> imdb79:s;imdb79:s -> imdb62:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb123 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb79 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb62 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb123, imdb79, imdb62 where imdb100.d = imdb123.d and imdb123.d = imdb79.s and imdb79.s = imdb62.s;
+\set queryname job_acyclic_105_70
+-- Result size: 52447557
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb70 [label="imdb70|<s> s|<d> d"]; imdb73 [label="imdb73|<s> s|<d> d"]; imdb100:d -> imdb122:d;imdb122:d -> imdb70:s;imdb70:s -> imdb73:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb122 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb70 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb73 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb122, imdb70, imdb73 where imdb100.d = imdb122.d and imdb122.d = imdb70.s and imdb70.s = imdb73.s;
+\set queryname job_acyclic_105_71
+-- Result size: 1738990
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb125 [label="imdb125|<s> s|<d> d"]; imdb56 [label="imdb56|<s> s|<d> d"]; imdb87 [label="imdb87|<s> s|<d> d"]; imdb100:d -> imdb125:d;imdb125:d -> imdb56:s;imdb56:s -> imdb87:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb125 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb56 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb87 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb125, imdb56, imdb87 where imdb100.d = imdb125.d and imdb125.d = imdb56.s and imdb56.s = imdb87.s;
+\set queryname job_acyclic_105_72
+-- Result size: 52533924
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb64 [label="imdb64|<s> s|<d> d"]; imdb87 [label="imdb87|<s> s|<d> d"]; imdb100:d -> imdb122:d;imdb122:d -> imdb64:s;imdb64:s -> imdb87:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb122 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb64 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb87 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb122, imdb64, imdb87 where imdb100.d = imdb122.d and imdb122.d = imdb64.s and imdb64.s = imdb87.s;
+\set queryname job_acyclic_105_73
+-- Result size: 1000736
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb80 [label="imdb80|<s> s|<d> d"]; imdb77 [label="imdb77|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb80:s;imdb80:s -> imdb77:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb119 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb80 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb77 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb119, imdb80, imdb77 where imdb100.d = imdb119.d and imdb119.d = imdb80.s and imdb80.s = imdb77.s;
+\set queryname job_acyclic_105_74
+-- Result size: 1225209
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb79 [label="imdb79|<s> s|<d> d"]; imdb76 [label="imdb76|<s> s|<d> d"]; imdb100:d -> imdb124:d;imdb124:d -> imdb79:s;imdb79:s -> imdb76:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb124 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb79 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb76 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb124, imdb79, imdb76 where imdb100.d = imdb124.d and imdb124.d = imdb79.s and imdb79.s = imdb76.s;
+\set queryname job_acyclic_105_75
+-- Result size: 1300123
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb127 [label="imdb127|<s> s|<d> d"]; imdb79 [label="imdb79|<s> s|<d> d"]; imdb83 [label="imdb83|<s> s|<d> d"]; imdb100:d -> imdb127:d;imdb127:d -> imdb79:s;imdb79:s -> imdb83:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb127 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb79 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb83 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb127, imdb79, imdb83 where imdb100.d = imdb127.d and imdb127.d = imdb79.s and imdb79.s = imdb83.s;
+\set queryname job_acyclic_105_76
+-- Result size: 24196321
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb100:d -> imdb2:d;imdb2:d -> imdb22:s;imdb22:s -> imdb10:s;}
+--                      +--------+----+----+
+--                      | imdb10 |  s |  d |
+--                      +--------+----+----+
+--                                  |
+--                                  +----+
+--                                       |
+-- +---------+---------+---------+       |
+-- | imdb100 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- |  imdb2  |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+--            +--------+---------+----+  |
+--            | imdb22 |    s    |  d |  |
+--            +--------+---------+----+  |
+--                        |              |
+--                        +--------------+
+select count(*) from imdb100, imdb2, imdb22, imdb10 where imdb100.d = imdb2.d and imdb2.d = imdb22.s and imdb22.s = imdb10.s;
+\set queryname job_acyclic_105_77
+-- Result size: 80182605
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb26 [label="imdb26|<s> s|<d> d"]; imdb100:d -> imdb3:d;imdb3:d -> imdb10:s;imdb10:s -> imdb26:s;}
+--                +--------+----+---+
+--                | imdb26 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+--                +--------+----+---+
+--                | imdb10 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+-- +---------+---+---------+  |
+-- | imdb100 | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- |  imdb3  | s |    d    | -+
+-- +---------+---+---------+
+select count(*) from imdb100, imdb3, imdb10, imdb26 where imdb100.d = imdb3.d and imdb3.d = imdb10.s and imdb10.s = imdb26.s;
+\set queryname job_acyclic_105_78
+-- Result size: 36843325
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb19 [label="imdb19|<s> s|<d> d"]; imdb22 [label="imdb22|<s> s|<d> d"]; imdb100:d -> imdb3:d;imdb3:d -> imdb19:s;imdb19:s -> imdb22:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb3  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb19 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb22 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb3, imdb19, imdb22 where imdb100.d = imdb3.d and imdb3.d = imdb19.s and imdb19.s = imdb22.s;
+\set queryname job_acyclic_105_79
+-- Result size: 8508022
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb25 [label="imdb25|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb100:d -> imdb2:d;imdb2:d -> imdb25:s;imdb25:s -> imdb18:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb2  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb25 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb18 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb2, imdb25, imdb18 where imdb100.d = imdb2.d and imdb2.d = imdb25.s and imdb25.s = imdb18.s;
+\set queryname job_acyclic_105_80
+-- Result size: 238312665
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb24 [label="imdb24|<s> s|<d> d"]; imdb18 [label="imdb18|<s> s|<d> d"]; imdb100:d -> imdb3:d;imdb3:d -> imdb24:s;imdb24:s -> imdb18:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb3  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb24 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb18 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb3, imdb24, imdb18 where imdb100.d = imdb3.d and imdb3.d = imdb24.s and imdb24.s = imdb18.s;
+\set queryname job_acyclic_105_81
+-- Result size: 89560923
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb44 [label="imdb44|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb100:d -> imdb2:d;imdb2:d -> imdb44:s;imdb44:s -> imdb5:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb2  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb44 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb5  |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb2, imdb44, imdb5 where imdb100.d = imdb2.d and imdb2.d = imdb44.s and imdb44.s = imdb5.s;
+\set queryname job_acyclic_105_82
+-- Result size: 489556240
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb48 [label="imdb48|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb100:d -> imdb3:d;imdb3:d -> imdb48:s;imdb48:s -> imdb5:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb3  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb48 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb5  |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb3, imdb48, imdb5 where imdb100.d = imdb3.d and imdb3.d = imdb48.s and imdb48.s = imdb5.s;
+\set queryname job_acyclic_105_83
+-- Result size: 61487285
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb52 [label="imdb52|<s> s|<d> d"]; imdb7 [label="imdb7|<s> s|<d> d"]; imdb100:d -> imdb3:d;imdb3:d -> imdb52:s;imdb52:s -> imdb7:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb3  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb52 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb7  |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb3, imdb52, imdb7 where imdb100.d = imdb3.d and imdb3.d = imdb52.s and imdb52.s = imdb7.s;
+\set queryname job_acyclic_105_84
+-- Result size: 168717842
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb19 [label="imdb19|<s> s|<d> d"]; imdb51 [label="imdb51|<s> s|<d> d"]; imdb100:d -> imdb3:d;imdb3:d -> imdb19:s;imdb19:s -> imdb51:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb3  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb19 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb51 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb3, imdb19, imdb51 where imdb100.d = imdb3.d and imdb3.d = imdb19.s and imdb19.s = imdb51.s;
+--\set queryname job_acyclic_105_85
+-- Result size: 1260327435
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb54 [label="imdb54|<s> s|<d> d"]; imdb23 [label="imdb23|<s> s|<d> d"]; imdb100:d -> imdb2:d;imdb2:d -> imdb54:s;imdb54:s -> imdb23:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb2  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb54 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb23 |  s | d |
+--            +--------+----+---+
+--select count(*) from imdb100, imdb2, imdb54, imdb23 where imdb100.d = imdb2.d and imdb2.d = imdb54.s and imdb54.s = imdb23.s;
+\set queryname job_acyclic_105_86
+-- Result size: 1122889
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb17 [label="imdb17|<s> s|<d> d"]; imdb66 [label="imdb66|<s> s|<d> d"]; imdb100:d -> imdb2:d;imdb2:d -> imdb17:s;imdb17:s -> imdb66:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb2  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb17 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb66 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb2, imdb17, imdb66 where imdb100.d = imdb2.d and imdb2.d = imdb17.s and imdb17.s = imdb66.s;
+\set queryname job_acyclic_105_87
+-- Result size: 8047155
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb8 [label="imdb8|<s> s|<d> d"]; imdb78 [label="imdb78|<s> s|<d> d"]; imdb100:d -> imdb2:d;imdb2:d -> imdb8:s;imdb8:s -> imdb78:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb2  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb8  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb78 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb2, imdb8, imdb78 where imdb100.d = imdb2.d and imdb2.d = imdb8.s and imdb8.s = imdb78.s;
+\set queryname job_acyclic_105_88
+-- Result size: 25523639
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb11 [label="imdb11|<s> s|<d> d"]; imdb81 [label="imdb81|<s> s|<d> d"]; imdb100:d -> imdb3:d;imdb3:d -> imdb11:s;imdb11:s -> imdb81:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb3  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb11 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb81 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb3, imdb11, imdb81 where imdb100.d = imdb3.d and imdb3.d = imdb11.s and imdb11.s = imdb81.s;
+\set queryname job_acyclic_105_89
+-- Result size: 11904468
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb53 [label="imdb53|<s> s|<d> d"]; imdb43 [label="imdb43|<s> s|<d> d"]; imdb100:d -> imdb2:d;imdb2:d -> imdb53:s;imdb53:s -> imdb43:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb2  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb53 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb43 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb2, imdb53, imdb43 where imdb100.d = imdb2.d and imdb2.d = imdb53.s and imdb53.s = imdb43.s;
+\set queryname job_acyclic_105_90
+-- Result size: 33193839
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb43 [label="imdb43|<s> s|<d> d"]; imdb62 [label="imdb62|<s> s|<d> d"]; imdb100:d -> imdb3:d;imdb3:d -> imdb43:s;imdb43:s -> imdb62:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb3  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb43 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb62 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb3, imdb43, imdb62 where imdb100.d = imdb3.d and imdb3.d = imdb43.s and imdb43.s = imdb62.s;
+\set queryname job_acyclic_105_91
+-- Result size: 2539877
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb3 [label="imdb3|<s> s|<d> d"]; imdb97 [label="imdb97|<s> s|<d> d"]; imdb16 [label="imdb16|<s> s|<d> d"]; imdb100:d -> imdb3:d;imdb3:d -> imdb97:s;imdb97:s -> imdb16:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb3  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb97 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb16 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb3, imdb97, imdb16 where imdb100.d = imdb3.d and imdb3.d = imdb97.s and imdb97.s = imdb16.s;
+\set queryname job_acyclic_105_92
+-- Result size: 237226260
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb6 [label="imdb6|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb5:s;imdb5:s -> imdb6:s;}
+-- +---------+--------+----+
+-- | imdb100 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | imdb118 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+--            +-------+----+---+
+--            | imdb5 |  s | d |
+--            +-------+----+---+
+--                       |
+--                       |
+--                       |
+--            +-------+----+---+
+--            | imdb6 |  s | d |
+--            +-------+----+---+
+select count(*) from imdb100, imdb118, imdb5, imdb6 where imdb100.d = imdb118.d and imdb118.d = imdb5.s and imdb5.s = imdb6.s;
+--\set queryname job_acyclic_105_93
+-- Result size: 1695389430
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb117 [label="imdb117|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb100:d -> imdb117:d;imdb117:d -> imdb5:s;imdb5:s -> imdb9:s;}
+-- +---------+--------+----+
+-- | imdb100 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | imdb117 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+--            +-------+----+---+
+--            | imdb5 |  s | d |
+--            +-------+----+---+
+--                       |
+--                       |
+--                       |
+--            +-------+----+---+
+--            | imdb9 |  s | d |
+--            +-------+----+---+
+--select count(*) from imdb100, imdb117, imdb5, imdb9 where imdb100.d = imdb117.d and imdb117.d = imdb5.s and imdb5.s = imdb9.s;
+\set queryname job_acyclic_105_94
+-- Result size: 52920952
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb119 [label="imdb119|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb100:d -> imdb119:d;imdb119:d -> imdb9:s;imdb9:s -> imdb10:s;}
+--                     +--------+----+----+
+--                     | imdb10 |  s |  d |
+--                     +--------+----+----+
+--                                 |
+--                                 +----+
+--                                      |
+-- +---------+--------+---------+       |
+-- | imdb100 |    s   |    d    |       |
+-- +---------+--------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+-- +---------+--------+---------+       |
+-- | imdb119 |    s   |    d    |       |
+-- +---------+--------+---------+       |
+--                       |              |
+--                       |              |
+--                       |              |
+--            +-------+---------+----+  |
+--            | imdb9 |    s    |  d |  |
+--            +-------+---------+----+  |
+--                       |              |
+--                       +--------------+
+select count(*) from imdb100, imdb119, imdb9, imdb10 where imdb100.d = imdb119.d and imdb119.d = imdb9.s and imdb9.s = imdb10.s;
+\set queryname job_acyclic_105_95
+-- Result size: 55982596
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb124 [label="imdb124|<s> s|<d> d"]; imdb11 [label="imdb11|<s> s|<d> d"]; imdb5 [label="imdb5|<s> s|<d> d"]; imdb100:d -> imdb124:d;imdb124:d -> imdb11:s;imdb11:s -> imdb5:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb124 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb11 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb5  |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb124, imdb11, imdb5 where imdb100.d = imdb124.d and imdb124.d = imdb11.s and imdb11.s = imdb5.s;
+\set queryname job_acyclic_105_96
+-- Result size: 5873760
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb121 [label="imdb121|<s> s|<d> d"]; imdb9 [label="imdb9|<s> s|<d> d"]; imdb11 [label="imdb11|<s> s|<d> d"]; imdb100:d -> imdb121:d;imdb121:d -> imdb9:s;imdb9:s -> imdb11:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | imdb121 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb9  |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb11 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb121, imdb9, imdb11 where imdb100.d = imdb121.d and imdb121.d = imdb9.s and imdb9.s = imdb11.s;
+\set queryname job_acyclic_105_97
+-- Result size: 4521179
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb2 [label="imdb2|<s> s|<d> d"]; imdb81 [label="imdb81|<s> s|<d> d"]; imdb58 [label="imdb58|<s> s|<d> d"]; imdb100:d -> imdb2:d;imdb2:d -> imdb81:s;imdb81:s -> imdb58:s;}
+-- +---------+---------+----+
+-- | imdb100 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- |  imdb2  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb81 |  s | d |
+--            +--------+----+---+
+--                        |
+--                        |
+--                        |
+--            +--------+----+---+
+--            | imdb58 |  s | d |
+--            +--------+----+---+
+select count(*) from imdb100, imdb2, imdb81, imdb58 where imdb100.d = imdb2.d and imdb2.d = imdb81.s and imdb81.s = imdb58.s;
+\set queryname job_acyclic_105_98
+-- Result size: 208181626
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb122 [label="imdb122|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb11 [label="imdb11|<s> s|<d> d"]; imdb100:d -> imdb122:d;imdb122:d -> imdb10:s;imdb10:s -> imdb11:s;}
+--                +--------+----+---+
+--                | imdb11 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+--                +--------+----+---+
+--                | imdb10 |  s | d |
+--                +--------+----+---+
+--                            |
+--                            |
+--                            |
+-- +---------+---+---------+  |
+-- | imdb100 | s |    d    |  |
+-- +---------+---+---------+  |
+--                  |         |
+--                  |         |
+--                  |         |
+-- +---------+---+---------+  |
+-- | imdb122 | s |    d    | -+
+-- +---------+---+---------+
+select count(*) from imdb100, imdb122, imdb10, imdb11 where imdb100.d = imdb122.d and imdb122.d = imdb10.s and imdb10.s = imdb11.s;
+\set queryname job_acyclic_105_99
+-- Result size: 88614516
+-- digraph G { node [shape=record]; edge [arrowhead=none]; imdb100 [label="imdb100|<s> s|<d> d"]; imdb118 [label="imdb118|<s> s|<d> d"]; imdb15 [label="imdb15|<s> s|<d> d"]; imdb10 [label="imdb10|<s> s|<d> d"]; imdb100:d -> imdb118:d;imdb118:d -> imdb15:s;imdb15:s -> imdb10:s;}
+--                      +--------+----+----+
+--                      | imdb10 |  s |  d |
+--                      +--------+----+----+
+--                                  |
+--                                  +----+
+--                                       |
+-- +---------+---------+---------+       |
+-- | imdb100 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+-- +---------+---------+---------+       |
+-- | imdb118 |    s    |    d    |       |
+-- +---------+---------+---------+       |
+--                        |              |
+--                        |              |
+--                        |              |
+--            +--------+---------+----+  |
+--            | imdb15 |    s    |  d |  |
+--            +--------+---------+----+  |
+--                        |              |
+--                        +--------------+
+select count(*) from imdb100, imdb118, imdb15, imdb10 where imdb100.d = imdb118.d and imdb118.d = imdb15.s and imdb15.s = imdb10.s;

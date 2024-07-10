@@ -1,0 +1,2607 @@
+--\set queryname yago_acyclic_Tree_6_00
+-- Result size: 99317613805
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago3_0 [label="yago3_0|<s> s|<d> d"]; yago3_1 [label="yago3_1|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago2 [label="yago2|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago3_0:d -> yago3_1:d;yago3_1:d -> yago1:d;yago3_1:s -> yago8:s;yago8:s -> yago2:d;}
+--                          +-------+----+----+
+--                          | yago1 |  s |  d |
+--                          +-------+----+----+
+--                                          |
+--                                          |
+--                                          |
+--          +---------+----+--------+       |
+--          | yago3_0 |  s |    d   |       |
+--          +---------+----+--------+       |
+--                            |             |
+--                            |             |
+--                            |             |
+--          +---------+----+--------+       |
+--          | yago3_1 |  s |    d   | ------+
+--          +---------+----+--------+
+--                       |
+--                       |
+--                       |
+--          +---------+----+--------+
+--          |  yago8  |  s |    d   |
+--          +---------+----+--------+
+--                       |
+--                       |
+--                       |
+-- +-------+----------+----+
+-- | yago2 |     s    |  d |
+-- +-------+----------+----+
+--select count(*) from yago3 yago3_0, yago3 yago3_1, yago8, yago2, yago1 where yago3_0.d = yago3_1.d and yago3_1.d = yago1.d and yago3_1.s = yago8.s and yago8.s = yago2.d;
+\set queryname yago_acyclic_Tree_6_01
+-- Result size: 82
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago46 [label="yago46|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago48 [label="yago48|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago21_4 [label="yago21_4|<s> s|<d> d"]; yago21_5 [label="yago21_5|<s> s|<d> d"]; yago46:s -> yago17:s;yago46:d -> yago48:d;yago48:s -> yago5:s;yago5:s -> yago21_4:s;yago21_4:d -> yago21_5:d;}
+--             +--------+----+----+
+--             | yago46 |  s |  d |
+--             +--------+----+----+
+--                         |    |
+--                         |    +----+
+--                         |         |
+--             +--------+----+----+  |
+--             | yago17 |  s |  d |  |
+--             +--------+----+----+  |
+-- +----------+---------+----+       |
+-- |  yago48  |    s    |  d | ------+
+-- +----------+---------+----+
+--               |
+--               |
+--               |
+-- +----------+---------+----+
+-- |  yago5   |    s    |  d |
+-- +----------+---------+----+
+--               |
+--               |
+--               |
+-- +----------+---------+----+
+-- | yago21_4 |    s    |  d |
+-- +----------+---------+----+
+--                         |
+--                         |
+--                         |
+-- +----------+---------+----+
+-- | yago21_5 |    s    |  d |
+-- +----------+---------+----+
+select count(*) from yago46, yago17, yago48, yago5, yago21 yago21_4, yago21 yago21_5 where yago46.s = yago17.s and yago46.d = yago48.d and yago48.s = yago5.s and yago5.s = yago21_4.s and yago21_4.d = yago21_5.d;
+\set queryname yago_acyclic_Tree_6_02
+-- Result size: 2124368
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_0:d -> yago2_3:d;yago2_3:d -> yago2_4:d;}
+-- +---------+----+----+
+-- | yago2_4 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_3 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_0 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_1 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_2 |  s |  d |
+-- +---------+----+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_0.d = yago2_3.d and yago2_3.d = yago2_4.d;
+\set queryname yago_acyclic_Tree_6_03
+-- Result size: 13
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_2:s -> yago6:d;yago2_1:d -> yago0:s;yago2_2:d -> yago2_4:d;}
+--                     +-------+----+----+
+--                     | yago0 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                +---------+
+--                                          |
+--          +---------+--------+----+       |
+--          | yago2_0 |    s   |  d |       |
+--          +---------+--------+----+       |
+--                       |                  |
+--                       |                  |
+--                       |                  |
+--          +---------+--------+----+       |
+--          | yago2_1 |    s   |  d | ------+
+--          +---------+--------+----+
+--                       |
+--                       |
+--                       |
+--          +---------+--------+----+
+--          | yago2_2 |    s   |  d |
+--          +---------+--------+----+
+--                       |        |
+--                       |        |
+--                       |        |
+-- +-------+----------+--------+  |
+-- | yago6 |     s    |    d   |  |
+-- +-------+----------+--------+  |
+--                                |
+--                                |
+--                                |
+--          +---------+--------+----+
+--          | yago2_4 |    s   |  d |
+--          +---------+--------+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago0, yago2 yago2_4, yago6 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_2.s = yago6.d and yago2_1.d = yago0.s and yago2_2.d = yago2_4.d;
+\set queryname yago_acyclic_Tree_6_04
+-- Result size: 130096
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago6 [label="yago6|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago6:s -> yago2_1:d;yago2_1:s -> yago2_2:s;yago2_2:s -> yago2_3:s;yago2_3:s -> yago2_4:s;}
+-- +---------+----+----+-------+----+---+
+-- | yago2_1 |  s |  d | yago6 |  s | d |
+-- +---------+----+----+-------+----+---+
+--              |    |            |
+--              |    +------------+
+--              |
+-- +---------+----+----+
+-- | yago2_2 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_3 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_4 |  s |  d |
+-- +---------+----+----+
+select count(*) from yago6, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago6.s = yago2_1.d and yago2_1.s = yago2_2.s and yago2_2.s = yago2_3.s and yago2_3.s = yago2_4.s;
+\set queryname yago_acyclic_Tree_6_05
+-- Result size: 121
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_0:s -> yago17_1:s;yago17_0:d -> yago36:s;yago36:s -> yago22:s;yago22:s -> yago46:d;yago46:d -> yago17_5:d;}
+-- +----------+---------+----+
+-- | yago17_1 |    s    |  d |
+-- +----------+---------+----+
+--               |
+--               |
+--               |
+-- +----------+---------+----+
+-- | yago17_0 |    s    |  d |
+-- +----------+---------+----+
+--                         |
+--                         |
+--                         |
+--             +--------+----+---+
+--             | yago36 |  s | d |
+--             +--------+----+---+
+--                         |
+--                         |
+--                         |
+--             +--------+----+---+
+--             | yago22 |  s | d |
+--             +--------+----+---+
+--                         |
+--                         |
+--                         |
+-- +----------+---------+----+
+-- |  yago46  |    s    |  d |
+-- +----------+---------+----+
+--                         |
+--                         |
+--                         |
+-- +----------+---------+----+
+-- | yago17_5 |    s    |  d |
+-- +----------+---------+----+
+select count(*) from yago17 yago17_0, yago17 yago17_1, yago36, yago22, yago46, yago17 yago17_5 where yago17_0.s = yago17_1.s and yago17_0.d = yago36.s and yago36.s = yago22.s and yago22.s = yago46.d and yago46.d = yago17_5.d;
+\set queryname yago_acyclic_Tree_6_06
+-- Result size: 26310
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago17_2 [label="yago17_2|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_0:s -> yago17_5:d;yago17_0:d -> yago17_1:s;yago17_1:d -> yago17_2:s;yago17_2:s -> yago17_3:d;yago17_3:d -> yago17_4:d;}
+--             +----------+-----------+----+
+--             | yago17_5 |     s     |  d |
+--             +----------+-----------+----+
+--                                       |
+--                                       |
+--                                       |
+--                         +----------+----+----+
+--                         | yago17_0 |  s |  d |
+--                         +----------+----+----+
+--                                            |
+--               +----------------------------+
+--               |
+-- +----------+-----------+-----------+
+-- | yago17_1 |     s     |     d     |
+-- +----------+-----------+-----------+
+--                           |
+--                           |
+--                           |
+--             +----------+-----------+----+
+--             | yago17_2 |     s     |  d |
+--             +----------+-----------+----+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+-----------+
+-- | yago17_3 |     s     |     d     |
+-- +----------+-----------+-----------+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+-----------+
+-- | yago17_4 |     s     |     d     |
+-- +----------+-----------+-----------+
+select count(*) from yago17 yago17_0, yago17 yago17_1, yago17 yago17_2, yago17 yago17_3, yago17 yago17_4, yago17 yago17_5 where yago17_0.s = yago17_5.d and yago17_0.d = yago17_1.s and yago17_1.d = yago17_2.s and yago17_2.s = yago17_3.d and yago17_3.d = yago17_4.d;
+\set queryname yago_acyclic_Tree_6_07
+-- Result size: 20663
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago63 [label="yago63|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_0:d -> yago2_4:d;yago2_1:d -> yago63:s;yago2_2:d -> yago2_5:d;}
+-- +---------+----+----+
+-- | yago2_4 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_0 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+--------+----+---+
+-- | yago2_1 |  s |  d | yago63 |  s | d |
+-- +---------+----+----+--------+----+---+
+--              |    |             |
+--              |    +-------------+
+--              |
+-- +---------+----+----+
+-- | yago2_2 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_5 |  s |  d |
+-- +---------+----+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago63, yago2 yago2_4, yago2 yago2_5 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_0.d = yago2_4.d and yago2_1.d = yago63.s and yago2_2.d = yago2_5.d;
+\set queryname yago_acyclic_Tree_6_08
+-- Result size: 401
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_0:d -> yago2_4:d;yago2_4:d -> yago2_5:d;yago2_1:d -> yago4:s;yago4:s -> yago21:s;}
+--                          +--------+----+----+
+--                          | yago21 |  s |  d |
+--                          +--------+----+----+
+--                                      |
+--                                      +----+
+--                                           |
+--      +---------+--------+---------+       |
+--      | yago2_0 |    s   |    d    |       |
+--      +---------+--------+---------+       |
+--                   |        |              |
+--   +---------------+        |              |
+--   |                        |              |
+--   |  +---------+--------+---------+       |
+--   |  | yago2_4 |    s   |    d    |       |
+--   |  +---------+--------+---------+       |
+--   |                        |              |
+--   |                        |              |
+--   |                        |              |
+--   |  +---------+--------+---------+       |
+--   |  | yago2_5 |    s   |    d    |       |
+--   |  +---------+--------+---------+       |
+--   |                                       |
+--   +---------------+                       |
+--                   |                       |
+--      +---------+--------+---------+       |
+--      | yago2_1 |    s   |    d    |       |
+--      +---------+--------+---------+       |
+--                            |              |
+--                            |              |
+--                            |              |
+--                 +-------+---------+----+  |
+--                 | yago4 |    s    |  d |  |
+--                 +-------+---------+----+  |
+--                            |              |
+--                            +--------------+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago4, yago21, yago2 yago2_4, yago2 yago2_5 where yago2_0.s = yago2_1.s and yago2_0.d = yago2_4.d and yago2_4.d = yago2_5.d and yago2_1.d = yago4.s and yago4.s = yago21.s;
+\set queryname yago_acyclic_Tree_6_09
+-- Result size: 779494
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago0:s -> yago6:s;yago6:s -> yago2_2:d;yago2_2:d -> yago2_4:d;yago2_2:s -> yago2_3:s;}
+--                 +-------+----+---+
+--                 | yago0 |  s | d |
+--                 +-------+----+---+
+--                            |
+--                            |
+--                            |
+--                 +-------+----+---+
+--                 | yago6 |  s | d |
+--                 +-------+----+---+
+--                            |
+--                            |
+--                            |
+--      +---------+--------+----+
+--      | yago2_2 |    s   |  d |
+--      +---------+--------+----+
+--                   |        |
+--   +---------------+        |
+--   |                        |
+--   |  +---------+--------+----+
+--   |  | yago2_4 |    s   |  d |
+--   |  +---------+--------+----+
+--   |
+--   +---------------+
+--                   |
+--      +---------+--------+----+
+--      | yago2_3 |    s   |  d |
+--      +---------+--------+----+
+select count(*) from yago0, yago6, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago0.s = yago6.s and yago6.s = yago2_2.d and yago2_2.d = yago2_4.d and yago2_2.s = yago2_3.s;
+\set queryname yago_acyclic_Tree_6_10
+-- Result size: 2124368
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_2:s -> yago2_3:s;yago2_0:d -> yago2_4:d;}
+-- +---------+----+----+
+-- | yago2_4 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_0 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_1 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_2 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_3 |  s |  d |
+-- +---------+----+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_2.s = yago2_3.s and yago2_0.d = yago2_4.d;
+\set queryname yago_acyclic_Tree_6_11
+-- Result size: 25
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago58_0 [label="yago58_0|<s> s|<d> d"]; yago58_1 [label="yago58_1|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago36_3 [label="yago36_3|<s> s|<d> d"]; yago36_4 [label="yago36_4|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago58_0:s -> yago58_1:d;yago58_0:d -> yago36_4:s;yago36_4:s -> yago50:s;yago58_1:s -> yago3:s;yago3:s -> yago36_3:s;}
+--                                          +----------+----+---+
+--                                          | yago58_1 |  s | d | -+
+--                                          +----------+----+---+  |
+--                                                        |        |
+--                                                        |        |
+--                                                        |        |
+-- +----------+----+-----------+            +----------+----+---+  |
+-- | yago36_3 |  s |     d     |            |  yago3   |  s | d |  |
+-- +----------+----+-----------+            +----------+----+---+  |
+--               |                                        |        |
+--               +----------------------------------------+        |
+--                                                                 |
+--                  +----------+-----------+-----------+           |
+--                  | yago58_0 |     s     |     d     |           |
+--                  +----------+-----------+-----------+           |
+--                                |           |                    |
+--                    +-----------+           |                    |
+--                    |                       |                    |
+--                    |         +----------+-----------+----+      |
+--                    |         | yago36_4 |     s     |  d |      |
+--                    |         +----------+-----------+----+      |
+--                    |                       |                    |
+--                    |                       |                    |
+--                    |                       |                    |
+--                    |         +----------+-----------+----+      |
+--                    |         |  yago50  |     s     |  d |      |
+--                    |         +----------+-----------+----+      |
+--                    |                                            |
+--                    +--------------------------------------------+
+select count(*) from yago58 yago58_0, yago58 yago58_1, yago3, yago36 yago36_3, yago36 yago36_4, yago50 where yago58_0.s = yago58_1.d and yago58_0.d = yago36_4.s and yago36_4.s = yago50.s and yago58_1.s = yago3.s and yago3.s = yago36_3.s;
+\set queryname yago_acyclic_Tree_6_12
+-- Result size: 589
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago58_2 [label="yago58_2|<s> s|<d> d"]; yago58_3 [label="yago58_3|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_0:d -> yago2_5:d;yago2_1:d -> yago58_2:s;yago58_2:s -> yago58_3:s;yago58_2:d -> yago36:s;}
+--                        +---------+----+--------+
+--                        | yago2_5 |  s |    d   |
+--                        +---------+----+--------+
+--                                          |
+--                                          |
+--                                          |
+--                        +---------+----+--------+
+--                        | yago2_0 |  s |    d   |
+--                        +---------+----+--------+
+--                                     |
+--              +----------------------+
+--              |
+-- +---------+-----------+----------+
+-- | yago2_1 |     s     |     d    |
+-- +---------+-----------+----------+
+--                          |
+--                          |
+--                          |
+--            +----------+----------+----+--------+----+---+
+--            | yago58_2 |     s    |  d | yago36 |  s | d |
+--            +----------+----------+----+--------+----+---+
+--                          |          |             |
+--                          |          +-------------+
+--                          |
+--            +----------+----------+----+
+--            | yago58_3 |     s    |  d |
+--            +----------+----------+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago58 yago58_2, yago58 yago58_3, yago36, yago2 yago2_5 where yago2_0.s = yago2_1.s and yago2_0.d = yago2_5.d and yago2_1.d = yago58_2.s and yago58_2.s = yago58_3.s and yago58_2.d = yago36.s;
+\set queryname yago_acyclic_Tree_6_13
+-- Result size: 18114
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago52 [label="yago52|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago0_2 [label="yago0_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago0_5 [label="yago0_5|<s> s|<d> d"]; yago52:s -> yago6:s;yago52:d -> yago0_2:d;yago0_2:d -> yago0_5:d;yago0_2:s -> yago5:d;yago5:s -> yago39:s;}
+--                            +---------+----+----+
+--                            | yago0_5 |  s |  d |
+--                            +---------+----+----+
+--                                              |
+--                                              |
+--                                              |
+--                            +---------+----+----+
+--                            | yago0_2 |  s |  d |
+--                            +---------+----+----+
+--                                         |    |
+--                    +--------------------+    |
+--                    |                         |
+-- +-------+---+---+  |       +---------+----+----+
+-- | yago6 | s | d |  |       | yago52  |  s |  d |
+-- +-------+---+---+  |       +---------+----+----+
+--                    |
+--                    +--------------------+
+--                                         |
+--                  +--------+----------+----+
+--                  | yago5  |     s    |  d |
+--                  +--------+----------+----+
+--                              |
+--                              |
+--                              |
+--                  +--------+----------+----+
+--                  | yago39 |     s    |  d |
+--                  +--------+----------+----+
+select count(*) from yago52, yago6, yago0 yago0_2, yago5, yago39, yago0 yago0_5 where yago52.s = yago6.s and yago52.d = yago0_2.d and yago0_2.d = yago0_5.d and yago0_2.s = yago5.d and yago5.s = yago39.s;
+\set queryname yago_acyclic_Tree_6_14
+-- Result size: 7419
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago17_0:s -> yago17_1:s;yago17_1:s -> yago21:d;yago21:d -> yago17_4:d;yago17_1:d -> yago5_3:d;yago5_3:d -> yago5_5:d;}
+-- +---------+---+----+            +----------+----+----+
+-- | yago5_5 | s |  d |            | yago17_0 |  s |  d |
+-- +---------+---+----+            +----------+----+----+
+--                  |                            |
+--                  |                            |
+--                  |                            |
+-- +---------+---+----+            +----------+----+----+
+-- | yago5_3 | s |  d |            | yago17_1 |  s |  d |
+-- +---------+---+----+            +----------+----+----+
+--                  |                            |    |
+--                  |                            |    |
+--                  |                            |    |
+--                  |  +----------+-----------+----+  |
+--                  |  |  yago21  |     s     |  d |  |
+--                  |  +----------+-----------+----+  |
+--                  |                            |    |
+--                  |                            |    |
+--                  |                            |    |
+--                  |  +----------+-----------+----+  |
+--                  |  | yago17_4 |     s     |  d |  |
+--                  |  +----------+-----------+----+  |
+--                  |                                 |
+--                  +---------------------------------+
+select count(*) from yago17 yago17_0, yago17 yago17_1, yago21, yago5 yago5_3, yago17 yago17_4, yago5 yago5_5 where yago17_0.s = yago17_1.s and yago17_1.s = yago21.d and yago21.d = yago17_4.d and yago17_1.d = yago5_3.d and yago5_3.d = yago5_5.d;
+\set queryname yago_acyclic_Tree_6_15
+-- Result size: 151
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago54_0 [label="yago54_0|<s> s|<d> d"]; yago37 [label="yago37|<s> s|<d> d"]; yago54_2 [label="yago54_2|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago54_5 [label="yago54_5|<s> s|<d> d"]; yago54_0:s -> yago37:s;yago37:s -> yago54_2:s;yago54_2:s -> yago35:s;yago54_0:d -> yago36:s;yago54_2:d -> yago54_5:d;}
+--             +----------------------------------------+
+--             |                                        |
+--             |                  +--------+----+----+  |
+--             |                  | yago35 |  s |  d |  |
+--             |                  +--------+----+----+  |
+--             |                              |         |
+--             |                              +----+    |
+--             |                                   |    |
+-- +--------+----+---+-----------+---------+----+  |    |
+-- | yago36 |  s | d |  yago54_0 |    s    |  d | -+----+
+-- +--------+----+---+-----------+---------+----+  |
+--                                  |              |
+--                                  |              |
+--                                  |              |
+--                    +----------+---------+----+  |
+--                    |  yago37  |    s    |  d |  |
+--                    +----------+---------+----+  |
+--                                  |              |
+--                                  |              |
+--                                  |              |
+--                    +----------+---------+----+  |
+--                    | yago54_2 |    s    |  d |  |
+--                    +----------+---------+----+  |
+--                                  |         |    |
+--                                  +---------+----+
+--                                            |
+--                                            |
+--                                            |
+--                                            |
+--                    +----------+---------+----+
+--                    | yago54_5 |    s    |  d |
+--                    +----------+---------+----+
+select count(*) from yago54 yago54_0, yago37, yago54 yago54_2, yago35, yago36, yago54 yago54_5 where yago54_0.s = yago37.s and yago37.s = yago54_2.s and yago54_2.s = yago35.s and yago54_0.d = yago36.s and yago54_2.d = yago54_5.d;
+\set queryname yago_acyclic_Tree_6_16
+-- Result size: 4
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago0:d -> yago3:d;yago3:s -> yago17:d;yago17:s -> yago46:s;yago46:s -> yago4:d;yago46:d -> yago22:s;}
+--                    +-------+----+--------+
+--                    | yago3 |  s |    d   |
+--                    +-------+----+--------+
+--                               |    |
+--            +------------------+    |
+--            |                       |
+--            |       +-------+----+--------+
+--            |       | yago0 |  s |    d   |
+--            |       +-------+----+--------+
+--            |
+--            +------------------+
+--                               |
+--          +--------+--------+----+
+--          | yago17 |    s   |  d |
+--          +--------+--------+----+
+--                      |
+--                      |
+--                      |
+--          +--------+--------+----+--------+----+---+
+--          | yago46 |    s   |  d | yago22 |  s | d |
+--          +--------+--------+----+--------+----+---+
+--                      |        |             |
+--                      |        +-------------+
+--                      |
+-- +-------+---------+--------+
+-- | yago4 |    s    |    d   |
+-- +-------+---------+--------+
+select count(*) from yago0, yago3, yago17, yago46, yago4, yago22 where yago0.d = yago3.d and yago3.s = yago17.d and yago17.s = yago46.s and yago46.s = yago4.d and yago46.d = yago22.s;
+\set queryname yago_acyclic_Tree_6_17
+-- Result size: 2124368
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_0:d -> yago2_1:d;yago2_1:s -> yago2_2:s;yago2_2:s -> yago2_3:s;yago2_3:s -> yago2_4:s;}
+--            +---------+---+----+
+--            | yago2_0 | s |  d |
+--            +---------+---+----+
+--                             |
+--                             |
+--                             |
+-- +---------+----------+---+  |
+-- | yago2_1 |     s    | d | -+
+-- +---------+----------+---+
+--              |
+--              |
+--              |
+-- +---------+----------+---+
+-- | yago2_2 |     s    | d |
+-- +---------+----------+---+
+--              |
+--              |
+--              |
+-- +---------+----------+---+
+-- | yago2_3 |     s    | d |
+-- +---------+----------+---+
+--              |
+--              |
+--              |
+-- +---------+----------+---+
+-- | yago2_4 |     s    | d |
+-- +---------+----------+---+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago2_0.d = yago2_1.d and yago2_1.s = yago2_2.s and yago2_2.s = yago2_3.s and yago2_3.s = yago2_4.s;
+\set queryname yago_acyclic_Tree_6_18
+-- Result size: 258
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago3 [label="yago3|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago48 [label="yago48|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago3:s -> yago17_1:d;yago17_1:d -> yago17_3:d;yago17_3:d -> yago17_4:d;yago17_1:s -> yago48:s;yago48:s -> yago58:d;}
+--           +----------+--------+----+
+--           | yago17_4 |    s   |  d |
+--           +----------+--------+----+
+--                                  |
+--                                  |
+--                                  |
+--           +----------+--------+----+
+--           | yago17_3 |    s   |  d |
+--           +----------+--------+----+
+--                                  |
+--                                  |
+--                                  |
+--           +----------+--------+----+
+--           | yago17_1 |    s   |  d |
+--           +----------+--------+----+
+--                         |        |
+--             +-----------+        |
+--             |                    |
+--             |         +-------+----+---+
+--             |         | yago3 |  s | d |
+--             |         +-------+----+---+
+--             |
+--             +-----------+
+--                         |
+--           +----------+--------+----+
+--           |  yago48  |    s   |  d |
+--           +----------+--------+----+
+--                         |
+--                         |
+--                         |
+-- +--------+-----------+--------+
+-- | yago58 |     s     |    d   |
+-- +--------+-----------+--------+
+select count(*) from yago3, yago17 yago17_1, yago48, yago17 yago17_3, yago17 yago17_4, yago58 where yago3.s = yago17_1.d and yago17_1.d = yago17_3.d and yago17_3.d = yago17_4.d and yago17_1.s = yago48.s and yago48.s = yago58.d;
+\set queryname yago_acyclic_Tree_6_19
+-- Result size: 61770
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago5_0:s -> yago13:s;yago13:s -> yago5_2:s;yago13:d -> yago22:d;yago5_2:d -> yago21:d;yago22:s -> yago54:s;}
+-- +---------+----+----+
+-- | yago21  |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago5_2 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago13  |  s |  d |
+-- +---------+----+----+
+--              |    |
+--              |    +----+
+--              |         |
+-- +---------+----+----+  |
+-- | yago5_0 |  s |  d |  |
+-- +---------+----+----+  |
+-- +---------+----+----+  |
+-- | yago22  |  s |  d | -+
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago54  |  s |  d |
+-- +---------+----+----+
+select count(*) from yago5 yago5_0, yago13, yago5 yago5_2, yago22, yago54, yago21 where yago5_0.s = yago13.s and yago13.s = yago5_2.s and yago13.d = yago22.d and yago5_2.d = yago21.d and yago22.s = yago54.s;
+\set queryname yago_acyclic_Tree_6_20
+-- Result size: 1416
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago62 [label="yago62|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago37 [label="yago37|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago62:s -> yago5_1:d;yago5_1:d -> yago5_5:d;yago5_1:s -> yago21:s;yago21:s -> yago5_3:s;yago5_3:d -> yago37:d;}
+-- +---------+---------+----+
+-- | yago37  |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | yago5_3 |    s    |  d |
+-- +---------+---------+----+
+--              |
+--              |
+--              |
+-- +---------+---------+----+
+-- | yago21  |    s    |  d |
+-- +---------+---------+----+
+--              |
+--              |
+--              |
+-- +---------+---------+----+
+-- | yago5_1 |    s    |  d | ------+
+-- +---------+---------+----+       |
+--                        |         |
+--                        |         |
+--                        |         |
+--            +--------+----+----+  |
+--            | yago62 |  s |  d |  |
+--            +--------+----+----+  |
+-- +---------+---------+----+       |
+-- | yago5_5 |    s    |  d | ------+
+-- +---------+---------+----+
+select count(*) from yago62, yago5 yago5_1, yago21, yago5 yago5_3, yago37, yago5 yago5_5 where yago62.s = yago5_1.d and yago5_1.d = yago5_5.d and yago5_1.s = yago21.s and yago21.s = yago5_3.s and yago5_3.d = yago37.d;
+\set queryname yago_acyclic_Tree_6_21
+-- Result size: 4726
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago55 [label="yago55|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago55:s -> yago2_1:d;yago2_1:s -> yago2_2:s;yago2_2:s -> yago2_3:s;yago2_2:d -> yago1:s;yago2_3:d -> yago2_5:d;}
+--             +-------------------------------------------+
+--             |                                           |
+--             |                 +-------+----+----+       |
+--             |                 | yago1 |  s |  d |       |
+--             |                 +-------+----+----+       |
+--             |                            |              |
+--             |                            +---------+    |
+--             |                                      |    |
+-- +--------+----+---+----------+--------+----+       |    |
+-- | yago55 |  s | d |  yago2_1 |    s   |  d | ------+----+
+-- +--------+----+---+----------+--------+----+       |
+--                                 |                  |
+--                                 |                  |
+--                                 |                  |
+--                    +---------+--------+----+       |
+--                    | yago2_2 |    s   |  d | ------+
+--                    +---------+--------+----+
+--                                 |
+--                                 |
+--                                 |
+--                    +---------+--------+----+
+--                    | yago2_3 |    s   |  d |
+--                    +---------+--------+----+
+--                                          |
+--                                          |
+--                                          |
+--                    +---------+--------+----+
+--                    | yago2_5 |    s   |  d |
+--                    +---------+--------+----+
+select count(*) from yago55, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago1, yago2 yago2_5 where yago55.s = yago2_1.d and yago2_1.s = yago2_2.s and yago2_2.s = yago2_3.s and yago2_2.d = yago1.s and yago2_3.d = yago2_5.d;
+\set queryname yago_acyclic_Tree_6_22
+-- Result size: 13156
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago31 [label="yago31|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago44 [label="yago44|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago55 [label="yago55|<s> s|<d> d"]; yago31:d -> yago35:d;yago35:s -> yago54:d;yago54:s -> yago44:d;yago44:s -> yago50:s;yago50:d -> yago55:d;}
+--           +--------+----+----+
+--           | yago31 |  s |  d |
+--           +--------+----+----+
+--                            |
+--                            |
+--                            |
+--           +--------+----+----+
+--           | yago35 |  s |  d |
+--           +--------+----+----+
+--                       |
+--                       |
+--                       |
+-- +--------+---------+----+
+-- | yago54 |    s    |  d |
+-- +--------+---------+----+
+--             |
+--             +---------+
+--                       |
+-- +--------+---------+----+
+-- | yago44 |    s    |  d |
+-- +--------+---------+----+
+--             |
+--             |
+--             |
+-- +--------+---------+----+
+-- | yago50 |    s    |  d |
+-- +--------+---------+----+
+--                       |
+--                       |
+--                       |
+-- +--------+---------+----+
+-- | yago55 |    s    |  d |
+-- +--------+---------+----+
+select count(*) from yago31, yago35, yago54, yago44, yago50, yago55 where yago31.d = yago35.d and yago35.s = yago54.d and yago54.s = yago44.d and yago44.s = yago50.s and yago50.d = yago55.d;
+\set queryname yago_acyclic_Tree_6_23
+-- Result size: 704
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago36_0 [label="yago36_0|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago36_3 [label="yago36_3|<s> s|<d> d"]; yago31 [label="yago31|<s> s|<d> d"]; yago36_5 [label="yago36_5|<s> s|<d> d"]; yago36_0:s -> yago46:d;yago46:s -> yago13:s;yago13:s -> yago36_3:s;yago36_3:d -> yago31:s;yago31:s -> yago36_5:d;}
+--                       +--------+----+----+----------+----+---+
+--                       | yago46 |  s |  d | yago36_0 |  s | d |
+--                       +--------+----+----+----------+----+---+
+--                                   |    |               |
+--                                   |    +---------------+
+--                                   |
+--                       +--------+----+----+
+--                       | yago13 |  s |  d |
+--                       +--------+----+----+
+--                                   |
+--               +-------------------+
+--               |
+-- +----------+---------+---------+
+-- | yago36_3 |    s    |    d    |
+-- +----------+---------+---------+
+--                         |
+--                         |
+--                         |
+--             +--------+---------+----+
+--             | yago31 |    s    |  d |
+--             +--------+---------+----+
+--                         |
+--                         |
+--                         |
+-- +----------+---------+---------+
+-- | yago36_5 |    s    |    d    |
+-- +----------+---------+---------+
+select count(*) from yago36 yago36_0, yago46, yago13, yago36 yago36_3, yago31, yago36 yago36_5 where yago36_0.s = yago46.d and yago46.s = yago13.s and yago13.s = yago36_3.s and yago36_3.d = yago31.s and yago31.s = yago36_5.d;
+\set queryname yago_acyclic_Tree_6_24
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago6_0 [label="yago6_0|<s> s|<d> d"]; yago11 [label="yago11|<s> s|<d> d"]; yago6_2 [label="yago6_2|<s> s|<d> d"]; yago2 [label="yago2|<s> s|<d> d"]; yago6_4 [label="yago6_4|<s> s|<d> d"]; yago6_5 [label="yago6_5|<s> s|<d> d"]; yago6_0:s -> yago11:s;yago11:s -> yago6_2:s;yago6_0:d -> yago2:s;yago6_2:d -> yago6_4:d;yago6_4:d -> yago6_5:d;}
+-- +---------+--------+----+
+-- | yago6_5 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | yago6_4 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | yago6_2 |    s   |  d |
+-- +---------+--------+----+
+--              |
+--              |
+--              |
+-- +---------+--------+----+
+-- | yago11  |    s   |  d |
+-- +---------+--------+----+
+--              |
+--              |
+--              |
+-- +---------+--------+----+
+-- | yago6_0 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+--            +-------+----+---+
+--            | yago2 |  s | d |
+--            +-------+----+---+
+select count(*) from yago6 yago6_0, yago11, yago6 yago6_2, yago2, yago6 yago6_4, yago6 yago6_5 where yago6_0.s = yago11.s and yago11.s = yago6_2.s and yago6_0.d = yago2.s and yago6_2.d = yago6_4.d and yago6_4.d = yago6_5.d;
+\set queryname yago_acyclic_Tree_6_25
+-- Result size: 2124368
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_0:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:s -> yago2_4:s;}
+--            +---------+----+----+
+--            | yago2_1 |  s |  d |
+--            +---------+----+----+
+--                         |
+--                         |
+--                         |
+--            +---------+----+----+
+--            | yago2_0 |  s |  d |
+--            +---------+----+----+
+--                              |
+--                              |
+--                              |
+-- +---------+----------+----+  |
+-- | yago2_2 |     s    |  d | -+
+-- +---------+----------+----+
+--              |
+--              |
+--              |
+-- +---------+----------+----+
+-- | yago2_3 |     s    |  d |
+-- +---------+----------+----+
+--              |
+--              |
+--              |
+-- +---------+----------+----+
+-- | yago2_4 |     s    |  d |
+-- +---------+----------+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago2_0.s = yago2_1.s and yago2_0.d = yago2_2.d and yago2_2.s = yago2_3.s and yago2_3.s = yago2_4.s;
+\set queryname yago_acyclic_Tree_6_26
+-- Result size: 13
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago0:s -> yago2_1:d;yago2_1:s -> yago2_2:s;yago2_2:d -> yago2_3:d;yago2_3:d -> yago2_4:d;yago2_3:s -> yago6:d;}
+--                     +---------+--------+----+
+--                     | yago2_1 |    s   |  d |
+--                     +---------+--------+----+
+--                                  |        |
+--                       +----------+        |
+--                       |                   |
+--                       |        +-------+----+---+
+--                       |        | yago0 |  s | d |
+--                       |        +-------+----+---+
+--                       |
+--                       |
+--                       |
+--          +---------+----------+--------+
+--          | yago2_2 |     s    |    d   |
+--          +---------+----------+--------+
+--                                  |
+--                                  |
+--                                  |
+--          +---------+----------+--------+
+--          | yago2_3 |     s    |    d   |
+--          +---------+----------+--------+
+--                       |          |
+--   +-------------------+          |
+--   |                              |
+--   |      +---------+----------+--------+
+--   |      | yago2_4 |     s    |    d   |
+--   |      +---------+----------+--------+
+--   |
+--   +-------------------+
+--                       |
+-- +-------+----------+----------+
+-- | yago6 |     s    |     d    |
+-- +-------+----------+----------+
+select count(*) from yago0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4, yago6 where yago0.s = yago2_1.d and yago2_1.s = yago2_2.s and yago2_2.d = yago2_3.d and yago2_3.d = yago2_4.d and yago2_3.s = yago6.d;
+\set queryname yago_acyclic_Tree_6_27
+-- Result size: 684
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago17_2 [label="yago17_2|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago17_0:s -> yago46:s;yago17_0:d -> yago17_2:d;yago17_2:s -> yago17_3:s;yago17_3:s -> yago17_4:s;yago17_4:s -> yago21:d;}
+--                       +----------+----+----+
+--                       |  yago46  |  s |  d |
+--                       +----------+----+----+
+--                                     |
+--                                     |
+--                                     |
+--                       +----------+----+----+
+--                       | yago17_0 |  s |  d |
+--                       +----------+----+----+
+--                                          |
+--                                          |
+--                                          |
+--           +----------+-----------+----+  |
+--           | yago17_2 |     s     |  d | -+
+--           +----------+-----------+----+
+--                         |
+--                         |
+--                         |
+--           +----------+-----------+----+
+--           | yago17_3 |     s     |  d |
+--           +----------+-----------+----+
+--                         |
+--                         |
+--                         |
+--           +----------+-----------+----+
+--           | yago17_4 |     s     |  d |
+--           +----------+-----------+----+
+--                         |
+--                         |
+--                         |
+-- +--------+-----------+-----------+
+-- | yago21 |     s     |     d     |
+-- +--------+-----------+-----------+
+select count(*) from yago17 yago17_0, yago46, yago17 yago17_2, yago17 yago17_3, yago17 yago17_4, yago21 where yago17_0.s = yago46.s and yago17_0.d = yago17_2.d and yago17_2.s = yago17_3.s and yago17_3.s = yago17_4.s and yago17_4.s = yago21.d;
+\set queryname yago_acyclic_Tree_6_28
+-- Result size: 73455
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago5_0:s -> yago0:s;yago0:s -> yago6:s;yago5_0:d -> yago17:s;yago17:s -> yago5_4:d;yago5_4:s -> yago54:d;}
+--           +---------+---------+----+
+--           |  yago6  |    s    |  d |
+--           +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--           +---------+---------+----+
+--           |  yago0  |    s    |  d |
+--           +---------+---------+----+
+--                        |
+--                        |
+--                        |
+--           +---------+---------+----+
+--           | yago5_0 |    s    |  d |
+--           +---------+---------+----+
+--                                  |
+--                                  |
+--                                  |
+--                      +--------+----+---+
+--                      | yago17 |  s | d |
+--                      +--------+----+---+
+--                                  |
+--                                  |
+--                                  |
+--           +---------+---------+----+
+--           | yago5_4 |    s    |  d |
+--           +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +--------+----------+---------+
+-- | yago54 |     s    |    d    |
+-- +--------+----------+---------+
+select count(*) from yago5 yago5_0, yago0, yago6, yago17, yago5 yago5_4, yago54 where yago5_0.s = yago0.s and yago0.s = yago6.s and yago5_0.d = yago17.s and yago17.s = yago5_4.d and yago5_4.s = yago54.d;
+\set queryname yago_acyclic_Tree_6_29
+-- Result size: 9259
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago39_0 [label="yago39_0|<s> s|<d> d"]; yago39_1 [label="yago39_1|<s> s|<d> d"]; yago62 [label="yago62|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago39_0:s -> yago39_1:s;yago39_1:s -> yago62:s;yago39_1:d -> yago50:d;yago50:s -> yago8:s;yago8:s -> yago46:d;}
+--                     +----------+----+----+
+--                     | yago39_0 |  s |  d |
+--                     +----------+----+----+
+--                                   |
+--                                   |
+--                                   |
+--                     +----------+----+----+
+--                     | yago39_1 |  s |  d |
+--                     +----------+----+----+
+--                                   |    |
+--                                   |    +----+
+--                                   |         |
+--                     +----------+----+----+  |
+--                     |  yago62  |  s |  d |  |
+--                     +----------+----+----+  |
+--           +--------+-----------+----+       |
+--           | yago50 |     s     |  d | ------+
+--           +--------+-----------+----+
+--                       |
+--                       |
+--                       |
+--           +--------+-----------+----+
+--           | yago8  |     s     |  d |
+--           +--------+-----------+----+
+--                       |
+--                       |
+--                       |
+-- +--------+---------+-----------+
+-- | yago46 |    s    |     d     |
+-- +--------+---------+-----------+
+select count(*) from yago39 yago39_0, yago39 yago39_1, yago62, yago50, yago8, yago46 where yago39_0.s = yago39_1.s and yago39_1.s = yago62.s and yago39_1.d = yago50.d and yago50.s = yago8.s and yago8.s = yago46.d;
+\set queryname yago_acyclic_Tree_6_30
+-- Result size: 13
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago0:s -> yago2_1:d;yago2_1:s -> yago2_2:s;yago2_2:s -> yago2_3:s;yago2_3:s -> yago6:d;yago6:s -> yago2_5:d;}
+--                                +-------+----+---+
+--                                | yago0 |  s | d |
+--                                +-------+----+---+
+--                                           |
+--                                           |
+--                                           |
+--                     +---------+--------+----+
+--                     | yago2_1 |    s   |  d |
+--                     +---------+--------+----+
+--                                  |
+--                                  |
+--                                  |
+--                     +---------+--------+----+
+--                     | yago2_2 |    s   |  d |
+--                     +---------+--------+----+
+--                                  |
+--                                  |
+--                                  |
+--                     +---------+--------+----+
+--                     | yago2_3 |    s   |  d |
+--                     +---------+--------+----+
+--                                  |
+--                                  |
+--                                  |
+--            +-------+----------+--------+
+--            | yago6 |     s    |    d   |
+--            +-------+----------+--------+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----------+
+-- | yago2_5 |    s   |     d    |
+-- +---------+--------+----------+
+select count(*) from yago0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago6, yago2 yago2_5 where yago0.s = yago2_1.d and yago2_1.s = yago2_2.s and yago2_2.s = yago2_3.s and yago2_3.s = yago6.d and yago6.s = yago2_5.d;
+\set queryname yago_acyclic_Tree_6_31
+-- Result size: 1183
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago46 [label="yago46|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago46:s -> yago5:d;yago5:d -> yago17_5:d;yago46:d -> yago17_1:d;yago17_1:d -> yago13:d;yago5:s -> yago21:s;}
+--                                                       +--------+----+----+
+--                                                       | yago13 |  s |  d |
+--                                                       +--------+----+----+
+--                                                                        |
+--                              +------------------------------------+    |
+--                              |                                    |    |
+--           +----------+----+----+            +--------+---------+----+  |
+--           | yago17_1 |  s |  d |            | yago46 |    s    |  d |  |
+--           +----------+----+----+            +--------+---------+----+  |
+--                              |                          |              |
+--                              |                          |              |
+--                              |                          |              |
+-- +--------+-----------+----+  |  +----------+---------+---------+       |
+-- | yago21 |     s     |  d |  |  |  yago5   |    s    |    d    |       |
+-- +--------+-----------+----+  |  +----------+---------+---------+       |
+--             |                |                |         |              |
+--             +----------------+----------------+         |              |
+--                              |                          |              |
+--                              |  +----------+---------+---------+       |
+--                              |  | yago17_5 |    s    |    d    |       |
+--                              |  +----------+---------+---------+       |
+--                              |                                         |
+--                              +-----------------------------------------+
+select count(*) from yago46, yago17 yago17_1, yago5, yago21, yago13, yago17 yago17_5 where yago46.s = yago5.d and yago5.d = yago17_5.d and yago46.d = yago17_1.d and yago17_1.d = yago13.d and yago5.s = yago21.s;
+\set queryname yago_acyclic_Tree_6_32
+-- Result size: 205469
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_0:d -> yago2_3:d;yago2_3:s -> yago2_4:s;yago2_4:d -> yago25:s;}
+--                             +--------------------+
+--                             |                    |
+--                             |        +--------+----+---+
+--   +-------------------------+        | yago25 |  s | d |
+--   |                                  +--------+----+---+
+--   |
+--   |                    +-------------------------+
+--   |                    |                         |
+--   |  +---------+----+----++---------+---------+----+
+--   |  | yago2_3 |  s |  d || yago2_0 |    s    |  d |
+--   |  +---------+----+----++---------+---------+----+
+--   |               |                    |
+--   |               |                    |
+--   |               |                    |
+--   |  +---------+----+----++---------+---------+----+
+--   |  | yago2_4 |  s |  d || yago2_1 |    s    |  d |
+--   |  +---------+----+----++---------+---------+----+
+--   |                    |               |
+--   +--------------------+               |
+--                                        |
+--                           +---------+---------+----+
+--                           | yago2_2 |    s    |  d |
+--                           +---------+---------+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4, yago25 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_0.d = yago2_3.d and yago2_3.s = yago2_4.s and yago2_4.d = yago25.s;
+\set queryname yago_acyclic_Tree_6_33
+-- Result size: 360532
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago0_3 [label="yago0_3|<s> s|<d> d"]; yago0_4 [label="yago0_4|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago0_0:d -> yago1:d;yago1:d -> yago0_4:d;yago1:s -> yago3:s;yago3:d -> yago0_3:d;yago0_4:s -> yago58:d;}
+-- +---------+----+----+          +---------+----+----+
+-- | yago0_3 |  s |  d |          | yago0_0 |  s |  d |
+-- +---------+----+----+          +---------+----+----+
+--                   |                              |
+--                   |                              |
+--                   |                              |
+-- +---------+----+----+          +---------+----+----+
+-- |  yago3  |  s |  d |          |  yago1  |  s |  d |
+-- +---------+----+----+          +---------+----+----+
+--              |                              |    |
+--              +------------------------------+    |
+--                                                  |
+--                                +---------+----+----+
+--                                | yago0_4 |  s |  d |
+--                                +---------+----+----+
+--                                             |
+--                                             |
+--                                             |
+--                      +--------+----------+----+
+--                      | yago58 |     s    |  d |
+--                      +--------+----------+----+
+select count(*) from yago0 yago0_0, yago1, yago3, yago0 yago0_3, yago0 yago0_4, yago58 where yago0_0.d = yago1.d and yago1.d = yago0_4.d and yago1.s = yago3.s and yago3.d = yago0_3.d and yago0_4.s = yago58.d;
+\set queryname yago_acyclic_Tree_6_34
+-- Result size: 1481
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago46_0 [label="yago46_0|<s> s|<d> d"]; yago46_1 [label="yago46_1|<s> s|<d> d"]; yago46_2 [label="yago46_2|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago46_0:s -> yago17:d;yago46_0:d -> yago46_1:s;yago46_1:s -> yago5_5:d;yago46_1:d -> yago46_2:s;yago46_2:s -> yago5_3:d;}
+--                         +--------+---------+----------+
+--                         | yago17 |    s    |     d    |
+--                         +--------+---------+----------+
+--                                               |
+--               +-------------------------------+
+--               |
+-- +----------+-----------+---------+
+-- | yago46_0 |     s     |    d    |
+-- +----------+-----------+---------+
+--                           |
+--                           |                              +---------+
+--                           |                              |         |
+--             +----------+---------+---------+----------+----+----+  |
+--             | yago46_1 |    s    |    d    | yago46_2 |  s |  d |  |
+--             +----------+---------+---------+----------+----+----+  |
+--                           |         |                    |         |
+--                           |         +--------------------+         |
+--                           |                                        |
+-- +----------+-----------+---------+---------+----------+----+       |
+-- | yago5_5  |     s     |    d    | yago5_3 |     s    |  d | ------+
+-- +----------+-----------+---------+---------+----------+----+
+select count(*) from yago46 yago46_0, yago46 yago46_1, yago46 yago46_2, yago5 yago5_3, yago17, yago5 yago5_5 where yago46_0.s = yago17.d and yago46_0.d = yago46_1.s and yago46_1.s = yago5_5.d and yago46_1.d = yago46_2.s and yago46_2.s = yago5_3.d;
+\set queryname yago_acyclic_Tree_6_35
+-- Result size: 21
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago23 [label="yago23|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago23:s -> yago0:s;yago23:d -> yago5_2:s;yago5_2:d -> yago5_3:d;yago5_3:d -> yago5_4:d;yago5_4:s -> yago5_5:d;}
+--                         +-------------------+
+--                         |                   |
+--                         |  +--------+----+----+
+--                         |  | yago23 |  s |  d |
+--                         |  +--------+----+----+
+--                         |              |
+--                         |              |
+--                         |              |
+--                         |  +--------+----+----+
+--                         |  | yago0  |  s |  d |
+--                         |  +--------+----+----+
+--                         |
+--                         |
+--                         |
+--            +---------+----+---------+
+--            | yago5_2 |  s |    d    |
+--            +---------+----+---------+
+--                              |
+--                              |
+--                              |
+--            +---------+----+---------+
+--            | yago5_3 |  s |    d    |
+--            +---------+----+---------+
+--                              |
+--                              |
+--                              |
+--            +---------+----+---------+
+--            | yago5_4 |  s |    d    |
+--            +---------+----+---------+
+--                         |
+--                         |
+--                         |
+-- +---------+----------+----+
+-- | yago5_5 |     s    |  d |
+-- +---------+----------+----+
+select count(*) from yago23, yago0, yago5 yago5_2, yago5 yago5_3, yago5 yago5_4, yago5 yago5_5 where yago23.s = yago0.s and yago23.d = yago5_2.s and yago5_2.d = yago5_3.d and yago5_3.d = yago5_4.d and yago5_4.s = yago5_5.d;
+\set queryname yago_acyclic_Tree_6_36
+-- Result size: 158232
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_0:s -> yago5_1:d;yago17_0:d -> yago17_5:d;yago5_1:s -> yago5_2:s;yago5_2:d -> yago17_3:s;yago17_3:s -> yago21:d;}
+--                                 +----------+-----------+----+
+--                                 | yago5_1  |     s     |  d |
+--                                 +----------+-----------+----+
+--                                               |           |
+--   +-------------------------------------------+           |
+--   |                                                       |
+--   |  +----------+---+----------+            +----------+----+----+
+--   |  | yago17_5 | s |     d    |            | yago17_0 |  s |  d |
+--   |  +----------+---+----------+            +----------+----+----+
+--   |                    |                                       |
+--   |                    +---------------------------------------+
+--   |
+--   |                  +---------+-----------+-----------+
+--   |                  | yago5_2 |     s     |     d     |
+--   |                  +---------+-----------+-----------+
+--   |                               |           |
+--   |                    +----------+           |
+--   |                    |                      |
+--   |                    |        +----------+-----------+----+
+--   +--------------------+        | yago17_3 |     s     |  d |
+--                                 +----------+-----------+----+
+--                                               |
+--                                               |
+--                                               |
+--                      +---------+-----------+-----------+
+--                      | yago21  |     s     |     d     |
+--                      +---------+-----------+-----------+
+select count(*) from yago17 yago17_0, yago5 yago5_1, yago5 yago5_2, yago17 yago17_3, yago21, yago17 yago17_5 where yago17_0.s = yago5_1.d and yago17_0.d = yago17_5.d and yago5_1.s = yago5_2.s and yago5_2.d = yago17_3.s and yago17_3.s = yago21.d;
+\set queryname yago_acyclic_Tree_6_37
+-- Result size: 360041
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago0_4 [label="yago0_4|<s> s|<d> d"]; yago2 [label="yago2|<s> s|<d> d"]; yago0_0:d -> yago1:d;yago1:d -> yago0_4:d;yago1:s -> yago46:s;yago46:s -> yago2:d;yago46:d -> yago17:s;}
+--          +---------+----+----+
+--          | yago0_0 |  s |  d |
+--          +---------+----+----+
+--                            |
+--                            |
+--                            |
+--          +---------+----+----+
+--          |  yago1  |  s |  d |
+--          +---------+----+----+
+--                       |    |
+--   +-------------------+    |
+--   |                        |
+--   |      +---------+----+----+
+--   |      | yago0_4 |  s |  d |
+--   |      +---------+----+----+
+--   |
+--   +-------------------+
+--                       |
+--          +---------+----+----+--------+----+---+
+--          | yago46  |  s |  d | yago17 |  s | d |
+--          +---------+----+----+--------+----+---+
+--                       |    |             |
+--                       |    +-------------+
+--                       |
+-- +-------+----------+----+
+-- | yago2 |     s    |  d |
+-- +-------+----------+----+
+select count(*) from yago0 yago0_0, yago1, yago46, yago17, yago0 yago0_4, yago2 where yago0_0.d = yago1.d and yago1.d = yago0_4.d and yago1.s = yago46.s and yago46.s = yago2.d and yago46.d = yago17.s;
+\set queryname yago_acyclic_Tree_6_38
+-- Result size: 95247812
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago0_1 [label="yago0_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago0_0:s -> yago0_1:s;yago0_1:s -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:s -> yago2_4:s;}
+--            +---------+----+---+
+--            | yago0_0 |  s | d |
+--            +---------+----+---+
+--                         |
+--                         |
+--                         |
+--            +---------+----+---+
+--            | yago0_1 |  s | d |
+--            +---------+----+---+
+--                         |
+--                         |
+--                         |
+-- +---------+----------+----+
+-- | yago2_2 |     s    |  d |
+-- +---------+----------+----+
+--              |
+--              |
+--              |
+-- +---------+----------+----+
+-- | yago2_3 |     s    |  d |
+-- +---------+----------+----+
+--              |
+--              |
+--              |
+-- +---------+----------+----+
+-- | yago2_4 |     s    |  d |
+-- +---------+----------+----+
+select count(*) from yago0 yago0_0, yago0 yago0_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago0_0.s = yago0_1.s and yago0_1.s = yago2_2.d and yago2_2.s = yago2_3.s and yago2_3.s = yago2_4.s;
+\set queryname yago_acyclic_Tree_6_39
+-- Result size: 11
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago37 [label="yago37|<s> s|<d> d"]; yago5_0:d -> yago5_1:d;yago5_1:d -> yago5_3:d;yago5_3:d -> yago5_4:d;yago5_1:s -> yago54:d;yago5_4:s -> yago37:s;}
+--                                    +--------+----+---+
+--                                    | yago37 |  s | d |
+--                                    +--------+----+---+
+--                                                |
+--                                                |
+--                                                |
+--                    +---------+----+---------+  |
+--                    | yago5_0 |  s |    d    |  |
+--                    +---------+----+---------+  |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+-- +--------+---+----++---------+----+---------+  |
+-- | yago54 | s |  d || yago5_1 |  s |    d    |  |
+-- +--------+---+----++---------+----+---------+  |
+--                 |               |    |         |
+--                 +---------------+    |         |
+--                                      |         |
+--                    +---------+----+---------+  |
+--                    | yago5_3 |  s |    d    |  |
+--                    +---------+----+---------+  |
+--                                      |         |
+--                                      |         |
+--                                      |         |
+--                    +---------+----+---------+  |
+--                    | yago5_4 |  s |    d    |  |
+--                    +---------+----+---------+  |
+--                                 |              |
+--                                 +--------------+
+select count(*) from yago5 yago5_0, yago5 yago5_1, yago54, yago5 yago5_3, yago5 yago5_4, yago37 where yago5_0.d = yago5_1.d and yago5_1.d = yago5_3.d and yago5_3.d = yago5_4.d and yago5_1.s = yago54.d and yago5_4.s = yago37.s;
+\set queryname yago_acyclic_Tree_6_40
+-- Result size: 13
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_2:s -> yago6:d;yago2_1:d -> yago0:s;yago0:s -> yago2_5:d;}
+--          +---------+--------+----+
+--          | yago2_5 |    s   |  d |
+--          +---------+--------+----+
+--                                |
+--                                |
+--                                |
+--                     +-------+----+----+
+--                     | yago0 |  s |  d |
+--                     +-------+----+----+
+--                                |
+--                                +---------+
+--                                          |
+--          +---------+--------+----+       |
+--          | yago2_0 |    s   |  d |       |
+--          +---------+--------+----+       |
+--                       |                  |
+--                       |                  |
+--                       |                  |
+--          +---------+--------+----+       |
+--          | yago2_1 |    s   |  d | ------+
+--          +---------+--------+----+
+--                       |
+--                       |
+--                       |
+--          +---------+--------+----+
+--          | yago2_2 |    s   |  d |
+--          +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +-------+----------+--------+
+-- | yago6 |     s    |    d   |
+-- +-------+----------+--------+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago0, yago6, yago2 yago2_5 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_2.s = yago6.d and yago2_1.d = yago0.s and yago0.s = yago2_5.d;
+\set queryname yago_acyclic_Tree_6_41
+-- Result size: 1032
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago21_0 [label="yago21_0|<s> s|<d> d"]; yago21_1 [label="yago21_1|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago57 [label="yago57|<s> s|<d> d"]; yago21_5 [label="yago21_5|<s> s|<d> d"]; yago21_0:s -> yago21_1:s;yago21_1:s -> yago4:d;yago21_0:d -> yago21_5:d;yago21_1:d -> yago57:s;yago4:s -> yago23:s;}
+--           +----------+----+----+
+--           | yago21_5 |  s |  d |
+--           +----------+----+----+
+--                              |
+--                              |
+--                              |
+--           +----------+----+----+
+--           | yago21_0 |  s |  d |
+--           +----------+----+----+
+--                         |
+--                         |
+--                         |
+--           +----------+----+----+--------+----+---+
+--           | yago21_1 |  s |  d | yago57 |  s | d |
+--           +----------+----+----+--------+----+---+
+--                         |    |             |
+--                         |    +-------------+
+--                         |
+-- +--------+-----------+----+
+-- | yago4  |     s     |  d |
+-- +--------+-----------+----+
+--             |
+--             |
+--             |
+-- +--------+-----------+----+
+-- | yago23 |     s     |  d |
+-- +--------+-----------+----+
+select count(*) from yago21 yago21_0, yago21 yago21_1, yago4, yago23, yago57, yago21 yago21_5 where yago21_0.s = yago21_1.s and yago21_1.s = yago4.d and yago21_0.d = yago21_5.d and yago21_1.d = yago57.s and yago4.s = yago23.s;
+\set queryname yago_acyclic_Tree_6_42
+-- Result size: 110830
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago11 [label="yago11|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago11:s -> yago2_1:d;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:s -> yago2_4:s;yago2_3:d -> yago2_5:d;}
+--            +--------+----+----+
+--            | yago11 |  s |  d |
+--            +--------+----+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | yago2_1 |    s    |  d |
+-- +---------+---------+----+
+--                        |
+--                        |
+--                        |
+-- +---------+---------+----+
+-- | yago2_2 |    s    |  d |
+-- +---------+---------+----+
+--              |
+--              |
+--              |
+-- +---------+---------+----+
+-- | yago2_3 |    s    |  d | ------+
+-- +---------+---------+----+       |
+--              |                   |
+--              |                   |
+--              |                   |
+-- +---------+---------+----+       |
+-- | yago2_4 |    s    |  d |       |
+-- +---------+---------+----+       |
+-- +---------+---------+----+       |
+-- | yago2_5 |    s    |  d | ------+
+-- +---------+---------+----+
+select count(*) from yago11, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4, yago2 yago2_5 where yago11.s = yago2_1.d and yago2_1.d = yago2_2.d and yago2_2.s = yago2_3.s and yago2_3.s = yago2_4.s and yago2_3.d = yago2_5.d;
+\set queryname yago_acyclic_Tree_6_43
+-- Result size: 150097
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago0:s -> yago2_1:d;yago0:d -> yago1:d;yago2_1:s -> yago2_2:s;yago2_2:d -> yago6:s;yago6:s -> yago2_5:d;}
+--                              +---------+--------+----+
+--                              | yago2_1 |    s   |  d |
+--                              +---------+--------+----+
+--                                           |        |
+--   +---------------------------------------+        |
+--   |                                                |
+--   |  +-------+---+----------+           +-------+----+----+
+--   |  | yago1 | s |     d    |           | yago0 |  s |  d |
+--   |  +-------+---+----------+           +-------+----+----+
+--   |                 |                                   |
+--   |                 +-----------------------------------+
+--   |
+--   |               +---------+----------+--------+
+--   |               | yago2_2 |     s    |    d   |
+--   |               +---------+----------+--------+
+--   |                            |          |
+--   |                 +----------+          |
+--   |                 |                     |
+--   |                 |        +---------+--------+----+
+--   +-----------------+        |  yago6  |    s   |  d |
+--                              +---------+--------+----+
+--                                           |
+--                                           |
+--                                           |
+--                   +---------+----------+--------+
+--                   | yago2_5 |     s    |    d   |
+--                   +---------+----------+--------+
+select count(*) from yago0, yago2 yago2_1, yago2 yago2_2, yago6, yago1, yago2 yago2_5 where yago0.s = yago2_1.d and yago0.d = yago1.d and yago2_1.s = yago2_2.s and yago2_2.d = yago6.s and yago6.s = yago2_5.d;
+\set queryname yago_acyclic_Tree_6_44
+-- Result size: 318156
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago5_0:d -> yago2_1:d;yago2_1:d -> yago5_3:d;yago5_3:d -> yago5_4:d;yago5_4:d -> yago5_5:d;yago2_1:s -> yago2_2:s;}
+--      +---------+----+----+
+--      | yago5_5 |  s |  d |
+--      +---------+----+----+
+--                        |
+--                        |
+--                        |
+--      +---------+----+----+
+--      | yago5_4 |  s |  d |
+--      +---------+----+----+
+--                        |
+--                        |
+--                        |
+--      +---------+----+----+
+--      | yago5_3 |  s |  d |
+--      +---------+----+----+
+--                        |
+--                        |
+--                        |
+--      +---------+----+----+
+--      | yago2_1 |  s |  d |
+--      +---------+----+----+
+--                   |    |
+--   +---------------+    |
+--   |                    |
+--   |  +---------+----+----+
+--   |  | yago5_0 |  s |  d |
+--   |  +---------+----+----+
+--   |
+--   +---------------+
+--                   |
+--      +---------+----+----+
+--      | yago2_2 |  s |  d |
+--      +---------+----+----+
+select count(*) from yago5 yago5_0, yago2 yago2_1, yago2 yago2_2, yago5 yago5_3, yago5 yago5_4, yago5 yago5_5 where yago5_0.d = yago2_1.d and yago2_1.d = yago5_3.d and yago5_3.d = yago5_4.d and yago5_4.d = yago5_5.d and yago2_1.s = yago2_2.s;
+\set queryname yago_acyclic_Tree_6_45
+-- Result size: 635896
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago46_0 [label="yago46_0|<s> s|<d> d"]; yago46_1 [label="yago46_1|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago46_0:s -> yago46_1:d;yago46_0:d -> yago58:s;yago46_1:s -> yago35:s;yago35:d -> yago36:d;yago36:d -> yago39:d;}
+--                         +--------+----+--------+
+--                         | yago35 |  s |    d   |
+--                         +--------+----+--------+
+--                                     |    |
+--   +---------------------------------+    |
+--   |                                      |
+--   |                     +--------+----+--------+
+--   |                     | yago36 |  s |    d   |
+--   |                     +--------+----+--------+
+--   |                                      |
+--   |                                      |
+--   |                                      |
+--   |                     +--------+----+--------+
+--   |                     | yago39 |  s |    d   |
+--   |                     +--------+----+--------+
+--   |         +----------+---------+----+--------+----+---+
+--   |         | yago46_0 |    s    |  d | yago58 |  s | d |
+--   |         +----------+---------+----+--------+----+---+
+--   |                       |         |             |
+--   +-----------+           |         +-------------+
+--               |           |
+-- +----------+-----------+---------+
+-- | yago46_1 |     s     |    d    |
+-- +----------+-----------+---------+
+select count(*) from yago46 yago46_0, yago46 yago46_1, yago35, yago36, yago39, yago58 where yago46_0.s = yago46_1.d and yago46_0.d = yago58.s and yago46_1.s = yago35.s and yago35.d = yago36.d and yago36.d = yago39.d;
+\set queryname yago_acyclic_Tree_6_46
+-- Result size: 2351
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago17_0:s -> yago17_1:s;yago17_1:s -> yago5_5:d;yago17_0:d -> yago5_2:d;yago5_2:d -> yago17_3:d;yago5_2:s -> yago54:d;}
+--                               +----------+----+----+
+--                               | yago17_3 |  s |  d |
+--                               +----------+----+----+
+--                                                  |
+--                                                  |
+--                                                  |
+-- +--------+---+----+           +----------+----+----+
+-- | yago54 | s |  d |           | yago5_2  |  s |  d |
+-- +--------+---+----+           +----------+----+----+
+--                 |                           |    |
+--                 +---------------------------+    |
+--                                                  |
+--                               +----------+----+----+
+--                               | yago17_0 |  s |  d |
+--                               +----------+----+----+
+--                                             |
+--                                             |
+--                                             |
+--                               +----------+----+----+
+--                               | yago17_1 |  s |  d |
+--                               +----------+----+----+
+--                                             |
+--                                             |
+--                                             |
+--                    +---------+-----------+----+
+--                    | yago5_5 |     s     |  d |
+--                    +---------+-----------+----+
+select count(*) from yago17 yago17_0, yago17 yago17_1, yago5 yago5_2, yago17 yago17_3, yago54, yago5 yago5_5 where yago17_0.s = yago17_1.s and yago17_1.s = yago5_5.d and yago17_0.d = yago5_2.d and yago5_2.d = yago17_3.d and yago5_2.s = yago54.d;
+\set queryname yago_acyclic_Tree_6_47
+-- Result size: 64
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago22 [label="yago22|<s> s|<d> d"]; yago35_1 [label="yago35_1|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago35_5 [label="yago35_5|<s> s|<d> d"]; yago22:s -> yago35_1:s;yago35_1:s -> yago4:d;yago35_1:d -> yago39:d;yago39:d -> yago35_5:d;yago39:s -> yago5:s;}
+--          +----------+----+----+
+--          |  yago22  |  s |  d |
+--          +----------+----+----+
+--                        |
+--                        |
+--                        |
+--          +----------+----+----+
+--          | yago35_1 |  s |  d |
+--          +----------+----+----+
+--                        |    |
+--                        |    |
+--                        |    |
+-- +-------+-----------+----+  |
+-- | yago4 |     s     |  d |  |
+-- +-------+-----------+----+  |
+--                             |
+--                             |
+--                             |
+--          +----------+----+----+
+--          |  yago39  |  s |  d |
+--          +----------+----+----+
+--                        |    |
+--   +--------------------+    |
+--   |                         |
+--   |      +----------+----+----+
+--   |      | yago35_5 |  s |  d |
+--   |      +----------+----+----+
+--   |
+--   +--------------------+
+--                        |
+--          +----------+----+----+
+--          |  yago5   |  s |  d |
+--          +----------+----+----+
+select count(*) from yago22, yago35 yago35_1, yago4, yago39, yago5, yago35 yago35_5 where yago22.s = yago35_1.s and yago35_1.s = yago4.d and yago35_1.d = yago39.d and yago39.d = yago35_5.d and yago39.s = yago5.s;
+\set queryname yago_acyclic_Tree_6_48
+-- Result size: 18
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago12_0 [label="yago12_0|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago54_2 [label="yago54_2|<s> s|<d> d"]; yago12_3 [label="yago12_3|<s> s|<d> d"]; yago54_4 [label="yago54_4|<s> s|<d> d"]; yago54_5 [label="yago54_5|<s> s|<d> d"]; yago12_0:s -> yago46:s;yago46:s -> yago54_2:s;yago54_2:s -> yago54_4:d;yago54_4:d -> yago54_5:d;yago12_0:d -> yago12_3:d;}
+--             +----------+----+----+
+--             | yago12_3 |  s |  d |
+--             +----------+----+----+
+--                                |
+--                                |
+--                                |
+--             +----------+----+----+
+--             | yago12_0 |  s |  d |
+--             +----------+----+----+
+--                           |
+--                           |
+--                           |
+--             +----------+----+----+
+--             |  yago46  |  s |  d |
+--             +----------+----+----+
+--                           |
+--                           |
+--                           |
+--             +----------+----+----+
+--             | yago54_2 |  s |  d |
+--             +----------+----+----+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+----+
+-- | yago54_4 |     s     |  d |
+-- +----------+-----------+----+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+----+
+-- | yago54_5 |     s     |  d |
+-- +----------+-----------+----+
+select count(*) from yago12 yago12_0, yago46, yago54 yago54_2, yago12 yago12_3, yago54 yago54_4, yago54 yago54_5 where yago12_0.s = yago46.s and yago46.s = yago54_2.s and yago54_2.s = yago54_4.d and yago54_4.d = yago54_5.d and yago12_0.d = yago12_3.d;
+\set queryname yago_acyclic_Tree_6_49
+-- Result size: 9840
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago11 [label="yago11|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago0:s -> yago2_1:d;yago2_1:d -> yago2_5:d;yago2_1:s -> yago2_2:s;yago2_2:d -> yago11:s;yago11:s -> yago5:d;}
+--                       +-------+----+---+
+--                       | yago0 |  s | d |
+--                       +-------+----+---+
+--                                  |
+--                                  |
+--                                  |
+--            +---------+--------+----+
+--            | yago2_1 |    s   |  d |
+--            +---------+--------+----+
+--                         |        |
+--   +---------------------+        |
+--   |                              |
+--   |        +---------+--------+----+
+--   |        | yago2_5 |    s   |  d |
+--   |        +---------+--------+----+
+--   |
+--   +----------+
+--              |
+-- +---------+----------+--------+
+-- | yago2_2 |     s    |    d   |
+-- +---------+----------+--------+
+--                         |
+--                         |
+--                         |
+--            +---------+--------+----+
+--            | yago11  |    s   |  d |
+--            +---------+--------+----+
+--                         |
+--                         |
+--                         |
+-- +---------+----------+--------+
+-- |  yago5  |     s    |    d   |
+-- +---------+----------+--------+
+select count(*) from yago0, yago2 yago2_1, yago2 yago2_2, yago11, yago5, yago2 yago2_5 where yago0.s = yago2_1.d and yago2_1.d = yago2_5.d and yago2_1.s = yago2_2.s and yago2_2.d = yago11.s and yago11.s = yago5.d;
+\set queryname yago_acyclic_Tree_6_50
+-- Result size: 110830
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago11 [label="yago11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_0:d -> yago2_3:d;yago2_2:d -> yago11:s;yago2_3:s -> yago2_4:s;}
+--                                             +---------+
+--                                             |         |
+--                                 +--------+----+----+  |
+--                                 | yago11 |  s |  d |  |
+--                                 +--------+----+----+  |
+--                                                       |
+--                   +-------------------------+         |
+--                   |                         |         |
+-- +---------+----+----++---------+---------+----+       |
+-- | yago2_3 |  s |  d || yago2_0 |    s    |  d |       |
+-- +---------+----+----++---------+---------+----+       |
+--              |                    |                   |
+--              |                    |                   |
+--              |                    |                   |
+-- +---------+----+----++---------+---------+----+       |
+-- | yago2_4 |  s |  d || yago2_1 |    s    |  d |       |
+-- +---------+----+----++---------+---------+----+       |
+--                                   |                   |
+--                                   |                   |
+--                                   |                   |
+--                      +---------+---------+----+       |
+--                      | yago2_2 |    s    |  d | ------+
+--                      +---------+---------+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4, yago11 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_0.d = yago2_3.d and yago2_2.d = yago11.s and yago2_3.s = yago2_4.s;
+\set queryname yago_acyclic_Tree_6_51
+-- Result size: 799126
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago2 [label="yago2|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_0:s -> yago5_1:d;yago17_0:d -> yago17_5:d;yago5_1:s -> yago5_2:s;yago5_2:d -> yago5_3:d;yago5_3:d -> yago2:d;}
+--                                 +---------+-----------+----+
+--                                 | yago5_1 |     s     |  d |
+--                                 +---------+-----------+----+
+--                                              |           |
+--   +------------------------------------------+           |
+--   |                                                      |
+--   |  +----------+---+----------+           +----------+----+----+
+--   |  | yago17_5 | s |     d    |           | yago17_0 |  s |  d |
+--   |  +----------+---+----------+           +----------+----+----+
+--   |                    |                                      |
+--   |                    +--------------------------------------+
+--   |
+--   |                  +---------+----------+-----------+
+--   |                  | yago5_2 |     s    |     d     |
+--   |                  +---------+----------+-----------+
+--   |                               |          |
+--   +-------------------------------+          |
+--                                              |
+--                      +---------+----------+-----------+
+--                      | yago5_3 |     s    |     d     |
+--                      +---------+----------+-----------+
+--                                              |
+--                                              |
+--                                              |
+--                      +---------+----------+-----------+
+--                      |  yago2  |     s    |     d     |
+--                      +---------+----------+-----------+
+select count(*) from yago17 yago17_0, yago5 yago5_1, yago5 yago5_2, yago5 yago5_3, yago2, yago17 yago17_5 where yago17_0.s = yago5_1.d and yago17_0.d = yago17_5.d and yago5_1.s = yago5_2.s and yago5_2.d = yago5_3.d and yago5_3.d = yago2.d;
+\set queryname yago_acyclic_Tree_6_52
+-- Result size: 636050
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago0_2 [label="yago0_2|<s> s|<d> d"]; yago0_3 [label="yago0_3|<s> s|<d> d"]; yago2 [label="yago2|<s> s|<d> d"]; yago33 [label="yago33|<s> s|<d> d"]; yago0_0:s -> yago2:d;yago0_0:d -> yago3:d;yago3:d -> yago0_2:d;yago0_2:d -> yago0_3:d;yago0_3:s -> yago33:d;}
+-- +--------+----------+----+
+-- | yago2  |     s    |  d |
+-- +--------+----------+----+
+--                        |
+--                        |
+--                        |
+--           +---------+----+----+
+--           | yago0_0 |  s |  d |
+--           +---------+----+----+
+--                             |
+--                             |
+--                             |
+--           +---------+----+----+
+--           |  yago3  |  s |  d |
+--           +---------+----+----+
+--                             |
+--                             |
+--                             |
+--           +---------+----+----+
+--           | yago0_2 |  s |  d |
+--           +---------+----+----+
+--                             |
+--                             |
+--                             |
+--           +---------+----+----+
+--           | yago0_3 |  s |  d |
+--           +---------+----+----+
+--                        |
+--                        |
+--                        |
+-- +--------+----------+----+
+-- | yago33 |     s    |  d |
+-- +--------+----------+----+
+select count(*) from yago0 yago0_0, yago3, yago0 yago0_2, yago0 yago0_3, yago2, yago33 where yago0_0.s = yago2.d and yago0_0.d = yago3.d and yago3.d = yago0_2.d and yago0_2.d = yago0_3.d and yago0_3.s = yago33.d;
+\set queryname yago_acyclic_Tree_6_53
+-- Result size: 7207
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago36_1 [label="yago36_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago36_4 [label="yago36_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago5_0:s -> yago36_1:s;yago36_1:s -> yago58:d;yago5_0:d -> yago5_2:d;yago36_1:d -> yago36_4:d;yago36_4:s -> yago5_5:s;}
+--                     +--------+-----------+----+
+--                     | yago58 |     s     |  d |
+--                     +--------+-----------+----+
+--                                             |
+--                                             |
+--                                             |
+--                               +----------+----+----+
+--                               | yago36_1 |  s |  d |
+--                               +----------+----+----+
+--                                             |    |
+--                                             |    +----+
+--                                             |         |
+-- +---------+---+----+          +----------+----+----+  |
+-- | yago5_2 | s |  d |          | yago5_0  |  s |  d |  |
+-- +---------+---+----+          +----------+----+----+  |
+--                  |                               |    |
+--                  +-------------------------------+    |
+--                                                       |
+--                               +----------+----+----+  |
+--                               | yago36_4 |  s |  d | -+
+--                               +----------+----+----+
+--                                             |
+--                                             |
+--                                             |
+--                               +----------+----+----+
+--                               | yago5_5  |  s |  d |
+--                               +----------+----+----+
+select count(*) from yago5 yago5_0, yago36 yago36_1, yago5 yago5_2, yago58, yago36 yago36_4, yago5 yago5_5 where yago5_0.s = yago36_1.s and yago36_1.s = yago58.d and yago5_0.d = yago5_2.d and yago36_1.d = yago36_4.d and yago36_4.s = yago5_5.s;
+\set queryname yago_acyclic_Tree_6_54
+-- Result size: 85
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago48_2 [label="yago48_2|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago48_5 [label="yago48_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago48_2:s;yago48_2:s -> yago36:s;yago48_2:d -> yago5:d;yago5:d -> yago48_5:d;}
+--                        +---------+----+----+
+--                        | yago2_0 |  s |  d |
+--                        +---------+----+----+
+--                                     |
+--              +----------------------+
+--              |
+-- +---------+-----------+----------+
+-- | yago2_1 |     s     |     d    |
+-- +---------+-----------+----------+
+--                          |
+--                          |
+--                          |
+--            +----------+----------+----+
+--            | yago48_2 |     s    |  d | ------+
+--            +----------+----------+----+       |
+--                          |                    |
+--                          |                    |
+--                          |                    |
+--            +----------+----------+----+       |
+--            |  yago36  |     s    |  d |       |
+--            +----------+----------+----+       |
+--            +----------+----------+----+       |
+--            |  yago5   |     s    |  d | ------+
+--            +----------+----------+----+
+--                                     |
+--                                     |
+--                                     |
+--            +----------+----------+----+
+--            | yago48_5 |     s    |  d |
+--            +----------+----------+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago48 yago48_2, yago36, yago5, yago48 yago48_5 where yago2_0.s = yago2_1.s and yago2_1.d = yago48_2.s and yago48_2.s = yago36.s and yago48_2.d = yago5.d and yago5.d = yago48_5.d;
+\set queryname yago_acyclic_Tree_6_55
+-- Result size: 12
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago23 [label="yago23|<s> s|<d> d"]; yago36_1 [label="yago36_1|<s> s|<d> d"]; yago37 [label="yago37|<s> s|<d> d"]; yago36_3 [label="yago36_3|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago36_5 [label="yago36_5|<s> s|<d> d"]; yago23:s -> yago36_1:s;yago36_1:s -> yago37:s;yago37:s -> yago36_3:s;yago37:d -> yago12:d;yago36_3:d -> yago36_5:d;}
+--             +--------+----+----+
+--             | yago12 |  s |  d |
+--             +--------+----+----+
+--                              |
+--                              |
+--                              |
+-- +----------+---------+----+  |
+-- |  yago23  |    s    |  d |  |
+-- +----------+---------+----+  |
+--               |              |
+--               |              |
+--               |              |
+-- +----------+---------+----+  |
+-- | yago36_1 |    s    |  d |  |
+-- +----------+---------+----+  |
+--               |              |
+--               |              |
+--               |              |
+-- +----------+---------+----+  |
+-- |  yago37  |    s    |  d | -+
+-- +----------+---------+----+
+--               |
+--               |
+--               |
+-- +----------+---------+----+
+-- | yago36_3 |    s    |  d |
+-- +----------+---------+----+
+--                         |
+--                         |
+--                         |
+-- +----------+---------+----+
+-- | yago36_5 |    s    |  d |
+-- +----------+---------+----+
+select count(*) from yago23, yago36 yago36_1, yago37, yago36 yago36_3, yago12, yago36 yago36_5 where yago23.s = yago36_1.s and yago36_1.s = yago37.s and yago37.s = yago36_3.s and yago37.d = yago12.d and yago36_3.d = yago36_5.d;
+\set queryname yago_acyclic_Tree_6_56
+-- Result size: 1981819
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago0:s -> yago2_1:d;yago0:d -> yago1:d;yago2_1:s -> yago2_2:s;yago2_2:s -> yago2_3:s;}
+--            +-------+----+----+
+--            | yago1 |  s |  d |
+--            +-------+----+----+
+--                            |
+--                            |
+--                            |
+--            +-------+----+----+
+--            | yago0 |  s |  d |
+--            +-------+----+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | yago2_1 |    s   |  d |
+-- +---------+--------+----+
+--              |
+--              |
+--              |
+-- +---------+--------+----+
+-- | yago2_2 |    s   |  d |
+-- +---------+--------+----+
+--              |
+--              |
+--              |
+-- +---------+--------+----+
+-- | yago2_3 |    s   |  d |
+-- +---------+--------+----+
+select count(*) from yago0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago1 where yago0.s = yago2_1.d and yago0.d = yago1.d and yago2_1.s = yago2_2.s and yago2_2.s = yago2_3.s;
+\set queryname yago_acyclic_Tree_6_57
+-- Result size: 2124368
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_0:d -> yago2_1:d;yago2_1:d -> yago2_3:d;yago2_1:s -> yago2_2:s;yago2_3:s -> yago2_4:s;}
+--      +---------+----+----+
+--      | yago2_0 |  s |  d |
+--      +---------+----+----+
+--                        |
+--                        |
+--                        |
+--      +---------+----+----+
+--      | yago2_1 |  s |  d |
+--      +---------+----+----+
+--                   |    |
+--   +---------------+    |
+--   |                    |
+--   |  +---------+----+----+
+--   |  | yago2_3 |  s |  d |
+--   |  +---------+----+----+
+--   |
+--   +---------------+
+--                   |
+--      +---------+----+----+
+--      | yago2_2 |  s |  d |
+--      +---------+----+----+
+--      +---------+----+----+
+--      | yago2_4 |  s |  d |
+--      +---------+----+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago2_0.d = yago2_1.d and yago2_1.d = yago2_3.d and yago2_1.s = yago2_2.s and yago2_3.s = yago2_4.s;
+\set queryname yago_acyclic_Tree_6_58
+-- Result size: 8217214
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago0:s -> yago2_1:d;yago2_1:d -> yago2_2:d;yago2_2:d -> yago2_3:d;yago2_3:d -> yago2_4:d;}
+--            +-------+----+---+
+--            | yago0 |  s | d |
+--            +-------+----+---+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | yago2_1 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | yago2_2 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | yago2_3 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | yago2_4 |    s   |  d |
+-- +---------+--------+----+
+select count(*) from yago0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago0.s = yago2_1.d and yago2_1.d = yago2_2.d and yago2_2.d = yago2_3.d and yago2_3.d = yago2_4.d;
+\set queryname yago_acyclic_Tree_6_59
+-- Result size: 9712
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago62 [label="yago62|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_0:d -> yago2_3:d;yago2_1:d -> yago62:s;yago2_2:d -> yago8:s;}
+-- +---------+--------+----+
+-- | yago2_3 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+-- +---------+--------+----+
+-- | yago2_0 |    s   |  d |
+-- +---------+--------+----+
+--              |
+--              |
+--              |
+-- +---------+--------+----+--------+----+---+
+-- | yago2_1 |    s   |  d | yago62 |  s | d |
+-- +---------+--------+----+--------+----+---+
+--              |        |             |
+--              |        +-------------+
+--              |
+-- +---------+--------+----+
+-- | yago2_2 |    s   |  d |
+-- +---------+--------+----+
+--                       |
+--                       |
+--                       |
+--            +-------+----+--------+
+--            | yago8 |  s |    d   |
+--            +-------+----+--------+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago62, yago8 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_0.d = yago2_3.d and yago2_1.d = yago62.s and yago2_2.d = yago8.s;
+\set queryname yago_acyclic_Tree_6_60
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago6_0 [label="yago6_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago6_3 [label="yago6_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago6_0:d -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_2:s -> yago6_3:d;yago2_1:d -> yago2_4:d;yago2_4:d -> yago2_5:d;}
+-- +---------+----------+----+
+-- | yago6_3 |     s    |  d |
+-- +---------+----------+----+
+--                         |
+--                         |
+--                         |
+--            +---------+----+----+
+--            | yago2_2 |  s |  d |
+--            +---------+----+----+
+--                         |
+--                         |
+--                         |
+--            +---------+----+----+
+--            | yago2_1 |  s |  d |
+--            +---------+----+----+
+--                         |    |
+--                         |    |
+--                         |    |
+-- +---------+----------+----+  |
+-- | yago6_0 |     s    |  d |  |
+-- +---------+----------+----+  |
+--                              |
+--                              |
+--                              |
+--            +---------+----+----+
+--            | yago2_4 |  s |  d |
+--            +---------+----+----+
+--                              |
+--                              |
+--                              |
+--            +---------+----+----+
+--            | yago2_5 |  s |  d |
+--            +---------+----+----+
+select count(*) from yago6 yago6_0, yago2 yago2_1, yago2 yago2_2, yago6 yago6_3, yago2 yago2_4, yago2 yago2_5 where yago6_0.d = yago2_1.s and yago2_1.s = yago2_2.s and yago2_2.s = yago6_3.d and yago2_1.d = yago2_4.d and yago2_4.d = yago2_5.d;
+\set queryname yago_acyclic_Tree_6_61
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago1 [label="yago1|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago1:s -> yago25:s;yago1:d -> yago0:d;yago0:s -> yago35:s;yago35:s -> yago46:d;yago35:d -> yago21:s;}
+--             +--------------------------------------+
+--             |                                      |
+--             |            +-------+----+----+       |
+--             |            | yago0 |  s |  d | -+    |
+--             |            +-------+----+----+  |    |
+--             |                       |         |    |
+--             |                       |         |    |
+--             |                       |         |    |
+-- +--------+----+---------+--------+----+----+  |    |
+-- | yago21 |  s |    d    | yago35 |  s |  d | -+----+
+-- +--------+----+---------+--------+----+----+  |
+--                                     |         |
+--                                     |    +----+
+--                                     |    |
+--                +--------+--------+----+  |
+--                | yago46 |    s   |  d |  |
+--                +--------+--------+----+  |
+--                +--------+--------+----+  |
+--                | yago1  |    s   |  d | -+
+--                +--------+--------+----+
+--                            |
+--                            |
+--                            |
+--                +--------+--------+----+
+--                | yago25 |    s   |  d |
+--                +--------+--------+----+
+select count(*) from yago1, yago25, yago0, yago35, yago46, yago21 where yago1.s = yago25.s and yago1.d = yago0.d and yago0.s = yago35.s and yago35.s = yago46.d and yago35.d = yago21.s;
+\set queryname yago_acyclic_Tree_6_62
+-- Result size: 2549
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago32 [label="yago32|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago53 [label="yago53|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago32:s;yago32:s -> yago25:s;yago32:d -> yago53:d;yago53:s -> yago36:s;}
+--                                          +--------+----+----+
+--                                          | yago25 |  s |  d |
+--                                          +--------+----+----+
+--                                                      |
+--                                                      +----+
+--                                                           |
+-- +---------+----+---++---------+---------+---------+       |
+-- | yago2_0 |  s | d || yago2_1 |    s    |    d    |       |
+-- +---------+----+---++---------+---------+---------+       |
+--              |                   |         |              |
+--              +-------------------+         |              |
+--                                            |              |
+--                                +--------+---------+----+  |
+--                                | yago32 |    s    |  d |  |
+--                                +--------+---------+----+  |
+--                                            |         |    |
+--                                            +---------+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                                      |
+--                                +--------+---------+----+
+--                                | yago53 |    s    |  d |
+--                                +--------+---------+----+
+--                                            |
+--                                            |
+--                                            |
+--                                +--------+---------+----+
+--                                | yago36 |    s    |  d |
+--                                +--------+---------+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago32, yago25, yago53, yago36 where yago2_0.s = yago2_1.s and yago2_1.d = yago32.s and yago32.s = yago25.s and yago32.d = yago53.d and yago53.s = yago36.s;
+\set queryname yago_acyclic_Tree_6_63
+-- Result size: 2124368
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_0:d -> yago2_3:d;yago2_1:d -> yago2_2:d;yago2_3:s -> yago2_4:s;}
+-- +---------+----+----+
+-- | yago2_4 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_3 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_0 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_1 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_2 |  s |  d |
+-- +---------+----+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago2_0.s = yago2_1.s and yago2_0.d = yago2_3.d and yago2_1.d = yago2_2.d and yago2_3.s = yago2_4.s;
+\set queryname yago_acyclic_Tree_6_64
+-- Result size: 10680210
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago0_1 [label="yago0_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago0_0:s -> yago2_2:d;yago0_0:d -> yago0_1:d;yago0_1:s -> yago2_4:d;yago2_2:s -> yago2_3:s;}
+-- +---------+----------+----+
+-- | yago2_4 |     s    |  d |
+-- +---------+----------+----+
+--                         |
+--                         |
+--                         |
+--            +---------+----+----+
+--            | yago0_1 |  s |  d |
+--            +---------+----+----+
+--                              |
+--                              |
+--                              |
+--            +---------+----+----+
+--            | yago0_0 |  s |  d |
+--            +---------+----+----+
+--                         |
+--                         |
+--                         |
+-- +---------+----------+----+
+-- | yago2_2 |     s    |  d |
+-- +---------+----------+----+
+--              |
+--              |
+--              |
+-- +---------+----------+----+
+-- | yago2_3 |     s    |  d |
+-- +---------+----------+----+
+select count(*) from yago0 yago0_0, yago0 yago0_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago0_0.s = yago2_2.d and yago0_0.d = yago0_1.d and yago0_1.s = yago2_4.d and yago2_2.s = yago2_3.s;
+\set queryname yago_acyclic_Tree_6_65
+-- Result size: 567
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago65 [label="yago65|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago0:s -> yago2_1:d;yago2_1:s -> yago2_2:s;yago2_2:d -> yago65:d;yago65:s -> yago5:s;yago5:s -> yago21:s;}
+-- +---------+--------+----+
+-- | yago2_2 |    s   |  d | ------+
+-- +---------+--------+----+       |
+--              |                  |
+--              |                  |
+--              |                  |
+-- +---------+--------+----+       |
+-- | yago2_1 |    s   |  d |       |
+-- +---------+--------+----+       |
+--                       |         |
+--                       |         |
+--                       |         |
+--            +-------+----+----+  |
+--            | yago0 |  s |  d |  |
+--            +-------+----+----+  |
+-- +---------+--------+----+       |
+-- | yago65  |    s   |  d | ------+
+-- +---------+--------+----+
+--              |
+--              |
+--              |
+-- +---------+--------+----+
+-- |  yago5  |    s   |  d |
+-- +---------+--------+----+
+--              |
+--              |
+--              |
+-- +---------+--------+----+
+-- | yago21  |    s   |  d |
+-- +---------+--------+----+
+select count(*) from yago0, yago2 yago2_1, yago2 yago2_2, yago65, yago5, yago21 where yago0.s = yago2_1.d and yago2_1.s = yago2_2.s and yago2_2.d = yago65.d and yago65.s = yago5.s and yago5.s = yago21.s;
+\set queryname yago_acyclic_Tree_6_66
+-- Result size: 130096
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago6 [label="yago6|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago6:s -> yago2_1:d;yago2_1:d -> yago2_2:d;yago2_2:s -> yago2_3:s;yago2_3:s -> yago2_4:s;yago2_3:d -> yago2_5:d;}
+--   +--------------------------+
+--   |                          |
+--   |        +---------+----+----+-------+----+---+
+--   |        | yago2_1 |  s |  d | yago6 |  s | d |
+--   |        +---------+----+----+-------+----+---+
+--   |                          |            |
+--   +---------------------+    +------------+
+--                         |
+-- +---------+----------+----+
+-- | yago2_2 |     s    |  d |
+-- +---------+----------+----+
+--              |
+--              |
+--              |
+-- +---------+----------+----+
+-- | yago2_3 |     s    |  d | ------+
+-- +---------+----------+----+       |
+--              |                    |
+--              |                    |
+--              |                    |
+-- +---------+----------+----+       |
+-- | yago2_4 |     s    |  d |       |
+-- +---------+----------+----+       |
+-- +---------+----------+----+       |
+-- | yago2_5 |     s    |  d | ------+
+-- +---------+----------+----+
+select count(*) from yago6, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4, yago2 yago2_5 where yago6.s = yago2_1.d and yago2_1.d = yago2_2.d and yago2_2.s = yago2_3.s and yago2_3.s = yago2_4.s and yago2_3.d = yago2_5.d;
+\set queryname yago_acyclic_Tree_6_67
+-- Result size: 29058675
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago0_4 [label="yago0_4|<s> s|<d> d"]; yago0_0:d -> yago1:d;yago1:d -> yago0_4:d;yago1:s -> yago2_2:d;yago2_2:d -> yago2_3:d;}
+--            +---------+----+----+
+--            | yago0_0 |  s |  d |
+--            +---------+----+----+
+--                              |
+--                              |
+--                              |
+--            +---------+----+----+
+--            |  yago1  |  s |  d |
+--            +---------+----+----+
+--                         |    |
+--   +---------------------+    |
+--   |                          |
+--   |        +---------+----+----+
+--   |        | yago0_4 |  s |  d |
+--   |        +---------+----+----+
+--   |
+--   +---------------------+
+--                         |
+-- +---------+----------+----+
+-- | yago2_2 |     s    |  d |
+-- +---------+----------+----+
+--                         |
+--                         |
+--                         |
+-- +---------+----------+----+
+-- | yago2_3 |     s    |  d |
+-- +---------+----------+----+
+select count(*) from yago0 yago0_0, yago1, yago2 yago2_2, yago2 yago2_3, yago0 yago0_4 where yago0_0.d = yago1.d and yago1.d = yago0_4.d and yago1.s = yago2_2.d and yago2_2.d = yago2_3.d;
+\set queryname yago_acyclic_Tree_6_68
+-- Result size: 358187
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_0:d -> yago5:d;yago2_2:d -> yago0:s;yago0:s -> yago2_5:d;}
+--                +---------------------------------------+
+--                |                                       |
+--                |  +---------+--------+----+            |
+--                |  | yago2_5 |    s   |  d |            |
+--                |  +---------+--------+----+            |
+--                |                        |              |
+--                |                        |              |
+--                |                        |              |
+--                |             +-------+----+----+       |
+--                |             | yago0 |  s |  d |       |
+--                |             +-------+----+----+       |
+--                |                        |              |
+--                |                        +---------+    |
+--                |                                  |    |
+-- +-------+---+----++---------+--------+----+       |    |
+-- | yago5 | s |  d || yago2_0 |    s   |  d | ------+----+
+-- +-------+---+----++---------+--------+----+       |
+--                                |                  |
+--                                |                  |
+--                                |                  |
+--                   +---------+--------+----+       |
+--                   | yago2_1 |    s   |  d |       |
+--                   +---------+--------+----+       |
+--                                |                  |
+--                                |                  |
+--                                |                  |
+--                   +---------+--------+----+       |
+--                   | yago2_2 |    s   |  d | ------+
+--                   +---------+--------+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago5, yago0, yago2 yago2_5 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_0.d = yago5.d and yago2_2.d = yago0.s and yago0.s = yago2_5.d;
+\set queryname yago_acyclic_Tree_6_69
+-- Result size: 457
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago23 [label="yago23|<s> s|<d> d"]; yago54_1 [label="yago54_1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago54_3 [label="yago54_3|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago23:s -> yago54_1:d;yago54_1:s -> yago5:s;yago5:s -> yago54_3:d;yago54_3:s -> yago12:s;yago12:s -> yago50:s;}
+--                         +--------+----+--------+
+--                         | yago50 |  s |    d   |
+--                         +--------+----+--------+
+--                                     |
+--                                     |
+--                                     |
+--                         +--------+----+--------+
+--                         | yago12 |  s |    d   |
+--                         +--------+----+--------+
+--                                     |
+--   +---------------------------------+
+--   |
+--   |         +----------+---------+----+--------+----+---+
+--   |         | yago54_1 |    s    |  d | yago23 |  s | d |
+--   |         +----------+---------+----+--------+----+---+
+--   |                       |         |             |
+--   |                       |         +-------------+
+--   |                       |
+--   |         +----------+---------+----+
+--   |         |  yago5   |    s    |  d |
+--   |         +----------+---------+----+
+--   |                       |
+--   +-----------+           |
+--               |           |
+-- +----------+-----------+---------+
+-- | yago54_3 |     s     |    d    |
+-- +----------+-----------+---------+
+select count(*) from yago23, yago54 yago54_1, yago5, yago54 yago54_3, yago12, yago50 where yago23.s = yago54_1.d and yago54_1.s = yago5.s and yago5.s = yago54_3.d and yago54_3.s = yago12.s and yago12.s = yago50.s;
+\set queryname yago_acyclic_Tree_6_70
+-- Result size: 659
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_0:d -> yago17_1:d;yago17_1:d -> yago5:d;yago5:d -> yago46:d;yago17_1:s -> yago17_5:d;yago5:s -> yago22:s;}
+--                           +----------+----+----+
+--                           | yago17_0 |  s |  d |
+--                           +----------+----+----+
+--                                              |
+--                                              |
+--                                              |
+-- +----------+---+----+     +----------+----+----+
+-- | yago17_5 | s |  d |     | yago17_1 |  s |  d |
+-- +----------+---+----+     +----------+----+----+
+--                   |                     |    |
+--                   +---------------------+    |
+--                                              |
+--                           +----------+----+----+
+--                           |  yago5   |  s |  d |
+--                           +----------+----+----+
+--                                         |    |
+--                        +----------------+    |
+--                        |                     |
+--                        |  +----------+----+----+
+--                        |  |  yago46  |  s |  d |
+--                        |  +----------+----+----+
+--                        |
+--                        +----------------+
+--                                         |
+--                           +----------+----+----+
+--                           |  yago22  |  s |  d |
+--                           +----------+----+----+
+select count(*) from yago17 yago17_0, yago17 yago17_1, yago5, yago22, yago46, yago17 yago17_5 where yago17_0.d = yago17_1.d and yago17_1.d = yago5.d and yago5.d = yago46.d and yago17_1.s = yago17_5.d and yago5.s = yago22.s;
+\set queryname yago_acyclic_Tree_6_71
+-- Result size: 864
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17 [label="yago17|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago21_3 [label="yago21_3|<s> s|<d> d"]; yago21_4 [label="yago21_4|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago17:s -> yago5:d;yago5:d -> yago21_3:d;yago21_3:d -> yago21_4:d;yago5:s -> yago39:s;yago21_4:s -> yago23:s;}
+--                                +--------+----+---+
+--                                | yago17 |  s | d |
+--                                +--------+----+---+
+--                                            |
+--                                            |
+--                                            |
+-- +--------+----+---++----------+---------+----+
+-- | yago39 |  s | d ||  yago5   |    s    |  d |
+-- +--------+----+---++----------+---------+----+
+--             |                    |         |
+--             +--------------------+         |
+--                                            |
+--                    +----------+---------+----+
+--                    | yago21_3 |    s    |  d |
+--                    +----------+---------+----+
+--                                            |
+--                                            |
+--                                            |
+--                    +----------+---------+----+
+--                    | yago21_4 |    s    |  d |
+--                    +----------+---------+----+
+--                                  |
+--                                  |
+--                                  |
+--                    +----------+---------+----+
+--                    |  yago23  |    s    |  d |
+--                    +----------+---------+----+
+select count(*) from yago17, yago5, yago39, yago21 yago21_3, yago21 yago21_4, yago23 where yago17.s = yago5.d and yago5.d = yago21_3.d and yago21_3.d = yago21_4.d and yago5.s = yago39.s and yago21_4.s = yago23.s;
+\set queryname yago_acyclic_Tree_6_72
+-- Result size: 2124368
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:s -> yago2_2:s;yago2_0:d -> yago2_3:d;yago2_3:d -> yago2_4:d;}
+-- +---------+----+----+
+-- | yago2_4 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_3 |  s |  d |
+-- +---------+----+----+
+--                   |
+--                   |
+--                   |
+-- +---------+----+----+
+-- | yago2_0 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_1 |  s |  d |
+-- +---------+----+----+
+--              |
+--              |
+--              |
+-- +---------+----+----+
+-- | yago2_2 |  s |  d |
+-- +---------+----+----+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago2 yago2_2, yago2 yago2_3, yago2 yago2_4 where yago2_0.s = yago2_1.s and yago2_1.s = yago2_2.s and yago2_0.d = yago2_3.d and yago2_3.d = yago2_4.d;
+\set queryname yago_acyclic_Tree_6_73
+-- Result size: 5
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago62 [label="yago62|<s> s|<d> d"]; yago21_1 [label="yago21_1|<s> s|<d> d"]; yago21_2 [label="yago21_2|<s> s|<d> d"]; yago21_3 [label="yago21_3|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago62:s -> yago21_1:d;yago21_1:d -> yago21_2:d;yago21_2:s -> yago21_3:s;yago21_3:s -> yago23:d;yago21_3:d -> yago5:d;}
+--             +----------------------------+
+--             |                            |
+--             |         +----------+----+----+--------+----+---+
+--             |         | yago21_1 |  s |  d | yago62 |  s | d |
+--             |         +----------+----+----+--------+----+---+
+--             |                            |             |
+--             +-----------------------+    +-------------+
+--                                     |
+--           +----------+-----------+----+
+--           | yago21_2 |     s     |  d |
+--           +----------+-----------+----+
+--                         |
+--                         |
+--                         |
+--           +----------+-----------+----+
+--           | yago21_3 |     s     |  d |
+--           +----------+-----------+----+
+--                         |           |
+--                         |           |
+--                         |           |
+-- +--------+-----------+-----------+  |
+-- | yago23 |     s     |     d     |  |
+-- +--------+-----------+-----------+  |
+--                                     |
+--                                     |
+--                                     |
+--           +----------+-----------+----+
+--           |  yago5   |     s     |  d |
+--           +----------+-----------+----+
+select count(*) from yago62, yago21 yago21_1, yago21 yago21_2, yago21 yago21_3, yago23, yago5 where yago62.s = yago21_1.d and yago21_1.d = yago21_2.d and yago21_2.s = yago21_3.s and yago21_3.s = yago23.d and yago21_3.d = yago5.d;
+--\set queryname yago_acyclic_Tree_6_74
+-- Result size: 8201834295
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago8_0 [label="yago8_0|<s> s|<d> d"]; yago1_1 [label="yago1_1|<s> s|<d> d"]; yago8_2 [label="yago8_2|<s> s|<d> d"]; yago1_3 [label="yago1_3|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago8_0:s -> yago1_1:s;yago1_1:s -> yago8_2:s;yago1_1:d -> yago1_3:d;yago1_3:d -> yago3:d;}
+--                     +---------+----+----+
+--                     | yago8_0 |  s |  d |
+--                     +---------+----+----+
+--                                  |
+--                                  |
+--                                  |
+-- +---------+----+---++---------+----+----+
+-- | yago8_2 |  s | d || yago1_1 |  s |  d |
+-- +---------+----+---++---------+----+----+
+--              |                   |    |
+--              +-------------------+    |
+--                                       |
+--                     +---------+----+----+
+--                     | yago1_3 |  s |  d |
+--                     +---------+----+----+
+--                                       |
+--                                       |
+--                                       |
+--                     +---------+----+----+
+--                     |  yago3  |  s |  d |
+--                     +---------+----+----+
+--select count(*) from yago8 yago8_0, yago1 yago1_1, yago8 yago8_2, yago1 yago1_3, yago3 where yago8_0.s = yago1_1.s and yago1_1.s = yago8_2.s and yago1_1.d = yago1_3.d and yago1_3.d = yago3.d;
+\set queryname yago_acyclic_Tree_6_75
+-- Result size: 52735
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago43 [label="yago43|<s> s|<d> d"]; yago0_2 [label="yago0_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago0_0:s -> yago43:s;yago0_0:d -> yago0_2:d;yago0_2:s -> yago2_3:d;yago2_3:s -> yago2_4:s;yago2_4:s -> yago2_5:s;}
+--                                 +---------+----+----+
+--                                 | yago43  |  s |  d |
+--                                 +---------+----+----+
+--                                              |
+--                                              |
+--                                              |
+-- +---------+----+----+           +---------+----+----+
+-- | yago0_2 |  s |  d |           | yago0_0 |  s |  d |
+-- +---------+----+----+           +---------+----+----+
+--              |    |                               |
+--              |    +-------------------------------+
+--              |
+--              |       +---------+----------+----+
+--              |       | yago2_3 |     s    |  d | -+
+--              |       +---------+----------+----+  |
+--              |                    |               |
+--              |                    |               |
+--              |                    |               |
+--              |       +---------+----------+----+  |
+--              |       | yago2_4 |     s    |  d |  |
+--              |       +---------+----------+----+  |
+--              |                    |               |
+--              |                    |               |
+--              |                    |               |
+--              |       +---------+----------+----+  |
+--              |       | yago2_5 |     s    |  d |  |
+--              |       +---------+----------+----+  |
+--              |                                    |
+--              +------------------------------------+
+select count(*) from yago0 yago0_0, yago43, yago0 yago0_2, yago2 yago2_3, yago2 yago2_4, yago2 yago2_5 where yago0_0.s = yago43.s and yago0_0.d = yago0_2.d and yago0_2.s = yago2_3.d and yago2_3.s = yago2_4.s and yago2_4.s = yago2_5.s;
+\set queryname yago_acyclic_Tree_6_76
+-- Result size: 20248
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago62 [label="yago62|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago62:s;yago62:s -> yago17_3:s;yago17_3:d -> yago17_4:d;yago17_4:s -> yago5:d;}
+--                                +--------+-----------+----+
+--                                | yago5  |     s     |  d |
+--                                +--------+-----------+----+
+--                                                        |
+--                                                        |
+--                                                        |
+--                                          +----------+----+----+
+--                                          | yago17_4 |  s |  d |
+--                                          +----------+----+----+
+--                                                             |
+--                                                             |
+--                                                             |
+--                                          +----------+----+----+
+--                                          | yago17_3 |  s |  d |
+--                                          +----------+----+----+
+--                                                        |
+--                                                        +----+
+--                                                             |
+-- +---------+----+---++---------+---------+-----------+       |
+-- | yago2_0 |  s | d || yago2_1 |    s    |     d     |       |
+-- +---------+----+---++---------+---------+-----------+       |
+--              |                   |         |                |
+--              +-------------------+         |                |
+--                                            |                |
+--                                +--------+-----------+----+  |
+--                                | yago62 |     s     |  d |  |
+--                                +--------+-----------+----+  |
+--                                            |                |
+--                                            +----------------+
+select count(*) from yago2 yago2_0, yago2 yago2_1, yago62, yago17 yago17_3, yago17 yago17_4, yago5 where yago2_0.s = yago2_1.s and yago2_1.d = yago62.s and yago62.s = yago17_3.s and yago17_3.d = yago17_4.d and yago17_4.s = yago5.d;
+\set queryname yago_acyclic_Tree_6_77
+-- Result size: 41104
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago36_0 [label="yago36_0|<s> s|<d> d"]; yago36_1 [label="yago36_1|<s> s|<d> d"]; yago36_2 [label="yago36_2|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago36_4 [label="yago36_4|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago36_0:s -> yago36_1:s;yago36_1:s -> yago36_2:s;yago36_2:s -> yago25:s;yago36_1:d -> yago36_4:d;yago36_4:s -> yago21:s;}
+--                         +---------------------+
+--                         |                     |
+--                         |         +--------+----+----+
+--               +---------+         | yago21 |  s |  d |
+--               |                   +--------+----+----+
+--               |
+--               |    +-------------------------------+
+--               |    |                               |
+--               |    |  +----------+---------+----+  |
+--               |    |  | yago36_0 |    s    |  d |  |
+--               |    |  +----------+---------+----+  |
+--               |    |                |              |
+--               |    |                |              |
+--               |    |                |              |
+-- +----------+----+----++----------+---------+----+  |
+-- | yago36_4 |  s |  d || yago36_1 |    s    |  d | -+
+-- +----------+----+----++----------+---------+----+
+--                                     |
+--                                     |
+--                                     |
+--                       +----------+---------+----+
+--                       | yago36_2 |    s    |  d |
+--                       +----------+---------+----+
+--                                     |
+--                                     |
+--                                     |
+--                       +----------+---------+----+
+--                       |  yago25  |    s    |  d |
+--                       +----------+---------+----+
+select count(*) from yago36 yago36_0, yago36 yago36_1, yago36 yago36_2, yago25, yago36 yago36_4, yago21 where yago36_0.s = yago36_1.s and yago36_1.s = yago36_2.s and yago36_2.s = yago25.s and yago36_1.d = yago36_4.d and yago36_4.s = yago21.s;
+\set queryname yago_acyclic_Tree_6_78
+-- Result size: 32691
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago15 [label="yago15|<s> s|<d> d"]; yago11 [label="yago11|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago0_5 [label="yago0_5|<s> s|<d> d"]; yago0_0:s -> yago2_3:d;yago0_0:d -> yago15:d;yago15:d -> yago0_5:d;yago15:s -> yago11:s;yago11:s -> yago2_4:d;}
+-- +---------+----------+----+
+-- | yago2_3 |     s    |  d |
+-- +---------+----------+----+
+--                         |
+--                         |
+--                         |
+--            +---------+----+----+
+--            | yago0_0 |  s |  d |
+--            +---------+----+----+
+--                              |
+--                              |
+--                              |
+--            +---------+----+----+
+--            | yago15  |  s |  d |
+--            +---------+----+----+
+--                         |    |
+--   +---------------------+    |
+--   |                          |
+--   |        +---------+----+----+
+--   |        | yago0_5 |  s |  d |
+--   |        +---------+----+----+
+--   |
+--   +---------------------+
+--                         |
+--            +---------+----+----+
+--            | yago11  |  s |  d |
+--            +---------+----+----+
+--                         |
+--                         |
+--                         |
+-- +---------+----------+----+
+-- | yago2_4 |     s    |  d |
+-- +---------+----------+----+
+select count(*) from yago0 yago0_0, yago15, yago11, yago2 yago2_3, yago2 yago2_4, yago0 yago0_5 where yago0_0.s = yago2_3.d and yago0_0.d = yago15.d and yago15.d = yago0_5.d and yago15.s = yago11.s and yago11.s = yago2_4.d;
+\set queryname yago_acyclic_Tree_6_79
+-- Result size: 73655
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago5_0:s -> yago5_1:s;yago5_0:d -> yago5_3:d;yago5_3:d -> yago5_5:d;yago5_1:d -> yago46:s;yago5_3:s -> yago54:s;}
+--                                           +--------+----+---+
+--                                           | yago46 |  s | d |
+--                                           +--------+----+---+
+--                                                       |
+--                   +-----------------------------------+
+--                   |
+-- +---------+----+----+     +---------+----+---------+
+-- | yago5_1 |  s |  d |     | yago5_0 |  s |    d    |
+-- +---------+----+----+     +---------+----+---------+
+--              |                         |    |
+--              +-------------------------+    |
+--                                             |
+--                           +---------+----+---------+
+--                           | yago5_3 |  s |    d    |
+--                           +---------+----+---------+
+--                                        |    |
+--                        +---------------+    |
+--                        |                    |
+--                        |  +---------+----+---------+
+--                        |  | yago5_5 |  s |    d    |
+--                        |  +---------+----+---------+
+--                        |
+--                        +---------------+
+--                                        |
+--                           +---------+----+---------+
+--                           | yago54  |  s |    d    |
+--                           +---------+----+---------+
+select count(*) from yago5 yago5_0, yago5 yago5_1, yago46, yago5 yago5_3, yago54, yago5 yago5_5 where yago5_0.s = yago5_1.s and yago5_0.d = yago5_3.d and yago5_3.d = yago5_5.d and yago5_1.d = yago46.s and yago5_3.s = yago54.s;

@@ -1,0 +1,29 @@
+\set queryname yago_cyclic_Clique_6_00
+-- Result size: 2
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago46_0 [label="yago46_0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago46_2 [label="yago46_2|<s> s|<d> d"]; yago46_3 [label="yago46_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago46_0:s -> yago17_1:s;yago17_1:s -> yago46_2:d;yago46_0:d -> yago17_4:s;yago17_4:s -> yago17_5:s;yago17_1:d -> yago46_3:d;yago46_3:d -> yago17_5:d;yago46_2:s -> yago46_3:s;yago46_3:s -> yago17_4:d;}
+--                                                               +--------+
+--                                                               |        |
+--                            +----------+----+----+----------+----+---+  |
+--                            | yago46_0 |  s |  d | yago17_4 |  s | d |  |
+--                            +----------+----+----+----------+----+---+  |
+--                                          |    |               |        |
+--                                          |    +---------------+        |
+--                                          |                             |
+-- +----------+----+----+     +----------+----+----+                      |
+-- | yago46_2 |  s |  d |     | yago17_1 |  s |  d |                      |
+-- +----------+----+----+     +----------+----+----+                      |
+--               |    |                     |    |                        |
+--               |    +---------------------+    |                        |
+--               |                               |                        |
+--               |            +----------+----+----+                      |
+--               |            | yago46_3 |  s |  d |                      |
+--               |            +----------+----+----+                      |
+--               |                          |    |                        |
+--               +--------------------------+    |                        |
+--                                               |                        |
+--                            +----------+----+----+                      |
+--                            | yago17_5 |  s |  d |                      |
+--                            +----------+----+----+                      |
+--                                          |                             |
+--                                          +-----------------------------+
+select count(*) from yago46 yago46_0, yago17 yago17_1, yago46 yago46_2, yago46 yago46_3, yago17 yago17_4, yago17 yago17_5 where yago46_0.s = yago17_1.s and yago17_1.s = yago46_2.d and yago46_0.d = yago17_4.s and yago17_4.s = yago17_5.s and yago17_1.d = yago46_3.d and yago46_3.d = yago17_5.d and yago46_2.s = yago46_3.s and yago46_3.s = yago17_4.d;

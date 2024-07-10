@@ -1,0 +1,865 @@
+\set queryname epinions_acyclic_208_00
+-- Result size: 48264089
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75931 [label="epinions75931|<s> s|<d> d"]; epinions75891 [label="epinions75891|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75908 [label="epinions75908|<s> s|<d> d"]; epinions75896 [label="epinions75896|<s> s|<d> d"]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75902:s -> epinions75931:s;epinions75931:s -> epinions75891:s;epinions75891:s -> epinions75918:s;epinions75918:d -> epinions75908:s;epinions75908:d -> epinions75896:s;epinions75896:s -> epinions75928:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75918 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |    |
+--                                                      |    +----+
+--                                                      |         |
+--                                   +---------------+----+----+  |
+--                                   | epinions75891 |  s |  d |  |
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75902 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75931 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75908 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75896 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75928 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75902, epinions75931, epinions75891, epinions75918, epinions75908, epinions75896, epinions75928 where epinions75902.s = epinions75931.s and epinions75931.s = epinions75891.s and epinions75891.s = epinions75918.s and epinions75918.d = epinions75908.s and epinions75908.d = epinions75896.s and epinions75896.s = epinions75928.s;
+\set queryname epinions_acyclic_208_01
+-- Result size: 129057101
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75888 [label="epinions75888|<s> s|<d> d"]; epinions75923 [label="epinions75923|<s> s|<d> d"]; epinions75899 [label="epinions75899|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75893 [label="epinions75893|<s> s|<d> d"]; epinions75920 [label="epinions75920|<s> s|<d> d"]; epinions75889 [label="epinions75889|<s> s|<d> d"]; epinions75888:s -> epinions75923:s;epinions75923:s -> epinions75899:s;epinions75899:s -> epinions75930:s;epinions75930:d -> epinions75893:s;epinions75893:d -> epinions75920:s;epinions75920:s -> epinions75889:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75888 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75923 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75899 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75930 |  s |  d |
+--                                   +---------------+----+----+
+--                                                           |
+--                    +--------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75893 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75920 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75889 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75888, epinions75923, epinions75899, epinions75930, epinions75893, epinions75920, epinions75889 where epinions75888.s = epinions75923.s and epinions75923.s = epinions75899.s and epinions75899.s = epinions75930.s and epinions75930.d = epinions75893.s and epinions75893.d = epinions75920.s and epinions75920.s = epinions75889.s;
+\set queryname epinions_acyclic_208_02
+-- Result size: 50801055
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75925 [label="epinions75925|<s> s|<d> d"]; epinions75904 [label="epinions75904|<s> s|<d> d"]; epinions75932 [label="epinions75932|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75926 [label="epinions75926|<s> s|<d> d"]; epinions75925:s -> epinions75904:s;epinions75904:s -> epinions75932:s;epinions75932:s -> epinions75927:s;epinions75927:d -> epinions75905:s;epinions75905:d -> epinions75919:s;epinions75919:s -> epinions75926:s;}
+--                    +--------------------------------------+
+--                    |                                      |
+--                    |              +---------------+----+----+
+--                    |              | epinions75927 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75932 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75904 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75925 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |
+--                    |
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75905 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75919 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75926 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75925, epinions75904, epinions75932, epinions75927, epinions75905, epinions75919, epinions75926 where epinions75925.s = epinions75904.s and epinions75904.s = epinions75932.s and epinions75932.s = epinions75927.s and epinions75927.d = epinions75905.s and epinions75905.d = epinions75919.s and epinions75919.s = epinions75926.s;
+\set queryname epinions_acyclic_208_03
+-- Result size: 66815347
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75929 [label="epinions75929|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75893 [label="epinions75893|<s> s|<d> d"]; epinions75908 [label="epinions75908|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75910 [label="epinions75910|<s> s|<d> d"]; epinions75915 [label="epinions75915|<s> s|<d> d"]; epinions75929:s -> epinions75909:s;epinions75909:s -> epinions75893:s;epinions75893:s -> epinions75908:s;epinions75908:d -> epinions75911:s;epinions75911:d -> epinions75910:s;epinions75910:s -> epinions75915:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75908 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |    |
+--                                                      |    +----+
+--                                                      |         |
+--                                   +---------------+----+----+  |
+--                                   | epinions75893 |  s |  d |  |
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75929 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75909 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75911 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75910 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75915 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75929, epinions75909, epinions75893, epinions75908, epinions75911, epinions75910, epinions75915 where epinions75929.s = epinions75909.s and epinions75909.s = epinions75893.s and epinions75893.s = epinions75908.s and epinions75908.d = epinions75911.s and epinions75911.d = epinions75910.s and epinions75910.s = epinions75915.s;
+\set queryname epinions_acyclic_208_04
+-- Result size: 69201013
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75921 [label="epinions75921|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75906 [label="epinions75906|<s> s|<d> d"]; epinions75889 [label="epinions75889|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75911:s -> epinions75921:s;epinions75921:s -> epinions75930:s;epinions75930:s -> epinions75900:s;epinions75900:d -> epinions75906:s;epinions75906:d -> epinions75889:s;epinions75889:s -> epinions75918:s;}
+--                                              +--------------------------+
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75906 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                                               |         |
+--                                                               |         |
+--                                                               |         |
+-- +---------------+----+---+                 +---------------+----+----+  |
+-- | epinions75918 |  s | d |                 | epinions75889 |  s |  d |  |
+-- +---------------+----+---+                 +---------------+----+----+  |
+--                    |                                          |         |
+--                    +------------------------------------------+         |
+--                                                                         |
+--                           +---------------+----------------+----+       |
+--                           | epinions75911 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75921 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75930 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75900 |        s       |  d | ------+
+--                           +---------------+----------------+----+
+select count(*) from epinions75911, epinions75921, epinions75930, epinions75900, epinions75906, epinions75889, epinions75918 where epinions75911.s = epinions75921.s and epinions75921.s = epinions75930.s and epinions75930.s = epinions75900.s and epinions75900.d = epinions75906.s and epinions75906.d = epinions75889.s and epinions75889.s = epinions75918.s;
+\set queryname epinions_acyclic_208_05
+-- Result size: 39041556
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75922 [label="epinions75922|<s> s|<d> d"]; epinions75893 [label="epinions75893|<s> s|<d> d"]; epinions75896 [label="epinions75896|<s> s|<d> d"]; epinions75936 [label="epinions75936|<s> s|<d> d"]; epinions75924 [label="epinions75924|<s> s|<d> d"]; epinions75928:s -> epinions75909:s;epinions75909:s -> epinions75922:s;epinions75922:s -> epinions75893:s;epinions75893:d -> epinions75896:s;epinions75896:d -> epinions75936:s;epinions75936:s -> epinions75924:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75893 |  s |  d | -+
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75928 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75909 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75922 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75896 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75936 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75924 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75928, epinions75909, epinions75922, epinions75893, epinions75896, epinions75936, epinions75924 where epinions75928.s = epinions75909.s and epinions75909.s = epinions75922.s and epinions75922.s = epinions75893.s and epinions75893.d = epinions75896.s and epinions75896.d = epinions75936.s and epinions75936.s = epinions75924.s;
+\set queryname epinions_acyclic_208_06
+-- Result size: 46158425
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75937 [label="epinions75937|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75914 [label="epinions75914|<s> s|<d> d"]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75896 [label="epinions75896|<s> s|<d> d"]; epinions75899 [label="epinions75899|<s> s|<d> d"]; epinions75937:s -> epinions75927:s;epinions75927:s -> epinions75909:s;epinions75909:s -> epinions75914:s;epinions75914:d -> epinions75928:s;epinions75928:d -> epinions75896:s;epinions75896:s -> epinions75899:s;}
+--                                              +--------------------------+
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75928 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                                               |         |
+--                                                               |         |
+--                                                               |         |
+-- +---------------+----+---+                 +---------------+----+----+  |
+-- | epinions75899 |  s | d |                 | epinions75896 |  s |  d |  |
+-- +---------------+----+---+                 +---------------+----+----+  |
+--                    |                                          |         |
+--                    +------------------------------------------+         |
+--                                                                         |
+--                           +---------------+----------------+----+       |
+--                           | epinions75937 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75927 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75909 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75914 |        s       |  d | ------+
+--                           +---------------+----------------+----+
+select count(*) from epinions75937, epinions75927, epinions75909, epinions75914, epinions75928, epinions75896, epinions75899 where epinions75937.s = epinions75927.s and epinions75927.s = epinions75909.s and epinions75909.s = epinions75914.s and epinions75914.d = epinions75928.s and epinions75928.d = epinions75896.s and epinions75896.s = epinions75899.s;
+\set queryname epinions_acyclic_208_07
+-- Result size: 107115615
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75903 [label="epinions75903|<s> s|<d> d"]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75929 [label="epinions75929|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75917 [label="epinions75917|<s> s|<d> d"]; epinions75903:s -> epinions75900:s;epinions75900:s -> epinions75934:s;epinions75934:s -> epinions75929:s;epinions75929:d -> epinions75930:s;epinions75930:d -> epinions75897:s;epinions75897:s -> epinions75917:s;}
+--                                              +--------------------------+
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75930 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                                               |         |
+--                                                               |         |
+--                                                               |         |
+-- +---------------+----+---+                 +---------------+----+----+  |
+-- | epinions75917 |  s | d |                 | epinions75897 |  s |  d |  |
+-- +---------------+----+---+                 +---------------+----+----+  |
+--                    |                                          |         |
+--                    +------------------------------------------+         |
+--                                                                         |
+--                           +---------------+----------------+----+       |
+--                           | epinions75903 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75900 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75934 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75929 |        s       |  d | ------+
+--                           +---------------+----------------+----+
+select count(*) from epinions75903, epinions75900, epinions75934, epinions75929, epinions75930, epinions75897, epinions75917 where epinions75903.s = epinions75900.s and epinions75900.s = epinions75934.s and epinions75934.s = epinions75929.s and epinions75929.d = epinions75930.s and epinions75930.d = epinions75897.s and epinions75897.s = epinions75917.s;
+\set queryname epinions_acyclic_208_08
+-- Result size: 191631370
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75924 [label="epinions75924|<s> s|<d> d"]; epinions75937 [label="epinions75937|<s> s|<d> d"]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75913 [label="epinions75913|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75888 [label="epinions75888|<s> s|<d> d"]; epinions75930:s -> epinions75924:s;epinions75924:s -> epinions75937:s;epinions75937:s -> epinions75900:s;epinions75900:d -> epinions75913:s;epinions75913:d -> epinions75911:s;epinions75911:s -> epinions75888:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75888 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      +----+
+--                                                           |
+--                  +---------------+----------------+----+  |
+--                  | epinions75930 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75924 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75937 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75900 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                                      |    |
+--                    +---------------------------------+    |
+--                    |                                      |
+-- +---------------+----------------+----------------+       |
+-- | epinions75913 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75911 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     +---------------------+
+select count(*) from epinions75930, epinions75924, epinions75937, epinions75900, epinions75913, epinions75911, epinions75888 where epinions75930.s = epinions75924.s and epinions75924.s = epinions75937.s and epinions75937.s = epinions75900.s and epinions75900.d = epinions75913.s and epinions75913.d = epinions75911.s and epinions75911.s = epinions75888.s;
+\set queryname epinions_acyclic_208_09
+-- Result size: 48585785
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75888 [label="epinions75888|<s> s|<d> d"]; epinions75912 [label="epinions75912|<s> s|<d> d"]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75925 [label="epinions75925|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75928:s -> epinions75888:s;epinions75888:s -> epinions75912:s;epinions75912:s -> epinions75902:s;epinions75902:d -> epinions75925:s;epinions75925:d -> epinions75911:s;epinions75911:s -> epinions75905:s;}
+--                    +--------------------------------------+
+--                    |                                      |
+--                    |              +---------------+----+----+
+--                    |              | epinions75902 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75912 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75888 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |                                 |
+--                    |                                 |
+--                    |                                 |
+--                    |              +---------------+----+----+
+--                    |              | epinions75928 |  s |  d |
+--                    |              +---------------+----+----+
+--                    |
+--                    |
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75925 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75911 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75905 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75928, epinions75888, epinions75912, epinions75902, epinions75925, epinions75911, epinions75905 where epinions75928.s = epinions75888.s and epinions75888.s = epinions75912.s and epinions75912.s = epinions75902.s and epinions75902.d = epinions75925.s and epinions75925.d = epinions75911.s and epinions75911.s = epinions75905.s;
+\set queryname epinions_acyclic_208_10
+-- Result size: 45563032
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75925 [label="epinions75925|<s> s|<d> d"]; epinions75904 [label="epinions75904|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75916 [label="epinions75916|<s> s|<d> d"]; epinions75917 [label="epinions75917|<s> s|<d> d"]; epinions75900:s -> epinions75907:s;epinions75907:s -> epinions75925:s;epinions75925:s -> epinions75904:s;epinions75904:d -> epinions75919:s;epinions75919:d -> epinions75916:s;epinions75916:s -> epinions75917:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75900 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75907 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75925 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75904 |  s |  d |
+--                                   +---------------+----+----+
+--                                                           |
+--                    +--------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75919 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75916 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75917 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75900, epinions75907, epinions75925, epinions75904, epinions75919, epinions75916, epinions75917 where epinions75900.s = epinions75907.s and epinions75907.s = epinions75925.s and epinions75925.s = epinions75904.s and epinions75904.d = epinions75919.s and epinions75919.d = epinions75916.s and epinions75916.s = epinions75917.s;
+\set queryname epinions_acyclic_208_11
+-- Result size: 36443718
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75927 [label="epinions75927|<s> s|<d> d"]; epinions75933 [label="epinions75933|<s> s|<d> d"]; epinions75890 [label="epinions75890|<s> s|<d> d"]; epinions75903 [label="epinions75903|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75904 [label="epinions75904|<s> s|<d> d"]; epinions75902:s -> epinions75927:s;epinions75927:s -> epinions75933:s;epinions75933:s -> epinions75890:s;epinions75890:d -> epinions75903:s;epinions75903:d -> epinions75930:s;epinions75930:s -> epinions75904:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75890 |  s |  d | -+
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75902 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75927 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75933 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75903 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75930 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75904 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75902, epinions75927, epinions75933, epinions75890, epinions75903, epinions75930, epinions75904 where epinions75902.s = epinions75927.s and epinions75927.s = epinions75933.s and epinions75933.s = epinions75890.s and epinions75890.d = epinions75903.s and epinions75903.d = epinions75930.s and epinions75930.s = epinions75904.s;
+\set queryname epinions_acyclic_208_12
+-- Result size: 103565359
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75899 [label="epinions75899|<s> s|<d> d"]; epinions75902 [label="epinions75902|<s> s|<d> d"]; epinions75922 [label="epinions75922|<s> s|<d> d"]; epinions75901 [label="epinions75901|<s> s|<d> d"]; epinions75897:s -> epinions75918:s;epinions75918:s -> epinions75919:s;epinions75919:s -> epinions75899:s;epinions75899:d -> epinions75902:s;epinions75902:d -> epinions75922:s;epinions75922:s -> epinions75901:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75897 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75918 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75919 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75899 |  s |  d |
+--                                   +---------------+----+----+
+--                                                           |
+--                    +--------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75902 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75922 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75901 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75897, epinions75918, epinions75919, epinions75899, epinions75902, epinions75922, epinions75901 where epinions75897.s = epinions75918.s and epinions75918.s = epinions75919.s and epinions75919.s = epinions75899.s and epinions75899.d = epinions75902.s and epinions75902.d = epinions75922.s and epinions75922.s = epinions75901.s;
+\set queryname epinions_acyclic_208_13
+-- Result size: 164667501
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75921 [label="epinions75921|<s> s|<d> d"]; epinions75933 [label="epinions75933|<s> s|<d> d"]; epinions75923 [label="epinions75923|<s> s|<d> d"]; epinions75914 [label="epinions75914|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75917 [label="epinions75917|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75921:s -> epinions75933:s;epinions75933:s -> epinions75923:s;epinions75923:s -> epinions75914:s;epinions75914:d -> epinions75907:s;epinions75907:d -> epinions75917:s;epinions75917:s -> epinions75909:s;}
+--                                                                     +---------+
+--                                                                     |         |
+--                       +---------------+----+----+----------------+----+----+  |
+--                       | epinions75907 |  s |  d |  epinions75917 |  s |  d |  |
+--                       +---------------+----+----+----------------+----+----+  |
+--                                          |    |                     |         |
+--   +--------------------------------------+    +---------------------+         |
+--   |                                                                           |
+--   |  +---------------+----------------+----+     +---------------+----+----+  |
+--   |  | epinions75921 |        s       |  d |     | epinions75909 |  s |  d |  |
+--   |  +---------------+----------------+----+     +---------------+----+----+  |
+--   |                     |                                           |         |
+--   |                     |                                           +---------+
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | epinions75933 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                     |
+--   |                     |
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | epinions75923 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                     |
+--   |                     |
+--   |                     |
+--   |  +---------------+----------------+----+
+--   |  | epinions75914 |        s       |  d |
+--   |  +---------------+----------------+----+
+--   |                                      |
+--   +--------------------------------------+
+select count(*) from epinions75921, epinions75933, epinions75923, epinions75914, epinions75907, epinions75917, epinions75909 where epinions75921.s = epinions75933.s and epinions75933.s = epinions75923.s and epinions75923.s = epinions75914.s and epinions75914.d = epinions75907.s and epinions75907.d = epinions75917.s and epinions75917.s = epinions75909.s;
+\set queryname epinions_acyclic_208_14
+-- Result size: 47393560
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75904 [label="epinions75904|<s> s|<d> d"]; epinions75906 [label="epinions75906|<s> s|<d> d"]; epinions75894 [label="epinions75894|<s> s|<d> d"]; epinions75916 [label="epinions75916|<s> s|<d> d"]; epinions75931 [label="epinions75931|<s> s|<d> d"]; epinions75912 [label="epinions75912|<s> s|<d> d"]; epinions75897 [label="epinions75897|<s> s|<d> d"]; epinions75904:s -> epinions75906:s;epinions75906:s -> epinions75894:s;epinions75894:s -> epinions75916:s;epinions75916:d -> epinions75931:s;epinions75931:d -> epinions75912:s;epinions75912:s -> epinions75897:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75916 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |    |
+--                                                      |    +----+
+--                                                      |         |
+--                                   +---------------+----+----+  |
+--                                   | epinions75894 |  s |  d |  |
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75904 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75906 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75931 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75912 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75897 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75904, epinions75906, epinions75894, epinions75916, epinions75931, epinions75912, epinions75897 where epinions75904.s = epinions75906.s and epinions75906.s = epinions75894.s and epinions75894.s = epinions75916.s and epinions75916.d = epinions75931.s and epinions75931.d = epinions75912.s and epinions75912.s = epinions75897.s;
+\set queryname epinions_acyclic_208_15
+-- Result size: 74202621
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75935 [label="epinions75935|<s> s|<d> d"]; epinions75920 [label="epinions75920|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75930 [label="epinions75930|<s> s|<d> d"]; epinions75909 [label="epinions75909|<s> s|<d> d"]; epinions75923 [label="epinions75923|<s> s|<d> d"]; epinions75935:s -> epinions75920:s;epinions75920:s -> epinions75934:s;epinions75934:s -> epinions75905:s;epinions75905:d -> epinions75930:s;epinions75930:d -> epinions75909:s;epinions75909:s -> epinions75923:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75905 |  s |  d | -+
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75935 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75920 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75934 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75930 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75909 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75923 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75935, epinions75920, epinions75934, epinions75905, epinions75930, epinions75909, epinions75923 where epinions75935.s = epinions75920.s and epinions75920.s = epinions75934.s and epinions75934.s = epinions75905.s and epinions75905.d = epinions75930.s and epinions75930.d = epinions75909.s and epinions75909.s = epinions75923.s;
+\set queryname epinions_acyclic_208_16
+-- Result size: 53274835
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75936 [label="epinions75936|<s> s|<d> d"]; epinions75900 [label="epinions75900|<s> s|<d> d"]; epinions75907 [label="epinions75907|<s> s|<d> d"]; epinions75920 [label="epinions75920|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75896 [label="epinions75896|<s> s|<d> d"]; epinions75919:s -> epinions75936:s;epinions75936:s -> epinions75900:s;epinions75900:s -> epinions75907:s;epinions75907:d -> epinions75920:s;epinions75920:d -> epinions75934:s;epinions75934:s -> epinions75896:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75896 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      +----+
+--                                                           |
+--                  +---------------+----------------+----+  |
+--                  | epinions75919 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75936 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75900 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75907 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                                      |    |
+--                    +---------------------------------+    |
+--                    |                                      |
+-- +---------------+----------------+----------------+       |
+-- | epinions75920 |        s       |        d       |       |
+-- +---------------+----------------+----------------+       |
+--                                     |                     |
+--                                     |                     |
+--                                     |                     |
+--                  +---------------+----------------+----+  |
+--                  | epinions75934 |        s       |  d |  |
+--                  +---------------+----------------+----+  |
+--                                     |                     |
+--                                     +---------------------+
+select count(*) from epinions75919, epinions75936, epinions75900, epinions75907, epinions75920, epinions75934, epinions75896 where epinions75919.s = epinions75936.s and epinions75936.s = epinions75900.s and epinions75900.s = epinions75907.s and epinions75907.d = epinions75920.s and epinions75920.d = epinions75934.s and epinions75934.s = epinions75896.s;
+\set queryname epinions_acyclic_208_17
+-- Result size: 44224802
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75890 [label="epinions75890|<s> s|<d> d"]; epinions75931 [label="epinions75931|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75921 [label="epinions75921|<s> s|<d> d"]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75929 [label="epinions75929|<s> s|<d> d"]; epinions75890:s -> epinions75931:s;epinions75931:s -> epinions75918:s;epinions75918:s -> epinions75921:s;epinions75921:d -> epinions75905:s;epinions75905:d -> epinions75919:s;epinions75919:s -> epinions75929:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75890 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75931 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75918 |  s |  d |
+--                                   +---------------+----+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                                   +---------------+----+----+
+--                                   | epinions75921 |  s |  d |
+--                                   +---------------+----+----+
+--                                                           |
+--                    +--------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75905 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75919 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75929 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75890, epinions75931, epinions75918, epinions75921, epinions75905, epinions75919, epinions75929 where epinions75890.s = epinions75931.s and epinions75931.s = epinions75918.s and epinions75918.s = epinions75921.s and epinions75921.d = epinions75905.s and epinions75905.d = epinions75919.s and epinions75919.s = epinions75929.s;
+\set queryname epinions_acyclic_208_18
+-- Result size: 52030778
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75905 [label="epinions75905|<s> s|<d> d"]; epinions75908 [label="epinions75908|<s> s|<d> d"]; epinions75906 [label="epinions75906|<s> s|<d> d"]; epinions75901 [label="epinions75901|<s> s|<d> d"]; epinions75913 [label="epinions75913|<s> s|<d> d"]; epinions75919 [label="epinions75919|<s> s|<d> d"]; epinions75934 [label="epinions75934|<s> s|<d> d"]; epinions75905:s -> epinions75908:s;epinions75908:s -> epinions75906:s;epinions75906:s -> epinions75901:s;epinions75901:d -> epinions75913:s;epinions75913:d -> epinions75919:s;epinions75919:s -> epinions75934:s;}
+--                                   +---------------+----+----+
+--                                   | epinions75901 |  s |  d | -+
+--                                   +---------------+----+----+  |
+--                                                      |         |
+--                                                      +----+    |
+--                                                           |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75905 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75908 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                                     |                     |    |
+--                  +---------------+----------------+----+  |    |
+--                  | epinions75906 |        s       |  d |  |    |
+--                  +---------------+----------------+----+  |    |
+--                                     |                     |    |
+--                                     +---------------------+    |
+--                                                                |
+--                                                                |
+--                    +-------------------------------------------+
+--                    |
+-- +---------------+----------------+----------------+
+-- | epinions75913 |        s       |        d       |
+-- +---------------+----------------+----------------+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75919 |        s       |  d |
+--                  +---------------+----------------+----+
+--                                     |
+--                                     |
+--                                     |
+--                  +---------------+----------------+----+
+--                  | epinions75934 |        s       |  d |
+--                  +---------------+----------------+----+
+select count(*) from epinions75905, epinions75908, epinions75906, epinions75901, epinions75913, epinions75919, epinions75934 where epinions75905.s = epinions75908.s and epinions75908.s = epinions75906.s and epinions75906.s = epinions75901.s and epinions75901.d = epinions75913.s and epinions75913.d = epinions75919.s and epinions75919.s = epinions75934.s;
+\set queryname epinions_acyclic_208_19
+-- Result size: 120641625
+-- digraph G { node [shape=record]; edge [arrowhead=none]; epinions75898 [label="epinions75898|<s> s|<d> d"]; epinions75918 [label="epinions75918|<s> s|<d> d"]; epinions75921 [label="epinions75921|<s> s|<d> d"]; epinions75911 [label="epinions75911|<s> s|<d> d"]; epinions75917 [label="epinions75917|<s> s|<d> d"]; epinions75893 [label="epinions75893|<s> s|<d> d"]; epinions75928 [label="epinions75928|<s> s|<d> d"]; epinions75898:s -> epinions75918:s;epinions75918:s -> epinions75921:s;epinions75921:s -> epinions75911:s;epinions75911:d -> epinions75917:s;epinions75917:d -> epinions75893:s;epinions75893:s -> epinions75928:s;}
+--                                              +--------------------------+
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75917 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                                               |         |
+--                                                               |         |
+--                                                               |         |
+-- +---------------+----+---+                 +---------------+----+----+  |
+-- | epinions75928 |  s | d |                 | epinions75893 |  s |  d |  |
+-- +---------------+----+---+                 +---------------+----+----+  |
+--                    |                                          |         |
+--                    +------------------------------------------+         |
+--                                                                         |
+--                           +---------------+----------------+----+       |
+--                           | epinions75898 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75918 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75921 |        s       |  d |       |
+--                           +---------------+----------------+----+       |
+--                                              |                          |
+--                                              |                          |
+--                                              |                          |
+--                           +---------------+----------------+----+       |
+--                           | epinions75911 |        s       |  d | ------+
+--                           +---------------+----------------+----+
+select count(*) from epinions75898, epinions75918, epinions75921, epinions75911, epinions75917, epinions75893, epinions75928 where epinions75898.s = epinions75918.s and epinions75918.s = epinions75921.s and epinions75921.s = epinions75911.s and epinions75911.d = epinions75917.s and epinions75917.d = epinions75893.s and epinions75893.s = epinions75928.s;

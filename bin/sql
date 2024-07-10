@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+
+. $(dirname "$0")/../scripts/vars.sh
+
+# Prep docker
+$(dirname "$0")/../scripts/docker-prep.sh
+
+# Get current directory
+CURDIR=$(pwd)
+
+# Initialize the variable for mounting /var/db and for the first parameter to umbra_sql
+MOUNT_DB=""
+PARAMS=""
+ADDITIONAL_OPTIONS=""
+
+# Prepare a string with all -e options for environment variables starting with UMBRA_
+ENV_VARS=$(env | grep '^UMBRA_' | awk -F '=' '{print substr($1, 7) "=" $2}' | sed 's/^/-e /')
+
+# Check if the first parameter is "-createdb"
+if [ "$1" = "-createdb" ]; then
+    # Set additional options for umbra_sql
+    ADDITIONAL_OPTIONS="$1"
+    # Shift parameters so $2 becomes $1, $3 becomes $2, etc.
+    shift
+fi
+
+# Check if parameters are given
+if [ $# -ne 0 ]; then
+    # Convert to absolute path
+    to_absolute() {
+        echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
+    }
+
+    # Function to find the lowest common ancestor of two paths
+    find_lca() {
+        local path1=$(to_absolute "$1")
+        local path2=$(to_absolute "$2")
+        # Strip leading '/' to prevent empty leading element in array
+        path1=${path1#/}
+        path2=${path2#/}
+        local common_path=""
+
+        # Split paths into arrays based on '/'
+        IFS='/' read -ra ADDR1 <<< "$path1"
+        IFS='/' read -ra ADDR2 <<< "$path2"
+
+        # Compare each part of the path until they differ
+        for ((i=0; i<${#ADDR1[@]} && i<${#ADDR2[@]}; i++)); do
+            if [ "${ADDR1[i]}" == "${ADDR2[i]}" ]; then
+                common_path="$common_path/${ADDR1[i]}"
+            else
+                break
+            fi
+        done
+
+        echo "$common_path"
+    }
+
+    # Initial setup: Convert the first path to absolute and use it as a starting point
+    lca=$(to_absolute $CURDIR)
+
+    # Find LCA with each subsequent path, converting them to absolute paths first
+    for path in "$@"; do
+        lca=$(find_lca "$lca" "$(to_absolute "${path}")")
+    done
+
+    # Replacement path provided by user (or hardcoded)
+    new_path="/var/cur"
+
+    # Replace LCA with new path for each parameter, converting to absolute paths first
+    for path in "$@"; do
+        # If path is empty
+        if [ -z "$path" ]; then
+            PARAMS+=' ""'
+            continue
+        fi
+        absolute_path=$(to_absolute "$path")
+        PARAMS+=" ${absolute_path/#$lca/$new_path}"
+    done
+
+    CURDIRNEW=$(to_absolute "$CURDIR")
+    CURDIRNEW=${CURDIRNEW/#$lca/$new_path}
+    MOUNT_DB="-v $lca:$new_path -w $CURDIRNEW"
+fi
+
+# Assuming $CONTAINERNAME is set earlier in your script or environment
+# Construct and run the Docker command with conditional /var/db mapping and the adjusted first parameter
+docker run $ENV_VARS -it $MOUNT_DB $CONTAINERNAME /bin/bash -c "umbra_sql $ADDITIONAL_OPTIONS $PARAMS"

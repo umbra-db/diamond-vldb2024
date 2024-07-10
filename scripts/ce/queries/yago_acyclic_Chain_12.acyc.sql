@@ -1,0 +1,4601 @@
+\set queryname yago_acyclic_Chain_12_00
+-- Result size: 39195
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago50 [label="yago50|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago62 [label="yago62|<s> s|<d> d"]; yago47_3 [label="yago47_3|<s> s|<d> d"]; yago47_4 [label="yago47_4|<s> s|<d> d"]; yago55 [label="yago55|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago63 [label="yago63|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago50:d -> yago47_3:d;yago17:s -> yago62:s;yago17:d -> yago5:d;yago47_3:s -> yago47_4:s;yago47_4:d -> yago55:d;yago55:s -> yago25:s;yago25:d -> yago63:d;yago63:s -> yago2_8:d;yago2_8:s -> yago2_9:s;yago2_9:d -> yago21:d;yago5:s -> yago21:s;}
+--                                          +--------+----+----+
+--                                          | yago5  |  s |  d |
+--                                          +--------+----+----+
+--                                                      |    |
+--                 +------------------------------------+    |
+--                 |                                         |
+--                 |                        +--------+----+----+
+--                 |                        | yago17 |  s |  d |
+--                 |                        +--------+----+----+
+--                 |                                    |
+--                 |                                    |
+--                 |                                    |
+--                 |                        +--------+----+----+
+--                 |                        | yago62 |  s |  d |
+--                 |                        +--------+----+----+
+--                 |
+--                 |              +--------------------------+
+--                 |              |                          |
+--                 |  +--------+-----------+---------+       |
+--                 |  | yago25 |     s     |    d    |       |
+--                 |  +--------+-----------+---------+       |
+--                 |                          |              |
+--                 |                          |              |
+--                 |                          |              |
+--                 |  +--------+-----------+---------+       |
+--                 |  | yago63 |     s     |    d    |       |
+--                 |  +--------+-----------+---------+       |
+--                 |              |                          |
+--                 |              +---------------------+    |
+--                 |                                    |    |
+--                 |            +----------+---------+----+  |
+--                 |            | yago2_8  |    s    |  d |  |
+--                 |            +----------+---------+----+  |
+--                 |                          |              |
+--                 |                          |              |
+--                 |                          |              |
+--                 |            +----------+---------+----+  |
+--                 |            | yago2_9  |    s    |  d |  |
+--                 |            +----------+---------+----+  |
+--                 |                                    |    |
+--                 +--------------------------+         |    |
+--                                            |         |    |
+--                              +----------+---------+----+  |
+--                              |  yago21  |    s    |  d |  |
+--                              +----------+---------+----+  |
+--                                                           |
+--                      +-------------------------------+    |
+--                      |                               |    |
+-- +--------+---+----+  |       +----------+---------+----+  |
+-- | yago50 | s |  d | -+       | yago47_3 |    s    |  d |  |
+-- +--------+---+----+          +----------+---------+----+  |
+--                                            |              |
+--                                            |              |
+--                                            |              |
+--                              +----------+---------+----+  |
+--                              | yago47_4 |    s    |  d |  |
+--                              +----------+---------+----+  |
+--                                                      |    |
+--                                                      |    |
+--                                                      |    |
+--                              +----------+---------+----+  |
+--                              |  yago55  |    s    |  d |  |
+--                              +----------+---------+----+  |
+--                                            |              |
+--                                            +--------------+
+with dummy as (select) /* stage1 */, yago63_s1_1481ee006641de21 as (select yago63.s as v14,yago63.d as v12 from yago63), yago2_8_s1_1481ee006641de21 as (select yago2_8.d as v14,yago2_8.s as v16 from yago2 yago2_8), yago2_9_s1_1481ee006641de21 as (select yago2_9.d as v18,yago2_9.s as v16 from yago2 yago2_9), yago21_s1_1481ee006641de21 as (select yago21.d as v18,yago21.s as v20 from yago21), yago5_s1_1481ee006641de21 as (select yago5.d as v4,yago5.s as v20 from yago5), yago17_s1_1481ee006641de21 as (select yago17.d as v4,yago17.s as v2 from yago17), yago62_s1_1481ee006641de21 as (select yago62.s as v2 from yago62), yago25_s1_1481ee006641de21 as (select yago25.s as v10,yago25.d as v12 from yago25), yago55_s1_1481ee006641de21 as (select yago55.s as v10,yago55.d as v8 from yago55), yago47_4_s1_1481ee006641de21 as (select yago47_4.d as v8,yago47_4.s as v6 from yago47 yago47_4), yago47_3_s1_1481ee006641de21 as (select yago47_3.d as v0,yago47_3.s as v6 from yago47 yago47_3), yago50_s1_1481ee006641de21 as (select yago50.d as v0 from yago50) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2A1F96D9CF5C7847 as  (select * from umbra.identity(table(yago25_s1_1481ee006641de21)) NATURAL JOIN umbra.identity(table(yago55_s1_1481ee006641de21)) NATURAL JOIN umbra.identity(table(yago47_4_s1_1481ee006641de21)) NATURAL JOIN umbra.identity(table(yago47_3_s1_1481ee006641de21)) NATURAL JOIN umbra.identity(table(yago50_s1_1481ee006641de21))), s4_group_6CC97C2190346249 as  (select * from umbra.identity(table(yago2_8_s1_1481ee006641de21)) NATURAL JOIN umbra.identity(table(yago2_9_s1_1481ee006641de21)) NATURAL JOIN umbra.identity(table(yago21_s1_1481ee006641de21)) NATURAL JOIN umbra.identity(table(yago5_s1_1481ee006641de21)) NATURAL JOIN umbra.identity(table(yago17_s1_1481ee006641de21)) NATURAL JOIN umbra.identity(table(yago62_s1_1481ee006641de21))), s4_group_6D37A15C89AF6B6 as  (select * from umbra.identity(table(yago63_s1_1481ee006641de21)))select count(*) from umbra.identity(table(s4_group_2A1F96D9CF5C7847)) natural join umbra.identity(table(s4_group_6CC97C2190346249)) natural join umbra.identity(table(s4_group_6D37A15C89AF6B6));
+\set queryname yago_acyclic_Chain_12_01
+-- Result size: 14
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago1 [label="yago1|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago0_3 [label="yago0_3|<s> s|<d> d"]; yago0_4 [label="yago0_4|<s> s|<d> d"]; yago0_5 [label="yago0_5|<s> s|<d> d"]; yago17_6 [label="yago17_6|<s> s|<d> d"]; yago17_7 [label="yago17_7|<s> s|<d> d"]; yago5_8 [label="yago5_8|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago5_11 [label="yago5_11|<s> s|<d> d"]; yago1:d -> yago0_3:d;yago46:s -> yago5_2:d;yago46:d -> yago23:d;yago0_3:s -> yago0_4:s;yago0_4:d -> yago0_5:d;yago0_5:s -> yago17_6:d;yago17_6:s -> yago17_7:s;yago17_7:d -> yago5_8:d;yago5_8:s -> yago21:s;yago21:d -> yago5_11:d;yago23:s -> yago5_11:s;}
+--                         +---------+----+----+
+--                         |  yago1  |  s |  d |
+--                         +---------+----+----+
+--                                           |
+--                                           |
+--                                           |
+--                         +---------+----+----+
+--                         | yago0_3 |  s |  d |
+--                         +---------+----+----+
+--                                      |
+--                                      |
+--                                      |
+--                         +---------+----+----+
+--                         | yago0_4 |  s |  d |
+--                         +---------+----+----+
+--                                           |
+--                                           |
+--                                           |
+--                         +---------+----+----+
+--                         | yago0_5 |  s |  d |
+--                         +---------+----+----+
+--                                      |
+--                                      |
+--                                      |
+--             +----------+----------+----+
+--             | yago17_6 |     s    |  d |
+--             +----------+----------+----+
+--                           |
+--                           |
+--                           |
+--             +----------+----------+----+
+--             | yago17_7 |     s    |  d |
+--             +----------+----------+----+
+--                                      |
+--                                      |
+--                                      |
+--             +----------+----------+----+
+--             | yago5_8  |     s    |  d |
+--             +----------+----------+----+
+--                           |
+--               +-----------+
+--               |
+-- +----------+-----------+----------+
+-- |  yago21  |     s     |     d    |
+-- +----------+-----------+----------+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+----------+
+-- | yago5_11 |     s     |     d    |
+-- +----------+-----------+----------+
+--               |
+--               |
+--               |
+-- +----------+-----------+----------+
+-- |  yago23  |     s     |     d    | -+
+-- +----------+-----------+----------+  |
+--                                      |
+--                                      |
+--                                      |
+--             +----------+----------+----+
+--             |  yago46  |     s    |  d |
+--             +----------+----------+----+
+--                           |
+--                           |
+--                           |
+-- +----------+-----------+----------+
+-- | yago5_2  |     s     |     d    |
+-- +----------+-----------+----------+
+with dummy as (select) /* stage1 */, yago5_8_s1_136a6a806641de21 as (select yago5_8.d as v14,yago5_8.s as v16 from yago5 yago5_8), yago17_7_s1_136a6a806641de21 as (select yago17_7.s as v12,yago17_7.d as v14 from yago17 yago17_7), yago17_6_s1_136a6a806641de21 as (select yago17_6.d as v10,yago17_6.s as v12 from yago17 yago17_6), yago0_5_s1_136a6a806641de21 as (select yago0_5.s as v10,yago0_5.d as v8 from yago0 yago0_5), yago0_4_s1_136a6a806641de21 as (select yago0_4.s as v6,yago0_4.d as v8 from yago0 yago0_4), yago0_3_s1_136a6a806641de21 as (select yago0_3.s as v6,yago0_3.d as v0 from yago0 yago0_3), yago1_s1_136a6a806641de21 as (select yago1.d as v0 from yago1), yago21_s1_136a6a806641de21 as (select yago21.d as v18,yago21.s as v16 from yago21), yago5_11_s1_136a6a806641de21 as (select yago5_11.d as v18,yago5_11.s as v20 from yago5 yago5_11), yago23_s1_136a6a806641de21 as (select yago23.d as v4,yago23.s as v20 from yago23), yago46_s1_136a6a806641de21 as (select yago46.d as v4,yago46.s as v2 from yago46), yago5_2_s1_136a6a806641de21 as (select yago5_2.d as v2 from yago5 yago5_2) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5C993511A1B8FBD8 as  (select * from umbra.identity(table(yago21_s1_136a6a806641de21)) NATURAL JOIN umbra.identity(table(yago5_11_s1_136a6a806641de21)) NATURAL JOIN umbra.identity(table(yago23_s1_136a6a806641de21)) NATURAL JOIN umbra.identity(table(yago46_s1_136a6a806641de21)) NATURAL JOIN umbra.identity(table(yago5_2_s1_136a6a806641de21))), s4_group_7AF5166720FBAF94 as  (select * from umbra.identity(table(yago17_7_s1_136a6a806641de21)) NATURAL JOIN umbra.identity(table(yago17_6_s1_136a6a806641de21)) NATURAL JOIN umbra.identity(table(yago0_5_s1_136a6a806641de21)) NATURAL JOIN umbra.identity(table(yago0_4_s1_136a6a806641de21)) NATURAL JOIN umbra.identity(table(yago0_3_s1_136a6a806641de21)) NATURAL JOIN umbra.identity(table(yago1_s1_136a6a806641de21))), s4_group_622BAE0EC6F4C623 as  (select * from umbra.identity(table(yago5_8_s1_136a6a806641de21)))select count(*) from umbra.identity(table(s4_group_5C993511A1B8FBD8)) natural join umbra.identity(table(s4_group_7AF5166720FBAF94)) natural join umbra.identity(table(s4_group_622BAE0EC6F4C623));
+\set queryname yago_acyclic_Chain_12_02
+-- Result size: 3
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago33_2 [label="yago33_2|<s> s|<d> d"]; yago22_3 [label="yago22_3|<s> s|<d> d"]; yago33_4 [label="yago33_4|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago55 [label="yago55|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago50_9 [label="yago50_9|<s> s|<d> d"]; yago50_10 [label="yago50_10|<s> s|<d> d"]; yago22_11 [label="yago22_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago17:d;yago33_2:s -> yago22_3:s;yago33_2:d -> yago33_4:d;yago22_3:d -> yago22_11:d;yago17:s -> yago4:d;yago4:s -> yago55:s;yago55:d -> yago36:d;yago36:s -> yago50_9:s;yago50_9:d -> yago50_10:d;yago50_10:s -> yago22_11:s;}
+--                                      +------------------------------------------+
+--                                      |                                          |
+--                                      |          +--------+----+----+            |
+--                                      |          | yago17 |  s |  d |            |
+--                                      |          +--------+----+----+            |
+--                                      |                      |    |              |
+--                                      +------------+         |    |              |
+--                                                   |         |    |              |
+-- +----------+----+----+             +-----------+---------+----+  |  +--------+----+----+
+-- | yago33_4 |  s |  d |             |   yago4   |    s    |  d |  |  | yago55 |  s |  d |
+-- +----------+----+----+             +-----------+---------+----+  |  +--------+----+----+
+--                    |                                             |                   |
+--                    |                                             |                   |
+--                    |                                             |                   |
+-- +----------+----+----++-----------+------------+---------+       |                   |
+-- | yago33_2 |  s |  d || yago22_3  |      s     |    d    |       |                   |
+-- +----------+----+----++-----------+------------+---------+       |                   |
+--               |                      |            |              |                   |
+--               +----------------------+            |              |                   |
+--                                                   |              |                   |
+--                       +-----------+------------+---------+       |                   |
+--                       | yago22_11 |      s     |    d    |       |                   |
+--                       +-----------+------------+---------+       |                   |
+--                                      |                           |                   |
+--                         +------------+                           |                   |
+--                         |                                        |                   |
+--                         |          +-----------+---------+----+  |                   |
+--                         |          |  yago2_0  |    s    |  d |  |                   |
+--                         |          +-----------+---------+----+  |                   |
+--                         |                         |              |                   |
+--                         |                         |              |                   |
+--                         |                         |              |                   |
+--                         |          +-----------+---------+----+  |                   |
+--                         |          |  yago2_1  |    s    |  d | -+                   |
+--                         |          +-----------+---------+----+                      |
+--                         |          +-----------+---------+----+                      |
+--                         |          |  yago36   |    s    |  d | ---------------------+
+--                         |          +-----------+---------+----+
+--                         |                         |
+--                         |                         |
+--                         |                         |
+--                         |          +-----------+---------+----+
+--                         |          | yago50_9  |    s    |  d |
+--                         |          +-----------+---------+----+
+--                         |                                   |
+--                         +-------------------------+         |
+--                                                   |         |
+--                                    +-----------+---------+----+
+--                                    | yago50_10 |    s    |  d |
+--                                    +-----------+---------+----+
+with dummy as (select) /* stage1 */, yago50_9_s1_14befa806641de21 as (select yago50_9.d as v18,yago50_9.s as v16 from yago50 yago50_9), yago36_s1_14befa806641de21 as (select yago36.d as v14,yago36.s as v16 from yago36), yago55_s1_14befa806641de21 as (select yago55.s as v12,yago55.d as v14 from yago55), yago4_s1_14befa806641de21 as (select yago4.d as v10,yago4.s as v12 from yago4), yago17_s1_14befa806641de21 as (select yago17.s as v10,yago17.d as v2 from yago17), yago2_1_s1_14befa806641de21 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_14befa806641de21 as (select yago2_0.s as v0 from yago2 yago2_0), yago50_10_s1_14befa806641de21 as (select yago50_10.d as v18,yago50_10.s as v20 from yago50 yago50_10), yago22_11_s1_14befa806641de21 as (select yago22_11.d as v8,yago22_11.s as v20 from yago22 yago22_11), yago22_3_s1_14befa806641de21 as (select yago22_3.d as v8,yago22_3.s as v4 from yago22 yago22_3), yago33_2_s1_14befa806641de21 as (select yago33_2.s as v4,yago33_2.d as v6 from yago33 yago33_2), yago33_4_s1_14befa806641de21 as (select yago33_4.d as v6 from yago33 yago33_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_158741E93AE77D3D as  (select * from umbra.identity(table(yago50_10_s1_14befa806641de21)) NATURAL JOIN umbra.identity(table(yago22_11_s1_14befa806641de21)) NATURAL JOIN umbra.identity(table(yago22_3_s1_14befa806641de21)) NATURAL JOIN umbra.identity(table(yago33_2_s1_14befa806641de21)) NATURAL JOIN umbra.identity(table(yago33_4_s1_14befa806641de21))), s4_group_51D425F77F1E0444 as  (select * from umbra.identity(table(yago36_s1_14befa806641de21)) NATURAL JOIN umbra.identity(table(yago55_s1_14befa806641de21)) NATURAL JOIN umbra.identity(table(yago4_s1_14befa806641de21)) NATURAL JOIN umbra.identity(table(yago17_s1_14befa806641de21)) NATURAL JOIN umbra.identity(table(yago2_1_s1_14befa806641de21)) NATURAL JOIN umbra.identity(table(yago2_0_s1_14befa806641de21))), s4_group_2CD442423D46DB2 as  (select * from umbra.identity(table(yago50_9_s1_14befa806641de21)))select count(*) from umbra.identity(table(s4_group_158741E93AE77D3D)) natural join umbra.identity(table(s4_group_51D425F77F1E0444)) natural join umbra.identity(table(s4_group_2CD442423D46DB2));
+\set queryname yago_acyclic_Chain_12_03
+-- Result size: 90
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago37 [label="yago37|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago23_8 [label="yago23_8|<s> s|<d> d"]; yago23_9 [label="yago23_9|<s> s|<d> d"]; yago44_10 [label="yago44_10|<s> s|<d> d"]; yago44_11 [label="yago44_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago0:s;yago37:s -> yago44_10:d;yago37:d -> yago54:d;yago0:d -> yago1:d;yago1:s -> yago36:s;yago36:d -> yago50:d;yago50:s -> yago23_8:s;yago23_8:d -> yago23_9:d;yago23_9:s -> yago44_11:d;yago44_10:s -> yago44_11:s;}
+--                                                            +---------+
+--                                                            |         |
+--                                                +--------+----+----+  |
+--                                                | yago0  |  s |  d |  |
+--                                                +--------+----+----+  |
+--                                                                 |    |
+--                                                                 |    |
+--                                                                 |    |
+--                                                +--------+----+----+  |
+--                                                | yago1  |  s |  d |  |
+--                                                +--------+----+----+  |
+--                                                            |         |
+--                                                            |         |
+--                                                            |         |
+-- +--------+------------+------------+           +--------+----+----+  |
+-- | yago50 |      s     |      d     |           | yago36 |  s |  d |  |
+-- +--------+------------+------------+           +--------+----+----+  |
+--             |            |                                      |    |
+--             |            +--------------------------------------+    |
+--             |                                                        |
+--             |          +-----------+----------+---------+            |
+--             |          | yago23_8  |     s    |    d    |            |
+--             |          +-----------+----------+---------+            |
+--             |                         |          |                   |
+--             +-------------------------+          |                   |
+--                                                  |                   |
+--                        +-----------+----------+---------+            |
+--                        | yago23_9  |     s    |    d    |            |
+--                        +-----------+----------+---------+            |
+--                                       |                              |
+--                                       |                              |
+--                                       |                              |
+--           +-----------+------------+----------+                      |
+--           | yago44_11 |      s     |     d    |                      |
+--           +-----------+------------+----------+                      |
+--                          |                                           |
+--                          |                                           |
+--                          |                                           |
+--                          |          +---------+---------+----+       |
+--                          |          | yago2_0 |    s    |  d |       |
+--                          |          +---------+---------+----+       |
+--                          |                       |                   |
+--                          |                       |                   |
+--                          |                       |                   |
+--                          |          +---------+---------+----+       |
+--                          |          | yago2_1 |    s    |  d | ------+
+--                          |          +---------+---------+----+
+--                          |          +---------+---------+----+
+--                          |          | yago37  |    s    |  d |
+--                          |          +---------+---------+----+
+--                          |                       |         |
+--                          +------------+          |         |
+--                                       |          |         |
+--                        +-----------+----------+---------+  |
+--                        | yago44_10 |     s    |    d    |  |
+--                        +-----------+----------+---------+  |
+--                                                            |
+--                                                            |
+--                                                            |
+--                                     +---------+---------+----+
+--                                     | yago54  |    s    |  d |
+--                                     +---------+---------+----+
+with dummy as (select) /* stage1 */, yago50_s1_147e54806641de21 as (select yago50.s as v14,yago50.d as v12 from yago50), yago23_8_s1_147e54806641de21 as (select yago23_8.s as v14,yago23_8.d as v16 from yago23 yago23_8), yago23_9_s1_147e54806641de21 as (select yago23_9.s as v18,yago23_9.d as v16 from yago23 yago23_9), yago44_11_s1_147e54806641de21 as (select yago44_11.d as v18,yago44_11.s as v20 from yago44 yago44_11), yago44_10_s1_147e54806641de21 as (select yago44_10.d as v4,yago44_10.s as v20 from yago44 yago44_10), yago37_s1_147e54806641de21 as (select yago37.s as v4,yago37.d as v6 from yago37), yago54_s1_147e54806641de21 as (select yago54.d as v6 from yago54), yago36_s1_147e54806641de21 as (select yago36.d as v12,yago36.s as v10 from yago36), yago1_s1_147e54806641de21 as (select yago1.d as v8,yago1.s as v10 from yago1), yago0_s1_147e54806641de21 as (select yago0.d as v8,yago0.s as v2 from yago0), yago2_1_s1_147e54806641de21 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_147e54806641de21 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_49CBD1FD29C7F94A as  (select * from umbra.identity(table(yago36_s1_147e54806641de21)) NATURAL JOIN umbra.identity(table(yago1_s1_147e54806641de21)) NATURAL JOIN umbra.identity(table(yago0_s1_147e54806641de21)) NATURAL JOIN umbra.identity(table(yago2_1_s1_147e54806641de21)) NATURAL JOIN umbra.identity(table(yago2_0_s1_147e54806641de21))), s4_group_7D8B2717A4509853 as  (select * from umbra.identity(table(yago23_8_s1_147e54806641de21)) NATURAL JOIN umbra.identity(table(yago23_9_s1_147e54806641de21)) NATURAL JOIN umbra.identity(table(yago44_11_s1_147e54806641de21)) NATURAL JOIN umbra.identity(table(yago44_10_s1_147e54806641de21)) NATURAL JOIN umbra.identity(table(yago37_s1_147e54806641de21)) NATURAL JOIN umbra.identity(table(yago54_s1_147e54806641de21))), s4_group_3ADF511744E4B180 as  (select * from umbra.identity(table(yago50_s1_147e54806641de21)))select count(*) from umbra.identity(table(s4_group_49CBD1FD29C7F94A)) natural join umbra.identity(table(s4_group_7D8B2717A4509853)) natural join umbra.identity(table(s4_group_3ADF511744E4B180));
+\set queryname yago_acyclic_Chain_12_04
+-- Result size: 3
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago33_2 [label="yago33_2|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago5_6 [label="yago5_6|<s> s|<d> d"]; yago5_7 [label="yago5_7|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago33_10 [label="yago33_10|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_4:d;yago33_2:s -> yago17:d;yago33_2:d -> yago33_10:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago5_6:d;yago5_6:s -> yago5_7:s;yago5_7:d -> yago50:s;yago50:d -> yago35:d;yago35:s -> yago4:d;yago33_10:s -> yago4:s;}
+--                                        +--------+----+----+----------+----+----+
+--                                        | yago17 |  s |  d | yago33_2 |  s |  d |
+--                                        +--------+----+----+----------+----+----+
+--                                                         |               |    |
+--                                                         +---------------+    |
+--                                                                              |
+--                           +-----------+---------+----+                       |
+--                           |  yago2_0  |    s    |  d |                       |
+--                           +-----------+---------+----+                       |
+--                                          |                                   |
+--                                          |                                   |
+--                                          |                                   |
+--                           +-----------+---------+----+                       |
+--                           |  yago2_1  |    s    |  d |                       |
+--                           +-----------+---------+----+                       |
+--                                                    |                         |
+--                                                    |                         |
+--                                                    |                         |
+--                           +-----------+---------+----+                       |
+--                           |  yago2_4  |    s    |  d |                       |
+--                           +-----------+---------+----+                       |
+--                                          |                                   |
+--                                          |                                   |
+--                                          |                                   |
+--                           +-----------+---------+----+                       |
+--                           |  yago2_5  |    s    |  d |                       |
+--                           +-----------+---------+----+                       |
+--                                                    |                         |
+--   +--------------------+                           |                         |
+--   |                    |                           |                         |
+--   |  +---------+----+----++-----------+---------+----+                       |
+--   |  | yago5_7 |  s |  d ||  yago5_6  |    s    |  d |                       |
+--   |  +---------+----+----++-----------+---------+----+                       |
+--   |               |                      |                                   |
+--   |               +----------------------+                                   |
+--   |                                                                          |
+--   |                       +-----------+---------+----+                       |
+--   |                       | yago33_10 |    s    |  d | ----------------------+
+--   |                       +-----------+---------+----+
+--   |                                      |
+--   |                                      |
+--   |                                      |
+--   |                       +-----------+---------+----+
+--   |                       |   yago4   |    s    |  d |
+--   |                       +-----------+---------+----+
+--   |                                                |
+--   |                                                |
+--   |                                                |
+--   |                                    +--------+----+----+
+--   |                                    | yago35 |  s |  d |
+--   |                                    +--------+----+----+
+--   |                                                     |
+--   +------------------------------------------------+    |
+--                                                    |    |
+--                                        +--------+----+----+
+--                                        | yago50 |  s |  d |
+--                                        +--------+----+----+
+with dummy as (select) /* stage1 */, yago5_7_s1_159b26806641de21 as (select yago5_7.d as v14,yago5_7.s as v12 from yago5 yago5_7), yago50_s1_159b26806641de21 as (select yago50.s as v14,yago50.d as v16 from yago50), yago35_s1_159b26806641de21 as (select yago35.s as v18,yago35.d as v16 from yago35), yago4_s1_159b26806641de21 as (select yago4.s as v20,yago4.d as v18 from yago4), yago33_10_s1_159b26806641de21 as (select yago33_10.s as v20,yago33_10.d as v6 from yago33 yago33_10), yago33_2_s1_159b26806641de21 as (select yago33_2.s as v4,yago33_2.d as v6 from yago33 yago33_2), yago17_s1_159b26806641de21 as (select yago17.d as v4 from yago17), yago5_6_s1_159b26806641de21 as (select yago5_6.d as v10,yago5_6.s as v12 from yago5 yago5_6), yago2_5_s1_159b26806641de21 as (select yago2_5.s as v8,yago2_5.d as v10 from yago2 yago2_5), yago2_4_s1_159b26806641de21 as (select yago2_4.s as v8,yago2_4.d as v2 from yago2 yago2_4), yago2_1_s1_159b26806641de21 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_159b26806641de21 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_14334588D68BBB6C as  (select * from umbra.identity(table(yago5_6_s1_159b26806641de21)) NATURAL JOIN umbra.identity(table(yago2_5_s1_159b26806641de21)) NATURAL JOIN umbra.identity(table(yago2_4_s1_159b26806641de21)) NATURAL JOIN umbra.identity(table(yago2_1_s1_159b26806641de21)) NATURAL JOIN umbra.identity(table(yago2_0_s1_159b26806641de21))), s4_group_76D47C7297EEFEA9 as  (select * from umbra.identity(table(yago50_s1_159b26806641de21)) NATURAL JOIN umbra.identity(table(yago35_s1_159b26806641de21)) NATURAL JOIN umbra.identity(table(yago4_s1_159b26806641de21)) NATURAL JOIN umbra.identity(table(yago33_10_s1_159b26806641de21)) NATURAL JOIN umbra.identity(table(yago33_2_s1_159b26806641de21)) NATURAL JOIN umbra.identity(table(yago17_s1_159b26806641de21))), s4_group_71ECA96BFCAA8682 as  (select * from umbra.identity(table(yago5_7_s1_159b26806641de21)))select count(*) from umbra.identity(table(s4_group_14334588D68BBB6C)) natural join umbra.identity(table(s4_group_76D47C7297EEFEA9)) natural join umbra.identity(table(s4_group_71ECA96BFCAA8682));
+\set queryname yago_acyclic_Chain_12_05
+-- Result size: 498
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago22_2 [label="yago22_2|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago50_5 [label="yago50_5|<s> s|<d> d"]; yago50_6 [label="yago50_6|<s> s|<d> d"]; yago5_7 [label="yago5_7|<s> s|<d> d"]; yago22_8 [label="yago22_8|<s> s|<d> d"]; yago5_9 [label="yago5_9|<s> s|<d> d"]; yago22_10 [label="yago22_10|<s> s|<d> d"]; yago22_11 [label="yago22_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago17:s;yago22_2:s -> yago54:d;yago22_2:d -> yago22_10:d;yago17:d -> yago50_5:s;yago50_5:d -> yago50_6:d;yago50_6:s -> yago5_7:s;yago5_7:d -> yago22_8:d;yago22_8:s -> yago5_9:s;yago5_9:d -> yago22_11:d;yago22_10:s -> yago22_11:s;}
+--        +--------------------------+                     +---------------------+
+--        |                          |                     |                     |
+--        |  +----------+---------+------------+--------+-----------+----+       |
+--        |  | yago5_7  |    s    |      d     | yago17 |     s     |  d |       |
+--        |  +----------+---------+------------+--------+-----------+----+       |
+--        |                |                                           |         |
+--        |                |                                           |         |
+--        |                |                                           |         |
+--        |  +----------+---------+------------+         +----------+----+----+  |
+--        |  | yago50_6 |    s    |      d     |         | yago50_5 |  s |  d |  |
+--        |  +----------+---------+------------+         +----------+----+----+  |
+--        |                          |                                      |    |
+--        |                          +--------------------------------------+    |
+--        |                                                                      |
+--        |                        +-----------+--------+-----------+            |
+--        |                        | yago22_10 |    s   |     d     | ------+    |
+--        |                        +-----------+--------+-----------+       |    |
+--        |                                       |                         |    |
+--        |                                       |                         |    |
+--        |                                       |                         |    |
+--        |                        +-----------+--------+-----------+       |    |
+--        |                        | yago22_11 |    s   |     d     |       |    |
+--        |                        +-----------+--------+-----------+       |    |
+--        |                                                |                |    |
+--   +----+------------------------------------------------+                |    |
+--   |    |                                                                 |    |
+--   |    |                        +-----------+--------+-----------+       |    |
+--   |    |                        | yago22_2  |    s   |     d     | ------+    |
+--   |    |                        +-----------+--------+-----------+            |
+--   |    |                                       |                              |
+--   |    |                                       |                              |
+--   |    |                                       |                              |
+--   |    |              +--------+------------+--------+                        |
+--   |    |              | yago54 |      s     |    d   |                        |
+--   |    |              +--------+------------+--------+                        |
+--   |    |                                                                      |
+--   |    +------------------------------------------------+                     |
+--   |                                                     |                     |
+--   |                             +-----------+--------+-----------+            |
+--   |                             | yago22_8  |    s   |     d     |            |
+--   |                             +-----------+--------+-----------+            |
+--   |                                            |                              |
+--   |                                            |                              |
+--   |                                            |                              |
+--   |                             +-----------+--------+-----------+            |
+--   |                             |  yago5_9  |    s   |     d     |            |
+--   |                             +-----------+--------+-----------+            |
+--   |                                                     |                     |
+--   +-----------------------------------------------------+                     |
+--                                                                               |
+--                                 +-----------+--------+-----------+            |
+--                                 |  yago2_0  |    s   |     d     |            |
+--                                 +-----------+--------+-----------+            |
+--                                                |                              |
+--                                                |                              |
+--                                                |                              |
+--                                 +-----------+--------+-----------+            |
+--                                 |  yago2_1  |    s   |     d     | -----------+
+--                                 +-----------+--------+-----------+
+with dummy as (select) /* stage1 */, yago5_7_s1_159a5b006641de21 as (select yago5_7.d as v14,yago5_7.s as v12 from yago5 yago5_7), yago22_8_s1_159a5b006641de21 as (select yago22_8.s as v16,yago22_8.d as v14 from yago22 yago22_8), yago5_9_s1_159a5b006641de21 as (select yago5_9.d as v18,yago5_9.s as v16 from yago5 yago5_9), yago22_11_s1_159a5b006641de21 as (select yago22_11.d as v18,yago22_11.s as v20 from yago22 yago22_11), yago22_10_s1_159a5b006641de21 as (select yago22_10.s as v20,yago22_10.d as v6 from yago22 yago22_10), yago22_2_s1_159a5b006641de21 as (select yago22_2.s as v4,yago22_2.d as v6 from yago22 yago22_2), yago54_s1_159a5b006641de21 as (select yago54.d as v4 from yago54), yago50_6_s1_159a5b006641de21 as (select yago50_6.d as v10,yago50_6.s as v12 from yago50 yago50_6), yago50_5_s1_159a5b006641de21 as (select yago50_5.s as v8,yago50_5.d as v10 from yago50 yago50_5), yago17_s1_159a5b006641de21 as (select yago17.d as v8,yago17.s as v2 from yago17), yago2_1_s1_159a5b006641de21 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_159a5b006641de21 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5A1341743AC1EB4F as  (select * from umbra.identity(table(yago50_6_s1_159a5b006641de21)) NATURAL JOIN umbra.identity(table(yago50_5_s1_159a5b006641de21)) NATURAL JOIN umbra.identity(table(yago17_s1_159a5b006641de21)) NATURAL JOIN umbra.identity(table(yago2_1_s1_159a5b006641de21)) NATURAL JOIN umbra.identity(table(yago2_0_s1_159a5b006641de21))), s4_group_692AFA170A4109A5 as  (select * from umbra.identity(table(yago22_8_s1_159a5b006641de21)) NATURAL JOIN umbra.identity(table(yago5_9_s1_159a5b006641de21)) NATURAL JOIN umbra.identity(table(yago22_11_s1_159a5b006641de21)) NATURAL JOIN umbra.identity(table(yago22_10_s1_159a5b006641de21)) NATURAL JOIN umbra.identity(table(yago22_2_s1_159a5b006641de21)) NATURAL JOIN umbra.identity(table(yago54_s1_159a5b006641de21))), s4_group_124AE5DFC021D58F as  (select * from umbra.identity(table(yago5_7_s1_159a5b006641de21)))select count(*) from umbra.identity(table(s4_group_5A1341743AC1EB4F)) natural join umbra.identity(table(s4_group_692AFA170A4109A5)) natural join umbra.identity(table(s4_group_124AE5DFC021D58F));
+\set queryname yago_acyclic_Chain_12_06
+-- Result size: 38594
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago51 [label="yago51|<s> s|<d> d"]; yago54_1 [label="yago54_1|<s> s|<d> d"]; yago44 [label="yago44|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago54_4 [label="yago54_4|<s> s|<d> d"]; yago12_5 [label="yago12_5|<s> s|<d> d"]; yago57_6 [label="yago57_6|<s> s|<d> d"]; yago57_7 [label="yago57_7|<s> s|<d> d"]; yago12_8 [label="yago12_8|<s> s|<d> d"]; yago54_9 [label="yago54_9|<s> s|<d> d"]; yago54_10 [label="yago54_10|<s> s|<d> d"]; yago54_11 [label="yago54_11|<s> s|<d> d"]; yago51:s -> yago54_4:d;yago54_1:s -> yago44:d;yago54_1:d -> yago54_11:d;yago44:s -> yago50:s;yago54_4:s -> yago12_5:s;yago12_5:d -> yago57_6:s;yago57_6:d -> yago57_7:d;yago57_7:s -> yago12_8:d;yago12_8:s -> yago54_9:s;yago54_9:d -> yago54_10:s;yago54_10:d -> yago54_11:s;}
+--               +---------------------------------------------------------------------+
+--               |                                                                     |
+--               |         +----------+-----------+-----------+                        |
+--               |         | yago12_5 |     s     |     d     |                        |
+--               |         +----------+-----------+-----------+                        |
+--               |                       |           |                                 |
+--   +-----------+-----------------------+           |                                 |
+--   |           |                                   |                                 |
+--   |           |                     +----------+-----------+----+     +----------+----+----+
+--   |           |                     | yago57_6 |     s     |  d | -+  | yago57_7 |  s |  d |
+--   |           |                     +----------+-----------+----+  |  +----------+----+----+
+--   |           |                                                    |                     |
+--   |           +-----------------------+                            +---------------------+
+--   |                                   |
+--   |         +----------+-----------+-----------+
+--   |         | yago12_8 |     s     |     d     |  +---------------------------------+
+--   |         +----------+-----------+-----------+  |                                 |
+--   |                       |                       |                                 |
+--   |                       |           +-----------+           +---------------------+----+
+--   |                       |           |                       |                     |    |
+--   |         +----------+-----------+-----------+-----------+----+----+-----------+----+----+
+--   |         | yago54_9 |     s     |     d     | yago54_11 |  s |  d | yago54_10 |  s |  d |
+--   |         +----------+-----------+-----------+-----------+----+----+-----------+----+----+
+--   |                                                                |
+--   |                                                                |
+--   |                                                                |
+--   |         +----------+-----------+-----------+-----------+----+----+
+--   |         |  yago44  |     s     |     d     |  yago54_1 |  s |  d |
+--   |         +----------+-----------+-----------+-----------+----+----+
+--   |                       |           |                       |
+--   |                       |           +-----------------------+
+--   |                       |
+--   |         +----------+-----------+-----------+
+--   |         |  yago50  |     s     |     d     |
+--   |         +----------+-----------+-----------+
+--   |         +----------+-----------+-----------+
+--   |         |  yago51  |     s     |     d     |
+--   |         +----------+-----------+-----------+
+--   |                       |
+--   +-----------+           |
+--               |           |
+-- +----------+-----------+-----------+
+-- | yago54_4 |     s     |     d     |
+-- +----------+-----------+-----------+
+with dummy as (select) /* stage1 */, yago54_9_s1_16944c806641de21 as (select yago54_9.s as v16,yago54_9.d as v18 from yago54 yago54_9), yago12_8_s1_16944c806641de21 as (select yago12_8.s as v16,yago12_8.d as v14 from yago12 yago12_8), yago57_7_s1_16944c806641de21 as (select yago57_7.d as v12,yago57_7.s as v14 from yago57 yago57_7), yago57_6_s1_16944c806641de21 as (select yago57_6.d as v12,yago57_6.s as v10 from yago57 yago57_6), yago12_5_s1_16944c806641de21 as (select yago12_5.d as v10,yago12_5.s as v8 from yago12 yago12_5), yago54_4_s1_16944c806641de21 as (select yago54_4.d as v0,yago54_4.s as v8 from yago54 yago54_4), yago51_s1_16944c806641de21 as (select yago51.s as v0 from yago51), yago54_10_s1_16944c806641de21 as (select yago54_10.d as v20,yago54_10.s as v18 from yago54 yago54_10), yago54_11_s1_16944c806641de21 as (select yago54_11.s as v20,yago54_11.d as v4 from yago54 yago54_11), yago54_1_s1_16944c806641de21 as (select yago54_1.s as v2,yago54_1.d as v4 from yago54 yago54_1), yago44_s1_16944c806641de21 as (select yago44.d as v2,yago44.s as v6 from yago44), yago50_s1_16944c806641de21 as (select yago50.s as v6 from yago50) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_41FFD50759ACEFC3 as  (select * from umbra.identity(table(yago54_10_s1_16944c806641de21)) NATURAL JOIN umbra.identity(table(yago54_11_s1_16944c806641de21)) NATURAL JOIN umbra.identity(table(yago54_1_s1_16944c806641de21)) NATURAL JOIN umbra.identity(table(yago44_s1_16944c806641de21)) NATURAL JOIN umbra.identity(table(yago50_s1_16944c806641de21))), s4_group_6E8DA529720A3FC8 as  (select * from umbra.identity(table(yago12_8_s1_16944c806641de21)) NATURAL JOIN umbra.identity(table(yago57_7_s1_16944c806641de21)) NATURAL JOIN umbra.identity(table(yago57_6_s1_16944c806641de21)) NATURAL JOIN umbra.identity(table(yago12_5_s1_16944c806641de21)) NATURAL JOIN umbra.identity(table(yago54_4_s1_16944c806641de21)) NATURAL JOIN umbra.identity(table(yago51_s1_16944c806641de21))), s4_group_70A424661AAB73C1 as  (select * from umbra.identity(table(yago54_9_s1_16944c806641de21)))select count(*) from umbra.identity(table(s4_group_41FFD50759ACEFC3)) natural join umbra.identity(table(s4_group_6E8DA529720A3FC8)) natural join umbra.identity(table(s4_group_70A424661AAB73C1));
+\set queryname yago_acyclic_Chain_12_07
+-- Result size: 1029
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago21_2 [label="yago21_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago33 [label="yago33|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago21_10 [label="yago21_10|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_4:d;yago21_2:s -> yago5:s;yago21_2:d -> yago21_10:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago33:d;yago33:s -> yago1:s;yago1:d -> yago0:d;yago0:s -> yago35:s;yago35:d -> yago36:d;yago21_10:s -> yago36:s;}
+--                   +--------+----+----+
+--                   | yago1  |  s |  d |
+--                   +--------+----+----+
+--                               |    |
+--   +---------------------------+    |
+--   |                                |
+--   |               +--------+----+----+
+--   |               | yago0  |  s |  d |
+--   |               +--------+----+----+
+--   |                           |
+--   |                           |
+--   |                           |
+--   |               +--------+----+----+
+--   |               | yago35 |  s |  d | ------+
+--   |               +--------+----+----+       |
+--   |  +-----------+---------+----+            |
+--   |  | yago21_10 |    s    |  d | ------+    |
+--   |  +-----------+---------+----+       |    |
+--   |                 |                   |    |
+--   |                 |                   |    |
+--   |                 |                   |    |
+--   |  +-----------+---------+----+       |    |
+--   |  |  yago36   |    s    |  d | ------+----+
+--   |  +-----------+---------+----+       |
+--   |  +-----------+---------+----+       |
+--   |  | yago21_2  |    s    |  d | ------+
+--   |  +-----------+---------+----+
+--   |                 |
+--   |                 |
+--   |                 |
+--   |  +-----------+---------+----+
+--   |  |   yago5   |    s    |  d |
+--   |  +-----------+---------+----+
+--   |  +-----------+---------+----+
+--   |  |  yago2_0  |    s    |  d |
+--   |  +-----------+---------+----+
+--   |                 |
+--   |                 |
+--   |                 |
+--   |  +-----------+---------+----+
+--   |  |  yago2_1  |    s    |  d |
+--   |  +-----------+---------+----+
+--   |                           |
+--   |                           |
+--   |                           |
+--   |  +-----------+---------+----+
+--   |  |  yago2_4  |    s    |  d |
+--   |  +-----------+---------+----+
+--   |                 |
+--   |                 |
+--   |                 |
+--   |  +-----------+---------+----+
+--   |  |  yago2_5  |    s    |  d |
+--   |  +-----------+---------+----+
+--   |                           |
+--   +-----------------+         |
+--                     |         |
+--      +-----------+---------+----+
+--      |  yago33   |    s    |  d |
+--      +-----------+---------+----+
+with dummy as (select) /* stage1 */, yago1_s1_184df9806641de21 as (select yago1.d as v14,yago1.s as v12 from yago1), yago0_s1_184df9806641de21 as (select yago0.d as v14,yago0.s as v16 from yago0), yago35_s1_184df9806641de21 as (select yago35.d as v18,yago35.s as v16 from yago35), yago36_s1_184df9806641de21 as (select yago36.d as v18,yago36.s as v20 from yago36), yago21_10_s1_184df9806641de21 as (select yago21_10.d as v6,yago21_10.s as v20 from yago21 yago21_10), yago21_2_s1_184df9806641de21 as (select yago21_2.d as v6,yago21_2.s as v4 from yago21 yago21_2), yago5_s1_184df9806641de21 as (select yago5.s as v4 from yago5), yago33_s1_184df9806641de21 as (select yago33.d as v10,yago33.s as v12 from yago33), yago2_5_s1_184df9806641de21 as (select yago2_5.d as v10,yago2_5.s as v8 from yago2 yago2_5), yago2_4_s1_184df9806641de21 as (select yago2_4.d as v2,yago2_4.s as v8 from yago2 yago2_4), yago2_1_s1_184df9806641de21 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_184df9806641de21 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_229869331DC8995B as  (select * from umbra.identity(table(yago33_s1_184df9806641de21)) NATURAL JOIN umbra.identity(table(yago2_5_s1_184df9806641de21)) NATURAL JOIN umbra.identity(table(yago2_4_s1_184df9806641de21)) NATURAL JOIN umbra.identity(table(yago2_1_s1_184df9806641de21)) NATURAL JOIN umbra.identity(table(yago2_0_s1_184df9806641de21))), s4_group_4A793139AA845E92 as  (select * from umbra.identity(table(yago0_s1_184df9806641de21)) NATURAL JOIN umbra.identity(table(yago35_s1_184df9806641de21)) NATURAL JOIN umbra.identity(table(yago36_s1_184df9806641de21)) NATURAL JOIN umbra.identity(table(yago21_10_s1_184df9806641de21)) NATURAL JOIN umbra.identity(table(yago21_2_s1_184df9806641de21)) NATURAL JOIN umbra.identity(table(yago5_s1_184df9806641de21))), s4_group_6E9CB25F312F47FA as  (select * from umbra.identity(table(yago1_s1_184df9806641de21)))select count(*) from umbra.identity(table(s4_group_229869331DC8995B)) natural join umbra.identity(table(s4_group_4A793139AA845E92)) natural join umbra.identity(table(s4_group_6E9CB25F312F47FA));
+\set queryname yago_acyclic_Chain_12_08
+-- Result size: 60549
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago3 [label="yago3|<s> s|<d> d"]; yago35_1 [label="yago35_1|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago5_8 [label="yago5_8|<s> s|<d> d"]; yago5_9 [label="yago5_9|<s> s|<d> d"]; yago35_10 [label="yago35_10|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago3:d -> yago0:d;yago35_1:s -> yago36:s;yago35_1:d -> yago35_10:d;yago0:s -> yago2_4:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago2_6:d;yago2_6:s -> yago2_7:s;yago2_7:d -> yago5_8:d;yago5_8:s -> yago5_9:s;yago5_9:d -> yago22:d;yago35_10:s -> yago22:s;}
+--                                        +-------+----+----+
+--                                        | yago3 |  s |  d |
+--                                        +-------+----+----+
+--                                                        |
+--                                                        |
+--                                                        |
+--                                        +-------+----+----+
+--                                        | yago0 |  s |  d |
+--                                        +-------+----+----+
+--                                                   |
+--                                                   |
+--                                                   |
+--                           +-----------+--------+----+
+--                           |  yago2_4  |    s   |  d |
+--                           +-----------+--------+----+
+--                                          |
+--                                          |
+--                                          |
+--                           +-----------+--------+----+
+--                           |  yago2_5  |    s   |  d |
+--                           +-----------+--------+----+
+--                                                   |
+--                                                   |
+--                                                   |
+--                           +-----------+--------+----+
+--                           |  yago2_6  |    s   |  d |
+--                           +-----------+--------+----+
+--                                          |
+--                                          |
+--                                          |
+--                           +-----------+--------+----+
+--                           |  yago2_7  |    s   |  d |
+--                           +-----------+--------+----+
+--                                                   |
+--   +--------------------+                          |
+--   |                    |                          |
+--   |  +---------+----+----++-----------+--------+----+
+--   |  | yago5_9 |  s |  d ||  yago5_8  |    s   |  d |
+--   |  +---------+----+----++-----------+--------+----+
+--   |               |                      |
+--   |               +----------------------+
+--   |
+--   |                       +-----------+--------+----+
+--   |                       | yago35_1  |    s   |  d | ------+
+--   |                       +-----------+--------+----+       |
+--   |                                      |                  |
+--   |                                      |                  |
+--   |                                      |                  |
+--   |                       +-----------+--------+----+       |
+--   |                       |  yago36   |    s   |  d |       |
+--   |                       +-----------+--------+----+       |
+--   |                       +-----------+--------+----+       |
+--   |                       | yago35_10 |    s   |  d | ------+
+--   |                       +-----------+--------+----+
+--   |                                      |
+--   |                                      |
+--   |                                      |
+--   |                       +-----------+--------+----+
+--   |                       |  yago22   |    s   |  d |
+--   |                       +-----------+--------+----+
+--   |                                               |
+--   +-----------------------------------------------+
+with dummy as (select) /* stage1 */, yago5_8_s1_1a5347806641de21 as (select yago5_8.s as v16,yago5_8.d as v14 from yago5 yago5_8), yago2_7_s1_1a5347806641de21 as (select yago2_7.s as v12,yago2_7.d as v14 from yago2 yago2_7), yago2_6_s1_1a5347806641de21 as (select yago2_6.d as v10,yago2_6.s as v12 from yago2 yago2_6), yago2_5_s1_1a5347806641de21 as (select yago2_5.d as v10,yago2_5.s as v8 from yago2 yago2_5), yago2_4_s1_1a5347806641de21 as (select yago2_4.d as v6,yago2_4.s as v8 from yago2 yago2_4), yago0_s1_1a5347806641de21 as (select yago0.s as v6,yago0.d as v0 from yago0), yago3_s1_1a5347806641de21 as (select yago3.d as v0 from yago3), yago5_9_s1_1a5347806641de21 as (select yago5_9.s as v16,yago5_9.d as v18 from yago5 yago5_9), yago22_s1_1a5347806641de21 as (select yago22.d as v18,yago22.s as v20 from yago22), yago35_10_s1_1a5347806641de21 as (select yago35_10.d as v4,yago35_10.s as v20 from yago35 yago35_10), yago35_1_s1_1a5347806641de21 as (select yago35_1.s as v2,yago35_1.d as v4 from yago35 yago35_1), yago36_s1_1a5347806641de21 as (select yago36.s as v2 from yago36) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_310A3F3CB84C8557 as  (select * from umbra.identity(table(yago5_9_s1_1a5347806641de21)) NATURAL JOIN umbra.identity(table(yago22_s1_1a5347806641de21)) NATURAL JOIN umbra.identity(table(yago35_10_s1_1a5347806641de21)) NATURAL JOIN umbra.identity(table(yago35_1_s1_1a5347806641de21)) NATURAL JOIN umbra.identity(table(yago36_s1_1a5347806641de21))), s4_group_54EA236D45623500 as  (select * from umbra.identity(table(yago2_7_s1_1a5347806641de21)) NATURAL JOIN umbra.identity(table(yago2_6_s1_1a5347806641de21)) NATURAL JOIN umbra.identity(table(yago2_5_s1_1a5347806641de21)) NATURAL JOIN umbra.identity(table(yago2_4_s1_1a5347806641de21)) NATURAL JOIN umbra.identity(table(yago0_s1_1a5347806641de21)) NATURAL JOIN umbra.identity(table(yago3_s1_1a5347806641de21))), s4_group_4FCBFC39F42E1A77 as  (select * from umbra.identity(table(yago5_8_s1_1a5347806641de21)))select count(*) from umbra.identity(table(s4_group_310A3F3CB84C8557)) natural join umbra.identity(table(s4_group_54EA236D45623500)) natural join umbra.identity(table(s4_group_4FCBFC39F42E1A77));
+\set queryname yago_acyclic_Chain_12_09
+-- Result size: 499
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago36_0 [label="yago36_0|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago35_2 [label="yago35_2|<s> s|<d> d"]; yago35_3 [label="yago35_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_6 [label="yago17_6|<s> s|<d> d"]; yago46_7 [label="yago46_7|<s> s|<d> d"]; yago46_8 [label="yago46_8|<s> s|<d> d"]; yago17_9 [label="yago17_9|<s> s|<d> d"]; yago17_10 [label="yago17_10|<s> s|<d> d"]; yago36_11 [label="yago36_11|<s> s|<d> d"]; yago36_0:d -> yago35_3:d;yago23:s -> yago35_2:s;yago23:d -> yago36_11:d;yago35_3:s -> yago17_4:d;yago17_4:s -> yago17_5:s;yago17_5:d -> yago17_6:s;yago17_6:d -> yago46_7:s;yago46_7:d -> yago46_8:d;yago46_8:s -> yago17_9:s;yago17_9:d -> yago17_10:s;yago17_10:d -> yago36_11:s;}
+--                                   +----------+------------+------------+
+--                                   | yago17_9 |      s     |      d     |
+--                                   +----------+------------+------------+
+--                                                 |            |
+--   +---------------------------------------------+            |
+--   |                                                          |
+--   |                                           +-----------+------------+----+
+--   |                                           | yago17_10 |      s     |  d |
+--   |                                           +-----------+------------+----+
+--   |                                                                       |
+--   |                                                                       |
+--   |                                                                       |
+--   |                                                        +-----------+----+----+
+--   |                                                        | yago36_11 |  s |  d | -+
+--   |                                                        +-----------+----+----+  |
+--   |                                                                                 |
+--   |                +-----------------------------------------+                      |
+--   |                |                                         |                      |
+--   |  +----------+-----------+----+-----------+------------+------------+            |
+--   |  | yago35_3 |     s     |  d |  yago17_4 |      s     |      d     |            |
+--   |  +----------+-----------+----+-----------+------------+------------+            |
+--   |                            |                |                                   |
+--   |                            |                |                                   |
+--   |                            |                |                                   |
+--   |                            |  +----------+------------+------------+            |
+--   |                            |  | yago17_5 |      s     |      d     |            |
+--   |                            |  +----------+------------+------------+            |
+--   |                            |                             |                      |
+--   |                            |                             |                      |
+--   |                            |                             |                      |
+--   |  +----------+-----------+----+            +-----------+------------+----+       |
+--   |  | yago36_0 |     s     |  d |            | yago17_6  |      s     |  d |       |
+--   |  +----------+-----------+----+            +-----------+------------+----+       |
+--   |                                                                       |         |
+--   +----------------------------+                                          |         |
+--                                |                                          |         |
+--                  +----------+----+-----------+             +-----------+----+----+  |
+--                  | yago46_8 |  s |     d     |             | yago46_7  |  s |  d |  |
+--                  +----------+----+-----------+             +-----------+----+----+  |
+--                                     |                                          |    |
+--                                     +------------------------------------------+    |
+--                                                                                     |
+--                                   +----------+------------+------------+            |
+--                                   |  yago23  |      s     |      d     | -----------+
+--                                   +----------+------------+------------+
+--                                                 |
+--                                                 |
+--                                                 |
+--                                   +----------+------------+------------+
+--                                   | yago35_2 |      s     |      d     |
+--                                   +----------+------------+------------+
+with dummy as (select) /* stage1 */, yago46_8_s1_1b7154806641de21 as (select yago46_8.s as v16,yago46_8.d as v14 from yago46 yago46_8), yago46_7_s1_1b7154806641de21 as (select yago46_7.s as v12,yago46_7.d as v14 from yago46 yago46_7), yago17_6_s1_1b7154806641de21 as (select yago17_6.d as v12,yago17_6.s as v10 from yago17 yago17_6), yago17_5_s1_1b7154806641de21 as (select yago17_5.d as v10,yago17_5.s as v8 from yago17 yago17_5), yago17_4_s1_1b7154806641de21 as (select yago17_4.d as v6,yago17_4.s as v8 from yago17 yago17_4), yago35_3_s1_1b7154806641de21 as (select yago35_3.d as v0,yago35_3.s as v6 from yago35 yago35_3), yago36_0_s1_1b7154806641de21 as (select yago36_0.d as v0 from yago36 yago36_0), yago17_9_s1_1b7154806641de21 as (select yago17_9.s as v16,yago17_9.d as v18 from yago17 yago17_9), yago17_10_s1_1b7154806641de21 as (select yago17_10.d as v20,yago17_10.s as v18 from yago17 yago17_10), yago36_11_s1_1b7154806641de21 as (select yago36_11.d as v4,yago36_11.s as v20 from yago36 yago36_11), yago23_s1_1b7154806641de21 as (select yago23.d as v4,yago23.s as v2 from yago23), yago35_2_s1_1b7154806641de21 as (select yago35_2.s as v2 from yago35 yago35_2) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_1367E74026D8E0D0 as  (select * from umbra.identity(table(yago17_9_s1_1b7154806641de21)) NATURAL JOIN umbra.identity(table(yago17_10_s1_1b7154806641de21)) NATURAL JOIN umbra.identity(table(yago36_11_s1_1b7154806641de21)) NATURAL JOIN umbra.identity(table(yago23_s1_1b7154806641de21)) NATURAL JOIN umbra.identity(table(yago35_2_s1_1b7154806641de21))), s4_group_138FFD10738FCA94 as  (select * from umbra.identity(table(yago46_7_s1_1b7154806641de21)) NATURAL JOIN umbra.identity(table(yago17_6_s1_1b7154806641de21)) NATURAL JOIN umbra.identity(table(yago17_5_s1_1b7154806641de21)) NATURAL JOIN umbra.identity(table(yago17_4_s1_1b7154806641de21)) NATURAL JOIN umbra.identity(table(yago35_3_s1_1b7154806641de21)) NATURAL JOIN umbra.identity(table(yago36_0_s1_1b7154806641de21))), s4_group_2AF1B601D8087A95 as  (select * from umbra.identity(table(yago46_8_s1_1b7154806641de21)))select count(*) from umbra.identity(table(s4_group_1367E74026D8E0D0)) natural join umbra.identity(table(s4_group_138FFD10738FCA94)) natural join umbra.identity(table(s4_group_2AF1B601D8087A95));
+\set queryname yago_acyclic_Chain_12_10
+-- Result size: 2
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago36_9 [label="yago36_9|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago36_11 [label="yago36_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_4:d;yago50:s -> yago58:s;yago50:d -> yago35:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago22:d;yago22:s -> yago23:s;yago23:d -> yago17:s;yago17:d -> yago36_9:s;yago36_9:d -> yago36_11:d;yago35:s -> yago36_11:s;}
+--                   +--------+-----------+----+
+--                   | yago17 |     s     |  d |
+--                   +--------+-----------+----+
+--                               |           |
+--                     +---------+           |
+--                     |                     |
+--                     |       +----------+----+----+
+--                     |       | yago36_9 |  s |  d | ------+
+--                     |       +----------+----+----+       |
+--                     |                                    |
+--                     +--------------------------+         |
+--                                                |         |
+--      +-----------+---------+-----------+       |         |
+--      |  yago22   |    s    |     d     | ------+----+    |
+--      +-----------+---------+-----------+       |    |    |
+--                     |                          |    |    |
+--                     |                          |    |    |
+--                     |                          |    |    |
+--      +-----------+---------+-----------+       |    |    |
+--      |  yago23   |    s    |     d     | ------+    |    |
+--      +-----------+---------+-----------+            |    |
+--      +-----------+---------+-----------+            |    |
+--      |  yago2_0  |    s    |     d     |            |    |
+--      +-----------+---------+-----------+            |    |
+--                     |                               |    |
+--                     |                               |    |
+--                     |                               |    |
+--      +-----------+---------+-----------+            |    |
+--      |  yago2_1  |    s    |     d     |            |    |
+--      +-----------+---------+-----------+            |    |
+--                               |                     |    |
+--                               |                     |    |
+--                               |                     |    |
+--      +-----------+---------+-----------+            |    |
+--      |  yago2_4  |    s    |     d     |            |    |
+--      +-----------+---------+-----------+            |    |
+--                     |                               |    |
+--                     |                               |    |
+--                     |                               |    |
+--      +-----------+---------+-----------+            |    |
+--      |  yago2_5  |    s    |     d     | -----------+    |
+--      +-----------+---------+-----------+                 |
+--                                                          |
+--   +---------------------------+                          |
+--   |                           |                          |
+--   |  +-----------+---------+-----------+                 |
+--   |  |  yago35   |    s    |     d     |                 |
+--   |  +-----------+---------+-----------+                 |
+--   |                 |                                    |
+--   |                 |                                    |
+--   |                 |                                    |
+--   |  +-----------+---------+-----------+                 |
+--   |  | yago36_11 |    s    |     d     | ----------------+
+--   |  +-----------+---------+-----------+
+--   |
+--   +---------------------------+
+--                               |
+--      +-----------+---------+-----------+
+--      |  yago50   |    s    |     d     |
+--      +-----------+---------+-----------+
+--                     |
+--                     |
+--                     |
+--      +-----------+---------+-----------+
+--      |  yago58   |    s    |     d     |
+--      +-----------+---------+-----------+
+with dummy as (select) /* stage1 */, yago23_s1_1cd523006641de21 as (select yago23.s as v12,yago23.d as v14 from yago23), yago17_s1_1cd523006641de21 as (select yago17.d as v16,yago17.s as v14 from yago17), yago36_9_s1_1cd523006641de21 as (select yago36_9.s as v16,yago36_9.d as v18 from yago36 yago36_9), yago36_11_s1_1cd523006641de21 as (select yago36_11.d as v18,yago36_11.s as v20 from yago36 yago36_11), yago35_s1_1cd523006641de21 as (select yago35.d as v6,yago35.s as v20 from yago35), yago50_s1_1cd523006641de21 as (select yago50.s as v4,yago50.d as v6 from yago50), yago58_s1_1cd523006641de21 as (select yago58.s as v4 from yago58), yago22_s1_1cd523006641de21 as (select yago22.s as v12,yago22.d as v10 from yago22), yago2_5_s1_1cd523006641de21 as (select yago2_5.s as v8,yago2_5.d as v10 from yago2 yago2_5), yago2_4_s1_1cd523006641de21 as (select yago2_4.s as v8,yago2_4.d as v2 from yago2 yago2_4), yago2_1_s1_1cd523006641de21 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_1cd523006641de21 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_330281E003A73163 as  (select * from umbra.identity(table(yago22_s1_1cd523006641de21)) NATURAL JOIN umbra.identity(table(yago2_5_s1_1cd523006641de21)) NATURAL JOIN umbra.identity(table(yago2_4_s1_1cd523006641de21)) NATURAL JOIN umbra.identity(table(yago2_1_s1_1cd523006641de21)) NATURAL JOIN umbra.identity(table(yago2_0_s1_1cd523006641de21))), s4_group_3A27F6D38AA53D07 as  (select * from umbra.identity(table(yago17_s1_1cd523006641de21)) NATURAL JOIN umbra.identity(table(yago36_9_s1_1cd523006641de21)) NATURAL JOIN umbra.identity(table(yago36_11_s1_1cd523006641de21)) NATURAL JOIN umbra.identity(table(yago35_s1_1cd523006641de21)) NATURAL JOIN umbra.identity(table(yago50_s1_1cd523006641de21)) NATURAL JOIN umbra.identity(table(yago58_s1_1cd523006641de21))), s4_group_1564F59389A5A909 as  (select * from umbra.identity(table(yago23_s1_1cd523006641de21)))select count(*) from umbra.identity(table(s4_group_330281E003A73163)) natural join umbra.identity(table(s4_group_3A27F6D38AA53D07)) natural join umbra.identity(table(s4_group_1564F59389A5A909));
+\set queryname yago_acyclic_Chain_12_11
+-- Result size: 22
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago1 [label="yago1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago53_6 [label="yago53_6|<s> s|<d> d"]; yago53_7 [label="yago53_7|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago17_10 [label="yago17_10|<s> s|<d> d"]; yago17_11 [label="yago17_11|<s> s|<d> d"]; yago1:d -> yago0:d;yago5:s -> yago22:s;yago5:d -> yago17_10:d;yago0:s -> yago17_4:d;yago17_4:s -> yago36:s;yago36:d -> yago53_6:d;yago53_6:s -> yago53_7:s;yago53_7:d -> yago35:d;yago35:s -> yago21:s;yago21:d -> yago17_11:d;yago17_10:s -> yago17_11:s;}
+--   +---------------------+
+--   |                     |
+--   |  +----------+----+----+             +-------+----+----+
+--   |  | yago53_7 |  s |  d |             | yago1 |  s |  d |
+--   |  +----------+----+----+             +-------+----+----+
+--   |                |                                    |
+--   |                |                                    |
+--   |                |                                    |
+--   |  +----------+----+----+             +-------+----+----+
+--   |  | yago53_6 |  s |  d |             | yago0 |  s |  d |
+--   |  +----------+----+----+             +-------+----+----+
+--   |                     |                          |
+--   |                     |                          |
+--   |                     |                          |
+--   |  +----------+----+----++-----------+--------+----+
+--   |  |  yago36  |  s |  d || yago17_4  |    s   |  d |
+--   |  +----------+----+----++-----------+--------+----+
+--   |                |                      |
+--   |                +----------------------+
+--   |
+--   |                        +-----------+--------+----+
+--   |                        | yago17_10 |    s   |  d | ------+
+--   |                        +-----------+--------+----+       |
+--   |                                       |                  |
+--   |                                       |                  |
+--   |                                       |                  |
+--   |                        +-----------+--------+----+       |
+--   |                        | yago17_11 |    s   |  d |       |
+--   |                        +-----------+--------+----+       |
+--   |                                                |         |
+--   |                                                |         |
+--   |                                                |         |
+--   |                        +-----------+--------+----+       |
+--   |                        |  yago21   |    s   |  d |       |
+--   |                        +-----------+--------+----+       |
+--   |                                       |                  |
+--   |                                       |                  |
+--   |                                       |                  |
+--   |                        +-----------+--------+----+       |
+--   |                        |  yago35   |    s   |  d |       |
+--   |                        +-----------+--------+----+       |
+--   |                                                |         |
+--   +------------------------------------------------+         |
+--                                                              |
+--                            +-----------+--------+----+       |
+--                            |   yago5   |    s   |  d | ------+
+--                            +-----------+--------+----+
+--                                           |
+--                                           |
+--                                           |
+--                            +-----------+--------+----+
+--                            |  yago22   |    s   |  d |
+--                            +-----------+--------+----+
+with dummy as (select) /* stage1 */, yago53_7_s1_1e7526806641de21 as (select yago53_7.d as v14,yago53_7.s as v12 from yago53 yago53_7), yago35_s1_1e7526806641de21 as (select yago35.d as v14,yago35.s as v16 from yago35), yago21_s1_1e7526806641de21 as (select yago21.s as v16,yago21.d as v18 from yago21), yago17_11_s1_1e7526806641de21 as (select yago17_11.d as v18,yago17_11.s as v20 from yago17 yago17_11), yago17_10_s1_1e7526806641de21 as (select yago17_10.d as v4,yago17_10.s as v20 from yago17 yago17_10), yago5_s1_1e7526806641de21 as (select yago5.s as v2,yago5.d as v4 from yago5), yago22_s1_1e7526806641de21 as (select yago22.s as v2 from yago22), yago53_6_s1_1e7526806641de21 as (select yago53_6.d as v10,yago53_6.s as v12 from yago53 yago53_6), yago36_s1_1e7526806641de21 as (select yago36.s as v8,yago36.d as v10 from yago36), yago17_4_s1_1e7526806641de21 as (select yago17_4.s as v8,yago17_4.d as v6 from yago17 yago17_4), yago0_s1_1e7526806641de21 as (select yago0.d as v0,yago0.s as v6 from yago0), yago1_s1_1e7526806641de21 as (select yago1.d as v0 from yago1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_3E28C4F923BC1F5A as  (select * from umbra.identity(table(yago53_6_s1_1e7526806641de21)) NATURAL JOIN umbra.identity(table(yago36_s1_1e7526806641de21)) NATURAL JOIN umbra.identity(table(yago17_4_s1_1e7526806641de21)) NATURAL JOIN umbra.identity(table(yago0_s1_1e7526806641de21)) NATURAL JOIN umbra.identity(table(yago1_s1_1e7526806641de21))), s4_group_292D51175C91F7A4 as  (select * from umbra.identity(table(yago35_s1_1e7526806641de21)) NATURAL JOIN umbra.identity(table(yago21_s1_1e7526806641de21)) NATURAL JOIN umbra.identity(table(yago17_11_s1_1e7526806641de21)) NATURAL JOIN umbra.identity(table(yago17_10_s1_1e7526806641de21)) NATURAL JOIN umbra.identity(table(yago5_s1_1e7526806641de21)) NATURAL JOIN umbra.identity(table(yago22_s1_1e7526806641de21))), s4_group_5FA10CEF0EDBABDF as  (select * from umbra.identity(table(yago53_7_s1_1e7526806641de21)))select count(*) from umbra.identity(table(s4_group_3E28C4F923BC1F5A)) natural join umbra.identity(table(s4_group_292D51175C91F7A4)) natural join umbra.identity(table(s4_group_5FA10CEF0EDBABDF));
+\set queryname yago_acyclic_Chain_12_12
+-- Result size: 36
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago48 [label="yago48|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago21_5 [label="yago21_5|<s> s|<d> d"]; yago21_6 [label="yago21_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago21_5:d;yago48:s -> yago36:s;yago48:d -> yago2_4:d;yago36:d -> yago39:d;yago21_5:s -> yago21_6:s;yago21_6:d -> yago2_7:d;yago2_7:s -> yago2_8:s;yago2_8:d -> yago2_9:d;yago2_9:s -> yago2_10:s;yago2_10:d -> yago39:s;}
+--                                             +----------+----+----+
+--                                             | yago21_5 |  s |  d | -+
+--                                             +----------+----+----+  |
+--                                                           |         |
+--                                                           |         |
+--                                                           |         |
+--      +---------+----+-----------+           +----------+----+----+  |
+--      | yago2_9 |  s |     d     |           | yago21_6 |  s |  d |  |
+--      +---------+----+-----------+           +----------+----+----+  |
+--                   |    |                                       |    |
+--   +---------------+    |                                       |    |
+--   |                    |                                       |    |
+--   |  +---------+----+-----------+           +----------+----+----+  |
+--   |  | yago2_8 |  s |     d     |           | yago2_7  |  s |  d |  |
+--   |  +---------+----+-----------+           +----------+----+----+  |
+--   |               |                                       |         |
+--   |               +---------------------------------------+    +----+
+--   |                                                            |
+--   |                              +---------+-----------+----+  |
+--   |                              | yago2_0 |     s     |  d |  |
+--   |                              +---------+-----------+----+  |
+--   |                                           |                |
+--   |                                           |                |
+--   |                                           |                |
+--   |                              +---------+-----------+----+  |
+--   |                              | yago2_1 |     s     |  d | -+
+--   |                              +---------+-----------+----+
+--   |
+--   +--------------------------------+
+--                                    |
+--                      +----------+----------+-----------+
+--                      | yago2_10 |     s    |     d     |
+--                      +----------+----------+-----------+
+--                                               |
+--                                               |
+--                                               |
+--                                  +---------+-----------+----+
+--                                  | yago39  |     s     |  d |
+--                                  +---------+-----------+----+
+--                                                           |
+--                                                           |
+--                                                           |
+--                                  +---------+-----------+----+
+--                                  | yago36  |     s     |  d |
+--                                  +---------+-----------+----+
+--                                               |
+--                                               |
+--                                               |
+--                                  +---------+-----------+----+
+--                                  | yago48  |     s     |  d |
+--                                  +---------+-----------+----+
+--                                                           |
+--                                                           |
+--                                                           |
+--                                  +---------+-----------+----+
+--                                  | yago2_4 |     s     |  d |
+--                                  +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago2_9_s1_1f0f87006641de21 as (select yago2_9.s as v18,yago2_9.d as v16 from yago2 yago2_9), yago2_8_s1_1f0f87006641de21 as (select yago2_8.d as v16,yago2_8.s as v14 from yago2 yago2_8), yago2_7_s1_1f0f87006641de21 as (select yago2_7.d as v12,yago2_7.s as v14 from yago2 yago2_7), yago21_6_s1_1f0f87006641de21 as (select yago21_6.d as v12,yago21_6.s as v10 from yago21 yago21_6), yago21_5_s1_1f0f87006641de21 as (select yago21_5.s as v10,yago21_5.d as v2 from yago21 yago21_5), yago2_1_s1_1f0f87006641de21 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_1f0f87006641de21 as (select yago2_0.s as v0 from yago2 yago2_0), yago2_10_s1_1f0f87006641de21 as (select yago2_10.d as v20,yago2_10.s as v18 from yago2 yago2_10), yago39_s1_1f0f87006641de21 as (select yago39.s as v20,yago39.d as v8 from yago39), yago36_s1_1f0f87006641de21 as (select yago36.s as v4,yago36.d as v8 from yago36), yago48_s1_1f0f87006641de21 as (select yago48.s as v4,yago48.d as v6 from yago48), yago2_4_s1_1f0f87006641de21 as (select yago2_4.d as v6 from yago2 yago2_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5658CDCACDBEAB17 as  (select * from umbra.identity(table(yago2_10_s1_1f0f87006641de21)) NATURAL JOIN umbra.identity(table(yago39_s1_1f0f87006641de21)) NATURAL JOIN umbra.identity(table(yago36_s1_1f0f87006641de21)) NATURAL JOIN umbra.identity(table(yago48_s1_1f0f87006641de21)) NATURAL JOIN umbra.identity(table(yago2_4_s1_1f0f87006641de21))), s4_group_5B717FED080303D4 as  (select * from umbra.identity(table(yago2_8_s1_1f0f87006641de21)) NATURAL JOIN umbra.identity(table(yago2_7_s1_1f0f87006641de21)) NATURAL JOIN umbra.identity(table(yago21_6_s1_1f0f87006641de21)) NATURAL JOIN umbra.identity(table(yago21_5_s1_1f0f87006641de21)) NATURAL JOIN umbra.identity(table(yago2_1_s1_1f0f87006641de21)) NATURAL JOIN umbra.identity(table(yago2_0_s1_1f0f87006641de21))), s4_group_2E406E82B58399B5 as  (select * from umbra.identity(table(yago2_9_s1_1f0f87006641de21)))select count(*) from umbra.identity(table(s4_group_5658CDCACDBEAB17)) natural join umbra.identity(table(s4_group_5B717FED080303D4)) natural join umbra.identity(table(s4_group_2E406E82B58399B5));
+\set queryname yago_acyclic_Chain_12_13
+-- Result size: 694
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago3 [label="yago3|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago39_2 [label="yago39_2|<s> s|<d> d"]; yago62 [label="yago62|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago21_5 [label="yago21_5|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago39_7 [label="yago39_7|<s> s|<d> d"]; yago36_8 [label="yago36_8|<s> s|<d> d"]; yago21_9 [label="yago21_9|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago36_11 [label="yago36_11|<s> s|<d> d"]; yago3:d -> yago1:d;yago5:s -> yago39_2:s;yago5:d -> yago62:s;yago39_2:d -> yago36_11:d;yago1:s -> yago21_5:s;yago21_5:d -> yago13:d;yago13:s -> yago39_7:s;yago39_7:d -> yago36_8:d;yago36_8:s -> yago21_9:s;yago21_9:d -> yago22:d;yago22:s -> yago36_11:s;}
+--                                                +----------+----+----+
+--                                                |  yago3   |  s |  d |
+--                                                +----------+----+----+
+--                                                                   |
+--                                                                   |
+--                                                                   |
+--                                                +----------+----+----+
+--                                                |  yago1   |  s |  d |
+--                                                +----------+----+----+
+--                                                              |
+--                                                              |
+--                                                              |
+--                                                +----------+----+----+
+--                                                | yago21_5 |  s |  d |
+--                                                +----------+----+----+
+--                                                                   |
+--                                                                   |
+--                                                                   |
+--                                    +----------+-----------+----+  |
+--                                    |  yago13  |     s     |  d | -+
+--                                    +----------+-----------+----+
+--                                                  |
+--                                                  |
+--                                                  |
+--                                    +----------+-----------+----+
+--                                    | yago39_7 |     s     |  d |
+--                                    +----------+-----------+----+
+--                                                              |
+--                    +-----------------------------------------+
+--                    |
+-- +----------+----+----++-----------+-----------+-----------+
+-- | yago36_8 |  s |  d || yago21_9  |     s     |     d     |
+-- +----------+----+----++-----------+-----------+-----------+
+--               |                      |           |
+--               +----------------------+           |
+--                                                  |
+--                       +-----------+-----------+-----------+
+--                       |  yago22   |     s     |     d     |
+--                       +-----------+-----------+-----------+
+--                                      |
+--                                      |
+--                                      |
+--                       +-----------+-----------+-----------+
+--                       | yago36_11 |     s     |     d     |
+--                       +-----------+-----------+-----------+
+--                                                  |
+--                                                  |
+--                                                  |
+--                       +-----------+-----------+-----------+
+--                       | yago39_2  |     s     |     d     |
+--                       +-----------+-----------+-----------+
+--                                      |
+--                                      |
+--                                      |
+--                       +-----------+-----------+-----------+
+--                       |   yago5   |     s     |     d     |
+--                       +-----------+-----------+-----------+
+--                                                  |
+--                                                  |
+--                                                  |
+--                                    +----------+-----------+----+
+--                                    |  yago62  |     s     |  d |
+--                                    +----------+-----------+----+
+with dummy as (select) /* stage1 */, yago36_8_s1_1f120f006641de21 as (select yago36_8.d as v14,yago36_8.s as v16 from yago36 yago36_8), yago21_9_s1_1f120f006641de21 as (select yago21_9.d as v18,yago21_9.s as v16 from yago21 yago21_9), yago22_s1_1f120f006641de21 as (select yago22.d as v18,yago22.s as v20 from yago22), yago36_11_s1_1f120f006641de21 as (select yago36_11.d as v6,yago36_11.s as v20 from yago36 yago36_11), yago39_2_s1_1f120f006641de21 as (select yago39_2.d as v6,yago39_2.s as v2 from yago39 yago39_2), yago5_s1_1f120f006641de21 as (select yago5.d as v4,yago5.s as v2 from yago5), yago62_s1_1f120f006641de21 as (select yago62.s as v4 from yago62), yago39_7_s1_1f120f006641de21 as (select yago39_7.d as v14,yago39_7.s as v12 from yago39 yago39_7), yago13_s1_1f120f006641de21 as (select yago13.d as v10,yago13.s as v12 from yago13), yago21_5_s1_1f120f006641de21 as (select yago21_5.s as v8,yago21_5.d as v10 from yago21 yago21_5), yago1_s1_1f120f006641de21 as (select yago1.s as v8,yago1.d as v0 from yago1), yago3_s1_1f120f006641de21 as (select yago3.d as v0 from yago3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6783619AFB5930B as  (select * from umbra.identity(table(yago39_7_s1_1f120f006641de21)) NATURAL JOIN umbra.identity(table(yago13_s1_1f120f006641de21)) NATURAL JOIN umbra.identity(table(yago21_5_s1_1f120f006641de21)) NATURAL JOIN umbra.identity(table(yago1_s1_1f120f006641de21)) NATURAL JOIN umbra.identity(table(yago3_s1_1f120f006641de21))), s4_group_770BD69A92D93F76 as  (select * from umbra.identity(table(yago21_9_s1_1f120f006641de21)) NATURAL JOIN umbra.identity(table(yago22_s1_1f120f006641de21)) NATURAL JOIN umbra.identity(table(yago36_11_s1_1f120f006641de21)) NATURAL JOIN umbra.identity(table(yago39_2_s1_1f120f006641de21)) NATURAL JOIN umbra.identity(table(yago5_s1_1f120f006641de21)) NATURAL JOIN umbra.identity(table(yago62_s1_1f120f006641de21))), s4_group_3C89A890D835212A as  (select * from umbra.identity(table(yago36_8_s1_1f120f006641de21)))select count(*) from umbra.identity(table(s4_group_6783619AFB5930B)) natural join umbra.identity(table(s4_group_770BD69A92D93F76)) natural join umbra.identity(table(s4_group_3C89A890D835212A));
+\set queryname yago_acyclic_Chain_12_14
+-- Result size: 16814
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5 [label="yago5|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago2 [label="yago2|<s> s|<d> d"]; yago21_3 [label="yago21_3|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago36_5 [label="yago36_5|<s> s|<d> d"]; yago44 [label="yago44|<s> s|<d> d"]; yago36_7 [label="yago36_7|<s> s|<d> d"]; yago36_8 [label="yago36_8|<s> s|<d> d"]; yago21_9 [label="yago21_9|<s> s|<d> d"]; yago17_10 [label="yago17_10|<s> s|<d> d"]; yago17_11 [label="yago17_11|<s> s|<d> d"]; yago5:d -> yago21_3:d;yago17_1:s -> yago17_11:d;yago17_1:d -> yago2:d;yago21_3:s -> yago39:s;yago39:d -> yago36_5:d;yago36_5:s -> yago44:d;yago44:s -> yago36_7:s;yago36_7:d -> yago36_8:d;yago36_8:s -> yago21_9:s;yago21_9:d -> yago17_10:s;yago17_10:d -> yago17_11:s;}
+--                                                          +----------+----+----+
+--                                                          |  yago2   |  s |  d |
+--                                                          +----------+----+----+
+--                                                                             |
+--                                                                             |
+--                                                                             |
+--                                                          +----------+----+----+
+--                                                          | yago17_1 |  s |  d |
+--                                                          +----------+----+----+
+--                                                                        |
+--                                                                        |
+--                                                                        |
+--                                             +-----------+-----------+----+
+--                                             | yago17_11 |     s     |  d |
+--                                             +-----------+-----------+----+
+--                                                            |
+--                                                            |
+--                                                            |
+-- +----------+----+---+          +-----------+------------+-----------+
+-- | yago21_9 |  s | d | ------+  | yago17_10 |      s     |     d     |
+-- +----------+----+---+       |  +-----------+------------+-----------+
+--               |             |                 |
+--               |             +-----------------+
+--               |
+--               |                             +-----------+-----------+----+     +-------+---+----+
+--               |                             | yago21_3  |     s     |  d |     | yago5 | s |  d |
+--               |                             +-----------+-----------+----+     +-------+---+----+
+--               |                                            |           |                      |
+--               |                                            |           +----------------------+
+--               |                                            |
+--               |                             +-----------+-----------+----+
+--               |                             |  yago39   |     s     |  d |
+--               |                             +-----------+-----------+----+
+--               |                                                        |
+--               |                                                        |
+--               |                                                        |
+--               |                             +-----------+-----------+----+
+--               |                             | yago36_5  |     s     |  d |
+--               |                             +-----------+-----------+----+
+--               |                                            |
+--               |                                            |
+--               |                                            |
+--               |                +-----------+------------+-----------+
+--               |                |  yago44   |      s     |     d     |
+--               |                +-----------+------------+-----------+
+--               |                               |
+--               |                               |
+--               |                               |
+--               |                +-----------+------------+-----------+
+--               |                | yago36_7  |      s     |     d     |
+--               |                +-----------+------------+-----------+
+--               |                                            |
+--               +-------------------------------+            |
+--                                               |            |
+--                                +-----------+------------+-----------+
+--                                | yago36_8  |      s     |     d     |
+--                                +-----------+------------+-----------+
+with dummy as (select) /* stage1 */, yago36_8_s1_194cd006641de22 as (select yago36_8.s as v16,yago36_8.d as v14 from yago36 yago36_8), yago36_7_s1_194cd006641de22 as (select yago36_7.s as v12,yago36_7.d as v14 from yago36 yago36_7), yago44_s1_194cd006641de22 as (select yago44.s as v12,yago44.d as v10 from yago44), yago36_5_s1_194cd006641de22 as (select yago36_5.s as v10,yago36_5.d as v8 from yago36 yago36_5), yago39_s1_194cd006641de22 as (select yago39.s as v6,yago39.d as v8 from yago39), yago21_3_s1_194cd006641de22 as (select yago21_3.s as v6,yago21_3.d as v0 from yago21 yago21_3), yago5_s1_194cd006641de22 as (select yago5.d as v0 from yago5), yago21_9_s1_194cd006641de22 as (select yago21_9.d as v18,yago21_9.s as v16 from yago21 yago21_9), yago17_10_s1_194cd006641de22 as (select yago17_10.d as v20,yago17_10.s as v18 from yago17 yago17_10), yago17_11_s1_194cd006641de22 as (select yago17_11.s as v20,yago17_11.d as v2 from yago17 yago17_11), yago17_1_s1_194cd006641de22 as (select yago17_1.s as v2,yago17_1.d as v4 from yago17 yago17_1), yago2_s1_194cd006641de22 as (select yago2.d as v4 from yago2) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_35D65888BCD360F4 as  (select * from umbra.identity(table(yago21_9_s1_194cd006641de22)) NATURAL JOIN umbra.identity(table(yago17_10_s1_194cd006641de22)) NATURAL JOIN umbra.identity(table(yago17_11_s1_194cd006641de22)) NATURAL JOIN umbra.identity(table(yago17_1_s1_194cd006641de22)) NATURAL JOIN umbra.identity(table(yago2_s1_194cd006641de22))), s4_group_2FFDE61A973123F7 as  (select * from umbra.identity(table(yago36_7_s1_194cd006641de22)) NATURAL JOIN umbra.identity(table(yago44_s1_194cd006641de22)) NATURAL JOIN umbra.identity(table(yago36_5_s1_194cd006641de22)) NATURAL JOIN umbra.identity(table(yago39_s1_194cd006641de22)) NATURAL JOIN umbra.identity(table(yago21_3_s1_194cd006641de22)) NATURAL JOIN umbra.identity(table(yago5_s1_194cd006641de22))), s4_group_20F74C706A68C1E8 as  (select * from umbra.identity(table(yago36_8_s1_194cd006641de22)))select count(*) from umbra.identity(table(s4_group_35D65888BCD360F4)) natural join umbra.identity(table(s4_group_2FFDE61A973123F7)) natural join umbra.identity(table(s4_group_20F74C706A68C1E8));
+\set queryname yago_acyclic_Chain_12_15
+-- Result size: 2130
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago37 [label="yago37|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago37:s -> yago2_4:d;yago2_1:s -> yago2_2:s;yago2_1:d -> yago2_3:d;yago2_2:d -> yago2_11:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago2_6:d;yago2_6:s -> yago2_7:s;yago2_7:d -> yago2_8:d;yago2_8:s -> yago2_9:s;yago2_9:d -> yago2_10:d;yago2_10:s -> yago2_11:s;}
+--                                +---------+----+----+
+--                                | yago2_3 |  s |  d |
+--                                +---------+----+----+
+--                                                  |
+--                                                  |
+--                                                  |
+--                                +---------+----+----+
+--                                | yago2_1 |  s |  d |
+--                                +---------+----+----+
+--                                             |
+--                                             |
+--                                             |
+--                                +---------+----+----+
+--                                | yago2_2 |  s |  d |
+--                                +---------+----+----+
+--                                                  |
+--                                                  |
+--                                                  |
+--                    +----------+----------+----+  |
+--                    | yago2_10 |     s    |  d | -+----+
+--                    +----------+----------+----+  |    |
+--                                  |               |    |
+--                                  |               |    |
+--                                  |               |    |
+--                    +----------+----------+----+  |    |
+--                    | yago2_11 |     s    |  d | -+    |
+--                    +----------+----------+----+       |
+--                                                       |
+--             +-------------------------------+         |
+--             |                               |         |
+-- +--------+----+---+-----------+----------+----+       |
+-- | yago37 |  s | d |  yago2_4  |     s    |  d |       |
+-- +--------+----+---+-----------+----------+----+       |
+--                                  |                    |
+--                                  |                    |
+--                                  |                    |
+--                    +----------+----------+----+       |
+--                    | yago2_5  |     s    |  d |       |
+--                    +----------+----------+----+       |
+--                                             |         |
+--                                             |         |
+--                                             |         |
+--                    +----------+----------+----+       |
+--                    | yago2_6  |     s    |  d |       |
+--                    +----------+----------+----+       |
+--                                  |                    |
+--                                  |                    |
+--                                  |                    |
+--                    +----------+----------+----+       |
+--                    | yago2_7  |     s    |  d |       |
+--                    +----------+----------+----+       |
+--                                             |         |
+--                                             |         |
+--                                             |         |
+--                    +----------+----------+----+       |
+--                    | yago2_8  |     s    |  d |       |
+--                    +----------+----------+----+       |
+--                                  |                    |
+--                                  |                    |
+--                                  |                    |
+--                    +----------+----------+----+       |
+--                    | yago2_9  |     s    |  d | ------+
+--                    +----------+----------+----+
+with dummy as (select) /* stage1 */, yago2_9_s1_1e403806641de22 as (select yago2_9.d as v18,yago2_9.s as v16 from yago2 yago2_9), yago2_8_s1_1e403806641de22 as (select yago2_8.d as v14,yago2_8.s as v16 from yago2 yago2_8), yago2_7_s1_1e403806641de22 as (select yago2_7.d as v14,yago2_7.s as v12 from yago2 yago2_7), yago2_6_s1_1e403806641de22 as (select yago2_6.s as v12,yago2_6.d as v10 from yago2 yago2_6), yago2_5_s1_1e403806641de22 as (select yago2_5.d as v10,yago2_5.s as v8 from yago2 yago2_5), yago2_4_s1_1e403806641de22 as (select yago2_4.d as v0,yago2_4.s as v8 from yago2 yago2_4), yago37_s1_1e403806641de22 as (select yago37.s as v0 from yago37), yago2_10_s1_1e403806641de22 as (select yago2_10.s as v20,yago2_10.d as v18 from yago2 yago2_10), yago2_11_s1_1e403806641de22 as (select yago2_11.s as v20,yago2_11.d as v6 from yago2 yago2_11), yago2_2_s1_1e403806641de22 as (select yago2_2.d as v6,yago2_2.s as v2 from yago2 yago2_2), yago2_1_s1_1e403806641de22 as (select yago2_1.d as v4,yago2_1.s as v2 from yago2 yago2_1), yago2_3_s1_1e403806641de22 as (select yago2_3.d as v4 from yago2 yago2_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_720525D04D8B2833 as  (select * from umbra.identity(table(yago2_10_s1_1e403806641de22)) NATURAL JOIN umbra.identity(table(yago2_11_s1_1e403806641de22)) NATURAL JOIN umbra.identity(table(yago2_2_s1_1e403806641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_1e403806641de22)) NATURAL JOIN umbra.identity(table(yago2_3_s1_1e403806641de22))), s4_group_C0FC0E4159B3243 as  (select * from umbra.identity(table(yago2_8_s1_1e403806641de22)) NATURAL JOIN umbra.identity(table(yago2_7_s1_1e403806641de22)) NATURAL JOIN umbra.identity(table(yago2_6_s1_1e403806641de22)) NATURAL JOIN umbra.identity(table(yago2_5_s1_1e403806641de22)) NATURAL JOIN umbra.identity(table(yago2_4_s1_1e403806641de22)) NATURAL JOIN umbra.identity(table(yago37_s1_1e403806641de22))), s4_group_51050E3D327D24F7 as  (select * from umbra.identity(table(yago2_9_s1_1e403806641de22)))select count(*) from umbra.identity(table(s4_group_720525D04D8B2833)) natural join umbra.identity(table(s4_group_C0FC0E4159B3243)) natural join umbra.identity(table(s4_group_51050E3D327D24F7));
+\set queryname yago_acyclic_Chain_12_16
+-- Result size: 507
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago21_0 [label="yago21_0|<s> s|<d> d"]; yago23_1 [label="yago23_1|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago23_5 [label="yago23_5|<s> s|<d> d"]; yago13_6 [label="yago13_6|<s> s|<d> d"]; yago21_7 [label="yago21_7|<s> s|<d> d"]; yago21_8 [label="yago21_8|<s> s|<d> d"]; yago13_9 [label="yago13_9|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago23_11 [label="yago23_11|<s> s|<d> d"]; yago21_0:d -> yago5:d;yago23_1:s -> yago54:s;yago23_1:d -> yago23_11:d;yago5:s -> yago22:s;yago22:d -> yago23_5:d;yago23_5:s -> yago13_6:s;yago13_6:d -> yago21_7:d;yago21_7:s -> yago21_8:s;yago21_8:d -> yago13_9:d;yago13_9:s -> yago58:s;yago58:d -> yago23_11:s;}
+--   +----------------------------------------------------------+
+--   |                                                          |
+--   |                                                          |
+--   |                     +------------------------------------+---------+
+--   |                     |                                    |         |
+--   |                     |                      +----------+----+----+  |
+--   |                     |                      | yago13_6 |  s |  d |  |
+--   |                     |                      +----------+----+----+  |
+--   |                     |                                         |    |
+--   |                     |                                         |    |
+--   |                     |                                         |    |
+--   |  +----------+----+-----------+             +----------+----+----+  |
+--   |  | yago21_8 |  s |     d     |             | yago21_7 |  s |  d |  |
+--   |  +----------+----+-----------+             +----------+----+----+  |
+--   |                |                                         |         |
+--   |                +-----------------------------------------+         |
+--   |                                                                    |
+--   |                               +-----------+-----------+----+       |
+--   |                               | yago13_9  |     s     |  d | ------+
+--   |                               +-----------+-----------+----+
+--   |                                              |
+--   |                                              |
+--   |                                              |
+--   |                               +-----------+-----------+----+
+--   |                               |  yago58   |     s     |  d |
+--   |                               +-----------+-----------+----+
+--   |                                                          |
+--   |                                                          |
+--   |                                                          |
+--   |                   +----------+------------+-----------+  |
+--   |                   | yago21_0 |      s     |     d     |  |
+--   |                   +----------+------------+-----------+  |
+--   |                                              |           |
+--   |                                              |           |
+--   |                                              |           |
+--   |                   +----------+------------+-----------+  |
+--   |                   |  yago5   |      s     |     d     |  |
+--   |                   +----------+------------+-----------+  |
+--   |                                 |                        |
+--   |                                 |                        |
+--   |                                 |                        |
+--   |                   +----------+------------+-----------+  |
+--   |                   |  yago22  |      s     |     d     |  |
+--   |                   +----------+------------+-----------+  |
+--   |                                              |           |
+--   +---------------------------------+            |           |
+--                                     |            |           |
+--                       +----------+------------+-----------+  |
+--                       | yago23_5 |      s     |     d     |  |
+--                       +----------+------------+-----------+  |
+--                                                              |
+--                         +------------------------------------+
+--                         |
+--                         |         +-----------+-----------+----+
+--                         |         | yago23_1  |     s     |  d | ------+
+--                         |         +-----------+-----------+----+       |
+--                         |                        |                     |
+--                         |                        |                     |
+--                         |                        |                     |
+--                         |         +-----------+-----------+----+       |
+--                         |         |  yago54   |     s     |  d |       |
+--                         |         +-----------+-----------+----+       |
+--                         |                                              |
+--                         +------------------------+                     |
+--                                                  |                     |
+--                                   +-----------+-----------+----+       |
+--                                   | yago23_11 |     s     |  d | ------+
+--                                   +-----------+-----------+----+
+with dummy as (select) /* stage1 */, yago21_8_s1_b33e006641de22 as (select yago21_8.d as v16,yago21_8.s as v14 from yago21 yago21_8), yago21_7_s1_b33e006641de22 as (select yago21_7.s as v14,yago21_7.d as v12 from yago21 yago21_7), yago13_6_s1_b33e006641de22 as (select yago13_6.s as v10,yago13_6.d as v12 from yago13 yago13_6), yago23_5_s1_b33e006641de22 as (select yago23_5.s as v10,yago23_5.d as v8 from yago23 yago23_5), yago22_s1_b33e006641de22 as (select yago22.d as v8,yago22.s as v6 from yago22), yago5_s1_b33e006641de22 as (select yago5.s as v6,yago5.d as v0 from yago5), yago21_0_s1_b33e006641de22 as (select yago21_0.d as v0 from yago21 yago21_0), yago13_9_s1_b33e006641de22 as (select yago13_9.s as v18,yago13_9.d as v16 from yago13 yago13_9), yago58_s1_b33e006641de22 as (select yago58.d as v20,yago58.s as v18 from yago58), yago23_11_s1_b33e006641de22 as (select yago23_11.s as v20,yago23_11.d as v4 from yago23 yago23_11), yago23_1_s1_b33e006641de22 as (select yago23_1.d as v4,yago23_1.s as v2 from yago23 yago23_1), yago54_s1_b33e006641de22 as (select yago54.s as v2 from yago54) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_1D553AA56101B4C5 as  (select * from umbra.identity(table(yago13_9_s1_b33e006641de22)) NATURAL JOIN umbra.identity(table(yago58_s1_b33e006641de22)) NATURAL JOIN umbra.identity(table(yago23_11_s1_b33e006641de22)) NATURAL JOIN umbra.identity(table(yago23_1_s1_b33e006641de22)) NATURAL JOIN umbra.identity(table(yago54_s1_b33e006641de22))), s4_group_47F33ACAF2A6A955 as  (select * from umbra.identity(table(yago21_7_s1_b33e006641de22)) NATURAL JOIN umbra.identity(table(yago13_6_s1_b33e006641de22)) NATURAL JOIN umbra.identity(table(yago23_5_s1_b33e006641de22)) NATURAL JOIN umbra.identity(table(yago22_s1_b33e006641de22)) NATURAL JOIN umbra.identity(table(yago5_s1_b33e006641de22)) NATURAL JOIN umbra.identity(table(yago21_0_s1_b33e006641de22))), s4_group_2D3A2639DCC2048A as  (select * from umbra.identity(table(yago21_8_s1_b33e006641de22)))select count(*) from umbra.identity(table(s4_group_1D553AA56101B4C5)) natural join umbra.identity(table(s4_group_47F33ACAF2A6A955)) natural join umbra.identity(table(s4_group_2D3A2639DCC2048A));
+\set queryname yago_acyclic_Chain_12_17
+-- Result size: 2
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago54_2 [label="yago54_2|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago5_6 [label="yago5_6|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago12_8 [label="yago12_8|<s> s|<d> d"]; yago12_9 [label="yago12_9|<s> s|<d> d"]; yago54_10 [label="yago54_10|<s> s|<d> d"]; yago54_11 [label="yago54_11|<s> s|<d> d"]; yago5_0:s -> yago5_1:s;yago5_1:d -> yago5_4:d;yago54_2:s -> yago54_10:d;yago54_2:d -> yago4:s;yago5_4:s -> yago5_5:s;yago5_5:d -> yago5_6:d;yago5_6:s -> yago58:d;yago58:s -> yago12_8:s;yago12_8:d -> yago12_9:d;yago12_9:s -> yago54_11:d;yago54_10:s -> yago54_11:s;}
+--   +--------------------------------------+
+--   |                                      |
+--   |               +----------+--------+----+
+--   |               |  yago58  |    s   |  d |
+--   |               +----------+--------+----+
+--   |                             |
+--   |                             |
+--   |                             |
+--   |               +----------+--------+----+
+--   |               | yago12_8 |    s   |  d |
+--   |               +----------+--------+----+
+--   |                                      |
+--   |                                      |
+--   |                                      |
+--   |               +----------+--------+----+
+--   |               | yago12_9 |    s   |  d |
+--   |               +----------+--------+----+
+--   |                             |
+--   |                             |
+--   |                             |
+--   |  +-----------+-----------+--------+
+--   |  | yago54_11 |     s     |    d   |
+--   |  +-----------+-----------+--------+
+--   |                 |
+--   |                 |
+--   |                 |
+--   |  +-----------+-----------+--------+
+--   |  | yago54_10 |     s     |    d   |
+--   |  +-----------+-----------+--------+
+--   |                             |
+--   |                             |
+--   |                             |
+--   |               +----------+--------+----+
+--   |               | yago54_2 |    s   |  d |
+--   |               +----------+--------+----+
+--   |                                      |
+--   |                                      |
+--   |                                      |
+--   |                           +-------+----+---+
+--   |                           | yago4 |  s | d |
+--   |                           +-------+----+---+
+--   |  +-----------+-----------+--------+
+--   |  |  yago5_0  |     s     |    d   |
+--   |  +-----------+-----------+--------+
+--   |                 |
+--   |                 |
+--   |                 |
+--   |  +-----------+-----------+--------+
+--   |  |  yago5_1  |     s     |    d   |
+--   |  +-----------+-----------+--------+
+--   |                             |
+--   |                             |
+--   |                             |
+--   |  +-----------+-----------+--------+
+--   |  |  yago5_4  |     s     |    d   |
+--   |  +-----------+-----------+--------+
+--   |                 |
+--   |                 |
+--   |                 |
+--   |  +-----------+-----------+--------+
+--   |  |  yago5_5  |     s     |    d   |
+--   |  +-----------+-----------+--------+
+--   |                             |
+--   +-----------------+           |
+--                     |           |
+--      +-----------+-----------+--------+
+--      |  yago5_6  |     s     |    d   |
+--      +-----------+-----------+--------+
+with dummy as (select) /* stage1 */, yago58_s1_3e260806641de22 as (select yago58.s as v14,yago58.d as v12 from yago58), yago12_8_s1_3e260806641de22 as (select yago12_8.s as v14,yago12_8.d as v16 from yago12 yago12_8), yago12_9_s1_3e260806641de22 as (select yago12_9.s as v18,yago12_9.d as v16 from yago12 yago12_9), yago54_11_s1_3e260806641de22 as (select yago54_11.d as v18,yago54_11.s as v20 from yago54 yago54_11), yago54_10_s1_3e260806641de22 as (select yago54_10.s as v20,yago54_10.d as v4 from yago54 yago54_10), yago54_2_s1_3e260806641de22 as (select yago54_2.d as v6,yago54_2.s as v4 from yago54 yago54_2), yago4_s1_3e260806641de22 as (select yago4.s as v6 from yago4), yago5_6_s1_3e260806641de22 as (select yago5_6.s as v12,yago5_6.d as v10 from yago5 yago5_6), yago5_5_s1_3e260806641de22 as (select yago5_5.d as v10,yago5_5.s as v8 from yago5 yago5_5), yago5_4_s1_3e260806641de22 as (select yago5_4.d as v2,yago5_4.s as v8 from yago5 yago5_4), yago5_1_s1_3e260806641de22 as (select yago5_1.s as v0,yago5_1.d as v2 from yago5 yago5_1), yago5_0_s1_3e260806641de22 as (select yago5_0.s as v0 from yago5 yago5_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_3F419658DD6029FD as  (select * from umbra.identity(table(yago5_6_s1_3e260806641de22)) NATURAL JOIN umbra.identity(table(yago5_5_s1_3e260806641de22)) NATURAL JOIN umbra.identity(table(yago5_4_s1_3e260806641de22)) NATURAL JOIN umbra.identity(table(yago5_1_s1_3e260806641de22)) NATURAL JOIN umbra.identity(table(yago5_0_s1_3e260806641de22))), s4_group_4C86D19657E97C60 as  (select * from umbra.identity(table(yago12_8_s1_3e260806641de22)) NATURAL JOIN umbra.identity(table(yago12_9_s1_3e260806641de22)) NATURAL JOIN umbra.identity(table(yago54_11_s1_3e260806641de22)) NATURAL JOIN umbra.identity(table(yago54_10_s1_3e260806641de22)) NATURAL JOIN umbra.identity(table(yago54_2_s1_3e260806641de22)) NATURAL JOIN umbra.identity(table(yago4_s1_3e260806641de22))), s4_group_4B0153CC9392FF3D as  (select * from umbra.identity(table(yago58_s1_3e260806641de22)))select count(*) from umbra.identity(table(s4_group_3F419658DD6029FD)) natural join umbra.identity(table(s4_group_4C86D19657E97C60)) natural join umbra.identity(table(s4_group_4B0153CC9392FF3D));
+\set queryname yago_acyclic_Chain_12_18
+-- Result size: 283
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago13_0 [label="yago13_0|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago13_2 [label="yago13_2|<s> s|<d> d"]; yago2 [label="yago2|<s> s|<d> d"]; yago13_4 [label="yago13_4|<s> s|<d> d"]; yago23_5 [label="yago23_5|<s> s|<d> d"]; yago13_6 [label="yago13_6|<s> s|<d> d"]; yago58_7 [label="yago58_7|<s> s|<d> d"]; yago23_8 [label="yago23_8|<s> s|<d> d"]; yago23_9 [label="yago23_9|<s> s|<d> d"]; yago58_10 [label="yago58_10|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago13_0:d -> yago13_4:d;yago35:s -> yago13_2:s;yago35:d -> yago2:d;yago13_2:d -> yago22:d;yago13_4:s -> yago23_5:s;yago23_5:d -> yago13_6:d;yago13_6:s -> yago58_7:d;yago58_7:s -> yago23_8:s;yago23_8:d -> yago23_9:d;yago23_9:s -> yago58_10:d;yago58_10:s -> yago22:s;}
+--                                             +--------------------------------------+
+--                                             |                                      |
+--                                             |         +----------+----+---------+  |
+--                                             |         | yago13_0 |  s |    d    |  |
+--                                             |         +----------+----+---------+  |
+--                                             |                            |         |
+--   +-----------------------------+           |                            |         |
+--   |                             |           |                            |         |
+--   |  +----------+------------+-----------+  |         +----------+----+---------+  |
+--   |  | yago23_5 |      s     |     d     |  |         | yago13_4 |  s |    d    |  |
+--   |  +----------+------------+-----------+  |         +----------+----+---------+  |
+--   |                |                        |                       |              |
+--   |                +------------------------+-----------------------+              |
+--   |                                         |                                      |
+--   |                           +----------+-----------+-----------+     +--------+----+----+
+--   |                           | yago13_2 |     s     |     d     |     | yago35 |  s |  d |
+--   |                           +----------+-----------+-----------+     +--------+----+----+
+--   |                                                     |                               |
+--   |                +------------------------+           |                               |
+--   |                |                        |           |                               |
+--   |                |          +----------+-----------+-----------+     +--------+----+----+
+--   |                |          |  yago22  |     s     |     d     |     | yago2  |  s |  d |
+--   |                |          +----------+-----------+-----------+     +--------+----+----+
+--   |                |
+--   +----------------+------------------------------------------------+
+--                    |                                                |
+--                    |                      +----------+-----------+----+
+--                    |                      | yago13_6 |     s     |  d |
+--                    |                      +----------+-----------+----+
+--                    |                                    |
+--                    |                                    |
+--                    |                                    |
+--                    |          +----------+-----------+-----------+
+--                    |          | yago58_7 |     s     |     d     |
+--                    |          +----------+-----------+-----------+
+--                    |                        |
+--                    |                        |
+--                    |                        |
+--                    |          +----------+-----------+-----------+
+--                    |          | yago23_8 |     s     |     d     |
+--                    |          +----------+-----------+-----------+
+--                    |                                    |
+--                    |                                    |
+--                    |                                    |
+--                    |          +----------+-----------+-----------+
+--                    |          | yago23_9 |     s     |     d     |
+--                    |          +----------+-----------+-----------+
+--                    |                        |
+--                    +------------+           |
+--                                 |           |
+--                  +-----------+-----------+-----------+
+--                  | yago58_10 |     s     |     d     |
+--                  +-----------+-----------+-----------+
+with dummy as (select) /* stage1 */, yago23_9_s1_4da71806641de22 as (select yago23_9.d as v16,yago23_9.s as v18 from yago23 yago23_9), yago23_8_s1_4da71806641de22 as (select yago23_8.d as v16,yago23_8.s as v14 from yago23 yago23_8), yago58_7_s1_4da71806641de22 as (select yago58_7.d as v12,yago58_7.s as v14 from yago58 yago58_7), yago13_6_s1_4da71806641de22 as (select yago13_6.s as v12,yago13_6.d as v10 from yago13 yago13_6), yago23_5_s1_4da71806641de22 as (select yago23_5.s as v8,yago23_5.d as v10 from yago23 yago23_5), yago13_4_s1_4da71806641de22 as (select yago13_4.s as v8,yago13_4.d as v0 from yago13 yago13_4), yago13_0_s1_4da71806641de22 as (select yago13_0.d as v0 from yago13 yago13_0), yago58_10_s1_4da71806641de22 as (select yago58_10.s as v20,yago58_10.d as v18 from yago58 yago58_10), yago22_s1_4da71806641de22 as (select yago22.d as v6,yago22.s as v20 from yago22), yago13_2_s1_4da71806641de22 as (select yago13_2.d as v6,yago13_2.s as v2 from yago13 yago13_2), yago35_s1_4da71806641de22 as (select yago35.d as v4,yago35.s as v2 from yago35), yago2_s1_4da71806641de22 as (select yago2.d as v4 from yago2) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_110613F4189ED0FD as  (select * from umbra.identity(table(yago58_10_s1_4da71806641de22)) NATURAL JOIN umbra.identity(table(yago22_s1_4da71806641de22)) NATURAL JOIN umbra.identity(table(yago13_2_s1_4da71806641de22)) NATURAL JOIN umbra.identity(table(yago35_s1_4da71806641de22)) NATURAL JOIN umbra.identity(table(yago2_s1_4da71806641de22))), s4_group_64EAB3974A04AE05 as  (select * from umbra.identity(table(yago23_8_s1_4da71806641de22)) NATURAL JOIN umbra.identity(table(yago58_7_s1_4da71806641de22)) NATURAL JOIN umbra.identity(table(yago13_6_s1_4da71806641de22)) NATURAL JOIN umbra.identity(table(yago23_5_s1_4da71806641de22)) NATURAL JOIN umbra.identity(table(yago13_4_s1_4da71806641de22)) NATURAL JOIN umbra.identity(table(yago13_0_s1_4da71806641de22))), s4_group_183C797986C86FF1 as  (select * from umbra.identity(table(yago23_9_s1_4da71806641de22)))select count(*) from umbra.identity(table(s4_group_110613F4189ED0FD)) natural join umbra.identity(table(s4_group_64EAB3974A04AE05)) natural join umbra.identity(table(s4_group_183C797986C86FF1));
+\set queryname yago_acyclic_Chain_12_19
+-- Result size: 79665
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago11_2 [label="yago11_2|<s> s|<d> d"]; yago11_3 [label="yago11_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_4:d;yago11_2:s -> yago11_3:s;yago11_2:d -> yago8:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago2_6:d;yago2_6:s -> yago2_7:s;yago2_7:d -> yago17:s;yago17:d -> yago5:d;yago5:s -> yago54:d;yago8:s -> yago54:s;}
+--                                          +----------+----+----+
+--                                          |  yago8   |  s |  d |
+--                                          +----------+----+----+
+--                                                        |    |
+--             +------------------------------------------+    |
+--             |                                               |
+--             |                            +----------+----+----+
+--             |                            | yago11_2 |  s |  d |
+--             |                            +----------+----+----+
+--             |                                          |
+--             |                                          |
+--             |                                          |
+--             |                            +----------+----+----+
+--             |                            | yago11_3 |  s |  d |
+--             |                            +----------+----+----+
+--             |
+--             |                   +--------------------------------+
+--             |                   |                                |
+--             |       +--------+----------+-----------+            |
+--             |       | yago17 |     s    |     d     |            |
+--             |       +--------+----------+-----------+            |
+--             |                              |                     |
+--             |                              |                     |
+--             |                              |                     |
+-- +--------+----+----++--------+----------+-----------+            |
+-- | yago54 |  s |  d || yago5  |     s    |     d     |            |
+-- +--------+----+----++--------+----------+-----------+            |
+--                  |              |                                |
+--                  +--------------+                                |
+--                                                                  |
+--                               +---------+-----------+----+       |
+--                               | yago2_0 |     s     |  d |       |
+--                               +---------+-----------+----+       |
+--                                            |                     |
+--                                            |                     |
+--                                            |                     |
+--                               +---------+-----------+----+       |
+--                               | yago2_1 |     s     |  d |       |
+--                               +---------+-----------+----+       |
+--                                                        |         |
+--                                                        |         |
+--                                                        |         |
+--                               +---------+-----------+----+       |
+--                               | yago2_4 |     s     |  d |       |
+--                               +---------+-----------+----+       |
+--                                            |                     |
+--                                            |                     |
+--                                            |                     |
+--                               +---------+-----------+----+       |
+--                               | yago2_5 |     s     |  d |       |
+--                               +---------+-----------+----+       |
+--                                                        |         |
+--                                                        |         |
+--                                                        |         |
+--                               +---------+-----------+----+       |
+--                               | yago2_6 |     s     |  d |       |
+--                               +---------+-----------+----+       |
+--                                            |                     |
+--                                            |                     |
+--                                            |                     |
+--                               +---------+-----------+----+       |
+--                               | yago2_7 |     s     |  d | ------+
+--                               +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago2_7_s1_5fb89006641de22 as (select yago2_7.s as v12,yago2_7.d as v14 from yago2 yago2_7), yago17_s1_5fb89006641de22 as (select yago17.s as v14,yago17.d as v16 from yago17), yago5_s1_5fb89006641de22 as (select yago5.d as v16,yago5.s as v18 from yago5), yago54_s1_5fb89006641de22 as (select yago54.s as v20,yago54.d as v18 from yago54), yago8_s1_5fb89006641de22 as (select yago8.d as v6,yago8.s as v20 from yago8), yago11_2_s1_5fb89006641de22 as (select yago11_2.s as v4,yago11_2.d as v6 from yago11 yago11_2), yago11_3_s1_5fb89006641de22 as (select yago11_3.s as v4 from yago11 yago11_3), yago2_6_s1_5fb89006641de22 as (select yago2_6.s as v12,yago2_6.d as v10 from yago2 yago2_6), yago2_5_s1_5fb89006641de22 as (select yago2_5.s as v8,yago2_5.d as v10 from yago2 yago2_5), yago2_4_s1_5fb89006641de22 as (select yago2_4.s as v8,yago2_4.d as v2 from yago2 yago2_4), yago2_1_s1_5fb89006641de22 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_5fb89006641de22 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6D09AD250D275192 as  (select * from umbra.identity(table(yago2_6_s1_5fb89006641de22)) NATURAL JOIN umbra.identity(table(yago2_5_s1_5fb89006641de22)) NATURAL JOIN umbra.identity(table(yago2_4_s1_5fb89006641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_5fb89006641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_5fb89006641de22))), s4_group_F37B5B05CB771DD as  (select * from umbra.identity(table(yago17_s1_5fb89006641de22)) NATURAL JOIN umbra.identity(table(yago5_s1_5fb89006641de22)) NATURAL JOIN umbra.identity(table(yago54_s1_5fb89006641de22)) NATURAL JOIN umbra.identity(table(yago8_s1_5fb89006641de22)) NATURAL JOIN umbra.identity(table(yago11_2_s1_5fb89006641de22)) NATURAL JOIN umbra.identity(table(yago11_3_s1_5fb89006641de22))), s4_group_21DF7E3E5586E062 as  (select * from umbra.identity(table(yago2_7_s1_5fb89006641de22)))select count(*) from umbra.identity(table(s4_group_6D09AD250D275192)) natural join umbra.identity(table(s4_group_F37B5B05CB771DD)) natural join umbra.identity(table(s4_group_21DF7E3E5586E062));
+\set queryname yago_acyclic_Chain_12_20
+-- Result size: 2961
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago46_2 [label="yago46_2|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago46_4 [label="yago46_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago36_10 [label="yago36_10|<s> s|<d> d"]; yago36_11 [label="yago36_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_5:d;yago46_2:s -> yago17:s;yago46_2:d -> yago46_4:s;yago17:d -> yago36_11:s;yago2_5:s -> yago2_6:s;yago2_6:d -> yago2_7:d;yago2_7:s -> yago2_8:s;yago2_8:d -> yago54:s;yago54:d -> yago36_10:s;yago36_10:d -> yago36_11:d;}
+--                              +----------+------------+----+----------+----+---+
+--                              | yago46_2 |      s     |  d | yago46_4 |  s | d |
+--                              +----------+------------+----+----------+----+---+
+--                                            |            |               |
+--                                            |            +---------------+
+--                                            |
+--                              +----------+------------+----+
+--                              |  yago17  |      s     |  d |
+--                              +----------+------------+----+
+--                                                         |
+--                                                         |
+--                                                         |
+-- +-----------+----+----------+            +-----------+----+----------+
+-- | yago36_10 |  s |     d    | -+         | yago36_11 |  s |     d    |
+-- +-----------+----+----------+  |         +-----------+----+----------+
+--                |               |                             |
+--                |               +-----------------------------+
+--                |
+--                |  +---------+-----------+------------+
+--                |  | yago2_0 |     s     |      d     |
+--                |  +---------+-----------+------------+
+--                |               |
+--                |               |
+--                |               |
+--                |  +---------+-----------+------------+
+--                |  | yago2_1 |     s     |      d     |
+--                |  +---------+-----------+------------+
+--                |                           |
+--                |                           |
+--                |                           |
+--                |  +---------+-----------+------------+
+--                |  | yago2_5 |     s     |      d     |
+--                |  +---------+-----------+------------+
+--                |               |
+--                |               |
+--                |               |
+--                |  +---------+-----------+------------+
+--                |  | yago2_6 |     s     |      d     |
+--                |  +---------+-----------+------------+
+--                |                           |
+--                |                           |
+--                |                           |
+--                |  +---------+-----------+------------+
+--                |  | yago2_7 |     s     |      d     |
+--                |  +---------+-----------+------------+
+--                |               |
+--                |               |
+--                |               |
+--                |  +---------+-----------+------------+
+--                |  | yago2_8 |     s     |      d     |
+--                |  +---------+-----------+------------+
+--                |                           |
+--                |                           |
+--                |                           |
+--                |             +----------+------------+----+
+--                |             |  yago54  |      s     |  d |
+--                |             +----------+------------+----+
+--                |                                        |
+--                +----------------------------------------+
+with dummy as (select) /* stage1 */, yago54_s1_62104806641de22 as (select yago54.s as v16,yago54.d as v18 from yago54), yago2_8_s1_62104806641de22 as (select yago2_8.d as v16,yago2_8.s as v14 from yago2 yago2_8), yago2_7_s1_62104806641de22 as (select yago2_7.d as v12,yago2_7.s as v14 from yago2 yago2_7), yago2_6_s1_62104806641de22 as (select yago2_6.d as v12,yago2_6.s as v10 from yago2 yago2_6), yago2_5_s1_62104806641de22 as (select yago2_5.s as v10,yago2_5.d as v2 from yago2 yago2_5), yago2_1_s1_62104806641de22 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_62104806641de22 as (select yago2_0.s as v0 from yago2 yago2_0), yago36_10_s1_62104806641de22 as (select yago36_10.d as v20,yago36_10.s as v18 from yago36 yago36_10), yago36_11_s1_62104806641de22 as (select yago36_11.d as v20,yago36_11.s as v8 from yago36 yago36_11), yago17_s1_62104806641de22 as (select yago17.d as v8,yago17.s as v4 from yago17), yago46_2_s1_62104806641de22 as (select yago46_2.d as v6,yago46_2.s as v4 from yago46 yago46_2), yago46_4_s1_62104806641de22 as (select yago46_4.s as v6 from yago46 yago46_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_126A78AC848EC540 as  (select * from umbra.identity(table(yago36_10_s1_62104806641de22)) NATURAL JOIN umbra.identity(table(yago36_11_s1_62104806641de22)) NATURAL JOIN umbra.identity(table(yago17_s1_62104806641de22)) NATURAL JOIN umbra.identity(table(yago46_2_s1_62104806641de22)) NATURAL JOIN umbra.identity(table(yago46_4_s1_62104806641de22))), s4_group_57B51012C41557B2 as  (select * from umbra.identity(table(yago2_8_s1_62104806641de22)) NATURAL JOIN umbra.identity(table(yago2_7_s1_62104806641de22)) NATURAL JOIN umbra.identity(table(yago2_6_s1_62104806641de22)) NATURAL JOIN umbra.identity(table(yago2_5_s1_62104806641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_62104806641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_62104806641de22))), s4_group_3152D0150F965A1E as  (select * from umbra.identity(table(yago54_s1_62104806641de22)))select count(*) from umbra.identity(table(s4_group_126A78AC848EC540)) natural join umbra.identity(table(s4_group_57B51012C41557B2)) natural join umbra.identity(table(s4_group_3152D0150F965A1E));
+\set queryname yago_acyclic_Chain_12_21
+-- Result size: 2813
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago57 [label="yago57|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago13_3 [label="yago13_3|<s> s|<d> d"]; yago21_4 [label="yago21_4|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago13_6 [label="yago13_6|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago21_8 [label="yago21_8|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago47_10 [label="yago47_10|<s> s|<d> d"]; yago47_11 [label="yago47_11|<s> s|<d> d"]; yago57:s -> yago21_4:d;yago5:s -> yago36:s;yago5:d -> yago13_3:d;yago36:d -> yago47_11:d;yago21_4:s -> yago22:s;yago22:d -> yago13_6:d;yago13_6:s -> yago23:s;yago23:d -> yago21_8:d;yago21_8:s -> yago50:s;yago50:d -> yago47_10:d;yago47_10:s -> yago47_11:s;}
+--                                             +----------+----+----+
+--                                             | yago13_3 |  s |  d |
+--                                             +----------+----+----+
+--                                                                |
+--                 +----------------------------------------------+
+--                 |
+--                 |               +----------+-----------+----+
+--                 |               | yago13_6 |     s     |  d | ------+
+--                 |               +----------+-----------+----+       |
+--                 |                             |                     |
+--                 |                             |                     |
+--                 |                             |                     |
+--                 |               +----------+-----------+----+       |
+--                 |               |  yago23  |     s     |  d |       |
+--                 |               +----------+-----------+----+       |
+--                 |                                         |         |
+--                 |    +------------------------------------+         |
+--                 |    |                                              |
+--                 |    |          +----------+-----------+----+       |  +--------+----+---+
+--                 |    |          | yago21_4 |     s     |  d |       |  | yago57 |  s | d |
+--                 |    |          +----------+-----------+----+       |  +--------+----+---+
+--                 |    |                        |           |         |              |
+--                 |    |                        |           +---------+--------------+
+--                 |    |                        |                     |
+--                 |    |          +----------+-----------+----+       |
+--                 |    |          |  yago22  |     s     |  d | ------+
+--                 |    |          +----------+-----------+----+
+--                 |    |
+--                 |    +------------------------------------+
+--                 |                                         |
+--                 |               +----------+-----------+----+
+--                 |               | yago21_8 |     s     |  d |
+--                 |               +----------+-----------+----+
+--                 |                             |
+--                 |                             |
+--                 |                             |
+--                 |               +----------+-----------+----+
+--                 |               |  yago50  |     s     |  d |
+--                 |               +----------+-----------+----+
+--                 |                                         |
+--                 |                                         |
+--                 |                                         |
+-- +-------+----+----++-----------+-----------+-----------+  |
+-- | yago5 |  s |  d ||  yago36   |     s     |     d     |  |
+-- +-------+----+----++-----------+-----------+-----------+  |
+--            |                      |           |           |
+--            +----------------------+           |           |
+--                                               |           |
+--                    +-----------+-----------+-----------+  |
+--                    | yago47_11 |     s     |     d     |  |
+--                    +-----------+-----------+-----------+  |
+--                                   |                       |
+--                                   |                       |
+--                                   |                       |
+--                    +-----------+-----------+-----------+  |
+--                    | yago47_10 |     s     |     d     | -+
+--                    +-----------+-----------+-----------+
+with dummy as (select) /* stage1 */, yago50_s1_78390006641de22 as (select yago50.d as v18,yago50.s as v16 from yago50), yago21_8_s1_78390006641de22 as (select yago21_8.d as v14,yago21_8.s as v16 from yago21 yago21_8), yago23_s1_78390006641de22 as (select yago23.d as v14,yago23.s as v12 from yago23), yago13_6_s1_78390006641de22 as (select yago13_6.d as v10,yago13_6.s as v12 from yago13 yago13_6), yago22_s1_78390006641de22 as (select yago22.d as v10,yago22.s as v8 from yago22), yago21_4_s1_78390006641de22 as (select yago21_4.d as v0,yago21_4.s as v8 from yago21 yago21_4), yago57_s1_78390006641de22 as (select yago57.s as v0 from yago57), yago47_10_s1_78390006641de22 as (select yago47_10.s as v20,yago47_10.d as v18 from yago47 yago47_10), yago47_11_s1_78390006641de22 as (select yago47_11.d as v6,yago47_11.s as v20 from yago47 yago47_11), yago36_s1_78390006641de22 as (select yago36.s as v2,yago36.d as v6 from yago36), yago5_s1_78390006641de22 as (select yago5.s as v2,yago5.d as v4 from yago5), yago13_3_s1_78390006641de22 as (select yago13_3.d as v4 from yago13 yago13_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_36FD0E38C4D831BD as  (select * from umbra.identity(table(yago47_10_s1_78390006641de22)) NATURAL JOIN umbra.identity(table(yago47_11_s1_78390006641de22)) NATURAL JOIN umbra.identity(table(yago36_s1_78390006641de22)) NATURAL JOIN umbra.identity(table(yago5_s1_78390006641de22)) NATURAL JOIN umbra.identity(table(yago13_3_s1_78390006641de22))), s4_group_F58C04722CA2142 as  (select * from umbra.identity(table(yago21_8_s1_78390006641de22)) NATURAL JOIN umbra.identity(table(yago23_s1_78390006641de22)) NATURAL JOIN umbra.identity(table(yago13_6_s1_78390006641de22)) NATURAL JOIN umbra.identity(table(yago22_s1_78390006641de22)) NATURAL JOIN umbra.identity(table(yago21_4_s1_78390006641de22)) NATURAL JOIN umbra.identity(table(yago57_s1_78390006641de22))), s4_group_C6905B7AA6DEB7D as  (select * from umbra.identity(table(yago50_s1_78390006641de22)))select count(*) from umbra.identity(table(s4_group_36FD0E38C4D831BD)) natural join umbra.identity(table(s4_group_F58C04722CA2142)) natural join umbra.identity(table(s4_group_C6905B7AA6DEB7D));
+\set queryname yago_acyclic_Chain_12_22
+-- Result size: 34688
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago5_11 [label="yago5_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago0:s;yago21:s -> yago5_3:s;yago21:d -> yago5_11:d;yago0:d -> yago1:d;yago1:s -> yago23:s;yago23:d -> yago22:d;yago22:s -> yago39:s;yago39:d -> yago36:d;yago36:s -> yago58:s;yago58:d -> yago5_11:s;}
+--                                   +-------------------+
+--                                   |                   |
+--                       +--------+----+----+            |
+--                       | yago0  |  s |  d |            |
+--                       +--------+----+----+            |
+--                                        |              |
+--                                        |              |
+--                                        |              |
+--                       +--------+----+----+            |
+--                       | yago1  |  s |  d |            |
+--                       +--------+----+----+            |
+--                                   |                   |
+--                                   |                   |
+--                                   |                   |
+--                       +--------+----+----+            |
+--                       | yago23 |  s |  d | ------+    |
+--                       +--------+----+----+       |    |
+--           +----------+---------+----+            |    |
+--           |  yago21  |    s    |  d | ------+    |    |
+--           +----------+---------+----+       |    |    |
+--                         |                   |    |    |
+--                         |                   |    |    |
+--                         |                   |    |    |
+--           +----------+---------+----+       |    |    |
+--           | yago5_3  |    s    |  d |       |    |    |
+--           +----------+---------+----+       |    |    |
+--           +----------+---------+----+       |    |    |
+--           | yago5_11 |    s    |  d | ------+    |    |
+--           +----------+---------+----+            |    |
+--                         |                        |    |
+--   +---------------------+                        |    |
+--   |                                              |    |
+--   |       +----------+---------+----+            |    |
+--   |       |  yago22  |    s    |  d | -----------+    |
+--   |       +----------+---------+----+                 |
+--   |                     |                             |
+--   |                     |                             |
+--   |                     |                             |
+--   |       +----------+---------+----+                 |
+--   |       |  yago39  |    s    |  d |                 |
+--   |       +----------+---------+----+                 |
+--   |                               |                   |
+--   |    +--------------------------+                   |
+--   |    |                                              |
+--   |    |  +----------+---------+----+                 |
+--   |    |  | yago2_0  |    s    |  d |                 |
+--   |    |  +----------+---------+----+                 |
+--   |    |                |                             |
+--   |    |                |                             |
+--   |    |                |                             |
+--   |    |  +----------+---------+----+                 |
+--   |    |  | yago2_1  |    s    |  d | ----------------+
+--   |    |  +----------+---------+----+
+--   |    |
+--   |    +--------------------------+
+--   |                               |
+--   |       +----------+---------+----+
+--   |       |  yago36  |    s    |  d |
+--   |       +----------+---------+----+
+--   |                     |
+--   |                     |
+--   |                     |
+--   |       +----------+---------+----+
+--   |       |  yago58  |    s    |  d |
+--   |       +----------+---------+----+
+--   |                               |
+--   +-------------------------------+
+with dummy as (select) /* stage1 */, yago39_s1_929a4006641de22 as (select yago39.d as v16,yago39.s as v14 from yago39), yago22_s1_929a4006641de22 as (select yago22.d as v12,yago22.s as v14 from yago22), yago23_s1_929a4006641de22 as (select yago23.d as v12,yago23.s as v10 from yago23), yago1_s1_929a4006641de22 as (select yago1.s as v10,yago1.d as v8 from yago1), yago0_s1_929a4006641de22 as (select yago0.d as v8,yago0.s as v2 from yago0), yago2_1_s1_929a4006641de22 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_929a4006641de22 as (select yago2_0.s as v0 from yago2 yago2_0), yago36_s1_929a4006641de22 as (select yago36.d as v16,yago36.s as v18 from yago36), yago58_s1_929a4006641de22 as (select yago58.d as v20,yago58.s as v18 from yago58), yago5_11_s1_929a4006641de22 as (select yago5_11.d as v6,yago5_11.s as v20 from yago5 yago5_11), yago21_s1_929a4006641de22 as (select yago21.s as v4,yago21.d as v6 from yago21), yago5_3_s1_929a4006641de22 as (select yago5_3.s as v4 from yago5 yago5_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7AA8843A1BF2230A as  (select * from umbra.identity(table(yago36_s1_929a4006641de22)) NATURAL JOIN umbra.identity(table(yago58_s1_929a4006641de22)) NATURAL JOIN umbra.identity(table(yago5_11_s1_929a4006641de22)) NATURAL JOIN umbra.identity(table(yago21_s1_929a4006641de22)) NATURAL JOIN umbra.identity(table(yago5_3_s1_929a4006641de22))), s4_group_57E218EFEF8E1010 as  (select * from umbra.identity(table(yago22_s1_929a4006641de22)) NATURAL JOIN umbra.identity(table(yago23_s1_929a4006641de22)) NATURAL JOIN umbra.identity(table(yago1_s1_929a4006641de22)) NATURAL JOIN umbra.identity(table(yago0_s1_929a4006641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_929a4006641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_929a4006641de22))), s4_group_39749C445B00A979 as  (select * from umbra.identity(table(yago39_s1_929a4006641de22)))select count(*) from umbra.identity(table(s4_group_7AA8843A1BF2230A)) natural join umbra.identity(table(s4_group_57E218EFEF8E1010)) natural join umbra.identity(table(s4_group_39749C445B00A979));
+\set queryname yago_acyclic_Chain_12_23
+-- Result size: 168
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago47_2 [label="yago47_2|<s> s|<d> d"]; yago47_3 [label="yago47_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago50_8 [label="yago50_8|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago50_11 [label="yago50_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_4:d;yago47_2:s -> yago47_3:s;yago47_2:d -> yago36:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago2_6:d;yago2_6:s -> yago2_7:s;yago2_7:d -> yago50_8:d;yago50_8:s -> yago39:s;yago39:d -> yago50_11:d;yago36:s -> yago50_11:s;}
+--                   +----------+----+----+
+--                   | yago2_0  |  s |  d |
+--                   +----------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                   +----------+----+----+
+--                   | yago2_1  |  s |  d |
+--                   +----------+----+----+
+--                                      |
+--                                      |
+--                                      |
+--                   +----------+----+----+
+--                   | yago2_4  |  s |  d |
+--                   +----------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                   +----------+----+----+
+--                   | yago2_5  |  s |  d |
+--                   +----------+----+----+
+--                                      |
+--                                      |
+--                                      |
+--                   +----------+----+----+
+--                   | yago2_6  |  s |  d |
+--                   +----------+----+----+
+--                                 |
+--                                 |
+--                                 |
+--                   +----------+----+----+
+--                   | yago2_7  |  s |  d |
+--                   +----------+----+----+
+--                                      |
+--                                      |
+--                                      |
+--                   +----------+----+----+
+--                   | yago50_8 |  s |  d |
+--                   +----------+----+----+
+--                                 |
+--   +-----------------------------+
+--   |
+--   |  +-----------+-----------+----+
+--   |  |  yago36   |     s     |  d | ------+
+--   |  +-----------+-----------+----+       |
+--   |                 |                     |
+--   |                 |                     |
+--   |                 |                     |
+--   |  +-----------+-----------+----+       |
+--   |  | yago50_11 |     s     |  d |       |
+--   |  +-----------+-----------+----+       |
+--   |                             |         |
+--   +-----------------+           |         |
+--                     |           |         |
+--      +-----------+-----------+----+       |
+--      |  yago39   |     s     |  d |       |
+--      +-----------+-----------+----+       |
+--      +-----------+-----------+----+       |
+--      | yago47_2  |     s     |  d | ------+
+--      +-----------+-----------+----+
+--                     |
+--                     |
+--                     |
+--      +-----------+-----------+----+
+--      | yago47_3  |     s     |  d |
+--      +-----------+-----------+----+
+with dummy as (select) /* stage1 */, yago50_8_s1_98913006641de22 as (select yago50_8.d as v14,yago50_8.s as v16 from yago50 yago50_8), yago2_7_s1_98913006641de22 as (select yago2_7.s as v12,yago2_7.d as v14 from yago2 yago2_7), yago2_6_s1_98913006641de22 as (select yago2_6.s as v12,yago2_6.d as v10 from yago2 yago2_6), yago2_5_s1_98913006641de22 as (select yago2_5.s as v8,yago2_5.d as v10 from yago2 yago2_5), yago2_4_s1_98913006641de22 as (select yago2_4.s as v8,yago2_4.d as v2 from yago2 yago2_4), yago2_1_s1_98913006641de22 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_98913006641de22 as (select yago2_0.s as v0 from yago2 yago2_0), yago39_s1_98913006641de22 as (select yago39.s as v16,yago39.d as v18 from yago39), yago50_11_s1_98913006641de22 as (select yago50_11.s as v20,yago50_11.d as v18 from yago50 yago50_11), yago36_s1_98913006641de22 as (select yago36.s as v20,yago36.d as v6 from yago36), yago47_2_s1_98913006641de22 as (select yago47_2.s as v4,yago47_2.d as v6 from yago47 yago47_2), yago47_3_s1_98913006641de22 as (select yago47_3.s as v4 from yago47 yago47_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_70224D0029954D95 as  (select * from umbra.identity(table(yago39_s1_98913006641de22)) NATURAL JOIN umbra.identity(table(yago50_11_s1_98913006641de22)) NATURAL JOIN umbra.identity(table(yago36_s1_98913006641de22)) NATURAL JOIN umbra.identity(table(yago47_2_s1_98913006641de22)) NATURAL JOIN umbra.identity(table(yago47_3_s1_98913006641de22))), s4_group_65230B6B0AB58097 as  (select * from umbra.identity(table(yago2_7_s1_98913006641de22)) NATURAL JOIN umbra.identity(table(yago2_6_s1_98913006641de22)) NATURAL JOIN umbra.identity(table(yago2_5_s1_98913006641de22)) NATURAL JOIN umbra.identity(table(yago2_4_s1_98913006641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_98913006641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_98913006641de22))), s4_group_779B2B27FAD3F674 as  (select * from umbra.identity(table(yago50_8_s1_98913006641de22)))select count(*) from umbra.identity(table(s4_group_70224D0029954D95)) natural join umbra.identity(table(s4_group_65230B6B0AB58097)) natural join umbra.identity(table(s4_group_779B2B27FAD3F674));
+\set queryname yago_acyclic_Chain_12_24
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_5:d;yago6:s -> yago2_3:d;yago6:d -> yago2_11:s;yago2_3:s -> yago2_4:s;yago2_5:s -> yago2_6:s;yago2_6:d -> yago2_7:d;yago2_7:s -> yago2_8:s;yago2_8:d -> yago2_9:d;yago2_9:s -> yago2_10:s;yago2_10:d -> yago2_11:d;}
+--              +----------------+
+--              |                |
+-- +---------+----+-----------+  |
+-- | yago2_9 |  s |     d     |  |
+-- +---------+----+-----------+  |
+--                   |           |
+--                   |           |
+--                   |           |
+-- +---------+----+-----------+  |        +---------+----+-------+
+-- | yago2_8 |  s |     d     |  |        | yago2_0 |  s |   d   |
+-- +---------+----+-----------+  |        +---------+----+-------+
+--              |                |                     |
+--              |                |                     |
+--              |                |                     |
+-- +---------+----+-----------+  |        +---------+----+-------+
+-- | yago2_7 |  s |     d     |  |        | yago2_1 |  s |   d   |
+-- +---------+----+-----------+  |        +---------+----+-------+
+--                   |           |                          |
+--                   |           |                          |
+--                   |           |                          |
+-- +---------+----+-----------+  |        +---------+----+-------+
+-- | yago2_6 |  s |     d     |  |        | yago2_5 |  s |   d   |
+-- +---------+----+-----------+  |        +---------+----+-------+
+--              |                |                     |
+--              +----------------+---------------------+
+--                               |
+--                 +----------+----------+----------+
+--                 | yago2_10 |     s    |     d    |
+--                 +----------+----------+----------+
+--                                          |
+--                                          |
+--                                          |
+--                 +----------+----------+----------+
+--                 | yago2_11 |     s    |     d    |
+--                 +----------+----------+----------+
+--                               |
+--                               +---------------------------------------+
+--                                                                       |
+--                             +---------+----------+----+-------+----+----+
+--                             | yago2_3 |     s    |  d | yago6 |  s |  d |
+--                             +---------+----------+----+-------+----+----+
+--                                          |          |            |
+--                                          |          +------------+
+--                                          |
+--                             +---------+----------+----+
+--                             | yago2_4 |     s    |  d |
+--                             +---------+----------+----+
+with dummy as (select) /* stage1 */, yago2_9_s1_8c75f806641de22 as (select yago2_9.s as v18,yago2_9.d as v16 from yago2 yago2_9), yago2_8_s1_8c75f806641de22 as (select yago2_8.d as v16,yago2_8.s as v14 from yago2 yago2_8), yago2_7_s1_8c75f806641de22 as (select yago2_7.d as v12,yago2_7.s as v14 from yago2 yago2_7), yago2_6_s1_8c75f806641de22 as (select yago2_6.d as v12,yago2_6.s as v10 from yago2 yago2_6), yago2_5_s1_8c75f806641de22 as (select yago2_5.s as v10,yago2_5.d as v2 from yago2 yago2_5), yago2_1_s1_8c75f806641de22 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_8c75f806641de22 as (select yago2_0.s as v0 from yago2 yago2_0), yago2_10_s1_8c75f806641de22 as (select yago2_10.s as v18,yago2_10.d as v20 from yago2 yago2_10), yago2_11_s1_8c75f806641de22 as (select yago2_11.d as v20,yago2_11.s as v6 from yago2 yago2_11), yago6_s1_8c75f806641de22 as (select yago6.s as v4,yago6.d as v6 from yago6), yago2_3_s1_8c75f806641de22 as (select yago2_3.d as v4,yago2_3.s as v8 from yago2 yago2_3), yago2_4_s1_8c75f806641de22 as (select yago2_4.s as v8 from yago2 yago2_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7E227EAFFBE1BB50 as  (select * from umbra.identity(table(yago2_10_s1_8c75f806641de22)) NATURAL JOIN umbra.identity(table(yago2_11_s1_8c75f806641de22)) NATURAL JOIN umbra.identity(table(yago6_s1_8c75f806641de22)) NATURAL JOIN umbra.identity(table(yago2_3_s1_8c75f806641de22)) NATURAL JOIN umbra.identity(table(yago2_4_s1_8c75f806641de22))), s4_group_6F17AAE4A21953E2 as  (select * from umbra.identity(table(yago2_8_s1_8c75f806641de22)) NATURAL JOIN umbra.identity(table(yago2_7_s1_8c75f806641de22)) NATURAL JOIN umbra.identity(table(yago2_6_s1_8c75f806641de22)) NATURAL JOIN umbra.identity(table(yago2_5_s1_8c75f806641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_8c75f806641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_8c75f806641de22))), s4_group_619C03064768F89 as  (select * from umbra.identity(table(yago2_9_s1_8c75f806641de22)))select count(*) from umbra.identity(table(s4_group_7E227EAFFBE1BB50)) natural join umbra.identity(table(s4_group_6F17AAE4A21953E2)) natural join umbra.identity(table(s4_group_619C03064768F89));
+\set queryname yago_acyclic_Chain_12_25
+-- Result size: 20
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago21_1 [label="yago21_1|<s> s|<d> d"]; yago21_2 [label="yago21_2|<s> s|<d> d"]; yago24 [label="yago24|<s> s|<d> d"]; yago36_4 [label="yago36_4|<s> s|<d> d"]; yago36_5 [label="yago36_5|<s> s|<d> d"]; yago36_6 [label="yago36_6|<s> s|<d> d"]; yago23_7 [label="yago23_7|<s> s|<d> d"]; yago23_8 [label="yago23_8|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago0:d -> yago24:d;yago21_1:s -> yago21_2:s;yago21_1:d -> yago22:d;yago24:s -> yago36_4:d;yago36_4:s -> yago36_5:s;yago36_5:d -> yago36_6:d;yago36_6:s -> yago23_7:s;yago23_7:d -> yago23_8:d;yago23_8:s -> yago58:s;yago58:d -> yago17:d;yago22:s -> yago17:s;}
+--      +----------+----+----+
+--      | yago36_6 |  s |  d |
+--      +----------+----+----+
+--                    |    |
+--   +----------------+    |
+--   |                     |
+--   |  +----------+----+----+                        +--------+----+----+
+--   |  | yago36_5 |  s |  d |                        | yago0  |  s |  d |
+--   |  +----------+----+----+                        +--------+----+----+
+--   |                |                                                |
+--   |                |                                                |
+--   |                |                                                |
+--   |  +----------+----+----+                        +--------+----+----+
+--   |  | yago36_4 |  s |  d |                        | yago24 |  s |  d |
+--   |  +----------+----+----+                        +--------+----+----+
+--   |                     |                                      |
+--   |                     +--------------------------------------+
+--   |
+--   |                                    +----------+---------+----+
+--   |                                    | yago21_1 |    s    |  d | ------+
+--   |                                    +----------+---------+----+       |
+--   |                                                  |                   |
+--   |                                                  |                   |
+--   |                                                  |                   |
+--   |                                    +----------+---------+----+       |
+--   |                                    | yago21_2 |    s    |  d |       |
+--   |                                    +----------+---------+----+       |
+--   |                                    +----------+---------+----+       |
+--   |                                    |  yago22  |    s    |  d | ------+
+--   |                                    +----------+---------+----+
+--   |                                                  |
+--   |                                                  |
+--   |                                                  |
+--   |                                    +----------+---------+----+
+--   |                                    |  yago17  |    s    |  d |
+--   |                                    +----------+---------+----+
+--   |                                                            |
+--   +--------------------------------------+                     |
+--                                          |                     |
+--                            +----------+-----------+---------+  |
+--                            | yago23_7 |     s     |    d    |  |
+--                            +----------+-----------+---------+  |
+--                                                      |         |
+--                                                      |         |
+--                                                      |         |
+--                            +----------+-----------+---------+  |
+--                            | yago23_8 |     s     |    d    |  |
+--                            +----------+-----------+---------+  |
+--                                          |                     |
+--                                          |                     |
+--                                          |                     |
+--                            +----------+-----------+---------+  |
+--                            |  yago58  |     s     |    d    | -+
+--                            +----------+-----------+---------+
+with dummy as (select) /* stage1 */, yago23_8_s1_a5efd006641de22 as (select yago23_8.d as v14,yago23_8.s as v16 from yago23 yago23_8), yago23_7_s1_a5efd006641de22 as (select yago23_7.d as v14,yago23_7.s as v12 from yago23 yago23_7), yago36_6_s1_a5efd006641de22 as (select yago36_6.d as v10,yago36_6.s as v12 from yago36 yago36_6), yago36_5_s1_a5efd006641de22 as (select yago36_5.d as v10,yago36_5.s as v8 from yago36 yago36_5), yago36_4_s1_a5efd006641de22 as (select yago36_4.s as v8,yago36_4.d as v6 from yago36 yago36_4), yago24_s1_a5efd006641de22 as (select yago24.s as v6,yago24.d as v0 from yago24), yago0_s1_a5efd006641de22 as (select yago0.d as v0 from yago0), yago58_s1_a5efd006641de22 as (select yago58.s as v16,yago58.d as v18 from yago58), yago17_s1_a5efd006641de22 as (select yago17.s as v20,yago17.d as v18 from yago17), yago22_s1_a5efd006641de22 as (select yago22.d as v4,yago22.s as v20 from yago22), yago21_1_s1_a5efd006641de22 as (select yago21_1.d as v4,yago21_1.s as v2 from yago21 yago21_1), yago21_2_s1_a5efd006641de22 as (select yago21_2.s as v2 from yago21 yago21_2) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_605A163F640BB98A as  (select * from umbra.identity(table(yago58_s1_a5efd006641de22)) NATURAL JOIN umbra.identity(table(yago17_s1_a5efd006641de22)) NATURAL JOIN umbra.identity(table(yago22_s1_a5efd006641de22)) NATURAL JOIN umbra.identity(table(yago21_1_s1_a5efd006641de22)) NATURAL JOIN umbra.identity(table(yago21_2_s1_a5efd006641de22))), s4_group_378D8556C2C31DF6 as  (select * from umbra.identity(table(yago23_7_s1_a5efd006641de22)) NATURAL JOIN umbra.identity(table(yago36_6_s1_a5efd006641de22)) NATURAL JOIN umbra.identity(table(yago36_5_s1_a5efd006641de22)) NATURAL JOIN umbra.identity(table(yago36_4_s1_a5efd006641de22)) NATURAL JOIN umbra.identity(table(yago24_s1_a5efd006641de22)) NATURAL JOIN umbra.identity(table(yago0_s1_a5efd006641de22))), s4_group_30C09994D6E88CD5 as  (select * from umbra.identity(table(yago23_8_s1_a5efd006641de22)))select count(*) from umbra.identity(table(s4_group_605A163F640BB98A)) natural join umbra.identity(table(s4_group_378D8556C2C31DF6)) natural join umbra.identity(table(s4_group_30C09994D6E88CD5));
+\set queryname yago_acyclic_Chain_12_26
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_4:d;yago2_2:s -> yago2_3:s;yago2_2:d -> yago2_10:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago6:s;yago6:d -> yago2_7:s;yago2_7:d -> yago2_8:d;yago2_8:s -> yago2_9:s;yago2_9:d -> yago2_11:d;yago2_10:s -> yago2_11:s;}
+--                                                 +---------+----+----+
+--                                                 | yago2_0 |  s |  d |
+--                                                 +---------+----+----+
+--                                                              |
+--        +------------------------------+                      |
+--        |                              |                      |
+--        |        +-------+----------+-----------+----------+----+----+
+--        |        | yago6 |     s    |     d     |  yago2_1 |  s |  d |
+--        |        +-------+----------+-----------+----------+----+----+
+--        |                   |                                      |
+--   +----+                   |                                      |
+--   |                        |                                      |
+--   |  +---------+--------+----------+            +---------+----+----+
+--   |  | yago2_5 |    s   |     d    |            | yago2_4 |  s |  d |
+--   |  +---------+--------+----------+            +---------+----+----+
+--   |               |                                          |
+--   |               +------------------------------------------+
+--   |
+--   |                                 +----------+----------+----+
+--   |                                 | yago2_10 |     s    |  d | ------+
+--   |                                 +----------+----------+----+       |
+--   |                                               |                    |
+--   |                                               |                    |
+--   |                                               |                    |
+--   |                                 +----------+----------+----+       |
+--   |                                 | yago2_11 |     s    |  d | ------+----+
+--   |                                 +----------+----------+----+       |    |
+--   |                                 +----------+----------+----+       |    |
+--   |                                 | yago2_2  |     s    |  d | ------+    |
+--   |                                 +----------+----------+----+            |
+--   |                                               |                         |
+--   |                                               |                         |
+--   |                                               |                         |
+--   |                                 +----------+----------+----+            |
+--   |                                 | yago2_3  |     s    |  d |            |
+--   |                                 +----------+----------+----+            |
+--   |                                                                         |
+--   +-----------------------------------+                                     |
+--                                       |                                     |
+--                          +---------+-----------+----------+                 |
+--                          | yago2_7 |     s     |     d    |                 |
+--                          +---------+-----------+----------+                 |
+--                                                   |                         |
+--                                                   |                         |
+--                                                   |                         |
+--                          +---------+-----------+----------+                 |
+--                          | yago2_8 |     s     |     d    |                 |
+--                          +---------+-----------+----------+                 |
+--                                       |                                     |
+--                                       |                                     |
+--                                       |                                     |
+--                          +---------+-----------+----------+                 |
+--                          | yago2_9 |     s     |     d    | ----------------+
+--                          +---------+-----------+----------+
+with dummy as (select) /* stage1 */, yago2_8_s1_abfb5006641de22 as (select yago2_8.d as v14,yago2_8.s as v16 from yago2 yago2_8), yago2_7_s1_abfb5006641de22 as (select yago2_7.d as v14,yago2_7.s as v12 from yago2 yago2_7), yago6_s1_abfb5006641de22 as (select yago6.d as v12,yago6.s as v10 from yago6), yago2_5_s1_abfb5006641de22 as (select yago2_5.d as v10,yago2_5.s as v8 from yago2 yago2_5), yago2_4_s1_abfb5006641de22 as (select yago2_4.d as v2,yago2_4.s as v8 from yago2 yago2_4), yago2_1_s1_abfb5006641de22 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_abfb5006641de22 as (select yago2_0.s as v0 from yago2 yago2_0), yago2_9_s1_abfb5006641de22 as (select yago2_9.s as v16,yago2_9.d as v18 from yago2 yago2_9), yago2_11_s1_abfb5006641de22 as (select yago2_11.d as v18,yago2_11.s as v20 from yago2 yago2_11), yago2_10_s1_abfb5006641de22 as (select yago2_10.d as v6,yago2_10.s as v20 from yago2 yago2_10), yago2_2_s1_abfb5006641de22 as (select yago2_2.d as v6,yago2_2.s as v4 from yago2 yago2_2), yago2_3_s1_abfb5006641de22 as (select yago2_3.s as v4 from yago2 yago2_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_4F16F36484127718 as  (select * from umbra.identity(table(yago2_9_s1_abfb5006641de22)) NATURAL JOIN umbra.identity(table(yago2_11_s1_abfb5006641de22)) NATURAL JOIN umbra.identity(table(yago2_10_s1_abfb5006641de22)) NATURAL JOIN umbra.identity(table(yago2_2_s1_abfb5006641de22)) NATURAL JOIN umbra.identity(table(yago2_3_s1_abfb5006641de22))), s4_group_6109F62603CE46E3 as  (select * from umbra.identity(table(yago2_7_s1_abfb5006641de22)) NATURAL JOIN umbra.identity(table(yago6_s1_abfb5006641de22)) NATURAL JOIN umbra.identity(table(yago2_5_s1_abfb5006641de22)) NATURAL JOIN umbra.identity(table(yago2_4_s1_abfb5006641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_abfb5006641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_abfb5006641de22))), s4_group_198D875AA1E4E49F as  (select * from umbra.identity(table(yago2_8_s1_abfb5006641de22)))select count(*) from umbra.identity(table(s4_group_4F16F36484127718)) natural join umbra.identity(table(s4_group_6109F62603CE46E3)) natural join umbra.identity(table(s4_group_198D875AA1E4E49F));
+\set queryname yago_acyclic_Chain_12_27
+-- Result size: 80
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago22_2 [label="yago22_2|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago62_7 [label="yago62_7|<s> s|<d> d"]; yago62_8 [label="yago62_8|<s> s|<d> d"]; yago5_9 [label="yago5_9|<s> s|<d> d"]; yago5_10 [label="yago5_10|<s> s|<d> d"]; yago22_11 [label="yago22_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago12:s;yago22_2:s -> yago5_3:s;yago22_2:d -> yago46:s;yago5_3:d -> yago22_11:d;yago12:d -> yago17:s;yago17:d -> yago62_7:s;yago62_7:d -> yago62_8:d;yago62_8:s -> yago5_9:s;yago5_9:d -> yago5_10:d;yago5_10:s -> yago22_11:s;}
+--                               +------------------------------------+
+--                               |                                    |
+--                   +--------+---------+----------+                  |
+--                   | yago12 |    s    |     d    |                  |
+--                   +--------+---------+----------+                  |
+--                                         |                          |
+--                                         |                          |
+--                                         |                          |
+--                             +--------+----------+----------+       |
+--                             | yago17 |     s    |     d    |       |
+--                             +--------+----------+----------+       |
+--                                                    |               |
+--                                                    |               |                +---------+
+--                                                    |               |                |         |
+--      +-----------+---------+---------+----------+----------+----+  |  +----------+----+----+  |
+--      | yago22_2  |    s    |    d    | yago62_7 |     s    |  d |  |  | yago62_8 |  s |  d |  |
+--      +-----------+---------+---------+----------+----------+----+  |  +----------+----+----+  |
+--                     |         |                               |    |                     |    |
+--                     |         +---------+                     +----+---------------------+    |
+--                     |                   |                          |                          |
+--      +-----------+---------+---------+  |                          |                          |
+--      |  yago5_3  |    s    |    d    | -+----------+               |                          |
+--      +-----------+---------+---------+  |          |               |                          |
+--                                         |          |               |                          |
+--                               +---------+          |               |                          |
+--                               |                    |               |                          |
+--                   +--------+---------+----------+  |               |                          |
+--                   | yago46 |    s    |     d    |  |               |                          |
+--                   +--------+---------+----------+  |               |                          |
+--                                                    |               |                          |
+--   +------------------------------------------------+               |                          |
+--   |                                                                |                          |
+--   |  +-----------+---------+---------+                             |                          |
+--   |  |  yago2_0  |    s    |    d    |                             |                          |
+--   |  +-----------+---------+---------+                             |                          |
+--   |                 |                                              |                          |
+--   |                 |                                              |                          |
+--   |                 |                                              |                          |
+--   |  +-----------+---------+---------+                             |                          |
+--   |  |  yago2_1  |    s    |    d    | ----------------------------+                          |
+--   |  +-----------+---------+---------+                                                        |
+--   |                                                                                           |
+--   |                                                           +-------------------------------+
+--   |                                                           |
+--   |  +-----------+---------+---------+           +---------+----+----+
+--   |  | yago5_10  |    s    |    d    |           | yago5_9 |  s |  d |
+--   |  +-----------+---------+---------+           +---------+----+----+
+--   |                 |         |                                    |
+--   |                 |         +------------------------------------+
+--   |                 |
+--   |  +-----------+---------+---------+
+--   |  | yago22_11 |    s    |    d    |
+--   |  +-----------+---------+---------+
+--   |                           |
+--   +---------------------------+
+with dummy as (select) /* stage1 */, yago62_8_s1_accf6006641de22 as (select yago62_8.d as v14,yago62_8.s as v16 from yago62 yago62_8), yago5_9_s1_accf6006641de22 as (select yago5_9.d as v18,yago5_9.s as v16 from yago5 yago5_9), yago5_10_s1_accf6006641de22 as (select yago5_10.s as v20,yago5_10.d as v18 from yago5 yago5_10), yago22_11_s1_accf6006641de22 as (select yago22_11.d as v8,yago22_11.s as v20 from yago22 yago22_11), yago5_3_s1_accf6006641de22 as (select yago5_3.d as v8,yago5_3.s as v4 from yago5 yago5_3), yago22_2_s1_accf6006641de22 as (select yago22_2.s as v4,yago22_2.d as v6 from yago22 yago22_2), yago46_s1_accf6006641de22 as (select yago46.s as v6 from yago46), yago62_7_s1_accf6006641de22 as (select yago62_7.s as v12,yago62_7.d as v14 from yago62 yago62_7), yago17_s1_accf6006641de22 as (select yago17.s as v10,yago17.d as v12 from yago17), yago12_s1_accf6006641de22 as (select yago12.s as v2,yago12.d as v10 from yago12), yago2_1_s1_accf6006641de22 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_accf6006641de22 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_431CD1B55E700B1D as  (select * from umbra.identity(table(yago62_7_s1_accf6006641de22)) NATURAL JOIN umbra.identity(table(yago17_s1_accf6006641de22)) NATURAL JOIN umbra.identity(table(yago12_s1_accf6006641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_accf6006641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_accf6006641de22))), s4_group_4EF91BF51717EC67 as  (select * from umbra.identity(table(yago5_9_s1_accf6006641de22)) NATURAL JOIN umbra.identity(table(yago5_10_s1_accf6006641de22)) NATURAL JOIN umbra.identity(table(yago22_11_s1_accf6006641de22)) NATURAL JOIN umbra.identity(table(yago5_3_s1_accf6006641de22)) NATURAL JOIN umbra.identity(table(yago22_2_s1_accf6006641de22)) NATURAL JOIN umbra.identity(table(yago46_s1_accf6006641de22))), s4_group_677F041E010B9717 as  (select * from umbra.identity(table(yago62_8_s1_accf6006641de22)))select count(*) from umbra.identity(table(s4_group_431CD1B55E700B1D)) natural join umbra.identity(table(s4_group_4EF91BF51717EC67)) natural join umbra.identity(table(s4_group_677F041E010B9717));
+\set queryname yago_acyclic_Chain_12_28
+-- Result size: 676
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago48 [label="yago48|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago57_6 [label="yago57_6|<s> s|<d> d"]; yago57_7 [label="yago57_7|<s> s|<d> d"]; yago5_8 [label="yago5_8|<s> s|<d> d"]; yago37_9 [label="yago37_9|<s> s|<d> d"]; yago37_10 [label="yago37_10|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago48:s -> yago46:s;yago46:d -> yago12:s;yago5_2:s -> yago36:s;yago5_2:d -> yago5_4:d;yago36:d -> yago35:d;yago12:d -> yago57_6:s;yago57_6:d -> yago57_7:d;yago57_7:s -> yago5_8:d;yago5_8:s -> yago37_9:s;yago37_9:d -> yago37_10:d;yago37_10:s -> yago35:s;}
+--                                  +--------+---------+----------+
+--                                  | yago48 |    s    |     d    |
+--                                  +--------+---------+----------+
+--                                              |
+--                                              |
+--                                              |
+--                                  +--------+---------+----------+
+--                                  | yago46 |    s    |     d    |
+--                                  +--------+---------+----------+
+--                                                        |
+--                                                        |
+--                                                        |
+--                                            +--------+----------+----+
+--                                            | yago12 |     s    |  d |
+--                                            +--------+----------+----+
+--                                                                   |
+--                  +---------------------------+                    |
+--                  |                           |                    |
+-- +---------+---+----++-----------+---------+---------+----------+----+----+
+-- | yago5_4 | s |  d ||  yago5_2  |    s    |    d    | yago57_6 |  s |  d |
+-- +---------+---+----++-----------+---------+---------+----------+----+----+
+--                                    |                                   |
+--                                    |                                   |              +---------+
+--                                    |                                   |              |         |
+--                     +-----------+---------+---------+----------+----+----+---------+----+----+  |
+--                     |  yago36   |    s    |    d    | yago57_7 |  s |  d | yago5_8 |  s |  d |  |
+--                     +-----------+---------+---------+----------+----+----+---------+----+----+  |
+--                                              |                    |                        |    |
+--                                              |                    +------------------------+    |
+--                                              |                                                  |
+--                     +-----------+---------+---------+                                           |
+--                     |  yago35   |    s    |    d    |                                           |
+--                     +-----------+---------+---------+                                           |
+--                                    |                                                            |
+--                                    |                                                            |
+--                                    |                                                            |
+--                     +-----------+---------+---------+                                           |
+--                     | yago37_10 |    s    |    d    |                                           |
+--                     +-----------+---------+---------+                                           |
+--                                              |                                                  |
+--                                              |                                                  |
+--                                              |                                                  |
+--                     +-----------+---------+---------+                                           |
+--                     | yago37_9  |    s    |    d    |                                           |
+--                     +-----------+---------+---------+                                           |
+--                                    |                                                            |
+--                                    +------------------------------------------------------------+
+with dummy as (select) /* stage1 */, yago5_8_s1_b4483806641de22 as (select yago5_8.d as v14,yago5_8.s as v16 from yago5 yago5_8), yago37_9_s1_b4483806641de22 as (select yago37_9.d as v18,yago37_9.s as v16 from yago37 yago37_9), yago37_10_s1_b4483806641de22 as (select yago37_10.d as v18,yago37_10.s as v20 from yago37 yago37_10), yago35_s1_b4483806641de22 as (select yago35.d as v8,yago35.s as v20 from yago35), yago36_s1_b4483806641de22 as (select yago36.s as v4,yago36.d as v8 from yago36), yago5_2_s1_b4483806641de22 as (select yago5_2.s as v4,yago5_2.d as v6 from yago5 yago5_2), yago5_4_s1_b4483806641de22 as (select yago5_4.d as v6 from yago5 yago5_4), yago57_7_s1_b4483806641de22 as (select yago57_7.s as v14,yago57_7.d as v12 from yago57 yago57_7), yago57_6_s1_b4483806641de22 as (select yago57_6.s as v10,yago57_6.d as v12 from yago57 yago57_6), yago12_s1_b4483806641de22 as (select yago12.d as v10,yago12.s as v2 from yago12), yago46_s1_b4483806641de22 as (select yago46.s as v0,yago46.d as v2 from yago46), yago48_s1_b4483806641de22 as (select yago48.s as v0 from yago48) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6B786632B6F56587 as  (select * from umbra.identity(table(yago57_7_s1_b4483806641de22)) NATURAL JOIN umbra.identity(table(yago57_6_s1_b4483806641de22)) NATURAL JOIN umbra.identity(table(yago12_s1_b4483806641de22)) NATURAL JOIN umbra.identity(table(yago46_s1_b4483806641de22)) NATURAL JOIN umbra.identity(table(yago48_s1_b4483806641de22))), s4_group_3885984794859392 as  (select * from umbra.identity(table(yago37_9_s1_b4483806641de22)) NATURAL JOIN umbra.identity(table(yago37_10_s1_b4483806641de22)) NATURAL JOIN umbra.identity(table(yago35_s1_b4483806641de22)) NATURAL JOIN umbra.identity(table(yago36_s1_b4483806641de22)) NATURAL JOIN umbra.identity(table(yago5_2_s1_b4483806641de22)) NATURAL JOIN umbra.identity(table(yago5_4_s1_b4483806641de22))), s4_group_2E52434027373752 as  (select * from umbra.identity(table(yago5_8_s1_b4483806641de22)))select count(*) from umbra.identity(table(s4_group_6B786632B6F56587)) natural join umbra.identity(table(s4_group_3885984794859392)) natural join umbra.identity(table(s4_group_2E52434027373752));
+\set queryname yago_acyclic_Chain_12_29
+-- Result size: 1330
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago0_2 [label="yago0_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago0_11 [label="yago0_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_5:d;yago0_2:s -> yago5:d;yago0_2:d -> yago0_11:d;yago5:s -> yago17:s;yago2_5:s -> yago2_6:s;yago2_6:d -> yago2_7:d;yago2_7:s -> yago2_8:s;yago2_8:d -> yago2_9:d;yago2_9:s -> yago2_10:s;yago2_10:d -> yago0_11:s;}
+--                                   +----------+-----------+----+
+--                                   | yago2_10 |     s     |  d |
+--                                   +----------+-----------+----+
+--                                                 |           |
+--                       +-------------------------+           |
+--                       |                                     |
+--                       |                       +----------+----+----+
+--                       |                       | yago0_11 |  s |  d |
+--                       |                       +----------+----+----+
+--                       |                                          |
+--                       |                                          |
+--                       |                                          |
+--                       |           +----------+-----------+----+  |
+--                       |           | yago0_2  |     s     |  d | -+
+--                       |           +----------+-----------+----+
+--                       |                         |
+--                       |                         |
+--                       |                         |
+-- +--------+----+----+  |  +-------+-----------+-----------+
+-- | yago17 |  s |  d |  |  | yago5 |     s     |     d     |
+-- +--------+----+----+  |  +-------+-----------+-----------+
+--             |         |             |
+--             +---------+-------------+
+--                       |
+--                       |           +----------+-----------+----+
+--                       |           | yago2_0  |     s     |  d |
+--                       |           +----------+-----------+----+
+--                       |                         |
+--                       |                         |
+--                       |                         |
+--                       |           +----------+-----------+----+
+--                       |           | yago2_1  |     s     |  d |
+--                       |           +----------+-----------+----+
+--                       |                                     |
+--                       |                                     |
+--                       |                                     |
+--                       |           +----------+-----------+----+
+--                       |           | yago2_5  |     s     |  d |
+--                       |           +----------+-----------+----+
+--                       |                         |
+--                       |                         |
+--                       |                         |
+--                       |           +----------+-----------+----+
+--                       |           | yago2_6  |     s     |  d |
+--                       |           +----------+-----------+----+
+--                       |                                     |
+--                       |                                     |
+--                       |                                     |
+--                       |           +----------+-----------+----+
+--                       |           | yago2_7  |     s     |  d |
+--                       |           +----------+-----------+----+
+--                       |                         |
+--                       |                         |
+--                       |                         |
+--                       |           +----------+-----------+----+
+--                       |           | yago2_8  |     s     |  d |
+--                       |           +----------+-----------+----+
+--                       |                                     |
+--                       +-------------------------+           |
+--                                                 |           |
+--                                   +----------+-----------+----+
+--                                   | yago2_9  |     s     |  d |
+--                                   +----------+-----------+----+
+with dummy as (select) /* stage1 */, yago2_9_s1_bba0a006641de22 as (select yago2_9.d as v16,yago2_9.s as v18 from yago2 yago2_9), yago2_8_s1_bba0a006641de22 as (select yago2_8.s as v14,yago2_8.d as v16 from yago2 yago2_8), yago2_7_s1_bba0a006641de22 as (select yago2_7.s as v14,yago2_7.d as v12 from yago2 yago2_7), yago2_6_s1_bba0a006641de22 as (select yago2_6.s as v10,yago2_6.d as v12 from yago2 yago2_6), yago2_5_s1_bba0a006641de22 as (select yago2_5.s as v10,yago2_5.d as v2 from yago2 yago2_5), yago2_1_s1_bba0a006641de22 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_bba0a006641de22 as (select yago2_0.s as v0 from yago2 yago2_0), yago2_10_s1_bba0a006641de22 as (select yago2_10.d as v20,yago2_10.s as v18 from yago2 yago2_10), yago0_11_s1_bba0a006641de22 as (select yago0_11.d as v6,yago0_11.s as v20 from yago0 yago0_11), yago0_2_s1_bba0a006641de22 as (select yago0_2.d as v6,yago0_2.s as v4 from yago0 yago0_2), yago5_s1_bba0a006641de22 as (select yago5.s as v8,yago5.d as v4 from yago5), yago17_s1_bba0a006641de22 as (select yago17.s as v8 from yago17) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_1D5FDDFCD791B95 as  (select * from umbra.identity(table(yago2_10_s1_bba0a006641de22)) NATURAL JOIN umbra.identity(table(yago0_11_s1_bba0a006641de22)) NATURAL JOIN umbra.identity(table(yago0_2_s1_bba0a006641de22)) NATURAL JOIN umbra.identity(table(yago5_s1_bba0a006641de22)) NATURAL JOIN umbra.identity(table(yago17_s1_bba0a006641de22))), s4_group_27BEB0D2ABE086C2 as  (select * from umbra.identity(table(yago2_8_s1_bba0a006641de22)) NATURAL JOIN umbra.identity(table(yago2_7_s1_bba0a006641de22)) NATURAL JOIN umbra.identity(table(yago2_6_s1_bba0a006641de22)) NATURAL JOIN umbra.identity(table(yago2_5_s1_bba0a006641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_bba0a006641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_bba0a006641de22))), s4_group_46AFAA5F6141F71D as  (select * from umbra.identity(table(yago2_9_s1_bba0a006641de22)))select count(*) from umbra.identity(table(s4_group_1D5FDDFCD791B95)) natural join umbra.identity(table(s4_group_27BEB0D2ABE086C2)) natural join umbra.identity(table(s4_group_46AFAA5F6141F71D));
+\set queryname yago_acyclic_Chain_12_30
+-- Result size: 32
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago22_2 [label="yago22_2|<s> s|<d> d"]; yago22_3 [label="yago22_3|<s> s|<d> d"]; yago22_4 [label="yago22_4|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago58_6 [label="yago58_6|<s> s|<d> d"]; yago58_7 [label="yago58_7|<s> s|<d> d"]; yago12_8 [label="yago12_8|<s> s|<d> d"]; yago12_9 [label="yago12_9|<s> s|<d> d"]; yago58_10 [label="yago58_10|<s> s|<d> d"]; yago22_11 [label="yago22_11|<s> s|<d> d"]; yago5_0:s -> yago5_1:s;yago5_1:d -> yago21:d;yago22_2:s -> yago22_3:s;yago22_2:d -> yago22_4:d;yago22_3:d -> yago22_11:d;yago21:s -> yago58_6:d;yago58_6:s -> yago58_7:s;yago58_7:d -> yago12_8:s;yago12_8:d -> yago12_9:d;yago12_9:s -> yago58_10:d;yago58_10:s -> yago22_11:s;}
+--                                                +----------+----+----+
+--                                                | yago12_8 |  s |  d |
+--                                                +----------+----+----+
+--                                                              |    |
+--                    +-----------------------------------------+    |
+--                    |                                              |
+--                    |                           +----------+----+----+
+--                    |                           | yago12_9 |  s |  d |
+--                    |                           +----------+----+----+
+--                    |                                         |
+--                    |                                         |
+--                    |                                         |
+--                    |              +-----------+-----------+----+
+--                    |              | yago58_10 |     s     |  d |
+--                    |              +-----------+-----------+----+
+--                    |                             |
+--                    |                             +--------------------------+
+--                    |                                                        |
+--                    |              +-----------+-----------+----+            |
+--                    |              |  yago21   |     s     |  d | -----------+----+
+--                    |              +-----------+-----------+----+            |    |
+--                    |                             |                          |    |
+--                    |                             |                          |    |
+--                    |                             |                          |    |
+-- +----------+----+----++----------+------------+-----------+                 |    |
+-- | yago58_7 |  s |  d || yago58_6 |      s     |     d     |                 |    |
+-- +----------+----+----++----------+------------+-----------+                 |    |
+--               |                     |                                       |    |
+--               +---------------------+                                       |    |
+--                                                                             |    |
+--                                   +-----------+-----------+----+            |    |
+--                                   | yago22_2  |     s     |  d | ------+    |    |
+--                                   +-----------+-----------+----+       |    |    |
+--                                                  |                     |    |    |
+--                                                  |                     |    |    |
+--                                                  |                     |    |    |
+--                                   +-----------+-----------+----+       |    |    |
+--                                   | yago22_3  |     s     |  d |       |    |    |
+--                                   +-----------+-----------+----+       |    |    |
+--                                                              |         |    |    |
+--                         +------------------------------------+         |    |    |
+--                         |                                              |    |    |
+--                         |         +-----------+-----------+----+       |    |    |
+--                         |         | yago22_4  |     s     |  d | ------+    |    |
+--                         |         +-----------+-----------+----+            |    |
+--                         |                                                   |    |
+--                         +------------------------------------+              |    |
+--                                                              |              |    |
+--                                   +-----------+-----------+----+            |    |
+--                                   | yago22_11 |     s     |  d |            |    |
+--                                   +-----------+-----------+----+            |    |
+--                                                  |                          |    |
+--                                                  +--------------------------+    |
+--                                                                                  |
+--                                   +-----------+-----------+----+                 |
+--                                   |  yago5_0  |     s     |  d |                 |
+--                                   +-----------+-----------+----+                 |
+--                                                  |                               |
+--                                                  |                               |
+--                                                  |                               |
+--                                   +-----------+-----------+----+                 |
+--                                   |  yago5_1  |     s     |  d | ----------------+
+--                                   +-----------+-----------+----+
+with dummy as (select) /* stage1 */, yago12_9_s1_c7faf006641de22 as (select yago12_9.d as v16,yago12_9.s as v18 from yago12 yago12_9), yago12_8_s1_c7faf006641de22 as (select yago12_8.s as v14,yago12_8.d as v16 from yago12 yago12_8), yago58_7_s1_c7faf006641de22 as (select yago58_7.s as v12,yago58_7.d as v14 from yago58 yago58_7), yago58_6_s1_c7faf006641de22 as (select yago58_6.s as v12,yago58_6.d as v10 from yago58 yago58_6), yago21_s1_c7faf006641de22 as (select yago21.d as v2,yago21.s as v10 from yago21), yago5_1_s1_c7faf006641de22 as (select yago5_1.s as v0,yago5_1.d as v2 from yago5 yago5_1), yago5_0_s1_c7faf006641de22 as (select yago5_0.s as v0 from yago5 yago5_0), yago58_10_s1_c7faf006641de22 as (select yago58_10.s as v20,yago58_10.d as v18 from yago58 yago58_10), yago22_11_s1_c7faf006641de22 as (select yago22_11.s as v20,yago22_11.d as v8 from yago22 yago22_11), yago22_3_s1_c7faf006641de22 as (select yago22_3.s as v4,yago22_3.d as v8 from yago22 yago22_3), yago22_2_s1_c7faf006641de22 as (select yago22_2.s as v4,yago22_2.d as v6 from yago22 yago22_2), yago22_4_s1_c7faf006641de22 as (select yago22_4.d as v6 from yago22 yago22_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_13E5EE1FBD098300 as  (select * from umbra.identity(table(yago58_10_s1_c7faf006641de22)) NATURAL JOIN umbra.identity(table(yago22_11_s1_c7faf006641de22)) NATURAL JOIN umbra.identity(table(yago22_3_s1_c7faf006641de22)) NATURAL JOIN umbra.identity(table(yago22_2_s1_c7faf006641de22)) NATURAL JOIN umbra.identity(table(yago22_4_s1_c7faf006641de22))), s4_group_5421E54D959A7E56 as  (select * from umbra.identity(table(yago12_8_s1_c7faf006641de22)) NATURAL JOIN umbra.identity(table(yago58_7_s1_c7faf006641de22)) NATURAL JOIN umbra.identity(table(yago58_6_s1_c7faf006641de22)) NATURAL JOIN umbra.identity(table(yago21_s1_c7faf006641de22)) NATURAL JOIN umbra.identity(table(yago5_1_s1_c7faf006641de22)) NATURAL JOIN umbra.identity(table(yago5_0_s1_c7faf006641de22))), s4_group_4E18CF965029104F as  (select * from umbra.identity(table(yago12_9_s1_c7faf006641de22)))select count(*) from umbra.identity(table(s4_group_13E5EE1FBD098300)) natural join umbra.identity(table(s4_group_5421E54D959A7E56)) natural join umbra.identity(table(s4_group_4E18CF965029104F));
+\set queryname yago_acyclic_Chain_12_31
+-- Result size: 724596
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago35 [label="yago35|<s> s|<d> d"]; yago12_1 [label="yago12_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago12_3 [label="yago12_3|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago5_6 [label="yago5_6|<s> s|<d> d"]; yago5_7 [label="yago5_7|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago5_9 [label="yago5_9|<s> s|<d> d"]; yago5_10 [label="yago5_10|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago35:d -> yago36:d;yago12_1:s -> yago5_2:s;yago12_1:d -> yago12_3:d;yago5_2:d -> yago46:d;yago36:s -> yago21:s;yago21:d -> yago5_6:d;yago5_6:s -> yago5_7:s;yago5_7:d -> yago17:d;yago17:s -> yago5_9:d;yago5_9:s -> yago5_10:s;yago5_10:d -> yago46:s;}
+--                                                      +----------+----+----+
+--                                                      | yago12_3 |  s |  d |
+--                                                      +----------+----+----+
+--                                                                         |
+--                                                                         |
+--                                                                         |
+--                                                      +----------+----+----+
+--                                                      | yago12_1 |  s |  d |
+--                                                      +----------+----+----+
+--                                                                    |
+--                                                                    |
+--                                                                    |
+--                                                      +----------+----+----+
+--                        +---------------------+       | yago5_2  |  s |  d |
+--                        |                     |       +----------+----+----+
+--                        |                     |                          |
+--                        |                     +---------------------+    |
+--                        |                                           |    |
+--                        |                   +--------+-----------+----+  |
+--                        |                   | yago17 |     s     |  d |  |
+--                        |                   +--------+-----------+----+  |
+--                        |                               |                |
+--        +---------------+---------------------+         |                |
+--        |               |                     |         |                |
+--        |               |       +----------+---------+-----------+       |
+--        |               |       | yago5_9  |    s    |     d     |       |
+--        |               |       +----------+---------+-----------+       |
+--        |               |                                                |
+--        |          +----+-------------------------------------------+    |
+--        |          |    |                                           |    |
+--        |          |    |       +----------+---------+-----------+  |    |
+--        |          |    |       |  yago21  |    s    |     d     |  |    |
+--        |          |    |       +----------+---------+-----------+  |    |
+--        |          |    |                     |         |           |    |
+--   +----+          |    |    +----------------+         |           |    |
+--   |               |    |    |                          |           |    |
+--   |  +---------+----+----+  |  +----------+---------+-----------+  |    |
+--   |  | yago5_7 |  s |  d |  |  | yago5_6  |    s    |     d     |  |    |
+--   |  +---------+----+----+  |  +----------+---------+-----------+  |    |
+--   |                         |                |                     |    |
+--   |                         |                +---------------------+    |
+--   |                         |                                           |
+--   |                         |  +----------+---------+-----------+       |
+--   |                         |  |  yago35  |    s    |     d     |       |
+--   |                         |  +----------+---------+-----------+       |
+--   |                         |                          |                |
+--   |                         +----------------+         |                |
+--   |                                          |         |                |
+--   |                            +----------+---------+-----------+       |
+--   |                            |  yago36  |    s    |     d     |       |
+--   |                            +----------+---------+-----------+       |
+--   |                                                                     |
+--   +------------------------------------------+                          |
+--                                              |                          |
+--                                +----------+---------+-----------+       |
+--                                | yago5_10 |    s    |     d     |       |
+--                                +----------+---------+-----------+       |
+--                                                        |                |
+--                                                        |                |
+--                                                        |                |
+--                                            +--------+-----------+----+  |
+--                                            | yago46 |     s     |  d | -+
+--                                            +--------+-----------+----+
+with dummy as (select) /* stage1 */, yago5_9_s1_dc430006641de22 as (select yago5_9.d as v16,yago5_9.s as v18 from yago5 yago5_9), yago17_s1_dc430006641de22 as (select yago17.d as v14,yago17.s as v16 from yago17), yago5_7_s1_dc430006641de22 as (select yago5_7.s as v12,yago5_7.d as v14 from yago5 yago5_7), yago5_6_s1_dc430006641de22 as (select yago5_6.d as v10,yago5_6.s as v12 from yago5 yago5_6), yago21_s1_dc430006641de22 as (select yago21.d as v10,yago21.s as v8 from yago21), yago36_s1_dc430006641de22 as (select yago36.s as v8,yago36.d as v0 from yago36), yago35_s1_dc430006641de22 as (select yago35.d as v0 from yago35), yago5_10_s1_dc430006641de22 as (select yago5_10.d as v20,yago5_10.s as v18 from yago5 yago5_10), yago46_s1_dc430006641de22 as (select yago46.s as v20,yago46.d as v6 from yago46), yago5_2_s1_dc430006641de22 as (select yago5_2.s as v2,yago5_2.d as v6 from yago5 yago5_2), yago12_1_s1_dc430006641de22 as (select yago12_1.d as v4,yago12_1.s as v2 from yago12 yago12_1), yago12_3_s1_dc430006641de22 as (select yago12_3.d as v4 from yago12 yago12_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_436A0E6C52751986 as  (select * from umbra.identity(table(yago5_10_s1_dc430006641de22)) NATURAL JOIN umbra.identity(table(yago46_s1_dc430006641de22)) NATURAL JOIN umbra.identity(table(yago5_2_s1_dc430006641de22)) NATURAL JOIN umbra.identity(table(yago12_1_s1_dc430006641de22)) NATURAL JOIN umbra.identity(table(yago12_3_s1_dc430006641de22))), s4_group_3865753B0ABC803 as  (select * from umbra.identity(table(yago17_s1_dc430006641de22)) NATURAL JOIN umbra.identity(table(yago5_7_s1_dc430006641de22)) NATURAL JOIN umbra.identity(table(yago5_6_s1_dc430006641de22)) NATURAL JOIN umbra.identity(table(yago21_s1_dc430006641de22)) NATURAL JOIN umbra.identity(table(yago36_s1_dc430006641de22)) NATURAL JOIN umbra.identity(table(yago35_s1_dc430006641de22))), s4_group_574BAAF29AFC70A as  (select * from umbra.identity(table(yago5_9_s1_dc430006641de22)))select count(*) from umbra.identity(table(s4_group_436A0E6C52751986)) natural join umbra.identity(table(s4_group_3865753B0ABC803)) natural join umbra.identity(table(s4_group_574BAAF29AFC70A));
+\set queryname yago_acyclic_Chain_12_32
+-- Result size: 661204
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago12_1 [label="yago12_1|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago0_3 [label="yago0_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago57_6 [label="yago57_6|<s> s|<d> d"]; yago57_7 [label="yago57_7|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago5_9 [label="yago5_9|<s> s|<d> d"]; yago12_10 [label="yago12_10|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago0_0:d -> yago0_3:d;yago12_1:s -> yago36:s;yago12_1:d -> yago12_10:d;yago0_3:s -> yago5_4:d;yago5_4:s -> yago13:s;yago13:d -> yago57_6:s;yago57_6:d -> yago57_7:d;yago57_7:s -> yago21:d;yago21:s -> yago5_9:s;yago5_9:d -> yago23:d;yago12_10:s -> yago23:s;}
+--                                              +---------+----+----+
+--                                              | yago0_0 |  s |  d |
+--                                              +---------+----+----+
+--                                                                |
+--                                                                |
+--                                                                |
+--                                              +---------+----+----+
+--                                              | yago0_3 |  s |  d |
+--                                              +---------+----+----+
+--                                                           |
+--                                                           |
+--                                                           |
+--                                 +-----------+----------+----+
+--                                 |  yago5_4  |     s    |  d |
+--                                 +-----------+----------+----+
+--                                                |
+--                         +----------------------+
+--                         |
+--                         |       +-----------+----------+----+
+--                         |       | yago12_1  |     s    |  d | ------+
+--                         |       +-----------+----------+----+       |
+--                         |                      |                    |
+--                         |                      |                    |
+--                         |                      |                    |
+--                         |       +-----------+----------+----+       |
+--                         |       |  yago36   |     s    |  d |       |
+--                         |       +-----------+----------+----+       |
+--                         |       +-----------+----------+----+       |
+--                         |       | yago12_10 |     s    |  d | ------+
+--                         |       +-----------+----------+----+
+--                         |                      |
+--                         |                      |
+--                         |                      |
+--                         |       +-----------+----------+----+
+--                    +----+       |  yago23   |     s    |  d | -----------+
+--                    |            +-----------+----------+----+            |
+--                    |                                                     |
+--               +----+------------------------------------------------+    |
+--               |    |                                                |    |
+--               |    |  +--------+------------+----------+            |    |
+--               |    |  | yago13 |      s     |     d    |            |    |
+--               |    |  +--------+------------+----------+            |    |
+--               |    |              |            |                    |    |
+--               |    +--------------+            |                    |    |
+--               |                                |                    |    |
+-- +----------+----+----+          +-----------+----------+----+       |    |
+-- | yago57_7 |  s |  d |          | yago57_6  |     s    |  d |       |    |
+-- +----------+----+----+          +-----------+----------+----+       |    |
+--                    |                                      |         |    |
+--                    +--------------------------------------+         |    |
+--                                                                     |    |
+--                                 +-----------+----------+----+       |    |
+--                                 |  yago21   |     s    |  d | ------+    |
+--                                 +-----------+----------+----+            |
+--                                                |                         |
+--                                                |                         |
+--                                                |                         |
+--                                 +-----------+----------+----+            |
+--                                 |  yago5_9  |     s    |  d | -----------+
+--                                 +-----------+----------+----+
+with dummy as (select) /* stage1 */, yago57_7_s1_f2745806641de22 as (select yago57_7.d as v12,yago57_7.s as v14 from yago57 yago57_7), yago21_s1_f2745806641de22 as (select yago21.s as v16,yago21.d as v14 from yago21), yago5_9_s1_f2745806641de22 as (select yago5_9.d as v18,yago5_9.s as v16 from yago5 yago5_9), yago23_s1_f2745806641de22 as (select yago23.d as v18,yago23.s as v20 from yago23), yago12_10_s1_f2745806641de22 as (select yago12_10.d as v4,yago12_10.s as v20 from yago12 yago12_10), yago12_1_s1_f2745806641de22 as (select yago12_1.d as v4,yago12_1.s as v2 from yago12 yago12_1), yago36_s1_f2745806641de22 as (select yago36.s as v2 from yago36), yago57_6_s1_f2745806641de22 as (select yago57_6.d as v12,yago57_6.s as v10 from yago57 yago57_6), yago13_s1_f2745806641de22 as (select yago13.d as v10,yago13.s as v8 from yago13), yago5_4_s1_f2745806641de22 as (select yago5_4.d as v6,yago5_4.s as v8 from yago5 yago5_4), yago0_3_s1_f2745806641de22 as (select yago0_3.s as v6,yago0_3.d as v0 from yago0 yago0_3), yago0_0_s1_f2745806641de22 as (select yago0_0.d as v0 from yago0 yago0_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5D02B08E27DA626A as  (select * from umbra.identity(table(yago57_6_s1_f2745806641de22)) NATURAL JOIN umbra.identity(table(yago13_s1_f2745806641de22)) NATURAL JOIN umbra.identity(table(yago5_4_s1_f2745806641de22)) NATURAL JOIN umbra.identity(table(yago0_3_s1_f2745806641de22)) NATURAL JOIN umbra.identity(table(yago0_0_s1_f2745806641de22))), s4_group_779A0D8004015457 as  (select * from umbra.identity(table(yago21_s1_f2745806641de22)) NATURAL JOIN umbra.identity(table(yago5_9_s1_f2745806641de22)) NATURAL JOIN umbra.identity(table(yago23_s1_f2745806641de22)) NATURAL JOIN umbra.identity(table(yago12_10_s1_f2745806641de22)) NATURAL JOIN umbra.identity(table(yago12_1_s1_f2745806641de22)) NATURAL JOIN umbra.identity(table(yago36_s1_f2745806641de22))), s4_group_6BCCB38200EB2540 as  (select * from umbra.identity(table(yago57_7_s1_f2745806641de22)))select count(*) from umbra.identity(table(s4_group_5D02B08E27DA626A)) natural join umbra.identity(table(s4_group_779A0D8004015457)) natural join umbra.identity(table(s4_group_6BCCB38200EB2540));
+\set queryname yago_acyclic_Chain_12_33
+-- Result size: 5784
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago36_0 [label="yago36_0|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago58_2 [label="yago58_2|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago36_4 [label="yago36_4|<s> s|<d> d"]; yago4_5 [label="yago4_5|<s> s|<d> d"]; yago4_6 [label="yago4_6|<s> s|<d> d"]; yago32 [label="yago32|<s> s|<d> d"]; yago36_8 [label="yago36_8|<s> s|<d> d"]; yago8_9 [label="yago8_9|<s> s|<d> d"]; yago8_10 [label="yago8_10|<s> s|<d> d"]; yago58_11 [label="yago58_11|<s> s|<d> d"]; yago36_0:d -> yago36_4:d;yago5:s -> yago58_2:s;yago5:d -> yago21:d;yago58_2:d -> yago58_11:s;yago36_4:s -> yago4_5:s;yago4_5:d -> yago4_6:d;yago4_6:s -> yago32:s;yago32:d -> yago36_8:d;yago36_8:s -> yago8_9:s;yago8_9:d -> yago8_10:d;yago8_10:s -> yago58_11:d;}
+--                   +----------------------------------------------------------+
+--                   |                                                          |
+--                   |                          +-----------+-----------+----+  |
+--                   |                          |  yago21   |     s     |  d |  |
+--                   |                          +-----------+-----------+----+  |
+--                   |                                                     |    |
+--                   |                +------------------------+           |    |
+--                   |                |                        |           |    |
+--                   |  +----------+-----------+------------+  |           |    |
+--                   |  |  yago32  |     s     |      d     |  |           |    |
+--                   |  +----------+-----------+------------+  |           |    |
+--                   |                            |            |           |    |
+--                   |                            |            |           |    |
+--                   |                            |            |           |    |
+-- +---------+----+----++----------+-----------+------------+  |           |    |
+-- | yago8_9 |  s |  d || yago36_8 |     s     |      d     |  |           |    |
+-- +---------+----+----++----------+-----------+------------+  |           |    |
+--              |                     |                        |           |    |
+--              +---------------------+                        |           |    |
+--                                                             |           |    |
+--                      +----------+-----------+------------+  |           |    |
+--                      | yago36_0 |     s     |      d     |  |           |    |
+--                      +----------+-----------+------------+  |           |    |
+--                                                |            |           |    |
+--                                                |            |           |    |
+--                                                |            |           |    |
+--                      +----------+-----------+------------+  |           |    |
+--                      | yago36_4 |     s     |      d     |  |           |    |
+--                      +----------+-----------+------------+  |           |    |
+--                                    |                        |           |    |
+--                                    |                        |           |    |
+--                                    |                        |           |    |
+--                      +----------+-----------+------------+  |           |    |
+--                      | yago4_5  |     s     |      d     |  |           |    |
+--                      +----------+-----------+------------+  |           |    |
+--                                                |            |           |    |
+--                                                |            |           |    |
+--                                                |            |           |    |
+--                      +----------+-----------+------------+  |           |    |
+--                      | yago4_6  |     s     |      d     |  |           |    |
+--                      +----------+-----------+------------+  |           |    |
+--                                    |                        |           |    |
+--                                    +------------------------+           |    |
+--                                                                         |    |
+--                                  +----------+------------+-----------+  |    |
+--                                  |  yago5   |      s     |     d     | -+    |
+--                                  +----------+------------+-----------+       |
+--                                                |                             |
+--                                                |                             |
+--                                                |                             |
+--                                  +----------+------------+-----------+       |
+--                                  | yago58_2 |      s     |     d     |       |
+--                                  +----------+------------+-----------+       |
+--                                                             |                |
+--                                                             |                |
+--                                                             |                |
+--                                              +-----------+-----------+----+  |
+--                                              | yago58_11 |     s     |  d |  |
+--                                              +-----------+-----------+----+  |
+--                                                                         |    |
+--                                                                         |    |
+--                                                                         |    |
+--                                                           +----------+----+----+
+--                                                           | yago8_10 |  s |  d |
+--                                                           +----------+----+----+
+with dummy as (select) /* stage1 */, yago8_9_s1_e8de3806641de22 as (select yago8_9.s as v16,yago8_9.d as v18 from yago8 yago8_9), yago36_8_s1_e8de3806641de22 as (select yago36_8.s as v16,yago36_8.d as v14 from yago36 yago36_8), yago32_s1_e8de3806641de22 as (select yago32.s as v12,yago32.d as v14 from yago32), yago4_6_s1_e8de3806641de22 as (select yago4_6.s as v12,yago4_6.d as v10 from yago4 yago4_6), yago4_5_s1_e8de3806641de22 as (select yago4_5.d as v10,yago4_5.s as v8 from yago4 yago4_5), yago36_4_s1_e8de3806641de22 as (select yago36_4.d as v0,yago36_4.s as v8 from yago36 yago36_4), yago36_0_s1_e8de3806641de22 as (select yago36_0.d as v0 from yago36 yago36_0), yago8_10_s1_e8de3806641de22 as (select yago8_10.s as v20,yago8_10.d as v18 from yago8 yago8_10), yago58_11_s1_e8de3806641de22 as (select yago58_11.s as v6,yago58_11.d as v20 from yago58 yago58_11), yago58_2_s1_e8de3806641de22 as (select yago58_2.d as v6,yago58_2.s as v2 from yago58 yago58_2), yago5_s1_e8de3806641de22 as (select yago5.s as v2,yago5.d as v4 from yago5), yago21_s1_e8de3806641de22 as (select yago21.d as v4 from yago21) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_1D68604914962DAE as  (select * from umbra.identity(table(yago8_10_s1_e8de3806641de22)) NATURAL JOIN umbra.identity(table(yago58_11_s1_e8de3806641de22)) NATURAL JOIN umbra.identity(table(yago58_2_s1_e8de3806641de22)) NATURAL JOIN umbra.identity(table(yago5_s1_e8de3806641de22)) NATURAL JOIN umbra.identity(table(yago21_s1_e8de3806641de22))), s4_group_4B02ADD761A5ABAE as  (select * from umbra.identity(table(yago36_8_s1_e8de3806641de22)) NATURAL JOIN umbra.identity(table(yago32_s1_e8de3806641de22)) NATURAL JOIN umbra.identity(table(yago4_6_s1_e8de3806641de22)) NATURAL JOIN umbra.identity(table(yago4_5_s1_e8de3806641de22)) NATURAL JOIN umbra.identity(table(yago36_4_s1_e8de3806641de22)) NATURAL JOIN umbra.identity(table(yago36_0_s1_e8de3806641de22))), s4_group_4398F087B68BC552 as  (select * from umbra.identity(table(yago8_9_s1_e8de3806641de22)))select count(*) from umbra.identity(table(s4_group_1D68604914962DAE)) natural join umbra.identity(table(s4_group_4B02ADD761A5ABAE)) natural join umbra.identity(table(s4_group_4398F087B68BC552));
+\set queryname yago_acyclic_Chain_12_34
+-- Result size: 90
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago46_3 [label="yago46_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago46_5 [label="yago46_5|<s> s|<d> d"]; yago46_6 [label="yago46_6|<s> s|<d> d"]; yago17_7 [label="yago17_7|<s> s|<d> d"]; yago17_8 [label="yago17_8|<s> s|<d> d"]; yago5_9 [label="yago5_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago5_0:d -> yago46_3:d;yago54:s -> yago2_10:d;yago54:d -> yago23:s;yago46_3:s -> yago17_4:d;yago17_4:s -> yago46_5:s;yago46_5:d -> yago46_6:d;yago46_6:s -> yago17_7:s;yago17_7:d -> yago17_8:s;yago17_8:d -> yago5_9:d;yago5_9:s -> yago2_11:d;yago2_10:s -> yago2_11:s;}
+--                                                                    +---------+----+--------+
+--                                                                    | yago5_0 |  s |    d   |
+--                                                                    +---------+----+--------+
+--                                                                                      |
+--                                                                                      |
+--                                                                                      |
+--                                          +----------+----+--------+----------+----+--------+
+--                                          | yago17_4 |  s |    d   | yago46_3 |  s |    d   |
+--                                          +----------+----+--------+----------+----+--------+
+--                                                        |    |                   |
+--                                                        |    +-------------------+
+--                                                        |
+-- +----------+----+-----------+            +----------+----+--------+
+-- | yago46_6 |  s |     d     |            | yago46_5 |  s |    d   |
+-- +----------+----+-----------+            +----------+----+--------+
+--               |    |                                        |
+--               |    +----------------------------------------+
+--               |
+--               |  +----------+-----------+-----------+
+--               |  | yago17_7 |     s     |     d     |
+--               |  +----------+-----------+-----------+
+--               |                |           |
+--               +----------------+           |
+--                                            |
+--                              +----------+-----------+----+
+--                              | yago17_8 |     s     |  d |
+--                              +----------+-----------+----+
+--                                                        |
+--                                                        |
+--                                                        |
+--                              +----------+-----------+----+
+--                              | yago5_9  |     s     |  d |
+--                              +----------+-----------+----+
+--                                            |
+--                    +-----------------------+
+--                    |
+--                    |         +----------+-----------+----+--------+----------+----+--------+----+---+
+--                    |         | yago2_10 |     s     |  d | yago54 |     s    |  d | yago23 |  s | d |
+--                    |         +----------+-----------+----+--------+----------+----+--------+----+---+
+--                    |                       |           |             |          |             |
+--                    |                       |           +-------------+          +-------------+
+--                    |                       |
+--                    |         +----------+-----------+----+
+--                    |         | yago2_11 |     s     |  d |
+--                    |         +----------+-----------+----+
+--                    |                                   |
+--                    +-----------------------------------+
+with dummy as (select) /* stage1 */, yago17_8_s1_f5333006641de22 as (select yago17_8.s as v14,yago17_8.d as v16 from yago17 yago17_8), yago17_7_s1_f5333006641de22 as (select yago17_7.d as v14,yago17_7.s as v12 from yago17 yago17_7), yago46_6_s1_f5333006641de22 as (select yago46_6.d as v10,yago46_6.s as v12 from yago46 yago46_6), yago46_5_s1_f5333006641de22 as (select yago46_5.d as v10,yago46_5.s as v8 from yago46 yago46_5), yago17_4_s1_f5333006641de22 as (select yago17_4.d as v6,yago17_4.s as v8 from yago17 yago17_4), yago46_3_s1_f5333006641de22 as (select yago46_3.d as v0,yago46_3.s as v6 from yago46 yago46_3), yago5_0_s1_f5333006641de22 as (select yago5_0.d as v0 from yago5 yago5_0), yago5_9_s1_f5333006641de22 as (select yago5_9.d as v16,yago5_9.s as v18 from yago5 yago5_9), yago2_11_s1_f5333006641de22 as (select yago2_11.d as v18,yago2_11.s as v20 from yago2 yago2_11), yago2_10_s1_f5333006641de22 as (select yago2_10.d as v2,yago2_10.s as v20 from yago2 yago2_10), yago54_s1_f5333006641de22 as (select yago54.d as v4,yago54.s as v2 from yago54), yago23_s1_f5333006641de22 as (select yago23.s as v4 from yago23) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2DD60A63F5C1E967 as  (select * from umbra.identity(table(yago5_9_s1_f5333006641de22)) NATURAL JOIN umbra.identity(table(yago2_11_s1_f5333006641de22)) NATURAL JOIN umbra.identity(table(yago2_10_s1_f5333006641de22)) NATURAL JOIN umbra.identity(table(yago54_s1_f5333006641de22)) NATURAL JOIN umbra.identity(table(yago23_s1_f5333006641de22))), s4_group_49CDE1C06EFF7E46 as  (select * from umbra.identity(table(yago17_7_s1_f5333006641de22)) NATURAL JOIN umbra.identity(table(yago46_6_s1_f5333006641de22)) NATURAL JOIN umbra.identity(table(yago46_5_s1_f5333006641de22)) NATURAL JOIN umbra.identity(table(yago17_4_s1_f5333006641de22)) NATURAL JOIN umbra.identity(table(yago46_3_s1_f5333006641de22)) NATURAL JOIN umbra.identity(table(yago5_0_s1_f5333006641de22))), s4_group_7279788A6B0B371 as  (select * from umbra.identity(table(yago17_8_s1_f5333006641de22)))select count(*) from umbra.identity(table(s4_group_2DD60A63F5C1E967)) natural join umbra.identity(table(s4_group_49CDE1C06EFF7E46)) natural join umbra.identity(table(s4_group_7279788A6B0B371));
+\set queryname yago_acyclic_Chain_12_35
+-- Result size: 351852
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago29 [label="yago29|<s> s|<d> d"]; yago13_1 [label="yago13_1|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago13_3 [label="yago13_3|<s> s|<d> d"]; yago39_4 [label="yago39_4|<s> s|<d> d"]; yago39_5 [label="yago39_5|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago13_7 [label="yago13_7|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago57_9 [label="yago57_9|<s> s|<d> d"]; yago57_10 [label="yago57_10|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago29:s -> yago39_4:d;yago13_1:s -> yago5:s;yago13_1:d -> yago13_3:d;yago5:d -> yago17:d;yago39_4:s -> yago39_5:s;yago39_5:d -> yago50:d;yago50:s -> yago13_7:s;yago13_7:d -> yago46:d;yago46:s -> yago57_9:s;yago57_9:d -> yago57_10:d;yago57_10:s -> yago17:s;}
+--                                                          +----------+----+----+
+--                                                          | yago13_3 |  s |  d |
+--                                                          +----------+----+----+
+--                                                                             |
+--               +----------------------+                                      |
+--               |                      |                                      |
+--               |  +-----------+----+-----------+          +----------+----+----+
+--               |  | yago57_10 |  s |     d     |          | yago13_1 |  s |  d |
+--               |  +-----------+----+-----------+          +----------+----+----+
+--               |                 |                                      |
+--               |                 |                                      |
+--               |                 |                                      |
+--               |  +-----------+----+-----------+          +----------+----+----+
+--               |  |  yago17   |  s |     d     |          |  yago5   |  s |  d |
+--               |  +-----------+----+-----------+          +----------+----+----+
+--               |                      |                                      |
+--               +----+                 +--------------------------------------+
+--                    |
+--                    |               +----------+---------+-----------+
+--                    |               | yago13_7 |    s    |     d     |
+--                    |               +----------+---------+-----------+
+--                    |                             |         |
+--                    |            +----------------+         |
+--                    |            |                          |
+-- +----------+----+------------+  |  +----------+---------+-----------+
+-- | yago57_9 |  s |      d     |  |  |  yago46  |    s    |     d     |
+-- +----------+----+------------+  |  +----------+---------+-----------+
+--               |                 |                |
+--               +-----------------+----------------+
+--                                 |
+--                                 |              +--------+-----------+----+
+--                                 |              | yago29 |     s     |  d |
+--                                 |              +--------+-----------+----+
+--                                 |                          |
+--                                 |                          |
+--                                 |                          |
+--                                 |  +----------+---------+-----------+
+--                                 |  | yago39_4 |    s    |     d     |
+--                                 |  +----------+---------+-----------+
+--                                 |                |
+--                                 |                |
+--                                 |                |
+--                                 |  +----------+---------+-----------+
+--                                 |  | yago39_5 |    s    |     d     |
+--                                 |  +----------+---------+-----------+
+--                                 |                          |
+--                                 +----------------+         |
+--                                                  |         |
+--                                    +----------+---------+-----------+
+--                                    |  yago50  |    s    |     d     |
+--                                    +----------+---------+-----------+
+with dummy as (select) /* stage1 */, yago57_9_s1_10645b006641de22 as (select yago57_9.s as v16,yago57_9.d as v18 from yago57 yago57_9), yago46_s1_10645b006641de22 as (select yago46.s as v16,yago46.d as v14 from yago46), yago13_7_s1_10645b006641de22 as (select yago13_7.s as v12,yago13_7.d as v14 from yago13 yago13_7), yago50_s1_10645b006641de22 as (select yago50.s as v12,yago50.d as v10 from yago50), yago39_5_s1_10645b006641de22 as (select yago39_5.s as v8,yago39_5.d as v10 from yago39 yago39_5), yago39_4_s1_10645b006641de22 as (select yago39_4.s as v8,yago39_4.d as v0 from yago39 yago39_4), yago29_s1_10645b006641de22 as (select yago29.s as v0 from yago29), yago57_10_s1_10645b006641de22 as (select yago57_10.d as v18,yago57_10.s as v20 from yago57 yago57_10), yago17_s1_10645b006641de22 as (select yago17.s as v20,yago17.d as v6 from yago17), yago5_s1_10645b006641de22 as (select yago5.s as v2,yago5.d as v6 from yago5), yago13_1_s1_10645b006641de22 as (select yago13_1.s as v2,yago13_1.d as v4 from yago13 yago13_1), yago13_3_s1_10645b006641de22 as (select yago13_3.d as v4 from yago13 yago13_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7415E52D026E2AEC as  (select * from umbra.identity(table(yago57_10_s1_10645b006641de22)) NATURAL JOIN umbra.identity(table(yago17_s1_10645b006641de22)) NATURAL JOIN umbra.identity(table(yago5_s1_10645b006641de22)) NATURAL JOIN umbra.identity(table(yago13_1_s1_10645b006641de22)) NATURAL JOIN umbra.identity(table(yago13_3_s1_10645b006641de22))), s4_group_EB108D34C8608EB as  (select * from umbra.identity(table(yago46_s1_10645b006641de22)) NATURAL JOIN umbra.identity(table(yago13_7_s1_10645b006641de22)) NATURAL JOIN umbra.identity(table(yago50_s1_10645b006641de22)) NATURAL JOIN umbra.identity(table(yago39_5_s1_10645b006641de22)) NATURAL JOIN umbra.identity(table(yago39_4_s1_10645b006641de22)) NATURAL JOIN umbra.identity(table(yago29_s1_10645b006641de22))), s4_group_537A495690A3942B as  (select * from umbra.identity(table(yago57_9_s1_10645b006641de22)))select count(*) from umbra.identity(table(s4_group_7415E52D026E2AEC)) natural join umbra.identity(table(s4_group_EB108D34C8608EB)) natural join umbra.identity(table(s4_group_537A495690A3942B));
+\set queryname yago_acyclic_Chain_12_36
+-- Result size: 460964
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago21 [label="yago21|<s> s|<d> d"]; yago54_1 [label="yago54_1|<s> s|<d> d"]; yago54_2 [label="yago54_2|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago57_5 [label="yago57_5|<s> s|<d> d"]; yago57_6 [label="yago57_6|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago58_8 [label="yago58_8|<s> s|<d> d"]; yago58_9 [label="yago58_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago21:s -> yago5_3:d;yago54_1:s -> yago2_10:d;yago54_1:d -> yago54_2:s;yago5_3:s -> yago5_4:s;yago5_4:d -> yago57_5:s;yago57_5:d -> yago57_6:d;yago57_6:s -> yago12:d;yago12:s -> yago58_8:d;yago58_8:s -> yago58_9:s;yago58_9:d -> yago2_11:d;yago2_10:s -> yago2_11:s;}
+--                                              +-------------------------------------------------+
+--                                              |                                                 |
+--                                              |         +--------+----+----------+              |
+--                                              |         | yago12 |  s |     d    |              |
+--                                              |         +--------+----+----------+              |
+--                                              |                     |    |                      |
+--                                              +-----------+         |    |                      |
+--                                                          |         |    |                      |
+--                                            +----------+---------+----+  |        +----------+----+----------+
+--                                            | yago58_8 |    s    |  d |  |        | yago58_9 |  s |     d    |
+--                                            +----------+---------+----+  |        +----------+----+----------+
+--                                                                         |                           |
+--                             +-------------------------------------------+                           |
+--                             |                                                                       |
+--                             |              +----------+---------+----+                              |
+--                             |              |  yago21  |    s    |  d |                              |
+--                             |              +----------+---------+----+                              |
+--                             |                            |                                          |
+--   +--------------------+    |                            |                                          |
+--   |                    |    |                            |                                          |
+--   |  +---------+----+----+  |  +----------+-----------+---------+                                   |
+--   |  | yago5_4 |  s |  d |  |  | yago5_3  |     s     |    d    |                                   |
+--   |  +---------+----+----+  |  +----------+-----------+---------+                                   |
+--   |               |         |                |                                                      |
+--   |               +---------+----------------+                                                      +-------------------+
+--   |                         |                                                                                           |
+--   |                         |              +----------+---------+----+----------+-----------+----+----------+----+---+  |
+--   |                         |              | yago2_10 |    s    |  d | yago54_1 |     s     |  d | yago54_2 |  s | d |  |
+--   |                         |              +----------+---------+----+----------+-----------+----+----------+----+---+  |
+--   |                         |                            |         |               |           |               |        |
+--   |                         |                            |         +---------------+           +---------------+        |
+--   |                         |                            |                                                              |
+--   |                         |              +----------+---------+----+                                                  |
+--   |                         |              | yago2_11 |    s    |  d | -------------------------------------------------+
+--   |                         |              +----------+---------+----+
+--   |                         |
+--   +-------------------------+----------------+
+--                             |                |
+--                             |  +----------+-----------+---------+
+--                             |  | yago57_5 |     s     |    d    |
+--                             |  +----------+-----------+---------+
+--                             |                            |
+--                             +----------------+           |
+--                                              |           |
+--                                +----------+-----------+---------+
+--                                | yago57_6 |     s     |    d    |
+--                                +----------+-----------+---------+
+with dummy as (select) /* stage1 */, yago58_8_s1_127d56806641de22 as (select yago58_8.d as v14,yago58_8.s as v16 from yago58 yago58_8), yago12_s1_127d56806641de22 as (select yago12.d as v12,yago12.s as v14 from yago12), yago57_6_s1_127d56806641de22 as (select yago57_6.s as v12,yago57_6.d as v10 from yago57 yago57_6), yago57_5_s1_127d56806641de22 as (select yago57_5.s as v8,yago57_5.d as v10 from yago57 yago57_5), yago5_4_s1_127d56806641de22 as (select yago5_4.d as v8,yago5_4.s as v6 from yago5 yago5_4), yago5_3_s1_127d56806641de22 as (select yago5_3.d as v0,yago5_3.s as v6 from yago5 yago5_3), yago21_s1_127d56806641de22 as (select yago21.s as v0 from yago21), yago58_9_s1_127d56806641de22 as (select yago58_9.s as v16,yago58_9.d as v18 from yago58 yago58_9), yago2_11_s1_127d56806641de22 as (select yago2_11.s as v20,yago2_11.d as v18 from yago2 yago2_11), yago2_10_s1_127d56806641de22 as (select yago2_10.s as v20,yago2_10.d as v2 from yago2 yago2_10), yago54_1_s1_127d56806641de22 as (select yago54_1.d as v4,yago54_1.s as v2 from yago54 yago54_1), yago54_2_s1_127d56806641de22 as (select yago54_2.s as v4 from yago54 yago54_2) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_2D5AE4A21E176715 as  (select * from umbra.identity(table(yago58_9_s1_127d56806641de22)) NATURAL JOIN umbra.identity(table(yago2_11_s1_127d56806641de22)) NATURAL JOIN umbra.identity(table(yago2_10_s1_127d56806641de22)) NATURAL JOIN umbra.identity(table(yago54_1_s1_127d56806641de22)) NATURAL JOIN umbra.identity(table(yago54_2_s1_127d56806641de22))), s4_group_7756005E9781FFEB as  (select * from umbra.identity(table(yago12_s1_127d56806641de22)) NATURAL JOIN umbra.identity(table(yago57_6_s1_127d56806641de22)) NATURAL JOIN umbra.identity(table(yago57_5_s1_127d56806641de22)) NATURAL JOIN umbra.identity(table(yago5_4_s1_127d56806641de22)) NATURAL JOIN umbra.identity(table(yago5_3_s1_127d56806641de22)) NATURAL JOIN umbra.identity(table(yago21_s1_127d56806641de22))), s4_group_6CF0160A89360E13 as  (select * from umbra.identity(table(yago58_8_s1_127d56806641de22)))select count(*) from umbra.identity(table(s4_group_2D5AE4A21E176715)) natural join umbra.identity(table(s4_group_7756005E9781FFEB)) natural join umbra.identity(table(s4_group_6CF0160A89360E13));
+\set queryname yago_acyclic_Chain_12_37
+-- Result size: 107500
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago9_0 [label="yago9_0|<s> s|<d> d"]; yago13_1 [label="yago13_1|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago9_3 [label="yago9_3|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago13_5 [label="yago13_5|<s> s|<d> d"]; yago13_6 [label="yago13_6|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago57_8 [label="yago57_8|<s> s|<d> d"]; yago57_9 [label="yago57_9|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago13_11 [label="yago13_11|<s> s|<d> d"]; yago9_0:d -> yago9_3:d;yago13_1:s -> yago54:d;yago13_1:d -> yago21:d;yago9_3:s -> yago35:d;yago35:s -> yago13_5:s;yago13_5:d -> yago13_6:d;yago13_6:s -> yago22:s;yago22:d -> yago57_8:s;yago57_8:d -> yago57_9:d;yago57_9:s -> yago13_11:d;yago21:s -> yago13_11:s;}
+--                                             +-----------+----+----+
+--                                             | yago13_11 |  s |  d | -+
+--                                             +-----------+----+----+  |
+--                                                            |         |
+--                                                            |         |
+--                                                            |         |
+--                                             +-----------+----+----+  |
+--                                             |  yago21   |  s |  d |  |
+--                                             +-----------+----+----+  |
+--                                                                 |    |
+--                                                                 |    |
+--                                                                 |    |
+--                                             +-----------+----+----+  |
+--                                             | yago13_1  |  s |  d |  |
+--                                             +-----------+----+----+  |
+--                                                            |         |
+--                                                            |         |
+--                                                            |         |
+--                                 +----------+------------+----+       |
+--                                 |  yago54  |      s     |  d |       |
+--                                 +----------+------------+----+       |
+-- +--------+----+----++----------+-----------+------------+            |
+-- | yago35 |  s |  d || yago13_5 |     s     |      d     |            |
+-- +--------+----+----++----------+-----------+------------+            |
+--             |    |                |           |                      |
+--             +----+----------------+           |                      |
+--                  |                            |                      |
+--                  |  +----------+-----------+------------+            |
+--                  |  | yago13_6 |     s     |      d     |            |
+--                  |  +----------+-----------+------------+            |
+--                  |                |                                  |
+--                  |                |                                  |
+--                  |                |                                  |
+--                  |  +----------+-----------+------------+            |
+--                  |  |  yago22  |     s     |      d     |            |
+--                  |  +----------+-----------+------------+            |
+--                  |                            |                      |
+--                  |                            |                      |
+--                  |                            |                      |
+--                  |              +----------+------------+----+       |
+--                  |              | yago57_8 |      s     |  d |       |
+--                  |              +----------+------------+----+       |
+--                  |                                         |         |
+--                  |                                         |         |
+--                  |                                         |         |
+--                  |              +----------+------------+----+       |
+--                  |              | yago57_9 |      s     |  d |       |
+--                  |              +----------+------------+----+       |
+--                  |                            |                      |
+--                  |                            +----------------------+
+--                  |
+--                  |  +----------+-----------+------------+
+--                  |  | yago9_0  |     s     |      d     |
+--                  |  +----------+-----------+------------+
+--                  |                            |
+--                  +----------------+           |
+--                                   |           |
+--                     +----------+-----------+------------+
+--                     | yago9_3  |     s     |      d     |
+--                     +----------+-----------+------------+
+with dummy as (select) /* stage1 */, yago57_8_s1_114ecf806641de22 as (select yago57_8.s as v14,yago57_8.d as v16 from yago57 yago57_8), yago22_s1_114ecf806641de22 as (select yago22.s as v12,yago22.d as v14 from yago22), yago13_6_s1_114ecf806641de22 as (select yago13_6.s as v12,yago13_6.d as v10 from yago13 yago13_6), yago13_5_s1_114ecf806641de22 as (select yago13_5.s as v8,yago13_5.d as v10 from yago13 yago13_5), yago35_s1_114ecf806641de22 as (select yago35.s as v8,yago35.d as v6 from yago35), yago9_3_s1_114ecf806641de22 as (select yago9_3.s as v6,yago9_3.d as v0 from yago9 yago9_3), yago9_0_s1_114ecf806641de22 as (select yago9_0.d as v0 from yago9 yago9_0), yago57_9_s1_114ecf806641de22 as (select yago57_9.s as v18,yago57_9.d as v16 from yago57 yago57_9), yago13_11_s1_114ecf806641de22 as (select yago13_11.s as v20,yago13_11.d as v18 from yago13 yago13_11), yago21_s1_114ecf806641de22 as (select yago21.s as v20,yago21.d as v4 from yago21), yago13_1_s1_114ecf806641de22 as (select yago13_1.s as v2,yago13_1.d as v4 from yago13 yago13_1), yago54_s1_114ecf806641de22 as (select yago54.d as v2 from yago54) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_3AABE5908E71B64 as  (select * from umbra.identity(table(yago57_9_s1_114ecf806641de22)) NATURAL JOIN umbra.identity(table(yago13_11_s1_114ecf806641de22)) NATURAL JOIN umbra.identity(table(yago21_s1_114ecf806641de22)) NATURAL JOIN umbra.identity(table(yago13_1_s1_114ecf806641de22)) NATURAL JOIN umbra.identity(table(yago54_s1_114ecf806641de22))), s4_group_4FB4F398A3044FEF as  (select * from umbra.identity(table(yago22_s1_114ecf806641de22)) NATURAL JOIN umbra.identity(table(yago13_6_s1_114ecf806641de22)) NATURAL JOIN umbra.identity(table(yago13_5_s1_114ecf806641de22)) NATURAL JOIN umbra.identity(table(yago35_s1_114ecf806641de22)) NATURAL JOIN umbra.identity(table(yago9_3_s1_114ecf806641de22)) NATURAL JOIN umbra.identity(table(yago9_0_s1_114ecf806641de22))), s4_group_4A62EB7537DB8173 as  (select * from umbra.identity(table(yago57_8_s1_114ecf806641de22)))select count(*) from umbra.identity(table(s4_group_3AABE5908E71B64)) natural join umbra.identity(table(s4_group_4FB4F398A3044FEF)) natural join umbra.identity(table(s4_group_4A62EB7537DB8173));
+\set queryname yago_acyclic_Chain_12_38
+-- Result size: 5433
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago35_1 [label="yago35_1|<s> s|<d> d"]; yago35_2 [label="yago35_2|<s> s|<d> d"]; yago31_3 [label="yago31_3|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago0_9 [label="yago0_9|<s> s|<d> d"]; yago31_10 [label="yago31_10|<s> s|<d> d"]; yago31_11 [label="yago31_11|<s> s|<d> d"]; yago0_0:d -> yago1:d;yago35_1:s -> yago35_2:s;yago35_1:d -> yago31_3:s;yago35_2:d -> yago31_11:d;yago1:s -> yago46:s;yago46:d -> yago50:s;yago50:d -> yago36:d;yago36:s -> yago3:s;yago3:d -> yago0_9:d;yago0_9:s -> yago31_10:d;yago31_10:s -> yago31_11:s;}
+--   +-----------------------------------------------+
+--   |                                               |
+--   |                      +--------+------------+-----------+---------+----+----------+
+--   |                      | yago50 |      s     |     d     | yago0_0 |  s |     d    |
+--   |                      +--------+------------+-----------+---------+----+----------+
+--   |                                  |                                       |
+--   |                                  |                                       |
+--   |                                  |                                       |
+--   |            +--------+---------+------------+            +--------+----+----------+
+--   |            | yago46 |    s    |      d     |            | yago1  |  s |     d    |
+--   |            +--------+---------+------------+            +--------+----+----------+
+--   |                        |                                            |
+--   |                        +--------------------------------------------+
+--   |
+--   |                                             +----------+---------+----+
+--   |                                             | yago0_9  |    s    |  d |
+--   |                                             +----------+---------+----+
+--   |                                                           |         |
+--   |                                                           |         |
+--   |                                                           |         |
+--   |                                +-----------+-----------+---------+  |
+--   |                                | yago31_10 |     s     |    d    |  |
+--   |                                +-----------+-----------+---------+  |
+--   |                                               |                     |
+--   +------------------------+         +------------+                     |
+--                            |         |                                  |
+--      +--------+---------+---------+  |          +----------+---------+----+
+--      | yago36 |    s    |    d    |  |          |  yago3   |    s    |  d |
+--      +--------+---------+---------+  |          +----------+---------+----+
+--                  |                   |                        |
+--                  |                   +------------+           +--------------+
+--                  |                                |                          |
+--                  |                 +-----------+-----------+---------+       |
+--                  |                 | yago31_11 |     s     |    d    | ------+-------------------+
+--                  |                 +-----------+-----------+---------+       |                   |
+--                  |                                                           |                   |
+--                  +-----------------------------------------------------------+                   |
+--                                                                                                  |
+--                                                 +----------+---------+----+----------+----+---+  |
+--                                                 | yago35_1 |    s    |  d | yago31_3 |  s | d |  |
+--                                                 +----------+---------+----+----------+----+---+  |
+--                                                               |         |               |        |
+--                                                               |         +---------------+        |
+--                                                               |                                  |
+--                                                 +----------+---------+----+                      |
+--                                                 | yago35_2 |    s    |  d | ---------------------+
+--                                                 +----------+---------+----+
+with dummy as (select) /* stage1 */, yago3_s1_11b345806641de22 as (select yago3.s as v14,yago3.d as v16 from yago3), yago0_9_s1_11b345806641de22 as (select yago0_9.d as v16,yago0_9.s as v18 from yago0 yago0_9), yago31_10_s1_11b345806641de22 as (select yago31_10.s as v20,yago31_10.d as v18 from yago31 yago31_10), yago31_11_s1_11b345806641de22 as (select yago31_11.s as v20,yago31_11.d as v6 from yago31 yago31_11), yago35_2_s1_11b345806641de22 as (select yago35_2.s as v2,yago35_2.d as v6 from yago35 yago35_2), yago35_1_s1_11b345806641de22 as (select yago35_1.d as v4,yago35_1.s as v2 from yago35 yago35_1), yago31_3_s1_11b345806641de22 as (select yago31_3.s as v4 from yago31 yago31_3), yago36_s1_11b345806641de22 as (select yago36.s as v14,yago36.d as v12 from yago36), yago50_s1_11b345806641de22 as (select yago50.d as v12,yago50.s as v10 from yago50), yago46_s1_11b345806641de22 as (select yago46.s as v8,yago46.d as v10 from yago46), yago1_s1_11b345806641de22 as (select yago1.d as v0,yago1.s as v8 from yago1), yago0_0_s1_11b345806641de22 as (select yago0_0.d as v0 from yago0 yago0_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5D7ACD2C531FBB35 as  (select * from umbra.identity(table(yago36_s1_11b345806641de22)) NATURAL JOIN umbra.identity(table(yago50_s1_11b345806641de22)) NATURAL JOIN umbra.identity(table(yago46_s1_11b345806641de22)) NATURAL JOIN umbra.identity(table(yago1_s1_11b345806641de22)) NATURAL JOIN umbra.identity(table(yago0_0_s1_11b345806641de22))), s4_group_7B8383094A89400 as  (select * from umbra.identity(table(yago0_9_s1_11b345806641de22)) NATURAL JOIN umbra.identity(table(yago31_10_s1_11b345806641de22)) NATURAL JOIN umbra.identity(table(yago31_11_s1_11b345806641de22)) NATURAL JOIN umbra.identity(table(yago35_2_s1_11b345806641de22)) NATURAL JOIN umbra.identity(table(yago35_1_s1_11b345806641de22)) NATURAL JOIN umbra.identity(table(yago31_3_s1_11b345806641de22))), s4_group_7D49438076A970CD as  (select * from umbra.identity(table(yago3_s1_11b345806641de22)))select count(*) from umbra.identity(table(s4_group_5D7ACD2C531FBB35)) natural join umbra.identity(table(s4_group_7B8383094A89400)) natural join umbra.identity(table(s4_group_7D49438076A970CD));
+\set queryname yago_acyclic_Chain_12_39
+-- Result size: 17
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago23_5 [label="yago23_5|<s> s|<d> d"]; yago23_6 [label="yago23_6|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago23_9 [label="yago23_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago0:d -> yago3:d;yago2_1:s -> yago2_2:s;yago2_1:d -> yago2_10:d;yago3:s -> yago58:s;yago58:d -> yago23_5:s;yago23_5:d -> yago23_6:d;yago23_6:s -> yago54:s;yago54:d -> yago17:d;yago17:s -> yago23_9:s;yago23_9:d -> yago2_11:d;yago2_10:s -> yago2_11:s;}
+--                                                         +-------+----+----+
+--                                                         | yago0 |  s |  d |
+--                                                         +-------+----+----+
+--                                                                         |
+--        +--------------------------+                                     |
+--        |                          |                                     |
+--        |         +--------+----+-----------+            +-------+----+----+
+--        |         | yago58 |  s |     d     |            | yago3 |  s |  d |
+--        |         +--------+----+-----------+            +-------+----+----+
+--        |                     |                                     |
+--        |                     +-------------------------------------+
+--        |
+--        |                                    +----------+--------+----+
+--        |                                    |  yago17  |    s   |  d | ------+
+--        |                                    +----------+--------+----+       |
+--        |                                                  |                  |
+--   +----+                                                  |                  |
+--   |                                                       |                  |
+--   |  +----------+---------+----+            +----------+--------+----+       |
+--   |  | yago2_11 |    s    |  d |            | yago23_9 |    s   |  d |       |
+--   |  +----------+---------+----+            +----------+--------+----+       |
+--   |                |         |                                     |         |
+--   |                |         +-------------------------------------+         |
+--   |                |                                                         |
+--   |                |            +----------+-----------+--------+            |
+--   +----------------+---------+  | yago23_5 |     s     |    d   |            |
+--                    |         |  +----------+-----------+--------+            |
+--                    |         |                |           |                  |
+--                    |         +----------------+           |                  |
+--                    |                                      |                  |
+--                    |            +----------+-----------+--------+            |
+--                    |            | yago23_6 |     s     |    d   |            |
+--                    |            +----------+-----------+--------+            |
+--                    |                          |                              |
+--                    |                          |                              |
+--                    |                          |                              |
+--                    |            +----------+-----------+--------+            |
+--                    |            |  yago54  |     s     |    d   | -----------+
+--                    |            +----------+-----------+--------+
+--                    |                        +----------+--------+----+
+--                    |                        | yago2_1  |    s   |  d | ------+
+--                    |                        +----------+--------+----+       |
+--                    |                                      |                  |
+--                    |                                      |                  |
+--                    |                                      |                  |
+--                    |                        +----------+--------+----+       |
+--                    |                        | yago2_2  |    s   |  d |       |
+--                    |                        +----------+--------+----+       |
+--                    |                                                         |
+--                    +--------------------------------------+                  |
+--                                                           |                  |
+--                                             +----------+--------+----+       |
+--                                             | yago2_10 |    s   |  d | ------+
+--                                             +----------+--------+----+
+with dummy as (select) /* stage1 */, yago54_s1_12a5b7006641de22 as (select yago54.d as v14,yago54.s as v12 from yago54), yago17_s1_12a5b7006641de22 as (select yago17.s as v16,yago17.d as v14 from yago17), yago23_9_s1_12a5b7006641de22 as (select yago23_9.s as v16,yago23_9.d as v18 from yago23 yago23_9), yago2_11_s1_12a5b7006641de22 as (select yago2_11.s as v20,yago2_11.d as v18 from yago2 yago2_11), yago2_10_s1_12a5b7006641de22 as (select yago2_10.s as v20,yago2_10.d as v4 from yago2 yago2_10), yago2_1_s1_12a5b7006641de22 as (select yago2_1.d as v4,yago2_1.s as v2 from yago2 yago2_1), yago2_2_s1_12a5b7006641de22 as (select yago2_2.s as v2 from yago2 yago2_2), yago23_6_s1_12a5b7006641de22 as (select yago23_6.d as v10,yago23_6.s as v12 from yago23 yago23_6), yago23_5_s1_12a5b7006641de22 as (select yago23_5.d as v10,yago23_5.s as v8 from yago23 yago23_5), yago58_s1_12a5b7006641de22 as (select yago58.d as v8,yago58.s as v6 from yago58), yago3_s1_12a5b7006641de22 as (select yago3.d as v0,yago3.s as v6 from yago3), yago0_s1_12a5b7006641de22 as (select yago0.d as v0 from yago0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_4A6EF62A14D4B186 as  (select * from umbra.identity(table(yago23_6_s1_12a5b7006641de22)) NATURAL JOIN umbra.identity(table(yago23_5_s1_12a5b7006641de22)) NATURAL JOIN umbra.identity(table(yago58_s1_12a5b7006641de22)) NATURAL JOIN umbra.identity(table(yago3_s1_12a5b7006641de22)) NATURAL JOIN umbra.identity(table(yago0_s1_12a5b7006641de22))), s4_group_685AA3CB4D50D021 as  (select * from umbra.identity(table(yago17_s1_12a5b7006641de22)) NATURAL JOIN umbra.identity(table(yago23_9_s1_12a5b7006641de22)) NATURAL JOIN umbra.identity(table(yago2_11_s1_12a5b7006641de22)) NATURAL JOIN umbra.identity(table(yago2_10_s1_12a5b7006641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_12a5b7006641de22)) NATURAL JOIN umbra.identity(table(yago2_2_s1_12a5b7006641de22))), s4_group_335C3436604783A7 as  (select * from umbra.identity(table(yago54_s1_12a5b7006641de22)))select count(*) from umbra.identity(table(s4_group_4A6EF62A14D4B186)) natural join umbra.identity(table(s4_group_685AA3CB4D50D021)) natural join umbra.identity(table(s4_group_335C3436604783A7));
+\set queryname yago_acyclic_Chain_12_40
+-- Result size: 51
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago47 [label="yago47|<s> s|<d> d"]; yago29 [label="yago29|<s> s|<d> d"]; yago36_4 [label="yago36_4|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago13_6 [label="yago13_6|<s> s|<d> d"]; yago22_7 [label="yago22_7|<s> s|<d> d"]; yago13_8 [label="yago13_8|<s> s|<d> d"]; yago13_9 [label="yago13_9|<s> s|<d> d"]; yago22_10 [label="yago22_10|<s> s|<d> d"]; yago36_11 [label="yago36_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago17:d;yago47:s -> yago29:d;yago47:d -> yago36_11:d;yago29:s -> yago36_4:d;yago17:s -> yago13_6:d;yago13_6:s -> yago22_7:s;yago22_7:d -> yago13_8:d;yago13_8:s -> yago13_9:s;yago13_9:d -> yago22_10:d;yago22_10:s -> yago36_11:s;}
+--                          +----------+----+--------+--------+----+----+
+--                          | yago13_6 |  s |    d   | yago17 |  s |  d |
+--                          +----------+----+--------+--------+----+----+
+--                                        |    |                 |    |
+--                                        |    +-----------------+    |
+--                                        |                           |
+--                          +----------+----+--------+                |
+--                          | yago22_7 |  s |    d   |                |
+--                          +----------+----+--------+                |
+--                                             |                      |
+--                                             |                      |
+--                                             |                      |
+--             +-----------+-----------+----+  |                      |
+--             | yago13_8  |     s     |  d | -+                      |
+--             +-----------+-----------+----+                         |
+--                            |                                       |
+--                            |                                       |
+--                            |                                       |
+--             +-----------+-----------+----+                         |
+--             | yago13_9  |     s     |  d |                         |
+--             +-----------+-----------+----+                         |
+--                                        |                           |
+--                                        |                           |
+--                                        |                           |
+--             +-----------+-----------+----+                         |
+--             | yago22_10 |     s     |  d |                         |
+--             +-----------+-----------+----+                         |
+--                            |                                       |
+--                            |                                       |
+--                            |                                       |
+--             +-----------+-----------+----+                         |
+--             | yago36_11 |     s     |  d | -------------------+    |
+--             +-----------+-----------+----+                    |    |
+--                                                               |    |
+--                                                               |    |
+--                                                               |    |
+--             +-----------+-----------+----+--------+--------+----+  |
+--             |  yago29   |     s     |  d | yago47 |    s   |  d |  |
+--             +-----------+-----------+----+--------+--------+----+  |
+--                            |           |             |             |
+--                            |           +-------------+             |
+--                            |                                       |
+-- +----------+------------+-----------+                              |
+-- | yago36_4 |      s     |     d     |                              |
+-- +----------+------------+-----------+                              |
+--             +-----------+-----------+----+                         |
+--             |  yago2_0  |     s     |  d |                         |
+--             +-----------+-----------+----+                         |
+--                            |                                       |
+--                            |                                       |
+--                            |                                       |
+--             +-----------+-----------+----+                         |
+--             |  yago2_1  |     s     |  d | ------------------------+
+--             +-----------+-----------+----+
+with dummy as (select) /* stage1 */, yago13_9_s1_133585806641de22 as (select yago13_9.s as v16,yago13_9.d as v18 from yago13 yago13_9), yago13_8_s1_133585806641de22 as (select yago13_8.s as v16,yago13_8.d as v14 from yago13 yago13_8), yago22_7_s1_133585806641de22 as (select yago22_7.d as v14,yago22_7.s as v12 from yago22 yago22_7), yago13_6_s1_133585806641de22 as (select yago13_6.d as v10,yago13_6.s as v12 from yago13 yago13_6), yago17_s1_133585806641de22 as (select yago17.d as v2,yago17.s as v10 from yago17), yago2_1_s1_133585806641de22 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_133585806641de22 as (select yago2_0.s as v0 from yago2 yago2_0), yago22_10_s1_133585806641de22 as (select yago22_10.s as v20,yago22_10.d as v18 from yago22 yago22_10), yago36_11_s1_133585806641de22 as (select yago36_11.s as v20,yago36_11.d as v6 from yago36 yago36_11), yago47_s1_133585806641de22 as (select yago47.s as v4,yago47.d as v6 from yago47), yago29_s1_133585806641de22 as (select yago29.s as v8,yago29.d as v4 from yago29), yago36_4_s1_133585806641de22 as (select yago36_4.d as v8 from yago36 yago36_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5463FB5DC2A12929 as  (select * from umbra.identity(table(yago22_10_s1_133585806641de22)) NATURAL JOIN umbra.identity(table(yago36_11_s1_133585806641de22)) NATURAL JOIN umbra.identity(table(yago47_s1_133585806641de22)) NATURAL JOIN umbra.identity(table(yago29_s1_133585806641de22)) NATURAL JOIN umbra.identity(table(yago36_4_s1_133585806641de22))), s4_group_20221937A052B35B as  (select * from umbra.identity(table(yago13_8_s1_133585806641de22)) NATURAL JOIN umbra.identity(table(yago22_7_s1_133585806641de22)) NATURAL JOIN umbra.identity(table(yago13_6_s1_133585806641de22)) NATURAL JOIN umbra.identity(table(yago17_s1_133585806641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_133585806641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_133585806641de22))), s4_group_29A6F6EF03A708C1 as  (select * from umbra.identity(table(yago13_9_s1_133585806641de22)))select count(*) from umbra.identity(table(s4_group_5463FB5DC2A12929)) natural join umbra.identity(table(s4_group_20221937A052B35B)) natural join umbra.identity(table(s4_group_29A6F6EF03A708C1));
+\set queryname yago_acyclic_Chain_12_41
+-- Result size: 2035
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago65 [label="yago65|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago54_3 [label="yago54_3|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago57_8 [label="yago57_8|<s> s|<d> d"]; yago57_9 [label="yago57_9|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago54_11 [label="yago54_11|<s> s|<d> d"]; yago65:d -> yago1:s;yago1:d -> yago0:d;yago23:s -> yago54_3:s;yago23:d -> yago22:d;yago54_3:d -> yago54_11:d;yago0:s -> yago2_6:d;yago2_6:s -> yago2_7:s;yago2_7:d -> yago57_8:s;yago57_8:d -> yago57_9:d;yago57_9:s -> yago12:d;yago12:s -> yago54_11:s;}
+--                                  +-----------+--------+----+
+--                                  |  yago65   |    s   |  d |
+--                                  +-----------+--------+----+
+--                                                          |
+--                                                          |
+--                                                          |
+--                                                          |
+--                                                          |
+--                                                          |
+--                                                          |
+--                          +-------------------------------+---------+
+--                          |                               |         |
+--            +----------+----+----+             +-------+----+----+  |
+--            | yago57_9 |  s |  d |             | yago1 |  s |  d |  |
+--            +----------+----+----+             +-------+----+----+  |
+--                               |                               |    |
+--                               |                               |    |
+--                               |                               |    |
+--            +----------+----+----+             +-------+----+----+  |
+--            | yago57_8 |  s |  d |             | yago0 |  s |  d |  |
+--            +----------+----+----+             +-------+----+----+  |
+--                          |                               |         |
+--                          |                               |         |
+--                          |                               |         |
+-- +---------+-----------+----+     +-----------+--------+----+       |
+-- | yago2_7 |     s     |  d |     |  yago2_6  |    s   |  d |       |
+-- +---------+-----------+----+     +-----------+--------+----+       |
+--              |                                  |                  |
+--              +----------------------------------+                  |
+--                                                                    |
+--                                  +-----------+--------+----+       |
+--                                  |  yago12   |    s   |  d | ------+
+--                                  +-----------+--------+----+
+--                                                 |
+--                                                 |
+--                                                 |
+--                                  +-----------+--------+----+
+--                                  | yago54_11 |    s   |  d |
+--                                  +-----------+--------+----+
+--                                                          |
+--                               +--------------------------+
+--                               |
+--                               |  +-----------+--------+----+
+--                               |  |  yago23   |    s   |  d | ------+
+--                               |  +-----------+--------+----+       |
+--                               |                 |                  |
+--                               |                 |                  |
+--                               |                 |                  |
+--                               |  +-----------+--------+----+       |
+--                               |  | yago54_3  |    s   |  d |       |
+--                               |  +-----------+--------+----+       |
+--                               |                          |         |
+--                               +--------------------------+         |
+--                                                                    |
+--                                  +-----------+--------+----+       |
+--                                  |  yago22   |    s   |  d | ------+
+--                                  +-----------+--------+----+
+with dummy as (select) /* stage1 */, yago57_9_s1_13c017806641de22 as (select yago57_9.d as v16,yago57_9.s as v18 from yago57 yago57_9), yago57_8_s1_13c017806641de22 as (select yago57_8.s as v14,yago57_8.d as v16 from yago57 yago57_8), yago2_7_s1_13c017806641de22 as (select yago2_7.d as v14,yago2_7.s as v12 from yago2 yago2_7), yago2_6_s1_13c017806641de22 as (select yago2_6.d as v10,yago2_6.s as v12 from yago2 yago2_6), yago0_s1_13c017806641de22 as (select yago0.s as v10,yago0.d as v2 from yago0), yago1_s1_13c017806641de22 as (select yago1.d as v2,yago1.s as v0 from yago1), yago65_s1_13c017806641de22 as (select yago65.d as v0 from yago65), yago12_s1_13c017806641de22 as (select yago12.d as v18,yago12.s as v20 from yago12), yago54_11_s1_13c017806641de22 as (select yago54_11.d as v8,yago54_11.s as v20 from yago54 yago54_11), yago54_3_s1_13c017806641de22 as (select yago54_3.s as v4,yago54_3.d as v8 from yago54 yago54_3), yago23_s1_13c017806641de22 as (select yago23.s as v4,yago23.d as v6 from yago23), yago22_s1_13c017806641de22 as (select yago22.d as v6 from yago22) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_42184D1BE6936AB as  (select * from umbra.identity(table(yago12_s1_13c017806641de22)) NATURAL JOIN umbra.identity(table(yago54_11_s1_13c017806641de22)) NATURAL JOIN umbra.identity(table(yago54_3_s1_13c017806641de22)) NATURAL JOIN umbra.identity(table(yago23_s1_13c017806641de22)) NATURAL JOIN umbra.identity(table(yago22_s1_13c017806641de22))), s4_group_7B576C490D51BBFF as  (select * from umbra.identity(table(yago57_8_s1_13c017806641de22)) NATURAL JOIN umbra.identity(table(yago2_7_s1_13c017806641de22)) NATURAL JOIN umbra.identity(table(yago2_6_s1_13c017806641de22)) NATURAL JOIN umbra.identity(table(yago0_s1_13c017806641de22)) NATURAL JOIN umbra.identity(table(yago1_s1_13c017806641de22)) NATURAL JOIN umbra.identity(table(yago65_s1_13c017806641de22))), s4_group_492C495E1744C715 as  (select * from umbra.identity(table(yago57_9_s1_13c017806641de22)))select count(*) from umbra.identity(table(s4_group_42184D1BE6936AB)) natural join umbra.identity(table(s4_group_7B576C490D51BBFF)) natural join umbra.identity(table(s4_group_492C495E1744C715));
+\set queryname yago_acyclic_Chain_12_42
+-- Result size: 582574
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago21 [label="yago21|<s> s|<d> d"]; yago57_1 [label="yago57_1|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago0_7 [label="yago0_7|<s> s|<d> d"]; yago0_8 [label="yago0_8|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago27 [label="yago27|<s> s|<d> d"]; yago57_11 [label="yago57_11|<s> s|<d> d"]; yago21:s -> yago23:d;yago57_1:s -> yago22:d;yago57_1:d -> yago57_11:d;yago22:s -> yago5:s;yago23:s -> yago17:d;yago17:s -> yago46:s;yago46:d -> yago0_7:s;yago0_7:d -> yago0_8:d;yago0_8:s -> yago8:s;yago8:d -> yago27:d;yago27:s -> yago57_11:s;}
+--                                     +---------------+
+--                                     |               |
+--                        +---------+----+----------+  |
+--                        | yago0_7 |  s |     d    |  |
+--                        +---------+----+----------+  |
+--                                          |          |
+--                                          |          |
+--                                          |          |
+--                        +---------+----+----------+  |
+--                        | yago0_8 |  s |     d    |  |
+--                        +---------+----+----------+  |
+--                                     |               |
+--                                     |               |
+--                                     |               |
+--                        +---------+----+----------+  |
+--                        |  yago8  |  s |     d    |  |
+--                        +---------+----+----------+  |
+--                                          |          |
+--   +---------------------------------+    |          |
+--   |                                 |    |          |
+--   |       +-----------+----------+----+  |          |
+--   |       |  yago17   |     s    |  d |  |          |
+--   |       +-----------+----------+----+  |          |
+--   |                      |               |          |
+--   |                      |               +----------+----+
+--   |                      |                          |    |
+--   |       +-----------+----------+----+             |    |
+--   |       |  yago46   |     s    |  d | ------------+    |
+--   |       +-----------+----------+----+                  |
+--   |       +-----------+----------+----+                  |
+--   |       |  yago21   |     s    |  d |                  |
+--   |       +-----------+----------+----+                  |
+--   |                      |                               |
+--   +---------+            |                               |
+--             |            |                               |
+-- +--------+------------+----------+                       |
+-- | yago23 |      s     |     d    |                       |
+-- +--------+------------+----------+                       |
+--                                                          |
+--   +------------------------------------------------------+
+--   |
+--   |       +-----------+----------+----+----------+----+----+
+--   |       |  yago22   |     s    |  d | yago57_1 |  s |  d |
+--   |       +-----------+----------+----+----------+----+----+
+--   |                      |          |               |    |
+--   |                      |          +---------------+    |
+--   |                      |                               |
+--   |       +-----------+----------+----+                  |
+--   |       |   yago5   |     s    |  d |                  |
+--   |       +-----------+----------+----+                  |
+--   |                                                      |
+--   +---------------------------------+                    |
+--                                     |                    |
+--           +-----------+----------+----+                  |
+--           |  yago27   |     s    |  d |                  |
+--           +-----------+----------+----+                  |
+--                          |                               |
+--                          |                               |
+--                          |                               |
+--           +-----------+----------+----+                  |
+--           | yago57_11 |     s    |  d | -----------------+
+--           +-----------+----------+----+
+with dummy as (select) /* stage1 */, yago8_s1_16916c806641de22 as (select yago8.s as v16,yago8.d as v18 from yago8), yago0_8_s1_16916c806641de22 as (select yago0_8.s as v16,yago0_8.d as v14 from yago0 yago0_8), yago0_7_s1_16916c806641de22 as (select yago0_7.s as v12,yago0_7.d as v14 from yago0 yago0_7), yago46_s1_16916c806641de22 as (select yago46.s as v10,yago46.d as v12 from yago46), yago17_s1_16916c806641de22 as (select yago17.s as v10,yago17.d as v8 from yago17), yago23_s1_16916c806641de22 as (select yago23.s as v8,yago23.d as v0 from yago23), yago21_s1_16916c806641de22 as (select yago21.s as v0 from yago21), yago27_s1_16916c806641de22 as (select yago27.s as v20,yago27.d as v18 from yago27), yago57_11_s1_16916c806641de22 as (select yago57_11.s as v20,yago57_11.d as v4 from yago57 yago57_11), yago57_1_s1_16916c806641de22 as (select yago57_1.s as v2,yago57_1.d as v4 from yago57 yago57_1), yago22_s1_16916c806641de22 as (select yago22.d as v2,yago22.s as v6 from yago22), yago5_s1_16916c806641de22 as (select yago5.s as v6 from yago5) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_62D155A6FB9F4DA5 as  (select * from umbra.identity(table(yago27_s1_16916c806641de22)) NATURAL JOIN umbra.identity(table(yago57_11_s1_16916c806641de22)) NATURAL JOIN umbra.identity(table(yago57_1_s1_16916c806641de22)) NATURAL JOIN umbra.identity(table(yago22_s1_16916c806641de22)) NATURAL JOIN umbra.identity(table(yago5_s1_16916c806641de22))), s4_group_E43921261B10482 as  (select * from umbra.identity(table(yago0_8_s1_16916c806641de22)) NATURAL JOIN umbra.identity(table(yago0_7_s1_16916c806641de22)) NATURAL JOIN umbra.identity(table(yago46_s1_16916c806641de22)) NATURAL JOIN umbra.identity(table(yago17_s1_16916c806641de22)) NATURAL JOIN umbra.identity(table(yago23_s1_16916c806641de22)) NATURAL JOIN umbra.identity(table(yago21_s1_16916c806641de22))), s4_group_B325C36972F8BFE as  (select * from umbra.identity(table(yago8_s1_16916c806641de22)))select count(*) from umbra.identity(table(s4_group_62D155A6FB9F4DA5)) natural join umbra.identity(table(s4_group_E43921261B10482)) natural join umbra.identity(table(s4_group_B325C36972F8BFE));
+\set queryname yago_acyclic_Chain_12_43
+-- Result size: 846674
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago1 [label="yago1|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago5_7 [label="yago5_7|<s> s|<d> d"]; yago5_8 [label="yago5_8|<s> s|<d> d"]; yago5_9 [label="yago5_9|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago5_11 [label="yago5_11|<s> s|<d> d"]; yago1:d -> yago0:d;yago17:s -> yago2_2:d;yago17:d -> yago5_11:d;yago2_2:s -> yago2_3:s;yago0:s -> yago35:s;yago35:d -> yago36:d;yago36:s -> yago5_7:s;yago5_7:d -> yago5_8:d;yago5_8:s -> yago5_9:s;yago5_9:d -> yago21:d;yago21:s -> yago5_11:s;}
+--                 +---------+----+----------+
+--                 | yago5_9 |  s |     d    | ---------------------------------+
+--                 +---------+----+----------+                                  |
+--                              |                                               |
+--                              |                                               |
+--                              |                                               |
+--                 +---------+----+----------+            +--------+----+----+  |
+--                 | yago5_8 |  s |     d    |            | yago1  |  s |  d |  |
+--                 +---------+----+----------+            +--------+----+----+  |
+--                                   |                                     |    |
+--                                   |                                     |    |
+--                                   |                                     |    |
+--                 +---------+----+----------+            +--------+----+----+  |
+--                 | yago5_7 |  s |     d    |            | yago0  |  s |  d |  |
+--                 +---------+----+----------+            +--------+----+----+  |
+--                              |                                     |         |
+--                              |                                     |         |
+--                              |                                     |         |
+--                 +---------+----+----------+            +--------+----+----+  |
+--                 | yago36  |  s |     d    |            | yago35 |  s |  d |  |
+--                 +---------+----+----------+            +--------+----+----+  |
+--                                   |                                     |    |
+--                                   +-------------------------------------+    |
+--                                                                              |
+--                                            +----------+---------+----+       |
+--                                            |  yago17  |    s    |  d |       |
+--                                            +----------+---------+----+       |
+--                                                          |         |         |
+--                                                          |         |         |
+--                                                          |         |         |
+-- +---------+----+----------+     +---------+-----------+---------+  |         |
+-- | yago2_3 |  s |     d    |     | yago2_2 |     s     |    d    |  |         |
+-- +---------+----+----------+     +---------+-----------+---------+  |         |
+--              |                               |                     |         |
+--              +-------------------------------+                     |         |
+--                                                                    |         |
+--                                            +----------+---------+----+       |
+--                                            | yago5_11 |    s    |  d |       |
+--                                            +----------+---------+----+       |
+--                                                          |                   |
+--                                                          |                   |
+--                                                          |                   |
+--                                            +----------+---------+----+       |
+--                                            |  yago21  |    s    |  d | ------+
+--                                            +----------+---------+----+
+with dummy as (select) /* stage1 */, yago5_9_s1_177b40006641de22 as (select yago5_9.d as v18,yago5_9.s as v16 from yago5 yago5_9), yago5_8_s1_177b40006641de22 as (select yago5_8.d as v14,yago5_8.s as v16 from yago5 yago5_8), yago5_7_s1_177b40006641de22 as (select yago5_7.d as v14,yago5_7.s as v12 from yago5 yago5_7), yago36_s1_177b40006641de22 as (select yago36.d as v10,yago36.s as v12 from yago36), yago35_s1_177b40006641de22 as (select yago35.d as v10,yago35.s as v8 from yago35), yago0_s1_177b40006641de22 as (select yago0.d as v0,yago0.s as v8 from yago0), yago1_s1_177b40006641de22 as (select yago1.d as v0 from yago1), yago21_s1_177b40006641de22 as (select yago21.d as v18,yago21.s as v20 from yago21), yago5_11_s1_177b40006641de22 as (select yago5_11.d as v4,yago5_11.s as v20 from yago5 yago5_11), yago17_s1_177b40006641de22 as (select yago17.s as v2,yago17.d as v4 from yago17), yago2_2_s1_177b40006641de22 as (select yago2_2.d as v2,yago2_2.s as v6 from yago2 yago2_2), yago2_3_s1_177b40006641de22 as (select yago2_3.s as v6 from yago2 yago2_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_75DEE15505BAF855 as  (select * from umbra.identity(table(yago21_s1_177b40006641de22)) NATURAL JOIN umbra.identity(table(yago5_11_s1_177b40006641de22)) NATURAL JOIN umbra.identity(table(yago17_s1_177b40006641de22)) NATURAL JOIN umbra.identity(table(yago2_2_s1_177b40006641de22)) NATURAL JOIN umbra.identity(table(yago2_3_s1_177b40006641de22))), s4_group_87A0A031C35C2B7 as  (select * from umbra.identity(table(yago5_8_s1_177b40006641de22)) NATURAL JOIN umbra.identity(table(yago5_7_s1_177b40006641de22)) NATURAL JOIN umbra.identity(table(yago36_s1_177b40006641de22)) NATURAL JOIN umbra.identity(table(yago35_s1_177b40006641de22)) NATURAL JOIN umbra.identity(table(yago0_s1_177b40006641de22)) NATURAL JOIN umbra.identity(table(yago1_s1_177b40006641de22))), s4_group_5A67A78AE94DF46F as  (select * from umbra.identity(table(yago5_9_s1_177b40006641de22)))select count(*) from umbra.identity(table(s4_group_75DEE15505BAF855)) natural join umbra.identity(table(s4_group_87A0A031C35C2B7)) natural join umbra.identity(table(s4_group_5A67A78AE94DF46F));
+\set queryname yago_acyclic_Chain_12_44
+-- Result size: 476072
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago36_0 [label="yago36_0|<s> s|<d> d"]; yago55_1 [label="yago55_1|<s> s|<d> d"]; yago37_2 [label="yago37_2|<s> s|<d> d"]; yago37_3 [label="yago37_3|<s> s|<d> d"]; yago37_4 [label="yago37_4|<s> s|<d> d"]; yago36_5 [label="yago36_5|<s> s|<d> d"]; yago36_6 [label="yago36_6|<s> s|<d> d"]; yago36_7 [label="yago36_7|<s> s|<d> d"]; yago51_8 [label="yago51_8|<s> s|<d> d"]; yago51_9 [label="yago51_9|<s> s|<d> d"]; yago44 [label="yago44|<s> s|<d> d"]; yago55_11 [label="yago55_11|<s> s|<d> d"]; yago36_0:s -> yago55_1:s;yago55_1:d -> yago36_5:d;yago37_2:s -> yago37_3:s;yago37_2:d -> yago37_4:d;yago37_3:d -> yago55_11:d;yago36_5:s -> yago36_6:s;yago36_6:d -> yago36_7:d;yago36_7:s -> yago51_8:s;yago51_8:d -> yago51_9:d;yago51_9:s -> yago44:d;yago44:s -> yago55_11:s;}
+--                                         +----------+----+----+
+--                                         | yago36_0 |  s |  d |
+--                                         +----------+----+----+
+--                                                       |
+--                                                       |
+--                                                       |
+--                                         +----------+----+----+
+--                                         | yago55_1 |  s |  d |
+--                                         +----------+----+----+
+--                                                            |
+--                                                            |
+--                                                            |
+--                            +-----------+-----------+----+  |
+--                            | yago36_5  |     s     |  d | -+
+--                            +-----------+-----------+----+
+--                                           |
+--                                           |
+--                                           |
+--                            +-----------+-----------+----+
+--                            | yago36_6  |     s     |  d |
+--                            +-----------+-----------+----+
+--                                                       |
+--                                                       |
+--                                                       |
+--                            +-----------+-----------+----+
+--                            | yago36_7  |     s     |  d |
+--                            +-----------+-----------+----+
+--                                           |
+--                                           |
+--                                           |
+-- +----------+----+----+     +-----------+-----------+----+
+-- | yago51_9 |  s |  d |     | yago51_8  |     s     |  d |
+-- +----------+----+----+     +-----------+-----------+----+
+--               |    |                                  |
+--               |    +----------------------------------+
+--               |
+--               |            +-----------+-----------+----+
+--               |            | yago37_2  |     s     |  d | ------+
+--               |            +-----------+-----------+----+       |
+--               |                           |                     |
+--               |                           |                     |
+--               |                           |                     |
+--               |            +-----------+-----------+----+       |
+--               |            | yago37_3  |     s     |  d |       |
+--               |            +-----------+-----------+----+       |
+--               |                                       |         |
+--               |         +-----------------------------+         |
+--               |         |                                       |
+--               |         |  +-----------+-----------+----+       |
+--               |         |  | yago37_4  |     s     |  d | ------+
+--               |         |  +-----------+-----------+----+
+--               |         |
+--               |         +-----------------------------+
+--               |                                       |
+--               |            +-----------+-----------+----+
+--               |            | yago55_11 |     s     |  d |
+--               |            +-----------+-----------+----+
+--               |                           |
+--               |                           |
+--               |                           |
+--               |            +-----------+-----------+----+
+--               |            |  yago44   |     s     |  d |
+--               |            +-----------+-----------+----+
+--               |                                       |
+--               +---------------------------------------+
+with dummy as (select) /* stage1 */, yago51_9_s1_1869b8006641de22 as (select yago51_9.d as v16,yago51_9.s as v18 from yago51 yago51_9), yago51_8_s1_1869b8006641de22 as (select yago51_8.d as v16,yago51_8.s as v14 from yago51 yago51_8), yago36_7_s1_1869b8006641de22 as (select yago36_7.s as v14,yago36_7.d as v12 from yago36 yago36_7), yago36_6_s1_1869b8006641de22 as (select yago36_6.s as v10,yago36_6.d as v12 from yago36 yago36_6), yago36_5_s1_1869b8006641de22 as (select yago36_5.s as v10,yago36_5.d as v2 from yago36 yago36_5), yago55_1_s1_1869b8006641de22 as (select yago55_1.s as v0,yago55_1.d as v2 from yago55 yago55_1), yago36_0_s1_1869b8006641de22 as (select yago36_0.s as v0 from yago36 yago36_0), yago44_s1_1869b8006641de22 as (select yago44.d as v18,yago44.s as v20 from yago44), yago55_11_s1_1869b8006641de22 as (select yago55_11.d as v8,yago55_11.s as v20 from yago55 yago55_11), yago37_3_s1_1869b8006641de22 as (select yago37_3.d as v8,yago37_3.s as v4 from yago37 yago37_3), yago37_2_s1_1869b8006641de22 as (select yago37_2.s as v4,yago37_2.d as v6 from yago37 yago37_2), yago37_4_s1_1869b8006641de22 as (select yago37_4.d as v6 from yago37 yago37_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_25F356E80B961466 as  (select * from umbra.identity(table(yago44_s1_1869b8006641de22)) NATURAL JOIN umbra.identity(table(yago55_11_s1_1869b8006641de22)) NATURAL JOIN umbra.identity(table(yago37_3_s1_1869b8006641de22)) NATURAL JOIN umbra.identity(table(yago37_2_s1_1869b8006641de22)) NATURAL JOIN umbra.identity(table(yago37_4_s1_1869b8006641de22))), s4_group_8ACDFAAF6881411 as  (select * from umbra.identity(table(yago51_8_s1_1869b8006641de22)) NATURAL JOIN umbra.identity(table(yago36_7_s1_1869b8006641de22)) NATURAL JOIN umbra.identity(table(yago36_6_s1_1869b8006641de22)) NATURAL JOIN umbra.identity(table(yago36_5_s1_1869b8006641de22)) NATURAL JOIN umbra.identity(table(yago55_1_s1_1869b8006641de22)) NATURAL JOIN umbra.identity(table(yago36_0_s1_1869b8006641de22))), s4_group_2DACC91CE58831D2 as  (select * from umbra.identity(table(yago51_9_s1_1869b8006641de22)))select count(*) from umbra.identity(table(s4_group_25F356E80B961466)) natural join umbra.identity(table(s4_group_8ACDFAAF6881411)) natural join umbra.identity(table(s4_group_2DACC91CE58831D2));
+\set queryname yago_acyclic_Chain_12_45
+-- Result size: 522015
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago23 [label="yago23|<s> s|<d> d"]; yago36_1 [label="yago36_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago36_5 [label="yago36_5|<s> s|<d> d"]; yago39_6 [label="yago39_6|<s> s|<d> d"]; yago5_7 [label="yago5_7|<s> s|<d> d"]; yago5_8 [label="yago5_8|<s> s|<d> d"]; yago39_9 [label="yago39_9|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago55 [label="yago55|<s> s|<d> d"]; yago23:s -> yago36_1:s;yago36_1:d -> yago50:d;yago5_2:s -> yago54:d;yago5_2:d -> yago46:d;yago50:s -> yago36_5:s;yago36_5:d -> yago39_6:d;yago39_6:s -> yago5_7:s;yago5_7:d -> yago5_8:d;yago5_8:s -> yago39_9:s;yago39_9:d -> yago55:d;yago54:s -> yago55:s;}
+--                                             +----------+----+----+
+--                                             |  yago23  |  s |  d |
+--                                             +----------+----+----+
+--                                                           |
+--                                                           |
+--                                                           |
+--                                             +----------+----+----+
+--                                             | yago36_1 |  s |  d |
+--                                             +----------+----+----+
+--                                                                |
+--                                                                |
+--                                                                |
+--                                             +----------+----+----+
+--                                             |  yago50  |  s |  d |
+--                                             +----------+----+----+
+--                                                           |
+--                                    +----------------------+
+--                                    |
+--                      +----------+----------+-----------+
+--                      | yago36_5 |     s    |     d     |
+--                      +----------+----------+-----------+
+--                                               |
+--                                               |
+--                                               |
+--                      +----------+----------+-----------+
+--                      | yago39_6 |     s    |     d     |
+--                      +----------+----------+-----------+
+--                                    |
+--                                    |
+--                                    |
+-- +---------+----+----++----------+----------+-----------+
+-- | yago5_8 |  s |  d || yago5_7  |     s    |     d     |
+-- +---------+----+----++----------+----------+-----------+
+--              |    |                           |
+--              |    +---------------------------+
+--              |
+--              |       +----------+----------+-----------+
+--              |       | yago39_9 |     s    |     d     |
+--              |       +----------+----------+-----------+
+--              |                     |          |
+--              +---------------------+          |
+--                                               |
+--                      +----------+----------+-----------+
+--                      |  yago55  |     s    |     d     |
+--                      +----------+----------+-----------+
+--                                    |
+--                                    |
+--                                    |
+--                      +----------+----------+-----------+
+--                      |  yago54  |     s    |     d     |
+--                      +----------+----------+-----------+
+--                                               |
+--                                               |
+--                                               |
+--                                  +---------+-----------+----+
+--                                  | yago5_2 |     s     |  d |
+--                                  +---------+-----------+----+
+--                                                           |
+--                                                           |
+--                                                           |
+--                                  +---------+-----------+----+
+--                                  | yago46  |     s     |  d |
+--                                  +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago5_8_s1_17450b806641de22 as (select yago5_8.d as v14,yago5_8.s as v16 from yago5 yago5_8), yago5_7_s1_17450b806641de22 as (select yago5_7.s as v12,yago5_7.d as v14 from yago5 yago5_7), yago39_6_s1_17450b806641de22 as (select yago39_6.d as v10,yago39_6.s as v12 from yago39 yago39_6), yago36_5_s1_17450b806641de22 as (select yago36_5.d as v10,yago36_5.s as v8 from yago36 yago36_5), yago50_s1_17450b806641de22 as (select yago50.d as v2,yago50.s as v8 from yago50), yago36_1_s1_17450b806641de22 as (select yago36_1.s as v0,yago36_1.d as v2 from yago36 yago36_1), yago23_s1_17450b806641de22 as (select yago23.s as v0 from yago23), yago39_9_s1_17450b806641de22 as (select yago39_9.d as v18,yago39_9.s as v16 from yago39 yago39_9), yago55_s1_17450b806641de22 as (select yago55.d as v18,yago55.s as v20 from yago55), yago54_s1_17450b806641de22 as (select yago54.s as v20,yago54.d as v4 from yago54), yago5_2_s1_17450b806641de22 as (select yago5_2.d as v6,yago5_2.s as v4 from yago5 yago5_2), yago46_s1_17450b806641de22 as (select yago46.d as v6 from yago46) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_715F9D84FCC0FCE6 as  (select * from umbra.identity(table(yago39_9_s1_17450b806641de22)) NATURAL JOIN umbra.identity(table(yago55_s1_17450b806641de22)) NATURAL JOIN umbra.identity(table(yago54_s1_17450b806641de22)) NATURAL JOIN umbra.identity(table(yago5_2_s1_17450b806641de22)) NATURAL JOIN umbra.identity(table(yago46_s1_17450b806641de22))), s4_group_537903DB50EF0B1D as  (select * from umbra.identity(table(yago5_7_s1_17450b806641de22)) NATURAL JOIN umbra.identity(table(yago39_6_s1_17450b806641de22)) NATURAL JOIN umbra.identity(table(yago36_5_s1_17450b806641de22)) NATURAL JOIN umbra.identity(table(yago50_s1_17450b806641de22)) NATURAL JOIN umbra.identity(table(yago36_1_s1_17450b806641de22)) NATURAL JOIN umbra.identity(table(yago23_s1_17450b806641de22))), s4_group_675E687A566BCD06 as  (select * from umbra.identity(table(yago5_8_s1_17450b806641de22)))select count(*) from umbra.identity(table(s4_group_715F9D84FCC0FCE6)) natural join umbra.identity(table(s4_group_537903DB50EF0B1D)) natural join umbra.identity(table(s4_group_675E687A566BCD06));
+\set queryname yago_acyclic_Chain_12_46
+-- Result size: 4324
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago50_2 [label="yago50_2|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago0_5 [label="yago0_5|<s> s|<d> d"]; yago0_6 [label="yago0_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago17_9 [label="yago17_9|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago50_11 [label="yago50_11|<s> s|<d> d"]; yago17_0:d -> yago17_4:d;yago22:s -> yago50_2:s;yago22:d -> yago46:d;yago50_2:d -> yago50_11:d;yago17_4:s -> yago0_5:s;yago0_5:d -> yago0_6:d;yago0_6:s -> yago2_7:d;yago2_7:s -> yago2_8:s;yago2_8:d -> yago17_9:s;yago17_9:d -> yago21:d;yago21:s -> yago50_11:s;}
+--                               +---------+----+----+
+--                               | yago0_5 |  s |  d |
+--                               +---------+----+----+
+--                                            |    |
+--   +----------------------------------------+    |
+--   |                                             |
+--   |                           +---------+----+----+
+--   |                           | yago0_6 |  s |  d |
+--   |                           +---------+----+----+
+--   |                                        |
+--   |                                        |
+--   |                                        |
+--   |               +----------+----------+----+     +---------+----+----+
+--   |               | yago2_7  |     s    |  d |     | yago2_8 |  s |  d |
+--   |               +----------+----------+----+     +---------+----+----+
+--   |                             |                               |    |
+--   |                             +-------------------------------+    |
+--   |                                                                  |
+--   |  +-----------+-----------+----------+                            |
+--   |  | yago17_0  |     s     |     d    |                            |
+--   |  +-----------+-----------+----------+                            |
+--   |                             |                                    |
+--   +-----------------+           |                                    |
+--                     |           |                                    |
+--      +-----------+-----------+----------+                            |
+--      | yago17_4  |     s     |     d    |                            |
+--      +-----------+-----------+----------+                            |
+--                                                                      |
+--                     +------------------------------------------------+
+--                     |
+--      +-----------+-----------+----------+
+--      | yago17_9  |     s     |     d    |
+--      +-----------+-----------+----------+
+--                                 |
+--                                 |
+--                                 |
+--      +-----------+-----------+----------+
+--      |  yago21   |     s     |     d    |
+--      +-----------+-----------+----------+
+--                     |
+--                     |
+--                     |
+--      +-----------+-----------+----------+
+--      | yago50_11 |     s     |     d    |
+--      +-----------+-----------+----------+
+--                                 |
+--        +------------------------+
+--        |
+--        |          +----------+----------+----+
+--        |          |  yago22  |     s    |  d | ------+
+--        |          +----------+----------+----+       |
+--        |                        |                    |
+--        |                        |                    |
+--        |                        |                    |
+--        |          +----------+----------+----+       |
+--        |          | yago50_2 |     s    |  d |       |
+--        |          +----------+----------+----+       |
+--        |                                   |         |
+--        +-----------------------------------+         |
+--                                                      |
+--                   +----------+----------+----+       |
+--                   |  yago46  |     s    |  d | ------+
+--                   +----------+----------+----+
+with dummy as (select) /* stage1 */, yago2_8_s1_1896e6806641de22 as (select yago2_8.d as v16,yago2_8.s as v14 from yago2 yago2_8), yago17_9_s1_1896e6806641de22 as (select yago17_9.d as v18,yago17_9.s as v16 from yago17 yago17_9), yago21_s1_1896e6806641de22 as (select yago21.s as v20,yago21.d as v18 from yago21), yago50_11_s1_1896e6806641de22 as (select yago50_11.s as v20,yago50_11.d as v6 from yago50 yago50_11), yago50_2_s1_1896e6806641de22 as (select yago50_2.s as v2,yago50_2.d as v6 from yago50 yago50_2), yago22_s1_1896e6806641de22 as (select yago22.s as v2,yago22.d as v4 from yago22), yago46_s1_1896e6806641de22 as (select yago46.d as v4 from yago46), yago2_7_s1_1896e6806641de22 as (select yago2_7.d as v12,yago2_7.s as v14 from yago2 yago2_7), yago0_6_s1_1896e6806641de22 as (select yago0_6.s as v12,yago0_6.d as v10 from yago0 yago0_6), yago0_5_s1_1896e6806641de22 as (select yago0_5.s as v8,yago0_5.d as v10 from yago0 yago0_5), yago17_4_s1_1896e6806641de22 as (select yago17_4.s as v8,yago17_4.d as v0 from yago17 yago17_4), yago17_0_s1_1896e6806641de22 as (select yago17_0.d as v0 from yago17 yago17_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_39737F079A468956 as  (select * from umbra.identity(table(yago2_7_s1_1896e6806641de22)) NATURAL JOIN umbra.identity(table(yago0_6_s1_1896e6806641de22)) NATURAL JOIN umbra.identity(table(yago0_5_s1_1896e6806641de22)) NATURAL JOIN umbra.identity(table(yago17_4_s1_1896e6806641de22)) NATURAL JOIN umbra.identity(table(yago17_0_s1_1896e6806641de22))), s4_group_44B0772128D90B50 as  (select * from umbra.identity(table(yago17_9_s1_1896e6806641de22)) NATURAL JOIN umbra.identity(table(yago21_s1_1896e6806641de22)) NATURAL JOIN umbra.identity(table(yago50_11_s1_1896e6806641de22)) NATURAL JOIN umbra.identity(table(yago50_2_s1_1896e6806641de22)) NATURAL JOIN umbra.identity(table(yago22_s1_1896e6806641de22)) NATURAL JOIN umbra.identity(table(yago46_s1_1896e6806641de22))), s4_group_3CC263C89BB513FF as  (select * from umbra.identity(table(yago2_8_s1_1896e6806641de22)))select count(*) from umbra.identity(table(s4_group_39737F079A468956)) natural join umbra.identity(table(s4_group_44B0772128D90B50)) natural join umbra.identity(table(s4_group_3CC263C89BB513FF));
+\set queryname yago_acyclic_Chain_12_47
+-- Result size: 17
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago6 [label="yago6|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago0_8 [label="yago0_8|<s> s|<d> d"]; yago0_9 [label="yago0_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_4:d;yago2_2:s -> yago6:d;yago2_2:d -> yago2_10:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago2_6:d;yago2_6:s -> yago2_7:s;yago2_7:d -> yago0_8:s;yago0_8:d -> yago0_9:d;yago0_9:s -> yago2_11:d;yago2_10:s -> yago2_11:s;}
+--                                                         +-------------------------+
+--                                                         |                         |
+--                                            +---------+----+----+                  |
+--                                            | yago0_8 |  s |  d |                  |
+--                                            +---------+----+----+                  |
+--                                                              |                    |
+--                                                              |                    |
+--                                                              |                    |
+--                                            +---------+----+----+                  |
+--                                            | yago0_9 |  s |  d |                  |
+--                                            +---------+----+----+                  |
+--                                                         |                         |
+--                                                         |                         |
+--                                                         |                         |
+-- +----------+----+----+         +----------+----------+----+                       |
+-- | yago2_10 |  s |  d |         | yago2_11 |     s    |  d |                       |
+-- +----------+----+----+         +----------+----------+----+                       |
+--               |    |                         |                                    |
+--               +----+-------------------------+                                    |
+--                    |                                                              |
+--                    |           +----------+----------+----+     +---------+----+----+
+--                    |           | yago2_0  |     s    |  d |     | yago2_7 |  s |  d |
+--                    |           +----------+----------+----+     +---------+----+----+
+--                    |                         |                               |
+--                    |                         |                               |
+--                    |                         |                               |
+--                    |           +----------+----------+----+     +---------+----+----+
+--                    |           | yago2_1  |     s    |  d |     | yago2_6 |  s |  d |
+--                    |           +----------+----------+----+     +---------+----+----+
+--                    |                                    |                         |
+--               +----+-------------------------+          |                         |
+--               |    |                         |          |                         |
+--               |    |           +----------+----------+----+     +---------+----+----+
+--               |    |           | yago2_4  |     s    |  d |     | yago2_5 |  s |  d |
+--               |    |           +----------+----------+----+     +---------+----+----+
+--               |    |                                                         |
+--               |    +------------------------------------+                    |
+--               |                                         |                    |
+--               |                +----------+----------+----+                  |
+--               |                | yago2_2  |     s    |  d |                  |
+--               |                +----------+----------+----+                  |
+--               |                              |                               |
+--               |                              |                               |
+--               |                              |                               |
+--               |       +-------+-----------+----------+                       |
+--               |       | yago6 |     s     |     d    |                       |
+--               |       +-------+-----------+----------+                       |
+--               |                                                              |
+--               +--------------------------------------------------------------+
+with dummy as (select) /* stage1 */, yago2_7_s1_1afa3a806641de22 as (select yago2_7.s as v12,yago2_7.d as v14 from yago2 yago2_7), yago0_8_s1_1afa3a806641de22 as (select yago0_8.d as v16,yago0_8.s as v14 from yago0 yago0_8), yago0_9_s1_1afa3a806641de22 as (select yago0_9.d as v16,yago0_9.s as v18 from yago0 yago0_9), yago2_11_s1_1afa3a806641de22 as (select yago2_11.d as v18,yago2_11.s as v20 from yago2 yago2_11), yago2_10_s1_1afa3a806641de22 as (select yago2_10.d as v6,yago2_10.s as v20 from yago2 yago2_10), yago2_2_s1_1afa3a806641de22 as (select yago2_2.d as v6,yago2_2.s as v4 from yago2 yago2_2), yago6_s1_1afa3a806641de22 as (select yago6.d as v4 from yago6), yago2_6_s1_1afa3a806641de22 as (select yago2_6.s as v12,yago2_6.d as v10 from yago2 yago2_6), yago2_5_s1_1afa3a806641de22 as (select yago2_5.d as v10,yago2_5.s as v8 from yago2 yago2_5), yago2_4_s1_1afa3a806641de22 as (select yago2_4.s as v8,yago2_4.d as v2 from yago2 yago2_4), yago2_1_s1_1afa3a806641de22 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_1afa3a806641de22 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5EA3F58F36CC5015 as  (select * from umbra.identity(table(yago2_6_s1_1afa3a806641de22)) NATURAL JOIN umbra.identity(table(yago2_5_s1_1afa3a806641de22)) NATURAL JOIN umbra.identity(table(yago2_4_s1_1afa3a806641de22)) NATURAL JOIN umbra.identity(table(yago2_1_s1_1afa3a806641de22)) NATURAL JOIN umbra.identity(table(yago2_0_s1_1afa3a806641de22))), s4_group_4DD9A8EB9D58A05B as  (select * from umbra.identity(table(yago0_8_s1_1afa3a806641de22)) NATURAL JOIN umbra.identity(table(yago0_9_s1_1afa3a806641de22)) NATURAL JOIN umbra.identity(table(yago2_11_s1_1afa3a806641de22)) NATURAL JOIN umbra.identity(table(yago2_10_s1_1afa3a806641de22)) NATURAL JOIN umbra.identity(table(yago2_2_s1_1afa3a806641de22)) NATURAL JOIN umbra.identity(table(yago6_s1_1afa3a806641de22))), s4_group_444A81E18496ED48 as  (select * from umbra.identity(table(yago2_7_s1_1afa3a806641de22)))select count(*) from umbra.identity(table(s4_group_5EA3F58F36CC5015)) natural join umbra.identity(table(s4_group_4DD9A8EB9D58A05B)) natural join umbra.identity(table(s4_group_444A81E18496ED48));
+\set queryname yago_acyclic_Chain_12_48
+-- Result size: 10
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago1 [label="yago1|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago53 [label="yago53|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_6 [label="yago17_6|<s> s|<d> d"]; yago5_7 [label="yago5_7|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago17_9 [label="yago17_9|<s> s|<d> d"]; yago17_10 [label="yago17_10|<s> s|<d> d"]; yago5_11 [label="yago5_11|<s> s|<d> d"]; yago1:d -> yago0:d;yago36:s -> yago54:s;yago36:d -> yago53:d;yago54:d -> yago5_11:s;yago0:s -> yago17_5:s;yago17_5:d -> yago17_6:s;yago17_6:d -> yago5_7:d;yago5_7:s -> yago21:s;yago21:d -> yago17_9:d;yago17_9:s -> yago17_10:s;yago17_10:d -> yago5_11:d;}
+--                             +----------+----------+----+
+--                             |  yago1   |     s    |  d |
+--                             +----------+----------+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--                             +----------+----------+----+
+--                             |  yago0   |     s    |  d |
+--                             +----------+----------+----+
+--                                           |
+--                                           |
+--                                           |
+--                             +----------+----------+----+
+--                             | yago17_5 |     s    |  d |
+--                             +----------+----------+----+
+--                                                      |
+--                                                      |
+--                                                      |
+--      +-----------+---------+-----------+----------+----+----+
+--      | yago17_10 |    s    |     d     | yago17_6 |  s |  d |
+--      +-----------+---------+-----------+----------+----+----+
+--                     |         |                           |
+--   +-----------------+         |                           |
+--   |                           |                           |
+--   |  +-----------+---------+-----------+----------+----+----+
+--   |  | yago5_11  |    s    |     d     |  yago5_7 |  s |  d |
+--   |  +-----------+---------+-----------+----------+----+----+
+--   |                                                  |
+--   +-----------------+                                |
+--                     |                                |
+--      +-----------+---------+-----------+             |
+--      | yago17_9  |    s    |     d     |             |
+--      +-----------+---------+-----------+             |
+--                               |                      |
+--                               |                      |
+--                               |                      |
+--      +-----------+---------+-----------+             |
+--      |  yago21   |    s    |     d     |             |
+--      +-----------+---------+-----------+             |
+--                     |                                |
+--                     +--------------------------------+
+--                   +--------+-----------+----------+
+--                   | yago36 |     s     |     d    | ------+
+--                   +--------+-----------+----------+       |
+--                               |                           |
+--                               |                           |
+--                               |                           |
+--                   +--------+-----------+----------+       |
+--                   | yago54 |     s     |     d    |       |
+--                   +--------+-----------+----------+       |
+--                   +--------+-----------+----------+       |
+--                   | yago53 |     s     |     d    | ------+
+--                   +--------+-----------+----------+
+with dummy as (select) /* stage1 */, yago21_s1_1e97da006641de22 as (select yago21.s as v14,yago21.d as v16 from yago21), yago17_9_s1_1e97da006641de22 as (select yago17_9.s as v18,yago17_9.d as v16 from yago17 yago17_9), yago17_10_s1_1e97da006641de22 as (select yago17_10.d as v20,yago17_10.s as v18 from yago17 yago17_10), yago5_11_s1_1e97da006641de22 as (select yago5_11.d as v20,yago5_11.s as v6 from yago5 yago5_11), yago54_s1_1e97da006641de22 as (select yago54.d as v6,yago54.s as v2 from yago54), yago36_s1_1e97da006641de22 as (select yago36.s as v2,yago36.d as v4 from yago36), yago53_s1_1e97da006641de22 as (select yago53.d as v4 from yago53), yago5_7_s1_1e97da006641de22 as (select yago5_7.s as v14,yago5_7.d as v12 from yago5 yago5_7), yago17_6_s1_1e97da006641de22 as (select yago17_6.d as v12,yago17_6.s as v10 from yago17 yago17_6), yago17_5_s1_1e97da006641de22 as (select yago17_5.s as v8,yago17_5.d as v10 from yago17 yago17_5), yago0_s1_1e97da006641de22 as (select yago0.d as v0,yago0.s as v8 from yago0), yago1_s1_1e97da006641de22 as (select yago1.d as v0 from yago1) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_58E801412785D714 as  (select * from umbra.identity(table(yago5_7_s1_1e97da006641de22)) NATURAL JOIN umbra.identity(table(yago17_6_s1_1e97da006641de22)) NATURAL JOIN umbra.identity(table(yago17_5_s1_1e97da006641de22)) NATURAL JOIN umbra.identity(table(yago0_s1_1e97da006641de22)) NATURAL JOIN umbra.identity(table(yago1_s1_1e97da006641de22))), s4_group_2A452585283B41B0 as  (select * from umbra.identity(table(yago17_9_s1_1e97da006641de22)) NATURAL JOIN umbra.identity(table(yago17_10_s1_1e97da006641de22)) NATURAL JOIN umbra.identity(table(yago5_11_s1_1e97da006641de22)) NATURAL JOIN umbra.identity(table(yago54_s1_1e97da006641de22)) NATURAL JOIN umbra.identity(table(yago36_s1_1e97da006641de22)) NATURAL JOIN umbra.identity(table(yago53_s1_1e97da006641de22))), s4_group_17203BB5649282AC as  (select * from umbra.identity(table(yago21_s1_1e97da006641de22)))select count(*) from umbra.identity(table(s4_group_58E801412785D714)) natural join umbra.identity(table(s4_group_2A452585283B41B0)) natural join umbra.identity(table(s4_group_17203BB5649282AC));
+\set queryname yago_acyclic_Chain_12_49
+-- Result size: 1615
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago35_2 [label="yago35_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago35_4 [label="yago35_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago17_7 [label="yago17_7|<s> s|<d> d"]; yago17_8 [label="yago17_8|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago17_10 [label="yago17_10|<s> s|<d> d"]; yago17_11 [label="yago17_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_5:d;yago35_2:s -> yago5:s;yago35_2:d -> yago35_4:d;yago5:d -> yago17_11:d;yago2_5:s -> yago2_6:s;yago2_6:d -> yago17_7:d;yago17_7:s -> yago17_8:s;yago17_8:d -> yago46:d;yago46:s -> yago17_10:d;yago17_10:s -> yago17_11:s;}
+--   +--------------------------------------------+
+--   |                                            |
+--   |                                            |
+--   |    +----------------------------------+    |
+--   |    |                                  |    |
+--   |    |              +-----------+----+----+  |
+--   |    |              | yago17_10 |  s |  d |  |
+--   |    |              +-----------+----+----+  |
+--   |    |                             |         |
+--   |    |                             |         |
+--   |    |                             |         |
+--   |    |              +-----------+----+----+  |
+--   |    |              | yago17_11 |  s |  d | -+
+--   |    |              +-----------+----+----+
+--   |    |  +----------+------------+----+
+--   |    |  | yago17_7 |      s     |  d | ------+
+--   |    |  +----------+------------+----+       |
+--   |    |                |                      |
+--   |    |                |                      |
+--   |    |                |                      |
+--   |    |  +----------+------------+----+       |
+--   |    |  | yago17_8 |      s     |  d |       |
+--   |    |  +----------+------------+----+       |
+--   |    |                             |         |
+--   |    +----------------+            |         |
+--   |                     |            |         |
+--   |       +----------+------------+----+       |
+--   |       |  yago46  |      s     |  d |       |
+--   |       +----------+------------+----+       |
+--   |       +----------+------------+----+       |
+--   |       | yago2_0  |      s     |  d |       |
+--   |       +----------+------------+----+       |
+--   |                     |                      |
+--   |                     |                      |
+--   |                     |                      |
+--   |       +----------+------------+----+       |
+--   |       | yago2_1  |      s     |  d |       |
+--   |       +----------+------------+----+       |
+--   |                                  |         |
+--   |                                  |         |
+--   |                                  |         |
+--   |       +----------+------------+----+       |
+--   |       | yago2_5  |      s     |  d |       |
+--   |       +----------+------------+----+       |
+--   |                     |                      |
+--   |                     |                      |
+--   |                     |                      |
+--   |       +----------+------------+----+       |
+--   |       | yago2_6  |      s     |  d | ------+
+--   |       +----------+------------+----+
+--   |       +----------+------------+----+
+--   |       | yago35_2 |      s     |  d | ------+
+--   |       +----------+------------+----+       |
+--   |                     |                      |
+--   |                     |                      |
+--   |                     |                      |
+--   |       +----------+------------+----+       |
+--   |       |  yago5   |      s     |  d |       |
+--   |       +----------+------------+----+       |
+--   |                                  |         |
+--   +----------------------------------+         |
+--                                                |
+--           +----------+------------+----+       |
+--           | yago35_4 |      s     |  d | ------+
+--           +----------+------------+----+
+with dummy as (select) /* stage1 */, yago46_s1_11d72006641de23 as (select yago46.s as v18,yago46.d as v16 from yago46), yago17_8_s1_11d72006641de23 as (select yago17_8.s as v14,yago17_8.d as v16 from yago17 yago17_8), yago17_7_s1_11d72006641de23 as (select yago17_7.s as v14,yago17_7.d as v12 from yago17 yago17_7), yago2_6_s1_11d72006641de23 as (select yago2_6.d as v12,yago2_6.s as v10 from yago2 yago2_6), yago2_5_s1_11d72006641de23 as (select yago2_5.d as v2,yago2_5.s as v10 from yago2 yago2_5), yago2_1_s1_11d72006641de23 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_11d72006641de23 as (select yago2_0.s as v0 from yago2 yago2_0), yago17_10_s1_11d72006641de23 as (select yago17_10.s as v20,yago17_10.d as v18 from yago17 yago17_10), yago17_11_s1_11d72006641de23 as (select yago17_11.s as v20,yago17_11.d as v8 from yago17 yago17_11), yago5_s1_11d72006641de23 as (select yago5.s as v4,yago5.d as v8 from yago5), yago35_2_s1_11d72006641de23 as (select yago35_2.s as v4,yago35_2.d as v6 from yago35 yago35_2), yago35_4_s1_11d72006641de23 as (select yago35_4.d as v6 from yago35 yago35_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_3EE4BEBFC45AB4BC as  (select * from umbra.identity(table(yago17_10_s1_11d72006641de23)) NATURAL JOIN umbra.identity(table(yago17_11_s1_11d72006641de23)) NATURAL JOIN umbra.identity(table(yago5_s1_11d72006641de23)) NATURAL JOIN umbra.identity(table(yago35_2_s1_11d72006641de23)) NATURAL JOIN umbra.identity(table(yago35_4_s1_11d72006641de23))), s4_group_3E34A1DBD9841BED as  (select * from umbra.identity(table(yago17_8_s1_11d72006641de23)) NATURAL JOIN umbra.identity(table(yago17_7_s1_11d72006641de23)) NATURAL JOIN umbra.identity(table(yago2_6_s1_11d72006641de23)) NATURAL JOIN umbra.identity(table(yago2_5_s1_11d72006641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_11d72006641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_11d72006641de23))), s4_group_22FFC781CDE1CB12 as  (select * from umbra.identity(table(yago46_s1_11d72006641de23)))select count(*) from umbra.identity(table(s4_group_3EE4BEBFC45AB4BC)) natural join umbra.identity(table(s4_group_3E34A1DBD9841BED)) natural join umbra.identity(table(s4_group_22FFC781CDE1CB12));
+\set queryname yago_acyclic_Chain_12_50
+-- Result size: 193267
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17_0 [label="yago17_0|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago36_2 [label="yago36_2|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_6 [label="yago17_6|<s> s|<d> d"]; yago25_7 [label="yago25_7|<s> s|<d> d"]; yago25_8 [label="yago25_8|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago36_11 [label="yago36_11|<s> s|<d> d"]; yago17_0:d -> yago46:s;yago46:d -> yago17_5:d;yago36_2:s -> yago58:d;yago36_2:d -> yago36_11:d;yago58:s -> yago17_4:s;yago17_5:s -> yago17_6:s;yago17_6:d -> yago25_7:s;yago25_7:d -> yago25_8:d;yago25_8:s -> yago3:s;yago3:d -> yago1:d;yago1:s -> yago36_11:s;}
+--                              +-----------+----+----+
+--                              |   yago1   |  s |  d | -+
+--                              +-----------+----+----+  |
+--                                             |         |
+--                                             |         |
+--                                             |         |
+--                              +-----------+----+----+  |
+--                              | yago36_11 |  s |  d |  |
+--                              +-----------+----+----+  |
+--                                                  |    |
+--   +----------------------------------------------+    |
+--   |                                                   |
+--   |  +----------+-----------+------------+            |
+--   |  | yago17_0 |     s     |      d     |            |
+--   |  +----------+-----------+------------+            |
+--   |                            |                      |
+--   |                            |                      |
+--   |                            |                      |
+--   |              +----------+------------+----+       |
+--   |              |  yago46  |      s     |  d |       |
+--   |              +----------+------------+----+       |
+--   |                                         |         |
+--   |                                         |         |
+--   |                                         |         |
+--   |              +----------+------------+----+       |
+--   |              | yago17_5 |      s     |  d |       |
+--   |              +----------+------------+----+       |
+--   |                            |                      |
+--   |                            |                      |
+--   |                            |                      |
+--   |              +----------+------------+----+       |
+--   |              | yago17_6 |      s     |  d |       |
+--   |              +----------+------------+----+       |
+--   |                                         |         |
+--   |                                         |         |
+--   |                                         |         |
+--   |                          +-----------+----+----+  |
+--   |                          | yago25_7  |  s |  d |  |
+--   |                          +-----------+----+----+  |
+--   |                                              |    |
+--   |                                              |    |
+--   |                                              |    |
+--   |                          +-----------+----+----+  |
+--   |                          | yago25_8  |  s |  d |  |
+--   |                          +-----------+----+----+  |
+--   |                                         |         |
+--   |                                         |    +----+
+--   |                                         |    |
+--   |                          +-----------+----+----+
+--   |                          |   yago3   |  s |  d |
+--   |                          +-----------+----+----+
+--   |
+--   +-----------------------------------------+
+--                                             |
+--                  +----------+------------+----+
+--                  | yago36_2 |      s     |  d |
+--                  +----------+------------+----+
+--                                |
+--                                |
+--                                |
+--      +----------+-----------+------------+
+--      |  yago58  |     s     |      d     |
+--      +----------+-----------+------------+
+--                    |
+--                    |
+--                    |
+--      +----------+-----------+------------+
+--      | yago17_4 |     s     |      d     |
+--      +----------+-----------+------------+
+with dummy as (select) /* stage1 */, yago3_s1_1ea78b806641de22 as (select yago3.d as v18,yago3.s as v16 from yago3), yago25_8_s1_1ea78b806641de22 as (select yago25_8.s as v16,yago25_8.d as v14 from yago25 yago25_8), yago25_7_s1_1ea78b806641de22 as (select yago25_7.s as v12,yago25_7.d as v14 from yago25 yago25_7), yago17_6_s1_1ea78b806641de22 as (select yago17_6.s as v10,yago17_6.d as v12 from yago17 yago17_6), yago17_5_s1_1ea78b806641de22 as (select yago17_5.s as v10,yago17_5.d as v2 from yago17 yago17_5), yago46_s1_1ea78b806641de22 as (select yago46.s as v0,yago46.d as v2 from yago46), yago17_0_s1_1ea78b806641de22 as (select yago17_0.d as v0 from yago17 yago17_0), yago1_s1_1ea78b806641de22 as (select yago1.d as v18,yago1.s as v20 from yago1), yago36_11_s1_1ea78b806641de22 as (select yago36_11.d as v6,yago36_11.s as v20 from yago36 yago36_11), yago36_2_s1_1ea78b806641de22 as (select yago36_2.s as v4,yago36_2.d as v6 from yago36 yago36_2), yago58_s1_1ea78b806641de22 as (select yago58.d as v4,yago58.s as v8 from yago58), yago17_4_s1_1ea78b806641de22 as (select yago17_4.s as v8 from yago17 yago17_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_26BB588E39FFEC64 as  (select * from umbra.identity(table(yago1_s1_1ea78b806641de22)) NATURAL JOIN umbra.identity(table(yago36_11_s1_1ea78b806641de22)) NATURAL JOIN umbra.identity(table(yago36_2_s1_1ea78b806641de22)) NATURAL JOIN umbra.identity(table(yago58_s1_1ea78b806641de22)) NATURAL JOIN umbra.identity(table(yago17_4_s1_1ea78b806641de22))), s4_group_392C1E810E4173A7 as  (select * from umbra.identity(table(yago25_8_s1_1ea78b806641de22)) NATURAL JOIN umbra.identity(table(yago25_7_s1_1ea78b806641de22)) NATURAL JOIN umbra.identity(table(yago17_6_s1_1ea78b806641de22)) NATURAL JOIN umbra.identity(table(yago17_5_s1_1ea78b806641de22)) NATURAL JOIN umbra.identity(table(yago46_s1_1ea78b806641de22)) NATURAL JOIN umbra.identity(table(yago17_0_s1_1ea78b806641de22))), s4_group_38760435B9606968 as  (select * from umbra.identity(table(yago3_s1_1ea78b806641de22)))select count(*) from umbra.identity(table(s4_group_26BB588E39FFEC64)) natural join umbra.identity(table(s4_group_392C1E810E4173A7)) natural join umbra.identity(table(s4_group_38760435B9606968));
+\set queryname yago_acyclic_Chain_12_51
+-- Result size: 505665
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago31_6 [label="yago31_6|<s> s|<d> d"]; yago31_7 [label="yago31_7|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago54_9 [label="yago54_9|<s> s|<d> d"]; yago54_10 [label="yago54_10|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago0:d -> yago3:d;yago21:s -> yago13:s;yago21:d -> yago5:d;yago3:s -> yago58:d;yago58:s -> yago36:s;yago36:d -> yago31_6:d;yago31_6:s -> yago31_7:s;yago31_7:d -> yago50:d;yago50:s -> yago54_9:d;yago54_9:s -> yago54_10:s;yago54_10:d -> yago5:s;}
+--                                                                    +-------+----+----+
+--                                                                    | yago0 |  s |  d |
+--                                                                    +-------+----+----+
+--                                                                                    |
+--                                                                                    |
+--                                                                                    |
+--                        +--------+----+----+                        +-------+----+----+
+--                        | yago58 |  s |  d |                        | yago3 |  s |  d |
+--                        +--------+----+----+                        +-------+----+----+
+--                                    |    |                                     |
+--                                    |    +-------------------------------------+
+--                                    |
+--                                    |                   +----------+--------+----+
+--                                    |                   |  yago21  |    s   |  d | ------+
+--                                    |                   +----------+--------+----+       |
+--                                    |                                 |                  |
+--                                    |                                 |                  |
+--                                    |                                 |                  |
+--                                    |                   +----------+--------+----+       |
+--                                    |                   |  yago13  |    s   |  d |       |
+--                                    |                   +----------+--------+----+       |
+--                                    |                                                    |
+--   +--------------------------------+         +-----------------------+                  |
+--   |                                          |                       |                  |
+--   |       +-----------+---------+----+       |         +----------+--------+----+       |
+--   |       | yago54_10 |    s    |  d | ------+         |  yago5   |    s   |  d | ------+
+--   |       +-----------+---------+----+                 +----------+--------+----+
+--   |                      |
+--   |    +-----------------+                   +--------------------------------+
+--   |    |                                     |                                |
+--   |    |               +--------+----+----+  |         +----------+--------+----+
+--   |    |               | yago36 |  s |  d | -+         | yago31_6 |    s   |  d |
+--   |    |               +--------+----+----+            +----------+--------+----+
+--   |    |                           |                                 |
+--   |    |                           |                                 |
+--   |    |                           |                                 |
+--   |    |                           |                   +----------+--------+----+
+--   +----+---------------------------+                   | yago31_7 |    s   |  d |
+--        |                                               +----------+--------+----+
+--        |                                                                      |
+--        |                                                                      |
+--        |                                                                      |
+--        |                                               +----------+--------+----+
+--        |                                               |  yago50  |    s   |  d |
+--        |                                               +----------+--------+----+
+--        |                                                             |
+--        +-------------------------------------------------+           |
+--                                                          |           |
+--                                            +----------+-----------+--------+
+--                                            | yago54_9 |     s     |    d   |
+--                                            +----------+-----------+--------+
+with dummy as (select) /* stage1 */, yago50_s1_1fb539006641de22 as (select yago50.d as v14,yago50.s as v16 from yago50), yago31_7_s1_1fb539006641de22 as (select yago31_7.s as v12,yago31_7.d as v14 from yago31 yago31_7), yago31_6_s1_1fb539006641de22 as (select yago31_6.s as v12,yago31_6.d as v10 from yago31 yago31_6), yago36_s1_1fb539006641de22 as (select yago36.d as v10,yago36.s as v8 from yago36), yago58_s1_1fb539006641de22 as (select yago58.s as v8,yago58.d as v6 from yago58), yago3_s1_1fb539006641de22 as (select yago3.d as v0,yago3.s as v6 from yago3), yago0_s1_1fb539006641de22 as (select yago0.d as v0 from yago0), yago54_9_s1_1fb539006641de22 as (select yago54_9.s as v18,yago54_9.d as v16 from yago54 yago54_9), yago54_10_s1_1fb539006641de22 as (select yago54_10.s as v18,yago54_10.d as v20 from yago54 yago54_10), yago5_s1_1fb539006641de22 as (select yago5.d as v4,yago5.s as v20 from yago5), yago21_s1_1fb539006641de22 as (select yago21.s as v2,yago21.d as v4 from yago21), yago13_s1_1fb539006641de22 as (select yago13.s as v2 from yago13) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7C7FD81106E118DA as  (select * from umbra.identity(table(yago54_9_s1_1fb539006641de22)) NATURAL JOIN umbra.identity(table(yago54_10_s1_1fb539006641de22)) NATURAL JOIN umbra.identity(table(yago5_s1_1fb539006641de22)) NATURAL JOIN umbra.identity(table(yago21_s1_1fb539006641de22)) NATURAL JOIN umbra.identity(table(yago13_s1_1fb539006641de22))), s4_group_297535FBF6AC65CD as  (select * from umbra.identity(table(yago31_7_s1_1fb539006641de22)) NATURAL JOIN umbra.identity(table(yago31_6_s1_1fb539006641de22)) NATURAL JOIN umbra.identity(table(yago36_s1_1fb539006641de22)) NATURAL JOIN umbra.identity(table(yago58_s1_1fb539006641de22)) NATURAL JOIN umbra.identity(table(yago3_s1_1fb539006641de22)) NATURAL JOIN umbra.identity(table(yago0_s1_1fb539006641de22))), s4_group_140C0F36B8806A6F as  (select * from umbra.identity(table(yago50_s1_1fb539006641de22)))select count(*) from umbra.identity(table(s4_group_7C7FD81106E118DA)) natural join umbra.identity(table(s4_group_297535FBF6AC65CD)) natural join umbra.identity(table(s4_group_140C0F36B8806A6F));
+\set queryname yago_acyclic_Chain_12_52
+-- Result size: 328343
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago23_2 [label="yago23_2|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago54_6 [label="yago54_6|<s> s|<d> d"]; yago54_7 [label="yago54_7|<s> s|<d> d"]; yago12_8 [label="yago12_8|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago23_10 [label="yago23_10|<s> s|<d> d"]; yago12_11 [label="yago12_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago0:s;yago23_2:s -> yago36:s;yago23_2:d -> yago23_10:d;yago0:d -> yago3:d;yago3:s -> yago54_6:s;yago54_6:d -> yago54_7:d;yago54_7:s -> yago12_8:s;yago12_8:d -> yago17:d;yago17:s -> yago12_11:d;yago23_10:s -> yago12_11:s;}
+--               +------------------------+                    +---------+
+--               |                        |                    |         |
+-- +----------+------------+-----------+  |         +-------+----+----+  |
+-- | yago54_7 |      s     |     d     |  |         | yago0 |  s |  d |  |
+-- +----------+------------+-----------+  |         +-------+----+----+  |
+--                            |           |                         |    |
+--                            |           |                         |    |
+--                            |           |                         |    |
+-- +----------+------------+-----------+  |         +-------+----+----+  |
+-- | yago54_6 |      s     |     d     |  |         | yago3 |  s |  d |  |
+-- +----------+------------+-----------+  |         +-------+----+----+  |
+--               |                        |                    |         |
+--               +------------------------+--------------------+         |
+--                                        |                              |
+--                          +----------+-----------+--------+            |
+--                          | yago12_8 |     s     |    d   |            |
+--                          +----------+-----------+--------+            |
+--                                                    |                  |
+--                                                    |                  |
+--                                                    |                  |
+--                          +----------+-----------+--------+            |
+--                          |  yago17  |     s     |    d   |            |
+--                          +----------+-----------+--------+            |
+--                                        |                              |
+--                                        |                              |
+--                                        |                              |
+--             +-----------+-----------+-----------+                     |
+--             | yago12_11 |     s     |     d     |                     |
+--             +-----------+-----------+-----------+                     |
+--                            |                                          |
+--                            |                                          |
+--                            |                                          |
+--             +-----------+-----------+-----------+                     |
+--             | yago23_10 |     s     |     d     | ----------+         |
+--             +-----------+-----------+-----------+           |         |
+--                                                             |         |
+--                                                             |         |
+--                                                             |         |
+--                                      +----------+--------+----+       |
+--                                      | yago23_2 |    s   |  d |       |
+--                                      +----------+--------+----+       |
+--                                                    |                  |
+--                                                    |                  |
+--                                                    |                  |
+--                                      +----------+--------+----+       |
+--                                      |  yago36  |    s   |  d |       |
+--                                      +----------+--------+----+       |
+--                                      +----------+--------+----+       |
+--                                      | yago2_0  |    s   |  d |       |
+--                                      +----------+--------+----+       |
+--                                                    |                  |
+--                                                    |                  |
+--                                                    |                  |
+--                                      +----------+--------+----+       |
+--                                      | yago2_1  |    s   |  d | ------+
+--                                      +----------+--------+----+
+with dummy as (select) /* stage1 */, yago54_7_s1_7b6f006641de23 as (select yago54_7.d as v12,yago54_7.s as v14 from yago54 yago54_7), yago12_8_s1_7b6f006641de23 as (select yago12_8.d as v16,yago12_8.s as v14 from yago12 yago12_8), yago17_s1_7b6f006641de23 as (select yago17.s as v18,yago17.d as v16 from yago17), yago12_11_s1_7b6f006641de23 as (select yago12_11.d as v18,yago12_11.s as v20 from yago12 yago12_11), yago23_10_s1_7b6f006641de23 as (select yago23_10.d as v6,yago23_10.s as v20 from yago23 yago23_10), yago23_2_s1_7b6f006641de23 as (select yago23_2.s as v4,yago23_2.d as v6 from yago23 yago23_2), yago36_s1_7b6f006641de23 as (select yago36.s as v4 from yago36), yago54_6_s1_7b6f006641de23 as (select yago54_6.d as v12,yago54_6.s as v10 from yago54 yago54_6), yago3_s1_7b6f006641de23 as (select yago3.d as v8,yago3.s as v10 from yago3), yago0_s1_7b6f006641de23 as (select yago0.d as v8,yago0.s as v2 from yago0), yago2_1_s1_7b6f006641de23 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_7b6f006641de23 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_22055377866DFFAF as  (select * from umbra.identity(table(yago54_6_s1_7b6f006641de23)) NATURAL JOIN umbra.identity(table(yago3_s1_7b6f006641de23)) NATURAL JOIN umbra.identity(table(yago0_s1_7b6f006641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_7b6f006641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_7b6f006641de23))), s4_group_A6DE77F82272E27 as  (select * from umbra.identity(table(yago12_8_s1_7b6f006641de23)) NATURAL JOIN umbra.identity(table(yago17_s1_7b6f006641de23)) NATURAL JOIN umbra.identity(table(yago12_11_s1_7b6f006641de23)) NATURAL JOIN umbra.identity(table(yago23_10_s1_7b6f006641de23)) NATURAL JOIN umbra.identity(table(yago23_2_s1_7b6f006641de23)) NATURAL JOIN umbra.identity(table(yago36_s1_7b6f006641de23))), s4_group_4D33864244649AFE as  (select * from umbra.identity(table(yago54_7_s1_7b6f006641de23)))select count(*) from umbra.identity(table(s4_group_22055377866DFFAF)) natural join umbra.identity(table(s4_group_A6DE77F82272E27)) natural join umbra.identity(table(s4_group_4D33864244649AFE));
+\set queryname yago_acyclic_Chain_12_53
+-- Result size: 4257
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago46 [label="yago46|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago0_5 [label="yago0_5|<s> s|<d> d"]; yago0_6 [label="yago0_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago0_11 [label="yago0_11|<s> s|<d> d"]; yago0_0:d -> yago1:d;yago3:s -> yago46:d;yago3:d -> yago0_11:d;yago46:s -> yago5:s;yago1:s -> yago0_5:s;yago0_5:d -> yago0_6:d;yago0_6:s -> yago2_7:d;yago2_7:s -> yago2_8:s;yago2_8:d -> yago2_9:d;yago2_9:s -> yago2_10:s;yago2_10:d -> yago0_11:s;}
+--                                                              +---------+----+----+
+--                                                              | yago0_0 |  s |  d |
+--                                                              +---------+----+----+
+--                                                                                |
+--                                                                                |
+--                                                                                |
+--                                                              +---------+----+----+
+--                                                              |  yago1  |  s |  d |
+--                                                              +---------+----+----+
+--                                                                           |
+--                                                    +----------------------+
+--                                                    |
+--                                      +----------+-----------+----------+
+--                                      | yago0_5  |     s     |     d    |
+--                                      +----------+-----------+----------+
+--                                                                |
+--                                                                |
+--                                                                |
+--      +---------+----+----+           +----------+-----------+----------+
+--      | yago2_9 |  s |  d |           | yago0_6  |     s     |     d    |
+--      +---------+----+----+           +----------+-----------+----------+
+--                   |    |                           |
+--   +---------------+    |                           |
+--   |                    |                           |
+--   |  +---------+----+----++---------+-----------+-----------+
+--   |  | yago2_8 |  s |  d || yago2_7 |     s     |     d     |
+--   |  +---------+----+----++---------+-----------+-----------+
+--   |               |                    |
+--   |               +--------------------+
+--   |
+--   |                                  +----------+-----------+----------+
+--   |                                  | yago2_10 |     s     |     d    |
+--   |                                  +----------+-----------+----------+
+--   |                                                |           |
+--   |                                    +-----------+           |
+--   |                                    |                       |
+--   |                                    |         +----------+----------+----+
+--   +------------------------------------+         | yago0_11 |     s    |  d |
+--                                                  +----------+----------+----+
+--                                                                           |
+--                                                                           |
+--                                                                           |
+--                                                  +----------+----------+----+
+--                                                  |  yago3   |     s    |  d |
+--                                                  +----------+----------+----+
+--                                                                |
+--                                                                |
+--                                                                |
+--                                      +----------+-----------+----------+
+--                                      |  yago46  |     s     |     d    |
+--                                      +----------+-----------+----------+
+--                                                    |
+--                                                    |
+--                                                    |
+--                                      +----------+-----------+----------+
+--                                      |  yago5   |     s     |     d    |
+--                                      +----------+-----------+----------+
+with dummy as (select) /* stage1 */, yago2_9_s1_508d006641de23 as (select yago2_9.s as v18,yago2_9.d as v16 from yago2 yago2_9), yago2_8_s1_508d006641de23 as (select yago2_8.d as v16,yago2_8.s as v14 from yago2 yago2_8), yago2_7_s1_508d006641de23 as (select yago2_7.d as v12,yago2_7.s as v14 from yago2 yago2_7), yago0_6_s1_508d006641de23 as (select yago0_6.s as v12,yago0_6.d as v10 from yago0 yago0_6), yago0_5_s1_508d006641de23 as (select yago0_5.d as v10,yago0_5.s as v8 from yago0 yago0_5), yago1_s1_508d006641de23 as (select yago1.d as v0,yago1.s as v8 from yago1), yago0_0_s1_508d006641de23 as (select yago0_0.d as v0 from yago0 yago0_0), yago2_10_s1_508d006641de23 as (select yago2_10.s as v18,yago2_10.d as v20 from yago2 yago2_10), yago0_11_s1_508d006641de23 as (select yago0_11.d as v4,yago0_11.s as v20 from yago0 yago0_11), yago3_s1_508d006641de23 as (select yago3.d as v4,yago3.s as v2 from yago3), yago46_s1_508d006641de23 as (select yago46.s as v6,yago46.d as v2 from yago46), yago5_s1_508d006641de23 as (select yago5.s as v6 from yago5) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_14813A97A29E973E as  (select * from umbra.identity(table(yago2_10_s1_508d006641de23)) NATURAL JOIN umbra.identity(table(yago0_11_s1_508d006641de23)) NATURAL JOIN umbra.identity(table(yago3_s1_508d006641de23)) NATURAL JOIN umbra.identity(table(yago46_s1_508d006641de23)) NATURAL JOIN umbra.identity(table(yago5_s1_508d006641de23))), s4_group_37D5D671FAAE3DB3 as  (select * from umbra.identity(table(yago2_8_s1_508d006641de23)) NATURAL JOIN umbra.identity(table(yago2_7_s1_508d006641de23)) NATURAL JOIN umbra.identity(table(yago0_6_s1_508d006641de23)) NATURAL JOIN umbra.identity(table(yago0_5_s1_508d006641de23)) NATURAL JOIN umbra.identity(table(yago1_s1_508d006641de23)) NATURAL JOIN umbra.identity(table(yago0_0_s1_508d006641de23))), s4_group_270F51C205619D09 as  (select * from umbra.identity(table(yago2_9_s1_508d006641de23)))select count(*) from umbra.identity(table(s4_group_14813A97A29E973E)) natural join umbra.identity(table(s4_group_37D5D671FAAE3DB3)) natural join umbra.identity(table(s4_group_270F51C205619D09));
+\set queryname yago_acyclic_Chain_12_54
+-- Result size: 47
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago2_6 [label="yago2_6|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_5:d;yago5_2:s -> yago54:s;yago5_2:d -> yago5_4:d;yago54:d -> yago21:d;yago2_5:s -> yago2_6:s;yago2_6:d -> yago2_7:d;yago2_7:s -> yago2_8:s;yago2_8:d -> yago2_9:d;yago2_9:s -> yago2_10:s;yago2_10:d -> yago21:s;}
+--                                      +---------+----+----+
+--                                      | yago5_4 |  s |  d |
+--                                      +---------+----+----+
+--                                                        |
+--                                                        |
+--                                                        |
+--      +----------+---------+----+     +---------+----+----+
+--      | yago2_10 |    s    |  d |     | yago5_2 |  s |  d |
+--      +----------+---------+----+     +---------+----+----+
+--                    |         |                    |
+--   +----------------+         |                    |
+--   |                          |                    |
+--   |              +--------+----+----++---------+----+----+
+--   |              | yago21 |  s |  d || yago54  |  s |  d |
+--   |              +--------+----+----++---------+----+----+
+--   |                               |                    |
+--   |                               +--------------------+
+--   |
+--   |  +----------+---------+----+
+--   |  | yago2_0  |    s    |  d |
+--   |  +----------+---------+----+
+--   |                |
+--   |                |
+--   |                |
+--   |  +----------+---------+----+
+--   |  | yago2_1  |    s    |  d |
+--   |  +----------+---------+----+
+--   |                          |
+--   |                          |
+--   |                          |
+--   |  +----------+---------+----+
+--   |  | yago2_5  |    s    |  d |
+--   |  +----------+---------+----+
+--   |                |
+--   |                |
+--   |                |
+--   |  +----------+---------+----+
+--   |  | yago2_6  |    s    |  d |
+--   |  +----------+---------+----+
+--   |                          |
+--   |                          |
+--   |                          |
+--   |  +----------+---------+----+
+--   |  | yago2_7  |    s    |  d |
+--   |  +----------+---------+----+
+--   |                |
+--   |                |
+--   |                |
+--   |  +----------+---------+----+
+--   |  | yago2_8  |    s    |  d |
+--   |  +----------+---------+----+
+--   |                          |
+--   +----------------+         |
+--                    |         |
+--      +----------+---------+----+
+--      | yago2_9  |    s    |  d |
+--      +----------+---------+----+
+with dummy as (select) /* stage1 */, yago2_9_s1_28c1d806641de23 as (select yago2_9.s as v18,yago2_9.d as v16 from yago2 yago2_9), yago2_8_s1_28c1d806641de23 as (select yago2_8.s as v14,yago2_8.d as v16 from yago2 yago2_8), yago2_7_s1_28c1d806641de23 as (select yago2_7.d as v12,yago2_7.s as v14 from yago2 yago2_7), yago2_6_s1_28c1d806641de23 as (select yago2_6.d as v12,yago2_6.s as v10 from yago2 yago2_6), yago2_5_s1_28c1d806641de23 as (select yago2_5.d as v2,yago2_5.s as v10 from yago2 yago2_5), yago2_1_s1_28c1d806641de23 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_28c1d806641de23 as (select yago2_0.s as v0 from yago2 yago2_0), yago2_10_s1_28c1d806641de23 as (select yago2_10.s as v18,yago2_10.d as v20 from yago2 yago2_10), yago21_s1_28c1d806641de23 as (select yago21.d as v8,yago21.s as v20 from yago21), yago54_s1_28c1d806641de23 as (select yago54.d as v8,yago54.s as v4 from yago54), yago5_2_s1_28c1d806641de23 as (select yago5_2.s as v4,yago5_2.d as v6 from yago5 yago5_2), yago5_4_s1_28c1d806641de23 as (select yago5_4.d as v6 from yago5 yago5_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_4313A95A05C08EC1 as  (select * from umbra.identity(table(yago2_10_s1_28c1d806641de23)) NATURAL JOIN umbra.identity(table(yago21_s1_28c1d806641de23)) NATURAL JOIN umbra.identity(table(yago54_s1_28c1d806641de23)) NATURAL JOIN umbra.identity(table(yago5_2_s1_28c1d806641de23)) NATURAL JOIN umbra.identity(table(yago5_4_s1_28c1d806641de23))), s4_group_718985C88B63B77 as  (select * from umbra.identity(table(yago2_8_s1_28c1d806641de23)) NATURAL JOIN umbra.identity(table(yago2_7_s1_28c1d806641de23)) NATURAL JOIN umbra.identity(table(yago2_6_s1_28c1d806641de23)) NATURAL JOIN umbra.identity(table(yago2_5_s1_28c1d806641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_28c1d806641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_28c1d806641de23))), s4_group_39E780313C77A14C as  (select * from umbra.identity(table(yago2_9_s1_28c1d806641de23)))select count(*) from umbra.identity(table(s4_group_4313A95A05C08EC1)) natural join umbra.identity(table(s4_group_718985C88B63B77)) natural join umbra.identity(table(s4_group_39E780313C77A14C));
+\set queryname yago_acyclic_Chain_12_55
+-- Result size: 12
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago26 [label="yago26|<s> s|<d> d"]; yago46_1 [label="yago46_1|<s> s|<d> d"]; yago46_2 [label="yago46_2|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago12_4 [label="yago12_4|<s> s|<d> d"]; yago12_5 [label="yago12_5|<s> s|<d> d"]; yago5_6 [label="yago5_6|<s> s|<d> d"]; yago5_7 [label="yago5_7|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago46_10 [label="yago46_10|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago26:d -> yago8:d;yago46_1:s -> yago46_10:d;yago46_1:d -> yago46_2:d;yago8:s -> yago12_4:s;yago12_4:d -> yago12_5:d;yago12_5:s -> yago5_6:s;yago5_6:d -> yago5_7:d;yago5_7:s -> yago54:s;yago54:d -> yago35:s;yago35:d -> yago50:d;yago46_10:s -> yago50:s;}
+--                                                                           +---------+
+--                                                                           |         |
+--                                                             +----------+----+----+  |
+--                                                             | yago12_4 |  s |  d |  |
+--                                                             +----------+----+----+  |
+--                                                                                |    |
+--                                                                                |    |
+--                                                                                |    |
+--                                                             +----------+----+----+  |
+--                                                             | yago12_5 |  s |  d |  |
+--                                                             +----------+----+----+  |
+--                                                                           |         |
+--                                                                           |         |
+--                                                                           |         |
+--                    +---------+----+------------+            +----------+----+----+  |
+--                    | yago5_7 |  s |      d     |            | yago5_6  |  s |  d |  |
+--                    +---------+----+------------+            +----------+----+----+  |
+--                                 |    |                                         |    |
+--                                 |    +-----------------------------------------+    |
+--                                 |                                                   |
+--                                 |  +-----------+-----------+-----------+            |
+--                                 |  |  yago26   |     s     |     d     |            |
+--                                 |  +-----------+-----------+-----------+            |
+--                                 |                             |                     |
+--                                 |                             |                     |
+--                                 |                             |                     |
+--                                 |  +-----------+-----------+-----------+            |
+--                                 |  |   yago8   |     s     |     d     |            |
+--                                 |  +-----------+-----------+-----------+            |
+--                                 |                 |                                 |
+--             +-------------------+                 +---------------------------------+
+--             |
+-- +--------+----+---+                +-----------+-----------+-----------+
+-- | yago54 |  s | d | ------------+  |  yago35   |     s     |     d     |
+-- +--------+----+---+             |  +-----------+-----------+-----------+
+--                                 |                 |           |
+--                                 +-----------------+           |
+--                                                               |
+--                                    +-----------+-----------+-----------+
+--                                    |  yago50   |     s     |     d     |
+--                                    +-----------+-----------+-----------+
+--                                                   |
+--                                      +------------+
+--                                      |
+--                                      |          +----------+-----------+----+
+--                                      |          | yago46_1 |     s     |  d |
+--                                      |          +----------+-----------+----+
+--                                      |                        |           |
+--                                      +------------+           |           |
+--                                                   |           |           |
+--                                    +-----------+-----------+-----------+  |
+--                                    | yago46_10 |     s     |     d     |  |
+--                                    +-----------+-----------+-----------+  |
+--                                                                           |
+--                                                                           |
+--                                                                           |
+--                                                 +----------+-----------+----+
+--                                                 | yago46_2 |     s     |  d |
+--                                                 +----------+-----------+----+
+with dummy as (select) /* stage1 */, yago5_7_s1_2d031006641de23 as (select yago5_7.s as v14,yago5_7.d as v12 from yago5 yago5_7), yago54_s1_2d031006641de23 as (select yago54.s as v14,yago54.d as v16 from yago54), yago35_s1_2d031006641de23 as (select yago35.d as v18,yago35.s as v16 from yago35), yago50_s1_2d031006641de23 as (select yago50.d as v18,yago50.s as v20 from yago50), yago46_10_s1_2d031006641de23 as (select yago46_10.d as v2,yago46_10.s as v20 from yago46 yago46_10), yago46_1_s1_2d031006641de23 as (select yago46_1.s as v2,yago46_1.d as v4 from yago46 yago46_1), yago46_2_s1_2d031006641de23 as (select yago46_2.d as v4 from yago46 yago46_2), yago5_6_s1_2d031006641de23 as (select yago5_6.d as v12,yago5_6.s as v10 from yago5 yago5_6), yago12_5_s1_2d031006641de23 as (select yago12_5.d as v8,yago12_5.s as v10 from yago12 yago12_5), yago12_4_s1_2d031006641de23 as (select yago12_4.s as v6,yago12_4.d as v8 from yago12 yago12_4), yago8_s1_2d031006641de23 as (select yago8.s as v6,yago8.d as v0 from yago8), yago26_s1_2d031006641de23 as (select yago26.d as v0 from yago26) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_31BCF66B78905BA5 as  (select * from umbra.identity(table(yago5_6_s1_2d031006641de23)) NATURAL JOIN umbra.identity(table(yago12_5_s1_2d031006641de23)) NATURAL JOIN umbra.identity(table(yago12_4_s1_2d031006641de23)) NATURAL JOIN umbra.identity(table(yago8_s1_2d031006641de23)) NATURAL JOIN umbra.identity(table(yago26_s1_2d031006641de23))), s4_group_1F5A0816AA92D0BA as  (select * from umbra.identity(table(yago54_s1_2d031006641de23)) NATURAL JOIN umbra.identity(table(yago35_s1_2d031006641de23)) NATURAL JOIN umbra.identity(table(yago50_s1_2d031006641de23)) NATURAL JOIN umbra.identity(table(yago46_10_s1_2d031006641de23)) NATURAL JOIN umbra.identity(table(yago46_1_s1_2d031006641de23)) NATURAL JOIN umbra.identity(table(yago46_2_s1_2d031006641de23))), s4_group_5F973373ED07312E as  (select * from umbra.identity(table(yago5_7_s1_2d031006641de23)))select count(*) from umbra.identity(table(s4_group_31BCF66B78905BA5)) natural join umbra.identity(table(s4_group_1F5A0816AA92D0BA)) natural join umbra.identity(table(s4_group_5F973373ED07312E));
+\set queryname yago_acyclic_Chain_12_56
+-- Result size: 83
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago11 [label="yago11|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago17_2 [label="yago17_2|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago0_6 [label="yago0_6|<s> s|<d> d"]; yago0_7 [label="yago0_7|<s> s|<d> d"]; yago22_8 [label="yago22_8|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago22_11 [label="yago22_11|<s> s|<d> d"]; yago11:d -> yago8:d;yago17_1:s -> yago17_2:s;yago17_1:d -> yago23:d;yago8:s -> yago2_4:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago0_6:s;yago0_6:d -> yago0_7:d;yago0_7:s -> yago22_8:d;yago22_8:s -> yago5:s;yago5:d -> yago22_11:d;yago23:s -> yago22_11:s;}
+--                                                             +--------------+
+--                                                             |              |
+--                                                +---------+----+----+       |
+--                                                | yago0_6 |  s |  d |       |
+--                                                +---------+----+----+       |
+--                                                                  |         |
+--                                                                  |         |
+--                                                                  |         |
+--                                                +---------+----+----+       |
+--                                                | yago0_7 |  s |  d |       |
+--                                                +---------+----+----+       |
+--                                                             |              |
+--   +------------------+                                      |              |
+--   |                  |                                      |              |
+--   |  +-------+----+----+          +-----------+----------+----+            |
+--   |  | yago5 |  s |  d |          | yago22_8  |     s    |  d |            |
+--   |  +-------+----+----+          +-----------+----------+----+            |
+--   |             |                                |                         |
+--   |             +--------------------------------+                         |
+--   |                                                                        |
+--   |                     +--------+------------+----------+                 |
+--   |                     | yago11 |      s     |     d    |                 |
+--   |                     +--------+------------+----------+                 |
+--   |                                              |                         |
+--   |                                              |                         |
+--   |                                              |                         |
+--   |                     +--------+------------+----------+                 |
+--   |                     | yago8  |      s     |     d    |                 |
+--   |                     +--------+------------+----------+                 |
+--   |                                 |                                      |
+--   |                       +---------+                                      |
+--   |                       |                                                |
+--   |                       |       +-----------+----------+----+            |
+--   |                       |       | yago17_1  |     s    |  d | ------+    |
+--   |                       |       +-----------+----------+----+       |    |
+--   |                       |                      |                    |    |
+--   |                       |                      |                    |    |
+--   |                       |                      |                    |    |
+--   |                       |       +-----------+----------+----+       |    |
+--   |                       |       | yago17_2  |     s    |  d |       |    |
+--   |                       |       +-----------+----------+----+       |    |
+--   |                       |       +-----------+----------+----+       |    |
+--   |                       |       |  yago23   |     s    |  d | ------+    |
+--   |                       |       +-----------+----------+----+            |
+--   |                       |                      |                         |
+--   |                       |                      |                         |
+--   |                       |                      |                         |
+--   |                       |       +-----------+----------+----+            |
+--   |                       |       | yago22_11 |     s    |  d |            |
+--   |                       |       +-----------+----------+----+            |
+--   |                       |                                 |              |
+--   +-----------------------+---------------------------------+              |
+--                           |                                                |
+--                           |       +-----------+----------+----+            |
+--                           |       |  yago2_4  |     s    |  d | ------+    |
+--                           |       +-----------+----------+----+       |    |
+--                           |                      |                    |    |
+--                           |                      |                    |    |
+--                           |                      |                    |    |
+--                           |       +-----------+----------+----+       |    |
+--                           |       |  yago2_5  |     s    |  d | ------+----+
+--                           |       +-----------+----------+----+       |
+--                           |                                           |
+--                           +-------------------------------------------+
+with dummy as (select) /* stage1 */, yago22_8_s1_33953806641de23 as (select yago22_8.d as v14,yago22_8.s as v16 from yago22 yago22_8), yago0_7_s1_33953806641de23 as (select yago0_7.s as v14,yago0_7.d as v12 from yago0 yago0_7), yago0_6_s1_33953806641de23 as (select yago0_6.s as v10,yago0_6.d as v12 from yago0 yago0_6), yago2_5_s1_33953806641de23 as (select yago2_5.s as v8,yago2_5.d as v10 from yago2 yago2_5), yago2_4_s1_33953806641de23 as (select yago2_4.s as v8,yago2_4.d as v6 from yago2 yago2_4), yago8_s1_33953806641de23 as (select yago8.d as v0,yago8.s as v6 from yago8), yago11_s1_33953806641de23 as (select yago11.d as v0 from yago11), yago5_s1_33953806641de23 as (select yago5.d as v18,yago5.s as v16 from yago5), yago22_11_s1_33953806641de23 as (select yago22_11.d as v18,yago22_11.s as v20 from yago22 yago22_11), yago23_s1_33953806641de23 as (select yago23.d as v4,yago23.s as v20 from yago23), yago17_1_s1_33953806641de23 as (select yago17_1.s as v2,yago17_1.d as v4 from yago17 yago17_1), yago17_2_s1_33953806641de23 as (select yago17_2.s as v2 from yago17 yago17_2) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_481E4D6E1EA5914E as  (select * from umbra.identity(table(yago5_s1_33953806641de23)) NATURAL JOIN umbra.identity(table(yago22_11_s1_33953806641de23)) NATURAL JOIN umbra.identity(table(yago23_s1_33953806641de23)) NATURAL JOIN umbra.identity(table(yago17_1_s1_33953806641de23)) NATURAL JOIN umbra.identity(table(yago17_2_s1_33953806641de23))), s4_group_5D4E3652D0E255A9 as  (select * from umbra.identity(table(yago0_7_s1_33953806641de23)) NATURAL JOIN umbra.identity(table(yago0_6_s1_33953806641de23)) NATURAL JOIN umbra.identity(table(yago2_5_s1_33953806641de23)) NATURAL JOIN umbra.identity(table(yago2_4_s1_33953806641de23)) NATURAL JOIN umbra.identity(table(yago8_s1_33953806641de23)) NATURAL JOIN umbra.identity(table(yago11_s1_33953806641de23))), s4_group_2B415079C04E47F8 as  (select * from umbra.identity(table(yago22_8_s1_33953806641de23)))select count(*) from umbra.identity(table(s4_group_481E4D6E1EA5914E)) natural join umbra.identity(table(s4_group_5D4E3652D0E255A9)) natural join umbra.identity(table(s4_group_2B415079C04E47F8));
+\set queryname yago_acyclic_Chain_12_57
+-- Result size: 1357
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago0_5 [label="yago0_5|<s> s|<d> d"]; yago17_6 [label="yago17_6|<s> s|<d> d"]; yago17_7 [label="yago17_7|<s> s|<d> d"]; yago12 [label="yago12|<s> s|<d> d"]; yago54_9 [label="yago54_9|<s> s|<d> d"]; yago36 [label="yago36|<s> s|<d> d"]; yago54_11 [label="yago54_11|<s> s|<d> d"]; yago0_0:d -> yago3:d;yago50:s -> yago4:s;yago50:d -> yago36:d;yago3:s -> yago1:s;yago1:d -> yago0_5:d;yago0_5:s -> yago17_6:d;yago17_6:s -> yago17_7:s;yago17_7:d -> yago12:d;yago12:s -> yago54_9:d;yago54_9:s -> yago54_11:d;yago36:s -> yago54_11:s;}
+--                                                     +---------+----+----+
+--                                                     | yago0_0 |  s |  d |
+--                                                     +---------+----+----+
+--                                                                       |
+--   +--------------------------------------------------------------+    |
+--   |                                                              |    |
+--   |                                                 +---------+----+----+
+--   |                     +----------------+          |  yago3  |  s |  d |
+--   |                     |                |          +---------+----+----+
+--   |                     |                |
+--   |                     |                +----------------------------+
+--   |                     |                                             |
+--   |                     |              +-----------+----------+----+  |
+--   |                     |              |  yago0_5  |     s    |  d |  |
+--   |                     |              +-----------+----------+----+  |
+--   |                     |                             |          |    |
+--   |                     |                             |          |    |
+--   |                     |                             |          |    |
+--   |  +----------+----+----++----------+------------+----------+  |    |
+--   |  | yago17_7 |  s |  d || yago17_6 |      s     |     d    |  |    |
+--   |  +----------+----+----++----------+------------+----------+  |    |
+--   |                |                     |                       |    |
+--   |                +---------------------+                       |    |
+--   |                                                              |    |
+--   |                                    +-----------+----------+----+  |
+--   |                                    |   yago1   |     s    |  d |  |
+--   |                                    +-----------+----------+----+  |
+--   |                                                   |               |
+--   +---------------------------------------------------+               |
+--                                                                       |
+--                                        +-----------+----------+----+  |
+--                                        |  yago12   |     s    |  d | -+
+--                                        +-----------+----------+----+
+--                                                       |
+--                                                       |
+--                                                       |
+--                            +----------+------------+----------+
+--                            | yago54_9 |      s     |     d    |
+--                            +----------+------------+----------+
+--                                          |
+--                              +-----------+
+--                              |
+--                              |         +-----------+----------+----+
+--                              |         |  yago36   |     s    |  d | ------+
+--                              |         +-----------+----------+----+       |
+--                              |                        |                    |
+--                              |                        |                    |
+--                              |                        |                    |
+--                              |         +-----------+----------+----+       |
+--                              |         | yago54_11 |     s    |  d |       |
+--                              |         +-----------+----------+----+       |
+--                              |                                   |         |
+--                              +-----------------------------------+         |
+--                                                                            |
+--                                        +-----------+----------+----+       |
+--                                        |  yago50   |     s    |  d | ------+
+--                                        +-----------+----------+----+
+--                                                       |
+--                                                       |
+--                                                       |
+--                                        +-----------+----------+----+
+--                                        |   yago4   |     s    |  d |
+--                                        +-----------+----------+----+
+with dummy as (select) /* stage1 */, yago17_7_s1_526b5806641de23 as (select yago17_7.s as v12,yago17_7.d as v14 from yago17 yago17_7), yago12_s1_526b5806641de23 as (select yago12.d as v14,yago12.s as v16 from yago12), yago54_9_s1_526b5806641de23 as (select yago54_9.s as v18,yago54_9.d as v16 from yago54 yago54_9), yago54_11_s1_526b5806641de23 as (select yago54_11.s as v20,yago54_11.d as v18 from yago54 yago54_11), yago36_s1_526b5806641de23 as (select yago36.s as v20,yago36.d as v4 from yago36), yago50_s1_526b5806641de23 as (select yago50.s as v2,yago50.d as v4 from yago50), yago4_s1_526b5806641de23 as (select yago4.s as v2 from yago4), yago17_6_s1_526b5806641de23 as (select yago17_6.s as v12,yago17_6.d as v10 from yago17 yago17_6), yago0_5_s1_526b5806641de23 as (select yago0_5.d as v8,yago0_5.s as v10 from yago0 yago0_5), yago1_s1_526b5806641de23 as (select yago1.d as v8,yago1.s as v6 from yago1), yago3_s1_526b5806641de23 as (select yago3.d as v0,yago3.s as v6 from yago3), yago0_0_s1_526b5806641de23 as (select yago0_0.d as v0 from yago0 yago0_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6A306402AB8B2235 as  (select * from umbra.identity(table(yago17_6_s1_526b5806641de23)) NATURAL JOIN umbra.identity(table(yago0_5_s1_526b5806641de23)) NATURAL JOIN umbra.identity(table(yago1_s1_526b5806641de23)) NATURAL JOIN umbra.identity(table(yago3_s1_526b5806641de23)) NATURAL JOIN umbra.identity(table(yago0_0_s1_526b5806641de23))), s4_group_77C8E05D6603B53B as  (select * from umbra.identity(table(yago12_s1_526b5806641de23)) NATURAL JOIN umbra.identity(table(yago54_9_s1_526b5806641de23)) NATURAL JOIN umbra.identity(table(yago54_11_s1_526b5806641de23)) NATURAL JOIN umbra.identity(table(yago36_s1_526b5806641de23)) NATURAL JOIN umbra.identity(table(yago50_s1_526b5806641de23)) NATURAL JOIN umbra.identity(table(yago4_s1_526b5806641de23))), s4_group_4592322463536CC6 as  (select * from umbra.identity(table(yago17_7_s1_526b5806641de23)))select count(*) from umbra.identity(table(s4_group_6A306402AB8B2235)) natural join umbra.identity(table(s4_group_77C8E05D6603B53B)) natural join umbra.identity(table(s4_group_4592322463536CC6));
+\set queryname yago_acyclic_Chain_12_58
+-- Result size: 122
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago31 [label="yago31|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago49 [label="yago49|<s> s|<d> d"]; yago29_5 [label="yago29_5|<s> s|<d> d"]; yago29_6 [label="yago29_6|<s> s|<d> d"]; yago53 [label="yago53|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago31:d -> yago49:d;yago2_1:s -> yago2_2:s;yago2_1:d -> yago58:s;yago2_2:d -> yago2_11:d;yago49:s -> yago29_5:s;yago29_5:d -> yago29_6:d;yago29_6:s -> yago53:d;yago53:s -> yago3:s;yago3:d -> yago0:d;yago0:s -> yago2_10:d;yago2_10:s -> yago2_11:s;}
+--                                                                         +-------------+
+--                                                                         |             |
+--                                                              +-------+----+--------+  |
+--                                                              | yago3 |  s |    d   |  |
+--                                                              +-------+----+--------+  |
+--                                                                              |        |
+--                                                                              |        |
+--                                                                              |        |
+--                                                              +-------+----+--------+  |
+--                                                              | yago0 |  s |    d   |  |
+--                                                              +-------+----+--------+  |
+--                                                                         |             |
+--        +---------------------+                                          |             |
+--        |                     |                                          |             |
+--        |  +----------+----+---------+            +----------+--------+----+           |
+--        |  | yago2_11 |  s |    d    |            | yago2_10 |    s   |  d |           |
+--        |  +----------+----+---------+            +----------+--------+----+           |
+--        |                |                                      |                      |
+--        |                +--------------------------------------+                      |
+--        |                                                                              |
+--        |                             +----------+-----------+--------+                |
+--        |                             | yago29_5 |     s     |    d   |                |
+--        |                             +----------+-----------+--------+                |
+--        |                                           |           |                      |
+--   +----+-------------------------------------------+           |                      |
+--   |    |                                                       |                      |
+--   |    |                             +----------+-----------+--------+                |
+--   |    |                             | yago29_6 |     s     |    d   |                |
+--   |    |                             +----------+-----------+--------+                |
+--   |    |                                           |                                  |
+--   |    |                                           |                                  |
+--   |    |                                           |                                  |
+--   |    |                   +--------+-----------+-----------+                         |
+--   |    |                   | yago53 |     s     |     d     |                         |
+--   |    |                   +--------+-----------+-----------+                         |
+--   |    |                               |                                              |
+--   |    |                               +----------------------------------------------+
+--   |    |
+--   |    |                                         +----------+--------+----+--------+----+---+
+--   |    |                                         | yago2_1  |    s   |  d | yago58 |  s | d |
+--   |    |                                         +----------+--------+----+--------+----+---+
+--   |    |                                                       |        |             |
+--   |    |                                                       |        +-------------+
+--   |    |                                                       |
+--   |    |                                         +----------+--------+----+
+--   |    |                                         | yago2_2  |    s   |  d |
+--   |    |                                         +----------+--------+----+
+--   |    |                                                                |
+--   |    +----------------------------------------------------------------+
+--   |
+--   |                                  +----------+-----------+--------+
+--   |                                  |  yago31  |     s     |    d   |
+--   |                                  +----------+-----------+--------+
+--   |                                                            |
+--   +------------------------------------------------+           |
+--                                                    |           |
+--                                      +----------+-----------+--------+
+--                                      |  yago49  |     s     |    d   |
+--                                      +----------+-----------+--------+
+with dummy as (select) /* stage1 */, yago3_s1_3e5a9806641de23 as (select yago3.s as v14,yago3.d as v16 from yago3), yago0_s1_3e5a9806641de23 as (select yago0.s as v18,yago0.d as v16 from yago0), yago2_10_s1_3e5a9806641de23 as (select yago2_10.d as v18,yago2_10.s as v20 from yago2 yago2_10), yago2_11_s1_3e5a9806641de23 as (select yago2_11.s as v20,yago2_11.d as v6 from yago2 yago2_11), yago2_2_s1_3e5a9806641de23 as (select yago2_2.s as v2,yago2_2.d as v6 from yago2 yago2_2), yago2_1_s1_3e5a9806641de23 as (select yago2_1.s as v2,yago2_1.d as v4 from yago2 yago2_1), yago58_s1_3e5a9806641de23 as (select yago58.s as v4 from yago58), yago53_s1_3e5a9806641de23 as (select yago53.s as v14,yago53.d as v12 from yago53), yago29_6_s1_3e5a9806641de23 as (select yago29_6.d as v10,yago29_6.s as v12 from yago29 yago29_6), yago29_5_s1_3e5a9806641de23 as (select yago29_5.d as v10,yago29_5.s as v8 from yago29 yago29_5), yago49_s1_3e5a9806641de23 as (select yago49.d as v0,yago49.s as v8 from yago49), yago31_s1_3e5a9806641de23 as (select yago31.d as v0 from yago31) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_108B73D07FA31118 as  (select * from umbra.identity(table(yago53_s1_3e5a9806641de23)) NATURAL JOIN umbra.identity(table(yago29_6_s1_3e5a9806641de23)) NATURAL JOIN umbra.identity(table(yago29_5_s1_3e5a9806641de23)) NATURAL JOIN umbra.identity(table(yago49_s1_3e5a9806641de23)) NATURAL JOIN umbra.identity(table(yago31_s1_3e5a9806641de23))), s4_group_5998892EB7F9A4FF as  (select * from umbra.identity(table(yago0_s1_3e5a9806641de23)) NATURAL JOIN umbra.identity(table(yago2_10_s1_3e5a9806641de23)) NATURAL JOIN umbra.identity(table(yago2_11_s1_3e5a9806641de23)) NATURAL JOIN umbra.identity(table(yago2_2_s1_3e5a9806641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_3e5a9806641de23)) NATURAL JOIN umbra.identity(table(yago58_s1_3e5a9806641de23))), s4_group_B83007BFDCDD770 as  (select * from umbra.identity(table(yago3_s1_3e5a9806641de23)))select count(*) from umbra.identity(table(s4_group_108B73D07FA31118)) natural join umbra.identity(table(s4_group_5998892EB7F9A4FF)) natural join umbra.identity(table(s4_group_B83007BFDCDD770));
+\set queryname yago_acyclic_Chain_12_59
+-- Result size: 1343
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0 [label="yago0|<s> s|<d> d"]; yago17_1 [label="yago17_1|<s> s|<d> d"]; yago36_2 [label="yago36_2|<s> s|<d> d"]; yago17_3 [label="yago17_3|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago4 [label="yago4|<s> s|<d> d"]; yago46_7 [label="yago46_7|<s> s|<d> d"]; yago46_8 [label="yago46_8|<s> s|<d> d"]; yago36_9 [label="yago36_9|<s> s|<d> d"]; yago36_10 [label="yago36_10|<s> s|<d> d"]; yago36_11 [label="yago36_11|<s> s|<d> d"]; yago0:d -> yago1:d;yago17_1:s -> yago36_2:s;yago17_1:d -> yago17_3:s;yago36_2:d -> yago36_11:d;yago1:s -> yago17_5:d;yago17_5:s -> yago4:d;yago4:s -> yago46_7:d;yago46_7:s -> yago46_8:s;yago46_8:d -> yago36_9:s;yago36_9:d -> yago36_10:d;yago36_10:s -> yago36_11:s;}
+--   +-------------------------+
+--   |                         |
+--   |  +----------+--------+----+                  +-------+----+----------+
+--   |  | yago46_8 |    s   |  d |                  | yago0 |  s |     d    |
+--   |  +----------+--------+----+                  +-------+----+----------+
+--   |                |                                             |
+--   |                |                                             |
+--   |                |                                             |
+--   |  +----------+--------+----+                  +-------+----+----------+
+--   |  | yago46_7 |    s   |  d |                  | yago1 |  s |     d    |
+--   |  +----------+--------+----+                  +-------+----+----------+
+--   |                         |                               |
+--   |                         |                               |
+--   |                         |                               |
+--   |              +-------+----+----++-----------+--------+----+
+--   |              | yago4 |  s |  d || yago17_5  |    s   |  d |
+--   |              +-------+----+----++-----------+--------+----+
+--   |                              |                 |
+--   |                              +-----------------+
+--   |
+--   |                                 +-----------+--------+----+----------+----+----+
+--   |                                 | yago17_1  |    s   |  d | yago17_3 |  s |  d |
+--   |                                 +-----------+--------+----+----------+----+----+
+--   |                                                |        |               |
+--   |                                                |        +---------------+
+--   |                                                |
+--   |                                 +-----------+--------+----+
+--   |                                 | yago36_2  |    s   |  d | ------------+
+--   |                                 +-----------+--------+----+             |
+--   |                                 +-----------+--------+----+             |
+--   |                                 | yago36_10 |    s   |  d | ------------+----+
+--   |                                 +-----------+--------+----+             |    |
+--   |                                                |                        |    |
+--   |                                                |                        |    |
+--   |                                                |                        |    |
+--   |                                 +-----------+--------+----+             |    |
+--   |                                 | yago36_11 |    s   |  d | ------------+    |
+--   |                                 +-----------+--------+----+                  |
+--   |                                                                              |
+--   +------------------------------------------------+                             |
+--                                                    |                             |
+--                                     +-----------+--------+----+                  |
+--                                     | yago36_9  |    s   |  d | -----------------+
+--                                     +-----------+--------+----+
+with dummy as (select) /* stage1 */, yago46_8_s1_48ba4006641de23 as (select yago46_8.s as v14,yago46_8.d as v16 from yago46 yago46_8), yago36_9_s1_48ba4006641de23 as (select yago36_9.s as v16,yago36_9.d as v18 from yago36 yago36_9), yago36_10_s1_48ba4006641de23 as (select yago36_10.s as v20,yago36_10.d as v18 from yago36 yago36_10), yago36_11_s1_48ba4006641de23 as (select yago36_11.s as v20,yago36_11.d as v6 from yago36 yago36_11), yago36_2_s1_48ba4006641de23 as (select yago36_2.s as v2,yago36_2.d as v6 from yago36 yago36_2), yago17_1_s1_48ba4006641de23 as (select yago17_1.s as v2,yago17_1.d as v4 from yago17 yago17_1), yago17_3_s1_48ba4006641de23 as (select yago17_3.s as v4 from yago17 yago17_3), yago46_7_s1_48ba4006641de23 as (select yago46_7.s as v14,yago46_7.d as v12 from yago46 yago46_7), yago4_s1_48ba4006641de23 as (select yago4.s as v12,yago4.d as v10 from yago4), yago17_5_s1_48ba4006641de23 as (select yago17_5.d as v8,yago17_5.s as v10 from yago17 yago17_5), yago1_s1_48ba4006641de23 as (select yago1.s as v8,yago1.d as v0 from yago1), yago0_s1_48ba4006641de23 as (select yago0.d as v0 from yago0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_744BC7A26D03D277 as  (select * from umbra.identity(table(yago46_7_s1_48ba4006641de23)) NATURAL JOIN umbra.identity(table(yago4_s1_48ba4006641de23)) NATURAL JOIN umbra.identity(table(yago17_5_s1_48ba4006641de23)) NATURAL JOIN umbra.identity(table(yago1_s1_48ba4006641de23)) NATURAL JOIN umbra.identity(table(yago0_s1_48ba4006641de23))), s4_group_693E8833F5AE76FA as  (select * from umbra.identity(table(yago36_9_s1_48ba4006641de23)) NATURAL JOIN umbra.identity(table(yago36_10_s1_48ba4006641de23)) NATURAL JOIN umbra.identity(table(yago36_11_s1_48ba4006641de23)) NATURAL JOIN umbra.identity(table(yago36_2_s1_48ba4006641de23)) NATURAL JOIN umbra.identity(table(yago17_1_s1_48ba4006641de23)) NATURAL JOIN umbra.identity(table(yago17_3_s1_48ba4006641de23))), s4_group_3BC3F077B6A9D547 as  (select * from umbra.identity(table(yago46_8_s1_48ba4006641de23)))select count(*) from umbra.identity(table(s4_group_744BC7A26D03D277)) natural join umbra.identity(table(s4_group_693E8833F5AE76FA)) natural join umbra.identity(table(s4_group_3BC3F077B6A9D547));
+\set queryname yago_acyclic_Chain_12_60
+-- Result size: 990
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago21_1 [label="yago21_1|<s> s|<d> d"]; yago0_2 [label="yago0_2|<s> s|<d> d"]; yago31 [label="yago31|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago21_6 [label="yago21_6|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago3 [label="yago3|<s> s|<d> d"]; yago0_10 [label="yago0_10|<s> s|<d> d"]; yago0_11 [label="yago0_11|<s> s|<d> d"]; yago5_0:s -> yago21_1:s;yago21_1:d -> yago5_4:d;yago0_2:s -> yago31:s;yago0_2:d -> yago0_10:d;yago5_4:s -> yago5_5:s;yago5_5:d -> yago21_6:d;yago21_6:s -> yago58:d;yago58:s -> yago54:s;yago54:d -> yago3:s;yago3:d -> yago0_11:d;yago0_10:s -> yago0_11:s;}
+--                                                 +----------+----+----------+
+--                                                 | yago0_10 |  s |     d    | -+
+--                                                 +----------+----+----------+  |
+--                                                               |               |
+--                                                               |               |
+--                                                               |               |
+--           +-------+----+-----------+            +----------+----+----------+  |
+--           | yago3 |  s |     d     | -+         | yago0_11 |  s |     d    |  |
+--           +-------+----+-----------+  |         +----------+----+----------+  |
+--                      |                |                            |          |
+--                      |                +----------------------------+          |
+--                      |                                                        |
+-- +--------+--------+----+            +----------+-----------+----+             |
+-- | yago54 |    s   |  d |            | yago0_2  |     s     |  d | ------------+
+-- +--------+--------+----+            +----------+-----------+----+
+--             |                                     |
+--             |                                     |
+--             |                                     |
+--             |                       +----------+-----------+----+
+--             |                       |  yago31  |     s     |  d |
+--             |                       +----------+-----------+----+
+--             |
+--             |                         +---------------------------------------+
+--             |                         |                                       |
+--             |           +----------+-----------+-----------+     +---------+----+----+
+--             |           | yago21_1 |     s     |     d     |     | yago5_0 |  s |  d |
+--             |           +----------+-----------+-----------+     +---------+----+----+
+--             |                                     |
+--             |                                     |
+--             |                                     |
+--             |           +----------+-----------+-----------+     +---------+----+----+
+--             |           | yago5_4  |     s     |     d     |     | yago5_5 |  s |  d |
+--             |           +----------+-----------+-----------+     +---------+----+----+
+--             |                         |                                       |    |
+--             |                         +---------------------------------------+    |
+--             |                                                                      |
+--             |                       +----------+-----------+----+                  |
+--             |                       | yago21_6 |     s     |  d | -----------------+
+--             |                       +----------+-----------+----+
+--             |                                     |
+--             +-------------------------+           |
+--                                       |           |
+--                         +----------+-----------+-----------+
+--                         |  yago58  |     s     |     d     |
+--                         +----------+-----------+-----------+
+with dummy as (select) /* stage1 */, yago58_s1_484ef006641de23 as (select yago58.d as v12,yago58.s as v14 from yago58), yago54_s1_484ef006641de23 as (select yago54.s as v14,yago54.d as v16 from yago54), yago3_s1_484ef006641de23 as (select yago3.d as v18,yago3.s as v16 from yago3), yago0_11_s1_484ef006641de23 as (select yago0_11.s as v20,yago0_11.d as v18 from yago0 yago0_11), yago0_10_s1_484ef006641de23 as (select yago0_10.d as v6,yago0_10.s as v20 from yago0 yago0_10), yago0_2_s1_484ef006641de23 as (select yago0_2.d as v6,yago0_2.s as v4 from yago0 yago0_2), yago31_s1_484ef006641de23 as (select yago31.s as v4 from yago31), yago21_6_s1_484ef006641de23 as (select yago21_6.s as v12,yago21_6.d as v10 from yago21 yago21_6), yago5_5_s1_484ef006641de23 as (select yago5_5.d as v10,yago5_5.s as v8 from yago5 yago5_5), yago5_4_s1_484ef006641de23 as (select yago5_4.s as v8,yago5_4.d as v2 from yago5 yago5_4), yago21_1_s1_484ef006641de23 as (select yago21_1.s as v0,yago21_1.d as v2 from yago21 yago21_1), yago5_0_s1_484ef006641de23 as (select yago5_0.s as v0 from yago5 yago5_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_11626958B6DAF240 as  (select * from umbra.identity(table(yago21_6_s1_484ef006641de23)) NATURAL JOIN umbra.identity(table(yago5_5_s1_484ef006641de23)) NATURAL JOIN umbra.identity(table(yago5_4_s1_484ef006641de23)) NATURAL JOIN umbra.identity(table(yago21_1_s1_484ef006641de23)) NATURAL JOIN umbra.identity(table(yago5_0_s1_484ef006641de23))), s4_group_5F9464F6BFE438BD as  (select * from umbra.identity(table(yago54_s1_484ef006641de23)) NATURAL JOIN umbra.identity(table(yago3_s1_484ef006641de23)) NATURAL JOIN umbra.identity(table(yago0_11_s1_484ef006641de23)) NATURAL JOIN umbra.identity(table(yago0_10_s1_484ef006641de23)) NATURAL JOIN umbra.identity(table(yago0_2_s1_484ef006641de23)) NATURAL JOIN umbra.identity(table(yago31_s1_484ef006641de23))), s4_group_4E78C4C076DF05DF as  (select * from umbra.identity(table(yago58_s1_484ef006641de23)))select count(*) from umbra.identity(table(s4_group_11626958B6DAF240)) natural join umbra.identity(table(s4_group_5F9464F6BFE438BD)) natural join umbra.identity(table(s4_group_4E78C4C076DF05DF));
+\set queryname yago_acyclic_Chain_12_61
+-- Result size: 331968
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago21 [label="yago21|<s> s|<d> d"]; yago25_1 [label="yago25_1|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago25_3 [label="yago25_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago5_6 [label="yago5_6|<s> s|<d> d"]; yago5_7 [label="yago5_7|<s> s|<d> d"]; yago51 [label="yago51|<s> s|<d> d"]; yago36_9 [label="yago36_9|<s> s|<d> d"]; yago36_10 [label="yago36_10|<s> s|<d> d"]; yago36_11 [label="yago36_11|<s> s|<d> d"]; yago21:d -> yago5_4:d;yago25_1:s -> yago39:s;yago25_1:d -> yago25_3:d;yago39:d -> yago36_11:d;yago5_4:s -> yago5_5:s;yago5_5:d -> yago5_6:d;yago5_6:s -> yago5_7:s;yago5_7:d -> yago51:d;yago51:s -> yago36_9:s;yago36_9:d -> yago36_10:d;yago36_10:s -> yago36_11:s;}
+-- +---------+----+----+
+-- | yago5_7 |  s |  d | ----------------------------------------+
+-- +---------+----+----+                                         |
+--              |                                                |
+--              |                                                |
+--              |                                                |
+-- +---------+----+----+             +---------+----+----+       |
+-- | yago5_6 |  s |  d |             | yago21  |  s |  d |       |
+-- +---------+----+----+             +---------+----+----+       |
+--                   |                                 |         |
+--                   |                                 |         |
+--                   |                                 |         |
+-- +---------+----+----+             +---------+----+----+       |
+-- | yago5_5 |  s |  d |             | yago5_4 |  s |  d |       |
+-- +---------+----+----+             +---------+----+----+       |
+--              |                                 |              |
+--              +---------------------------------+              |
+--                                                               |
+--                      +-----------+----------+----+            |
+--                      | yago25_1  |     s    |  d | ------+    |
+--                      +-----------+----------+----+       |    |
+--                                     |                    |    |
+--                                     |                    |    |
+--                                     |                    |    |
+--                      +-----------+----------+----+       |    |
+--                      |  yago39   |     s    |  d |       |    |
+--                      +-----------+----------+----+       |    |
+--                                                |         |    |
+--                   +----------------------------+         |    |
+--                   |                                      |    |
+--                   |  +-----------+----------+----+       |    |
+--                   |  | yago25_3  |     s    |  d | ------+    |
+--                   |  +-----------+----------+----+            |
+--                   |  +-----------+----------+----+            |
+--                   |  | yago36_10 |     s    |  d | ------+    |
+--                   |  +-----------+----------+----+       |    |
+--                   |                 |                    |    |
+--                   |                 |                    |    |
+--                   |                 |                    |    |
+--                   |  +-----------+----------+----+       |    |
+--                   |  | yago36_11 |     s    |  d |       |    |
+--                   |  +-----------+----------+----+       |    |
+--                   |                            |         |    |
+--                   +----------------------------+         |    |
+--                                                          |    |
+--                      +-----------+----------+----+       |    |
+--                      | yago36_9  |     s    |  d | ------+    |
+--                      +-----------+----------+----+            |
+--                                     |                         |
+--                                     |                         |
+--                                     |                         |
+--                      +-----------+----------+----+            |
+--                      |  yago51   |     s    |  d | -----------+
+--                      +-----------+----------+----+
+with dummy as (select) /* stage1 */, yago51_s1_60caf806641de23 as (select yago51.s as v16,yago51.d as v14 from yago51), yago36_9_s1_60caf806641de23 as (select yago36_9.s as v16,yago36_9.d as v18 from yago36 yago36_9), yago36_10_s1_60caf806641de23 as (select yago36_10.s as v20,yago36_10.d as v18 from yago36 yago36_10), yago36_11_s1_60caf806641de23 as (select yago36_11.s as v20,yago36_11.d as v6 from yago36 yago36_11), yago39_s1_60caf806641de23 as (select yago39.d as v6,yago39.s as v2 from yago39), yago25_1_s1_60caf806641de23 as (select yago25_1.d as v4,yago25_1.s as v2 from yago25 yago25_1), yago25_3_s1_60caf806641de23 as (select yago25_3.d as v4 from yago25 yago25_3), yago5_7_s1_60caf806641de23 as (select yago5_7.s as v12,yago5_7.d as v14 from yago5 yago5_7), yago5_6_s1_60caf806641de23 as (select yago5_6.d as v10,yago5_6.s as v12 from yago5 yago5_6), yago5_5_s1_60caf806641de23 as (select yago5_5.d as v10,yago5_5.s as v8 from yago5 yago5_5), yago5_4_s1_60caf806641de23 as (select yago5_4.d as v0,yago5_4.s as v8 from yago5 yago5_4), yago21_s1_60caf806641de23 as (select yago21.d as v0 from yago21) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_1752E7E85193FA33 as  (select * from umbra.identity(table(yago5_7_s1_60caf806641de23)) NATURAL JOIN umbra.identity(table(yago5_6_s1_60caf806641de23)) NATURAL JOIN umbra.identity(table(yago5_5_s1_60caf806641de23)) NATURAL JOIN umbra.identity(table(yago5_4_s1_60caf806641de23)) NATURAL JOIN umbra.identity(table(yago21_s1_60caf806641de23))), s4_group_37833FD8DB43943A as  (select * from umbra.identity(table(yago36_9_s1_60caf806641de23)) NATURAL JOIN umbra.identity(table(yago36_10_s1_60caf806641de23)) NATURAL JOIN umbra.identity(table(yago36_11_s1_60caf806641de23)) NATURAL JOIN umbra.identity(table(yago39_s1_60caf806641de23)) NATURAL JOIN umbra.identity(table(yago25_1_s1_60caf806641de23)) NATURAL JOIN umbra.identity(table(yago25_3_s1_60caf806641de23))), s4_group_2ECB01F11362B3AA as  (select * from umbra.identity(table(yago51_s1_60caf806641de23)))select count(*) from umbra.identity(table(s4_group_1752E7E85193FA33)) natural join umbra.identity(table(s4_group_37833FD8DB43943A)) natural join umbra.identity(table(s4_group_2ECB01F11362B3AA));
+\set queryname yago_acyclic_Chain_12_62
+-- Result size: 112
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago0_0 [label="yago0_0|<s> s|<d> d"]; yago57_1 [label="yago57_1|<s> s|<d> d"]; yago57_2 [label="yago57_2|<s> s|<d> d"]; yago20_3 [label="yago20_3|<s> s|<d> d"]; yago20_4 [label="yago20_4|<s> s|<d> d"]; yago0_5 [label="yago0_5|<s> s|<d> d"]; yago17_6 [label="yago17_6|<s> s|<d> d"]; yago17_7 [label="yago17_7|<s> s|<d> d"]; yago17_8 [label="yago17_8|<s> s|<d> d"]; yago17_9 [label="yago17_9|<s> s|<d> d"]; yago5_10 [label="yago5_10|<s> s|<d> d"]; yago5_11 [label="yago5_11|<s> s|<d> d"]; yago0_0:d -> yago20_3:d;yago57_1:s -> yago5_10:d;yago57_1:d -> yago57_2:d;yago20_3:s -> yago20_4:s;yago20_4:d -> yago0_5:d;yago0_5:s -> yago17_6:d;yago17_6:s -> yago17_7:d;yago17_7:s -> yago17_8:d;yago17_8:s -> yago17_9:s;yago17_9:d -> yago5_11:d;yago5_10:s -> yago5_11:s;}
+--                           +--------------------------------------------------+
+--                           |                                                  |
+--                           |                    +----------+----+----------+  |
+--                           |                    | yago0_0  |  s |     d    |  |
+--                           |                    +----------+----+----------+  |
+--                           |                                       |          |
+--                           |                                       |          |
+--                           |                                       |          |
+-- +----------+-----------+-----------+           +----------+----+----------+  |
+-- | yago20_4 |     s     |     d     |           | yago20_3 |  s |     d    |  |
+-- +----------+-----------+-----------+           +----------+----+----------+  |
+--               |                                              |               |
+--               +----------------------------------------------+               |
+--                                                                              |
+--                                     +---------+-----------+----+             |
+--                                     | yago0_5 |     s     |  d | ------------+
+--                                     +---------+-----------+----+
+--                                                  |
+--                                                  |
+--                                                  |
+--                         +----------+----------+-----------+
+--                         | yago17_6 |     s    |     d     |
+--                         +----------+----------+-----------+
+--                                       |
+--                                       |
+--                                       |
+--             +----------+-----------+----------+
+--             | yago17_7 |     s     |     d    |
+--             +----------+-----------+----------+
+--                           |
+--                           |                                  +-------------------------+
+--                           |                                  |                         |
+-- +----------+-----------+-----------+----------+-----------+----+----------+----+----+  |
+-- | yago17_8 |     s     |     d     | yago57_1 |     s     |  d | yago5_10 |  s |  d |  |
+-- +----------+-----------+-----------+----------+-----------+----+----------+----+----+  |
+--               |                                  |                           |    |    |
+--               |                                  +---------------------------+----+    |
+--               |                                                              |         |
+-- +----------+-----------+-----------+                                         |         |
+-- | yago17_9 |     s     |     d     |                                         |         |
+-- +----------+-----------+-----------+                                         |         |
+--                           |                                                  |         |
+--                           |                                                  |         |
+--                           |                                                  |         |
+-- +----------+-----------+-----------+----------+-----------+----+             |         |
+-- | yago5_11 |     s     |     d     | yago57_2 |     s     |  d | ------------+---------+
+-- +----------+-----------+-----------+----------+-----------+----+             |
+--               |                                                              |
+--               +--------------------------------------------------------------+
+with dummy as (select) /* stage1 */, yago17_8_s1_5fb54806641de23 as (select yago17_8.s as v16,yago17_8.d as v14 from yago17 yago17_8), yago17_7_s1_5fb54806641de23 as (select yago17_7.s as v14,yago17_7.d as v12 from yago17 yago17_7), yago17_6_s1_5fb54806641de23 as (select yago17_6.d as v10,yago17_6.s as v12 from yago17 yago17_6), yago0_5_s1_5fb54806641de23 as (select yago0_5.s as v10,yago0_5.d as v8 from yago0 yago0_5), yago20_4_s1_5fb54806641de23 as (select yago20_4.s as v6,yago20_4.d as v8 from yago20 yago20_4), yago20_3_s1_5fb54806641de23 as (select yago20_3.s as v6,yago20_3.d as v0 from yago20 yago20_3), yago0_0_s1_5fb54806641de23 as (select yago0_0.d as v0 from yago0 yago0_0), yago17_9_s1_5fb54806641de23 as (select yago17_9.s as v16,yago17_9.d as v18 from yago17 yago17_9), yago5_11_s1_5fb54806641de23 as (select yago5_11.s as v20,yago5_11.d as v18 from yago5 yago5_11), yago5_10_s1_5fb54806641de23 as (select yago5_10.s as v20,yago5_10.d as v2 from yago5 yago5_10), yago57_1_s1_5fb54806641de23 as (select yago57_1.s as v2,yago57_1.d as v4 from yago57 yago57_1), yago57_2_s1_5fb54806641de23 as (select yago57_2.d as v4 from yago57 yago57_2) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_38456BB15D97C061 as  (select * from umbra.identity(table(yago17_9_s1_5fb54806641de23)) NATURAL JOIN umbra.identity(table(yago5_11_s1_5fb54806641de23)) NATURAL JOIN umbra.identity(table(yago5_10_s1_5fb54806641de23)) NATURAL JOIN umbra.identity(table(yago57_1_s1_5fb54806641de23)) NATURAL JOIN umbra.identity(table(yago57_2_s1_5fb54806641de23))), s4_group_207EF5BF465D746A as  (select * from umbra.identity(table(yago17_7_s1_5fb54806641de23)) NATURAL JOIN umbra.identity(table(yago17_6_s1_5fb54806641de23)) NATURAL JOIN umbra.identity(table(yago0_5_s1_5fb54806641de23)) NATURAL JOIN umbra.identity(table(yago20_4_s1_5fb54806641de23)) NATURAL JOIN umbra.identity(table(yago20_3_s1_5fb54806641de23)) NATURAL JOIN umbra.identity(table(yago0_0_s1_5fb54806641de23))), s4_group_1771253971DAF2F1 as  (select * from umbra.identity(table(yago17_8_s1_5fb54806641de23)))select count(*) from umbra.identity(table(s4_group_38456BB15D97C061)) natural join umbra.identity(table(s4_group_207EF5BF465D746A)) natural join umbra.identity(table(s4_group_1771253971DAF2F1));
+\set queryname yago_acyclic_Chain_12_63
+-- Result size: 146038
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago57_2 [label="yago57_2|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago54 [label="yago54|<s> s|<d> d"]; yago37 [label="yago37|<s> s|<d> d"]; yago57_6 [label="yago57_6|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago22_9 [label="yago22_9|<s> s|<d> d"]; yago22_10 [label="yago22_10|<s> s|<d> d"]; yago57_11 [label="yago57_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago37:s;yago57_2:s -> yago5:d;yago57_2:d -> yago57_11:d;yago5:s -> yago54:d;yago37:d -> yago57_6:d;yago57_6:s -> yago21:d;yago21:s -> yago23:s;yago23:d -> yago22_9:d;yago22_9:s -> yago22_10:s;yago22_10:d -> yago57_11:s;}
+--                     +-----------------------------+
+--                     |                             |
+--                     |          +----------+----+----------+
+--   +-----------------+          |  yago21  |  s |     d    |
+--   |                            +----------+----+----------+
+--   |                                          |
+--   |                                          |
+--   |                                          |
+--   |                            +----------+----+----------+
+--   |                            |  yago23  |  s |     d    |
+--   |                            +----------+----+----------+
+--   |                                               |
+--   |                                               |
+--   |                                               |
+--   |  +-----------+------------+-----------+       |
+--   |  | yago22_10 |      s     |     d     |       |
+--   |  +-----------+------------+-----------+       |
+--   |                 |            |                |
+--   |    +------------+            |                |
+--   |    |                         |                |
+--   |    |          +-----------+-----------+----+  |
+--   |    |          | yago57_11 |     s     |  d | -+---------------+
+--   |    |          +-----------+-----------+----+  |               |
+--   |    |                                          |               |
+--   |    +------------+                             |               |
+--   |                 |                             |               |
+--   |  +-----------+------------+-----------+       |               |
+--   |  | yago22_9  |      s     |     d     | ------+               |
+--   |  +-----------+------------+-----------+                       |
+--   |               +-----------+-----------+----+                  |
+--   |               |  yago2_0  |     s     |  d |                  |
+--   |               +-----------+-----------+----+                  |
+--   |                              |                                |
+--   |                              |                                |
+--   |                              |                                |
+--   |               +-----------+-----------+----+                  |
+--   |               |  yago2_1  |     s     |  d |                  |
+--   |               +-----------+-----------+----+                  |
+--   |                                          |                    |
+--   |                                          |                    |
+--   |                                          |                    |
+--   |                            +----------+----+----------+       |
+--   |                            |  yago37  |  s |     d    |       |
+--   |                            +----------+----+----------+       |
+--   |                                               |               |
+--   +------------------------------------------+    |               |
+--                                              |    |               |
+--                                +----------+----+----------+       |
+--                                | yago57_6 |  s |     d    |       |
+--                                +----------+----+----------+       |
+--                                                                   |
+--                                                                   |
+--                                                                   |
+--                   +-----------+-----------+----+----------+----+----+
+--                   |   yago5   |     s     |  d | yago57_2 |  s |  d |
+--                   +-----------+-----------+----+----------+----+----+
+--                                  |           |               |
+--                                  |           +---------------+
+--                                  |
+--      +-----------+------------+-----------+
+--      |  yago54   |      s     |     d     |
+--      +-----------+------------+-----------+
+with dummy as (select) /* stage1 */, yago23_s1_61247806641de23 as (select yago23.s as v14,yago23.d as v16 from yago23), yago22_9_s1_61247806641de23 as (select yago22_9.d as v16,yago22_9.s as v18 from yago22 yago22_9), yago22_10_s1_61247806641de23 as (select yago22_10.d as v20,yago22_10.s as v18 from yago22 yago22_10), yago57_11_s1_61247806641de23 as (select yago57_11.s as v20,yago57_11.d as v6 from yago57 yago57_11), yago57_2_s1_61247806641de23 as (select yago57_2.s as v4,yago57_2.d as v6 from yago57 yago57_2), yago5_s1_61247806641de23 as (select yago5.d as v4,yago5.s as v8 from yago5), yago54_s1_61247806641de23 as (select yago54.d as v8 from yago54), yago21_s1_61247806641de23 as (select yago21.s as v14,yago21.d as v12 from yago21), yago57_6_s1_61247806641de23 as (select yago57_6.d as v10,yago57_6.s as v12 from yago57 yago57_6), yago37_s1_61247806641de23 as (select yago37.d as v10,yago37.s as v2 from yago37), yago2_1_s1_61247806641de23 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_61247806641de23 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_1DD356E7037A0AF as  (select * from umbra.identity(table(yago21_s1_61247806641de23)) NATURAL JOIN umbra.identity(table(yago57_6_s1_61247806641de23)) NATURAL JOIN umbra.identity(table(yago37_s1_61247806641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_61247806641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_61247806641de23))), s4_group_7C860160A1B5967F as  (select * from umbra.identity(table(yago22_9_s1_61247806641de23)) NATURAL JOIN umbra.identity(table(yago22_10_s1_61247806641de23)) NATURAL JOIN umbra.identity(table(yago57_11_s1_61247806641de23)) NATURAL JOIN umbra.identity(table(yago57_2_s1_61247806641de23)) NATURAL JOIN umbra.identity(table(yago5_s1_61247806641de23)) NATURAL JOIN umbra.identity(table(yago54_s1_61247806641de23))), s4_group_489FEB7C3F2F5000 as  (select * from umbra.identity(table(yago23_s1_61247806641de23)))select count(*) from umbra.identity(table(s4_group_1DD356E7037A0AF)) natural join umbra.identity(table(s4_group_7C860160A1B5967F)) natural join umbra.identity(table(s4_group_489FEB7C3F2F5000));
+\set queryname yago_acyclic_Chain_12_64
+-- Result size: 167
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago21_4 [label="yago21_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago5_6 [label="yago5_6|<s> s|<d> d"]; yago21_7 [label="yago21_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago21_4:d;yago2_2:s -> yago2_3:s;yago2_2:d -> yago2_10:d;yago21_4:s -> yago5_5:s;yago5_5:d -> yago5_6:s;yago5_6:d -> yago21_7:d;yago21_7:s -> yago2_8:d;yago2_8:s -> yago2_9:s;yago2_9:d -> yago2_11:d;yago2_10:s -> yago2_11:s;}
+--                                        +-------------------------------------------------+
+--                                        |                                                 |
+--                                        |                    +----------+----+----+       |
+--                                        |                    | yago21_4 |  s |  d | -+    |
+--                                        |                    +----------+----+----+  |    |
+--                                        |                                  |         |    |
+--                                        |                                  |         |    |
+--                                        |                                  |         |    |
+--                           +---------+----------+-----------+-----------+----+----+  |    |
+--                           | yago5_6 |     s    |     d     |  yago5_5  |  s |  d | -+----+
+--                           +---------+----------+-----------+-----------+----+----+  |
+--                                                   |                                 |
+--                                                   +-----------------------+    +----+
+--                                                                           |    |
+--                                                 +----------+-----------+----+  |
+--                                                 | yago21_7 |     s     |  d |  |
+--                                                 +----------+-----------+----+  |
+--                                                               |                |
+--   +--------------------+                                      |                |
+--   |                    |                                      |                |
+--   |  +---------+----+----+           +---------+-----------+-----------+       |
+--   |  | yago2_9 |  s |  d |           | yago2_8 |     s     |     d     |       |
+--   |  +---------+----+----+           +---------+-----------+-----------+       |
+--   |               |                               |                            |
+--   |               +-------------------------------+                            |
+--   |                                                                            |
+--   |                                             +----------+-----------+----+  |
+--   |                                             | yago2_0  |     s     |  d |  |
+--   |                                             +----------+-----------+----+  |
+--   |                                                           |                |
+--   |                                                           |                |
+--   |                                                           |                |
+--   |                                             +----------+-----------+----+  |
+--   |                                             | yago2_1  |     s     |  d | -+
+--   |                                             +----------+-----------+----+
+--   |                                             +----------+-----------+----+
+--   |                                             | yago2_10 |     s     |  d | ------+
+--   |                                             +----------+-----------+----+       |
+--   |                                                           |                     |
+--   |                                                           |                     |
+--   |                                                           |                     |
+--   |                                             +----------+-----------+----+       |
+--   |                                             | yago2_11 |     s     |  d |       |
+--   |                                             +----------+-----------+----+       |
+--   |                                                                       |         |
+--   +-----------------------------------------------------------------------+         |
+--                                                                                     |
+--                                                 +----------+-----------+----+       |
+--                                                 | yago2_2  |     s     |  d | ------+
+--                                                 +----------+-----------+----+
+--                                                               |
+--                                                               |
+--                                                               |
+--                                                 +----------+-----------+----+
+--                                                 | yago2_3  |     s     |  d |
+--                                                 +----------+-----------+----+
+with dummy as (select) /* stage1 */, yago2_8_s1_9a649006641de23 as (select yago2_8.d as v14,yago2_8.s as v16 from yago2 yago2_8), yago21_7_s1_9a649006641de23 as (select yago21_7.s as v14,yago21_7.d as v12 from yago21 yago21_7), yago5_6_s1_9a649006641de23 as (select yago5_6.d as v12,yago5_6.s as v10 from yago5 yago5_6), yago5_5_s1_9a649006641de23 as (select yago5_5.s as v8,yago5_5.d as v10 from yago5 yago5_5), yago21_4_s1_9a649006641de23 as (select yago21_4.s as v8,yago21_4.d as v2 from yago21 yago21_4), yago2_1_s1_9a649006641de23 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_9a649006641de23 as (select yago2_0.s as v0 from yago2 yago2_0), yago2_9_s1_9a649006641de23 as (select yago2_9.d as v18,yago2_9.s as v16 from yago2 yago2_9), yago2_11_s1_9a649006641de23 as (select yago2_11.d as v18,yago2_11.s as v20 from yago2 yago2_11), yago2_10_s1_9a649006641de23 as (select yago2_10.d as v6,yago2_10.s as v20 from yago2 yago2_10), yago2_2_s1_9a649006641de23 as (select yago2_2.d as v6,yago2_2.s as v4 from yago2 yago2_2), yago2_3_s1_9a649006641de23 as (select yago2_3.s as v4 from yago2 yago2_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_21D715F696454D0C as  (select * from umbra.identity(table(yago2_9_s1_9a649006641de23)) NATURAL JOIN umbra.identity(table(yago2_11_s1_9a649006641de23)) NATURAL JOIN umbra.identity(table(yago2_10_s1_9a649006641de23)) NATURAL JOIN umbra.identity(table(yago2_2_s1_9a649006641de23)) NATURAL JOIN umbra.identity(table(yago2_3_s1_9a649006641de23))), s4_group_431C559085A4AAFA as  (select * from umbra.identity(table(yago21_7_s1_9a649006641de23)) NATURAL JOIN umbra.identity(table(yago5_6_s1_9a649006641de23)) NATURAL JOIN umbra.identity(table(yago5_5_s1_9a649006641de23)) NATURAL JOIN umbra.identity(table(yago21_4_s1_9a649006641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_9a649006641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_9a649006641de23))), s4_group_3A74C20C17BF5272 as  (select * from umbra.identity(table(yago2_8_s1_9a649006641de23)))select count(*) from umbra.identity(table(s4_group_21D715F696454D0C)) natural join umbra.identity(table(s4_group_431C559085A4AAFA)) natural join umbra.identity(table(s4_group_3A74C20C17BF5272));
+\set queryname yago_acyclic_Chain_12_65
+-- Result size: 102
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago17 [label="yago17|<s> s|<d> d"]; yago36_1 [label="yago36_1|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago54_4 [label="yago54_4|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago54_7 [label="yago54_7|<s> s|<d> d"]; yago54_8 [label="yago54_8|<s> s|<d> d"]; yago54_9 [label="yago54_9|<s> s|<d> d"]; yago36_10 [label="yago36_10|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago17:s -> yago21:d;yago36_1:s -> yago0:s;yago36_1:d -> yago36_10:d;yago21:s -> yago54_4:d;yago54_4:s -> yago13:s;yago13:d -> yago5:d;yago5:s -> yago54_7:d;yago54_7:s -> yago54_8:d;yago54_8:s -> yago54_9:s;yago54_9:d -> yago58:d;yago36_10:s -> yago58:s;}
+--                                                           +---------------------------+
+--                                                           |                           |
+--                                                           |       +-----------+----+----+
+--                           +-------------------------------+       |  yago58   |  s |  d |
+--                           |                                       +-----------+----+----+
+--                           |                                                      |
+--                           |                                                      |
+--                           |                                                      |
+--                           |                                       +-----------+----+----+
+--                           |                                       | yago36_10 |  s |  d |
+--                           |                                       +-----------+----+----+
+--                           |                                                           |
+--                           |                                                           |
+--                           |                                                           |
+--                           |                                       +-----------+----+----+
+--                           |                                       | yago36_1  |  s |  d |
+--                           |                                       +-----------+----+----+
+--                           |                                                      |
+--                           |                                                      |
+--                           |                                                      |
+-- +----------+-----------+----+                                     +-----------+----+----+
+-- | yago54_9 |     s     |  d |                                     |   yago0   |  s |  d |
+-- +----------+-----------+----+                                     +-----------+----+----+
+--               |
+--               |                                           +---------------------------+
+--               |                                           |                           |
+-- +----------+-----------+----+                 +--------+---------+------------+       |
+-- | yago54_8 |     s     |  d |                 | yago13 |    s    |      d     |       |
+-- +----------+-----------+----+                 +--------+---------+------------+       |
+--                           |                                         |                 |
+--                           |                                         |                 |
+--                           |                                         |                 |
+--             +----------+----+----+            +--------+---------+------------+       |
+--             | yago54_7 |  s |  d |            | yago5  |    s    |      d     |       |
+--             +----------+----+----+            +--------+---------+------------+       |
+--                                |                          |                           |
+--                                +--------------------------+                           |
+--                                                                                       |
+--                                                         +--------+------------+----+  |
+--                                                         | yago17 |      s     |  d |  |
+--                                                         +--------+------------+----+  |
+--                                                                     |                 |
+--                                                                     |                 |
+--                                                                     |                 |
+--                                               +--------+---------+------------+       |
+--                                               | yago21 |    s    |      d     |       |
+--                                               +--------+---------+------------+       |
+--                                                           |                           |
+--                                                           |                           |
+--                                                           |                           |
+--                                   +----------+---------+---------+                    |
+--                                   | yago54_4 |    s    |    d    |                    |
+--                                   +----------+---------+---------+                    |
+--                                                 |                                     |
+--                                                 +-------------------------------------+
+with dummy as (select) /* stage1 */, yago54_8_s1_9f4df006641de23 as (select yago54_8.d as v14,yago54_8.s as v16 from yago54 yago54_8), yago54_7_s1_9f4df006641de23 as (select yago54_7.d as v12,yago54_7.s as v14 from yago54 yago54_7), yago5_s1_9f4df006641de23 as (select yago5.s as v12,yago5.d as v10 from yago5), yago13_s1_9f4df006641de23 as (select yago13.s as v8,yago13.d as v10 from yago13), yago54_4_s1_9f4df006641de23 as (select yago54_4.s as v8,yago54_4.d as v6 from yago54 yago54_4), yago21_s1_9f4df006641de23 as (select yago21.d as v0,yago21.s as v6 from yago21), yago17_s1_9f4df006641de23 as (select yago17.s as v0 from yago17), yago54_9_s1_9f4df006641de23 as (select yago54_9.d as v18,yago54_9.s as v16 from yago54 yago54_9), yago58_s1_9f4df006641de23 as (select yago58.s as v20,yago58.d as v18 from yago58), yago36_10_s1_9f4df006641de23 as (select yago36_10.d as v4,yago36_10.s as v20 from yago36 yago36_10), yago36_1_s1_9f4df006641de23 as (select yago36_1.s as v2,yago36_1.d as v4 from yago36 yago36_1), yago0_s1_9f4df006641de23 as (select yago0.s as v2 from yago0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7BDF83D7A957C99B as  (select * from umbra.identity(table(yago54_9_s1_9f4df006641de23)) NATURAL JOIN umbra.identity(table(yago58_s1_9f4df006641de23)) NATURAL JOIN umbra.identity(table(yago36_10_s1_9f4df006641de23)) NATURAL JOIN umbra.identity(table(yago36_1_s1_9f4df006641de23)) NATURAL JOIN umbra.identity(table(yago0_s1_9f4df006641de23))), s4_group_67410731A21D3193 as  (select * from umbra.identity(table(yago54_7_s1_9f4df006641de23)) NATURAL JOIN umbra.identity(table(yago5_s1_9f4df006641de23)) NATURAL JOIN umbra.identity(table(yago13_s1_9f4df006641de23)) NATURAL JOIN umbra.identity(table(yago54_4_s1_9f4df006641de23)) NATURAL JOIN umbra.identity(table(yago21_s1_9f4df006641de23)) NATURAL JOIN umbra.identity(table(yago17_s1_9f4df006641de23))), s4_group_7106FB8C35273DC0 as  (select * from umbra.identity(table(yago54_8_s1_9f4df006641de23)))select count(*) from umbra.identity(table(s4_group_7BDF83D7A957C99B)) natural join umbra.identity(table(s4_group_67410731A21D3193)) natural join umbra.identity(table(s4_group_7106FB8C35273DC0));
+\set queryname yago_acyclic_Chain_12_66
+-- Result size: 362
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago37 [label="yago37|<s> s|<d> d"]; yago36_4 [label="yago36_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago17_6 [label="yago17_6|<s> s|<d> d"]; yago36_7 [label="yago36_7|<s> s|<d> d"]; yago36_8 [label="yago36_8|<s> s|<d> d"]; yago5_9 [label="yago5_9|<s> s|<d> d"]; yago5_10 [label="yago5_10|<s> s|<d> d"]; yago21 [label="yago21|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago36_4:d;yago5_2:s -> yago37:d;yago5_2:d -> yago5_10:d;yago36_4:s -> yago17_5:d;yago17_5:s -> yago17_6:s;yago17_6:d -> yago36_7:s;yago36_7:d -> yago36_8:d;yago36_8:s -> yago5_9:s;yago5_9:d -> yago21:d;yago5_10:s -> yago21:s;}
+--   +---------------------------------------------+
+--   |                                             |
+--   |                   +----------+-----------+----+
+--   |                   | yago17_5 |     s     |  d |
+--   |                   +----------+-----------+----+
+--   |                                 |
+--   |                                 |
+--   |                                 |
+--   |                   +----------+-----------+----+     +----------+----+----+
+--   |                   | yago17_6 |     s     |  d |     | yago5_9  |  s |  d |
+--   |                   +----------+-----------+----+     +----------+----+----+
+--   |                                             |                     |    |
+--   |                                             |                     |    +----+
+--   |                                             |                     |         |
+--   |                               +----------+----+----++----------+----+----+  |
+--   |                               | yago36_7 |  s |  d || yago36_8 |  s |  d |  |
+--   |                               +----------+----+----++----------+----+----+  |
+--   |                                                  |                     |    |
+--   |                                                  |                     |    |
+--   |                                                  |                     |    |
+--   |       +----------+-----------+-----------+       |                     |    |
+--   |       | yago2_0  |     s     |     d     |       +---------------------+    |
+--   |       +----------+-----------+-----------+                                  |
+--   |                     |                                                       |
+--   |                     |                                                       |
+--   |                     |                                                       |
+--   |       +----------+-----------+-----------+                                  |
+--   |       | yago2_1  |     s     |     d     |                                  |
+--   |       +----------+-----------+-----------+                                  |
+--   |                                 |                                           |
+--   +---------------------+           |                                           |
+--                         |           |                                           |
+--           +----------+-----------+-----------+                                  |
+--           | yago36_4 |     s     |     d     |                                  |
+--           +----------+-----------+-----------+                                  |
+--           +----------+-----------+-----------+                                  |
+--           | yago5_10 |     s     |     d     | ------+                          |
+--           +----------+-----------+-----------+       |                          |
+--                         |                            |                          |
+--                         |                            |                          |
+--                         |                            |                          |
+--           +----------+-----------+-----------+       |                          |
+--           |  yago21  |     s     |     d     | ------+--------------------------+
+--           +----------+-----------+-----------+       |
+--           +----------+-----------+-----------+       |
+--           | yago5_2  |     s     |     d     | ------+
+--           +----------+-----------+-----------+
+--                         |
+--                         |
+--                         |
+-- +--------+-----------+-----------+
+-- | yago37 |     s     |     d     |
+-- +--------+-----------+-----------+
+with dummy as (select) /* stage1 */, yago36_8_s1_99387006641de23 as (select yago36_8.s as v16,yago36_8.d as v14 from yago36 yago36_8), yago36_7_s1_99387006641de23 as (select yago36_7.s as v12,yago36_7.d as v14 from yago36 yago36_7), yago17_6_s1_99387006641de23 as (select yago17_6.d as v12,yago17_6.s as v10 from yago17 yago17_6), yago17_5_s1_99387006641de23 as (select yago17_5.s as v10,yago17_5.d as v8 from yago17 yago17_5), yago36_4_s1_99387006641de23 as (select yago36_4.d as v2,yago36_4.s as v8 from yago36 yago36_4), yago2_1_s1_99387006641de23 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_99387006641de23 as (select yago2_0.s as v0 from yago2 yago2_0), yago5_9_s1_99387006641de23 as (select yago5_9.s as v16,yago5_9.d as v18 from yago5 yago5_9), yago21_s1_99387006641de23 as (select yago21.s as v20,yago21.d as v18 from yago21), yago5_10_s1_99387006641de23 as (select yago5_10.s as v20,yago5_10.d as v6 from yago5 yago5_10), yago5_2_s1_99387006641de23 as (select yago5_2.d as v6,yago5_2.s as v4 from yago5 yago5_2), yago37_s1_99387006641de23 as (select yago37.d as v4 from yago37) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_6182D89D870D43F3 as  (select * from umbra.identity(table(yago5_9_s1_99387006641de23)) NATURAL JOIN umbra.identity(table(yago21_s1_99387006641de23)) NATURAL JOIN umbra.identity(table(yago5_10_s1_99387006641de23)) NATURAL JOIN umbra.identity(table(yago5_2_s1_99387006641de23)) NATURAL JOIN umbra.identity(table(yago37_s1_99387006641de23))), s4_group_A4FAE3B86DD00E7 as  (select * from umbra.identity(table(yago36_7_s1_99387006641de23)) NATURAL JOIN umbra.identity(table(yago17_6_s1_99387006641de23)) NATURAL JOIN umbra.identity(table(yago17_5_s1_99387006641de23)) NATURAL JOIN umbra.identity(table(yago36_4_s1_99387006641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_99387006641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_99387006641de23))), s4_group_7AD2428F02E8B3F3 as  (select * from umbra.identity(table(yago36_8_s1_99387006641de23)))select count(*) from umbra.identity(table(s4_group_6182D89D870D43F3)) natural join umbra.identity(table(s4_group_A4FAE3B86DD00E7)) natural join umbra.identity(table(s4_group_7AD2428F02E8B3F3));
+\set queryname yago_acyclic_Chain_12_67
+-- Result size: 49011
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago5_1 [label="yago5_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago2 [label="yago2|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago17_5 [label="yago17_5|<s> s|<d> d"]; yago46_6 [label="yago46_6|<s> s|<d> d"]; yago17_7 [label="yago17_7|<s> s|<d> d"]; yago46_8 [label="yago46_8|<s> s|<d> d"]; yago46_9 [label="yago46_9|<s> s|<d> d"]; yago46_10 [label="yago46_10|<s> s|<d> d"]; yago17_11 [label="yago17_11|<s> s|<d> d"]; yago5_0:d -> yago17_4:d;yago5_1:s -> yago5_2:s;yago5_1:d -> yago2:d;yago5_2:d -> yago17_11:s;yago17_4:s -> yago17_5:s;yago17_5:d -> yago46_6:s;yago46_6:d -> yago17_7:d;yago17_7:s -> yago46_8:d;yago46_8:s -> yago46_9:d;yago46_9:s -> yago46_10:s;yago46_10:d -> yago17_11:d;}
+--                                          +-----------+----+----+
+--                                          | yago46_10 |  s |  d |
+--                                          +-----------+----+----+
+--                                                         |    |
+--        +------------------------------------------------+    |
+--        |                                                     |
+--        |                                 +-----------+----+----+
+--        |                                 | yago17_11 |  s |  d |
+--        |                                 +-----------+----+----+
+--        |                                                |
+--   +----+------------------------------------------------+
+--   |    |
+--   |    |                     +----------+------------+----+     +---------+---+----+
+--   |    |                     | yago17_4 |      s     |  d |     | yago5_0 | s |  d |
+--   |    |                     +----------+------------+----+     +---------+---+----+
+--   |    |                                   |            |                        |
+--   |    |                                   |            +------------------------+
+--   |    |                                   |
+--   |    |                     +----------+------------+----+
+--   |    |                     | yago17_5 |      s     |  d |
+--   |    |                     +----------+------------+----+
+--   |    |                                                |
+--   |    |                                                |
+--   |    |                                                |
+--   |    |                                 +-----------+----+----+
+--   |    |                                 | yago46_6  |  s |  d |
+--   |    |                                 +-----------+----+----+
+--   |    |                                                     |
+--   |    |                                                     |
+--   |    |                                                     |
+--   |    |                     +----------+------------+----+  |
+--   |    |                     | yago17_7 |      s     |  d | -+
+--   |    |                     +----------+------------+----+
+--   |    |                                   |
+--   |    |                                   |
+--   |    |                                   |
+--   |    |         +----------+-----------+------------+
+--   |    |         | yago46_8 |     s     |      d     |
+--   |    |         +----------+-----------+------------+
+--   |    |                       |
+--   |    +-----------+           |
+--   |                |           |
+--   |  +----------+-----------+-----------+
+--   |  | yago46_9 |     s     |     d     |
+--   |  +----------+-----------+-----------+
+--   |                          +----------+------------+----+
+--   |                          | yago5_1  |      s     |  d | ------+
+--   |                          +----------+------------+----+       |
+--   |                                        |                      |
+--   |                                        |                      |
+--   |                                        |                      |
+--   |                          +----------+------------+----+       |
+--   |                          | yago5_2  |      s     |  d |       |
+--   |                          +----------+------------+----+       |
+--   |                                                     |         |
+--   +-----------------------------------------------------+         |
+--                                                                   |
+--                              +----------+------------+----+       |
+--                              |  yago2   |      s     |  d | ------+
+--                              +----------+------------+----+
+with dummy as (select) /* stage1 */, yago46_9_s1_a7853006641de23 as (select yago46_9.s as v18,yago46_9.d as v16 from yago46 yago46_9), yago46_8_s1_a7853006641de23 as (select yago46_8.d as v14,yago46_8.s as v16 from yago46 yago46_8), yago17_7_s1_a7853006641de23 as (select yago17_7.s as v14,yago17_7.d as v12 from yago17 yago17_7), yago46_6_s1_a7853006641de23 as (select yago46_6.d as v12,yago46_6.s as v10 from yago46 yago46_6), yago17_5_s1_a7853006641de23 as (select yago17_5.s as v8,yago17_5.d as v10 from yago17 yago17_5), yago17_4_s1_a7853006641de23 as (select yago17_4.d as v0,yago17_4.s as v8 from yago17 yago17_4), yago5_0_s1_a7853006641de23 as (select yago5_0.d as v0 from yago5 yago5_0), yago46_10_s1_a7853006641de23 as (select yago46_10.d as v20,yago46_10.s as v18 from yago46 yago46_10), yago17_11_s1_a7853006641de23 as (select yago17_11.d as v20,yago17_11.s as v6 from yago17 yago17_11), yago5_2_s1_a7853006641de23 as (select yago5_2.s as v2,yago5_2.d as v6 from yago5 yago5_2), yago5_1_s1_a7853006641de23 as (select yago5_1.d as v4,yago5_1.s as v2 from yago5 yago5_1), yago2_s1_a7853006641de23 as (select yago2.d as v4 from yago2) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_69D5F92DA5EE0A36 as  (select * from umbra.identity(table(yago46_10_s1_a7853006641de23)) NATURAL JOIN umbra.identity(table(yago17_11_s1_a7853006641de23)) NATURAL JOIN umbra.identity(table(yago5_2_s1_a7853006641de23)) NATURAL JOIN umbra.identity(table(yago5_1_s1_a7853006641de23)) NATURAL JOIN umbra.identity(table(yago2_s1_a7853006641de23))), s4_group_400515345745258A as  (select * from umbra.identity(table(yago46_8_s1_a7853006641de23)) NATURAL JOIN umbra.identity(table(yago17_7_s1_a7853006641de23)) NATURAL JOIN umbra.identity(table(yago46_6_s1_a7853006641de23)) NATURAL JOIN umbra.identity(table(yago17_5_s1_a7853006641de23)) NATURAL JOIN umbra.identity(table(yago17_4_s1_a7853006641de23)) NATURAL JOIN umbra.identity(table(yago5_0_s1_a7853006641de23))), s4_group_8AC4474160068C9 as  (select * from umbra.identity(table(yago46_9_s1_a7853006641de23)))select count(*) from umbra.identity(table(s4_group_69D5F92DA5EE0A36)) natural join umbra.identity(table(s4_group_400515345745258A)) natural join umbra.identity(table(s4_group_8AC4474160068C9));
+\set queryname yago_acyclic_Chain_12_68
+-- Result size: 1
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago32 [label="yago32|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago40 [label="yago40|<s> s|<d> d"]; yago62 [label="yago62|<s> s|<d> d"]; yago2_7 [label="yago2_7|<s> s|<d> d"]; yago2_8 [label="yago2_8|<s> s|<d> d"]; yago2_9 [label="yago2_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago50 [label="yago50|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago40:s;yago32:s -> yago17:d;yago32:d -> yago50:d;yago17:s -> yago58:s;yago40:d -> yago62:d;yago62:s -> yago2_7:d;yago2_7:s -> yago2_8:s;yago2_8:d -> yago2_9:d;yago2_9:s -> yago2_10:s;yago2_10:d -> yago50:s;}
+--                                       +--------+----+----+--------+----+----+
+--                                       | yago17 |  s |  d | yago32 |  s |  d |
+--                                       +--------+----+----+--------+----+----+
+--                                                   |    |             |    |
+--                                                   |    +-------------+    |
+--                                                   |                       |
+--                                       +--------+----+----+                |
+--                                       | yago58 |  s |  d |                |
+--                                       +--------+----+----+                |
+--                            +---------+---------+----+                     |
+--                            | yago2_0 |    s    |  d |                     |
+--                            +---------+---------+----+                     |
+--                                         |                                 |
+--                                         |                                 |
+--                                         |                                 |
+--                            +---------+---------+----+                     |
+--                            | yago2_1 |    s    |  d |                     |
+--                            +---------+---------+----+                     |
+--                                                   |                       |
+--                                                   |                       |
+--                                                   |                       |
+-- +--------+----+-----------+           +--------+----+----+                |
+-- | yago62 |  s |     d     |           | yago40 |  s |  d |                |
+-- +--------+----+-----------+           +--------+----+----+                |
+--             |    |                                     |                  |
+--             |    +-------------------------------------+                  |
+--             |                                                             |
+--             |  +----------+----------+---------+                          |
+--             |  | yago2_10 |     s    |    d    |                          |
+--             |  +----------+----------+---------+                          |
+--             |                |          |                                 |
+--             |    +-----------+          |                                 |
+--             |    |                      |                                 |
+--             |    |         +---------+---------+----+                     |
+--             |    |         | yago50  |    s    |  d | --------------------+
+--             |    |         +---------+---------+----+
+--             |    |         +---------+---------+----+
+--             |    |         | yago2_7 |    s    |  d | -+
+--             |    |         +---------+---------+----+  |
+--             |    |                      |              |
+--             |    |                      |              |
+--             |    |                      |              |
+--             |    |         +---------+---------+----+  |
+--             |    |         | yago2_8 |    s    |  d |  |
+--             |    |         +---------+---------+----+  |
+--             |    |                                |    |
+--             |    +----------------------+         |    |
+--             |                           |         |    |
+--             |              +---------+---------+----+  |
+--             |              | yago2_9 |    s    |  d |  |
+--             |              +---------+---------+----+  |
+--             |                                          |
+--             +------------------------------------------+
+with dummy as (select) /* stage1 */, yago2_9_s1_9f9ea806641de23 as (select yago2_9.s as v18,yago2_9.d as v16 from yago2 yago2_9), yago2_8_s1_9f9ea806641de23 as (select yago2_8.s as v14,yago2_8.d as v16 from yago2 yago2_8), yago2_7_s1_9f9ea806641de23 as (select yago2_7.d as v12,yago2_7.s as v14 from yago2 yago2_7), yago62_s1_9f9ea806641de23 as (select yago62.s as v12,yago62.d as v10 from yago62), yago40_s1_9f9ea806641de23 as (select yago40.s as v2,yago40.d as v10 from yago40), yago2_1_s1_9f9ea806641de23 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_9f9ea806641de23 as (select yago2_0.s as v0 from yago2 yago2_0), yago2_10_s1_9f9ea806641de23 as (select yago2_10.d as v20,yago2_10.s as v18 from yago2 yago2_10), yago50_s1_9f9ea806641de23 as (select yago50.s as v20,yago50.d as v6 from yago50), yago32_s1_9f9ea806641de23 as (select yago32.s as v4,yago32.d as v6 from yago32), yago17_s1_9f9ea806641de23 as (select yago17.d as v4,yago17.s as v8 from yago17), yago58_s1_9f9ea806641de23 as (select yago58.s as v8 from yago58) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5DD6F490799DDE5C as  (select * from umbra.identity(table(yago2_10_s1_9f9ea806641de23)) NATURAL JOIN umbra.identity(table(yago50_s1_9f9ea806641de23)) NATURAL JOIN umbra.identity(table(yago32_s1_9f9ea806641de23)) NATURAL JOIN umbra.identity(table(yago17_s1_9f9ea806641de23)) NATURAL JOIN umbra.identity(table(yago58_s1_9f9ea806641de23))), s4_group_1C50FBF0C6959DDF as  (select * from umbra.identity(table(yago2_8_s1_9f9ea806641de23)) NATURAL JOIN umbra.identity(table(yago2_7_s1_9f9ea806641de23)) NATURAL JOIN umbra.identity(table(yago62_s1_9f9ea806641de23)) NATURAL JOIN umbra.identity(table(yago40_s1_9f9ea806641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_9f9ea806641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_9f9ea806641de23))), s4_group_516113CF2FFE7BC8 as  (select * from umbra.identity(table(yago2_9_s1_9f9ea806641de23)))select count(*) from umbra.identity(table(s4_group_5DD6F490799DDE5C)) natural join umbra.identity(table(s4_group_1C50FBF0C6959DDF)) natural join umbra.identity(table(s4_group_516113CF2FFE7BC8));
+\set queryname yago_acyclic_Chain_12_69
+-- Result size: 28900
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago13_2 [label="yago13_2|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago5 [label="yago5|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago55 [label="yago55|<s> s|<d> d"]; yago36_7 [label="yago36_7|<s> s|<d> d"]; yago36_8 [label="yago36_8|<s> s|<d> d"]; yago13_9 [label="yago13_9|<s> s|<d> d"]; yago21_10 [label="yago21_10|<s> s|<d> d"]; yago21_11 [label="yago21_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago35:s;yago13_2:s -> yago23:s;yago13_2:d -> yago5:d;yago23:d -> yago21_11:d;yago35:d -> yago55:d;yago55:s -> yago36_7:s;yago36_7:d -> yago36_8:d;yago36_8:s -> yago13_9:s;yago13_9:d -> yago21_10:d;yago21_10:s -> yago21_11:s;}
+--                              +----------+----+----+
+--                              |  yago5   |  s |  d |
+--                              +----------+----+----+
+--                                                 |
+--                                                 |
+--                                                 |
+--                              +----------+----+----+
+--                              | yago13_2 |  s |  d |
+--                              +----------+----+----+
+--                                            |
+--                                            |
+--                                            |
+--                              +----------+----+----+
+--                              |  yago23  |  s |  d |
+--                              +----------+----+----+
+--                                                 |
+--                                                 |
+--                                                 |
+--      +-----------+----------+-----------+       |
+--      | yago13_9  |     s    |     d     |       |
+--      +-----------+----------+-----------+       |
+--                     |          |                |
+--   +-----------------+          |                |
+--   |                            |                |
+--   |  +-----------+----------+-----------+       |
+--   |  | yago21_10 |     s    |     d     |       |
+--   |  +-----------+----------+-----------+       |
+--   |                 |                           |
+--   |                 |                           |
+--   |                 |                           |
+--   |  +-----------+----------+-----------+       |
+--   |  | yago21_11 |     s    |     d     | ------+
+--   |  +-----------+----------+-----------+
+--   |               +---------+-----------+----+
+--   |               | yago2_0 |     s     |  d |
+--   |               +---------+-----------+----+
+--   |                            |
+--   |                            |
+--   |                            |
+--   |               +---------+-----------+----+
+--   |               | yago2_1 |     s     |  d |
+--   |               +---------+-----------+----+
+--   |                                        |
+--   |                                        |
+--   |                                        |
+--   |                          +----------+----+----+
+--   |                          |  yago35  |  s |  d |
+--   |                          +----------+----+----+
+--   |                                             |
+--   |                                             |
+--   |                                             |
+--   |                          +----------+----+----+
+--   |                          |  yago55  |  s |  d |
+--   |                          +----------+----+----+
+--   |                                        |
+--   |                 +----------------------+
+--   |                 |
+--   |  +-----------+----------+-----------+
+--   |  | yago36_7  |     s    |     d     |
+--   |  +-----------+----------+-----------+
+--   |                            |
+--   +-----------------+          |
+--                     |          |
+--      +-----------+----------+-----------+
+--      | yago36_8  |     s    |     d     |
+--      +-----------+----------+-----------+
+with dummy as (select) /* stage1 */, yago36_8_s1_b2a44806641de23 as (select yago36_8.s as v16,yago36_8.d as v14 from yago36 yago36_8), yago13_9_s1_b2a44806641de23 as (select yago13_9.s as v16,yago13_9.d as v18 from yago13 yago13_9), yago21_10_s1_b2a44806641de23 as (select yago21_10.s as v20,yago21_10.d as v18 from yago21 yago21_10), yago21_11_s1_b2a44806641de23 as (select yago21_11.d as v8,yago21_11.s as v20 from yago21 yago21_11), yago23_s1_b2a44806641de23 as (select yago23.d as v8,yago23.s as v4 from yago23), yago13_2_s1_b2a44806641de23 as (select yago13_2.s as v4,yago13_2.d as v6 from yago13 yago13_2), yago5_s1_b2a44806641de23 as (select yago5.d as v6 from yago5), yago36_7_s1_b2a44806641de23 as (select yago36_7.s as v12,yago36_7.d as v14 from yago36 yago36_7), yago55_s1_b2a44806641de23 as (select yago55.d as v10,yago55.s as v12 from yago55), yago35_s1_b2a44806641de23 as (select yago35.s as v2,yago35.d as v10 from yago35), yago2_1_s1_b2a44806641de23 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_b2a44806641de23 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_8175ED7249C6255 as  (select * from umbra.identity(table(yago36_7_s1_b2a44806641de23)) NATURAL JOIN umbra.identity(table(yago55_s1_b2a44806641de23)) NATURAL JOIN umbra.identity(table(yago35_s1_b2a44806641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_b2a44806641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_b2a44806641de23))), s4_group_403EBEB73D53325F as  (select * from umbra.identity(table(yago13_9_s1_b2a44806641de23)) NATURAL JOIN umbra.identity(table(yago21_10_s1_b2a44806641de23)) NATURAL JOIN umbra.identity(table(yago21_11_s1_b2a44806641de23)) NATURAL JOIN umbra.identity(table(yago23_s1_b2a44806641de23)) NATURAL JOIN umbra.identity(table(yago13_2_s1_b2a44806641de23)) NATURAL JOIN umbra.identity(table(yago5_s1_b2a44806641de23))), s4_group_5A9B6AB935409853 as  (select * from umbra.identity(table(yago36_8_s1_b2a44806641de23)))select count(*) from umbra.identity(table(s4_group_8175ED7249C6255)) natural join umbra.identity(table(s4_group_403EBEB73D53325F)) natural join umbra.identity(table(s4_group_5A9B6AB935409853));
+\set queryname yago_acyclic_Chain_12_70
+-- Result size: 14661
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago46_4 [label="yago46_4|<s> s|<d> d"]; yago1 [label="yago1|<s> s|<d> d"]; yago0 [label="yago0|<s> s|<d> d"]; yago45_7 [label="yago45_7|<s> s|<d> d"]; yago45_8 [label="yago45_8|<s> s|<d> d"]; yago8 [label="yago8|<s> s|<d> d"]; yago25 [label="yago25|<s> s|<d> d"]; yago46_11 [label="yago46_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago1:s;yago58:s -> yago17:d;yago58:d -> yago46_11:s;yago17:s -> yago46_4:d;yago1:d -> yago0:d;yago0:s -> yago45_7:s;yago45_7:d -> yago45_8:d;yago45_8:s -> yago8:s;yago8:d -> yago25:d;yago25:s -> yago46_11:d;}
+--                                                             +---------+
+--                                                             |         |
+--                                               +----------+----+----+  |
+--                                               |  yago1   |  s |  d |  |
+--                                               +----------+----+----+  |
+--                                                                  |    |
+--   +---------------------+                                        |    |
+--   |                     |                                        |    |
+--   |  +----------+----+------------+           +----------+----+----+  |
+--   |  |  yago8   |  s |      d     |           |  yago0   |  s |  d |  |
+--   |  +----------+----+------------+           +----------+----+----+  |
+--   |                |                                        |         |
+--   |                |                                        |         |
+--   |                |                                        |         |
+--   |  +----------+----+------------+           +----------+----+----+  |
+--   |  | yago45_8 |  s |      d     |           | yago45_7 |  s |  d |  |
+--   |  +----------+----+------------+           +----------+----+----+  |
+--   |                     |                                        |    |
+--   |                     +----------------------------------------+    |
+--   |                                                                   |
+--   |                                +---------+-----------+----+       |  +--------+----+----+
+--   |                                | yago17  |     s     |  d |       |  | yago58 |  s |  d |
+--   |                                +---------+-----------+----+       |  +--------+----+----+
+--   |                                             |           |         |              |    |
+--   |                                             |           +---------+--------------+    |
+--   |                                             |                     |                   |
+--   |                   +-----------+----------+-----------+            |                   |
+--   |                   | yago46_4  |     s    |     d     |            |                   |
+--   |                   +-----------+----------+-----------+            |                   |
+--   |                                                                   |                   |
+--   +---------------------------------------------------------+         |                   |
+--                                                             |         |                   |
+--                                    +---------+-----------+----+       |                   |
+--                                    | yago25  |     s     |  d |       |                   |
+--                                    +---------+-----------+----+       |                   |
+--                                                 |                     |                   |
+--                                                 |                     |                   |
+--                                                 |                     |                   |
+--                       +-----------+----------+-----------+            |                   |
+--                       | yago46_11 |     s    |     d     |            |                   |
+--                       +-----------+----------+-----------+            |                   |
+--                                      |                                |                   |
+--                         +------------+                                |                   |
+--                         |                                             |                   |
+--                         |          +---------+-----------+----+       |                   |
+--                         |          | yago2_0 |     s     |  d |       |                   |
+--                         |          +---------+-----------+----+       |                   |
+--                         |                       |                     |                   |
+--                         |                       |                     |                   |
+--                         |                       |                     |                   |
+--                         |          +---------+-----------+----+       |                   |
+--                         |          | yago2_1 |     s     |  d | ------+                   |
+--                         |          +---------+-----------+----+                           |
+--                         |                                                                 |
+--                         +-----------------------------------------------------------------+
+with dummy as (select) /* stage1 */, yago8_s1_addd3806641de23 as (select yago8.s as v16,yago8.d as v18 from yago8), yago45_8_s1_addd3806641de23 as (select yago45_8.s as v16,yago45_8.d as v14 from yago45 yago45_8), yago45_7_s1_addd3806641de23 as (select yago45_7.s as v12,yago45_7.d as v14 from yago45 yago45_7), yago0_s1_addd3806641de23 as (select yago0.s as v12,yago0.d as v10 from yago0), yago1_s1_addd3806641de23 as (select yago1.s as v2,yago1.d as v10 from yago1), yago2_1_s1_addd3806641de23 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_addd3806641de23 as (select yago2_0.s as v0 from yago2 yago2_0), yago25_s1_addd3806641de23 as (select yago25.d as v18,yago25.s as v20 from yago25), yago46_11_s1_addd3806641de23 as (select yago46_11.d as v20,yago46_11.s as v6 from yago46 yago46_11), yago58_s1_addd3806641de23 as (select yago58.s as v4,yago58.d as v6 from yago58), yago17_s1_addd3806641de23 as (select yago17.s as v8,yago17.d as v4 from yago17), yago46_4_s1_addd3806641de23 as (select yago46_4.d as v8 from yago46 yago46_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_7DA682BA1FF57623 as  (select * from umbra.identity(table(yago25_s1_addd3806641de23)) NATURAL JOIN umbra.identity(table(yago46_11_s1_addd3806641de23)) NATURAL JOIN umbra.identity(table(yago58_s1_addd3806641de23)) NATURAL JOIN umbra.identity(table(yago17_s1_addd3806641de23)) NATURAL JOIN umbra.identity(table(yago46_4_s1_addd3806641de23))), s4_group_404E8B198E85C0EC as  (select * from umbra.identity(table(yago45_8_s1_addd3806641de23)) NATURAL JOIN umbra.identity(table(yago45_7_s1_addd3806641de23)) NATURAL JOIN umbra.identity(table(yago0_s1_addd3806641de23)) NATURAL JOIN umbra.identity(table(yago1_s1_addd3806641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_addd3806641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_addd3806641de23))), s4_group_5C5CEF92E215E8A4 as  (select * from umbra.identity(table(yago8_s1_addd3806641de23)))select count(*) from umbra.identity(table(s4_group_7DA682BA1FF57623)) natural join umbra.identity(table(s4_group_404E8B198E85C0EC)) natural join umbra.identity(table(s4_group_5C5CEF92E215E8A4));
+\set queryname yago_acyclic_Chain_12_71
+-- Result size: 30558
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago5_0 [label="yago5_0|<s> s|<d> d"]; yago39 [label="yago39|<s> s|<d> d"]; yago23 [label="yago23|<s> s|<d> d"]; yago50_3 [label="yago50_3|<s> s|<d> d"]; yago5_4 [label="yago5_4|<s> s|<d> d"]; yago50_5 [label="yago50_5|<s> s|<d> d"]; yago22 [label="yago22|<s> s|<d> d"]; yago13 [label="yago13|<s> s|<d> d"]; yago54_8 [label="yago54_8|<s> s|<d> d"]; yago54_9 [label="yago54_9|<s> s|<d> d"]; yago54_10 [label="yago54_10|<s> s|<d> d"]; yago35 [label="yago35|<s> s|<d> d"]; yago5_0:s -> yago39:s;yago39:d -> yago50_5:d;yago23:s -> yago50_3:s;yago23:d -> yago5_4:d;yago50_3:d -> yago35:d;yago50_5:s -> yago22:s;yago22:d -> yago13:d;yago13:s -> yago54_8:s;yago54_8:d -> yago54_9:s;yago54_9:d -> yago54_10:s;yago54_10:d -> yago35:s;}
+--                +------------------------------------------------------------------------------------------------+
+--                |                                                                                                |
+--                |                                                        +----------+----+----+                  |
+--                |                                                        |  yago22  |  s |  d |                  |
+--                |                                                        +----------+----+----+                  |
+--                |                                                                      |    |                    |
+--                |         +------------------------------------------------------------+    |                    |
+--                |         |                                                                 |                    |
+--                |         |                                              +----------+----+----+                  |
+--                |         |                                              |  yago13  |  s |  d |                  |
+--                |         |                                              +----------+----+----+                  |
+--                |         |                                                            |                         |
+--                |         |                                                            |                         |
+--                |         |                                                            |                         |
+--                |         |                                              +----------+----+----+----------+----+----+
+--                |         |                                              | yago54_8 |  s |  d | yago54_9 |  s |  d |
+--                |         |                                              +----------+----+----+----------+----+----+
+--                |         |                                                                 |               |
+--                |         |                                                                 +---------------+
+--                |         |
+--                |         |                                  +----------+-----------+----+
+--                |         |                                  |  yago23  |     s     |  d | ------+
+--                |         |                                  +----------+-----------+----+       |
+--                |         |                                                |                     |
+--                |         |                                                |                     |
+--                |         |                                                |                     |
+-- +-----------+----+----+  |  +--------+----+----+            +----------+-----------+----+       |
+-- | yago54_10 |  s |  d |  |  | yago35 |  s |  d |            | yago50_3 |     s     |  d |       |
+-- +-----------+----+----+  |  +--------+----+----+            +----------+-----------+----+       |
+--                     |    |              |    |                                        |         |
+--                     |    |              |    +----------------------------------------+         |
+--                     |    |              |                                                       |
+--                     |    |              |                   +----------+-----------+----+       |
+--                     +----+--------------+                   | yago5_4  |     s     |  d | ------+
+--                          |                                  +----------+-----------+----+
+--                          |
+--                          |                                    +-----------------------+
+--                          |                                    |                       |
+--                          |                      +----------+-----------+-----------+  |
+--                          |                      |  yago39  |     s     |     d     |  |
+--                          |                      +----------+-----------+-----------+  |
+--                          |                                                |           |
+--                          +------------------------------------+           |           |
+--                                                               |           |           |
+--                                                 +----------+-----------+-----------+  |
+--                                                 | yago50_5 |     s     |     d     |  |
+--                                                 +----------+-----------+-----------+  |
+--                                                                                       |
+--                                                               +-----------------------+
+--                                                               |
+--                                                 +----------+-----------+-----------+
+--                                                 | yago5_0  |     s     |     d     |
+--                                                 +----------+-----------+-----------+
+with dummy as (select) /* stage1 */, yago54_9_s1_d64db806641de23 as (select yago54_9.d as v18,yago54_9.s as v16 from yago54 yago54_9), yago54_8_s1_d64db806641de23 as (select yago54_8.s as v14,yago54_8.d as v16 from yago54 yago54_8), yago13_s1_d64db806641de23 as (select yago13.d as v12,yago13.s as v14 from yago13), yago22_s1_d64db806641de23 as (select yago22.d as v12,yago22.s as v10 from yago22), yago50_5_s1_d64db806641de23 as (select yago50_5.d as v2,yago50_5.s as v10 from yago50 yago50_5), yago39_s1_d64db806641de23 as (select yago39.s as v0,yago39.d as v2 from yago39), yago5_0_s1_d64db806641de23 as (select yago5_0.s as v0 from yago5 yago5_0), yago54_10_s1_d64db806641de23 as (select yago54_10.s as v18,yago54_10.d as v20 from yago54 yago54_10), yago35_s1_d64db806641de23 as (select yago35.d as v8,yago35.s as v20 from yago35), yago50_3_s1_d64db806641de23 as (select yago50_3.s as v4,yago50_3.d as v8 from yago50 yago50_3), yago23_s1_d64db806641de23 as (select yago23.s as v4,yago23.d as v6 from yago23), yago5_4_s1_d64db806641de23 as (select yago5_4.d as v6 from yago5 yago5_4) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_5D269336DDF036D8 as  (select * from umbra.identity(table(yago54_10_s1_d64db806641de23)) NATURAL JOIN umbra.identity(table(yago35_s1_d64db806641de23)) NATURAL JOIN umbra.identity(table(yago50_3_s1_d64db806641de23)) NATURAL JOIN umbra.identity(table(yago23_s1_d64db806641de23)) NATURAL JOIN umbra.identity(table(yago5_4_s1_d64db806641de23))), s4_group_439CEF17182C463 as  (select * from umbra.identity(table(yago54_8_s1_d64db806641de23)) NATURAL JOIN umbra.identity(table(yago13_s1_d64db806641de23)) NATURAL JOIN umbra.identity(table(yago22_s1_d64db806641de23)) NATURAL JOIN umbra.identity(table(yago50_5_s1_d64db806641de23)) NATURAL JOIN umbra.identity(table(yago39_s1_d64db806641de23)) NATURAL JOIN umbra.identity(table(yago5_0_s1_d64db806641de23))), s4_group_6B927B2768D7BDD0 as  (select * from umbra.identity(table(yago54_9_s1_d64db806641de23)))select count(*) from umbra.identity(table(s4_group_5D269336DDF036D8)) natural join umbra.identity(table(s4_group_439CEF17182C463)) natural join umbra.identity(table(s4_group_6B927B2768D7BDD0));
+\set queryname yago_acyclic_Chain_12_72
+-- Result size: 73776
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago2_2 [label="yago2_2|<s> s|<d> d"]; yago2_3 [label="yago2_3|<s> s|<d> d"]; yago17_4 [label="yago17_4|<s> s|<d> d"]; yago5_5 [label="yago5_5|<s> s|<d> d"]; yago5_6 [label="yago5_6|<s> s|<d> d"]; yago17_7 [label="yago17_7|<s> s|<d> d"]; yago21_8 [label="yago21_8|<s> s|<d> d"]; yago21_9 [label="yago21_9|<s> s|<d> d"]; yago58 [label="yago58|<s> s|<d> d"]; yago5_11 [label="yago5_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago17_4:s;yago2_2:s -> yago2_3:s;yago2_2:d -> yago58:d;yago17_4:d -> yago5_5:d;yago5_5:s -> yago5_6:s;yago5_6:d -> yago17_7:s;yago17_7:d -> yago21_8:d;yago21_8:s -> yago21_9:s;yago21_9:d -> yago5_11:d;yago58:s -> yago5_11:s;}
+--                                                      +---------+
+--                                                      |         |
+--                                        +----------+----+----+  |
+--                                        | yago17_4 |  s |  d |  |
+--                                        +----------+----+----+  |
+--                                                           |    |
+--                                                           |    |
+--                                                           |    |
+-- +---------+----+-----------+           +----------+----+----+  |
+-- | yago5_6 |  s |     d     | -+        | yago5_5  |  s |  d |  |
+-- +---------+----+-----------+  |        +----------+----+----+  |
+--              |                |                      |         |
+--              +----------------+----------------------+         |
+--                               |                                |
+--                 +----------+----------+-----------+            |
+--                 | yago17_7 |     s    |     d     |            |
+--                 +----------+----------+-----------+            |
+--                                          |                     |
+--                                          |                     |
+--                                          |                     |
+--                 +----------+----------+-----------+            |
+--                 | yago21_8 |     s    |     d     |            |
+--                 +----------+----------+-----------+            |
+--                               |                                |
+--                               |                                |
+--                               |                                |
+--                 +----------+----------+-----------+            |
+--                 | yago21_9 |     s    |     d     |            |
+--                 +----------+----------+-----------+            |
+--                                          |                     |
+--                                          |                     |
+--                                          |                     |
+--                 +----------+----------+-----------+            |
+--                 | yago5_11 |     s    |     d     |            |
+--                 +----------+----------+-----------+            |
+--                               |                                |
+--                   +-----------+                                |
+--                   |                                            |
+--                   |         +---------+-----------+----+       |
+--                   |         | yago2_0 |     s     |  d |       |
+--                   |         +---------+-----------+----+       |
+--                   |                      |                     |
+--                   |                      |                     |
+--                   |                      |                     |
+--                   |         +---------+-----------+----+       |
+--                   |         | yago2_1 |     s     |  d | ------+
+--                   |         +---------+-----------+----+
+--                   |         +---------+-----------+----+
+--                   |         | yago2_2 |     s     |  d | ------+
+--                   |         +---------+-----------+----+       |
+--                   |                      |                     |
+--                   |                      |                     |
+--                   |                      |                     |
+--                   |         +---------+-----------+----+       |
+--                   |         | yago2_3 |     s     |  d |       |
+--                   |         +---------+-----------+----+       |
+--                   |                                            |
+--                   +----------------------+                     |
+--                                          |                     |
+--                             +---------+-----------+----+       |
+--                             | yago58  |     s     |  d | ------+
+--                             +---------+-----------+----+
+with dummy as (select) /* stage1 */, yago21_8_s1_deb13006641de23 as (select yago21_8.d as v14,yago21_8.s as v16 from yago21 yago21_8), yago17_7_s1_deb13006641de23 as (select yago17_7.s as v12,yago17_7.d as v14 from yago17 yago17_7), yago5_6_s1_deb13006641de23 as (select yago5_6.d as v12,yago5_6.s as v10 from yago5 yago5_6), yago5_5_s1_deb13006641de23 as (select yago5_5.s as v10,yago5_5.d as v8 from yago5 yago5_5), yago17_4_s1_deb13006641de23 as (select yago17_4.s as v2,yago17_4.d as v8 from yago17 yago17_4), yago2_1_s1_deb13006641de23 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_deb13006641de23 as (select yago2_0.s as v0 from yago2 yago2_0), yago21_9_s1_deb13006641de23 as (select yago21_9.d as v18,yago21_9.s as v16 from yago21 yago21_9), yago5_11_s1_deb13006641de23 as (select yago5_11.d as v18,yago5_11.s as v20 from yago5 yago5_11), yago58_s1_deb13006641de23 as (select yago58.d as v6,yago58.s as v20 from yago58), yago2_2_s1_deb13006641de23 as (select yago2_2.s as v4,yago2_2.d as v6 from yago2 yago2_2), yago2_3_s1_deb13006641de23 as (select yago2_3.s as v4 from yago2 yago2_3) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_53F4A6F8C42AA73F as  (select * from umbra.identity(table(yago21_9_s1_deb13006641de23)) NATURAL JOIN umbra.identity(table(yago5_11_s1_deb13006641de23)) NATURAL JOIN umbra.identity(table(yago58_s1_deb13006641de23)) NATURAL JOIN umbra.identity(table(yago2_2_s1_deb13006641de23)) NATURAL JOIN umbra.identity(table(yago2_3_s1_deb13006641de23))), s4_group_2CB1D58F09247AA4 as  (select * from umbra.identity(table(yago17_7_s1_deb13006641de23)) NATURAL JOIN umbra.identity(table(yago5_6_s1_deb13006641de23)) NATURAL JOIN umbra.identity(table(yago5_5_s1_deb13006641de23)) NATURAL JOIN umbra.identity(table(yago17_4_s1_deb13006641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_deb13006641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_deb13006641de23))), s4_group_7D6B3DED36A5298A as  (select * from umbra.identity(table(yago21_8_s1_deb13006641de23)))select count(*) from umbra.identity(table(s4_group_53F4A6F8C42AA73F)) natural join umbra.identity(table(s4_group_2CB1D58F09247AA4)) natural join umbra.identity(table(s4_group_7D6B3DED36A5298A));
+\set queryname yago_acyclic_Chain_12_73
+-- Result size: 11605
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago63 [label="yago63|<s> s|<d> d"]; yago11 [label="yago11|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago0_6 [label="yago0_6|<s> s|<d> d"]; yago52 [label="yago52|<s> s|<d> d"]; yago0_8 [label="yago0_8|<s> s|<d> d"]; yago0_9 [label="yago0_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_4:d;yago63:s -> yago2_10:d;yago63:d -> yago11:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago0_6:s;yago0_6:d -> yago52:d;yago52:s -> yago0_8:s;yago0_8:d -> yago0_9:d;yago0_9:s -> yago2_11:d;yago2_10:s -> yago2_11:s;}
+--                                                                                +---------+
+--                                                                                |         |
+--                                                                   +---------+----+----+  |
+--                                                                   | yago0_6 |  s |  d |  |
+--                                                                   +---------+----+----+  |
+--                                                                                     |    |
+--                                                                                     |    |
+--                                                                                     |    |
+--                                                                   +---------+----+----+  |
+--                                                                   | yago52  |  s |  d |  |
+--                                                                   +---------+----+----+  |
+--                                                                                |         |
+--                                                          +---------------------+         |
+--                                                          |                               |
+--             +--------+----+----+            +---------+----------+----------+            |
+--             | yago11 |  s |  d |            | yago0_8 |     s    |     d    |            |
+--             +--------+----+----+            +---------+----------+----------+            |
+--                              |                                      |                    |
+--                              |                                      |                    |
+--                              |                                      |                    |
+--             +--------+----+----+            +---------+----------+----------+            |
+--             | yago63 |  s |  d |            | yago0_9 |     s    |     d    |            |
+--             +--------+----+----+            +---------+----------+----------+            |
+--                         |                                |                               |
+--                         |                                |                               |
+--                         |                                |                               |
+-- +----------+---------+----+     +----------+----------+----------+                       |
+-- | yago2_10 |    s    |  d |     | yago2_11 |     s    |     d    |                       |
+-- +----------+---------+----+     +----------+----------+----------+                       |
+--               |                               |                                          |
+--               +-------------------------------+                                          |
+--                                                                                          |
+--                                                        +---------+----------+----+       |
+--                                                        | yago2_0 |     s    |  d |       |
+--                                                        +---------+----------+----+       |
+--                                                                     |                    |
+--                                                                     |                    |
+--                                                                     |                    |
+--                                                        +---------+----------+----+       |
+--                                                        | yago2_1 |     s    |  d |       |
+--                                                        +---------+----------+----+       |
+--                                                                                |         |
+--                                                                                |         |
+--                                                                                |         |
+--                                                        +---------+----------+----+       |
+--                                                        | yago2_4 |     s    |  d |       |
+--                                                        +---------+----------+----+       |
+--                                                                     |                    |
+--                                                                     |                    |
+--                                                                     |                    |
+--                                                        +---------+----------+----+       |
+--                                                        | yago2_5 |     s    |  d | ------+
+--                                                        +---------+----------+----+
+with dummy as (select) /* stage1 */, yago52_s1_f66c5006641de23 as (select yago52.d as v12,yago52.s as v14 from yago52), yago0_8_s1_f66c5006641de23 as (select yago0_8.d as v16,yago0_8.s as v14 from yago0 yago0_8), yago0_9_s1_f66c5006641de23 as (select yago0_9.s as v18,yago0_9.d as v16 from yago0 yago0_9), yago2_11_s1_f66c5006641de23 as (select yago2_11.s as v20,yago2_11.d as v18 from yago2 yago2_11), yago2_10_s1_f66c5006641de23 as (select yago2_10.s as v20,yago2_10.d as v4 from yago2 yago2_10), yago63_s1_f66c5006641de23 as (select yago63.s as v4,yago63.d as v6 from yago63), yago11_s1_f66c5006641de23 as (select yago11.d as v6 from yago11), yago0_6_s1_f66c5006641de23 as (select yago0_6.s as v10,yago0_6.d as v12 from yago0 yago0_6), yago2_5_s1_f66c5006641de23 as (select yago2_5.d as v10,yago2_5.s as v8 from yago2 yago2_5), yago2_4_s1_f66c5006641de23 as (select yago2_4.d as v2,yago2_4.s as v8 from yago2 yago2_4), yago2_1_s1_f66c5006641de23 as (select yago2_1.s as v0,yago2_1.d as v2 from yago2 yago2_1), yago2_0_s1_f66c5006641de23 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_494A6D9D40269E4F as  (select * from umbra.identity(table(yago0_6_s1_f66c5006641de23)) NATURAL JOIN umbra.identity(table(yago2_5_s1_f66c5006641de23)) NATURAL JOIN umbra.identity(table(yago2_4_s1_f66c5006641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_f66c5006641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_f66c5006641de23))), s4_group_69A5B6F6371A496 as  (select * from umbra.identity(table(yago0_8_s1_f66c5006641de23)) NATURAL JOIN umbra.identity(table(yago0_9_s1_f66c5006641de23)) NATURAL JOIN umbra.identity(table(yago2_11_s1_f66c5006641de23)) NATURAL JOIN umbra.identity(table(yago2_10_s1_f66c5006641de23)) NATURAL JOIN umbra.identity(table(yago63_s1_f66c5006641de23)) NATURAL JOIN umbra.identity(table(yago11_s1_f66c5006641de23))), s4_group_50418A4DE6139CE4 as  (select * from umbra.identity(table(yago52_s1_f66c5006641de23)))select count(*) from umbra.identity(table(s4_group_494A6D9D40269E4F)) natural join umbra.identity(table(s4_group_69A5B6F6371A496)) natural join umbra.identity(table(s4_group_50418A4DE6139CE4));
+\set queryname yago_acyclic_Chain_12_74
+-- Result size: 67664
+-- digraph G { node [shape=record]; edge [arrowhead=none]; yago2_0 [label="yago2_0|<s> s|<d> d"]; yago2_1 [label="yago2_1|<s> s|<d> d"]; yago5_2 [label="yago5_2|<s> s|<d> d"]; yago5_3 [label="yago5_3|<s> s|<d> d"]; yago2_4 [label="yago2_4|<s> s|<d> d"]; yago2_5 [label="yago2_5|<s> s|<d> d"]; yago36_6 [label="yago36_6|<s> s|<d> d"]; yago36_7 [label="yago36_7|<s> s|<d> d"]; yago17 [label="yago17|<s> s|<d> d"]; yago5_9 [label="yago5_9|<s> s|<d> d"]; yago2_10 [label="yago2_10|<s> s|<d> d"]; yago2_11 [label="yago2_11|<s> s|<d> d"]; yago2_0:s -> yago2_1:s;yago2_1:d -> yago2_4:d;yago5_2:s -> yago5_3:s;yago5_2:d -> yago2_10:d;yago2_4:s -> yago2_5:s;yago2_5:d -> yago36_6:s;yago36_6:d -> yago36_7:d;yago36_7:s -> yago17:s;yago17:d -> yago5_9:s;yago5_9:d -> yago2_11:d;yago2_10:s -> yago2_11:s;}
+--                                                                    +--------+----------+----+
+--                                                                    | yago17 |     s    |  d |
+--                                                                    +--------+----------+----+
+--                                                                                |          |
+--               +----------------------------------------------------------------+          |
+--               |                                                                           |
+--               |                                                              +---------+----+----+
+--               |                                                              | yago5_9 |  s |  d |
+--               |                                                              +---------+----+----+
+--               |                                                                                |
+--               |                                                                                |
+--               |                                                                                |
+--               |                                        +----------+---------+----------+       |
+--               |                                        | yago2_0  |    s    |     d    |       |
+--               |                                        +----------+---------+----------+       |
+--               |                                                      |                         |
+--               |    +--------------------------------+                |                         |
+--               |    |                                |                |                         |
+-- +----------+----+----+           +----------+----+----+-----------+---------+----------+       |
+-- | yago36_7 |  s |  d |           | yago36_6 |  s |  d |  yago2_1  |    s    |     d    |       |
+-- +----------+----+----+           +----------+----+----+-----------+---------+----------+       |
+--                                                |                               |               |
+--                                                |                               |               |
+--                                                |                               |               |
+--                       +---------+-----------+----+     +----------+---------+----------+       |
+--                       | yago2_5 |     s     |  d |     | yago2_4  |    s    |     d    |       |
+--                       +---------+-----------+----+     +----------+---------+----------+       |
+--                                    |                                 |                         |
+--                                    +---------------------------------+                         |
+--                                                                                                |
+--                                                        +----------+---------+----------+       |
+--                                                        | yago2_10 |    s    |     d    | -+    |
+--                                                        +----------+---------+----------+  |    |
+--                                                                      |                    |    |
+--                                                                      |                    |    |
+--                                                                      |                    |    |
+--                                                        +----------+---------+----------+  |    |
+--                                                        | yago2_11 |    s    |     d    | -+----+
+--                                                        +----------+---------+----------+  |
+--                                                                                           |
+--                                                                                +----------+
+--                                                                                |
+--                                                                                |
+--                                                                                |
+--                                                                                |
+--                                                        +----------+---------+----------+
+--                                                        | yago5_2  |    s    |     d    |
+--                                                        +----------+---------+----------+
+--                                                                      |
+--                                                                      |
+--                                                                      |
+--                                                        +----------+---------+----------+
+--                                                        | yago5_3  |    s    |     d    |
+--                                                        +----------+---------+----------+
+with dummy as (select) /* stage1 */, yago36_7_s1_107924006641de23 as (select yago36_7.s as v14,yago36_7.d as v12 from yago36 yago36_7), yago17_s1_107924006641de23 as (select yago17.s as v14,yago17.d as v16 from yago17), yago5_9_s1_107924006641de23 as (select yago5_9.s as v16,yago5_9.d as v18 from yago5 yago5_9), yago2_11_s1_107924006641de23 as (select yago2_11.d as v18,yago2_11.s as v20 from yago2 yago2_11), yago2_10_s1_107924006641de23 as (select yago2_10.d as v6,yago2_10.s as v20 from yago2 yago2_10), yago5_2_s1_107924006641de23 as (select yago5_2.s as v4,yago5_2.d as v6 from yago5 yago5_2), yago5_3_s1_107924006641de23 as (select yago5_3.s as v4 from yago5 yago5_3), yago36_6_s1_107924006641de23 as (select yago36_6.s as v10,yago36_6.d as v12 from yago36 yago36_6), yago2_5_s1_107924006641de23 as (select yago2_5.d as v10,yago2_5.s as v8 from yago2 yago2_5), yago2_4_s1_107924006641de23 as (select yago2_4.d as v2,yago2_4.s as v8 from yago2 yago2_4), yago2_1_s1_107924006641de23 as (select yago2_1.d as v2,yago2_1.s as v0 from yago2 yago2_1), yago2_0_s1_107924006641de23 as (select yago2_0.s as v0 from yago2 yago2_0) /* stage2 */ /* stage3 */ /* stage4 */, s4_group_25B0A7EC662CC34C as  (select * from umbra.identity(table(yago36_6_s1_107924006641de23)) NATURAL JOIN umbra.identity(table(yago2_5_s1_107924006641de23)) NATURAL JOIN umbra.identity(table(yago2_4_s1_107924006641de23)) NATURAL JOIN umbra.identity(table(yago2_1_s1_107924006641de23)) NATURAL JOIN umbra.identity(table(yago2_0_s1_107924006641de23))), s4_group_32643965355384FA as  (select * from umbra.identity(table(yago17_s1_107924006641de23)) NATURAL JOIN umbra.identity(table(yago5_9_s1_107924006641de23)) NATURAL JOIN umbra.identity(table(yago2_11_s1_107924006641de23)) NATURAL JOIN umbra.identity(table(yago2_10_s1_107924006641de23)) NATURAL JOIN umbra.identity(table(yago5_2_s1_107924006641de23)) NATURAL JOIN umbra.identity(table(yago5_3_s1_107924006641de23))), s4_group_560490AA4F82A377 as  (select * from umbra.identity(table(yago36_7_s1_107924006641de23)))select count(*) from umbra.identity(table(s4_group_25B0A7EC662CC34C)) natural join umbra.identity(table(s4_group_32643965355384FA)) natural join umbra.identity(table(s4_group_560490AA4F82A377));
